@@ -1,0 +1,187 @@
+[
+  [0, {
+    "type": "lte",
+    "name": "data",
+    "values": [3, 1, 31],
+    "comment": "data -> wspace ? data$ / skip"
+  }],
+  [1, {
+    "type": "lte",
+    "name": "data$",
+    "values": [16, 31, 2],
+    "comment": "data$ -> digit ? skip / adata"
+  }],
+  [2, {
+    "type": "lte",
+    "name": "adata",
+    "values": [24, 5, 7],
+    "comment": "adata -> obrace ? dictail / stringarray"
+  }],
+  [3, {
+    "type": "lte",
+    "name": "wspace",
+    "values": [4, 31, 31],
+    "comment": "wspace -> whitespace ? skip / skip"
+  }],
+  [4, {
+    "type": "dfa",
+    "name": "whitespace",
+    "value": "wspaceDfa",
+    "comment": "whitespace -> any(whitespace)"
+  }],
+  [5, {
+    "type": "lte",
+    "name": "dictail",
+    "values": [25, 31, 6],
+    "comment": "dictail -> cbrace ? skip / dictentry*"
+  }],
+  [6, {
+    "type": "lte",
+    "name": "dictentry*",
+    "values": [8, 10, 30],
+    "comment": "dictentry* -> token ? rhsdata* / fail"
+  }],
+  [7, {
+    "type": "lte",
+    "name": "stringarray",
+    "values": [8, 31, 9],
+    "comment": "stringarray -> token ? skip / array"
+  }],
+  [8, {
+    "type": "dfa",
+    "name": "token",
+    "value": "tokenDfa",
+    "comment": "token -> any(token)"
+  }],
+  [9, {
+    "type": "lte",
+    "name": "array",
+    "values": [26, 13, 30],
+    "comment": "array -> obrack ? arraydata* / fail"
+  }],
+  [10, {
+    "type": "lte",
+    "name": "rhsdata*",
+    "values": [29, 11, 30],
+    "comment": "rhsdata* -> colon ? rhsdatatail / fail"
+  }],
+  [11, {
+    "type": "lte",
+    "name": "rhsdatatail",
+    "values": [1, 12, 30],
+    "comment": "rhsdatatail -> data ? commadictail / fail"
+  }],
+  [12, {
+    "type": "lte",
+    "name": "commadictail",
+    "values": [28, 5, 25],
+    "comment": "commadictail -> comma ? dictail / cbrace"
+  }],
+  [13, {
+    "type": "lte",
+    "name": "arraydata*",
+    "values": [27, 31, 15],
+    "comment": "arraydata* -> cbrack ? empty / arraydatadata*"
+  }],
+  [14, {
+    "type": "lte",
+    "name": "commaarraydata*",
+    "values": [28, 15, 27],
+    "comment": "commaarraydata* -> comma ? arraydatadata* / cbrack"
+  }],
+  [15, {
+    "type": "lte",
+    "name": "arraydatadata*",
+    "values": [1, 14, 30],
+    "comment": "arraydatadata* -> data ? commaarraydata* / fail"
+  }],
+  [16, {
+    "type": "dfa",
+    "name": "digit",
+    "value": "digitDfa",
+    "comment": "digit -> any(digit)"
+  }],
+  [17, {
+    "type": "terminal",
+    "name": "obracechar",
+    "value": 123,
+    "comment": "obracechar -> terminal(123)"
+  }],
+  [18, {
+    "type": "terminal",
+    "name": "cbracechar",
+    "value": 125,
+    "comment": "cbracechar -> terminal(125)"
+  }],
+  [19, {
+    "type": "terminal",
+    "name": "obrackchar",
+    "value": 91,
+    "comment": "obrackchar -> terminal(91)"
+  }],
+  [20, {
+    "type": "terminal",
+    "name": "cbrackchar",
+    "value": 93,
+    "comment": "cbrackchar -> terminal(93)"
+  }],
+  [21, {
+    "type": "terminal",
+    "name": "quote",
+    "value": 34,
+    "comment": "quote -> terminal(34)"
+  }],
+  [22, {
+    "type": "terminal",
+    "name": "commachar",
+    "value": 44,
+    "comment": "commachar -> terminal(44)"
+  }],
+  [23, {
+    "type": "terminal",
+    "name": "colonchar",
+    "value": 58,
+    "comment": "colonchar -> terminal(58)"
+  }],
+  [24, {
+    "type": "lte",
+    "name": "obrace",
+    "values": [17, 3, 30],
+    "comment": "obrace -> obracechar ? wspace / fail"
+  }],
+  [25, {
+    "type": "lte",
+    "name": "cbrace",
+    "values": [18, 3, 30],
+    "comment": "cbrace -> cbracechar ? wspace / fail"
+  }],
+  [26, {
+    "type": "lte",
+    "name": "obrack",
+    "values": [19, 3, 30],
+    "comment": "obrack -> obrackchar ? wspace / fail"
+  }],
+  [27, {
+    "type": "lte",
+    "name": "cbrack",
+    "values": [20, 3, 30],
+    "comment": "cbrack -> cbrackchar ? wspace / fail"
+  }],
+  [28, {
+    "type": "lte",
+    "name": "comma",
+    "values": [22, 3, 30],
+    "comment": "comma -> commachar ? wspace / fail"
+  }],
+  [29, {
+    "type": "lte",
+    "name": "colon",
+    "values": [23, 3, 30],
+    "comment": "colon -> colonchar ? wspace / fail"
+  }],
+  [30, {
+    "type": "failure",
+    "name": "fail",
+    "comment": "fail -> failure"
+  }]
+]

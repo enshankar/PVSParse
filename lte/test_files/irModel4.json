@@ -1,0 +1,40 @@
+{
+  "protocols":{
+    "AKA":{
+      "name":"AKA",
+      "actors":{
+        "UE":{
+          "name":"UE",
+          "funcs":[
+            {
+              "name":"K_AUSF",
+              "arguments":[
+                {
+                  "node_type":"TypedTerm",
+                  "term":{
+                    "node_type":"AtomicTerm",
+                    "name":"CK"
+                  },
+                  "typ":{
+                    "node_type":"BitArray",
+                    "size":128
+                  }
+                }
+              ],
+              "statements":[
+                {
+                  "source":{
+                    "document":"33501-h10_clean",
+                    "section":"A.2",
+                    "sentence_uid":"http://www.sri.com/effigy/3gpp#9636136fed0b9f8b44f7179de58b8bee",
+                    "text":"The input key KEY shall be equal to the concatenation CK || IK of CK and IK."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

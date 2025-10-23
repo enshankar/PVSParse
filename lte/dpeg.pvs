@@ -1,0 +1,55 @@
+dpeg  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+   i, j, k : VAR index
+
+   s, s1, s2: VAR bytestring
+
+   result(i) : TYPE = {j : index | j <= i}
+   good_result(i : index) : TYPE = {r : result(i)| r > 0} % 1 is an empty result, i.e., of length 0
+   nonempty_result(i : index): TYPE = {r : result(i) | r /= 1} % r = 0 is failure,
+                                        % r = 2 and above is a nonempty result of length r - 1.
+   
+
+   guard : TYPE = [s : bytestring, i : upto(s`length) -> result(s`length - i + 1)]
+   ne_guard: TYPE = [s : bytestring, i : upto(s`length) -> nonempty_result(s`length - i + 1)]
+   ne_guard_guard: JUDGEMENT ne_guard SUBTYPE_OF guard
+
+   dpeg_grammar: DATATYPE
+   BEGIN
+    fail : fail? %always fails; result is 0
+    skip : skip? %always succeeds; result is 1
+    any(p : guard): any? % tests predicate; result is result
+    glte(p : ne_guard, b, c: dpeg_grammar): glte?
+            %let-then-else where guard p must return a nonempty result;
+	    %continue with b if result > 1; restart with c o.w.
+   END dpeg_grammar
+
+   %Whitespace is just a predicate that chews up all the leading whitespace chars
+   %You want to chew up all trailing whitespaces following any parse
+   %Digits glte(digit, Digits, whitespace)
+   %string: glte(quote, nonquotestring, glte(quote, Whitespace, fail))
+   %token: tokentail <- glte(alphanumeric, token, skip); token <- glte(alpha, tokentail, fail).
+
+   g, g1, g2: VAR dpeg_grammar
+
+   matches(g)(s, (i : index | i <= s`length)): RECURSIVE upto(s`length - i + 1)
+   = (CASES g OF
+      fail: 0,
+      skip: 1,
+      any(p): p(s, i),
+      glte(p, g1, g2):
+       (LET res0 = p(s, i)
+        IN 
+        IF res0 = 0
+        THEN matches(g2)(s, i)
+	ELSE LET res1 = matches(g2)(s, i + res0 - 1)
+	      IN IF res1 = 0 THEN 0 ELSE res0 + res1 - 1 ENDIF
+        ENDIF)
+	ENDCASES)
+	MEASURE g BY <<
+      
+
+  END dpeg

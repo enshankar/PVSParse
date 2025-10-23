@@ -1,0 +1,20 @@
+
+# Compile-time pipeline
+ - Direct PVS strategies for evaluating constraints
+ - Compiling constraints into SMTLIB, reading models back + evaluating constraints with model values
+   for better error messages
+ - String constraints: calling string solvers to handle/manipulate strings
+ - Input/output relations as theorems
+
+# Runtime pipeline:
+1) Parsing data into PVS
+ - source bytes -> parsetree (DONE)
+ - parsetree -> jsondata (DONE)
+ - jsondata -> jsonschema for .json schema files
+ - jsondata -> djsondata depending on PVSCONSTRAINT (default predicates otherwise)
+2) Runtime checking data w/PVS2C
+ - Calling PVS2C on djsondata's check method
+3) Runtime translation generation w/PVS2C
+ - Calling PVS2C on PVS functions created from jslt_helpers
+4) Python bindings for all of the above
+ 

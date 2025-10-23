@@ -1,0 +1,27 @@
+{
+  "protocols":{
+    "AKA":{
+      "name":"AKA",
+      "actors":{
+        "UE":{
+          "funcs":[
+            {"arguments":[
+                {
+                  "node_type":"TypedTerm",
+                  "term":{
+                    "node_type":"AtomicTerm",
+                    "name":"CK"
+                  },
+                  "typ":{
+                    "node_type":"BitArray",
+                    "size":128
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}
