@@ -1,0 +1,15 @@
+loop_ready?(len, G, (A: scaffold(len)),
+                   (i: upto(len)), n)
+  : bool =
+   (CASES G(n) OF
+     concat(n1, n2):
+       loop_or_push?(A(i)(n1)) OR
+       (good?(A(i)(n1)) AND
+        loop_or_push?(A(i + span(A(i)(n1)))(n2))),
+     choice(n1, n2): loop_or_push?(A(i)(n1)) OR
+                     (fail?(A(i)(n1)) AND
+                      loop_or_push?(A(i)(n2))),
+     check(n1): loop_or_push?(A(i)(n1)),
+     neg(n1): loop_or_push?(A(i)(n1))
+     ELSE FALSE
+   ENDCASES)

@@ -1,0 +1,87 @@
+    n = 0 -> choice(1, 3),  %data -> numeral / adata
+    n = 1 -> concat(46, 2), %numeral -> any(48-57) o numeral$
+    n = 2 -> choice(1, 7),  %numeral$ -> numeral / wspace
+                            %nonnumeral -> !digit
+			    %nonnumeraladata -> nonnumeral o adata
+    n = 3 -> choice(4, 35),  %adata -> dict / stringarray
+    n = 4 -> concat(5, 11),  %dict -> obrace o dictail
+    n = 5 -> concat(6, 7),  %obrace -> { o wspace
+    n = 6 -> terminal(123), %{
+    n = 7 -> choice(8, 10), %wspace ->  wspace$ / epsilon
+    n = 8 -> concat(9, 7),  %wspace$ -> space o wspace
+    n = 9 -> any(whitespace),  %space
+    n = 10 -> epsilon,
+    n = 11 -> choice(12, 14), %dictail -> cbrace / dictail$
+    n = 12 -> concat(13, 7), %cbrace -> terminal(125) o wspace
+    n = 13 -> terminal(125),
+    n = 14 -> concat(15, 31), % dictail$ -> dictentry o dictailc
+    n = 15 -> concat(16, 28), %dictentry -> lhs o seprhs
+    n = 16 -> choice(1, 17),  %lhs -> numeral / token
+    n = 17 -> concat(18, 7), %token -> token$ o wspace
+    n = 18 -> concat(19, 25), %token$ -> terminal(34) o tokentail
+    n = 19 -> terminal(34),
+    n = 20 -> choice(21, 25), %tokentail-> esctail / qtail
+    n = 21 -> concat(22, 20), %esctail -> esquote o tokentail
+    n = 22 -> concat(23, 19), %esquote -> terminal(92) o terminal(34)
+    n = 23 -> terminal(92),
+    n = 24 -> concat(19, 7), %quote -> terminal(34) o wspace
+    n = 25 -> choice(24, 26), %qtail -> quote / tktail
+    n = 26 -> concat(27, 20), %tktail -> any o tokentail
+    n = 27 -> any(any),
+    n = 28 -> concat(29, 0), %seprhs -> separator o data
+    n = 29 -> concat(30, 7), %separator -> terminal(58) o wspace
+    n = 30 -> terminal(58),
+    n = 31 -> choice(32, 12),  %dictailc -> cdictailc / cbrace
+    n = 32 -> concat(33, 14),   %cdictailc -> comma o dictail$
+    n = 33 -> concat(34, 7),  %comma -> terminal(44) o wspace 
+    n = 34 -> terminal(44),
+    n = 35 -> choice(17, 36), %stringarray -> token/array
+    n = 36 -> concat(37, 39), %array -> obrack o aentries
+    n = 37 -> concat(38, 7), %obrack -> terminal(91) o wspace 
+    n = 38 -> terminal(91),
+    n = 39 -> concat(40, 44), %aentries -> aentries* o cbrack
+    n = 40 -> choice(41, 7), %aentries* -> aentries$ / wspace
+    n = 41 -> concat(0, 42), %aentries$ -> data o aentriestail
+    n = 42 -> choice(43, 7), %aentriestail -> centries / wspace
+    n = 43 -> concat(33, 41), %centries -> comma o aentries$
+    n = 44 -> concat(45, 7),  %cbrack -> terminal(93) o wspace
+    n = 45 -> terminal(93),
+    n = 46 -> any(digit),
+    ELSE -> epsilon
+    ENDCOND)
+
+
+data -> digit ? numeral$ / adata
+numeral$ -> digit ? numeral$ / wspace
+adata -> obrace ? dictail / stringarray
+wspace -> space ? wspace / epsilon
+dictail -> cbrace ? skip / dictentry*
+dictentry* -> token ? rhsdata* / fail
+stringarray -> token ? skip / array
+token -> quote ? tokentail / fail
+tokentail -> quote ? wspace / tokentail$
+tokentail$ -> any ? tokentail / fail
+array -> obrack ? arraydata* / fail
+rhsdata* -> colon ? rhsdatatail / fail
+rhsdatatail -> data ? commadictail / fail
+commadictail -> comma ? dictail / cbrace
+arraydata* -> cbrack ? empty / arraydatadata*
+commaarraydata* -> comma ? arraydatata* / cbrack 
+arraydatadata* -> data ? commaarraydata* / fail
+space -> any(wspace)
+digit -> any(digit)
+any -> any(any)
+obracechar -> terminal(123)
+cbracechar -> terminal(125)
+obrackchar -> terminal(91)
+cbrackchar -> terminal(93)
+quote -> terminal(34)
+commachar -> termina(44)
+obrace -> obracechar ? wspace / fail
+cbrace -> cbracechar ? wspace / fail
+obrack -> obrackchar ? wspace / fail
+cbrack -> cbrackchar ? wspace / fail
+comma -> commachar ? wspace / fail
+fail -> failure
+
+

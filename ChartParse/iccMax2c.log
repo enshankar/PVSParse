@@ -1,0 +1,9 @@
+; While compiling #'_test5_1 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'test5!_1 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'test5_1 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.

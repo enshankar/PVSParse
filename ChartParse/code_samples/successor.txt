@@ -1,0 +1,19 @@
+successor(len, G, (A: scaffold(len)))
+         (entry1, entry2: (good_push_entry?(len))): bool
+ =
+  (LET p1 = pos(entry1),
+       nt1 = nt(entry1),
+       p2 = pos(entry2),
+       nt2 = nt(entry2)
+     IN nt1 >= num_non_terminals
+        OR CASES G(nt1) OF
+           concat(n1, n2):  (p2 = p1 AND nt2 = n1) OR
+                           (good?(A(p1)(n1)) AND nt2 = n2
+                            AND p2 = p1 + span(A(p1)(n1))),
+           choice(n1, n2): (p2 = p1 AND nt2 = n1) OR
+                           (fail?(A(p1)(n1)) AND
+                            nt2 = n2 AND p2 = p1),
+           check(n1): (nt2 = n1 AND p2 = p1),
+           neg(n1): (nt2 = n1 AND p2 = p1)
+           ELSE FALSE
+           ENDCASES)

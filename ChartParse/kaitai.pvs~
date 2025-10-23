@@ -1,0 +1,29 @@
+kaitai 	: THEORY
+
+  BEGIN
+
+  value: DATATYPE
+  BEGIN
+    unsigned(numbytes: nat): unsigned?
+    signed(numbytes: nat): signed?
+    float(numbytes: nat): float?
+    bit(numbits: nat): bit?
+    strng(sval: string): strng?
+    empty: empty?  %no value
+  END value
+
+  ksy_peg  : DATATYPE
+  BEGIN
+   epsilon : epsilon?
+   failure : failure?
+   any(numbytes : uint32) : any?
+   terminal(a: byte) : terminal?
+   concat(e1, e2: below(num_non_terminals)) : concat?
+   choice(e1, e2: below(num_non_terminals)) : or?
+   check(e: below(num_non_terminals)) : and?
+   neg(e: below(num_non_terminals)) : not?
+  END atomic_peg
+
+  
+
+  END kaitai

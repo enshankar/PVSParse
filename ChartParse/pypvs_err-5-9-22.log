@@ -1,0 +1,87 @@
+pypvs.c:116:74: error: implicit declaration of function 'KDF__KDF' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__KDF(bs_args1, bs_args2);
+                                                                         ^
+pypvs.c:116:46: warning: cast to 'bytestrings__bytestring_t' (aka 'struct bytestrings__bytestring_s *') from smaller integer type 'int' [-Wint-to-pointer-cast]
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__KDF(bs_args1, bs_args2);
+                                             ^
+pypvs.c:199:74: error: implicit declaration of function 'KDF__RESstar' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__RESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5);
+                                                                         ^
+pypvs.c:199:74: note: did you mean 'py_KDF__RESstar'?
+pypvs.c:185:9: note: 'py_KDF__RESstar' declared here
+        py_KDF__RESstar(PyObject *self, PyObject *args)
+        ^
+pypvs.c:199:46: warning: cast to 'bytestrings__bytestring_t' (aka 'struct bytestrings__bytestring_s *') from smaller integer type 'int' [-Wint-to-pointer-cast]
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__RESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5);
+                                             ^
+pypvs.c:221:74: error: implicit declaration of function 'KDF__XRESstar' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__XRESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5);
+                                                                         ^
+pypvs.c:221:74: note: did you mean 'py_KDF__XRESstar'?
+pypvs.c:207:9: note: 'py_KDF__XRESstar' declared here
+        py_KDF__XRESstar(PyObject *self, PyObject *args)
+        ^
+pypvs.c:221:46: warning: cast to 'bytestrings__bytestring_t' (aka 'struct bytestrings__bytestring_s *') from smaller integer type 'int' [-Wint-to-pointer-cast]
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__XRESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5);
+                                             ^
+pypvs.c:234:9: error: use of undeclared identifier 'value'
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        ^
+pypvs.c:237:16: error: use of undeclared identifier 'value'
+        return value;
+               ^
+pypvs.c:245:9: error: use of undeclared identifier 'value'
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        ^
+pypvs.c:248:16: error: use of undeclared identifier 'value'
+        return value;
+               ^
+pypvs.c:256:9: error: use of undeclared identifier 'value'
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        ^
+pypvs.c:259:16: error: use of undeclared identifier 'value'
+        return value;
+               ^
+pypvs.c:267:9: error: use of undeclared identifier 'value'
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        ^
+pypvs.c:270:16: error: use of undeclared identifier 'value'
+        return value;
+               ^
+pypvs.c:278:9: error: use of undeclared identifier 'value'
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        ^
+pypvs.c:281:16: error: use of undeclared identifier 'value'
+        return value;
+               ^
+pypvs.c:289:9: error: use of undeclared identifier 'value'
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        ^
+pypvs.c:292:16: error: use of undeclared identifier 'value'
+        return value;
+               ^
+pypvs.c:299:52: error: use of undeclared identifier 'KDF__KDF'
+        {"py_KDF__KDF", py_KDF__KDF, METH_VARARGS, KDF__KDF},
+                                                   ^
+pypvs.c:303:60: error: use of undeclared identifier 'KDF__RESstar'; did you mean 'py_KDF__RESstar'?
+        {"py_KDF__RESstar", py_KDF__RESstar, METH_VARARGS, KDF__RESstar},
+                                                           ^~~~~~~~~~~~
+                                                           py_KDF__RESstar
+pypvs.c:185:9: note: 'py_KDF__RESstar' declared here
+        py_KDF__RESstar(PyObject *self, PyObject *args)
+        ^
+pypvs.c:304:62: error: use of undeclared identifier 'KDF__XRESstar'; did you mean 'py_KDF__XRESstar'?
+        {"py_KDF__XRESstar", py_KDF__XRESstar, METH_VARARGS, KDF__XRESstar},
+                                                             ^~~~~~~~~~~~~
+                                                             py_KDF__XRESstar
+pypvs.c:207:9: note: 'py_KDF__XRESstar' declared here
+        py_KDF__XRESstar(PyObject *self, PyObject *args)
+        ^
+pypvs.c:311:9: error: expected '}'
+        {NULL, NULL, 0, NULL}        /* Sentinel */
+        ^
+pypvs.c:295:37: note: to match this '{'
+static PyMethodDef PyPVSMethods[] = {
+                                    ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+3 warnings and 20 errors generated.

@@ -1,0 +1,16 @@
+byte  : THEORY
+
+  BEGIN
+
+    byte : TYPE = below(256)
+
+    b, b1, b2: VAR byte
+
+    bindex: TYPE = below(8)
+
+    nthbit(b)(i:bindex): {B: bool | B = (nrem(ndiv(b, expt(2, i)), 2) = 1)}
+
+
+  
+
+  END byte

@@ -1,0 +1,15 @@
+teststring  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+   teststring: string = "test"
+
+   test1: uint8 = code("\x06")
+
+   test2: char = char(0x06)
+
+   test3: nat = teststring`length
+
+
+  END teststring

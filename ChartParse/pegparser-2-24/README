@@ -1,0 +1,23 @@
+Directory contains the main file : ltedfapegtest_m.c and the .c and .h files needed.
+
+The main contains three calls to the parser: pure parsing, parsing with proof-of-parse construction, and parsing with proof-of-parse construction and checking.  Something fails the first time you run it and the last result = 0, but then it subsequently works.  Weird!
+
+
+The Clang compile command I use is: 
+
+cc -O3 -Wall -o ltedfapegtest -I /Users/e21660/shankar/pvs.git//include /Users/e21660/shankar/pvs.git//lib/pvslib.c -I /Users/e21660/shankar/pvs.git/lib /Users/e21660/shankar/pvs.git/lib/lex2_c.c /Users/e21660/shankar/pvs.git/lib/sets_c.c /Users/e21660/shankar/pvs.git/lib/identity_c.c /Users/e21660/shankar/pvs.git/lib/file_c.c /Users/e21660/shankar/pvs.git/lib/bytestrings_c.c /Users/e21660/shankar/pvs.git/lib/gen_strings_c.c /Users/e21660/shankar/pvs.git/lib/strings_c.c /Users/e21660/shankar/pvs.git/lib/integertypes_c.c /Users/e21660/shankar/pvs.git/lib/real_defs_c.c /Users/e21660/shankar/pvs.git/lib/exp2_c.c /Users/e21660/shankar/pvs.git/lib/modulo_arithmetic_c.c /Users/e21660/shankar/pvs.git/lib/euclidean_division_c.c /Users/e21660/shankar/pvs.git/lib/character_adt_c.c /Users/e21660/shankar/pvs.git/lib/ordinals_c.c /Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c identity_uint8_c.c ltedfapegtest_c.c ltedfapegproof_c.c ltedfapeg_c.c dfa_c.c arrayCount_c.c ltedfapegtest_m.c -lgmp
+
+It creates ./ltedfapegtest which is hardwired to parse irModel.json.
+
+Here's a sample output:
+
+
+Parsed file
+ CPU Time = 0.352242 seconds
+; CPU Cycles = 845444236
+
+ CPU Time = 0.345608 seconds
+; CPU Cycles = 829794722
+
+ result = 1, CPU Time = 0.408192 seconds
+; CPU Cycles = 980128050

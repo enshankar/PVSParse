@@ -1,0 +1,17 @@
+step(len, G, (s: strings(len)), (start: upto(len)), (rootnt: non_terminal))(St : state(len, G, s, start, rootnt)): state(len, G, s, start, rootnt)
+ = (LET scaf = St`scaf,
+	stack = St`stack,
+	depth = St`depth,
+	lflag = St`lflag
+     IN
+    IF empty?(stack)
+    THEN St
+    ELSE LET pos = pos(stack),
+             cur = nt(stack),
+	     rest = scaf(pos)(cur),
+	     newentry = newentry(len, G, s, start, rootnt)(St)
+	  IN CASES newentry OF
+	       push(p, n): St WITH [`scaf(p)(n) := stack, `stack := newentry, `depth := depth + 1]
+	       ELSE St WITH [`scaf(pos)(cur) := newentry, `stack := rest, `depth := depth - 1, lflag := loop?(newentry)]
+	       ENDCASES
+    ENDIF)

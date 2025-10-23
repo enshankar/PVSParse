@@ -1,0 +1,30 @@
+test_real_defs  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+    test_sgn1: bool = (sgn(-3/17) = -1)
+
+    test_sgn2: bool = (sgn(5/9) = 1)
+
+    test_sgn3: bool = (sgn(0) = -1)
+
+    test_abs1: bool = (abs(-3/17) = 3/17)
+    
+    test_abs2: bool = (abs(5/9) = 5/9)
+
+    test_abs3: bool = (abs(0) = 0)
+
+    test_max1: bool = (max(-3/17, 5/9) = 5/9)
+    
+    test_max2: bool = (max(5/9, 9/5) = 9/5)
+
+    test_max3: bool = (max(0, -3/17) = 0)
+
+    test_min1: bool = (min(-3/17, 5/9) = -3/17)
+    
+    test_min2: bool = (min(5/9, 9/5) = 5/9)
+
+    test_min3: bool = (min(0, 5/9) = 0)
+    
+  END test_real_defs

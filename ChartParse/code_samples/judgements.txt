@@ -1,0 +1,3 @@
+len: VAR uint32 
+JUDGEMENT upto(len) SUBTYPE_OF uint32
+JUDGEMENT non_terminal SUBTYPE_OF uint8

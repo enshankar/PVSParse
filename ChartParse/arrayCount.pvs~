@@ -1,0 +1,17 @@
+arrayCount   [T: TYPE ]
+		: THEORY
+
+  BEGIN
+
+  len: VAR nat
+
+   array(len): TYPE = [below(len) -> T]
+
+   count(len)(P: [T -> bool])(A : array(len)): upto(len) =
+     card({i : below(len) | P(A(i))})
+
+   count_update: LEMMA
+     (FORALL 
+  
+
+  END arrayCount

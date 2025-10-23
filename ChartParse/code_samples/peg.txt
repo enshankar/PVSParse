@@ -1,0 +1,11 @@
+peg  : DATATYPE
+  BEGIN
+   epsilon : epsilon?
+   failure : failure?
+   any(p : [char -> bool]) : any?
+   terminal(a: char) : terminal?
+   concat(e1, e2: non_terminal) : concat?
+   choice(e1, e2: non_terminal) : or?
+   check(e: non_terminal) : and?
+   neg(e: non_terminal) : not?
+  END peg

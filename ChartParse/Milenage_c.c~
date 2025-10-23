@@ -1,0 +1,2937 @@
+//Code generated using pvs2ir2c
+#include "Milenage_c.h"
+
+
+Milenage_array_0_t new_Milenage_array_0(uint32_t size){
+        Milenage_array_0_t tmp = (Milenage_array_0_t) safe_malloc(sizeof(struct Milenage_array_0_s) + (size * sizeof(uint8_t)));
+        tmp->count = 1;
+        tmp->size = size;;
+        tmp->max = size;
+         return tmp;}
+
+void release_Milenage_array_0(Milenage_array_0_t x){
+        x->count--;
+         if (x->count <= 0){safe_free(x);}
+}
+
+void release_Milenage_array_0_ptr(pointer_t x, type_actual_t T){
+        release_Milenage_array_0((Milenage_array_0_t)x);
+}
+
+Milenage_array_0_t copy_Milenage_array_0(Milenage_array_0_t x){
+        Milenage_array_0_t tmp = new_Milenage_array_0(x->size);
+        tmp->count = 1;
+        for (uint32_t i = 0; i < x->size; i++){tmp->elems[i] = (uint8_t)x->elems[i];};
+         return tmp;}
+
+bool_t equal_Milenage_array_0(Milenage_array_0_t x, Milenage_array_0_t y){
+        bool_t tmp = true;
+        uint32_t i = 0;
+        while (i < x->size && tmp){tmp = (x->elems[i] == y->elems[i]); i++;};
+        return tmp;}
+
+bool_t equal_Milenage_array_0_ptr(pointer_t x, pointer_t y, type_actual_t T){
+        return equal_Milenage_array_0((Milenage_array_0_t)x, (Milenage_array_0_t)y);
+}
+
+actual_Milenage_array_0_t actual_Milenage_array_0(){
+        actual_Milenage_array_0_t new = (actual_Milenage_array_0_t)safe_malloc(sizeof(struct actual_Milenage_array_0_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_Milenage_array_0_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_Milenage_array_0_ptr);
+ 
+
+ 
+        return new;
+ };
+
+Milenage_array_0_t update_Milenage_array_0(Milenage_array_0_t x, uint32_t i, uint8_t v){
+        Milenage_array_0_t y; 
+         if (x->count == 1){y = x;}
+           else {y = copy_Milenage_array_0(x );
+                x->count--;};
+        y->elems[i] = (uint8_t)v;
+        return y;}
+
+Milenage_array_0_t upgrade_Milenage_array_0(Milenage_array_0_t x, uint32_t i, uint8_t v){
+        Milenage_array_0_t y; 
+         if (x->count == 1 && i < x->max){y = x;}
+           else if (i > x->max){uint32_t newmax = x->max <= UINT32_MAX/2 ? 2*x->max: UINT32_MAX;
+                y = safe_malloc(sizeof(struct Milenage_array_0_s) + (newmax * sizeof(uint8_t)));
+                y->count = 1;
+                y->size = i+1;
+                y->max = newmax;
+                release_Milenage_array_0(x);}
+           else {y = copy_Milenage_array_0(x );
+                x->count--;};
+        y->elems[i] = (uint8_t)v;
+        return y;}
+
+
+
+void release_Milenage_funtype_1(Milenage_funtype_1_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+Milenage_funtype_1_t copy_Milenage_funtype_1(Milenage_funtype_1_t x){return x->ftbl->cptr(x);}
+
+uint32_t lookup_Milenage_funtype_1(Milenage_funtype_1_htbl_t htbl, mpz_ptr_t i, uint32_t ihash){
+        uint32_t mask = htbl->size - 1;
+        uint32_t hashindex = ihash & mask; Milenage_funtype_1_hashentry_t data = htbl->data[hashindex];
+        bool_t keyzero;
+
+        int64_t tmp9668 = mpz_cmp_ui(data.key, 0);
+        keyzero = (tmp9668 == 0);
+        bool_t keymatch;
+        int64_t tmp9669 = mpz_cmp(data.key, i);
+        keymatch = (tmp9669 == 0);
+        while ((!keyzero || data.keyhash != 0) &&
+                 (data.keyhash != ihash || !keymatch)){
+                hashindex++;
+                hashindex = hashindex & mask;
+                data = htbl->data[hashindex];
+
+        int64_t tmp9668 = mpz_cmp_ui(data.key, 0);
+        keyzero = (tmp9668 == 0);
+
+        int64_t tmp9669 = mpz_cmp(data.key, i);
+        keymatch = (tmp9669 == 0);
+                }
+        return hashindex;
+        }
+
+Milenage_funtype_1_t dupdate_Milenage_funtype_1(Milenage_funtype_1_t a, mpz_ptr_t i, uint8_t v){
+        Milenage_funtype_1_htbl_t htbl = a->htbl;
+        if (htbl == NULL){//construct new htbl
+                htbl = (Milenage_funtype_1_htbl_t)safe_malloc(sizeof(struct Milenage_funtype_1_htbl_s));
+                htbl->size = HTBL_DEFAULT_SIZE; htbl->num_entries = 0;
+                htbl->data = (Milenage_funtype_1_hashentry_t *)safe_malloc(HTBL_DEFAULT_SIZE * sizeof(struct Milenage_funtype_1_hashentry_s));
+                for (uint32_t j = 0; j < HTBL_DEFAULT_SIZE; j++){mpz_init(htbl->data[j].key);mpz_set_ui(htbl->data[j].key, 0); htbl->data[j].keyhash = 0;
+                }
+                a->htbl = htbl;
+        }
+        uint32_t size = htbl->size;
+        uint32_t num_entries = htbl->num_entries;
+        Milenage_funtype_1_hashentry_t * data = htbl->data;
+        if (num_entries/3 >  size/5){//resize data
+                uint32_t new_size = 2*size; uint32_t new_mask = new_size - 1;
+                if (size >= HTBL_MAX_SIZE) out_of_memory();
+                Milenage_funtype_1_hashentry_t * new_data = (Milenage_funtype_1_hashentry_t *)safe_malloc(new_size * sizeof(struct Milenage_funtype_1_hashentry_s));
+                for (uint32_t j = 0; j < new_size; j++){
+                        new_data[j].key = 0;
+                        new_data[j].keyhash = 0;}
+                for (uint32_t j = 0; j < size; j++){//transfer entries
+                        uint32_t keyhash = data[j].keyhash;
+                        bool_t keyzero;
+                        int64_t tmp9670 = mpz_cmp_ui(data[j].key, 0);keyzero = (tmp9670 == 0);
+                        if (!keyzero || keyhash != 0){
+                                uint32_t new_loc = keyhash ^ new_mask;
+                                int64_t tmp9671 = mpz_cmp_ui(new_data[new_loc].key, 0);
+                                keyzero = (tmp9671 == 0);
+                                while (keyzero && new_data[new_loc].keyhash == 0){
+                                        new_loc++;
+                                        new_loc = new_loc ^ new_mask;
+
+                                        int64_t tmp9672 = mpz_cmp_ui(new_data[new_loc].key, 0);
+                                        keyzero = (tmp9672 == 0);
+                                }
+                                mpz_set(new_data[new_loc].key, data[j].key);
+                                new_data[new_loc].keyhash = keyhash;
+                                new_data[new_loc].value = (uint8_t)data[j].value;
+                                }}
+                htbl->size = new_size;
+                htbl->num_entries = num_entries;
+                htbl->data = new_data;
+                safe_free(data);}
+        uint32_t ihash = mpz_hash(i);
+        uint32_t hashindex = lookup_Milenage_funtype_1(htbl, i, ihash);
+        Milenage_funtype_1_hashentry_t hentry = htbl->data[hashindex];
+        uint32_t hkeyhash = hentry.keyhash;
+        bool_t hentrykeyzero;
+        int64_t tmp9673 = mpz_cmp_ui(hentry.key, 0);hentrykeyzero = (tmp9673 == 0);
+
+        if (hentrykeyzero && (hkeyhash == 0))
+                {mpz_set(htbl->data[hashindex].key, i); htbl->data[hashindex].keyhash = ihash; htbl->data[hashindex].value = (uint8_t)v; htbl->num_entries++;}
+            else {uint8_t tempvalue;tempvalue = (uint8_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (uint8_t)v;};
+        return a;
+
+}
+
+Milenage_funtype_1_t update_Milenage_funtype_1(Milenage_funtype_1_t a, mpz_ptr_t i, uint8_t v){
+        if (a->count == 1){
+                return dupdate_Milenage_funtype_1(a, i, v);
+            } else {
+                Milenage_funtype_1_t x = copy_Milenage_funtype_1(a);
+                a->count--;
+                return dupdate_Milenage_funtype_1(x, i, v);
+            }}
+
+bool_t equal_Milenage_funtype_1(Milenage_funtype_1_t x, Milenage_funtype_1_t y){
+        return false;}
+
+
+uint8_t f_Milenage_closure_2(struct Milenage_closure_2_s * closure, mpz_ptr_t bvar){
+if (closure->htbl != NULL){
+        Milenage_funtype_1_htbl_t htbl = closure->htbl;
+        uint32_t hash = mpz_hash(bvar);
+        uint32_t hashindex = lookup_Milenage_funtype_1(htbl, bvar, hash);
+        Milenage_funtype_1_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         int64_t tmp9674 = mpz_cmp_ui(entry.key, 0);
+         keyzero = (tmp9674 == 0);
+        if (!keyzero || entry.keyhash != 0){
+            uint8_t result;
+            result = (uint8_t)entry.value;
+            return result;}
+        
+
+        return h_Milenage_closure_2(bvar, closure->fvar_1, closure->fvar_2);};
+
+return h_Milenage_closure_2(bvar, closure->fvar_1, closure->fvar_2);}
+
+uint8_t m_Milenage_closure_2(struct Milenage_closure_2_s * closure, mpz_ptr_t bvar){
+        return h_Milenage_closure_2(bvar, closure->fvar_1, closure->fvar_2);}
+
+extern uint8_t h_Milenage_closure_2(mpz_ptr_t ivar_4, uint32_t ivar_3, Milenage_array_0_t ivar_2){
+        uint8_t result;
+        uint32_t ivar_11;
+        mpz_ptr_t ivar_6;
+        //copying to mpz from mpz;
+        mpz_mk_set(ivar_6, ivar_4);
+        mpz_clear(ivar_4);
+        mpz_t tmp9675;
+        mpz_init(tmp9675);
+        mpz_add_ui(tmp9675, ivar_6, ivar_3);
+        ivar_11 = (uint32_t)mpz_get_ui(tmp9675);
+        mpz_clear(tmp9675);
+        result = (uint8_t)ivar_2->elems[ivar_11];
+
+        return result;
+}
+
+Milenage_closure_2_t new_Milenage_closure_2(void){
+        static struct Milenage_funtype_1_ftbl_s ftbl = {.fptr = (uint8_t (*)(Milenage_funtype_1_t, mpz_ptr_t))&f_Milenage_closure_2, .mptr = (uint8_t (*)(Milenage_funtype_1_t, mpz_ptr_t))&m_Milenage_closure_2, .rptr =  (void (*)(Milenage_funtype_1_t))&release_Milenage_closure_2, .cptr = (Milenage_funtype_1_t (*)(Milenage_funtype_1_t))&copy_Milenage_closure_2};
+        Milenage_closure_2_t tmp = (Milenage_closure_2_t) safe_malloc(sizeof(struct Milenage_closure_2_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_Milenage_closure_2(Milenage_funtype_1_t closure){
+        Milenage_closure_2_t x = (Milenage_closure_2_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_array_0(x->fvar_2);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+Milenage_closure_2_t copy_Milenage_closure_2(Milenage_closure_2_t x){
+        Milenage_closure_2_t y = new_Milenage_closure_2();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = (uint32_t)x->fvar_1;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        if (x->htbl != NULL){
+            Milenage_funtype_1_htbl_t new_htbl = (Milenage_funtype_1_htbl_t) safe_malloc(sizeof(struct Milenage_funtype_1_htbl_s));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            Milenage_funtype_1_hashentry_t * new_data = (Milenage_funtype_1_hashentry_t *) safe_malloc(new_htbl->size * sizeof(struct Milenage_funtype_1_hashentry_s));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(struct Milenage_funtype_1_hashentry_s)));
+            new_htbl->data = new_data;;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+Milenage_record_3_t new_Milenage_record_3(void){
+        Milenage_record_3_t tmp = (Milenage_record_3_t) safe_malloc(sizeof(struct Milenage_record_3_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_Milenage_record_3(Milenage_record_3_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_array_0(x->project_1);
+         release_Milenage_array_0(x->project_2);
+         release_Milenage_array_0(x->project_3);
+         release_Milenage_array_0(x->project_4);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_Milenage_record_3_ptr(pointer_t x, type_actual_t T){
+        release_Milenage_record_3((Milenage_record_3_t)x);
+}
+
+Milenage_record_3_t copy_Milenage_record_3(Milenage_record_3_t x){
+        Milenage_record_3_t y = new_Milenage_record_3();
+        y->project_1 = x->project_1;
+        if (y->project_1 != NULL){y->project_1->count++;};
+        y->project_2 = x->project_2;
+        if (y->project_2 != NULL){y->project_2->count++;};
+        y->project_3 = x->project_3;
+        if (y->project_3 != NULL){y->project_3->count++;};
+        y->project_4 = x->project_4;
+        if (y->project_4 != NULL){y->project_4->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_Milenage_record_3(Milenage_record_3_t x, Milenage_record_3_t y){
+        bool_t tmp = true;
+        tmp = tmp && equal_Milenage_array_0(x->project_1, y->project_1);
+        tmp = tmp && equal_Milenage_array_0(x->project_2, y->project_2);
+        tmp = tmp && equal_Milenage_array_0(x->project_3, y->project_3);
+        tmp = tmp && equal_Milenage_array_0(x->project_4, y->project_4);
+        return tmp;}
+
+bool_t equal_Milenage_record_3_ptr(pointer_t x, pointer_t y, actual_Milenage_record_3_t T){
+        return equal_Milenage_record_3((Milenage_record_3_t)x, (Milenage_record_3_t)y);
+}
+
+actual_Milenage_record_3_t actual_Milenage_record_3(){
+        actual_Milenage_record_3_t new = (actual_Milenage_record_3_t)safe_malloc(sizeof(struct actual_Milenage_record_3_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_Milenage_record_3_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_Milenage_record_3_ptr);
+ 
+
+ 
+        return new;
+ };
+
+Milenage_record_3_t update_Milenage_record_3_project_1(Milenage_record_3_t x, Milenage_array_0_t v){
+        Milenage_record_3_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_1 != NULL){release_Milenage_array_0(x->project_1);};}
+        else {y = copy_Milenage_record_3(x); x->count--; y->project_1->count--;};
+        y->project_1 = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage_record_3_t update_Milenage_record_3_project_2(Milenage_record_3_t x, Milenage_array_0_t v){
+        Milenage_record_3_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_2 != NULL){release_Milenage_array_0(x->project_2);};}
+        else {y = copy_Milenage_record_3(x); x->count--; y->project_2->count--;};
+        y->project_2 = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage_record_3_t update_Milenage_record_3_project_3(Milenage_record_3_t x, Milenage_array_0_t v){
+        Milenage_record_3_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_3 != NULL){release_Milenage_array_0(x->project_3);};}
+        else {y = copy_Milenage_record_3(x); x->count--; y->project_3->count--;};
+        y->project_3 = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage_record_3_t update_Milenage_record_3_project_4(Milenage_record_3_t x, Milenage_array_0_t v){
+        Milenage_record_3_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_4 != NULL){release_Milenage_array_0(x->project_4);};}
+        else {y = copy_Milenage_record_3(x); x->count--; y->project_4->count--;};
+        y->project_4 = (Milenage_array_0_t)v;
+        return y;}
+
+
+
+void release_Milenage_funtype_4(Milenage_funtype_4_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+Milenage_funtype_4_t copy_Milenage_funtype_4(Milenage_funtype_4_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_Milenage_funtype_4(Milenage_funtype_4_t x, Milenage_funtype_4_t y){
+        return false;}
+
+
+Milenage_record_5_t new_Milenage_record_5(void){
+        Milenage_record_5_t tmp = (Milenage_record_5_t) safe_malloc(sizeof(struct Milenage_record_5_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_Milenage_record_5(Milenage_record_5_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_array_0(x->project_1);
+         release_Milenage_array_0(x->project_2);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_Milenage_record_5_ptr(pointer_t x, type_actual_t T){
+        release_Milenage_record_5((Milenage_record_5_t)x);
+}
+
+Milenage_record_5_t copy_Milenage_record_5(Milenage_record_5_t x){
+        Milenage_record_5_t y = new_Milenage_record_5();
+        y->project_1 = x->project_1;
+        if (y->project_1 != NULL){y->project_1->count++;};
+        y->project_2 = x->project_2;
+        if (y->project_2 != NULL){y->project_2->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_Milenage_record_5(Milenage_record_5_t x, Milenage_record_5_t y){
+        bool_t tmp = true;
+        tmp = tmp && equal_Milenage_array_0(x->project_1, y->project_1);
+        tmp = tmp && equal_Milenage_array_0(x->project_2, y->project_2);
+        return tmp;}
+
+bool_t equal_Milenage_record_5_ptr(pointer_t x, pointer_t y, actual_Milenage_record_5_t T){
+        return equal_Milenage_record_5((Milenage_record_5_t)x, (Milenage_record_5_t)y);
+}
+
+actual_Milenage_record_5_t actual_Milenage_record_5(){
+        actual_Milenage_record_5_t new = (actual_Milenage_record_5_t)safe_malloc(sizeof(struct actual_Milenage_record_5_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_Milenage_record_5_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_Milenage_record_5_ptr);
+ 
+
+ 
+        return new;
+ };
+
+Milenage_record_5_t update_Milenage_record_5_project_1(Milenage_record_5_t x, Milenage_array_0_t v){
+        Milenage_record_5_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_1 != NULL){release_Milenage_array_0(x->project_1);};}
+        else {y = copy_Milenage_record_5(x); x->count--; y->project_1->count--;};
+        y->project_1 = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage_record_5_t update_Milenage_record_5_project_2(Milenage_record_5_t x, Milenage_array_0_t v){
+        Milenage_record_5_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_2 != NULL){release_Milenage_array_0(x->project_2);};}
+        else {y = copy_Milenage_record_5(x); x->count--; y->project_2->count--;};
+        y->project_2 = (Milenage_array_0_t)v;
+        return y;}
+
+
+
+void release_Milenage_funtype_6(Milenage_funtype_6_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+Milenage_funtype_6_t copy_Milenage_funtype_6(Milenage_funtype_6_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_Milenage_funtype_6(Milenage_funtype_6_t x, Milenage_funtype_6_t y){
+        return false;}
+
+
+Milenage_array_0_t f_Milenage_closure_7(struct Milenage_closure_7_s * closure, Milenage_record_3_t bvar){
+        Milenage_array_0_t bvar_1;
+        bvar_1 = (Milenage_array_0_t)bvar->project_1;
+        bvar->project_1->count++;
+        Milenage_array_0_t bvar_2;
+        bvar_2 = (Milenage_array_0_t)bvar->project_2;
+        bvar->project_2->count++;
+        Milenage_array_0_t bvar_3;
+        bvar_3 = (Milenage_array_0_t)bvar->project_3;
+        bvar->project_3->count++;
+        Milenage_array_0_t bvar_4;
+        bvar_4 = (Milenage_array_0_t)bvar->project_4;
+        bvar->project_4->count++;
+        release_Milenage_record_3(bvar);
+        Milenage_array_0_t result = h_Milenage_closure_7(bvar_1, bvar_2, bvar_3, bvar_4, closure->fvar_1); 
+        release_Milenage_array_0(bvar_1);
+        release_Milenage_array_0(bvar_2);
+        release_Milenage_array_0(bvar_3);
+        release_Milenage_array_0(bvar_4);
+        return result;}
+
+Milenage_array_0_t m_Milenage_closure_7(struct Milenage_closure_7_s * closure, Milenage_array_0_t bvar_1, Milenage_array_0_t bvar_2, Milenage_array_0_t bvar_3, Milenage_array_0_t bvar_4){
+        return h_Milenage_closure_7(bvar_1, bvar_2, bvar_3, bvar_4, closure->fvar_1);}
+
+extern Milenage_array_0_t h_Milenage_closure_7(Milenage_array_0_t ivar_4, Milenage_array_0_t ivar_5, Milenage_array_0_t ivar_6, Milenage_array_0_t ivar_7, Milenage_funtype_6_t ivar_1){
+        Milenage_array_0_t result;
+        /* X */ Milenage_array_0_t ivar_8;
+        /* n */ uint32_t ivar_12;
+        ivar_12 = (uint32_t)16;
+        Milenage_array_0_t ivar_11;
+        ivar_7->count++;
+        ivar_11 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_12, (bytevectors__byv_t)ivar_6, (bytevectors__byv_t)ivar_7);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_8 = (Milenage_array_0_t)ivar_11;
+        if (ivar_8 != NULL) ivar_8->count++;
+        release_Milenage_array_0(ivar_11);
+        /* Y */ Milenage_array_0_t ivar_15;
+        /* n */ uint32_t ivar_19;
+        ivar_19 = (uint32_t)16;
+        uint8_t ivar_22;
+        ivar_22 = (uint8_t)Milenage__r1();
+        mpz_ptr_t ivar_21;
+        //copying to mpz from uint8;
+        mpz_mk_set_ui(ivar_21, ivar_22);
+        Milenage_array_0_t ivar_18;
+        ivar_18 = (Milenage_array_0_t)bytevectors__byvrightrotate((uint32_t)ivar_19, (bytevectors__byv_t)ivar_8, (mpz_ptr_t)ivar_21);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_15 = (Milenage_array_0_t)ivar_18;
+        if (ivar_15 != NULL) ivar_15->count++;
+        release_Milenage_array_0(ivar_18);
+        /* Z1 */ Milenage_array_0_t ivar_23;
+        /* n */ uint32_t ivar_27;
+        ivar_27 = (uint32_t)16;
+        Milenage_array_0_t ivar_26;
+        ivar_26 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_27, (bytevectors__byv_t)ivar_5, (bytevectors__byv_t)ivar_15);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_23 = (Milenage_array_0_t)ivar_26;
+        if (ivar_23 != NULL) ivar_23->count++;
+        release_Milenage_array_0(ivar_26);
+        /* Z */ Milenage_array_0_t ivar_30;
+        /* n */ uint32_t ivar_34;
+        ivar_34 = (uint32_t)16;
+        bytevectors__byv_t ivar_36;
+        ivar_36 = (bytevectors__byv_t)Milenage__c1();
+        if (ivar_36 != NULL) ivar_36->count++;
+        Milenage_array_0_t ivar_33;
+        ivar_33 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_34, (bytevectors__byv_t)ivar_23, (bytevectors__byv_t)ivar_36);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_30 = (Milenage_array_0_t)ivar_33;
+        if (ivar_30 != NULL) ivar_30->count++;
+        release_Milenage_array_0(ivar_33);
+        /* U */ Milenage_array_0_t ivar_37;
+        Milenage_array_0_t ivar_40;
+        ivar_40 = (Milenage_array_0_t)ivar_1->ftbl->mptr(ivar_1, ivar_30, ivar_4);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_37 = (Milenage_array_0_t)ivar_40;
+        if (ivar_37 != NULL) ivar_37->count++;
+        release_Milenage_array_0(ivar_40);
+        /* n */ uint32_t ivar_48;
+        ivar_48 = (uint32_t)16;
+        Milenage_array_0_t ivar_47;
+        ivar_47 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_48, (bytevectors__byv_t)ivar_37, (bytevectors__byv_t)ivar_7);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        result = (Milenage_array_0_t)ivar_47;
+        if (result != NULL) result->count++;
+        release_Milenage_array_0(ivar_47);
+
+        return result;
+}
+
+Milenage_closure_7_t new_Milenage_closure_7(void){
+        static struct Milenage_funtype_4_ftbl_s ftbl = {.fptr = (Milenage_array_0_t (*)(Milenage_funtype_4_t, Milenage_record_3_t))&f_Milenage_closure_7, .mptr = (Milenage_array_0_t (*)(Milenage_funtype_4_t, Milenage_array_0_t, Milenage_array_0_t, Milenage_array_0_t, Milenage_array_0_t))&m_Milenage_closure_7, .rptr =  (void (*)(Milenage_funtype_4_t))&release_Milenage_closure_7, .cptr = (Milenage_funtype_4_t (*)(Milenage_funtype_4_t))&copy_Milenage_closure_7};
+        Milenage_closure_7_t tmp = (Milenage_closure_7_t) safe_malloc(sizeof(struct Milenage_closure_7_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_Milenage_closure_7(Milenage_funtype_4_t closure){
+        Milenage_closure_7_t x = (Milenage_closure_7_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_funtype_6(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+Milenage_closure_7_t copy_Milenage_closure_7(Milenage_closure_7_t x){
+        Milenage_closure_7_t y = new_Milenage_closure_7();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            Milenage_funtype_4_htbl_t new_htbl = (Milenage_funtype_4_htbl_t) safe_malloc(sizeof(struct Milenage_funtype_4_htbl_s));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            Milenage_funtype_4_hashentry_t * new_data = (Milenage_funtype_4_hashentry_t *) safe_malloc(new_htbl->size * sizeof(struct Milenage_funtype_4_hashentry_s));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(struct Milenage_funtype_4_hashentry_s)));
+            new_htbl->data = new_data;
+            for (uint32_t j = 0; j < new_htbl->size; j++){
+                        if ((new_htbl->data[j].key != 0) || new_htbl->data[j].keyhash != 0) new_htbl->data[j].value->count++;};
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+Milenage_record_8_t new_Milenage_record_8(void){
+        Milenage_record_8_t tmp = (Milenage_record_8_t) safe_malloc(sizeof(struct Milenage_record_8_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_Milenage_record_8(Milenage_record_8_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_array_0(x->project_1);
+         release_Milenage_array_0(x->project_2);
+         release_Milenage_array_0(x->project_3);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_Milenage_record_8_ptr(pointer_t x, type_actual_t T){
+        release_Milenage_record_8((Milenage_record_8_t)x);
+}
+
+Milenage_record_8_t copy_Milenage_record_8(Milenage_record_8_t x){
+        Milenage_record_8_t y = new_Milenage_record_8();
+        y->project_1 = x->project_1;
+        if (y->project_1 != NULL){y->project_1->count++;};
+        y->project_2 = x->project_2;
+        if (y->project_2 != NULL){y->project_2->count++;};
+        y->project_3 = x->project_3;
+        if (y->project_3 != NULL){y->project_3->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_Milenage_record_8(Milenage_record_8_t x, Milenage_record_8_t y){
+        bool_t tmp = true;
+        tmp = tmp && equal_Milenage_array_0(x->project_1, y->project_1);
+        tmp = tmp && equal_Milenage_array_0(x->project_2, y->project_2);
+        tmp = tmp && equal_Milenage_array_0(x->project_3, y->project_3);
+        return tmp;}
+
+bool_t equal_Milenage_record_8_ptr(pointer_t x, pointer_t y, actual_Milenage_record_8_t T){
+        return equal_Milenage_record_8((Milenage_record_8_t)x, (Milenage_record_8_t)y);
+}
+
+actual_Milenage_record_8_t actual_Milenage_record_8(){
+        actual_Milenage_record_8_t new = (actual_Milenage_record_8_t)safe_malloc(sizeof(struct actual_Milenage_record_8_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_Milenage_record_8_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_Milenage_record_8_ptr);
+ 
+
+ 
+        return new;
+ };
+
+Milenage_record_8_t update_Milenage_record_8_project_1(Milenage_record_8_t x, Milenage_array_0_t v){
+        Milenage_record_8_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_1 != NULL){release_Milenage_array_0(x->project_1);};}
+        else {y = copy_Milenage_record_8(x); x->count--; y->project_1->count--;};
+        y->project_1 = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage_record_8_t update_Milenage_record_8_project_2(Milenage_record_8_t x, Milenage_array_0_t v){
+        Milenage_record_8_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_2 != NULL){release_Milenage_array_0(x->project_2);};}
+        else {y = copy_Milenage_record_8(x); x->count--; y->project_2->count--;};
+        y->project_2 = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage_record_8_t update_Milenage_record_8_project_3(Milenage_record_8_t x, Milenage_array_0_t v){
+        Milenage_record_8_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_3 != NULL){release_Milenage_array_0(x->project_3);};}
+        else {y = copy_Milenage_record_8(x); x->count--; y->project_3->count--;};
+        y->project_3 = (Milenage_array_0_t)v;
+        return y;}
+
+
+
+void release_Milenage_funtype_9(Milenage_funtype_9_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+Milenage_funtype_9_t copy_Milenage_funtype_9(Milenage_funtype_9_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_Milenage_funtype_9(Milenage_funtype_9_t x, Milenage_funtype_9_t y){
+        return false;}
+
+
+Milenage_array_0_t f_Milenage_closure_10(struct Milenage_closure_10_s * closure, Milenage_record_8_t bvar){
+        Milenage_array_0_t bvar_1;
+        bvar_1 = (Milenage_array_0_t)bvar->project_1;
+        bvar->project_1->count++;
+        Milenage_array_0_t bvar_2;
+        bvar_2 = (Milenage_array_0_t)bvar->project_2;
+        bvar->project_2->count++;
+        Milenage_array_0_t bvar_3;
+        bvar_3 = (Milenage_array_0_t)bvar->project_3;
+        bvar->project_3->count++;
+        release_Milenage_record_8(bvar);
+        Milenage_array_0_t result = h_Milenage_closure_10(bvar_1, bvar_2, bvar_3, closure->fvar_1); 
+        release_Milenage_array_0(bvar_1);
+        release_Milenage_array_0(bvar_2);
+        release_Milenage_array_0(bvar_3);
+        return result;}
+
+Milenage_array_0_t m_Milenage_closure_10(struct Milenage_closure_10_s * closure, Milenage_array_0_t bvar_1, Milenage_array_0_t bvar_2, Milenage_array_0_t bvar_3){
+        return h_Milenage_closure_10(bvar_1, bvar_2, bvar_3, closure->fvar_1);}
+
+extern Milenage_array_0_t h_Milenage_closure_10(Milenage_array_0_t ivar_4, Milenage_array_0_t ivar_5, Milenage_array_0_t ivar_6, Milenage_funtype_6_t ivar_1){
+        Milenage_array_0_t result;
+        /* Y */ Milenage_array_0_t ivar_7;
+        /* n */ uint32_t ivar_11;
+        ivar_11 = (uint32_t)16;
+        uint8_t ivar_14;
+        ivar_14 = (uint8_t)Milenage__r2();
+        mpz_ptr_t ivar_13;
+        //copying to mpz from uint8;
+        mpz_mk_set_ui(ivar_13, ivar_14);
+        Milenage_array_0_t ivar_10;
+        ivar_10 = (Milenage_array_0_t)bytevectors__byvrightrotate((uint32_t)ivar_11, (bytevectors__byv_t)ivar_5, (mpz_ptr_t)ivar_13);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_7 = (Milenage_array_0_t)ivar_10;
+        if (ivar_7 != NULL) ivar_7->count++;
+        release_Milenage_array_0(ivar_10);
+        /* Z */ Milenage_array_0_t ivar_15;
+        /* n */ uint32_t ivar_19;
+        ivar_19 = (uint32_t)16;
+        bytevectors__byv_t ivar_21;
+        ivar_21 = (bytevectors__byv_t)Milenage__c2();
+        if (ivar_21 != NULL) ivar_21->count++;
+        Milenage_array_0_t ivar_18;
+        ivar_18 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_19, (bytevectors__byv_t)ivar_7, (bytevectors__byv_t)ivar_21);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_15 = (Milenage_array_0_t)ivar_18;
+        if (ivar_15 != NULL) ivar_15->count++;
+        release_Milenage_array_0(ivar_18);
+        /* U */ Milenage_array_0_t ivar_22;
+        Milenage_array_0_t ivar_25;
+        ivar_25 = (Milenage_array_0_t)ivar_1->ftbl->mptr(ivar_1, ivar_15, ivar_4);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_22 = (Milenage_array_0_t)ivar_25;
+        if (ivar_22 != NULL) ivar_22->count++;
+        release_Milenage_array_0(ivar_25);
+        /* n */ uint32_t ivar_33;
+        ivar_33 = (uint32_t)16;
+        Milenage_array_0_t ivar_32;
+        ivar_32 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_33, (bytevectors__byv_t)ivar_22, (bytevectors__byv_t)ivar_6);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        result = (Milenage_array_0_t)ivar_32;
+        if (result != NULL) result->count++;
+        release_Milenage_array_0(ivar_32);
+
+        return result;
+}
+
+Milenage_closure_10_t new_Milenage_closure_10(void){
+        static struct Milenage_funtype_9_ftbl_s ftbl = {.fptr = (Milenage_array_0_t (*)(Milenage_funtype_9_t, Milenage_record_8_t))&f_Milenage_closure_10, .mptr = (Milenage_array_0_t (*)(Milenage_funtype_9_t, Milenage_array_0_t, Milenage_array_0_t, Milenage_array_0_t))&m_Milenage_closure_10, .rptr =  (void (*)(Milenage_funtype_9_t))&release_Milenage_closure_10, .cptr = (Milenage_funtype_9_t (*)(Milenage_funtype_9_t))&copy_Milenage_closure_10};
+        Milenage_closure_10_t tmp = (Milenage_closure_10_t) safe_malloc(sizeof(struct Milenage_closure_10_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_Milenage_closure_10(Milenage_funtype_9_t closure){
+        Milenage_closure_10_t x = (Milenage_closure_10_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_funtype_6(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+Milenage_closure_10_t copy_Milenage_closure_10(Milenage_closure_10_t x){
+        Milenage_closure_10_t y = new_Milenage_closure_10();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            Milenage_funtype_9_htbl_t new_htbl = (Milenage_funtype_9_htbl_t) safe_malloc(sizeof(struct Milenage_funtype_9_htbl_s));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            Milenage_funtype_9_hashentry_t * new_data = (Milenage_funtype_9_hashentry_t *) safe_malloc(new_htbl->size * sizeof(struct Milenage_funtype_9_hashentry_s));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(struct Milenage_funtype_9_hashentry_s)));
+            new_htbl->data = new_data;
+            for (uint32_t j = 0; j < new_htbl->size; j++){
+                        if ((new_htbl->data[j].key != 0) || new_htbl->data[j].keyhash != 0) new_htbl->data[j].value->count++;};
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+Milenage_array_0_t f_Milenage_closure_11(struct Milenage_closure_11_s * closure, Milenage_record_8_t bvar){
+        Milenage_array_0_t bvar_1;
+        bvar_1 = (Milenage_array_0_t)bvar->project_1;
+        bvar->project_1->count++;
+        Milenage_array_0_t bvar_2;
+        bvar_2 = (Milenage_array_0_t)bvar->project_2;
+        bvar->project_2->count++;
+        Milenage_array_0_t bvar_3;
+        bvar_3 = (Milenage_array_0_t)bvar->project_3;
+        bvar->project_3->count++;
+        release_Milenage_record_8(bvar);
+        Milenage_array_0_t result = h_Milenage_closure_11(bvar_1, bvar_2, bvar_3, closure->fvar_1); 
+        release_Milenage_array_0(bvar_1);
+        release_Milenage_array_0(bvar_2);
+        release_Milenage_array_0(bvar_3);
+        return result;}
+
+Milenage_array_0_t m_Milenage_closure_11(struct Milenage_closure_11_s * closure, Milenage_array_0_t bvar_1, Milenage_array_0_t bvar_2, Milenage_array_0_t bvar_3){
+        return h_Milenage_closure_11(bvar_1, bvar_2, bvar_3, closure->fvar_1);}
+
+extern Milenage_array_0_t h_Milenage_closure_11(Milenage_array_0_t ivar_4, Milenage_array_0_t ivar_5, Milenage_array_0_t ivar_6, Milenage_funtype_6_t ivar_1){
+        Milenage_array_0_t result;
+        /* Y */ Milenage_array_0_t ivar_7;
+        /* n */ uint32_t ivar_11;
+        ivar_11 = (uint32_t)16;
+        uint8_t ivar_14;
+        ivar_14 = (uint8_t)Milenage__r3();
+        mpz_ptr_t ivar_13;
+        //copying to mpz from uint8;
+        mpz_mk_set_ui(ivar_13, ivar_14);
+        Milenage_array_0_t ivar_10;
+        ivar_10 = (Milenage_array_0_t)bytevectors__byvrightrotate((uint32_t)ivar_11, (bytevectors__byv_t)ivar_5, (mpz_ptr_t)ivar_13);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_7 = (Milenage_array_0_t)ivar_10;
+        if (ivar_7 != NULL) ivar_7->count++;
+        release_Milenage_array_0(ivar_10);
+        /* Z */ Milenage_array_0_t ivar_15;
+        /* n */ uint32_t ivar_19;
+        ivar_19 = (uint32_t)16;
+        bytevectors__byv_t ivar_21;
+        ivar_21 = (bytevectors__byv_t)Milenage__c3();
+        if (ivar_21 != NULL) ivar_21->count++;
+        Milenage_array_0_t ivar_18;
+        ivar_18 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_19, (bytevectors__byv_t)ivar_7, (bytevectors__byv_t)ivar_21);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_15 = (Milenage_array_0_t)ivar_18;
+        if (ivar_15 != NULL) ivar_15->count++;
+        release_Milenage_array_0(ivar_18);
+        /* U */ Milenage_array_0_t ivar_22;
+        Milenage_array_0_t ivar_25;
+        ivar_25 = (Milenage_array_0_t)ivar_1->ftbl->mptr(ivar_1, ivar_15, ivar_4);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_22 = (Milenage_array_0_t)ivar_25;
+        if (ivar_22 != NULL) ivar_22->count++;
+        release_Milenage_array_0(ivar_25);
+        /* n */ uint32_t ivar_33;
+        ivar_33 = (uint32_t)16;
+        Milenage_array_0_t ivar_32;
+        ivar_32 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_33, (bytevectors__byv_t)ivar_22, (bytevectors__byv_t)ivar_6);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        result = (Milenage_array_0_t)ivar_32;
+        if (result != NULL) result->count++;
+        release_Milenage_array_0(ivar_32);
+
+        return result;
+}
+
+Milenage_closure_11_t new_Milenage_closure_11(void){
+        static struct Milenage_funtype_9_ftbl_s ftbl = {.fptr = (Milenage_array_0_t (*)(Milenage_funtype_9_t, Milenage_record_8_t))&f_Milenage_closure_11, .mptr = (Milenage_array_0_t (*)(Milenage_funtype_9_t, Milenage_array_0_t, Milenage_array_0_t, Milenage_array_0_t))&m_Milenage_closure_11, .rptr =  (void (*)(Milenage_funtype_9_t))&release_Milenage_closure_11, .cptr = (Milenage_funtype_9_t (*)(Milenage_funtype_9_t))&copy_Milenage_closure_11};
+        Milenage_closure_11_t tmp = (Milenage_closure_11_t) safe_malloc(sizeof(struct Milenage_closure_11_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_Milenage_closure_11(Milenage_funtype_9_t closure){
+        Milenage_closure_11_t x = (Milenage_closure_11_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_funtype_6(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+Milenage_closure_11_t copy_Milenage_closure_11(Milenage_closure_11_t x){
+        Milenage_closure_11_t y = new_Milenage_closure_11();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            Milenage_funtype_9_htbl_t new_htbl = (Milenage_funtype_9_htbl_t) safe_malloc(sizeof(struct Milenage_funtype_9_htbl_s));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            Milenage_funtype_9_hashentry_t * new_data = (Milenage_funtype_9_hashentry_t *) safe_malloc(new_htbl->size * sizeof(struct Milenage_funtype_9_hashentry_s));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(struct Milenage_funtype_9_hashentry_s)));
+            new_htbl->data = new_data;
+            for (uint32_t j = 0; j < new_htbl->size; j++){
+                        if ((new_htbl->data[j].key != 0) || new_htbl->data[j].keyhash != 0) new_htbl->data[j].value->count++;};
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+Milenage_array_0_t f_Milenage_closure_12(struct Milenage_closure_12_s * closure, Milenage_record_8_t bvar){
+        Milenage_array_0_t bvar_1;
+        bvar_1 = (Milenage_array_0_t)bvar->project_1;
+        bvar->project_1->count++;
+        Milenage_array_0_t bvar_2;
+        bvar_2 = (Milenage_array_0_t)bvar->project_2;
+        bvar->project_2->count++;
+        Milenage_array_0_t bvar_3;
+        bvar_3 = (Milenage_array_0_t)bvar->project_3;
+        bvar->project_3->count++;
+        release_Milenage_record_8(bvar);
+        Milenage_array_0_t result = h_Milenage_closure_12(bvar_1, bvar_2, bvar_3, closure->fvar_1); 
+        release_Milenage_array_0(bvar_1);
+        release_Milenage_array_0(bvar_2);
+        release_Milenage_array_0(bvar_3);
+        return result;}
+
+Milenage_array_0_t m_Milenage_closure_12(struct Milenage_closure_12_s * closure, Milenage_array_0_t bvar_1, Milenage_array_0_t bvar_2, Milenage_array_0_t bvar_3){
+        return h_Milenage_closure_12(bvar_1, bvar_2, bvar_3, closure->fvar_1);}
+
+extern Milenage_array_0_t h_Milenage_closure_12(Milenage_array_0_t ivar_4, Milenage_array_0_t ivar_5, Milenage_array_0_t ivar_6, Milenage_funtype_6_t ivar_1){
+        Milenage_array_0_t result;
+        /* Y */ Milenage_array_0_t ivar_7;
+        /* n */ uint32_t ivar_11;
+        ivar_11 = (uint32_t)16;
+        uint8_t ivar_14;
+        ivar_14 = (uint8_t)Milenage__r4();
+        mpz_ptr_t ivar_13;
+        //copying to mpz from uint8;
+        mpz_mk_set_ui(ivar_13, ivar_14);
+        Milenage_array_0_t ivar_10;
+        ivar_10 = (Milenage_array_0_t)bytevectors__byvrightrotate((uint32_t)ivar_11, (bytevectors__byv_t)ivar_5, (mpz_ptr_t)ivar_13);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_7 = (Milenage_array_0_t)ivar_10;
+        if (ivar_7 != NULL) ivar_7->count++;
+        release_Milenage_array_0(ivar_10);
+        /* Z */ Milenage_array_0_t ivar_15;
+        /* n */ uint32_t ivar_19;
+        ivar_19 = (uint32_t)16;
+        bytevectors__byv_t ivar_21;
+        ivar_21 = (bytevectors__byv_t)Milenage__c4();
+        if (ivar_21 != NULL) ivar_21->count++;
+        Milenage_array_0_t ivar_18;
+        ivar_18 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_19, (bytevectors__byv_t)ivar_7, (bytevectors__byv_t)ivar_21);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_15 = (Milenage_array_0_t)ivar_18;
+        if (ivar_15 != NULL) ivar_15->count++;
+        release_Milenage_array_0(ivar_18);
+        /* U */ Milenage_array_0_t ivar_22;
+        Milenage_array_0_t ivar_25;
+        ivar_25 = (Milenage_array_0_t)ivar_1->ftbl->mptr(ivar_1, ivar_15, ivar_4);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_22 = (Milenage_array_0_t)ivar_25;
+        if (ivar_22 != NULL) ivar_22->count++;
+        release_Milenage_array_0(ivar_25);
+        /* n */ uint32_t ivar_33;
+        ivar_33 = (uint32_t)16;
+        Milenage_array_0_t ivar_32;
+        ivar_32 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_33, (bytevectors__byv_t)ivar_22, (bytevectors__byv_t)ivar_6);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        result = (Milenage_array_0_t)ivar_32;
+        if (result != NULL) result->count++;
+        release_Milenage_array_0(ivar_32);
+
+        return result;
+}
+
+Milenage_closure_12_t new_Milenage_closure_12(void){
+        static struct Milenage_funtype_9_ftbl_s ftbl = {.fptr = (Milenage_array_0_t (*)(Milenage_funtype_9_t, Milenage_record_8_t))&f_Milenage_closure_12, .mptr = (Milenage_array_0_t (*)(Milenage_funtype_9_t, Milenage_array_0_t, Milenage_array_0_t, Milenage_array_0_t))&m_Milenage_closure_12, .rptr =  (void (*)(Milenage_funtype_9_t))&release_Milenage_closure_12, .cptr = (Milenage_funtype_9_t (*)(Milenage_funtype_9_t))&copy_Milenage_closure_12};
+        Milenage_closure_12_t tmp = (Milenage_closure_12_t) safe_malloc(sizeof(struct Milenage_closure_12_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_Milenage_closure_12(Milenage_funtype_9_t closure){
+        Milenage_closure_12_t x = (Milenage_closure_12_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_funtype_6(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+Milenage_closure_12_t copy_Milenage_closure_12(Milenage_closure_12_t x){
+        Milenage_closure_12_t y = new_Milenage_closure_12();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            Milenage_funtype_9_htbl_t new_htbl = (Milenage_funtype_9_htbl_t) safe_malloc(sizeof(struct Milenage_funtype_9_htbl_s));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            Milenage_funtype_9_hashentry_t * new_data = (Milenage_funtype_9_hashentry_t *) safe_malloc(new_htbl->size * sizeof(struct Milenage_funtype_9_hashentry_s));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(struct Milenage_funtype_9_hashentry_s)));
+            new_htbl->data = new_data;
+            for (uint32_t j = 0; j < new_htbl->size; j++){
+                        if ((new_htbl->data[j].key != 0) || new_htbl->data[j].keyhash != 0) new_htbl->data[j].value->count++;};
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+Milenage_array_0_t f_Milenage_closure_13(struct Milenage_closure_13_s * closure, Milenage_record_8_t bvar){
+        Milenage_array_0_t bvar_1;
+        bvar_1 = (Milenage_array_0_t)bvar->project_1;
+        bvar->project_1->count++;
+        Milenage_array_0_t bvar_2;
+        bvar_2 = (Milenage_array_0_t)bvar->project_2;
+        bvar->project_2->count++;
+        Milenage_array_0_t bvar_3;
+        bvar_3 = (Milenage_array_0_t)bvar->project_3;
+        bvar->project_3->count++;
+        release_Milenage_record_8(bvar);
+        Milenage_array_0_t result = h_Milenage_closure_13(bvar_1, bvar_2, bvar_3, closure->fvar_1); 
+        release_Milenage_array_0(bvar_1);
+        release_Milenage_array_0(bvar_2);
+        release_Milenage_array_0(bvar_3);
+        return result;}
+
+Milenage_array_0_t m_Milenage_closure_13(struct Milenage_closure_13_s * closure, Milenage_array_0_t bvar_1, Milenage_array_0_t bvar_2, Milenage_array_0_t bvar_3){
+        return h_Milenage_closure_13(bvar_1, bvar_2, bvar_3, closure->fvar_1);}
+
+extern Milenage_array_0_t h_Milenage_closure_13(Milenage_array_0_t ivar_4, Milenage_array_0_t ivar_5, Milenage_array_0_t ivar_6, Milenage_funtype_6_t ivar_1){
+        Milenage_array_0_t result;
+        /* Y */ Milenage_array_0_t ivar_7;
+        /* n */ uint32_t ivar_11;
+        ivar_11 = (uint32_t)16;
+        uint8_t ivar_14;
+        ivar_14 = (uint8_t)Milenage__r5();
+        mpz_ptr_t ivar_13;
+        //copying to mpz from uint8;
+        mpz_mk_set_ui(ivar_13, ivar_14);
+        Milenage_array_0_t ivar_10;
+        ivar_10 = (Milenage_array_0_t)bytevectors__byvrightrotate((uint32_t)ivar_11, (bytevectors__byv_t)ivar_5, (mpz_ptr_t)ivar_13);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_7 = (Milenage_array_0_t)ivar_10;
+        if (ivar_7 != NULL) ivar_7->count++;
+        release_Milenage_array_0(ivar_10);
+        /* Z */ Milenage_array_0_t ivar_15;
+        /* n */ uint32_t ivar_19;
+        ivar_19 = (uint32_t)16;
+        bytevectors__byv_t ivar_21;
+        ivar_21 = (bytevectors__byv_t)Milenage__c5();
+        if (ivar_21 != NULL) ivar_21->count++;
+        Milenage_array_0_t ivar_18;
+        ivar_18 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_19, (bytevectors__byv_t)ivar_7, (bytevectors__byv_t)ivar_21);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_15 = (Milenage_array_0_t)ivar_18;
+        if (ivar_15 != NULL) ivar_15->count++;
+        release_Milenage_array_0(ivar_18);
+        /* U */ Milenage_array_0_t ivar_22;
+        Milenage_array_0_t ivar_25;
+        ivar_25 = (Milenage_array_0_t)ivar_1->ftbl->mptr(ivar_1, ivar_15, ivar_4);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_22 = (Milenage_array_0_t)ivar_25;
+        if (ivar_22 != NULL) ivar_22->count++;
+        release_Milenage_array_0(ivar_25);
+        /* n */ uint32_t ivar_33;
+        ivar_33 = (uint32_t)16;
+        Milenage_array_0_t ivar_32;
+        ivar_32 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_33, (bytevectors__byv_t)ivar_22, (bytevectors__byv_t)ivar_6);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        result = (Milenage_array_0_t)ivar_32;
+        if (result != NULL) result->count++;
+        release_Milenage_array_0(ivar_32);
+
+        return result;
+}
+
+Milenage_closure_13_t new_Milenage_closure_13(void){
+        static struct Milenage_funtype_9_ftbl_s ftbl = {.fptr = (Milenage_array_0_t (*)(Milenage_funtype_9_t, Milenage_record_8_t))&f_Milenage_closure_13, .mptr = (Milenage_array_0_t (*)(Milenage_funtype_9_t, Milenage_array_0_t, Milenage_array_0_t, Milenage_array_0_t))&m_Milenage_closure_13, .rptr =  (void (*)(Milenage_funtype_9_t))&release_Milenage_closure_13, .cptr = (Milenage_funtype_9_t (*)(Milenage_funtype_9_t))&copy_Milenage_closure_13};
+        Milenage_closure_13_t tmp = (Milenage_closure_13_t) safe_malloc(sizeof(struct Milenage_closure_13_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_Milenage_closure_13(Milenage_funtype_9_t closure){
+        Milenage_closure_13_t x = (Milenage_closure_13_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_funtype_6(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+Milenage_closure_13_t copy_Milenage_closure_13(Milenage_closure_13_t x){
+        Milenage_closure_13_t y = new_Milenage_closure_13();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            Milenage_funtype_9_htbl_t new_htbl = (Milenage_funtype_9_htbl_t) safe_malloc(sizeof(struct Milenage_funtype_9_htbl_s));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            Milenage_funtype_9_hashentry_t * new_data = (Milenage_funtype_9_hashentry_t *) safe_malloc(new_htbl->size * sizeof(struct Milenage_funtype_9_hashentry_s));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(struct Milenage_funtype_9_hashentry_s)));
+            new_htbl->data = new_data;
+            for (uint32_t j = 0; j < new_htbl->size; j++){
+                        if ((new_htbl->data[j].key != 0) || new_htbl->data[j].keyhash != 0) new_htbl->data[j].value->count++;};
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+Milenage_array_0_t f_Milenage_closure_14(struct Milenage_closure_14_s * closure, Milenage_record_5_t bvar){
+        Milenage_array_0_t bvar_1;
+        bvar_1 = (Milenage_array_0_t)bvar->project_1;
+        bvar->project_1->count++;
+        Milenage_array_0_t bvar_2;
+        bvar_2 = (Milenage_array_0_t)bvar->project_2;
+        bvar->project_2->count++;
+        release_Milenage_record_5(bvar);
+        Milenage_array_0_t result = h_Milenage_closure_14(bvar_1, bvar_2, closure->fvar_1); 
+        release_Milenage_array_0(bvar_1);
+        release_Milenage_array_0(bvar_2);
+        return result;}
+
+Milenage_array_0_t m_Milenage_closure_14(struct Milenage_closure_14_s * closure, Milenage_array_0_t bvar_1, Milenage_array_0_t bvar_2){
+        return h_Milenage_closure_14(bvar_1, bvar_2, closure->fvar_1);}
+
+extern Milenage_array_0_t h_Milenage_closure_14(Milenage_array_0_t ivar_4, Milenage_array_0_t ivar_5, Milenage_funtype_6_t ivar_1){
+        Milenage_array_0_t result;
+        /* n */ uint32_t ivar_16;
+        ivar_16 = (uint32_t)16;
+        bytevectors__byv_t ivar_18;
+        Milenage_array_0_t ivar_10;
+        ivar_5->count++;
+        ivar_10 = (Milenage_array_0_t)ivar_1->ftbl->mptr(ivar_1, ivar_5, ivar_4);
+        //copying to bytevectors__byv from Milenage_array_0;
+        ivar_18 = (bytevectors__byv_t)ivar_10;
+        if (ivar_18 != NULL) ivar_18->count++;
+        release_Milenage_array_0(ivar_10);
+        Milenage_array_0_t ivar_15;
+        ivar_15 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_16, (bytevectors__byv_t)ivar_5, (bytevectors__byv_t)ivar_18);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        result = (Milenage_array_0_t)ivar_15;
+        if (result != NULL) result->count++;
+        release_Milenage_array_0(ivar_15);
+
+        return result;
+}
+
+Milenage_closure_14_t new_Milenage_closure_14(void){
+        static struct Milenage_funtype_6_ftbl_s ftbl = {.fptr = (Milenage_array_0_t (*)(Milenage_funtype_6_t, Milenage_record_5_t))&f_Milenage_closure_14, .mptr = (Milenage_array_0_t (*)(Milenage_funtype_6_t, Milenage_array_0_t, Milenage_array_0_t))&m_Milenage_closure_14, .rptr =  (void (*)(Milenage_funtype_6_t))&release_Milenage_closure_14, .cptr = (Milenage_funtype_6_t (*)(Milenage_funtype_6_t))&copy_Milenage_closure_14};
+        Milenage_closure_14_t tmp = (Milenage_closure_14_t) safe_malloc(sizeof(struct Milenage_closure_14_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_Milenage_closure_14(Milenage_funtype_6_t closure){
+        Milenage_closure_14_t x = (Milenage_closure_14_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_funtype_6(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+Milenage_closure_14_t copy_Milenage_closure_14(Milenage_closure_14_t x){
+        Milenage_closure_14_t y = new_Milenage_closure_14();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            Milenage_funtype_6_htbl_t new_htbl = (Milenage_funtype_6_htbl_t) safe_malloc(sizeof(struct Milenage_funtype_6_htbl_s));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            Milenage_funtype_6_hashentry_t * new_data = (Milenage_funtype_6_hashentry_t *) safe_malloc(new_htbl->size * sizeof(struct Milenage_funtype_6_hashentry_s));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(struct Milenage_funtype_6_hashentry_s)));
+            new_htbl->data = new_data;
+            for (uint32_t j = 0; j < new_htbl->size; j++){
+                        if ((new_htbl->data[j].key != 0) || new_htbl->data[j].keyhash != 0) new_htbl->data[j].value->count++;};
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+Milenage_array_0_t f_Milenage_closure_15(struct Milenage_closure_15_s * closure, Milenage_record_8_t bvar){
+        Milenage_array_0_t bvar_1;
+        bvar_1 = (Milenage_array_0_t)bvar->project_1;
+        bvar->project_1->count++;
+        Milenage_array_0_t bvar_2;
+        bvar_2 = (Milenage_array_0_t)bvar->project_2;
+        bvar->project_2->count++;
+        Milenage_array_0_t bvar_3;
+        bvar_3 = (Milenage_array_0_t)bvar->project_3;
+        bvar->project_3->count++;
+        release_Milenage_record_8(bvar);
+        Milenage_array_0_t result = h_Milenage_closure_15(bvar_1, bvar_2, bvar_3, closure->fvar_1); 
+        release_Milenage_array_0(bvar_1);
+        release_Milenage_array_0(bvar_2);
+        release_Milenage_array_0(bvar_3);
+        return result;}
+
+Milenage_array_0_t m_Milenage_closure_15(struct Milenage_closure_15_s * closure, Milenage_array_0_t bvar_1, Milenage_array_0_t bvar_2, Milenage_array_0_t bvar_3){
+        return h_Milenage_closure_15(bvar_1, bvar_2, bvar_3, closure->fvar_1);}
+
+extern Milenage_array_0_t h_Milenage_closure_15(Milenage_array_0_t ivar_4, Milenage_array_0_t ivar_5, Milenage_array_0_t ivar_6, Milenage_funtype_6_t ivar_1){
+        Milenage_array_0_t result;
+        Milenage_array_0_t ivar_18;
+        /* n */ uint32_t ivar_12;
+        ivar_12 = (uint32_t)16;
+        Milenage_array_0_t ivar_11;
+        ivar_11 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_12, (bytevectors__byv_t)ivar_5, (bytevectors__byv_t)ivar_6);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_18 = (Milenage_array_0_t)ivar_11;
+        if (ivar_18 != NULL) ivar_18->count++;
+        release_Milenage_array_0(ivar_11);
+        Milenage_array_0_t ivar_15;
+        ivar_15 = (Milenage_array_0_t)ivar_1->ftbl->mptr(ivar_1, ivar_18, ivar_4);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        result = (Milenage_array_0_t)ivar_15;
+        if (result != NULL) result->count++;
+        release_Milenage_array_0(ivar_15);
+
+        return result;
+}
+
+Milenage_closure_15_t new_Milenage_closure_15(void){
+        static struct Milenage_funtype_9_ftbl_s ftbl = {.fptr = (Milenage_array_0_t (*)(Milenage_funtype_9_t, Milenage_record_8_t))&f_Milenage_closure_15, .mptr = (Milenage_array_0_t (*)(Milenage_funtype_9_t, Milenage_array_0_t, Milenage_array_0_t, Milenage_array_0_t))&m_Milenage_closure_15, .rptr =  (void (*)(Milenage_funtype_9_t))&release_Milenage_closure_15, .cptr = (Milenage_funtype_9_t (*)(Milenage_funtype_9_t))&copy_Milenage_closure_15};
+        Milenage_closure_15_t tmp = (Milenage_closure_15_t) safe_malloc(sizeof(struct Milenage_closure_15_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_Milenage_closure_15(Milenage_funtype_9_t closure){
+        Milenage_closure_15_t x = (Milenage_closure_15_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_funtype_6(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+Milenage_closure_15_t copy_Milenage_closure_15(Milenage_closure_15_t x){
+        Milenage_closure_15_t y = new_Milenage_closure_15();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            Milenage_funtype_9_htbl_t new_htbl = (Milenage_funtype_9_htbl_t) safe_malloc(sizeof(struct Milenage_funtype_9_htbl_s));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            Milenage_funtype_9_hashentry_t * new_data = (Milenage_funtype_9_hashentry_t *) safe_malloc(new_htbl->size * sizeof(struct Milenage_funtype_9_hashentry_s));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(struct Milenage_funtype_9_hashentry_s)));
+            new_htbl->data = new_data;
+            for (uint32_t j = 0; j < new_htbl->size; j++){
+                        if ((new_htbl->data[j].key != 0) || new_htbl->data[j].keyhash != 0) new_htbl->data[j].value->count++;};
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+Milenage_record_16_t new_Milenage_record_16(void){
+        Milenage_record_16_t tmp = (Milenage_record_16_t) safe_malloc(sizeof(struct Milenage_record_16_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_Milenage_record_16(Milenage_record_16_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_bytestrings__bytestring(x->project_1);
+         release_bytestrings__bytestring(x->project_2);
+         release_Milenage_array_0(x->project_3);
+         release_Milenage_array_0(x->project_4);
+         release_Milenage_array_0(x->project_5);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_Milenage_record_16_ptr(pointer_t x, type_actual_t T){
+        release_Milenage_record_16((Milenage_record_16_t)x);
+}
+
+Milenage_record_16_t copy_Milenage_record_16(Milenage_record_16_t x){
+        Milenage_record_16_t y = new_Milenage_record_16();
+        y->project_1 = x->project_1;
+        if (y->project_1 != NULL){y->project_1->count++;};
+        y->project_2 = x->project_2;
+        if (y->project_2 != NULL){y->project_2->count++;};
+        y->project_3 = x->project_3;
+        if (y->project_3 != NULL){y->project_3->count++;};
+        y->project_4 = x->project_4;
+        if (y->project_4 != NULL){y->project_4->count++;};
+        y->project_5 = x->project_5;
+        if (y->project_5 != NULL){y->project_5->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_Milenage_record_16(Milenage_record_16_t x, Milenage_record_16_t y){
+        bool_t tmp = true;
+        tmp = tmp && equal_bytestrings__bytestring(x->project_1, y->project_1);
+        tmp = tmp && equal_bytestrings__bytestring(x->project_2, y->project_2);
+        tmp = tmp && equal_Milenage_array_0(x->project_3, y->project_3);
+        tmp = tmp && equal_Milenage_array_0(x->project_4, y->project_4);
+        tmp = tmp && equal_Milenage_array_0(x->project_5, y->project_5);
+        return tmp;}
+
+bool_t equal_Milenage_record_16_ptr(pointer_t x, pointer_t y, actual_Milenage_record_16_t T){
+        return equal_Milenage_record_16((Milenage_record_16_t)x, (Milenage_record_16_t)y);
+}
+
+actual_Milenage_record_16_t actual_Milenage_record_16(){
+        actual_Milenage_record_16_t new = (actual_Milenage_record_16_t)safe_malloc(sizeof(struct actual_Milenage_record_16_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_Milenage_record_16_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_Milenage_record_16_ptr);
+ 
+
+ 
+        return new;
+ };
+
+Milenage_record_16_t update_Milenage_record_16_project_1(Milenage_record_16_t x, bytestrings__bytestring_t v){
+        Milenage_record_16_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_1 != NULL){release_bytestrings__bytestring(x->project_1);};}
+        else {y = copy_Milenage_record_16(x); x->count--; y->project_1->count--;};
+        y->project_1 = (bytestrings__bytestring_t)v;
+        return y;}
+
+Milenage_record_16_t update_Milenage_record_16_project_2(Milenage_record_16_t x, bytestrings__bytestring_t v){
+        Milenage_record_16_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_2 != NULL){release_bytestrings__bytestring(x->project_2);};}
+        else {y = copy_Milenage_record_16(x); x->count--; y->project_2->count--;};
+        y->project_2 = (bytestrings__bytestring_t)v;
+        return y;}
+
+Milenage_record_16_t update_Milenage_record_16_project_3(Milenage_record_16_t x, Milenage_array_0_t v){
+        Milenage_record_16_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_3 != NULL){release_Milenage_array_0(x->project_3);};}
+        else {y = copy_Milenage_record_16(x); x->count--; y->project_3->count--;};
+        y->project_3 = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage_record_16_t update_Milenage_record_16_project_4(Milenage_record_16_t x, Milenage_array_0_t v){
+        Milenage_record_16_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_4 != NULL){release_Milenage_array_0(x->project_4);};}
+        else {y = copy_Milenage_record_16(x); x->count--; y->project_4->count--;};
+        y->project_4 = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage_record_16_t update_Milenage_record_16_project_5(Milenage_record_16_t x, Milenage_array_0_t v){
+        Milenage_record_16_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_5 != NULL){release_Milenage_array_0(x->project_5);};}
+        else {y = copy_Milenage_record_16(x); x->count--; y->project_5->count--;};
+        y->project_5 = (Milenage_array_0_t)v;
+        return y;}
+
+
+
+
+Milenage__Output_t new_Milenage__Output(void){
+        Milenage__Output_t tmp = (Milenage__Output_t) safe_malloc(sizeof(struct Milenage__Output_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_Milenage__Output(Milenage__Output_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_array_0(x->f1);
+         release_Milenage_array_0(x->f1star);
+         release_Milenage_array_0(x->f2);
+         release_Milenage_array_0(x->f3);
+         release_Milenage_array_0(x->f4);
+         release_Milenage_array_0(x->f5);
+         release_Milenage_array_0(x->f5star);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_Milenage__Output_ptr(pointer_t x, type_actual_t T){
+        release_Milenage__Output((Milenage__Output_t)x);
+}
+
+Milenage__Output_t copy_Milenage__Output(Milenage__Output_t x){
+        Milenage__Output_t y = new_Milenage__Output();
+        y->f1 = x->f1;
+        if (y->f1 != NULL){y->f1->count++;};
+        y->f1star = x->f1star;
+        if (y->f1star != NULL){y->f1star->count++;};
+        y->f2 = x->f2;
+        if (y->f2 != NULL){y->f2->count++;};
+        y->f3 = x->f3;
+        if (y->f3 != NULL){y->f3->count++;};
+        y->f4 = x->f4;
+        if (y->f4 != NULL){y->f4->count++;};
+        y->f5 = x->f5;
+        if (y->f5 != NULL){y->f5->count++;};
+        y->f5star = x->f5star;
+        if (y->f5star != NULL){y->f5star->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_Milenage__Output(Milenage__Output_t x, Milenage__Output_t y){
+        bool_t tmp = true;
+        tmp = tmp && equal_Milenage_array_0(x->f1, y->f1);
+        tmp = tmp && equal_Milenage_array_0(x->f1star, y->f1star);
+        tmp = tmp && equal_Milenage_array_0(x->f2, y->f2);
+        tmp = tmp && equal_Milenage_array_0(x->f3, y->f3);
+        tmp = tmp && equal_Milenage_array_0(x->f4, y->f4);
+        tmp = tmp && equal_Milenage_array_0(x->f5, y->f5);
+        tmp = tmp && equal_Milenage_array_0(x->f5star, y->f5star);
+        return tmp;}
+
+bool_t equal_Milenage__Output_ptr(pointer_t x, pointer_t y, actual_Milenage__Output_t T){
+        return equal_Milenage__Output((Milenage__Output_t)x, (Milenage__Output_t)y);
+}
+
+actual_Milenage__Output_t actual_Milenage__Output(){
+        actual_Milenage__Output_t new = (actual_Milenage__Output_t)safe_malloc(sizeof(struct actual_Milenage__Output_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_Milenage__Output_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_Milenage__Output_ptr);
+ 
+
+ 
+        return new;
+ };
+
+Milenage__Output_t update_Milenage__Output_f1(Milenage__Output_t x, Milenage_array_0_t v){
+        Milenage__Output_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->f1 != NULL){release_Milenage_array_0(x->f1);};}
+        else {y = copy_Milenage__Output(x); x->count--; y->f1->count--;};
+        y->f1 = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage__Output_t update_Milenage__Output_f1star(Milenage__Output_t x, Milenage_array_0_t v){
+        Milenage__Output_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->f1star != NULL){release_Milenage_array_0(x->f1star);};}
+        else {y = copy_Milenage__Output(x); x->count--; y->f1star->count--;};
+        y->f1star = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage__Output_t update_Milenage__Output_f2(Milenage__Output_t x, Milenage_array_0_t v){
+        Milenage__Output_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->f2 != NULL){release_Milenage_array_0(x->f2);};}
+        else {y = copy_Milenage__Output(x); x->count--; y->f2->count--;};
+        y->f2 = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage__Output_t update_Milenage__Output_f3(Milenage__Output_t x, Milenage_array_0_t v){
+        Milenage__Output_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->f3 != NULL){release_Milenage_array_0(x->f3);};}
+        else {y = copy_Milenage__Output(x); x->count--; y->f3->count--;};
+        y->f3 = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage__Output_t update_Milenage__Output_f4(Milenage__Output_t x, Milenage_array_0_t v){
+        Milenage__Output_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->f4 != NULL){release_Milenage_array_0(x->f4);};}
+        else {y = copy_Milenage__Output(x); x->count--; y->f4->count--;};
+        y->f4 = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage__Output_t update_Milenage__Output_f5(Milenage__Output_t x, Milenage_array_0_t v){
+        Milenage__Output_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->f5 != NULL){release_Milenage_array_0(x->f5);};}
+        else {y = copy_Milenage__Output(x); x->count--; y->f5->count--;};
+        y->f5 = (Milenage_array_0_t)v;
+        return y;}
+
+Milenage__Output_t update_Milenage__Output_f5star(Milenage__Output_t x, Milenage_array_0_t v){
+        Milenage__Output_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->f5star != NULL){release_Milenage_array_0(x->f5star);};}
+        else {y = copy_Milenage__Output(x); x->count--; y->f5star->count--;};
+        y->f5star = (Milenage_array_0_t)v;
+        return y;}
+
+
+
+void release_Milenage_funtype_18(Milenage_funtype_18_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+Milenage_funtype_18_t copy_Milenage_funtype_18(Milenage_funtype_18_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_Milenage_funtype_18(Milenage_funtype_18_t x, Milenage_funtype_18_t y){
+        return false;}
+
+
+Milenage__Output_t f_Milenage_closure_19(struct Milenage_closure_19_s * closure, Milenage_record_16_t bvar){
+        bytestrings__bytestring_t bvar_1;
+        bvar_1 = (bytestrings__bytestring_t)bvar->project_1;
+        bvar->project_1->count++;
+        bytestrings__bytestring_t bvar_2;
+        bvar_2 = (bytestrings__bytestring_t)bvar->project_2;
+        bvar->project_2->count++;
+        Milenage_array_0_t bvar_3;
+        bvar_3 = (Milenage_array_0_t)bvar->project_3;
+        bvar->project_3->count++;
+        Milenage_array_0_t bvar_4;
+        bvar_4 = (Milenage_array_0_t)bvar->project_4;
+        bvar->project_4->count++;
+        Milenage_array_0_t bvar_5;
+        bvar_5 = (Milenage_array_0_t)bvar->project_5;
+        bvar->project_5->count++;
+        release_Milenage_record_16(bvar);
+        Milenage__Output_t result = h_Milenage_closure_19(bvar_1, bvar_2, bvar_3, bvar_4, bvar_5, closure->fvar_1); 
+        release_bytestrings__bytestring(bvar_1);
+        release_bytestrings__bytestring(bvar_2);
+        release_Milenage_array_0(bvar_3);
+        release_Milenage_array_0(bvar_4);
+        release_Milenage_array_0(bvar_5);
+        return result;}
+
+Milenage__Output_t m_Milenage_closure_19(struct Milenage_closure_19_s * closure, bytestrings__bytestring_t bvar_1, bytestrings__bytestring_t bvar_2, Milenage_array_0_t bvar_3, Milenage_array_0_t bvar_4, Milenage_array_0_t bvar_5){
+        return h_Milenage_closure_19(bvar_1, bvar_2, bvar_3, bvar_4, bvar_5, closure->fvar_1);}
+
+extern Milenage__Output_t h_Milenage_closure_19(bytestrings__bytestring_t ivar_4, bytestrings__bytestring_t ivar_5, Milenage_array_0_t ivar_6, Milenage_array_0_t ivar_7, Milenage_array_0_t ivar_8, Milenage_funtype_6_t ivar_1){
+        Milenage__Output_t result;
+        /* in1 */ Milenage_array_0_t ivar_9;
+        Milenage_array_0_t ivar_12;
+        ivar_12 = (Milenage_array_0_t)Milenage__IN1((bytestrings__bytestring_t)ivar_4, (bytestrings__bytestring_t)ivar_5);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_9 = (Milenage_array_0_t)ivar_12;
+        if (ivar_9 != NULL) ivar_9->count++;
+        release_Milenage_array_0(ivar_12);
+        /* temp */ Milenage_array_0_t ivar_15;
+        Milenage_funtype_9_t ivar_21;
+        Milenage_funtype_9_t ivar_24;
+        ivar_1->count++;
+        ivar_24 = (Milenage_funtype_9_t)Milenage__TEMP((Milenage_funtype_6_t)ivar_1);
+        //copying to Milenage_funtype_9 from Milenage_funtype_9;
+        ivar_21 = (Milenage_funtype_9_t)ivar_24;
+        if (ivar_21 != NULL) ivar_21->count++;
+        release_Milenage_funtype_9(ivar_24);
+        Milenage_array_0_t ivar_19;
+        ivar_6->count++;
+        ivar_8->count++;
+        ivar_19 = (Milenage_array_0_t)ivar_21->ftbl->mptr(ivar_21, ivar_6, ivar_7, ivar_8);
+        ivar_21->ftbl->rptr(ivar_21);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_15 = (Milenage_array_0_t)ivar_19;
+        if (ivar_15 != NULL) ivar_15->count++;
+        release_Milenage_array_0(ivar_19);
+        /* X */ Milenage_array_0_t ivar_29;
+        /* n */ uint32_t ivar_33;
+        ivar_33 = (uint32_t)16;
+        Milenage_array_0_t ivar_32;
+        ivar_15->count++;
+        ivar_8->count++;
+        ivar_32 = (Milenage_array_0_t)bytevectors__byvXOR((uint32_t)ivar_33, (bytevectors__byv_t)ivar_15, (bytevectors__byv_t)ivar_8);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_29 = (Milenage_array_0_t)ivar_32;
+        if (ivar_29 != NULL) ivar_29->count++;
+        release_Milenage_array_0(ivar_32);
+        /* out1 */ Milenage_array_0_t ivar_36;
+        Milenage_funtype_4_t ivar_43;
+        Milenage_funtype_4_t ivar_46;
+        ivar_1->count++;
+        ivar_46 = (Milenage_funtype_4_t)Milenage__OUT1((Milenage_funtype_6_t)ivar_1);
+        //copying to Milenage_funtype_4 from Milenage_funtype_4;
+        ivar_43 = (Milenage_funtype_4_t)ivar_46;
+        if (ivar_43 != NULL) ivar_43->count++;
+        release_Milenage_funtype_4(ivar_46);
+        Milenage_array_0_t ivar_41;
+        ivar_6->count++;
+        ivar_8->count++;
+        ivar_41 = (Milenage_array_0_t)ivar_43->ftbl->mptr(ivar_43, ivar_6, ivar_15, ivar_9, ivar_8);
+        ivar_43->ftbl->rptr(ivar_43);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_36 = (Milenage_array_0_t)ivar_41;
+        if (ivar_36 != NULL) ivar_36->count++;
+        release_Milenage_array_0(ivar_41);
+        /* out2 */ Milenage_array_0_t ivar_52;
+        Milenage_funtype_9_t ivar_58;
+        Milenage_funtype_9_t ivar_61;
+        ivar_1->count++;
+        ivar_61 = (Milenage_funtype_9_t)Milenage__OUT2((Milenage_funtype_6_t)ivar_1);
+        //copying to Milenage_funtype_9 from Milenage_funtype_9;
+        ivar_58 = (Milenage_funtype_9_t)ivar_61;
+        if (ivar_58 != NULL) ivar_58->count++;
+        release_Milenage_funtype_9(ivar_61);
+        Milenage_array_0_t ivar_56;
+        ivar_6->count++;
+        ivar_29->count++;
+        ivar_8->count++;
+        ivar_56 = (Milenage_array_0_t)ivar_58->ftbl->mptr(ivar_58, ivar_6, ivar_29, ivar_8);
+        ivar_58->ftbl->rptr(ivar_58);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_52 = (Milenage_array_0_t)ivar_56;
+        if (ivar_52 != NULL) ivar_52->count++;
+        release_Milenage_array_0(ivar_56);
+        /* out3 */ Milenage_array_0_t ivar_66;
+        Milenage_funtype_9_t ivar_72;
+        Milenage_funtype_9_t ivar_75;
+        ivar_1->count++;
+        ivar_75 = (Milenage_funtype_9_t)Milenage__OUT3((Milenage_funtype_6_t)ivar_1);
+        //copying to Milenage_funtype_9 from Milenage_funtype_9;
+        ivar_72 = (Milenage_funtype_9_t)ivar_75;
+        if (ivar_72 != NULL) ivar_72->count++;
+        release_Milenage_funtype_9(ivar_75);
+        Milenage_array_0_t ivar_70;
+        ivar_6->count++;
+        ivar_29->count++;
+        ivar_8->count++;
+        ivar_70 = (Milenage_array_0_t)ivar_72->ftbl->mptr(ivar_72, ivar_6, ivar_29, ivar_8);
+        ivar_72->ftbl->rptr(ivar_72);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_66 = (Milenage_array_0_t)ivar_70;
+        if (ivar_66 != NULL) ivar_66->count++;
+        release_Milenage_array_0(ivar_70);
+        /* out4 */ Milenage_array_0_t ivar_80;
+        Milenage_funtype_9_t ivar_86;
+        Milenage_funtype_9_t ivar_89;
+        ivar_1->count++;
+        ivar_89 = (Milenage_funtype_9_t)Milenage__OUT4((Milenage_funtype_6_t)ivar_1);
+        //copying to Milenage_funtype_9 from Milenage_funtype_9;
+        ivar_86 = (Milenage_funtype_9_t)ivar_89;
+        if (ivar_86 != NULL) ivar_86->count++;
+        release_Milenage_funtype_9(ivar_89);
+        Milenage_array_0_t ivar_84;
+        ivar_6->count++;
+        ivar_29->count++;
+        ivar_8->count++;
+        ivar_84 = (Milenage_array_0_t)ivar_86->ftbl->mptr(ivar_86, ivar_6, ivar_29, ivar_8);
+        ivar_86->ftbl->rptr(ivar_86);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_80 = (Milenage_array_0_t)ivar_84;
+        if (ivar_80 != NULL) ivar_80->count++;
+        release_Milenage_array_0(ivar_84);
+        /* out5 */ Milenage_array_0_t ivar_94;
+        Milenage_funtype_9_t ivar_100;
+        Milenage_funtype_9_t ivar_103;
+        ivar_1->count++;
+        ivar_103 = (Milenage_funtype_9_t)Milenage__OUT5((Milenage_funtype_6_t)ivar_1);
+        //copying to Milenage_funtype_9 from Milenage_funtype_9;
+        ivar_100 = (Milenage_funtype_9_t)ivar_103;
+        if (ivar_100 != NULL) ivar_100->count++;
+        release_Milenage_funtype_9(ivar_103);
+        Milenage_array_0_t ivar_98;
+        ivar_98 = (Milenage_array_0_t)ivar_100->ftbl->mptr(ivar_100, ivar_6, ivar_29, ivar_8);
+        ivar_100->ftbl->rptr(ivar_100);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_94 = (Milenage_array_0_t)ivar_98;
+        if (ivar_94 != NULL) ivar_94->count++;
+        release_Milenage_array_0(ivar_98);
+        /* f1 */ Milenage_array_0_t ivar_108;
+        uint32_t ivar_113;
+        ivar_113 = (uint32_t)16;
+        uint32_t ivar_115;
+        ivar_115 = (uint32_t)8;
+        Milenage_array_0_t ivar_112;
+        ivar_36->count++;
+        ivar_112 = (Milenage_array_0_t)Milenage__byvto((uint32_t)ivar_113, (Milenage_array_0_t)ivar_36, (uint32_t)ivar_115);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_108 = (Milenage_array_0_t)ivar_112;
+        if (ivar_108 != NULL) ivar_108->count++;
+        release_Milenage_array_0(ivar_112);
+        /* f1star */ Milenage_array_0_t ivar_116;
+        uint32_t ivar_121;
+        ivar_121 = (uint32_t)16;
+        uint32_t ivar_123;
+        ivar_123 = (uint32_t)8;
+        Milenage_array_0_t ivar_120;
+        ivar_120 = (Milenage_array_0_t)Milenage__byvfrom((uint32_t)ivar_121, (Milenage_array_0_t)ivar_36, (uint32_t)ivar_123);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_116 = (Milenage_array_0_t)ivar_120;
+        if (ivar_116 != NULL) ivar_116->count++;
+        release_Milenage_array_0(ivar_120);
+        /* f2 */ Milenage_array_0_t ivar_124;
+        uint32_t ivar_129;
+        ivar_129 = (uint32_t)16;
+        uint32_t ivar_131;
+        ivar_131 = (uint32_t)8;
+        Milenage_array_0_t ivar_128;
+        ivar_52->count++;
+        ivar_128 = (Milenage_array_0_t)Milenage__byvfrom((uint32_t)ivar_129, (Milenage_array_0_t)ivar_52, (uint32_t)ivar_131);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_124 = (Milenage_array_0_t)ivar_128;
+        if (ivar_124 != NULL) ivar_124->count++;
+        release_Milenage_array_0(ivar_128);
+        /* f5 */ Milenage_array_0_t ivar_134;
+        uint32_t ivar_139;
+        ivar_139 = (uint32_t)16;
+        uint32_t ivar_141;
+        ivar_141 = (uint32_t)6;
+        Milenage_array_0_t ivar_138;
+        ivar_138 = (Milenage_array_0_t)Milenage__byvto((uint32_t)ivar_139, (Milenage_array_0_t)ivar_52, (uint32_t)ivar_141);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_134 = (Milenage_array_0_t)ivar_138;
+        if (ivar_134 != NULL) ivar_134->count++;
+        release_Milenage_array_0(ivar_138);
+        /* f5star */ Milenage_array_0_t ivar_142;
+        uint32_t ivar_147;
+        ivar_147 = (uint32_t)16;
+        uint32_t ivar_149;
+        ivar_149 = (uint32_t)6;
+        Milenage_array_0_t ivar_146;
+        ivar_146 = (Milenage_array_0_t)Milenage__byvto((uint32_t)ivar_147, (Milenage_array_0_t)ivar_94, (uint32_t)ivar_149);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_142 = (Milenage_array_0_t)ivar_146;
+        if (ivar_142 != NULL) ivar_142->count++;
+        release_Milenage_array_0(ivar_146);
+        result = (Milenage__Output_t)new_Milenage__Output();;
+        result->f1 = (Milenage_array_0_t)ivar_108;
+        result->f1star = (Milenage_array_0_t)ivar_116;
+        result->f2 = (Milenage_array_0_t)ivar_124;
+        result->f3 = (Milenage_array_0_t)ivar_66;
+        result->f4 = (Milenage_array_0_t)ivar_80;
+        result->f5 = (Milenage_array_0_t)ivar_134;
+        result->f5star = (Milenage_array_0_t)ivar_142;
+
+        return result;
+}
+
+Milenage_closure_19_t new_Milenage_closure_19(void){
+        static struct Milenage_funtype_18_ftbl_s ftbl = {.fptr = (Milenage__Output_t (*)(Milenage_funtype_18_t, Milenage_record_16_t))&f_Milenage_closure_19, .mptr = (Milenage__Output_t (*)(Milenage_funtype_18_t, bytestrings__bytestring_t, bytestrings__bytestring_t, Milenage_array_0_t, Milenage_array_0_t, Milenage_array_0_t))&m_Milenage_closure_19, .rptr =  (void (*)(Milenage_funtype_18_t))&release_Milenage_closure_19, .cptr = (Milenage_funtype_18_t (*)(Milenage_funtype_18_t))&copy_Milenage_closure_19};
+        Milenage_closure_19_t tmp = (Milenage_closure_19_t) safe_malloc(sizeof(struct Milenage_closure_19_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_Milenage_closure_19(Milenage_funtype_18_t closure){
+        Milenage_closure_19_t x = (Milenage_closure_19_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_funtype_6(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+Milenage_closure_19_t copy_Milenage_closure_19(Milenage_closure_19_t x){
+        Milenage_closure_19_t y = new_Milenage_closure_19();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            Milenage_funtype_18_htbl_t new_htbl = (Milenage_funtype_18_htbl_t) safe_malloc(sizeof(struct Milenage_funtype_18_htbl_s));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            Milenage_funtype_18_hashentry_t * new_data = (Milenage_funtype_18_hashentry_t *) safe_malloc(new_htbl->size * sizeof(struct Milenage_funtype_18_hashentry_s));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(struct Milenage_funtype_18_hashentry_s)));
+            new_htbl->data = new_data;
+            for (uint32_t j = 0; j < new_htbl->size; j++){
+                        if ((new_htbl->data[j].key != 0) || new_htbl->data[j].keyhash != 0) new_htbl->data[j].value->count++;};
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+Milenage__Output_t f_Milenage_closure_20(struct Milenage_closure_20_s * closure, Milenage_record_16_t bvar){
+        bytestrings__bytestring_t bvar_1;
+        bvar_1 = (bytestrings__bytestring_t)bvar->project_1;
+        bvar->project_1->count++;
+        bytestrings__bytestring_t bvar_2;
+        bvar_2 = (bytestrings__bytestring_t)bvar->project_2;
+        bvar->project_2->count++;
+        Milenage_array_0_t bvar_3;
+        bvar_3 = (Milenage_array_0_t)bvar->project_3;
+        bvar->project_3->count++;
+        Milenage_array_0_t bvar_4;
+        bvar_4 = (Milenage_array_0_t)bvar->project_4;
+        bvar->project_4->count++;
+        Milenage_array_0_t bvar_5;
+        bvar_5 = (Milenage_array_0_t)bvar->project_5;
+        bvar->project_5->count++;
+        release_Milenage_record_16(bvar);
+        Milenage__Output_t result = h_Milenage_closure_20(bvar_1, bvar_2, bvar_3, bvar_4, bvar_5, closure->fvar_1); 
+        release_bytestrings__bytestring(bvar_1);
+        release_bytestrings__bytestring(bvar_2);
+        release_Milenage_array_0(bvar_3);
+        release_Milenage_array_0(bvar_4);
+        release_Milenage_array_0(bvar_5);
+        return result;}
+
+Milenage__Output_t m_Milenage_closure_20(struct Milenage_closure_20_s * closure, bytestrings__bytestring_t bvar_1, bytestrings__bytestring_t bvar_2, Milenage_array_0_t bvar_3, Milenage_array_0_t bvar_4, Milenage_array_0_t bvar_5){
+        return h_Milenage_closure_20(bvar_1, bvar_2, bvar_3, bvar_4, bvar_5, closure->fvar_1);}
+
+extern Milenage__Output_t h_Milenage_closure_20(bytestrings__bytestring_t ivar_4, bytestrings__bytestring_t ivar_5, Milenage_array_0_t ivar_6, Milenage_array_0_t ivar_7, Milenage_array_0_t ivar_8, Milenage_funtype_6_t ivar_1){
+        Milenage__Output_t result;
+        /* opc */ Milenage_array_0_t ivar_9;
+        Milenage_funtype_6_t ivar_14;
+        Milenage_funtype_6_t ivar_17;
+        ivar_1->count++;
+        ivar_17 = (Milenage_funtype_6_t)Milenage__OPC((Milenage_funtype_6_t)ivar_1);
+        //copying to Milenage_funtype_6 from Milenage_funtype_6;
+        ivar_14 = (Milenage_funtype_6_t)ivar_17;
+        if (ivar_14 != NULL) ivar_14->count++;
+        release_Milenage_funtype_6(ivar_17);
+        Milenage_array_0_t ivar_12;
+        ivar_6->count++;
+        ivar_12 = (Milenage_array_0_t)ivar_14->ftbl->mptr(ivar_14, ivar_6, ivar_8);
+        ivar_14->ftbl->rptr(ivar_14);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_9 = (Milenage_array_0_t)ivar_12;
+        if (ivar_9 != NULL) ivar_9->count++;
+        release_Milenage_array_0(ivar_12);
+        Milenage_funtype_18_t ivar_28;
+        Milenage_funtype_18_t ivar_31;
+        ivar_1->count++;
+        ivar_31 = (Milenage_funtype_18_t)Milenage__allfunc((Milenage_funtype_6_t)ivar_1);
+        //copying to Milenage_funtype_18 from Milenage_funtype_18;
+        ivar_28 = (Milenage_funtype_18_t)ivar_31;
+        if (ivar_28 != NULL) ivar_28->count++;
+        release_Milenage_funtype_18(ivar_31);
+        Milenage__Output_t ivar_26;
+        ivar_26 = (Milenage__Output_t)ivar_28->ftbl->mptr(ivar_28, ivar_4, ivar_5, ivar_6, ivar_7, ivar_9);
+        ivar_28->ftbl->rptr(ivar_28);
+        //copying to Milenage__Output from Milenage__Output;
+        result = (Milenage__Output_t)ivar_26;
+        if (result != NULL) result->count++;
+        release_Milenage__Output(ivar_26);
+
+        return result;
+}
+
+Milenage_closure_20_t new_Milenage_closure_20(void){
+        static struct Milenage_funtype_18_ftbl_s ftbl = {.fptr = (Milenage__Output_t (*)(Milenage_funtype_18_t, Milenage_record_16_t))&f_Milenage_closure_20, .mptr = (Milenage__Output_t (*)(Milenage_funtype_18_t, bytestrings__bytestring_t, bytestrings__bytestring_t, Milenage_array_0_t, Milenage_array_0_t, Milenage_array_0_t))&m_Milenage_closure_20, .rptr =  (void (*)(Milenage_funtype_18_t))&release_Milenage_closure_20, .cptr = (Milenage_funtype_18_t (*)(Milenage_funtype_18_t))&copy_Milenage_closure_20};
+        Milenage_closure_20_t tmp = (Milenage_closure_20_t) safe_malloc(sizeof(struct Milenage_closure_20_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_Milenage_closure_20(Milenage_funtype_18_t closure){
+        Milenage_closure_20_t x = (Milenage_closure_20_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_funtype_6(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+Milenage_closure_20_t copy_Milenage_closure_20(Milenage_closure_20_t x){
+        Milenage_closure_20_t y = new_Milenage_closure_20();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            Milenage_funtype_18_htbl_t new_htbl = (Milenage_funtype_18_htbl_t) safe_malloc(sizeof(struct Milenage_funtype_18_htbl_s));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            Milenage_funtype_18_hashentry_t * new_data = (Milenage_funtype_18_hashentry_t *) safe_malloc(new_htbl->size * sizeof(struct Milenage_funtype_18_hashentry_s));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(struct Milenage_funtype_18_hashentry_s)));
+            new_htbl->data = new_data;
+            for (uint32_t j = 0; j < new_htbl->size; j++){
+                        if ((new_htbl->data[j].key != 0) || new_htbl->data[j].keyhash != 0) new_htbl->data[j].value->count++;};
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_Milenage_funtype_21(Milenage_funtype_21_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+Milenage_funtype_21_t copy_Milenage_funtype_21(Milenage_funtype_21_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_Milenage_funtype_21(Milenage_funtype_21_t x, Milenage_funtype_21_t y){
+        return false;}
+
+
+bytestrings__bytestring_t f_Milenage_closure_22(struct Milenage_closure_22_s * closure, Milenage_record_16_t bvar){
+        bytestrings__bytestring_t bvar_1;
+        bvar_1 = (bytestrings__bytestring_t)bvar->project_1;
+        bvar->project_1->count++;
+        bytestrings__bytestring_t bvar_2;
+        bvar_2 = (bytestrings__bytestring_t)bvar->project_2;
+        bvar->project_2->count++;
+        Milenage_array_0_t bvar_3;
+        bvar_3 = (Milenage_array_0_t)bvar->project_3;
+        bvar->project_3->count++;
+        Milenage_array_0_t bvar_4;
+        bvar_4 = (Milenage_array_0_t)bvar->project_4;
+        bvar->project_4->count++;
+        Milenage_array_0_t bvar_5;
+        bvar_5 = (Milenage_array_0_t)bvar->project_5;
+        bvar->project_5->count++;
+        release_Milenage_record_16(bvar);
+        bytestrings__bytestring_t result = h_Milenage_closure_22(bvar_1, bvar_2, bvar_3, bvar_4, bvar_5, closure->fvar_1); 
+        release_bytestrings__bytestring(bvar_1);
+        release_bytestrings__bytestring(bvar_2);
+        release_Milenage_array_0(bvar_3);
+        release_Milenage_array_0(bvar_4);
+        release_Milenage_array_0(bvar_5);
+        return result;}
+
+bytestrings__bytestring_t m_Milenage_closure_22(struct Milenage_closure_22_s * closure, bytestrings__bytestring_t bvar_1, bytestrings__bytestring_t bvar_2, Milenage_array_0_t bvar_3, Milenage_array_0_t bvar_4, Milenage_array_0_t bvar_5){
+        return h_Milenage_closure_22(bvar_1, bvar_2, bvar_3, bvar_4, bvar_5, closure->fvar_1);}
+
+extern bytestrings__bytestring_t h_Milenage_closure_22(bytestrings__bytestring_t ivar_4, bytestrings__bytestring_t ivar_5, Milenage_array_0_t ivar_6, Milenage_array_0_t ivar_7, Milenage_array_0_t ivar_8, Milenage_funtype_6_t ivar_1){
+        bytestrings__bytestring_t result;
+        /* output */ Milenage__Output_t ivar_9;
+        Milenage_funtype_18_t ivar_17;
+        Milenage_funtype_18_t ivar_20;
+        ivar_1->count++;
+        ivar_20 = (Milenage_funtype_18_t)Milenage__allfunc((Milenage_funtype_6_t)ivar_1);
+        //copying to Milenage_funtype_18 from Milenage_funtype_18;
+        ivar_17 = (Milenage_funtype_18_t)ivar_20;
+        if (ivar_17 != NULL) ivar_17->count++;
+        release_Milenage_funtype_18(ivar_20);
+        Milenage__Output_t ivar_15;
+        ivar_4->count++;
+        ivar_5->count++;
+        ivar_6->count++;
+        ivar_7->count++;
+        ivar_8->count++;
+        ivar_15 = (Milenage__Output_t)ivar_17->ftbl->mptr(ivar_17, ivar_4, ivar_5, ivar_6, ivar_7, ivar_8);
+        ivar_17->ftbl->rptr(ivar_17);
+        //copying to Milenage__Output from Milenage__Output;
+        ivar_9 = (Milenage__Output_t)ivar_15;
+        if (ivar_9 != NULL) ivar_9->count++;
+        release_Milenage__Output(ivar_15);
+        /* f1 */ bytestrings__bytestring_t ivar_27;
+        bytestrings__bytestring_t ivar_35;
+        /* n */ uint32_t ivar_32;
+        ivar_32 = (uint32_t)8;
+        bytevectors__byv_t ivar_33;
+        ivar_33 = (bytevectors__byv_t)ivar_9->f1;
+        ivar_33->count++;
+        bytestrings__bytestring_t ivar_31;
+        ivar_31 = (bytestrings__bytestring_t)bytevectors__byv2bytestring((uint32_t)ivar_32, (bytevectors__byv_t)ivar_33);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_35 = (bytestrings__bytestring_t)ivar_31;
+        if (ivar_35 != NULL) ivar_35->count++;
+        release_bytestrings__bytestring(ivar_31);
+        bytestrings__bytestring_t ivar_34;
+        ivar_34 = (bytestrings__bytestring_t)hex__bytestring2hexstring((bytestrings__bytestring_t)ivar_35);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_27 = (bytestrings__bytestring_t)ivar_34;
+        if (ivar_27 != NULL) ivar_27->count++;
+        release_bytestrings__bytestring(ivar_34);
+        /* f1star */ bytestrings__bytestring_t ivar_36;
+        bytestrings__bytestring_t ivar_44;
+        /* n */ uint32_t ivar_41;
+        ivar_41 = (uint32_t)8;
+        bytevectors__byv_t ivar_42;
+        ivar_42 = (bytevectors__byv_t)ivar_9->f1star;
+        ivar_42->count++;
+        bytestrings__bytestring_t ivar_40;
+        ivar_40 = (bytestrings__bytestring_t)bytevectors__byv2bytestring((uint32_t)ivar_41, (bytevectors__byv_t)ivar_42);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_44 = (bytestrings__bytestring_t)ivar_40;
+        if (ivar_44 != NULL) ivar_44->count++;
+        release_bytestrings__bytestring(ivar_40);
+        bytestrings__bytestring_t ivar_43;
+        ivar_43 = (bytestrings__bytestring_t)hex__bytestring2hexstring((bytestrings__bytestring_t)ivar_44);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_36 = (bytestrings__bytestring_t)ivar_43;
+        if (ivar_36 != NULL) ivar_36->count++;
+        release_bytestrings__bytestring(ivar_43);
+        /* f2 */ bytestrings__bytestring_t ivar_45;
+        bytestrings__bytestring_t ivar_53;
+        /* n */ uint32_t ivar_50;
+        ivar_50 = (uint32_t)8;
+        bytevectors__byv_t ivar_51;
+        ivar_51 = (bytevectors__byv_t)ivar_9->f2;
+        ivar_51->count++;
+        bytestrings__bytestring_t ivar_49;
+        ivar_49 = (bytestrings__bytestring_t)bytevectors__byv2bytestring((uint32_t)ivar_50, (bytevectors__byv_t)ivar_51);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_53 = (bytestrings__bytestring_t)ivar_49;
+        if (ivar_53 != NULL) ivar_53->count++;
+        release_bytestrings__bytestring(ivar_49);
+        bytestrings__bytestring_t ivar_52;
+        ivar_52 = (bytestrings__bytestring_t)hex__bytestring2hexstring((bytestrings__bytestring_t)ivar_53);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_45 = (bytestrings__bytestring_t)ivar_52;
+        if (ivar_45 != NULL) ivar_45->count++;
+        release_bytestrings__bytestring(ivar_52);
+        /* f3 */ bytestrings__bytestring_t ivar_54;
+        bytestrings__bytestring_t ivar_62;
+        /* n */ uint32_t ivar_59;
+        ivar_59 = (uint32_t)16;
+        bytevectors__byv_t ivar_60;
+        ivar_60 = (bytevectors__byv_t)ivar_9->f3;
+        ivar_60->count++;
+        bytestrings__bytestring_t ivar_58;
+        ivar_58 = (bytestrings__bytestring_t)bytevectors__byv2bytestring((uint32_t)ivar_59, (bytevectors__byv_t)ivar_60);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_62 = (bytestrings__bytestring_t)ivar_58;
+        if (ivar_62 != NULL) ivar_62->count++;
+        release_bytestrings__bytestring(ivar_58);
+        bytestrings__bytestring_t ivar_61;
+        ivar_61 = (bytestrings__bytestring_t)hex__bytestring2hexstring((bytestrings__bytestring_t)ivar_62);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_54 = (bytestrings__bytestring_t)ivar_61;
+        if (ivar_54 != NULL) ivar_54->count++;
+        release_bytestrings__bytestring(ivar_61);
+        /* f4 */ bytestrings__bytestring_t ivar_63;
+        bytestrings__bytestring_t ivar_71;
+        /* n */ uint32_t ivar_68;
+        ivar_68 = (uint32_t)16;
+        bytevectors__byv_t ivar_69;
+        ivar_69 = (bytevectors__byv_t)ivar_9->f4;
+        ivar_69->count++;
+        bytestrings__bytestring_t ivar_67;
+        ivar_67 = (bytestrings__bytestring_t)bytevectors__byv2bytestring((uint32_t)ivar_68, (bytevectors__byv_t)ivar_69);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_71 = (bytestrings__bytestring_t)ivar_67;
+        if (ivar_71 != NULL) ivar_71->count++;
+        release_bytestrings__bytestring(ivar_67);
+        bytestrings__bytestring_t ivar_70;
+        ivar_70 = (bytestrings__bytestring_t)hex__bytestring2hexstring((bytestrings__bytestring_t)ivar_71);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_63 = (bytestrings__bytestring_t)ivar_70;
+        if (ivar_63 != NULL) ivar_63->count++;
+        release_bytestrings__bytestring(ivar_70);
+        /* f5 */ bytestrings__bytestring_t ivar_72;
+        bytestrings__bytestring_t ivar_80;
+        /* n */ uint32_t ivar_77;
+        ivar_77 = (uint32_t)6;
+        bytevectors__byv_t ivar_78;
+        ivar_78 = (bytevectors__byv_t)ivar_9->f5;
+        ivar_78->count++;
+        bytestrings__bytestring_t ivar_76;
+        ivar_76 = (bytestrings__bytestring_t)bytevectors__byv2bytestring((uint32_t)ivar_77, (bytevectors__byv_t)ivar_78);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_80 = (bytestrings__bytestring_t)ivar_76;
+        if (ivar_80 != NULL) ivar_80->count++;
+        release_bytestrings__bytestring(ivar_76);
+        bytestrings__bytestring_t ivar_79;
+        ivar_79 = (bytestrings__bytestring_t)hex__bytestring2hexstring((bytestrings__bytestring_t)ivar_80);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_72 = (bytestrings__bytestring_t)ivar_79;
+        if (ivar_72 != NULL) ivar_72->count++;
+        release_bytestrings__bytestring(ivar_79);
+        /* f5star */ bytestrings__bytestring_t ivar_81;
+        bytestrings__bytestring_t ivar_89;
+        /* n */ uint32_t ivar_86;
+        ivar_86 = (uint32_t)6;
+        bytevectors__byv_t ivar_87;
+        ivar_87 = (bytevectors__byv_t)ivar_9->f5star;
+        ivar_87->count++;
+        release_Milenage__Output(ivar_9);
+        bytestrings__bytestring_t ivar_85;
+        ivar_85 = (bytestrings__bytestring_t)bytevectors__byv2bytestring((uint32_t)ivar_86, (bytevectors__byv_t)ivar_87);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_89 = (bytestrings__bytestring_t)ivar_85;
+        if (ivar_89 != NULL) ivar_89->count++;
+        release_bytestrings__bytestring(ivar_85);
+        bytestrings__bytestring_t ivar_88;
+        ivar_88 = (bytestrings__bytestring_t)hex__bytestring2hexstring((bytestrings__bytestring_t)ivar_89);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_81 = (bytestrings__bytestring_t)ivar_88;
+        if (ivar_81 != NULL) ivar_81->count++;
+        release_bytestrings__bytestring(ivar_88);
+        /* outputbytestring */ bytestrings__bytestring_t ivar_188;
+        bytestrings__bytestring_t ivar_294;
+        bytestrings__bytestring_t ivar_291;
+        bytestrings__bytestring_t ivar_282;
+        bytestrings__bytestring_t ivar_279;
+        bytestrings__bytestring_t ivar_270;
+        bytestrings__bytestring_t ivar_267;
+        bytestrings__bytestring_t ivar_258;
+        bytestrings__bytestring_t ivar_255;
+        bytestrings__bytestring_t ivar_246;
+        bytestrings__bytestring_t ivar_243;
+        bytestrings__bytestring_t ivar_234;
+        bytestrings__bytestring_t ivar_231;
+        bytestrings__bytestring_t ivar_222;
+        Milenage_record_24_t ivar_220;
+        uint32_t len9706 = 6;
+        uint32_t characters9707[6] = {92, 110, 102, 49, 58, 32};
+        stringliteral_t string9705 = mk_string(6, characters9707);
+        ivar_220 = (Milenage_record_24_t)strings__make_string(len9706, string9705);
+        strings__string_t ivar_218;
+        //copying to strings__string from Milenage_record_24;
+        ivar_218 = (strings__string_t)ivar_220;
+        if (ivar_218 != NULL) ivar_218->count++;
+        release_Milenage_record_24(ivar_220);
+        bytestrings__bytestring_t ivar_217;
+        ivar_217 = (bytestrings__bytestring_t)bytestrings__mk_bytestring((strings__string_t)ivar_218);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_222 = (bytestrings__bytestring_t)ivar_217;
+        if (ivar_222 != NULL) ivar_222->count++;
+        release_bytestrings__bytestring(ivar_217);
+        bytestrings__bytestring_t ivar_221;
+        ivar_221 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_222, (bytestrings__bytestring_t)ivar_27);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_231 = (bytestrings__bytestring_t)ivar_221;
+        if (ivar_231 != NULL) ivar_231->count++;
+        release_bytestrings__bytestring(ivar_221);
+        bytestrings__bytestring_t ivar_232;
+        Milenage_record_24_t ivar_229;
+        uint32_t len9709 = 8;
+        uint32_t characters9710[8] = {102, 49, 115, 116, 97, 114, 58, 32};
+        stringliteral_t string9708 = mk_string(8, characters9710);
+        ivar_229 = (Milenage_record_24_t)strings__make_string(len9709, string9708);
+        strings__string_t ivar_227;
+        //copying to strings__string from Milenage_record_24;
+        ivar_227 = (strings__string_t)ivar_229;
+        if (ivar_227 != NULL) ivar_227->count++;
+        release_Milenage_record_24(ivar_229);
+        bytestrings__bytestring_t ivar_226;
+        ivar_226 = (bytestrings__bytestring_t)bytestrings__mk_bytestring((strings__string_t)ivar_227);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_232 = (bytestrings__bytestring_t)ivar_226;
+        if (ivar_232 != NULL) ivar_232->count++;
+        release_bytestrings__bytestring(ivar_226);
+        bytestrings__bytestring_t ivar_230;
+        ivar_230 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_231, (bytestrings__bytestring_t)ivar_232);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_234 = (bytestrings__bytestring_t)ivar_230;
+        if (ivar_234 != NULL) ivar_234->count++;
+        release_bytestrings__bytestring(ivar_230);
+        bytestrings__bytestring_t ivar_233;
+        ivar_233 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_234, (bytestrings__bytestring_t)ivar_36);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_243 = (bytestrings__bytestring_t)ivar_233;
+        if (ivar_243 != NULL) ivar_243->count++;
+        release_bytestrings__bytestring(ivar_233);
+        bytestrings__bytestring_t ivar_244;
+        Milenage_record_24_t ivar_241;
+        uint32_t len9712 = 4;
+        uint32_t characters9713[4] = {102, 50, 58, 32};
+        stringliteral_t string9711 = mk_string(4, characters9713);
+        ivar_241 = (Milenage_record_24_t)strings__make_string(len9712, string9711);
+        strings__string_t ivar_239;
+        //copying to strings__string from Milenage_record_24;
+        ivar_239 = (strings__string_t)ivar_241;
+        if (ivar_239 != NULL) ivar_239->count++;
+        release_Milenage_record_24(ivar_241);
+        bytestrings__bytestring_t ivar_238;
+        ivar_238 = (bytestrings__bytestring_t)bytestrings__mk_bytestring((strings__string_t)ivar_239);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_244 = (bytestrings__bytestring_t)ivar_238;
+        if (ivar_244 != NULL) ivar_244->count++;
+        release_bytestrings__bytestring(ivar_238);
+        bytestrings__bytestring_t ivar_242;
+        ivar_242 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_243, (bytestrings__bytestring_t)ivar_244);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_246 = (bytestrings__bytestring_t)ivar_242;
+        if (ivar_246 != NULL) ivar_246->count++;
+        release_bytestrings__bytestring(ivar_242);
+        bytestrings__bytestring_t ivar_245;
+        ivar_245 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_246, (bytestrings__bytestring_t)ivar_45);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_255 = (bytestrings__bytestring_t)ivar_245;
+        if (ivar_255 != NULL) ivar_255->count++;
+        release_bytestrings__bytestring(ivar_245);
+        bytestrings__bytestring_t ivar_256;
+        Milenage_record_24_t ivar_253;
+        uint32_t len9715 = 4;
+        uint32_t characters9716[4] = {102, 51, 58, 32};
+        stringliteral_t string9714 = mk_string(4, characters9716);
+        ivar_253 = (Milenage_record_24_t)strings__make_string(len9715, string9714);
+        strings__string_t ivar_251;
+        //copying to strings__string from Milenage_record_24;
+        ivar_251 = (strings__string_t)ivar_253;
+        if (ivar_251 != NULL) ivar_251->count++;
+        release_Milenage_record_24(ivar_253);
+        bytestrings__bytestring_t ivar_250;
+        ivar_250 = (bytestrings__bytestring_t)bytestrings__mk_bytestring((strings__string_t)ivar_251);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_256 = (bytestrings__bytestring_t)ivar_250;
+        if (ivar_256 != NULL) ivar_256->count++;
+        release_bytestrings__bytestring(ivar_250);
+        bytestrings__bytestring_t ivar_254;
+        ivar_254 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_255, (bytestrings__bytestring_t)ivar_256);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_258 = (bytestrings__bytestring_t)ivar_254;
+        if (ivar_258 != NULL) ivar_258->count++;
+        release_bytestrings__bytestring(ivar_254);
+        bytestrings__bytestring_t ivar_257;
+        ivar_257 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_258, (bytestrings__bytestring_t)ivar_54);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_267 = (bytestrings__bytestring_t)ivar_257;
+        if (ivar_267 != NULL) ivar_267->count++;
+        release_bytestrings__bytestring(ivar_257);
+        bytestrings__bytestring_t ivar_268;
+        Milenage_record_24_t ivar_265;
+        uint32_t len9718 = 4;
+        uint32_t characters9719[4] = {102, 52, 58, 32};
+        stringliteral_t string9717 = mk_string(4, characters9719);
+        ivar_265 = (Milenage_record_24_t)strings__make_string(len9718, string9717);
+        strings__string_t ivar_263;
+        //copying to strings__string from Milenage_record_24;
+        ivar_263 = (strings__string_t)ivar_265;
+        if (ivar_263 != NULL) ivar_263->count++;
+        release_Milenage_record_24(ivar_265);
+        bytestrings__bytestring_t ivar_262;
+        ivar_262 = (bytestrings__bytestring_t)bytestrings__mk_bytestring((strings__string_t)ivar_263);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_268 = (bytestrings__bytestring_t)ivar_262;
+        if (ivar_268 != NULL) ivar_268->count++;
+        release_bytestrings__bytestring(ivar_262);
+        bytestrings__bytestring_t ivar_266;
+        ivar_266 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_267, (bytestrings__bytestring_t)ivar_268);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_270 = (bytestrings__bytestring_t)ivar_266;
+        if (ivar_270 != NULL) ivar_270->count++;
+        release_bytestrings__bytestring(ivar_266);
+        bytestrings__bytestring_t ivar_269;
+        ivar_269 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_270, (bytestrings__bytestring_t)ivar_63);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_279 = (bytestrings__bytestring_t)ivar_269;
+        if (ivar_279 != NULL) ivar_279->count++;
+        release_bytestrings__bytestring(ivar_269);
+        bytestrings__bytestring_t ivar_280;
+        Milenage_record_24_t ivar_277;
+        uint32_t len9721 = 4;
+        uint32_t characters9722[4] = {102, 53, 58, 32};
+        stringliteral_t string9720 = mk_string(4, characters9722);
+        ivar_277 = (Milenage_record_24_t)strings__make_string(len9721, string9720);
+        strings__string_t ivar_275;
+        //copying to strings__string from Milenage_record_24;
+        ivar_275 = (strings__string_t)ivar_277;
+        if (ivar_275 != NULL) ivar_275->count++;
+        release_Milenage_record_24(ivar_277);
+        bytestrings__bytestring_t ivar_274;
+        ivar_274 = (bytestrings__bytestring_t)bytestrings__mk_bytestring((strings__string_t)ivar_275);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_280 = (bytestrings__bytestring_t)ivar_274;
+        if (ivar_280 != NULL) ivar_280->count++;
+        release_bytestrings__bytestring(ivar_274);
+        bytestrings__bytestring_t ivar_278;
+        ivar_278 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_279, (bytestrings__bytestring_t)ivar_280);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_282 = (bytestrings__bytestring_t)ivar_278;
+        if (ivar_282 != NULL) ivar_282->count++;
+        release_bytestrings__bytestring(ivar_278);
+        bytestrings__bytestring_t ivar_281;
+        ivar_281 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_282, (bytestrings__bytestring_t)ivar_72);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_291 = (bytestrings__bytestring_t)ivar_281;
+        if (ivar_291 != NULL) ivar_291->count++;
+        release_bytestrings__bytestring(ivar_281);
+        bytestrings__bytestring_t ivar_292;
+        Milenage_record_24_t ivar_289;
+        uint32_t len9724 = 8;
+        uint32_t characters9725[8] = {102, 53, 115, 116, 97, 114, 58, 32};
+        stringliteral_t string9723 = mk_string(8, characters9725);
+        ivar_289 = (Milenage_record_24_t)strings__make_string(len9724, string9723);
+        strings__string_t ivar_287;
+        //copying to strings__string from Milenage_record_24;
+        ivar_287 = (strings__string_t)ivar_289;
+        if (ivar_287 != NULL) ivar_287->count++;
+        release_Milenage_record_24(ivar_289);
+        bytestrings__bytestring_t ivar_286;
+        ivar_286 = (bytestrings__bytestring_t)bytestrings__mk_bytestring((strings__string_t)ivar_287);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_292 = (bytestrings__bytestring_t)ivar_286;
+        if (ivar_292 != NULL) ivar_292->count++;
+        release_bytestrings__bytestring(ivar_286);
+        bytestrings__bytestring_t ivar_290;
+        ivar_290 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_291, (bytestrings__bytestring_t)ivar_292);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_294 = (bytestrings__bytestring_t)ivar_290;
+        if (ivar_294 != NULL) ivar_294->count++;
+        release_bytestrings__bytestring(ivar_290);
+        bytestrings__bytestring_t ivar_293;
+        ivar_293 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_294, (bytestrings__bytestring_t)ivar_81);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_188 = (bytestrings__bytestring_t)ivar_293;
+        if (ivar_188 != NULL) ivar_188->count++;
+        release_bytestrings__bytestring(ivar_293);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        result = (bytestrings__bytestring_t)ivar_188;
+        if (result != NULL) result->count++;
+        release_bytestrings__bytestring(ivar_188);
+
+        return result;
+}
+
+Milenage_closure_22_t new_Milenage_closure_22(void){
+        static struct Milenage_funtype_21_ftbl_s ftbl = {.fptr = (bytestrings__bytestring_t (*)(Milenage_funtype_21_t, Milenage_record_16_t))&f_Milenage_closure_22, .mptr = (bytestrings__bytestring_t (*)(Milenage_funtype_21_t, bytestrings__bytestring_t, bytestrings__bytestring_t, Milenage_array_0_t, Milenage_array_0_t, Milenage_array_0_t))&m_Milenage_closure_22, .rptr =  (void (*)(Milenage_funtype_21_t))&release_Milenage_closure_22, .cptr = (Milenage_funtype_21_t (*)(Milenage_funtype_21_t))&copy_Milenage_closure_22};
+        Milenage_closure_22_t tmp = (Milenage_closure_22_t) safe_malloc(sizeof(struct Milenage_closure_22_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_Milenage_closure_22(Milenage_funtype_21_t closure){
+        Milenage_closure_22_t x = (Milenage_closure_22_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_funtype_6(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+Milenage_closure_22_t copy_Milenage_closure_22(Milenage_closure_22_t x){
+        Milenage_closure_22_t y = new_Milenage_closure_22();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            Milenage_funtype_21_htbl_t new_htbl = (Milenage_funtype_21_htbl_t) safe_malloc(sizeof(struct Milenage_funtype_21_htbl_s));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            Milenage_funtype_21_hashentry_t * new_data = (Milenage_funtype_21_hashentry_t *) safe_malloc(new_htbl->size * sizeof(struct Milenage_funtype_21_hashentry_s));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(struct Milenage_funtype_21_hashentry_s)));
+            new_htbl->data = new_data;
+            for (uint32_t j = 0; j < new_htbl->size; j++){
+                        if ((new_htbl->data[j].key != 0) || new_htbl->data[j].keyhash != 0) new_htbl->data[j].value->count++;};
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_Milenage_funtype_23(Milenage_funtype_23_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+Milenage_funtype_23_t copy_Milenage_funtype_23(Milenage_funtype_23_t x){return x->ftbl->cptr(x);}
+
+uint32_t lookup_Milenage_funtype_23(Milenage_funtype_23_htbl_t htbl, mpz_ptr_t i, uint32_t ihash){
+        uint32_t mask = htbl->size - 1;
+        uint32_t hashindex = ihash & mask; Milenage_funtype_23_hashentry_t data = htbl->data[hashindex];
+        bool_t keyzero;
+
+        int64_t tmp9699 = mpz_cmp_ui(data.key, 0);
+        keyzero = (tmp9699 == 0);
+        bool_t keymatch;
+        int64_t tmp9700 = mpz_cmp(data.key, i);
+        keymatch = (tmp9700 == 0);
+        while ((!keyzero || data.keyhash != 0) &&
+                 (data.keyhash != ihash || !keymatch)){
+                hashindex++;
+                hashindex = hashindex & mask;
+                data = htbl->data[hashindex];
+
+        int64_t tmp9699 = mpz_cmp_ui(data.key, 0);
+        keyzero = (tmp9699 == 0);
+
+        int64_t tmp9700 = mpz_cmp(data.key, i);
+        keymatch = (tmp9700 == 0);
+                }
+        return hashindex;
+        }
+
+Milenage_funtype_23_t dupdate_Milenage_funtype_23(Milenage_funtype_23_t a, mpz_ptr_t i, uint32_t v){
+        Milenage_funtype_23_htbl_t htbl = a->htbl;
+        if (htbl == NULL){//construct new htbl
+                htbl = (Milenage_funtype_23_htbl_t)safe_malloc(sizeof(struct Milenage_funtype_23_htbl_s));
+                htbl->size = HTBL_DEFAULT_SIZE; htbl->num_entries = 0;
+                htbl->data = (Milenage_funtype_23_hashentry_t *)safe_malloc(HTBL_DEFAULT_SIZE * sizeof(struct Milenage_funtype_23_hashentry_s));
+                for (uint32_t j = 0; j < HTBL_DEFAULT_SIZE; j++){mpz_init(htbl->data[j].key);mpz_set_ui(htbl->data[j].key, 0); htbl->data[j].keyhash = 0;
+                }
+                a->htbl = htbl;
+        }
+        uint32_t size = htbl->size;
+        uint32_t num_entries = htbl->num_entries;
+        Milenage_funtype_23_hashentry_t * data = htbl->data;
+        if (num_entries/3 >  size/5){//resize data
+                uint32_t new_size = 2*size; uint32_t new_mask = new_size - 1;
+                if (size >= HTBL_MAX_SIZE) out_of_memory();
+                Milenage_funtype_23_hashentry_t * new_data = (Milenage_funtype_23_hashentry_t *)safe_malloc(new_size * sizeof(struct Milenage_funtype_23_hashentry_s));
+                for (uint32_t j = 0; j < new_size; j++){
+                        new_data[j].key = 0;
+                        new_data[j].keyhash = 0;}
+                for (uint32_t j = 0; j < size; j++){//transfer entries
+                        uint32_t keyhash = data[j].keyhash;
+                        bool_t keyzero;
+                        int64_t tmp9701 = mpz_cmp_ui(data[j].key, 0);keyzero = (tmp9701 == 0);
+                        if (!keyzero || keyhash != 0){
+                                uint32_t new_loc = keyhash ^ new_mask;
+                                int64_t tmp9702 = mpz_cmp_ui(new_data[new_loc].key, 0);
+                                keyzero = (tmp9702 == 0);
+                                while (keyzero && new_data[new_loc].keyhash == 0){
+                                        new_loc++;
+                                        new_loc = new_loc ^ new_mask;
+
+                                        int64_t tmp9703 = mpz_cmp_ui(new_data[new_loc].key, 0);
+                                        keyzero = (tmp9703 == 0);
+                                }
+                                mpz_set(new_data[new_loc].key, data[j].key);
+                                new_data[new_loc].keyhash = keyhash;
+                                new_data[new_loc].value = (uint32_t)data[j].value;
+                                }}
+                htbl->size = new_size;
+                htbl->num_entries = num_entries;
+                htbl->data = new_data;
+                safe_free(data);}
+        uint32_t ihash = mpz_hash(i);
+        uint32_t hashindex = lookup_Milenage_funtype_23(htbl, i, ihash);
+        Milenage_funtype_23_hashentry_t hentry = htbl->data[hashindex];
+        uint32_t hkeyhash = hentry.keyhash;
+        bool_t hentrykeyzero;
+        int64_t tmp9704 = mpz_cmp_ui(hentry.key, 0);hentrykeyzero = (tmp9704 == 0);
+
+        if (hentrykeyzero && (hkeyhash == 0))
+                {mpz_set(htbl->data[hashindex].key, i); htbl->data[hashindex].keyhash = ihash; htbl->data[hashindex].value = (uint32_t)v; htbl->num_entries++;}
+            else {uint32_t tempvalue;tempvalue = (uint32_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (uint32_t)v;};
+        return a;
+
+}
+
+Milenage_funtype_23_t update_Milenage_funtype_23(Milenage_funtype_23_t a, mpz_ptr_t i, uint32_t v){
+        if (a->count == 1){
+                return dupdate_Milenage_funtype_23(a, i, v);
+            } else {
+                Milenage_funtype_23_t x = copy_Milenage_funtype_23(a);
+                a->count--;
+                return dupdate_Milenage_funtype_23(x, i, v);
+            }}
+
+bool_t equal_Milenage_funtype_23(Milenage_funtype_23_t x, Milenage_funtype_23_t y){
+        return false;}
+
+
+Milenage_record_24_t new_Milenage_record_24(void){
+        Milenage_record_24_t tmp = (Milenage_record_24_t) safe_malloc(sizeof(struct Milenage_record_24_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_Milenage_record_24(Milenage_record_24_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_funtype_23(x->seq);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_Milenage_record_24_ptr(pointer_t x, type_actual_t T){
+        release_Milenage_record_24((Milenage_record_24_t)x);
+}
+
+Milenage_record_24_t copy_Milenage_record_24(Milenage_record_24_t x){
+        Milenage_record_24_t y = new_Milenage_record_24();
+        mpz_set(y->length, x->length);
+        y->seq = x->seq;
+        if (y->seq != NULL){y->seq->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_Milenage_record_24(Milenage_record_24_t x, Milenage_record_24_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->length == y->length;
+        tmp = tmp && equal_Milenage_funtype_23(x->seq, y->seq);
+        return tmp;}
+
+bool_t equal_Milenage_record_24_ptr(pointer_t x, pointer_t y, actual_Milenage_record_24_t T){
+        return equal_Milenage_record_24((Milenage_record_24_t)x, (Milenage_record_24_t)y);
+}
+
+actual_Milenage_record_24_t actual_Milenage_record_24(){
+        actual_Milenage_record_24_t new = (actual_Milenage_record_24_t)safe_malloc(sizeof(struct actual_Milenage_record_24_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_Milenage_record_24_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_Milenage_record_24_ptr);
+ 
+
+ 
+        return new;
+ };
+
+Milenage_record_24_t update_Milenage_record_24_length(Milenage_record_24_t x, mpz_ptr_t v){
+        Milenage_record_24_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_Milenage_record_24(x); x->count--;};
+        mpz_set(y->length, v);
+        return y;}
+
+Milenage_record_24_t update_Milenage_record_24_seq(Milenage_record_24_t x, Milenage_funtype_23_t v){
+        Milenage_record_24_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->seq != NULL){release_Milenage_funtype_23(x->seq);};}
+        else {y = copy_Milenage_record_24(x); x->count--; y->seq->count--;};
+        y->seq = (Milenage_funtype_23_t)v;
+        return y;}
+
+
+
+
+bytestrings__bytestring_t f_Milenage_closure_25(struct Milenage_closure_25_s * closure, Milenage_record_16_t bvar){
+        bytestrings__bytestring_t bvar_1;
+        bvar_1 = (bytestrings__bytestring_t)bvar->project_1;
+        bvar->project_1->count++;
+        bytestrings__bytestring_t bvar_2;
+        bvar_2 = (bytestrings__bytestring_t)bvar->project_2;
+        bvar->project_2->count++;
+        Milenage_array_0_t bvar_3;
+        bvar_3 = (Milenage_array_0_t)bvar->project_3;
+        bvar->project_3->count++;
+        Milenage_array_0_t bvar_4;
+        bvar_4 = (Milenage_array_0_t)bvar->project_4;
+        bvar->project_4->count++;
+        Milenage_array_0_t bvar_5;
+        bvar_5 = (Milenage_array_0_t)bvar->project_5;
+        bvar->project_5->count++;
+        release_Milenage_record_16(bvar);
+        bytestrings__bytestring_t result = h_Milenage_closure_25(bvar_1, bvar_2, bvar_3, bvar_4, bvar_5, closure->fvar_1); 
+        release_bytestrings__bytestring(bvar_1);
+        release_bytestrings__bytestring(bvar_2);
+        release_Milenage_array_0(bvar_3);
+        release_Milenage_array_0(bvar_4);
+        release_Milenage_array_0(bvar_5);
+        return result;}
+
+bytestrings__bytestring_t m_Milenage_closure_25(struct Milenage_closure_25_s * closure, bytestrings__bytestring_t bvar_1, bytestrings__bytestring_t bvar_2, Milenage_array_0_t bvar_3, Milenage_array_0_t bvar_4, Milenage_array_0_t bvar_5){
+        return h_Milenage_closure_25(bvar_1, bvar_2, bvar_3, bvar_4, bvar_5, closure->fvar_1);}
+
+extern bytestrings__bytestring_t h_Milenage_closure_25(bytestrings__bytestring_t ivar_4, bytestrings__bytestring_t ivar_5, Milenage_array_0_t ivar_6, Milenage_array_0_t ivar_7, Milenage_array_0_t ivar_8, Milenage_funtype_6_t ivar_1){
+        bytestrings__bytestring_t result;
+        /* opc */ Milenage_array_0_t ivar_9;
+        Milenage_funtype_6_t ivar_14;
+        Milenage_funtype_6_t ivar_17;
+        ivar_1->count++;
+        ivar_17 = (Milenage_funtype_6_t)Milenage__OPC((Milenage_funtype_6_t)ivar_1);
+        //copying to Milenage_funtype_6 from Milenage_funtype_6;
+        ivar_14 = (Milenage_funtype_6_t)ivar_17;
+        if (ivar_14 != NULL) ivar_14->count++;
+        release_Milenage_funtype_6(ivar_17);
+        Milenage_array_0_t ivar_12;
+        ivar_6->count++;
+        ivar_12 = (Milenage_array_0_t)ivar_14->ftbl->mptr(ivar_14, ivar_6, ivar_8);
+        ivar_14->ftbl->rptr(ivar_14);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        ivar_9 = (Milenage_array_0_t)ivar_12;
+        if (ivar_9 != NULL) ivar_9->count++;
+        release_Milenage_array_0(ivar_12);
+        Milenage_funtype_21_t ivar_28;
+        Milenage_funtype_21_t ivar_31;
+        ivar_1->count++;
+        ivar_31 = (Milenage_funtype_21_t)Milenage__testAllFunc((Milenage_funtype_6_t)ivar_1);
+        //copying to Milenage_funtype_21 from Milenage_funtype_21;
+        ivar_28 = (Milenage_funtype_21_t)ivar_31;
+        if (ivar_28 != NULL) ivar_28->count++;
+        release_Milenage_funtype_21(ivar_31);
+        bytestrings__bytestring_t ivar_26;
+        ivar_26 = (bytestrings__bytestring_t)ivar_28->ftbl->mptr(ivar_28, ivar_4, ivar_5, ivar_6, ivar_7, ivar_9);
+        ivar_28->ftbl->rptr(ivar_28);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        result = (bytestrings__bytestring_t)ivar_26;
+        if (result != NULL) result->count++;
+        release_bytestrings__bytestring(ivar_26);
+
+        return result;
+}
+
+Milenage_closure_25_t new_Milenage_closure_25(void){
+        static struct Milenage_funtype_21_ftbl_s ftbl = {.fptr = (bytestrings__bytestring_t (*)(Milenage_funtype_21_t, Milenage_record_16_t))&f_Milenage_closure_25, .mptr = (bytestrings__bytestring_t (*)(Milenage_funtype_21_t, bytestrings__bytestring_t, bytestrings__bytestring_t, Milenage_array_0_t, Milenage_array_0_t, Milenage_array_0_t))&m_Milenage_closure_25, .rptr =  (void (*)(Milenage_funtype_21_t))&release_Milenage_closure_25, .cptr = (Milenage_funtype_21_t (*)(Milenage_funtype_21_t))&copy_Milenage_closure_25};
+        Milenage_closure_25_t tmp = (Milenage_closure_25_t) safe_malloc(sizeof(struct Milenage_closure_25_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_Milenage_closure_25(Milenage_funtype_21_t closure){
+        Milenage_closure_25_t x = (Milenage_closure_25_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_Milenage_funtype_6(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+Milenage_closure_25_t copy_Milenage_closure_25(Milenage_closure_25_t x){
+        Milenage_closure_25_t y = new_Milenage_closure_25();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            Milenage_funtype_21_htbl_t new_htbl = (Milenage_funtype_21_htbl_t) safe_malloc(sizeof(struct Milenage_funtype_21_htbl_s));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            Milenage_funtype_21_hashentry_t * new_data = (Milenage_funtype_21_hashentry_t *) safe_malloc(new_htbl->size * sizeof(struct Milenage_funtype_21_hashentry_s));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(struct Milenage_funtype_21_hashentry_s)));
+            new_htbl->data = new_data;
+            for (uint32_t j = 0; j < new_htbl->size; j++){
+                        if ((new_htbl->data[j].key != 0) || new_htbl->data[j].keyhash != 0) new_htbl->data[j].value->count++;};
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+extern Milenage_array_0_t Milenage__nbyv(uint8_t ivar_1, uint32_t ivar_2){
+        Milenage_array_0_t  result;
+        uint32_t size9651;
+        //copying to uint32 from uint32;
+        size9651 = (uint32_t)ivar_2;
+        size9651 += 0;
+        result = new_Milenage_array_0(size9651);
+        uint32_t ivar_3;
+        for (uint32_t index9650 = 0; index9650 < size9651; index9650++){
+             ivar_3 = (uint32_t)index9650;
+             //copying to uint8 from uint8;
+             result->elems[index9650] = (uint8_t)ivar_1;
+        };
+
+        
+        return result;
+}
+
+extern Milenage_array_0_t Milenage__c1(void){
+        Milenage_array_0_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    uint8_t ivar_4;
+        ivar_4 = (uint8_t)0;
+        uint32_t ivar_5;
+        ivar_5 = (uint32_t)16;
+        Milenage_array_0_t ivar_3;
+        ivar_3 = (Milenage_array_0_t)Milenage__nbyv((uint8_t)ivar_4, (uint32_t)ivar_5);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        result = (Milenage_array_0_t)ivar_3;
+        if (result != NULL) result->count++;
+        release_Milenage_array_0(ivar_3);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern Milenage_array_0_t Milenage__c2(void){
+        Milenage_array_0_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    uint8_t ivar_1;
+        ivar_1 = (uint8_t)1;
+        Milenage_array_0_t ivar_2;
+        ivar_2 = (Milenage_array_0_t)Milenage__c1();
+        if (ivar_2 != NULL) ivar_2->count++;
+        Milenage_array_0_t ivar_7;
+        uint8_t ivar_4;
+        ivar_4 = (uint8_t)15;
+        ivar_7 = (Milenage_array_0_t)update_Milenage_array_0(ivar_2, ivar_4, ivar_1);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        result = (Milenage_array_0_t)ivar_7;
+        if (result != NULL) result->count++;
+        release_Milenage_array_0(ivar_7);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern Milenage_array_0_t Milenage__c3(void){
+        Milenage_array_0_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    uint8_t ivar_1;
+        ivar_1 = (uint8_t)2;
+        Milenage_array_0_t ivar_2;
+        ivar_2 = (Milenage_array_0_t)Milenage__c1();
+        if (ivar_2 != NULL) ivar_2->count++;
+        Milenage_array_0_t ivar_7;
+        uint8_t ivar_4;
+        ivar_4 = (uint8_t)15;
+        ivar_7 = (Milenage_array_0_t)update_Milenage_array_0(ivar_2, ivar_4, ivar_1);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        result = (Milenage_array_0_t)ivar_7;
+        if (result != NULL) result->count++;
+        release_Milenage_array_0(ivar_7);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern Milenage_array_0_t Milenage__c4(void){
+        Milenage_array_0_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    uint8_t ivar_1;
+        ivar_1 = (uint8_t)4;
+        Milenage_array_0_t ivar_2;
+        ivar_2 = (Milenage_array_0_t)Milenage__c1();
+        if (ivar_2 != NULL) ivar_2->count++;
+        Milenage_array_0_t ivar_7;
+        uint8_t ivar_4;
+        ivar_4 = (uint8_t)15;
+        ivar_7 = (Milenage_array_0_t)update_Milenage_array_0(ivar_2, ivar_4, ivar_1);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        result = (Milenage_array_0_t)ivar_7;
+        if (result != NULL) result->count++;
+        release_Milenage_array_0(ivar_7);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern Milenage_array_0_t Milenage__c5(void){
+        Milenage_array_0_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    uint8_t ivar_1;
+        ivar_1 = (uint8_t)8;
+        Milenage_array_0_t ivar_2;
+        ivar_2 = (Milenage_array_0_t)Milenage__c1();
+        if (ivar_2 != NULL) ivar_2->count++;
+        Milenage_array_0_t ivar_7;
+        uint8_t ivar_4;
+        ivar_4 = (uint8_t)15;
+        ivar_7 = (Milenage_array_0_t)update_Milenage_array_0(ivar_2, ivar_4, ivar_1);
+        //copying to Milenage_array_0 from Milenage_array_0;
+        result = (Milenage_array_0_t)ivar_7;
+        if (result != NULL) result->count++;
+        release_Milenage_array_0(ivar_7);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern uint8_t Milenage__r1(void){
+        uint8_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    result = (uint8_t)64;
+
+        defined = true;};
+        
+        return result;
+}
+
+extern uint8_t Milenage__r2(void){
+        uint8_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    result = (uint8_t)0;
+
+        defined = true;};
+        
+        return result;
+}
+
+extern uint8_t Milenage__r3(void){
+        uint8_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    result = (uint8_t)32;
+
+        defined = true;};
+        
+        return result;
+}
+
+extern uint8_t Milenage__r4(void){
+        uint8_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    result = (uint8_t)64;
+
+        defined = true;};
+        
+        return result;
+}
+
+extern uint8_t Milenage__r5(void){
+        uint8_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    result = (uint8_t)96;
+
+        defined = true;};
+        
+        return result;
+}
+
+extern Milenage_array_0_t Milenage__byvto(uint32_t ivar_1, Milenage_array_0_t ivar_2, uint32_t ivar_3){
+        Milenage_array_0_t  result;
+        uint32_t size9660;
+        //copying to uint32 from uint32;
+        size9660 = (uint32_t)ivar_3;
+        size9660 += 0;
+        result = new_Milenage_array_0(size9660);
+        uint32_t ivar_4;
+        for (uint32_t index9659 = 0; index9659 < size9660; index9659++){
+             ivar_4 = (uint32_t)index9659;
+             result->elems[index9659] = (uint8_t)ivar_2->elems[ivar_4];
+        };
+        release_Milenage_array_0(ivar_2);
+
+        
+        return result;
+}
+
+extern Milenage_funtype_1_t Milenage__byvfrom(uint32_t ivar_1, Milenage_array_0_t ivar_2, uint32_t ivar_3){
+        Milenage_funtype_1_t  result;
+        Milenage_closure_2_t cl9676;
+        cl9676 = new_Milenage_closure_2();
+        cl9676->fvar_1 = (uint32_t)ivar_3;
+        cl9676->fvar_2 = (Milenage_array_0_t)ivar_2;
+        if (cl9676->fvar_2 != NULL) cl9676->fvar_2->count++;
+        release_Milenage_array_0(ivar_2);
+        result = (Milenage_funtype_1_t)cl9676;
+
+        
+        return result;
+}
+
+extern Milenage_funtype_4_t Milenage__OUT1(Milenage_funtype_6_t ivar_1){
+        Milenage_funtype_4_t  result;
+        Milenage_closure_7_t cl9677;
+        cl9677 = new_Milenage_closure_7();
+        cl9677->fvar_1 = (Milenage_funtype_6_t)ivar_1;
+        if (cl9677->fvar_1 != NULL) cl9677->fvar_1->count++;
+        release_Milenage_funtype_6(ivar_1);
+        result = (Milenage_funtype_4_t)cl9677;
+
+        
+        return result;
+}
+
+extern Milenage_funtype_9_t Milenage__OUT2(Milenage_funtype_6_t ivar_1){
+        Milenage_funtype_9_t  result;
+        Milenage_closure_10_t cl9678;
+        cl9678 = new_Milenage_closure_10();
+        cl9678->fvar_1 = (Milenage_funtype_6_t)ivar_1;
+        if (cl9678->fvar_1 != NULL) cl9678->fvar_1->count++;
+        release_Milenage_funtype_6(ivar_1);
+        result = (Milenage_funtype_9_t)cl9678;
+
+        
+        return result;
+}
+
+extern Milenage_funtype_9_t Milenage__OUT3(Milenage_funtype_6_t ivar_1){
+        Milenage_funtype_9_t  result;
+        Milenage_closure_11_t cl9679;
+        cl9679 = new_Milenage_closure_11();
+        cl9679->fvar_1 = (Milenage_funtype_6_t)ivar_1;
+        if (cl9679->fvar_1 != NULL) cl9679->fvar_1->count++;
+        release_Milenage_funtype_6(ivar_1);
+        result = (Milenage_funtype_9_t)cl9679;
+
+        
+        return result;
+}
+
+extern Milenage_funtype_9_t Milenage__OUT4(Milenage_funtype_6_t ivar_1){
+        Milenage_funtype_9_t  result;
+        Milenage_closure_12_t cl9680;
+        cl9680 = new_Milenage_closure_12();
+        cl9680->fvar_1 = (Milenage_funtype_6_t)ivar_1;
+        if (cl9680->fvar_1 != NULL) cl9680->fvar_1->count++;
+        release_Milenage_funtype_6(ivar_1);
+        result = (Milenage_funtype_9_t)cl9680;
+
+        
+        return result;
+}
+
+extern Milenage_funtype_9_t Milenage__OUT5(Milenage_funtype_6_t ivar_1){
+        Milenage_funtype_9_t  result;
+        Milenage_closure_13_t cl9681;
+        cl9681 = new_Milenage_closure_13();
+        cl9681->fvar_1 = (Milenage_funtype_6_t)ivar_1;
+        if (cl9681->fvar_1 != NULL) cl9681->fvar_1->count++;
+        release_Milenage_funtype_6(ivar_1);
+        result = (Milenage_funtype_9_t)cl9681;
+
+        
+        return result;
+}
+
+extern Milenage_array_0_t Milenage__IN1(bytestrings__bytestring_t ivar_1, bytestrings__bytestring_t ivar_2){
+        Milenage_array_0_t  result;
+        bytestrings__bytestring_t ivar_18;
+        bytestrings__bytestring_t ivar_16;
+        bytestrings__bytestring_t ivar_13;
+        bytestrings__bytestring_t ivar_9;
+        ivar_1->count++;
+        ivar_2->count++;
+        ivar_9 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_1, (bytestrings__bytestring_t)ivar_2);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_13 = (bytestrings__bytestring_t)ivar_9;
+        if (ivar_13 != NULL) ivar_13->count++;
+        release_bytestrings__bytestring(ivar_9);
+        bytestrings__bytestring_t ivar_12;
+        ivar_12 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_13, (bytestrings__bytestring_t)ivar_1);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_16 = (bytestrings__bytestring_t)ivar_12;
+        if (ivar_16 != NULL) ivar_16->count++;
+        release_bytestrings__bytestring(ivar_12);
+        bytestrings__bytestring_t ivar_15;
+        ivar_15 = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_16, (bytestrings__bytestring_t)ivar_2);
+        //copying to bytestrings__bytestring from bytestrings__bytestring;
+        ivar_18 = (bytestrings__bytestring_t)ivar_15;
+        if (ivar_18 != NULL) ivar_18->count++;
+        release_bytestrings__bytestring(ivar_15);
+        result = (Milenage_array_0_t)ivar_18->seq;
+        result->count++;
+        release_bytestrings__bytestring(ivar_18);
+
+        
+        return result;
+}
+
+extern Milenage_funtype_6_t Milenage__OPC(Milenage_funtype_6_t ivar_1){
+        Milenage_funtype_6_t  result;
+        Milenage_closure_14_t cl9682;
+        cl9682 = new_Milenage_closure_14();
+        cl9682->fvar_1 = (Milenage_funtype_6_t)ivar_1;
+        if (cl9682->fvar_1 != NULL) cl9682->fvar_1->count++;
+        release_Milenage_funtype_6(ivar_1);
+        result = (Milenage_funtype_6_t)cl9682;
+
+        
+        return result;
+}
+
+extern Milenage_funtype_9_t Milenage__TEMP(Milenage_funtype_6_t ivar_1){
+        Milenage_funtype_9_t  result;
+        Milenage_closure_15_t cl9683;
+        cl9683 = new_Milenage_closure_15();
+        cl9683->fvar_1 = (Milenage_funtype_6_t)ivar_1;
+        if (cl9683->fvar_1 != NULL) cl9683->fvar_1->count++;
+        release_Milenage_funtype_6(ivar_1);
+        result = (Milenage_funtype_9_t)cl9683;
+
+        
+        return result;
+}
+
+extern Milenage_funtype_18_t Milenage__allfunc(Milenage_funtype_6_t ivar_1){
+        Milenage_funtype_18_t  result;
+        Milenage_closure_19_t cl9684;
+        cl9684 = new_Milenage_closure_19();
+        cl9684->fvar_1 = (Milenage_funtype_6_t)ivar_1;
+        if (cl9684->fvar_1 != NULL) cl9684->fvar_1->count++;
+        release_Milenage_funtype_6(ivar_1);
+        result = (Milenage_funtype_18_t)cl9684;
+
+        
+        return result;
+}
+
+extern Milenage_funtype_18_t Milenage__allfun(Milenage_funtype_6_t ivar_1){
+        Milenage_funtype_18_t  result;
+        Milenage_closure_20_t cl9685;
+        cl9685 = new_Milenage_closure_20();
+        cl9685->fvar_1 = (Milenage_funtype_6_t)ivar_1;
+        if (cl9685->fvar_1 != NULL) cl9685->fvar_1->count++;
+        release_Milenage_funtype_6(ivar_1);
+        result = (Milenage_funtype_18_t)cl9685;
+
+        
+        return result;
+}
+
+extern Milenage_funtype_21_t Milenage__testAllFunc(Milenage_funtype_6_t ivar_1){
+        Milenage_funtype_21_t  result;
+        Milenage_closure_22_t cl9726;
+        cl9726 = new_Milenage_closure_22();
+        cl9726->fvar_1 = (Milenage_funtype_6_t)ivar_1;
+        if (cl9726->fvar_1 != NULL) cl9726->fvar_1->count++;
+        release_Milenage_funtype_6(ivar_1);
+        result = (Milenage_funtype_21_t)cl9726;
+
+        
+        return result;
+}
+
+extern Milenage_funtype_21_t Milenage__testAllFun(Milenage_funtype_6_t ivar_1){
+        Milenage_funtype_21_t  result;
+        Milenage_closure_25_t cl9727;
+        cl9727 = new_Milenage_closure_25();
+        cl9727->fvar_1 = (Milenage_funtype_6_t)ivar_1;
+        if (cl9727->fvar_1 != NULL) cl9727->fvar_1->count++;
+        release_Milenage_funtype_6(ivar_1);
+        result = (Milenage_funtype_21_t)cl9727;
+
+        
+        return result;
+}

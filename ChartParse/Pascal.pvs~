@@ -1,0 +1,11 @@
+Pascal  : THEORY
+
+  BEGIN
+
+   Pascal(n)(i: upto(n)): RECURSIVE posnat =
+    IF i = 0 OR i = n THEN 1
+     ELSE Pascal(n-1)(i-1) + Pascal(n-1)(i)
+     ENDIF
+
+
+  END Pascal

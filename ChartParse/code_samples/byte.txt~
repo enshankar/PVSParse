@@ -1,0 +1,5 @@
+byte: TYPE = below(256)
+strings(len: uint32): TYPE = {s : string | s`length = len} %[below(len) -> byte]
+num_non_terminals: byte = 255
+non_terminal: TYPE = below(num_non_terminals)
+

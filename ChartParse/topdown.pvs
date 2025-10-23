@@ -1,0 +1,151 @@
+topdown[num_non_terminals : posnat, terminal_type : TYPE+]
+		: THEORY
+
+  BEGIN
+IMPORTING scaf[num_non_terminals, terminal_type]
+
+
+
+len: VAR nat %the length of the input
+
+%The scaffold entry can be fail, loop, good(span), or pending.
+
+
+stackentry(len): TYPE = [# pos: upto(len), nonterm: non_terminal #]
+
+n: VAR non_terminal
+
+mk_entry(len)(pos: upto(len), n): stackentry(len) =
+ (# pos := pos, nonterm := n #)
+
+loop_or_pending?(e: entry): bool = (loop?(e) or pending?(e))
+
+G: VAR lang_spec
+
+good_tscaffold?(len, G, (s: strings(len)), stack : list[stackentry(len)])(A : scaffold(len)): bool =
+ (FORALL (i: upto(len)), n:
+   CASES A(i)(n) OF
+    fail: good_fail?(len, G, s)(A, i, n),
+    loop: member(mk_entry(len)(i, n), stack) OR good_loop?(len, G, s)(A, i, n), 
+    good(sp):  sp <= len - i AND good_good?(len, G, s)(A, i, n, sp),
+    pending: TRUE
+    ENDCASES)
+
+tdstack_scaffold?(len, G, (s: strings(len)), (i : upto(len)), (stack: list[stackentry(len)]))(A : scaffold(len)): bool =
+   (FORALL (m : stackentry(len)): member(m, stack) => loop_or_pending?(A(m`pos)(m`nonterm)))
+
+fine_tdstack_scaffold?(len, G, (s: strings(len)))((i : upto(len)), (root: non_terminal), (stack: list[stackentry(len)]))(A : scaffold(len)): bool =
+   good_tscaffold?(len, G, s, stack)(A) AND
+   tdstack_scaffold?(len, G, s, i, stack)(A) AND
+   (cons?(stack) => member(mk_entry(len)(i, root), stack))
+
+state(len, G, (s: strings(len)), (pos: upto(len)), (root: non_terminal)): TYPE
+    = [# stack: list[stackentry(len)],
+         scaf: (fine_tdstack_scaffold?(len, G, s)(pos, root, stack)) #]
+
+putstack(len, G, (s: strings(len)), (pos: upto(len)), (root: non_terminal))(St: state(len, G, s, pos, root) | NOT null?(St`stack))(pn: stackentry(len) | pending?(St`scaf(pn`pos)(pn`nonterm)))
+   : state(len, G, s, pos, root)
+ = (IF member(pn, St`stack)
+       THEN St WITH [`scaf(pn`pos)(pn`nonterm) := loop]
+       ELSE St WITH [`stack := cons(pn, St`stack)]
+       ENDIF)
+
+step(len, G, (s: strings(len)), (start: upto(len)), (root: non_terminal))(St : state(len, G, s, start, root)): state(len, G, s, start, root)
+ = (LET scaf = St`scaf,
+	stack = St`stack
+     IN
+    IF null?(stack)
+    THEN IF pending?(scaf(start)(root))
+         THEN St WITH [`stack := cons(mk_entry(len)(start, root), null)]
+         ELSE St
+	 ENDIF
+    ELSE LET pos = car(stack)`pos,
+             cur = car(stack)`nonterm,
+	     rest = cdr(stack)
+	  IN CASES G(cur) OF
+            epsilon: St WITH [`scaf(pos)(cur) := good(0), `stack := rest],
+	    failure: St WITH [`scaf(pos)(cur) := fail, `stack := rest],
+	    any: (LET v = IF pos = len THEN fail ELSE good(1) ENDIF
+	           IN St WITH [`scaf(pos)(cur) := v, `stack := rest]),
+            terminal(a): (LET v = IF pos = len OR a /= s(pos) THEN fail ELSE good(1) ENDIF
+	                   IN St WITH [`scaf(pos)(cur) := v, `stack := rest]),
+            concat(n1, n2): (CASES St`scaf(pos)(n1) OF
+	                      fail: St WITH [`scaf(pos)(cur) := fail, `stack := rest],
+			      loop: St WITH [`scaf(pos)(cur) := loop, `stack := rest],
+			      good(sp): CASES St`scaf(pos + sp)(n2) OF
+			                   fail: St WITH [`scaf(pos)(cur) := fail, `stack := rest],
+					   loop : St WITH [`scaf(pos)(cur) := loop, `stack := rest],
+					   good(sp2): St WITH [`scaf(pos)(cur) := good(sp + sp2), `stack := rest],
+					   pending: putstack(len, G, s, start, root)(St)(mk_entry(len)(pos + sp, n2))
+					ENDCASES,
+			      pending: putstack(len, G, s, start, root)(St)(mk_entry(len)(pos, n1))
+			      ENDCASES),
+	    choice(n1, n2): (CASES scaf(pos)(n1) OF
+	                      fail: CASES scaf(pos)(n2) OF
+			                   fail: St WITH [`scaf(pos)(cur) := fail, `stack := rest],
+					   loop : St WITH [`scaf(pos)(cur) := loop, `stack := rest],
+					   good(sp): St WITH [`scaf(pos)(cur) := good(sp), `stack := rest],
+					   pending: putstack(len, G, s, start, root)(St)(mk_entry(len)(pos, n2))
+					ENDCASES,
+			      loop: St WITH [`scaf(pos)(cur) := loop, `stack := rest],
+			      good(sp): St WITH [`scaf(pos)(cur) := good(sp), `stack := rest],
+			      pending: putstack(len, G, s, start, root)(St)(mk_entry(len)(pos, n1))
+			      ENDCASES),
+	    check(n1): (CASES scaf(pos)(n1) OF
+	                      fail: St WITH [`scaf(pos)(cur) := fail, `stack := rest],
+			      loop: St WITH [`scaf(pos)(cur) := loop, `stack := rest],
+			      good(sp): St WITH [`scaf(pos)(cur) := good(0), `stack := rest],
+			      pending: putstack(len, G, s, start, root)(St)(mk_entry(len)(pos, n1))
+			      ENDCASES),
+	    neg(n1): (CASES scaf(pos)(n1) OF
+	                      fail: St WITH [`scaf(pos)(cur) := good(0), `stack := rest],
+			      loop: St WITH [`scaf(pos)(cur) := loop, `stack := rest],
+			      good(sp): St WITH [`scaf(pos)(cur) := fail, `stack := rest],
+			      pending: putstack(len, G, s, start, root)(St)(mk_entry(len)(pos, n1))
+			      ENDCASES)
+          ENDCASES			      
+    ENDIF)
+
+IMPORTING lex4, arrayCount
+
+
+cmember(len)(l: list[stackentry(len)])(pn: stackentry(len)): bool = member(pn, l)
+
+% membership_update: LEMMA
+%    (FORALL (a: non_terminal), (l: list[non_terminal]): 
+%       count(num_non_terminals)(id[bool])(cmember(cons(a, l))) =
+%       count(num_non_terminals)(id[bool])(cmember(l) WITH [(a) := TRUE]))
+
+
+% size(len, G, (s: strings(len)), pos: upto(len), n)(St : state(len, G, s, pos, n)): ordinal =
+%   lex4(St`pos, num_non_terminals - St`root,
+%        count[entry](num_non_terminals)(pending?)(St`scaf(St`pos)),
+%        num_non_terminals - count[bool](num_non_terminals)(id)(cmember(St`stack)))
+
+% size_putstack:
+%   JUDGEMENT putstack(len, G, (s: strings(len)))(St: state(len, G, s) | NOT null?(St`stack))(n | pending?(St`scaf(St`pos)(n)))
+%    HAS_TYPE {St1: state(len, G, s) | size(len, G, s)(St1) < size(len, G, s)(St)}
+
+% size_step: LEMMA
+%  FORALL len, G, (s: strings(len)), (St: state(len, G, s)): 
+%    NOT (St`pos = 0 AND St`root = num_non_terminals)
+%    IMPLIES size(len, G, s)(step(len, G, s)(St)) < size(len, G, s)(St)
+
+% endstate(len, G, (s: strings(len))): TYPE =
+%   {St: state(len, G, s) | St`pos = 0 AND St`root = num_non_terminals}
+
+% parse(len, G, (s: strings(len)))(St : state(len, G, s)): RECURSIVE endstate(len, G, s)
+%  = (IF St`pos = 0 AND St`root = num_non_terminals
+%      THEN St
+%      ELSE parse(len, G, s)(step(len, G, s)(St))
+%      ENDIF)
+%      MEASURE size(len, G, s)(St) BY <
+
+% doparse(len, G, (s: strings(len)), n): entry
+%   = (LET St: state(len, G, s) = (# pos := len,
+%                  root := 0,
+% 		 stack := null,
+% 		 scaf := (LAMBDA (i: upto(len)): (LAMBDA n: pending)) #)
+%      IN parse(len, G, s)(St)`scaf(0)(n))
+       
+  END topdown

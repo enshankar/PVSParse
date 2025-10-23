@@ -1,0 +1,1 @@
+finer_entry(len, G, (s: strings(len)), (A: scaffold(len)), (stack : (good_push_entry?(len))), (pos : upto(len)), (nt: non_terminal)): TYPE = {u : ent | finer_entry?(len, G, s)(A, stack, pos, nt, u)}

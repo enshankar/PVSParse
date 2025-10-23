@@ -1,0 +1,29 @@
+recordtest  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+   rec: TYPE = [# a : uint8, b : below(a), c : below(a + b) #]
+
+   mkrec(x : uint8 | x < 255): rec =
+    (LET rr: rec = (# a := x+1, b := x, c := x #)
+     IN rr)
+
+   rec2: TYPE = [# a : uint8, b : below(a), c : ARRAY[below(b) -> below(a)], d: uint8 #]
+
+   mkrec2(x : uint8 | x < 255): rec2 =
+     (LET rr : rec2 = (# a := x+1, b := x, c := (LAMBDA (i: below(x)): i + 1), d := x #)
+       IN rr)
+
+  rec3: TYPE = [# a : uint8, b : ARRAY[below(a) -> below(a)], c : ARRAY[i : below(a) -> ARRAY[below(b(i))->below(a)]] #]
+
+  mkrec3(x : uint8 | x < 255): rec3 =
+   (LET bf: ARRAY[below(x) -> below(x)] = (LAMBDA (i: below(x)): i), 
+        rr : rec3 =
+          (# a := x,
+             b := bf,
+	     c := (LAMBDA (i : below(x)): (LAMBDA (j : below(bf(i))): j))
+	  #)
+       IN rr)    
+
+  END recordtest

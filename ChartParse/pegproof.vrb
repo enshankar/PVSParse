@@ -1,0 +1,11 @@
+\frametitle{Conclusions}
+\begin{itemize}
+\item   Parsing is a key gatekeeper for software systems; parsing verification needs to be streamlined.
+\item   More generally, beyond data formats, modeling dominates the software development activity for critical systems.
+\item   Refinement and code generation bridge the semantic gap between models and code.
+\item   Robust proofs make it easier to evolve better models and implementations.
+\item   The efficiency of code generated from verified high-level models can be competitive with \emph{hand-written code}.
+\item Code generation can be used to create standalone components or define entire systems.
+\item \bluemph{The key value proposition is the use of one unified system and language for
+  specification, modeling, programming, and proof.  }
+\end{itemize}

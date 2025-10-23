@@ -1,0 +1,51 @@
+poly [T: TYPE]	: THEORY
+
+  BEGIN
+
+   idd(x: T): T = x
+
+  END poly
+
+usepoly[S, T: TYPE]: THEORY
+ BEGIN
+
+   Ar: TYPE = [below(4) -> T]
+
+   Arpoly: THEORY =  poly[Ar]
+
+   a1, a2: VAR Ar
+
+   checkidd(a1, (i :below(4))): T = idd(a1)(i)
+
+   Rec: TYPE = [# a : S, b : T #]
+   IMPORTING poly[Rec]
+   updateRecb(x: Rec, y: T): Rec = idd(x) WITH [`b := y]
+
+   ignore(x: Rec): int8 = 7
+
+END usepoly
+
+useusepoly: THEORY
+BEGIN
+
+   box_uint64: TYPE = [below(1)->uint64]
+   IMPORTING usepoly[box_uint64, box_uint64]
+
+   square(i:below(4))(j: below(1)): uint64 = i * i
+
+   test: uint64 = checkidd(square, 3)(0)
+
+END useusepoly
+
+monopoly: THEORY
+ BEGIN
+
+   usepoly_uint8: THEORY = usepoly[uint8, uint8]
+
+END monopoly
+
+% monolist: THEORY
+%  BEGIN
+%    list_uint8: THEORY = list_adt[uint8]
+
+% END monolist

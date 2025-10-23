@@ -1,0 +1,8 @@
+ent: DATATYPE
+ BEGIN
+   fail(dep: uint64): fail?
+   pending: pending?
+   loop: loop?
+   good(dep: uint64, span: uint32): good?
+   push(pos: uint32, nt: uint8): push?
+ END ent

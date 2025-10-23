@@ -1,0 +1,41 @@
+string : THEORY
+
+  BEGIN
+
+   string: DATATYPE
+   BEGIN
+     string(sequence: finseq[character]): string?
+   END string
+   
+   s, s1, s2: VAR string
+
+   c: VAR character
+
+   length(s): nat = sequence(s)`length
+   seq(s): [below(length(s)) -> character] = sequence(s)`seq
+
+   char(s, (i: below(length(s)))): character = seq(s)(i)
+
+   empty: string = string(empty_seq[character])
+
+   length_empty: LEMMA length(empty) = 0
+
+   extensionality: LEMMA
+       s1 = s2 IFF (length(s1) = length(s2) AND ∀ (i:below(length(s1))): char(s1, i) = char(s2, i));
+
+   CONVERSION+ string;
+
+   +(s1, s2): string = string(sequence(s1) o sequence(s2))
+
+   length_concat: LEMMA length(s1 + s2) = length(s1) + length(s2)
+
+   char_concat: LEMMA (FORALL (i: below(length(s1) + length(s2))):
+                        char(s1 + s2, i)  =
+               IF i < length(s1)
+                THEN char(s1, i)
+                ELSE char(s2, i - length(s1))
+                ENDIF)
+
+
+  END string
+

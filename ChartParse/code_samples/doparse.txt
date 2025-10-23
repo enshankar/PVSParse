@@ -1,0 +1,10 @@
+doparse(len, G, (s: strings(len)), n): ent
+   = (LET pend = (LAMBDA n: pending),
+          St: state(len, G, s, 0, n) = (# 
+ 		 stack := push(0, n),
+		 depth := 1,
+ 		 scaf := (LAMBDA (i: upto(len)): pend)
+		         WITH
+			   [(0)(n) := push(0, num_non_terminals)],
+		 lflag := FALSE #)
+      IN parse(len, G, s, 0, n)(St)`scaf(0)(n))

@@ -1,0 +1,82 @@
+# PEG specification for the Json format
+# Format specs taken from www.json.org on July 9, 2020
+
+# ===================================
+#        The Object Structure
+# ===================================
+# Also called: record, struct, dictionary, hash table, keyed list, or associative array
+
+[Object] < { ([Object_KV_Pair] / [Whitespace]) } ;
+
+[Object_KV_Pair] < [Whitespace] [Object_Key] [Whitespace] :
+                                [Value] (, [Object_KV_Pair] / \e);
+
+[Object_Key] < [String]; # In Json, Object Keys can ONLY be strings.
+                         # -> this is one of the reasons that make it a proper subset of YAML
+
+# ===================================
+#        The Array Structure
+# ===================================
+# Also called: vector, list, or sequence
+
+[Array] < \[ ([Array_Values] / [Whitespace]) \];
+
+[Array_Values] < [Value] (, [Array_Values] / \e);
+
+
+# ===================================
+#              Values
+# ===================================
+
+[Value] < [Whitespace] ([String] /
+                        [Number] /
+                        [Object] /
+                        [Array] /
+                        true /
+                        false /
+                        null ) [Whitespace];
+
+
+# ===================================
+#              Strings
+# ===================================
+
+[String] < " [Characters] ";
+
+[Characters] < ([Valid Character] / [Escape_Sequence]) ([Characters] / \e);
+
+[Valid Character] < !(" / \\) .;
+# Note this is not quite accurate as we are also not allowed to have control characters
+# meaning we also exclude anything below 0x20 or above 0x10ffff
+
+[Escape_Sequence] < \\ (" / \\ / \/ / b / f / n / r / t / u[Hex][Hex][Hex][Hex]);
+[Hex] < [Digit] / a / b / c / d / e / f;
+
+# ===================================
+#              Number
+# ===================================
+
+[Number] < (- / \e) (0 / [Positive]) ([Fraction] / \e) ([Exponent] / \e);
+
+[Positive] < [Start_Digit] [Digits];
+
+[Start_Digit] < 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9;
+
+[Digits] < [Digit] [Digits] / \e;
+
+[Digit] < 0 / [Start_Digit];
+
+[Fraction] < \. [Digit] [Digits];
+
+[Exponent] < (E / e) (- / + / \e) [Digit] [Digits];
+
+# ===================================
+#        Whitespace Characters
+# ===================================
+# In Json, white space can be one of four different characters
+#   Space (in this peg specification: '\x20' or '\ ')
+#   Linefeed (in this peg specification: '\x0a' or '\n')
+#   Carriage Return (in this peg specification: '\x0d' or written raw)
+#   Horizontal Tab (in this peg specification: '\x09' or '\t')
+
+[Whitespace] < (\  / \n / \x0d / \t) [Whitespace] / \e;

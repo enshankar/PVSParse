@@ -1,0 +1,620 @@
+(cstring
+ (code_TCC1 0
+  (code_TCC1-1 nil 3802124209
+   ("" (inst + "LAMBDA (c: cchar): 0") nil nil)
+   ((below type-eq-decl nil naturalnumbers nil)
+    (< const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (cchar nonempty-type-decl nil cstring nil))
+   nil
+   (code existence "" "[cstring.cchar -> naturalnumbers.below(256)]")))
+ (mk_cstring_string_TCC1 0
+  (mk_cstring_string_TCC1-1 nil 3802362023
+   ("" (skeep)
+    (("" (use "mk_cstring_length") (("" (assert) nil nil)) nil)) nil)
+   ((mk_cstring_length formula-decl nil cstring nil)
+    (string type-eq-decl nil strings nil)
+    (char type-eq-decl nil strings nil)
+    (char? adt-recognizer-decl "[character -> boolean]" character_adt
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (character type-decl nil character_adt nil)
+    (below type-eq-decl nil nat_types nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (mk_cstring_string subtype "cstring.i"
+    "naturalnumbers.below(cstring.length(cstring.mk_cstring(cstring.st)))")))
+ (extensionality_TCC1 0
+  (extensionality_TCC1-1 nil 3802124209 ("" (subtype-tcc) nil nil)
+   ((below type-eq-decl nil naturalnumbers nil)
+    (length const-decl "uint16" cstring nil)
+    (uint16 type-eq-decl nil integertypes nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (<= const-decl "bool" reals nil)
+    (cstring nonempty-type-decl nil cstring nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (< const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil))
+   nil
+   (extensionality subtype "cstring.i"
+                   "naturalnumbers.below(cstring.length(cstring.s2))")))
+ (char_concat_TCC1 0
+  (char_concat_TCC1-1 nil 3802124209
+   ("" (skeep* :preds? t) (("" (rewrite "length_concat") nil nil)) nil)
+   ((nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (cstring nonempty-type-decl nil cstring nil)
+    (length_concat formula-decl nil cstring nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (TRUE const-decl "bool" booleans nil))
+   nil
+   (char_concat subtype "cstring.i"
+    "naturalnumbers.below(cstring.length((cstring.+)(cstring.s1, cstring.s2)))")))
+ (char_concat_TCC2 0
+  (char_concat_TCC2-1 nil 3802124209 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (cstring nonempty-type-decl nil cstring nil)
+    (<= const-decl "bool" reals nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint16 type-eq-decl nil integertypes nil)
+    (length const-decl "uint16" cstring nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (char_concat subtype
+    "(number_fields.-)(cstring.i, cstring.length(cstring.s1))"
+    "naturalnumbers.below(cstring.length(cstring.s2))")))
+ (strdiff_ax1_TCC1 0
+  (strdiff_ax1_TCC1-1 nil 3802286809
+   ("" (skeep*)
+    (("" (typepred "strdiff(s1, s2)")
+      (("" (grind :exclude "length") nil nil)) nil))
+    nil)
+   ((strdiff const-decl "upto(min(length(s1), length(s2)))" cstring
+     nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (length const-decl "uint16" cstring nil)
+    (uint16 type-eq-decl nil integertypes nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (min const-decl "{p: real | p <= m AND p <= n}" real_defs nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (cstring nonempty-type-decl nil cstring nil)
+    (<= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nat_min application-judgement "{k: nat | k <= i AND k <= j}"
+     real_defs nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (TRUE const-decl "bool" booleans nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (strdiff_ax1 subtype "cstring.i"
+    "naturalnumbers.below(cstring.length(cstring.s1))")))
+ (strdiff_ax1_TCC2 0
+  (strdiff_ax1_TCC2-1 nil 3802286809
+   ("" (skeep*)
+    (("" (typepred "strdiff(s1, s2)")
+      (("" (grind :exclude "length") nil nil)) nil))
+    nil)
+   ((strdiff const-decl "upto(min(length(s1), length(s2)))" cstring
+     nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (length const-decl "uint16" cstring nil)
+    (uint16 type-eq-decl nil integertypes nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (min const-decl "{p: real | p <= m AND p <= n}" real_defs nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (cstring nonempty-type-decl nil cstring nil)
+    (<= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nat_min application-judgement "{k: nat | k <= i AND k <= j}"
+     real_defs nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (TRUE const-decl "bool" booleans nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (strdiff_ax1 subtype "cstring.i"
+    "naturalnumbers.below(cstring.length(cstring.s2))")))
+ (strdiff_ax2_TCC1 0
+  (strdiff_ax2_TCC1-1 nil 3802286809 ("" (subtype-tcc) nil nil)
+   ((nil application-judgement "above(n)" exp2 nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nat_min application-judgement "{k: nat | k <= i AND k <= j}"
+     real_defs nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (strdiff_ax2 subtype "cstring.strdiff(cstring.s1, cstring.s2)"
+    "naturalnumbers.below(cstring.length(cstring.s1))")))
+ (strdiff_ax2_TCC2 0
+  (strdiff_ax2_TCC2-1 nil 3802286809 ("" (subtype-tcc) nil nil)
+   ((nil application-judgement "above(n)" exp2 nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nat_min application-judgement "{k: nat | k <= i AND k <= j}"
+     real_defs nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (strdiff_ax2 subtype "cstring.strdiff(cstring.s1, cstring.s2)"
+    "naturalnumbers.below(cstring.length(cstring.s2))")))
+ (strcmp_TCC1 0
+  (strcmp_TCC3-1 nil 3802275130
+   (""
+    (inst +
+     "LAMBDA s1, s2: IF s1 = s2 THEN 0 ELSIF  strdiff(s1, s2) >= length(s1) THEN -1 ELSIF strdiff(s1, s2) >= length(s2) THEN 1 ELSIF charcmp(char(s1, strdiff(s1, s2)), char(s2, strdiff(s1, s2))) THEN -1 ELSE 1 ENDIF")
+    (("1" (skeep*)
+      (("1" (ground)
+        (("1" (use "strdiff_ax2")
+          (("1" (ground)
+            (("1" (expand "charcmp")
+              (("1" (ground)
+                (("1" (use "codeExt") (("1" (ground) nil nil)) nil))
+                nil))
+              nil)
+             ("2" (grind :exclude ("strdiff" "charcmp" "length")) nil
+              nil))
+            nil))
+          nil))
+        nil))
+      nil)
+     ("2" (skeep*) nil nil) ("3" (skeep*) (("3" (assert) nil nil)) nil)
+     ("4" (skeep*) (("4" (assert) nil nil)) nil)
+     ("5" (skeep*) (("5" (assert) nil nil)) nil)
+     ("6" (skeep*) (("6" (assert) nil nil)) nil))
+    nil)
+   ((TRUE const-decl "bool" booleans nil)
+    (strdiff_ax2 formula-decl nil cstring nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (codeExt formula-decl nil cstring nil)
+    (nat_min application-judgement "{k: nat | k <= i AND k <= j}"
+     real_defs nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (char const-decl "cchar" cstring nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (charcmp const-decl "bool" cstring nil)
+    (cchar nonempty-type-decl nil cstring nil)
+    (strdiff const-decl "upto(min(length(s1), length(s2)))" cstring
+     nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (length const-decl "uint16" cstring nil)
+    (uint16 type-eq-decl nil integertypes nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (min const-decl "{p: real | p <= m AND p <= n}" real_defs nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil) (< const-decl "bool" reals nil)
+    (IMPLIES const-decl "[bool, bool -> bool]" booleans nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (IF const-decl "[boolean, T, T -> T]" if_def nil)
+    (subrange type-eq-decl nil integers nil)
+    (- const-decl "[numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (<= const-decl "bool" reals nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (cstring nonempty-type-decl nil cstring nil)
+    (minus_odd_is_odd application-judgement "odd_int" integers nil))
+   nil
+   (strcmp existence ""
+    "[d: [cstring.cstring, cstring.cstring] -> {i: integers.subrange((number_fields.-)(1), 1) | IF i = 0 THEN d`1 = d`2 ELSIF i = (number_fields.-)(1) THEN booleans.=>(booleans.AND(reals.<(cstring.strdiff(d`1, d`2), cstring.length(d`2)), reals.<(cstring.strdiff(d`1, d`2), cstring.length(d`1))), cstring.charcmp(cstring.char(d`1, cstring.strdiff(d`1, d`2)), cstring.char(d`2, cstring.strdiff(d`1, d`2)))) ELSE booleans.AND(reals.<(cstring.strdiff(d`1, d`2), cstring.length(d`1)), (booleans.⇒(reals.<(cstring.strdiff(d`1, d`2), cstring.length(d`2)), cstring.charcmp(cstring.char(d`2, cstring.strdiff(d`1, d`2)), cstring.char(d`1, cstring.strdiff(d`1, d`2)))))) ENDIF}]")))
+ (substr_length_TCC1 0
+  (substr_length_TCC1-1 nil 3802362023 ("" (subtype-tcc) nil nil) nil
+   nil
+   (substr_length subtype "cstring.j"
+    "naturalnumbers.upto(cstring.length(cstring.s))")))
+ (substr_ax_TCC1 0
+  (substr_ax_TCC1-1 nil 3802320741
+   ("" (skeep* :preds? t)
+    (("" (rewrite "substr_length") (("" (grind) nil nil)) nil)) nil)
+   ((substr_length formula-decl nil cstring nil)
+    (cstring nonempty-type-decl nil cstring nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint16 type-eq-decl nil integertypes nil)
+    (length const-decl "uint16" cstring nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (subrange type-eq-decl nil integers nil)
+    (nat_min application-judgement "{k: nat | k <= i AND k <= j}"
+     real_defs nil)
+    (nonneg_rat_max application-judgement
+     "{s: nonneg_rat | s >= q AND s >= r}" real_defs nil)
+    (nat_max application-judgement "{k: nat | i <= k AND j <= k}"
+     real_defs nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_abs_is_nonneg application-judgement "{j: nonneg_int | j >= i}"
+     real_defs nil)
+    (minus_int_is_int application-judgement "int" integers nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (min const-decl "{p: real | p <= m AND p <= n}" real_defs nil)
+    (max const-decl "{p: real | p >= m AND p >= n}" real_defs nil)
+    (abs const-decl "{n: nonneg_real | n >= m AND n >= -m}" real_defs
+         nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (TRUE const-decl "bool" booleans nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil
+   (substr_ax subtype "cstring.k"
+    "naturalnumbers.below(cstring.length(cstring.substr(cstring.s, cstring.i, cstring.j)))")))
+ (substr_ax_TCC2 0
+  (substr_ax_TCC2-1 nil 3802320741 ("" (subtype-tcc) nil nil)
+   ((int_minus_int_is_int application-judgement "int" integers nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (<= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (cstring nonempty-type-decl nil cstring nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint16 type-eq-decl nil integertypes nil)
+    (length const-decl "uint16" cstring nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (subrange type-eq-decl nil integers nil)
+    (< const-decl "bool" reals nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (- const-decl "[numfield -> numfield]" number_fields nil)
+    (abs const-decl "{n: nonneg_real | n >= m AND n >= -m}" real_defs
+         nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_abs_is_nonneg application-judgement "{j: nonneg_int | j >= i}"
+     real_defs nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil))
+   nil
+   (substr_ax subtype "(number_fields.+)(cstring.k, cstring.i)"
+    "naturalnumbers.below(cstring.length(cstring.s))"))))
+(cstring_test
+ (test_code_TCC1 0
+  (test_code_TCC1-1 nil 3802362023
+   ("" (use "mk_cstring_length") (("" (grind) nil nil)) nil)
+   ((length def-decl "nat" list_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (A const-decl "cstring" cstring_test nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil nat_types nil)
+    (character type-decl nil character_adt nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (char? adt-recognizer-decl "[character -> boolean]" character_adt
+     nil)
+    (char type-eq-decl nil strings nil)
+    (string type-eq-decl nil strings nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (>= const-decl "bool" reals nil) (< const-decl "bool" reals nil)
+    (list type-decl nil list_adt nil)
+    (cons? adt-recognizer-decl "[list -> boolean]" list_adt nil)
+    (cons adt-constructor-decl "[[T, list] -> (cons?)]" list_adt nil)
+    (char adt-constructor-decl "[below[256] -> (char?)]" character_adt
+          nil)
+    (nth def-decl "T" list_props nil)
+    (mk_cstring_length formula-decl nil cstring nil))
+   nil
+   (test_code subtype "0"
+    "naturalnumbers.below(cstring.length(cstring_test.A))")))
+ (test_code_TCC2 0
+  (test_code_TCC2-1 nil 3802362023 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)
+    (A const-decl "cstring" cstring_test nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (length def-decl "nat" list_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil))
+   nil
+   (test_code subtype "cstring.code(cstring.char(cstring_test.A, 0))"
+    "uint8")))
+ (test_strdiff_TCC1 0
+  (test_strdiff_TCC1-1 nil 3802362023
+   ("" (typepred "strdiff(A, test_concat)")
+    (("" (typepred "length(A)")
+      (("" (typepred "length(test_concat)")
+        (("" (grind :exclude ("length" "strdiff")) nil nil)) nil))
+      nil))
+    nil)
+   ((B const-decl "cstring" cstring_test nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (nat_min application-judgement "{k: nat | k <= i AND k <= j}"
+     real_defs nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (<= const-decl "bool" reals nil)
+    (cstring nonempty-type-decl nil cstring nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (min const-decl "{p: real | p <= m AND p <= n}" real_defs nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint16 type-eq-decl nil integertypes nil)
+    (length const-decl "uint16" cstring nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (strdiff const-decl "upto(min(length(s1), length(s2)))" cstring
+     nil)
+    (A const-decl "cstring" cstring_test nil)
+    (test_concat const-decl "cstring" cstring_test nil))
+   nil
+   (test_strdiff subtype
+    "cstring.strdiff(cstring_test.A, cstring_test.test_concat)"
+    "uint16")))
+ (test_strcmp_TCC1 0
+  (test_strcmp_TCC1-1 nil 3802362023 ("" (subtype-tcc) nil nil)
+   ((minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (test_concat const-decl "cstring" cstring_test nil)
+    (B const-decl "cstring" cstring_test nil)
+    (A const-decl "cstring" cstring_test nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil))
+   nil
+   (test_strcmp subtype
+    "cstring.strcmp(cstring_test.test_concat, cstring_test.A)"
+    "int8")))
+ (test_substr_TCC1 0
+  (test_substr_TCC1-1 nil 3802362023
+   ("" (expand "test_concat")
+    (("" (rewrite "length_concat")
+      (("" (grind :rewrites "mk_cstring_length") nil nil)) nil))
+    nil)
+   ((length_concat formula-decl nil cstring nil)
+    (cstring nonempty-type-decl nil cstring nil)
+    (A const-decl "cstring" cstring_test nil)
+    (B const-decl "cstring" cstring_test nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (mk_cstring_length formula-decl nil cstring nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (length def-decl "nat" list_props nil)
+    (test_concat const-decl "cstring" cstring_test nil))
+   nil
+   (test_substr subtype "8"
+    "naturalnumbers.upto(cstring.length(cstring_test.test_concat))")))
+ (test_substr_TCC2 0
+  (test_substr_TCC2-1 nil 3802362023 ("" (subtype-tcc) nil nil) nil nil
+   (test_substr subtype "16"
+    "naturalnumbers.upto(cstring.length(cstring_test.test_concat))")))
+ (test_substr_TCC3 0
+  (test_substr_TCC3-1 nil 3802362023 ("" (subtype-tcc) nil nil)
+   ((minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (test_concat const-decl "cstring" cstring_test nil)
+    (B const-decl "cstring" cstring_test nil)
+    (A const-decl "cstring" cstring_test nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil))
+   nil
+   (test_substr subtype
+    "cstring.strcmp(cstring.substr(cstring_test.test_concat, 8, 16), cstring_test.B)"
+    "int8"))))
+

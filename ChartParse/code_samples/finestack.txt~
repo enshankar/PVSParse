@@ -1,0 +1,8 @@
+fine_stack?(len, G, depth, (A: scaffold(len)))(stack: (good_stack?(len, G, depth, A))): RECURSIVE bool =
+   (IF nt(stack) >= num_non_terminals
+     THEN TRUE
+     ELSE LET rest = A(pos(stack))(nt(stack))
+          IN NOT mem_stack?(len, G, depth - 1, A)(stack, rest) AND
+             fine_stack?(len, G, depth - 1, A)(A(pos(stack))(nt(stack)))
+    ENDIF)
+    MEASURE depth

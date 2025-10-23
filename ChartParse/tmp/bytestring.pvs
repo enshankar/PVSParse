@@ -1,0 +1,118 @@
+bytestring  : THEORY
+
+  BEGIN
+
+    IMPORTING byte
+
+    bytestring: TYPE+
+    s, s1, s2: VAR bytestring
+
+    b, b1, b2: VAR byte
+
+    length(s): uint32
+
+    get(s)(i: below(length(s))): byte
+
+    empty: bytestring
+
+    length_empty: AXIOM length(empty) = 0
+
+    unit(b): bytestring
+
+    length_unit: AXIOM length(unit(b)) = 1
+
+    unit_ax: AXIOM get(unit(b))(0) = b
+
+    extensionality: AXIOM
+       s1 = s2 IFF (length(s1) = length(s2) AND ∀ (i:below(length(s1))): get(s1)(i) = get(s2)(i));
+
+    +(s1, s2): bytestring
+
+    length_concat: AXIOM length(s1 + s2) = length(s1) + length(s2)
+
+    char_concat: AXIOM
+    (FORALL (i: below(length(s1) + length(s2))):
+     get(s1 + s2)(i)  =
+      IF i < length(s1)
+       THEN get(s1)(i)
+       ELSE get(s2)(i - length(s1))
+      ENDIF)
+
+    strdiff(s1, s2): upto(min(length(s1), length(s2)))
+
+    strdiff_eq: AXIOM
+      FORALL (j: below(strdiff(s1, s2))): get(s1)(j) = get(s2)(j)
+
+    strdiff_neq: AXIOM
+     (LET i = strdiff(s1, s2) IN 
+       i < min(length(s1), length(s2)) => get(s1)(i) /= get(s2)(i))
+
+    strcmp(s1, s2): subrange(-1, 1)
+
+    strcmp_eq: AXIOM
+      strcmp(s1, s2) = 0 => s1 = s2
+
+    strcmp_lt: AXIOM
+      strcmp(s1, s2) = -1 =>
+      (LET i = strdiff(s1, s2) IN
+        i < length(s2) AND (i < length(s1) => get(s1)(i) < get(s2)(i)))
+
+    strcmp_gt: AXIOM
+      strcmp(s1, s2) = 1 =>
+      (LET i = strdiff(s1, s2) IN
+        i < length(s1) AND (i < length(s2) => get(s1)(i) > get(s2)(i)))
+
+    prefix(s, (i: upto(length(s)))): bytestring
+
+    length_prefix: AXIOM
+     (FORALL (i: upto(length(s))): 
+      length(prefix(s, i)) = i)
+
+    prefix_ax: AXIOM
+     FORALL (i: upto(length(s))), (j : below(i)): 
+      get(prefix(s, i))(j) = get(s)(j)
+
+    suffix(s, (i: upto(length(s)))): bytestring
+
+    length_suffix: AXIOM
+     (FORALL (i: upto(length(s))): 
+      length(suffix(s, i)) = length(s) - i)
+
+    suffix_ax: AXIOM
+     FORALL (i: upto(length(s))), (j : below(length(s) - i)): 
+      get(suffix(s, i))(j) = get(s)(i + j)
+
+    substr(s)(i: upto(length(s)), j : subrange(i, length(s))): bytestring
+     = prefix(suffix(s, i), j - i)
+
+    ascii?(b): bool = (b  < 128)
+
+    ascii: TYPE = {s | FORALL (i : below(length(s))): ascii?(get(s)(i))}
+
+    utf8_one?(b): bool = ascii?(b)
+
+    utf8_trailer?(b): bool = (b < 192 AND NOT ascii?(b))
+
+    utf8_two?(b): bool = (192 <= b AND b < 224)
+
+    utf8_three?(b): bool = (224 <= b AND b < 240) 
+
+    utf8_four?(b): bool = (240 <= b AND b < 248)
+
+
+    utf8string: TYPE = {s | FORALL (i : below(length(s))):
+                             ascii?(get(s)(i)) OR
+			     (utf8_two?(get(s)(i)) AND i + 1 < length(s) AND utf8_trailer?(get(s)(i + 1))) OR
+                             (utf8_three?(get(s)(i)) AND i + 2 < length(s) AND
+			           utf8_trailer?(get(s)(i + 1)) AND utf8_trailer?(get(s)(i + 2))) OR
+			     (utf8_four?(get(s)(i)) AND i + 3 < length(s) AND
+			           utf8_trailer?(get(s)(i + 1)) AND utf8_trailer?(get(s)(i + 2)) AND
+				   utf8_trailer?(get(s)(i + 3)))}
+
+   
+
+    
+    
+  
+
+  END bytestring

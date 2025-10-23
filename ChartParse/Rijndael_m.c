@@ -1,0 +1,32 @@
+#include "Rijndael_c.h"
+
+uint32_t print_hexstring(bytestrings__bytestring_t s){
+  printf("\nhextest0: %#X", 0);
+  printf("\nhextest0: %#X", 10);
+  printf("\nhextest0: %#X", 20);
+  printf("\nhextest0: %#X", 40);
+  printf("\nhextest0: %#X", 80);
+  printf("\nhextest0: %#X", 160);
+  printf("\nhextest0: %#X", 240);  
+  printf("\n");
+  printf("\ns->length = %"PRIu32"\n", s->length);  
+  for (uint32_t i = 0; i < s->length; i++){
+    printf("%"PRIu8"", s->seq->elems[i]);
+  };
+  printf("\n");
+  for (uint32_t i = 0; i < s->length; i++){
+    printf("%c", s->seq->elems[i]);
+  };
+
+  return 1;
+};
+
+int main(){
+  double start = get_cpu_time();
+  printf("\n HMAC__test1()");
+  print_hexstring((bytestrings__bytestring_t)Rijndael__testRijndael1());
+  double end = get_cpu_time();
+  printf("\n CPU Time = %f seconds\n", end - start);
+
+  return 0;
+}

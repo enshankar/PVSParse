@@ -1,0 +1,10 @@
+; While compiling #'_empty_2 at top level:
+Warning: Variable i is never used.
+Warning: Variable len is never used.
+; While compiling #'empty!_2 at top level:
+Warning: Variable i is never used.
+Warning: Variable len is never used.
+; While compiling #'(:internal empty_2 0) at top level:
+Warning: Variable len is never used.
+; While compiling #'(:internal (:internal empty_2 0) 0) at top level:
+Warning: Variable i is never used.

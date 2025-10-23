@@ -1,0 +1,14 @@
+good_stack?(len, G, depth, (A : scaffold(len)))
+           (stack: (good_push_entry?(len))):
+   RECURSIVE bool =
+   (IF nt(stack) >= num_non_terminals
+     THEN depth = 0
+     ELSE LET entry = A(pos(stack))(nt(stack))
+            IN good_push_entry?(len)(entry)
+               AND (nt(entry) = num_non_terminals OR
+                    successor(len, G, A)(entry, stack))
+                    AND depth > 0 AND 
+                      good_stack?(len, G, depth - 1, A)
+                                 (entry)
+    ENDIF)
+    MEASURE depth

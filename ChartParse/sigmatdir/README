@@ -1,0 +1,6 @@
+To compile ltepegtest: 
+cc -O3 -Wall -o ltepegtest pvslib.c lex2_c.c sets_c.c identity_c.c file_c.c bytestrings_c.c gen_strings_c.c strings_c.c ordinals_c.c ordstruct_adt_c.c integertypes_c.c exp2_c.c euclidean_division_c.c real_defs_c.c ltepegtest_c.c ltepegproof_c.c ltepeg_c.c arrayCount_c.c identity_uint8_c.c ltepegtest_m.c -lgmp
+
+To compile sigmatdtest: 
+cc -O3 -Wall -o sigmatdtest pvslib.c lex2_c.c sets_c.c identity_c.c file_c.c bytestrings_c.c gen_strings_c.c strings_c.c ordinals_c.c ordstruct_adt_c.c integertypes_c.c exp2_c.c euclidean_division_c.c real_defs_c.c sigmatdtest_c.c sigmatdproof_c.c sigmatopdown_c.c arrayCount_c.c identity_uint8_c.c sigmatdtest_m.c -lgmp
+

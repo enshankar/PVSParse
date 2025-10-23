@@ -1,0 +1,96 @@
+kaitai 	: THEORY
+
+  BEGIN
+
+  span(size: nat): TYPE = [# start: upto(size), endd: subrange(start, size) #] %absolute position of the span
+  spanl(size: nat, n: nat): TYPE = {s: span(size) | s`endd - s`start = n}
+  length(size: nat, s: span(size)): nat = s`endd - s`start
+
+  byte: TYPE = below(256)
+
+  vspan: DATATYPE
+  BEGIN
+    unsigned(uspan: span): unsigned?
+    signed(sspan: span): signed?
+    strng(strspan: span): strng?
+  END vspan
+
+  value: DATATYPE
+  BEGIN
+   unsigned(uvalue: nat): unsigned?
+   signed(svalue: int): ssigned?
+   strng(strvalue: string): strng?
+  END value
+
+  v: VAR vspan
+
+  be_unsigned(n: nat, st: [below(n)->byte])(v: span): RECURSIVE nat
+  = LET start = v`start,
+        endd = v`end
+     IN  IF end <= start THEN expt(256, end - start - 1) * st(start) + be_unsigned(n, st)(v WITH [`start := v`start + 1])
+     ELSE 0 ENDIF
+   MEASURE uspan(v)`end - uspan(v)`start
+
+
+  le_unsigned(n: nat, st: [below(n)->byte])(v: span): RECURSIVE nat
+  = LET start = v`start,
+        endd = v`end
+     IN  IF end <= start THEN st(start) + 256 * be_unsigned(n, st)(v WITH [`start := v`start + 1])
+     ELSE 0 ENDIF
+   MEASURE v`end - v`start
+
+  be_signed(n: nat, st: [below(n)->byte])(v: span):  nat
+  = LET unsignedvalue = be_unsigned(n, st)(v)
+     IN IF v`start < v`end AND st(start) > 127
+          THEN expt(256, length(v)) - 1 - unsignedvalue
+	  ELSE unsignedvalue
+	  ENDIF
+
+  le_signed(n: nat, st: [below(n)->byte])(v: (unsigned?)): RECURSIVE nat
+  = LET unsignedvalue = le_unsigned(n, st)(v)
+     IN IF v`start < v`end AND st(start) > 127
+          THEN expt(256, length(v)) - 1 - unsignedvalue
+	  ELSE unsignedvalue
+	  ENDIF
+
+  unsignedval(be?: bool, n: nat, st: [below(n)->byte])(v: vspan): value
+  = IF be? THEN unsigned(be_unsigned(n, st)(v))
+    ELSE unsigned(le_unsigned(n, st)(v))
+    ENDIF
+
+  interpret(be?: bool, n: nat, st: [below(n)->byte])(v: vspan): value
+  = CASES v OF
+      unsigned(u): unsignedval(be?, n, st)(v),
+      signed(s): signedval(be?, n, st)(v)
+      strng(st): strng(
+  ENDCASES
+
+  n, size: VAR nat
+
+  non_terminal: TYPE = below[num_non_terminal]
+
+
+  ksy_peg[num_non_terminals: nat, numargs: nat]  : DATATYPE
+  BEGIN
+   epsilon : epsilon?
+   failure : failure?
+   any(numbytes : uint32) : any?
+   terminal(val: value) : terminal?
+   concat(e1, e2: below(num_non_terminals)) : concat?
+   choice(e1, e2: below(num_non_terminals)) : or?
+   check(e: below(num_non_terminals)) : and?
+   neg(e: below(num_non_terminals)) : not?
+   repeat(n: nat, e: below(num_non_terminals)): repeat?
+  END atomic_peg
+
+  vspanarray(n: nat): TYPE =  [below(n)-> vspan]
+
+  grammar: TYPE = [non_terminal -> [# numargs: nat, rhs: [vspanarray(numargs) -> ksy_peg] #]]
+
+
+
+  
+
+  
+
+  END kaitai

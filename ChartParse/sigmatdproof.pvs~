@@ -1,0 +1,195 @@
+sigmatdproof  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+IMPORTING sigmatopdown
+
+len, max: VAR index %the length of the input
+m, n: VAR non_terminal
+G: VAR lang_spec
+depth: VAR uint64
+
+root, stack: VAR (push?)
+
+
+  defent: TYPE = {entry: ent | fail?(entry) OR loop?(entry) OR good?(entry)}
+     
+  parsetree: DATATYPE
+  BEGIN
+    zero(entry: defent): zero?
+    one(entry: defent, subone: parsetree): one?
+    two(entry: defent, subone: parsetree, subtwo : parsetree): two?
+  END parsetree
+
+  qstack: DATATYPE
+  BEGIN
+    qempty: qempty?
+    qpush(nonterm: non_terminal, pos: uint32, qpop: qstack): qpush?
+  END qstack
+
+  P, Q, R: VAR parsetree
+
+  S, T: VAR qstack
+  i: VAR uint32
+  inqstack(n, i, S): RECURSIVE bool =
+   (CASES S OF
+    qpush(n1, j, T): (n = n1 AND i = j ) OR inqstack(n, i, T),
+    qempty: FALSE
+    ENDCASES)
+    MEASURE S BY <<
+
+  stacksize(S): RECURSIVE nat =
+   (CASES S OF
+    qpush(n1, j, T): stacksize(T) + 1, 
+    qempty: 0
+    ENDCASES)
+    MEASURE S BY <<
+
+
+  good_qstack?(len, G, (s: strings(len)), (A : scaffold(len)))(S): RECURSIVE bool
+  = (CASES S OF
+    qpush(n1, j, T): j <= len AND
+		     NOT inqstack(n1, j, T) AND %initialize with rootnt and rootpos
+		     loop?(A(j)(n1)) AND 
+		     good_qstack?(len, G, s, A)(T),
+    qempty: TRUE
+    ENDCASES)
+    MEASURE S BY <<
+
+    % good_qstack_size: LEMMA
+    % (FORALL len, G, (s: strings(len)), (rootpos: upto(len)), (rootnt: non_terminal), (st: endstate(len, G, s, rootpos, rootnt)), S: 
+    %   good_qstack?(len, G, s, rootpos, rootnt, st)(S) IMPLIES
+    %   stacksize(S) <= scafcount(len, st`scaf, loop?, len))
+      
+
+    good_parsetree?(len, G, (s: strings(len)))(S, n, (i | i <= len), P): RECURSIVE bool =
+    CASES P OF
+     zero(E): (CASES G(n) OF
+                      epsilon: E = good(0, 0),
+		      failure:  E = fail(0),
+		      any(p): (IF i < len AND p(s(i)) THEN E = good(0, 1) ELSE E = fail(0) ENDIF),
+		      terminal(a): (IF i < len AND s(i) = a THEN E = good(0, 1) ELSE E = fail(0) ENDIF)
+		      ELSE loop?(E) AND inqstack(n, i, S)
+		      ENDCASES),
+     one(E, Q): (CASES G(n) OF
+                  neg(n1): good_parsetree?(len, G, s)(qpush(n, i, S), n1, i, Q)  AND
+		             IF good?(E) THEN fail?(entry(Q)) AND span(E) = 0 AND dep(E) = 1 + dep(entry(Q))
+			            ELSIF fail?(E) 
+				    THEN  good?(entry(Q)) AND dep(E) = 1 + dep(entry(Q))
+			            ELSE loop?(E)
+				    ENDIF,
+                  check(n1): good_parsetree?(len, G, s)(qpush(n, i, S), n1, i, Q)  AND
+ 	                     IF good?(E)
+			        THEN good?(entry(Q)) AND span(E) = 0 AND dep(E) = 1 + dep(entry(Q))
+		               ELSIF fail?(E)
+			        THEN  fail?(entry(Q)) AND dep(E) = 1 + dep(entry(Q))
+		               ELSE loop?(E) AND loop?(entry(Q))
+			       ENDIF,
+                  concat(n1, n2): good_parsetree?(len, G, s)(qpush(n, i, S), n1, i, Q)  AND
+		               IF fail?(E)
+			        THEN  fail?(entry(Q)) AND dep(E) = 1 + dep(entry(Q))
+		               ELSE loop?(E) AND loop?(entry(Q))
+			       ENDIF,			      
+                  choice(n1, n2): good_parsetree?(len, G, s)(qpush(n, i, S), n1, i, Q)  AND
+		               IF good?(E)
+			        THEN  good?(entry(Q)) AND dep(E) = 1 + dep(entry(Q))
+		               ELSE loop?(E) AND loop?(entry(Q))
+			       ENDIF
+                  ELSE FALSE
+                ENDCASES),
+     two(E, Q, R): (CASES G(n) OF
+                         concat(n1, n2):
+			  good_parsetree?(len, G, s)(qpush(n, i, S), n1, i, Q)  AND
+			  good?(entry(Q)) AND
+			  good_good_entry?(len, i)(entry(Q)) AND
+			  (IF good?(E)
+			    THEN good?(entry(R)) AND
+			         good_parsetree?(len, G, s)(qpush(n, i, S), n2, i + span(entry(Q)), R)  AND
+				 dep(E) = 1 + max(dep(entry(Q)), dep(entry(R)))
+		           ELSIF fail?(E)
+			    THEN fail?(entry(R)) AND
+			         good_parsetree?(len, G, s)(qpush(n, i, S), n2, i + span(entry(Q)), R)  AND
+				 dep(E) = 1 + max(dep(entry(Q)), dep(entry(R)))
+                           ELSE loop?(E) AND loop?(entry(R))				 
+			   ENDIF),
+			 choice(n1, n2):
+			  good_parsetree?(len, G, s)(qpush(n, i, S), n1, i, Q)  AND
+			  fail?(entry(Q)) AND
+			  (IF good?(E)
+			    THEN good?(entry(R)) AND
+			         good_parsetree?(len, G, s)(qpush(n, i, S), n2, i, R)  AND
+				 dep(E) = 1 + max(dep(entry(Q)), dep(entry(R)))
+		           ELSIF fail?(E)
+			    THEN fail?(entry(R)) AND
+			         good_parsetree?(len, G, s)(qpush(n, i, S), n2, i, R)  AND
+				 dep(E) = 1 + max(dep(entry(Q)), dep(entry(R)))
+                           ELSE loop?(E) AND loop?(entry(R))				 
+			   ENDIF)
+			 ELSE FALSE
+             ENDCASES)
+	   ENDCASES
+       MEASURE P BY <<
+
+   buildtree(len, G, (s: strings(len)), (rootpos: upto(len)), (rootnt: non_terminal))(st: state(len, G, s, rootpos, rootnt),  S, n, (i | i <= len AND good_or_fail?(st`scaf(i)(n)))): RECURSIVE {P | good_parsetree?(len, G, s)(S, n, i, P) AND entry(P) = st`scaf(i)(n)}
+    = CASES G(n) OF
+	  neg(n1): one(st`scaf(i)(n), buildtree(len, G, s, rootpos, rootnt)(st, qpush(n, i, S), n1, i)),
+	  check(n1): one(st`scaf(i)(n), buildtree(len, G, s, rootpos, rootnt)(st, qpush(n, i, S), n1, i)),
+	  concat(n1, n2): (IF fail?(st`scaf(i)(n1)) THEN one(st`scaf(i)(n), buildtree(len, G, s, rootpos, rootnt)(st, qpush(n, i, S), n1, i))
+	                   ELSE LET E1 = buildtree(len, G, s, rootpos, rootnt)(st, qpush(n, i, S), n1, i)
+		                 IN two(st`scaf(i)(n), E1, buildtree(len, G, s, rootpos, rootnt)(st, qpush(n, i, S), n2, i + span(st`scaf(i)(n1))))
+                           ENDIF),
+	   choice(n1, n2): (IF fail?(st`scaf(i)(n1)) THEN two(st`scaf(i)(n), buildtree(len, G, s, rootpos, rootnt)(st, qpush(n, i, S), n1, i), buildtree(len, G, s, rootpos, rootnt)(st,  qpush(n, i, S), n2, i))
+	                   ELSE one(st`scaf(i)(n), buildtree(len, G, s, rootpos, rootnt)(st, qpush(n, i, S), n1, i))
+			   ENDIF)
+	 ELSE zero(st`scaf(i)(n))
+        ENDCASES
+     MEASURE dep(st`scaf(i)(n))
+
+no_push_endstate: LEMMA
+ (FORALL len, G, (s: strings(len)), (start: upto(len)), (root: non_terminal), (st: endstate(len, G, s, start, root)), (i : upto(len)), n:
+  NOT push?(st`scaf(i)(n)))
+    
+
+
+  buildloop(len, G, (s: strings(len)), (rootpos: upto(len)), (rootnt: non_terminal))(st: endstate(len, G, s, rootpos, rootnt), (A: scaffold(len)), (S | good_qstack?(len, G, s, st`scaf)(S) AND (FORALL (i: upto(len)), n: A(i)(n) = loop IFF inqstack(n, i, S))), n, (i | i <= len AND loop?(st`scaf(i)(n)))): RECURSIVE {P | good_parsetree?(len, G, s)(S, n, i, P) and loop?(entry(P))}
+    = (IF inqstack(n, i, S)
+       THEN zero(loop)
+       ELSE CASES G(n) OF
+	  neg(n1): one(loop, buildloop(len, G, s, rootpos, rootnt)(st, A WITH [(i)(n) := loop],
+	                                                           qpush(n, i, S), n1, i)),
+	  check(n1): one(loop, buildloop(len, G, s, rootpos, rootnt)(st, A WITH [(i)(n) := loop], 
+	                                                             qpush(n, i, S), n1, i)),
+	  concat(n1, n2): (IF loop?(st`scaf(i)(n1))
+	                   THEN one(loop, buildloop(len, G, s, rootpos, rootnt)(st, A WITH [(i)(n) := loop],
+			                                                        qpush(n, i, S), n1, i))
+
+	                   ELSE two(loop, buildtree(len, G, s, rootpos, rootnt)(st, qpush(n, i, S),  n1, i),
+			            buildloop(len, G, s, rootpos, rootnt)(st, A WITH [(i)(n) := loop],
+				                                          qpush(n, i, S), n2, (i + span(st`scaf(i)(n1)))))
+                           ENDIF),
+	   choice(n1, n2): (IF loop?(st`scaf(i)(n1))
+	                    THEN one(loop,
+			             buildloop(len, G, s, rootpos, rootnt)(st, A WITH [(i)(n) := loop], qpush(n, i, S), n1, i))
+	                   ELSE two(loop, buildtree(len, G, s, rootpos, rootnt)(st, qpush(n, i, S), n1, i),
+			            buildloop(len, G, s, rootpos, rootnt)(st, A WITH [(i)(n) := loop],
+				                                          qpush(n, i, S), n2, i))
+			    ENDIF)
+        ENDCASES
+     ENDIF)
+     MEASURE exp2(40) - scafcount(len, A, loop?, len)
+
+   
+    buildproof(len, G, (s: strings(len)), (rootpos: upto(len)), (rootnt: non_terminal))(st: endstate(len, G, s, rootpos, rootnt),  n, (i | i <= len)): 
+       {P | good_parsetree?(len, G, s)(qempty, n, i, P) AND entry(P) = st`scaf(i)(n)}
+      = (IF loop?(st`scaf(i)(n))
+          THEN  (LET pendfun = (LAMBDA (n: non_terminal): pending),
+	             A = (LAMBDA (i: upto(len)): pendfun)
+		  IN buildloop(len, G, s, rootpos, rootnt)(st, A, qempty, n, i))
+          ELSE buildtree(len, G, s, rootpos, rootnt)(st, qempty, n, i)
+	  ENDIF)
+
+
+  
+
+  END sigmatdproof

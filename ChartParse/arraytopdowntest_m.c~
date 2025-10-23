@@ -1,0 +1,18 @@
+#include "sigmatopdowntest_c.h"
+
+int main(){
+  double start = get_cpu_time();
+  sigmatopdown__ent_adt_t test0 = sigmatopdowntest__test0();
+  sigmatopdown__ent_adt_t test1 = sigmatopdowntest__test1();
+  sigmatopdown__ent_adt_t test11 = sigmatopdowntest__test11();
+  sigmatopdown__ent_adt_t test2 = sigmatopdowntest__test2();  
+  
+  printf("\ntest0 = %d", r_sigmatopdown__goodp(test0));
+  printf("\ntest1 = %d", r_sigmatopdown__goodp(test1));
+  printf("\ntest11 = %d", r_sigmatopdown__goodp(test11));
+  printf("\ntest2 = %d", r_sigmatopdown__goodp(test2));
+  double end = get_cpu_time();
+  printf("\n CPU Time = %f seconds\n", end - start);
+  
+  return 0;
+}

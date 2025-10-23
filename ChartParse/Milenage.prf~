@@ -1,0 +1,691 @@
+(Milenage
+ (c1_TCC1 0
+  (c1_TCC1-1 nil 3848419886 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (c1 subtype "16" "index")))
+ (byvto_TCC1 0
+  (byvto_TCC1-1 nil 3849360635 ("" (subtype-tcc) nil nil)
+   ((nil application-judgement "above(n)" exp2 nil)) nil
+   (byvto subtype "Milenage.to" "index")))
+ (byvto_TCC2 0
+  (byvto_TCC2-1 nil 3849360635 ("" (subtype-tcc) nil nil)
+   ((nil application-judgement "above(n)" exp2 nil)) nil
+   (byvto subtype "Milenage.i" "naturalnumbers.below(Milenage.n)")))
+ (byvfrom_TCC1 0
+  (byvfrom_TCC1-1 nil 3849360635 ("" (subtype-tcc) nil nil)
+   ((nil application-judgement "above(n)" exp2 nil)) nil
+   (byvfrom subtype "(number_fields.-)(Milenage.n, Milenage.frm)"
+    "index")))
+ (byvfrom_TCC2 0
+  (byvfrom_TCC2-1 nil 3849360635 ("" (subtype-tcc) nil nil)
+   ((nil application-judgement "above(n)" exp2 nil)) nil
+   (byvfrom subtype "(number_fields.+)(Milenage.i, Milenage.frm)"
+    "naturalnumbers.below(Milenage.n)")))
+ (OUT1_TCC1 0
+  (OUT1_TCC1-1 nil 3849360635 ("" (subtype-tcc) nil nil)
+   ((r1 const-decl "uint8" Milenage nil)) nil
+   (OUT1 subtype "Milenage.r1"
+    "naturalnumbers.below(number_fields.*(8, 16))")))
+ (OUT2_TCC1 0
+  (OUT2_TCC1-1 nil 3849360635 ("" (subtype-tcc) nil nil)
+   ((r2 const-decl "uint8" Milenage nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (OUT2 subtype "Milenage.r2"
+    "naturalnumbers.below(number_fields.*(8, 16))")))
+ (OUT3_TCC1 0
+  (OUT3_TCC1-1 nil 3849360635 ("" (subtype-tcc) nil nil)
+   ((r3 const-decl "uint8" Milenage nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (OUT3 subtype "Milenage.r3"
+    "naturalnumbers.below(number_fields.*(8, 16))")))
+ (OUT4_TCC1 0
+  (OUT4_TCC1-1 nil 3849360635 ("" (subtype-tcc) nil nil)
+   ((r4 const-decl "uint8" Milenage nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (OUT4 subtype "Milenage.r4"
+    "naturalnumbers.below(number_fields.*(8, 16))")))
+ (OUT5_TCC1 0
+  (OUT5_TCC1-1 nil 3849360635 ("" (subtype-tcc) nil nil)
+   ((r5 const-decl "uint8" Milenage nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (OUT5 subtype "Milenage.r5"
+    "naturalnumbers.below(number_fields.*(8, 16))")))
+ (SQN_TCC1 0
+  (SQN_TCC1-1 nil 3848419886 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (SQN subtype "6" "index")))
+ (AMF_TCC1 0
+  (AMF_TCC1-1 nil 3848419886 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (AMF subtype "2" "index")))
+ (IN1_TCC1 0
+  (IN1_TCC1-1 nil 3849360635 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (IN1 subtype "8" "index")))
+ (IN1_TCC2 0
+  (IN1_TCC2-1 nil 3849360635 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (IN1 subtype "14" "index")))
+ (testAllFunc_TCC1 0
+  (testAllFunc_TCC1-1 nil 3854458578 ("" (eval-formula) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (bijective? const-decl "bool" functions nil)
+    (id const-decl "(bijective?[T, T])" identity nil)
+    (TRUE const-decl "bool" booleans nil))
+   nil (testAllFunc subtype "\"\\\\ninput: \"" "charstring")))
+ (testAllFunc_TCC2 0
+  (testAllFunc_TCC2-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil nil
+   (testAllFunc subtype "\" SQN: \""
+    "{s2 | reals.<((number_fields.+)(\"\\\\ninput: \"`length, charstrings.s2`length), 0x10000000)}")))
+ (testAllFunc_TCC3 0
+  (testAllFunc_TCC3-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil nil
+   (testAllFunc subtype "charstrings.++(\"\\\\ninput: \", \" SQN: \")"
+    "bstring")))
+ (testAllFunc_TCC4 0
+  (testAllFunc_TCC4-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil nil
+   (testAllFunc subtype "bytevectors[6].byv2bytestring(Milenage.SQN)"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, bytestrings.mk_bytestring(charstrings.++(\"\\\\ninput: \", \" SQN: \"))`length), 0x100000000)}")))
+ (testAllFunc_TCC5 0
+  (testAllFunc_TCC5-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil nil
+   (testAllFunc subtype "\" AMF: \"" "bstring")))
+ (testAllFunc_TCC6 0
+  (testAllFunc_TCC6-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil nil
+   (testAllFunc subtype "bytestrings.mk_bytestring(\" AMF: \")"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.mk_bytestring(charstrings.++(\"\\\\ninput: \", \" SQN: \")), bytevectors[6].byv2bytestring(Milenage.SQN)))`length), 0x100000000)}")))
+ (testAllFunc_TCC7 0
+  (testAllFunc_TCC7-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil nil
+   (testAllFunc subtype "bytevectors[2].byv2bytestring(Milenage.AMF)"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(charstrings.++(\"\\\\ninput: \", \" SQN: \")), bytevectors[6].byv2bytestring(Milenage.SQN)), bytestrings.mk_bytestring(\" AMF: \")))`length), 0x100000000)}")))
+ (testAllFunc_TCC8 0
+  (testAllFunc_TCC8-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil nil
+   (testAllFunc subtype "\" K: \"" "bstring")))
+ (testAllFunc_TCC9 0
+  (testAllFunc_TCC9-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil nil
+   (testAllFunc subtype "bytestrings.mk_bytestring(\" K: \")"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(charstrings.++(\"\\\\ninput: \", \" SQN: \")), bytevectors[6].byv2bytestring(Milenage.SQN)), bytestrings.mk_bytestring(\" AMF: \")), bytevectors[2].byv2bytestring(Milenage.AMF)))`length), 0x100000000)}")))
+ (testAllFunc_TCC10 0
+  (testAllFunc_TCC10-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "bytevectors[16].byv2bytestring(Milenage.K)"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(charstrings.++(\"\\\\ninput: \", \" SQN: \")), bytevectors[6].byv2bytestring(Milenage.SQN)), bytestrings.mk_bytestring(\" AMF: \")), bytevectors[2].byv2bytestring(Milenage.AMF)), bytestrings.mk_bytestring(\" K: \")))`length), 0x100000000)}")))
+ (testAllFunc_TCC11 0
+  (testAllFunc_TCC11-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil (testAllFunc subtype "\" RAND: \"" "bstring")))
+ (testAllFunc_TCC12 0
+  (testAllFunc_TCC12-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "bytestrings.mk_bytestring(\" RAND: \")"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(charstrings.++(\"\\\\ninput: \", \" SQN: \")), bytevectors[6].byv2bytestring(Milenage.SQN)), bytestrings.mk_bytestring(\" AMF: \")), bytevectors[2].byv2bytestring(Milenage.AMF)), bytestrings.mk_bytestring(\" K: \")), bytevectors[16].byv2bytestring(Milenage.K)))`length), 0x100000000)}")))
+ (testAllFunc_TCC13 0
+  (testAllFunc_TCC13-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "bytevectors[16].byv2bytestring(Milenage.RAND)"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(charstrings.++(\"\\\\ninput: \", \" SQN: \")), bytevectors[6].byv2bytestring(Milenage.SQN)), bytestrings.mk_bytestring(\" AMF: \")), bytevectors[2].byv2bytestring(Milenage.AMF)), bytestrings.mk_bytestring(\" K: \")), bytevectors[16].byv2bytestring(Milenage.K)), bytestrings.mk_bytestring(\" RAND: \")))`length), 0x100000000)}")))
+ (testAllFunc_TCC14 0
+  (testAllFunc_TCC14-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil (testAllFunc subtype "\" OPC: \"" "bstring")))
+ (testAllFunc_TCC15 0
+  (testAllFunc_TCC15-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "bytestrings.mk_bytestring(\" OPC: \")"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(charstrings.++(\"\\\\ninput: \", \" SQN: \")), bytevectors[6].byv2bytestring(Milenage.SQN)), bytestrings.mk_bytestring(\" AMF: \")), bytevectors[2].byv2bytestring(Milenage.AMF)), bytestrings.mk_bytestring(\" K: \")), bytevectors[16].byv2bytestring(Milenage.K)), bytestrings.mk_bytestring(\" RAND: \")), bytevectors[16].byv2bytestring(Milenage.RAND)))`length), 0x100000000)}")))
+ (testAllFunc_TCC16 0
+  (testAllFunc_TCC16-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil (testAllFunc subtype "\"\\\\nf1: \"" "bstring")))
+ (testAllFunc_TCC17 0
+  (testAllFunc_TCC17-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "Milenage.f1"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, bytestrings.mk_bytestring(\"\\\\nf1: \")`length), 0x100000000)}")))
+ (testAllFunc_TCC18 0
+  (testAllFunc_TCC18-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil (testAllFunc subtype "\"f1star: \"" "bstring")))
+ (testAllFunc_TCC19 0
+  (testAllFunc_TCC19-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "bytestrings.mk_bytestring(\"f1star: \")"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.mk_bytestring(\"\\\\nf1: \"), Milenage.f1))`length), 0x100000000)}")))
+ (testAllFunc_TCC20 0
+  (testAllFunc_TCC20-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "Milenage.f1star"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(\"\\\\nf1: \"), Milenage.f1), bytestrings.mk_bytestring(\"f1star: \")))`length), 0x100000000)}")))
+ (testAllFunc_TCC21 0
+  (testAllFunc_TCC21-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil (testAllFunc subtype "\"f2: \"" "bstring")))
+ (testAllFunc_TCC22 0
+  (testAllFunc_TCC22-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "bytestrings.mk_bytestring(\"f2: \")"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(\"\\\\nf1: \"), Milenage.f1), bytestrings.mk_bytestring(\"f1star: \")), Milenage.f1star))`length), 0x100000000)}")))
+ (testAllFunc_TCC23 0
+  (testAllFunc_TCC23-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "Milenage.f2"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(\"\\\\nf1: \"), Milenage.f1), bytestrings.mk_bytestring(\"f1star: \")), Milenage.f1star), bytestrings.mk_bytestring(\"f2: \")))`length), 0x100000000)}")))
+ (testAllFunc_TCC24 0
+  (testAllFunc_TCC24-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil (testAllFunc subtype "\"f3: \"" "bstring")))
+ (testAllFunc_TCC25 0
+  (testAllFunc_TCC25-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "bytestrings.mk_bytestring(\"f3: \")"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(\"\\\\nf1: \"), Milenage.f1), bytestrings.mk_bytestring(\"f1star: \")), Milenage.f1star), bytestrings.mk_bytestring(\"f2: \")), Milenage.f2))`length), 0x100000000)}")))
+ (testAllFunc_TCC26 0
+  (testAllFunc_TCC26-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "Milenage.f3"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(\"\\\\nf1: \"), Milenage.f1), bytestrings.mk_bytestring(\"f1star: \")), Milenage.f1star), bytestrings.mk_bytestring(\"f2: \")), Milenage.f2), bytestrings.mk_bytestring(\"f3: \")))`length), 0x100000000)}")))
+ (testAllFunc_TCC27 0
+  (testAllFunc_TCC27-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil (testAllFunc subtype "\"f4: \"" "bstring")))
+ (testAllFunc_TCC28 0
+  (testAllFunc_TCC28-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "bytestrings.mk_bytestring(\"f4: \")"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(\"\\\\nf1: \"), Milenage.f1), bytestrings.mk_bytestring(\"f1star: \")), Milenage.f1star), bytestrings.mk_bytestring(\"f2: \")), Milenage.f2), bytestrings.mk_bytestring(\"f3: \")), Milenage.f3))`length), 0x100000000)}")))
+ (testAllFunc_TCC29 0
+  (testAllFunc_TCC29-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "Milenage.f4"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(\"\\\\nf1: \"), Milenage.f1), bytestrings.mk_bytestring(\"f1star: \")), Milenage.f1star), bytestrings.mk_bytestring(\"f2: \")), Milenage.f2), bytestrings.mk_bytestring(\"f3: \")), Milenage.f3), bytestrings.mk_bytestring(\"f4: \")))`length), 0x100000000)}")))
+ (testAllFunc_TCC30 0
+  (testAllFunc_TCC30-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil (testAllFunc subtype "\"f5: \"" "bstring")))
+ (testAllFunc_TCC31 0
+  (testAllFunc_TCC31-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "bytestrings.mk_bytestring(\"f5: \")"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(\"\\\\nf1: \"), Milenage.f1), bytestrings.mk_bytestring(\"f1star: \")), Milenage.f1star), bytestrings.mk_bytestring(\"f2: \")), Milenage.f2), bytestrings.mk_bytestring(\"f3: \")), Milenage.f3), bytestrings.mk_bytestring(\"f4: \")), Milenage.f4))`length), 0x100000000)}")))
+ (testAllFunc_TCC32 0
+  (testAllFunc_TCC32-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "Milenage.f5"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(\"\\\\nf1: \"), Milenage.f1), bytestrings.mk_bytestring(\"f1star: \")), Milenage.f1star), bytestrings.mk_bytestring(\"f2: \")), Milenage.f2), bytestrings.mk_bytestring(\"f3: \")), Milenage.f3), bytestrings.mk_bytestring(\"f4: \")), Milenage.f4), bytestrings.mk_bytestring(\"f5: \")))`length), 0x100000000)}")))
+ (testAllFunc_TCC33 0
+  (testAllFunc_TCC33-1 nil 3854458578 ("" (subtype-tcc) nil nil)
+   ((TEMP const-decl "byv[16]" Milenage nil)
+    (IN1 const-decl "byv[16]" Milenage nil)
+    (r1 const-decl "uint8" Milenage nil)
+    (byvrightrotate const-decl "byv" bytevectors nil)
+    (c1 const-decl "byv[16]" Milenage nil)
+    (OUT1 const-decl "byv[16]" Milenage nil)
+    (r2 const-decl "uint8" Milenage nil)
+    (c2 const-decl "byv[16]" Milenage nil)
+    (OUT2 const-decl "byv[16]" Milenage nil)
+    (r3 const-decl "uint8" Milenage nil)
+    (c3 const-decl "byv[16]" Milenage nil)
+    (OUT3 const-decl "byv[16]" Milenage nil)
+    (r4 const-decl "uint8" Milenage nil)
+    (c4 const-decl "byv[16]" Milenage nil)
+    (OUT4 const-decl "byv[16]" Milenage nil)
+    (allfunc const-decl "Output" Milenage nil)
+    (byv2bytestring const-decl "bytestring" bytevectors nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil))
+   nil
+   (testAllFunc subtype
+    "bytevectors[8].byv2bytestring(Milenage.output`f1)"
+    "{X | reals.<(number_fields.*(2, hex.X`length), 0x100000000)}")))
+ (testAllFunc_TCC34 0
+  (testAllFunc_TCC34-1 nil 3854458578 ("" (subtype-tcc) nil nil)
+   ((TEMP const-decl "byv[16]" Milenage nil)
+    (IN1 const-decl "byv[16]" Milenage nil)
+    (r1 const-decl "uint8" Milenage nil)
+    (byvrightrotate const-decl "byv" bytevectors nil)
+    (c1 const-decl "byv[16]" Milenage nil)
+    (OUT1 const-decl "byv[16]" Milenage nil)
+    (r2 const-decl "uint8" Milenage nil)
+    (c2 const-decl "byv[16]" Milenage nil)
+    (OUT2 const-decl "byv[16]" Milenage nil)
+    (r3 const-decl "uint8" Milenage nil)
+    (c3 const-decl "byv[16]" Milenage nil)
+    (OUT3 const-decl "byv[16]" Milenage nil)
+    (r4 const-decl "uint8" Milenage nil)
+    (c4 const-decl "byv[16]" Milenage nil)
+    (OUT4 const-decl "byv[16]" Milenage nil)
+    (allfunc const-decl "Output" Milenage nil)
+    (byv2bytestring const-decl "bytestring" bytevectors nil)
+    (u32times const-decl "uint32" integertypes nil)
+    (u32div const-decl "uint32" integertypes nil)
+    (u32rem const-decl "uint32" integertypes nil)
+    (get const-decl "byte" bytestrings nil)
+    (u8rshift const-decl "uint8" integertypes nil)
+    (u8rem const-decl "uint8" integertypes nil)
+    (bytestring2hexstring const-decl "hexstring" hex nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil))
+   nil
+   (testAllFunc subtype
+    "bytevectors[8].byv2bytestring(Milenage.output`f1star)"
+    "{X | reals.<(number_fields.*(2, hex.X`length), 0x100000000)}")))
+ (testAllFunc_TCC35 0
+  (testAllFunc_TCC35-1 nil 3854458578 ("" (subtype-tcc) nil nil)
+   ((TEMP const-decl "byv[16]" Milenage nil)
+    (IN1 const-decl "byv[16]" Milenage nil)
+    (r1 const-decl "uint8" Milenage nil)
+    (byvrightrotate const-decl "byv" bytevectors nil)
+    (c1 const-decl "byv[16]" Milenage nil)
+    (OUT1 const-decl "byv[16]" Milenage nil)
+    (r2 const-decl "uint8" Milenage nil)
+    (c2 const-decl "byv[16]" Milenage nil)
+    (OUT2 const-decl "byv[16]" Milenage nil)
+    (r3 const-decl "uint8" Milenage nil)
+    (c3 const-decl "byv[16]" Milenage nil)
+    (OUT3 const-decl "byv[16]" Milenage nil)
+    (r4 const-decl "uint8" Milenage nil)
+    (c4 const-decl "byv[16]" Milenage nil)
+    (OUT4 const-decl "byv[16]" Milenage nil)
+    (allfunc const-decl "Output" Milenage nil)
+    (byv2bytestring const-decl "bytestring" bytevectors nil)
+    (u32times const-decl "uint32" integertypes nil)
+    (u32div const-decl "uint32" integertypes nil)
+    (u32rem const-decl "uint32" integertypes nil)
+    (get const-decl "byte" bytestrings nil)
+    (u8rshift const-decl "uint8" integertypes nil)
+    (u8rem const-decl "uint8" integertypes nil)
+    (bytestring2hexstring const-decl "hexstring" hex nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil))
+   nil
+   (testAllFunc subtype
+    "bytevectors[8].byv2bytestring(Milenage.output`f2)"
+    "{X | reals.<(number_fields.*(2, hex.X`length), 0x100000000)}")))
+ (testAllFunc_TCC36 0
+  (testAllFunc_TCC36-1 nil 3854458578 ("" (subtype-tcc) nil nil)
+   ((TEMP const-decl "byv[16]" Milenage nil)
+    (IN1 const-decl "byv[16]" Milenage nil)
+    (r1 const-decl "uint8" Milenage nil)
+    (byvrightrotate const-decl "byv" bytevectors nil)
+    (c1 const-decl "byv[16]" Milenage nil)
+    (OUT1 const-decl "byv[16]" Milenage nil)
+    (r2 const-decl "uint8" Milenage nil)
+    (c2 const-decl "byv[16]" Milenage nil)
+    (OUT2 const-decl "byv[16]" Milenage nil)
+    (r3 const-decl "uint8" Milenage nil)
+    (c3 const-decl "byv[16]" Milenage nil)
+    (OUT3 const-decl "byv[16]" Milenage nil)
+    (r4 const-decl "uint8" Milenage nil)
+    (c4 const-decl "byv[16]" Milenage nil)
+    (OUT4 const-decl "byv[16]" Milenage nil)
+    (allfunc const-decl "Output" Milenage nil)
+    (byv2bytestring const-decl "bytestring" bytevectors nil)
+    (u32times const-decl "uint32" integertypes nil)
+    (u32div const-decl "uint32" integertypes nil)
+    (u32rem const-decl "uint32" integertypes nil)
+    (get const-decl "byte" bytestrings nil)
+    (u8rshift const-decl "uint8" integertypes nil)
+    (u8rem const-decl "uint8" integertypes nil)
+    (bytestring2hexstring const-decl "hexstring" hex nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil))
+   nil
+   (testAllFunc subtype
+    "bytevectors[16].byv2bytestring(Milenage.output`f3)"
+    "{X | reals.<(number_fields.*(2, hex.X`length), 0x100000000)}")))
+ (testAllFunc_TCC37 0
+  (testAllFunc_TCC37-1 nil 3854458578 ("" (subtype-tcc) nil nil)
+   ((TEMP const-decl "byv[16]" Milenage nil)
+    (IN1 const-decl "byv[16]" Milenage nil)
+    (r1 const-decl "uint8" Milenage nil)
+    (byvrightrotate const-decl "byv" bytevectors nil)
+    (c1 const-decl "byv[16]" Milenage nil)
+    (OUT1 const-decl "byv[16]" Milenage nil)
+    (r2 const-decl "uint8" Milenage nil)
+    (c2 const-decl "byv[16]" Milenage nil)
+    (OUT2 const-decl "byv[16]" Milenage nil)
+    (r3 const-decl "uint8" Milenage nil)
+    (c3 const-decl "byv[16]" Milenage nil)
+    (OUT3 const-decl "byv[16]" Milenage nil)
+    (r4 const-decl "uint8" Milenage nil)
+    (c4 const-decl "byv[16]" Milenage nil)
+    (OUT4 const-decl "byv[16]" Milenage nil)
+    (allfunc const-decl "Output" Milenage nil)
+    (byv2bytestring const-decl "bytestring" bytevectors nil)
+    (u32times const-decl "uint32" integertypes nil)
+    (u32div const-decl "uint32" integertypes nil)
+    (u32rem const-decl "uint32" integertypes nil)
+    (get const-decl "byte" bytestrings nil)
+    (u8rshift const-decl "uint8" integertypes nil)
+    (u8rem const-decl "uint8" integertypes nil)
+    (bytestring2hexstring const-decl "hexstring" hex nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil))
+   nil
+   (testAllFunc subtype
+    "bytevectors[16].byv2bytestring(Milenage.output`f4)"
+    "{X | reals.<(number_fields.*(2, hex.X`length), 0x100000000)}")))
+ (testAllFunc_TCC38 0
+  (testAllFunc_TCC38-1 nil 3854458578 ("" (subtype-tcc) nil nil)
+   ((TEMP const-decl "byv[16]" Milenage nil)
+    (IN1 const-decl "byv[16]" Milenage nil)
+    (r1 const-decl "uint8" Milenage nil)
+    (byvrightrotate const-decl "byv" bytevectors nil)
+    (c1 const-decl "byv[16]" Milenage nil)
+    (OUT1 const-decl "byv[16]" Milenage nil)
+    (r2 const-decl "uint8" Milenage nil)
+    (c2 const-decl "byv[16]" Milenage nil)
+    (OUT2 const-decl "byv[16]" Milenage nil)
+    (r3 const-decl "uint8" Milenage nil)
+    (c3 const-decl "byv[16]" Milenage nil)
+    (OUT3 const-decl "byv[16]" Milenage nil)
+    (r4 const-decl "uint8" Milenage nil)
+    (c4 const-decl "byv[16]" Milenage nil)
+    (OUT4 const-decl "byv[16]" Milenage nil)
+    (allfunc const-decl "Output" Milenage nil)
+    (byv2bytestring const-decl "bytestring" bytevectors nil)
+    (u32times const-decl "uint32" integertypes nil)
+    (u32div const-decl "uint32" integertypes nil)
+    (u32rem const-decl "uint32" integertypes nil)
+    (get const-decl "byte" bytestrings nil)
+    (u8rshift const-decl "uint8" integertypes nil)
+    (u8rem const-decl "uint8" integertypes nil)
+    (bytestring2hexstring const-decl "hexstring" hex nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil))
+   nil
+   (testAllFunc subtype
+    "bytevectors[6].byv2bytestring(Milenage.output`f5)"
+    "{X | reals.<(number_fields.*(2, hex.X`length), 0x100000000)}")))
+ (testAllFunc_TCC39 0
+  (testAllFunc_TCC39-1 nil 3854458578 ("" (subtype-tcc) nil nil)
+   ((TEMP const-decl "byv[16]" Milenage nil)
+    (IN1 const-decl "byv[16]" Milenage nil)
+    (r1 const-decl "uint8" Milenage nil)
+    (byvrightrotate const-decl "byv" bytevectors nil)
+    (c1 const-decl "byv[16]" Milenage nil)
+    (OUT1 const-decl "byv[16]" Milenage nil)
+    (r2 const-decl "uint8" Milenage nil)
+    (c2 const-decl "byv[16]" Milenage nil)
+    (OUT2 const-decl "byv[16]" Milenage nil)
+    (r3 const-decl "uint8" Milenage nil)
+    (c3 const-decl "byv[16]" Milenage nil)
+    (OUT3 const-decl "byv[16]" Milenage nil)
+    (r4 const-decl "uint8" Milenage nil)
+    (c4 const-decl "byv[16]" Milenage nil)
+    (OUT4 const-decl "byv[16]" Milenage nil)
+    (allfunc const-decl "Output" Milenage nil)
+    (byv2bytestring const-decl "bytestring" bytevectors nil)
+    (u32times const-decl "uint32" integertypes nil)
+    (u32div const-decl "uint32" integertypes nil)
+    (u32rem const-decl "uint32" integertypes nil)
+    (get const-decl "byte" bytestrings nil)
+    (u8rshift const-decl "uint8" integertypes nil)
+    (u8rem const-decl "uint8" integertypes nil)
+    (bytestring2hexstring const-decl "hexstring" hex nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil))
+   nil
+   (testAllFunc subtype
+    "bytevectors[6].byv2bytestring(Milenage.output`f5star)"
+    "{X | reals.<(number_fields.*(2, hex.X`length), 0x100000000)}")))
+ (testAllFunc_TCC40 0
+  (testAllFunc_TCC40-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "bytevectors[16].byv2bytestring(Milenage.OPC)"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(charstrings.++(\"\\\\ninput: \", \" SQN: \")), bytevectors[6].byv2bytestring(Milenage.SQN)), bytestrings.mk_bytestring(\" AMF: \")), bytevectors[2].byv2bytestring(Milenage.AMF)), bytestrings.mk_bytestring(\" K: \")), bytevectors[16].byv2bytestring(Milenage.K)), bytestrings.mk_bytestring(\" RAND: \")), bytevectors[16].byv2bytestring(Milenage.RAND)), bytestrings.mk_bytestring(\" OPC: \")))`length), 0x100000000)}")))
+ (testAllFunc_TCC41 0
+  (testAllFunc_TCC41-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil (testAllFunc subtype "\"f5star: \"" "bstring")))
+ (testAllFunc_TCC42 0
+  (testAllFunc_TCC42-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "bytestrings.mk_bytestring(\"f5star: \")"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(\"\\\\nf1: \"), Milenage.f1), bytestrings.mk_bytestring(\"f1star: \")), Milenage.f1star), bytestrings.mk_bytestring(\"f2: \")), Milenage.f2), bytestrings.mk_bytestring(\"f3: \")), Milenage.f3), bytestrings.mk_bytestring(\"f4: \")), Milenage.f4), bytestrings.mk_bytestring(\"f5: \")), Milenage.f5))`length), 0x100000000)}")))
+ (testAllFunc_TCC43 0
+  (testAllFunc_TCC43-1 nil 3854458578 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testAllFunc subtype "Milenage.f5star"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.mk_bytestring(\"\\\\nf1: \"), Milenage.f1), bytestrings.mk_bytestring(\"f1star: \")), Milenage.f1star), bytestrings.mk_bytestring(\"f2: \")), Milenage.f2), bytestrings.mk_bytestring(\"f3: \")), Milenage.f3), bytestrings.mk_bytestring(\"f4: \")), Milenage.f4), bytestrings.mk_bytestring(\"f5: \")), Milenage.f5), bytestrings.mk_bytestring(\"f5star: \")))`length), 0x100000000)}"))))
+(testMilenage
+ (test0SQN_TCC1 0
+  (test0SQN_TCC1-1 nil 3854458882 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (test0SQN subtype "6" "index")))
+ (test0AMF_TCC1 0
+  (test0AMF_TCC1-1 nil 3854458882 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (test0AMF subtype "2" "index")))
+ (test0K_TCC1 0
+  (test0K_TCC1-1 nil 3854458882 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (test0K subtype "16" "index")))
+ (test0K_TCC2 0
+  (test0K_TCC2-1 nil 3854458882 ("" (subtype-tcc) nil nil) nil nil
+   (test0K subtype "173" "uint8")))
+ (test1SQN_TCC1 0
+  (test1SQN_TCC1-1 nil 3854458882 ("" (subtype-tcc) nil nil) nil nil
+   (test1SQN subtype "\"0000000ad010\"" "bstring")))
+ (test1SQN_TCC2 0
+  (test1SQN_TCC2-1 nil 3854458882 ("" (subtype-tcc) nil nil) nil nil
+   (test1SQN subtype "bytestrings.mk_bytestring(\"0000000ad010\")"
+    "rotate.lbytes(6)")))
+ (test1SQN_TCC3 0
+  (test1SQN_TCC3-1 nil 3854458882 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (lbytes type-eq-decl nil rotate nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (>= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (get const-decl "char" gen_strings nil)
+    (mk_bytestring const-decl "bytestring" bytestrings nil))
+   nil (test1SQN subtype "testMilenage.inSQN`seq" "byv[6]")))
+ (test1AMF_TCC1 0
+  (test1AMF_TCC1-1 nil 3854458882 ("" (subtype-tcc) nil nil) nil nil
+   (test1AMF subtype "\"8000\"" "bstring")))
+ (test1AMF_TCC2 0
+  (test1AMF_TCC2-1 nil 3854458882 ("" (subtype-tcc) nil nil) nil nil
+   (test1AMF subtype "bytestrings.mk_bytestring(\"8000\")"
+    "rotate.lbytes(2)")))
+ (test1AMF_TCC3 0
+  (test1AMF_TCC3-1 nil 3854458882 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (lbytes type-eq-decl nil rotate nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (>= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (get const-decl "char" gen_strings nil)
+    (mk_bytestring const-decl "bytestring" bytestrings nil))
+   nil (test1AMF subtype "testMilenage.inAMF`seq" "byv[2]")))
+ (test1K_TCC1 0
+  (test1K_TCC1-1 nil 3854458882 ("" (subtype-tcc) nil nil) nil nil
+   (test1K subtype "\"12345500000000000000000000000000\"" "bstring")))
+ (test1K_TCC2 0
+  (test1K_TCC2-1 nil 3854458882 ("" (subtype-tcc) nil nil) nil nil
+   (test1K subtype
+    "bytestrings.mk_bytestring(\"12345500000000000000000000000000\")"
+    "rotate.lbytes(16)")))
+ (test1K_TCC3 0
+  (test1K_TCC3-1 nil 3854458882 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (lbytes type-eq-decl nil rotate nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (>= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (get const-decl "char" gen_strings nil)
+    (mk_bytestring const-decl "bytestring" bytestrings nil))
+   nil (test1K subtype "testMilenage.inK`seq" "byv[16]")))
+ (test1RAND_TCC1 0
+  (test1RAND_TCC1-1 nil 3854458882 ("" (subtype-tcc) nil nil) nil nil
+   (test1RAND subtype "\"040000000000000006abf813a89f9ee1\""
+    "bstring")))
+ (test1RAND_TCC2 0
+  (test1RAND_TCC2-1 nil 3854458882 ("" (subtype-tcc) nil nil) nil nil
+   (test1RAND subtype
+    "bytestrings.mk_bytestring(\"040000000000000006abf813a89f9ee1\")"
+    "rotate.lbytes(16)")))
+ (test1RAND_TCC3 0
+  (test1RAND_TCC3-1 nil 3854458882 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (lbytes type-eq-decl nil rotate nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (>= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (get const-decl "char" gen_strings nil)
+    (mk_bytestring const-decl "bytestring" bytestrings nil))
+   nil (test1RAND subtype "testMilenage.inRAND`seq" "byv[16]")))
+ (test1OPc_TCC1 0
+  (test1OPc_TCC1-1 nil 3854458882 ("" (subtype-tcc) nil nil) nil nil
+   (test1OPc subtype "\"63bfa50ee6523365ff14c1f45f88737d\""
+    "bstring")))
+ (test1OPc_TCC2 0
+  (test1OPc_TCC2-1 nil 3854458882 ("" (subtype-tcc) nil nil) nil nil
+   (test1OPc subtype
+    "bytestrings.mk_bytestring(\"63bfa50ee6523365ff14c1f45f88737d\")"
+    "rotate.lbytes(16)")))
+ (test1OPc_TCC3 0
+  (test1OPc_TCC3-1 nil 3854458882 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (lbytes type-eq-decl nil rotate nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (>= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (get const-decl "char" gen_strings nil)
+    (mk_bytestring const-decl "bytestring" bytestrings nil))
+   nil (test1OPc subtype "testMilenage.inOPc`seq" "byv[16]"))))
+

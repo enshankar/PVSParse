@@ -1,0 +1,10 @@
+test_string  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+   string4: string = "ABC123"
+   string5: string = "αβγ̧pu"
+
+
+  END test_string

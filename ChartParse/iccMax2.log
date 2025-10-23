@@ -1,0 +1,51 @@
+; While compiling #'_ChannelVecOp_0 at top level:
+Warning: Variable S is never used.
+; While compiling #'ChannelVecOp!_0 at top level:
+Warning: Variable S is never used.
+; While compiling #'(:internal ChannelVecOp_0 0) at top level:
+Warning: Variable S is never used.
+; While compiling #'_print64_0 at top level:
+Warning: Variable e is never used.
+Warning: Variable d is never used.
+; While compiling #'print64!_0 at top level:
+Warning: Variable e is never used.
+Warning: Variable d is never used.
+; While compiling #'(:internal print64_0 0) at top level:
+Warning: Variable e is never used.
+Warning: Variable d is never used.
+; While compiling #'_print32_0 at top level:
+Warning: Variable e is never used.
+Warning: Variable d is never used.
+; While compiling #'print32!_0 at top level:
+Warning: Variable e is never used.
+Warning: Variable d is never used.
+; While compiling #'(:internal print32_0 0) at top level:
+Warning: Variable e is never used.
+Warning: Variable d is never used.
+; While compiling #'_parseOperation_0 at top level:
+Warning: Variable T is never used.
+; While compiling #'parseOperation!_0 at top level:
+Warning: Variable T is never used.
+; While compiling #'(:internal parseOperation_0 0) at top level:
+Warning: Variable T is never used.
+; While compiling #'_hex2bytestring_1 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'hex2bytestring!_1 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'(:internal hex2bytestring_1 0) at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.

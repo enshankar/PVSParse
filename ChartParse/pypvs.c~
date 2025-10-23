@@ -1,0 +1,345 @@
+
+
+#define PY_SSIZE_T_CLEAN
+#include <Python.h>
+
+
+#include "KDF_c.h"
+
+static PyObject *PyPVSError;
+
+
+static bytestrings__bytestring_t
+make_bytestring(const char *arg, Py_ssize_t len)
+{
+    Py_ssize_t i;
+
+    uint32_t *array = malloc(len * sizeof(uint32_t));
+    for (i = 0; i < len; ++i) {
+        array[i] = arg[i] & 0xff;
+    }
+    stringliteral_t sl = mk_string(len, array);
+    strings__string_t st = strings__make_string(len, (strings_array_2_t)sl);
+    bytestrings__bytestring_t bs = bytestrings__mk_bytestring(st);
+    free(array);
+    return bs;
+}
+
+#if 0
+static void
+print_bytestring(const char *what, bytestrings__bytestring_t bs)
+{
+    uint32_t i;
+    printf("%s: ", what);
+    for (i = 0; i < bs->length; ++i) {
+        printf("%02x", bs->seq->elems[i]);
+    }
+    printf("n");
+}
+#endif
+
+static PyObject * 
+        py_KDF__KDF1(PyObject *self, PyObject *args)
+{
+        const char *args1, *args2, *args3;
+        Py_ssize_t args1_len, args2_len, args3_len;
+        PyObject *value = NULL;
+        if (!PyArg_ParseTuple(args, "y#y#y#", &args1, &args2, &args3, &args1_len, &args2_len, &args3_len)){
+                return NULL;
+        }
+
+        bytestrings__bytestring_t bs_args1 = make_bytestring(args1, args1_len);
+        bytestrings__bytestring_t bs_args2 = make_bytestring(args2, args2_len);
+        bytestrings__bytestring_t bs_args3 = make_bytestring(args3, args3_len);
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__KDF1(bs_args1, bs_args2, bs_args3);
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__KDF2(PyObject *self, PyObject *args)
+{
+        const char *args1, *args2, *args3, *args4;
+        Py_ssize_t args1_len, args2_len, args3_len, args4_len;
+        PyObject *value = NULL;
+        if (!PyArg_ParseTuple(args, "y#y#y#y#", &args1, &args2, &args3, &args4, &args1_len, &args2_len, &args3_len, &args4_len)){
+                return NULL;
+        }
+
+        bytestrings__bytestring_t bs_args1 = make_bytestring(args1, args1_len);
+        bytestrings__bytestring_t bs_args2 = make_bytestring(args2, args2_len);
+        bytestrings__bytestring_t bs_args3 = make_bytestring(args3, args3_len);
+        bytestrings__bytestring_t bs_args4 = make_bytestring(args4, args4_len);
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__KDF2(bs_args1, bs_args2, bs_args3, bs_args4);
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__KDF3(PyObject *self, PyObject *args)
+{
+        const char *args1, *args2, *args3, *args4, *args5;
+        Py_ssize_t args1_len, args2_len, args3_len, args4_len, args5_len;
+        PyObject *value = NULL;
+        if (!PyArg_ParseTuple(args, "y#y#y#y#y#", &args1, &args2, &args3, &args4, &args5, &args1_len, &args2_len, &args3_len, &args4_len, &args5_len)){
+                return NULL;
+        }
+
+        bytestrings__bytestring_t bs_args1 = make_bytestring(args1, args1_len);
+        bytestrings__bytestring_t bs_args2 = make_bytestring(args2, args2_len);
+        bytestrings__bytestring_t bs_args3 = make_bytestring(args3, args3_len);
+        bytestrings__bytestring_t bs_args4 = make_bytestring(args4, args4_len);
+        bytestrings__bytestring_t bs_args5 = make_bytestring(args5, args5_len);
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__KDF3(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5);
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__KDF(PyObject *self, PyObject *args)
+{
+        const char *args1, *args2;
+        Py_ssize_t args1_len, args2_len;
+        PyObject *value = NULL;
+        if (!PyArg_ParseTuple(args, "y#y#", &args1, &args2, &args1_len, &args2_len)){
+                return NULL;
+        }
+
+        bytestrings__bytestring_t bs_args1 = make_bytestring(args1, args1_len);
+        bytestrings__bytestring_t bs_args2 = make_bytestring(args2, args2_len);
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__KDF(bs_args1, bs_args2);
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__KAUSF(PyObject *self, PyObject *args)
+{
+        const char *args1, *args2, *args3, *args4, *args5;
+        Py_ssize_t args1_len, args2_len, args3_len, args4_len, args5_len;
+        PyObject *value = NULL;
+        if (!PyArg_ParseTuple(args, "y#y#y#y#y#", &args1, &args2, &args3, &args4, &args5, &args1_len, &args2_len, &args3_len, &args4_len, &args5_len)){
+                return NULL;
+        }
+
+        bytestrings__bytestring_t bs_args1 = make_bytestring(args1, args1_len);
+        bytestrings__bytestring_t bs_args2 = make_bytestring(args2, args2_len);
+        bytestrings__bytestring_t bs_args3 = make_bytestring(args3, args3_len);
+        bytestrings__bytestring_t bs_args4 = make_bytestring(args4, args4_len);
+        bytestrings__bytestring_t bs_args5 = make_bytestring(args5, args5_len);
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__KAUSF(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5);
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__KSEAF(PyObject *self, PyObject *args)
+{
+        const char *args1, *args2;
+        Py_ssize_t args1_len, args2_len;
+        PyObject *value = NULL;
+        if (!PyArg_ParseTuple(args, "y#y#", &args1, &args2, &args1_len, &args2_len)){
+                return NULL;
+        }
+
+        bytestrings__bytestring_t bs_args1 = make_bytestring(args1, args1_len);
+        bytestrings__bytestring_t bs_args2 = make_bytestring(args2, args2_len);
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__KSEAF(bs_args1, bs_args2);
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__KAMF(PyObject *self, PyObject *args)
+{
+        const char *args1, *args2, *args3;
+        Py_ssize_t args1_len, args2_len, args3_len;
+        PyObject *value = NULL;
+        if (!PyArg_ParseTuple(args, "y#y#y#", &args1, &args2, &args3, &args1_len, &args2_len, &args3_len)){
+                return NULL;
+        }
+
+        bytestrings__bytestring_t bs_args1 = make_bytestring(args1, args1_len);
+        bytestrings__bytestring_t bs_args2 = make_bytestring(args2, args2_len);
+        bytestrings__bytestring_t bs_args3 = make_bytestring(args3, args3_len);
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__KAMF(bs_args1, bs_args2, bs_args3);
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__RESstar(PyObject *self, PyObject *args)
+{
+        const char *args1, *args2, *args3, *args4, *args5;
+        Py_ssize_t args1_len, args2_len, args3_len, args4_len, args5_len;
+        PyObject *value = NULL;
+        if (!PyArg_ParseTuple(args, "y#y#y#y#y#", &args1, &args2, &args3, &args4, &args5, &args1_len, &args2_len, &args3_len, &args4_len, &args5_len)){
+                return NULL;
+        }
+
+        bytestrings__bytestring_t bs_args1 = make_bytestring(args1, args1_len);
+        bytestrings__bytestring_t bs_args2 = make_bytestring(args2, args2_len);
+        bytestrings__bytestring_t bs_args3 = make_bytestring(args3, args3_len);
+        bytestrings__bytestring_t bs_args4 = make_bytestring(args4, args4_len);
+        bytestrings__bytestring_t bs_args5 = make_bytestring(args5, args5_len);
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__RESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5);
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__XRESstar(PyObject *self, PyObject *args)
+{
+        const char *args1, *args2, *args3, *args4, *args5;
+        Py_ssize_t args1_len, args2_len, args3_len, args4_len, args5_len;
+        PyObject *value = NULL;
+        if (!PyArg_ParseTuple(args, "y#y#y#y#y#", &args1, &args2, &args3, &args4, &args5, &args1_len, &args2_len, &args3_len, &args4_len, &args5_len)){
+                return NULL;
+        }
+
+        bytestrings__bytestring_t bs_args1 = make_bytestring(args1, args1_len);
+        bytestrings__bytestring_t bs_args2 = make_bytestring(args2, args2_len);
+        bytestrings__bytestring_t bs_args3 = make_bytestring(args3, args3_len);
+        bytestrings__bytestring_t bs_args4 = make_bytestring(args4, args4_len);
+        bytestrings__bytestring_t bs_args5 = make_bytestring(args5, args5_len);
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__XRESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5);
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__test_KDF1(PyObject *self)
+{
+
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__test_KDF1();
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__test_KDF2(PyObject *self)
+{
+
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__test_KDF2();
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__test_KDF3(PyObject *self)
+{
+
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__test_KDF3();
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__test_KAUSF(PyObject *self)
+{
+
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__test_KAUSF();
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__test_KSEAF(PyObject *self)
+{
+
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__test_KSEAF();
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+static PyObject * 
+        py_KDF__test_KAMF(PyObject *self)
+{
+
+        bytestrings__bytestring_t bs_value = (bytestrings__bytestring_t) KDF__test_KAMF();
+
+        value = Py_BuildValue("y#", bs_value->seq->elems, bs_value->length);
+        release_bytestrings__bytestring(bs_value);
+
+        return value;
+}
+
+static PyMethodDef PyPVSMethods[] = {
+        {"py_KDF__KDF1", py_KDF__KDF1, METH_VARARGS, KDF__KDF1},
+        {"py_KDF__KDF2", py_KDF__KDF2, METH_VARARGS, KDF__KDF2},
+        {"py_KDF__KDF3", py_KDF__KDF3, METH_VARARGS, KDF__KDF3},
+        {"py_KDF__KDF", py_KDF__KDF, METH_VARARGS, KDF__KDF},
+        {"py_KDF__KAUSF", py_KDF__KAUSF, METH_VARARGS, KDF__KAUSF},
+        {"py_KDF__KSEAF", py_KDF__KSEAF, METH_VARARGS, KDF__KSEAF},
+        {"py_KDF__KAMF", py_KDF__KAMF, METH_VARARGS, KDF__KAMF},
+        {"py_KDF__RESstar", py_KDF__RESstar, METH_VARARGS, KDF__RESstar},
+        {"py_KDF__XRESstar", py_KDF__XRESstar, METH_VARARGS, KDF__XRESstar},
+        {"py_KDF__test_KDF1", py_KDF__test_KDF1, METH_VARARGS, KDF__test_KDF1},
+        {"py_KDF__test_KDF2", py_KDF__test_KDF2, METH_VARARGS, KDF__test_KDF2},
+        {"py_KDF__test_KDF3", py_KDF__test_KDF3, METH_VARARGS, KDF__test_KDF3},
+        {"py_KDF__test_KAUSF", py_KDF__test_KAUSF, METH_VARARGS, KDF__test_KAUSF},
+        {"py_KDF__test_KSEAF", py_KDF__test_KSEAF, METH_VARARGS, KDF__test_KSEAF},
+        {"py_KDF__test_KAMF", py_KDF__test_KAMF, METH_VARARGS, KDF__test_KAMF}
+        {NULL, NULL, 0, NULL}        /* Sentinel */
+};
+
+
+static struct PyModuleDef pypvs_module = {
+    PyModuleDef_HEAD_INIT,
+    "pypvs",   /* name of module */
+    NULL,
+    -1,
+    PyPVSMethods,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+};
+
+PyMODINIT_FUNC
+PyInit_pypvs(void)
+{
+    PyObject *m;
+
+    m = PyModule_Create(&pypvs_module);
+    if (m == NULL)
+        return NULL;
+    PyPVSError = PyErr_NewException("pypypvs.error", NULL, NULL);
+    Py_XINCREF(PyPVSError);
+    if (PyModule_AddObject(m, "error", PyPVSError) < 0) {
+        Py_XDECREF(PyPVSError);
+        Py_CLEAR(PyPVSError);
+        Py_DECREF(m);
+        return NULL;
+    }
+
+    return m;
+}

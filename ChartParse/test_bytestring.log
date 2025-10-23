@@ -1,0 +1,21 @@
+; While compiling #'_mk_bytestring_0 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'mk_bytestring!_0 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'(:internal mk_bytestring_0 0) at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.

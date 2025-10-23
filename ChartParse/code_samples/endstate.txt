@@ -1,0 +1,3 @@
+ endstate(len, G, (s: strings(len)), (rootpos: upto(len)), (rootnt: non_terminal)): TYPE
+  = {st: state(len, G, s, rootpos, rootnt) |
+      empty?(st`stack)}

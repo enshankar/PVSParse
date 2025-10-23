@@ -1,0 +1,215 @@
+Milenage	: THEORY
+
+  BEGIN
+
+    IMPORTING rotate, bytevectors, byvconcat
+
+    nbyv(x: uint8, n: index): byv[n] = (LAMBDA (j: below(n)): x)
+
+    c1: byv[16] = nbyv(0, 16)
+    c2: byv[16] = c1 WITH [(15) := 1]
+    c3: byv[16] = c1 WITH [(15) := 2]
+    c4: byv[16] = c1 WITH [(15) := 4]
+    c5: byv[16] = c1 WITH [(15) := 8]
+
+    r1: uint8 = 64
+    r2: uint8 = 0
+    r3: uint8 = 32
+    r4: uint8 = 64
+    r5: uint8 = 96
+
+    E: VAR [byv[16], byv[16] -> byv[16]]
+
+    byvto(n: index, X: byv[n], to: upto(n)): byv[to] = (LAMBDA (i: below(to)): X(i))
+    byvfrom(n: index, X: byv[n], frm: upto(n)): byv[n - frm] = (LAMBDA (i: below(n - frm)): X(i + frm))
+
+    OUT1(E)(K, TEMP, IN1, OPC: byv[16]): byv[16]
+     = LET X = byvXOR(IN1, OPC), 
+           Y = byvrightrotate(X, r1),
+	   Z1 = byvXOR(TEMP, Y),
+	   Z = byvXOR(Z1, c1),
+	   U = E(Z, K)
+	 IN byvXOR(U, OPC)
+
+    OUT2(E)(K, X, OPC: byv[16]): byv[16]
+     = LET %X = byvXOR(TEMP, OPC), 
+           Y = byvrightrotate(X, r2),
+	   Z = byvXOR(Y, c2),
+	   U = E(Z, K)
+	 IN byvXOR(U, OPC)
+
+    OUT3(E)(K, X, OPC: byv[16]): byv[16]
+     = LET %X = byvXOR(TEMP, OPC),
+           Y = byvrightrotate(X, r3),
+	   Z = byvXOR(Y, c3),
+	   U = E(Z, K)
+	 IN byvXOR(U, OPC)
+
+    OUT4(E)(K, X, OPC: byv[16]): byv[16]
+     = LET %X = byvXOR(TEMP, OPC),
+           Y = byvrightrotate(X, r4),
+	   Z = byvXOR(Y, c4),
+	   U = E(Z, K)
+	 IN byvXOR(U, OPC)
+
+    OUT5(E)(K, X, OPC: byv[16]): byv[16]
+     = LET %X = byvXOR(TEMP, OPC),
+           Y = byvrightrotate(X, r5),
+	   Z = byvXOR(Y, c5),
+	   U = E(Z, K)
+	 IN byvXOR(U, OPC)
+
+    SQN : VAR lbytes(6) %byv[6]
+
+    AMF: VAR lbytes(2) %byv[2]
+
+    IN1(SQN, AMF): byv[16] =
+     (SQN ++ AMF ++ SQN ++ AMF)`seq
+
+    OPC(E)(K, OP: lbytes(16)): byv[16] =
+      byvXOR(OP`seq, E(OP`seq, K`seq))
+      
+    TEMP(E)(K, RAND, OPC: lbytes(16)): byv[16]
+     = E(byvXOR(RAND`seq, OPC), K`seq)
+
+    Output : TYPE = [# f1, f1star, f2 : byv[8],
+                       f3, f4: byv[16],
+		       f5, f5star: byv[6] #]
+
+    allfunc(E)(SQN, AMF, (K, RAND: lbytes(16)), opc: byv[16]): Output
+     = LET in1 = IN1(SQN, AMF),
+            temp = TEMP(E)(K, RAND, opc),
+	    X = byvXOR(temp, opc), 
+	    out1 = OUT1(E)(K, temp, in1, opc),
+	    out2 = OUT2(E)(K, X, opc), 
+	    out3 = OUT3(E)(K, X, opc),
+	    out4 = OUT4(E)(K, X, opc),
+	    out5 = OUT5(E)(K, X, opc),
+	    f1 = byvto(16, out1, 8),
+	    f1star = byvfrom(16, out1, 8),
+	    f2 = byvfrom(16, out2, 8),
+	    f3 = out3,
+	    f4 = out4,
+	    f5 = byvto(16, out2, 6),
+	    f5star = byvto(16, out5, 6)
+	  IN (# f1 := f1,
+	        f1star := f1star,
+		f2 := f2,
+		f3 := f3,
+		f4 := f4,
+		f5 := f5,
+		f5star := f5star #)
+
+    allfun(E)(SQN, AMF, (K, RAND, op: byv[16])): Output = 
+         (LET opc = OPC(E)(K, op)
+	   IN allfunc(E)(SQN, AMF, K, RAND, opc))
+
+    IMPORTING hex
+
+    testAllFunc(E)(SQN, AMF, (K, RAND, OPC: byv[16])): bytestring =
+     (LET output = allfunc(E)(SQN, AMF, K, RAND, OPC),
+          f1 = bytestring2hexstring(output`f1),
+  	  f1star = bytestring2hexstring(output`f1star),
+	  f2 = bytestring2hexstring(output`f2),
+	  f3 = bytestring2hexstring(output`f3),
+	  f4 = bytestring2hexstring(output`f4),
+	  f5 = bytestring2hexstring(output`f5),
+	  f5star = bytestring2hexstring(output`f5star),
+	  inputbytestring: bytestring = "\ninput: " ++ " SQN: " ++ SQN ++ " AMF: " ++ AMF ++ " K: " ++ K ++ " RAND: " ++ RAND ++ " OPC: " ++ OPC, 
+          outputbytestring: bytestring = "\nf1: " ++ f1 ++ "f1star: " ++ f1star ++ "f2: " ++ f2 ++ "f3: " ++ f3 ++ "f4: " ++ f4 ++ "f5: " ++ f5 ++ "f5star: " ++ f5star
+	 IN
+	  outputbytestring)
+
+
+    testAllFun(E)(SQN, AMF, (K, RAND, op: byv[16])): bytestring =
+    (LET opc = OPC(E)(K, op)
+      IN testAllFunc(E)(SQN, AMF, K, RAND, opc))
+
+
+
+    % mkf1(E)(SQN, AMF, (K, RAND, OP: byv[16])): byv[8]
+    %  =  LET IN1 = mkIN1(SQN, AMF),
+    %         OPC = mkOPC(E)(K, OP), 
+    %         TEMP = mkTEMP(E)(K, RAND, OPC),
+    % 	    OUT1 = mkOUT1(E)(K, TEMP, IN1, OPC)
+    % 	  IN (LAMBDA (j: below(8)): OUT1(j))
+
+    % mkf1star(E)(SQN, AMF, (K, RAND, OP: byv[16])): byv[8]
+    %  =  LET IN1 = mkIN1(SQN, AMF),
+    %         OPC = mkOPC(E)(K, OP), 
+    %         TEMP = mkTEMP(E)(K, RAND, OPC),
+    % 	    OUT1 = mkOUT1(E)(K, TEMP, IN1, OPC)
+    % 	  IN (LAMBDA (j: below(8)):  OUT1(j + 8))
+
+    % mkf2(E)(K, RAND, OP: byv[16]): byv[8]
+    %   = LET TEMP = mkTEMP(E)(K, RAND, OP),
+    %         OPC = mkOPC(E)(K, OP),
+    % 	    OUT2 = mkOUT2(E)(K, TEMP, OPC)
+    % 	  IN (LAMBDA (j: below(8)): OUT2(j + 8))
+
+    % mkf3(E)(K, RAND, OP: byv[16]): byv[16]
+    %   = LET TEMP = mkTEMP(E)(K, RAND, OP),
+    %         OPC = mkOPC(E)(K, OP)
+    % 	 IN mkOUT3(E)(K, TEMP, OPC)
+
+    % mkf4(E)(K, RAND, OP: byv[16]): byv[16]
+    %   = LET TEMP = mkTEMP(E)(K, RAND, OP),
+    %         OPC = mkOPC(E)(K, OP)
+    % 	 IN mkOUT4(E)(K, TEMP, OPC)
+
+    % mkf5(E)(K, RAND, OP: byv[16]): byv[8]
+    %   = LET TEMP = mkTEMP(E)(K, RAND, OP),
+    %         OPC = mkOPC(E)(K, OP),
+    % 	    OUT2 = mkOUT2(E)(K, TEMP, OPC)
+    % 	  IN (LAMBDA (j: below(8)): OUT2(j))
+
+    % mkf5star(E)(K, RAND, OP: byv[16]): byv[8]
+    %   = LET TEMP = mkTEMP(E)(K, RAND, OP),
+    %         OPC = mkOPC(E)(K, OP),
+    % 	    OUT5 = mkOUT5(E)(K, TEMP, OPC)
+    % 	  IN (LAMBDA (j: below(8)): OUT5(j))
+
+  END Milenage
+
+testMilenage: THEORY
+BEGIN
+  IMPORTING Milenage, Rijndael
+
+  testAllFunc_test0: bool = 
+  ("\\ninput: " ++ " SQN: ")`length < 0x100000000 AND
+   FORALL (i: below(("\\ninput: " ++ " SQN: ")`length)):
+     code(get("\\ninput: " ++ " SQN: ", i)) < 256;
+
+
+
+
+  test0SQN: lbytes(6) = (# length := 6, seq := (LAMBDA (i:below(6)): 63) #)
+  test0AMF: lbytes(2) = (# length := 2, seq := (LAMBDA (i:below(2)): 27) #)
+  test0K: lbytes(16) = (# length := 16, seq := nbyv(173, 16) #)
+  test0RAND: lbytes(16) = (# length := 16, seq := nbyv(82, 16) #)
+  test0OP:  lbytes(16) = (# length := 16, seq := nbyv(99, 16) #)
+
+  test0allfun: bytestring = testAllFun(Rijndael)(test0SQN, test0AMF, test0K, test0RAND, test0OP)
+
+  test1SQN: lbytes(6) = hex2bytestring("0000000ad010")
+  test1AMF: lbytes(2) = hex2bytestring("8000")
+  test1K: lbytes(16) =  hex2bytestring("12345500000000000000000000000000")
+  test1RAND: lbytes(16) = hex2bytestring("04000000000000000d6abf813a8f9ee1")
+  test1OPc: byv[16] = (LET inOPc: lbytes(16) = hex2bytestring("63bfa50ee6523365ff14c1f45f88737d") IN inOPc`seq)
+
+  test1temp: byv[16] = TEMP(Rijndael)(test1K, test1RAND, test1OPc)
+
+  test1IN1: byv[16] = IN1(test1SQN, test1AMF);
+
+  testIN: bytestring = bytestring2hexstring(test1SQN ++ test1AMF)
+
+  test1OUT1: byv[16] =  OUT1(Rijndael)(test1K, test1temp, test1IN1, test1OPc)
+
+  test1tempIN1OUT1:bytestring = "temp = " ++ bytestring2hexstring(test1temp) ++ " SQN " ++ bytestring2hexstring(test1SQN) ++ " AMF " ++ bytestring2hexstring(test1AMF) ++ " IN1 = " ++ bytestring2hexstring(test1IN1) ++ " OUT1 = " ++ bytestring2hexstring(test1OUT1)
+
+  test1allfunc: bytestring = testAllFunc(Rijndael)(test1SQN, test1AMF, test1K, test1RAND, test1OPc)
+  
+
+
+  
+END testMilenage

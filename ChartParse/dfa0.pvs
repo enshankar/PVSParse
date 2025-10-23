@@ -1,0 +1,105 @@
+dfa : THEORY
+%theory for DFAs with one final state and numstates many non-final states.
+%This means empty strings are not accepted. 
+  BEGIN
+
+    len, max: VAR index %the length of the input
+    byte: TYPE = below(256)
+    strings(len): TYPE = ARRAY[below(len) -> byte]
+
+    dfaResult: DATATYPE
+    BEGIN
+     failed: failed?
+     success(span:  index): success?
+    END dfaResult
+
+    offset(i : uint8 | i > 2): uint8 = i - 2
+
+    dfa: TYPE =
+    [# numstates : {i : uint8 | i > 2}, %0 is failure, 1 is success, 2 is the start state
+       tbl : ARRAY[below(offset(numstates)) -> [byte -> below(numstates)]],
+       goodstate: [below(numstates)-> bool],
+       terminal : [byte -> bool]
+       #]
+
+
+    goodDfaResult?(len: index, startpos: upto(len))(res: dfaResult): bool =
+      (success?(res) => startpos + span(res) <= len)
+
+    dfaparse(D : dfa,
+             len: index,
+	     str: strings(len),
+	     startpos : upto(len),
+	     cur: below(D`numstates), 
+	     pos: subrange(startpos, len)):
+      RECURSIVE (goodDfaResult?(len, startpos))
+      = IF pos < len
+        THEN IF cur = 0 % represents the failed state of the DFA
+	      THEN failed
+	      ELSIF cur = 1
+	      THEN IF D`terminal(str(pos)) %The terminal condition has to hold of the next character to stop
+	           THEN success(pos - startpos)
+		   ELSE dfaparse(D, len, str, startpos, cur, pos + 1)
+		   ENDIF
+	      ELSE (LET newstate = D`tbl(cur - 2)(str(pos)) %add 2 to get the right non-final state
+	            IN IF newstate <= 1 %don't consume input when going to fail0/success1 state
+		       THEN dfaparse(D, len, str, startpos, newstate, pos)
+		        ELSE dfaparse(D, len, str, startpos, newstate, pos + 1)
+			ENDIF)
+	      ENDIF
+	ELSIF cur = 0 THEN failed
+	ELSIF cur = 1 OR D`goodstate(cur) THEN success(pos - startpos)
+	ELSE failed
+	ENDIF
+	MEASURE lex2(len - pos, cur)
+
+     DfaParse(D: dfa, len: index,
+	              str: strings(len),
+	              startpos : upto(len)): 
+       (goodDfaResult?(len, startpos))
+       = dfaparse(D, len, str, startpos, 2, startpos)
+
+   digit(x: byte): bool = (x >= 48 AND x <= 57)
+   any(x: byte): bool = TRUE
+   whitespace(x: byte): bool = (x = 32 OR (x >= 9 AND x <= 13))
+   quote(x: byte): bool = (x = 34)
+
+   digitDfa: dfa =  %digit succeeds if leading character is a digit
+      (# numstates := 4,
+         tbl := [: (LAMBDA (b : byte):
+	             IF digit(b) THEN 3 %Stay in 0 for whitespace char
+		     ELSE 0 ENDIF ), %0=fail, 1=success
+	           (LAMBDA (b : byte): IF digit(b) THEN 3 ELSE 1 ENDIF) %succeed on non-digit
+	            :],
+	 goodstate := (LAMBDA (i: below(4)): i = 3),
+	 terminal := (LAMBDA (b: byte): NOT whitespace(b))
+     	     #)
+
+   tokenDfa: dfa =
+      (# numstates := 5,
+         tbl := [: (LAMBDA (b : byte):
+	             IF quote(b)  THEN 3 
+		     ELSE 0 ENDIF ),
+		     (LAMBDA (b : byte):
+	             IF quote(b)  THEN 4 %go to 4 on close quote
+		     ELSE 3 ENDIF ), %else stay in 3
+		     (LAMBDA (b : byte): 1) %Accept
+		    :],
+	 goodstate := (LAMBDA (i: below(5)): FALSE),		    
+	 terminal := (LAMBDA (b: byte): NOT whitespace(b))
+     	     #)
+
+    wspaceDfa: dfa = 
+      (# numstates := 3,
+         tbl := [: (LAMBDA (b : byte): 1)
+		  :],
+         goodstate := (LAMBDA (i: below(3)): i = 2),
+	 terminal := (LAMBDA (b: byte): NOT whitespace(b)) %stop when you see a non-whitespace
+	 #)
+	 
+
+       
+      
+    
+
+  END dfa

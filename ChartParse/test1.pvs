@@ -1,0 +1,12 @@
+test1  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+  % ASSUMING
+   % assuming declarations
+  % ENDASSUMING
+
+  test1: LEMMA NOT (true = false)
+
+  END test1

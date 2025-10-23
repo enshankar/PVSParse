@@ -1,0 +1,6 @@
+(CASES St`scaf(pos)(n1) OF
+   fail(d1): fail(d1+1), 
+   good(d1, sp): good(d1+1, 0), 
+   pending: push(pos, n1) 
+   ELSE loop
+ ENDCASES)

@@ -1,0 +1,340 @@
+//Code generated using pvs2ir
+#ifndef _rotate_h 
+#define _rotate_h
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <inttypes.h>
+
+#include <stdbool.h>
+
+#include <stdarg.h>
+
+#include <string.h>
+
+#include <math.h>
+
+#include <gmp.h>
+
+#include "pvslib.h"
+
+#include "bytestrings_c.h"
+
+#include "gen_strings_c.h"
+
+#include "strings_c.h"
+
+#include "integertypes_c.h"
+
+#include "exp2_c.h"
+
+#include "modulo_arithmetic_c.h"
+
+#include "euclidean_division_c.h"
+
+#include "real_defs_c.h"
+
+#include "ordinals_c.h"
+
+#include "ordstruct_adt_c.h"
+
+//cc -O3 -Wall -o rotate -I /Users/e21660/shankar/pvs.git/src/groundeval/ pvslib.c  rotate_c.c bytestrings_c.c gen_strings_c.c strings_c.c integertypes_c.c exp2_c.c modulo_arithmetic_c.c euclidean_division_c.c real_defs_c.c ordinals_c.c ordstruct_adt_c.c -lgmp 
+
+struct rotate_funtype_0_s;
+        typedef struct rotate_funtype_0_s * rotate_funtype_0_t;
+
+struct rotate_funtype_0_ftbl_s {uint8_t (* fptr)(struct rotate_funtype_0_s *, uint8_t);
+        uint8_t (* mptr)(struct rotate_funtype_0_s *, uint8_t);
+        void (* rptr)(struct rotate_funtype_0_s *);
+        struct rotate_funtype_0_s * (* cptr)(struct rotate_funtype_0_s *);};
+typedef struct rotate_funtype_0_ftbl_s * rotate_funtype_0_ftbl_t;
+
+struct rotate_funtype_0_hashentry_s {uint32_t keyhash; uint8_t key; uint8_t value;}; 
+typedef struct rotate_funtype_0_hashentry_s rotate_funtype_0_hashentry_t;
+
+struct rotate_funtype_0_htbl_s {uint32_t size; uint32_t num_entries; rotate_funtype_0_hashentry_t * data;}; 
+typedef struct rotate_funtype_0_htbl_s * rotate_funtype_0_htbl_t;
+
+struct rotate_funtype_0_s {uint32_t count;
+        rotate_funtype_0_ftbl_t ftbl;
+        rotate_funtype_0_htbl_t htbl;};
+typedef struct rotate_funtype_0_s * rotate_funtype_0_t;
+
+extern void release_rotate_funtype_0(rotate_funtype_0_t x);
+
+extern rotate_funtype_0_t copy_rotate_funtype_0(rotate_funtype_0_t x);
+
+uint32_t lookup_rotate_funtype_0(rotate_funtype_0_htbl_t htbl, uint8_t i, uint32_t ihash);
+
+rotate_funtype_0_t dupdate_rotate_funtype_0(rotate_funtype_0_t a, uint8_t i, uint8_t v);
+
+extern rotate_funtype_0_t update_rotate_funtype_0(rotate_funtype_0_t a, uint8_t i, uint8_t v);
+
+extern rotate_funtype_0_t equal_rotate_funtype_0(rotate_funtype_0_t x, rotate_funtype_0_t y);
+
+
+
+
+struct rotate_closure_1_s;
+        typedef struct rotate_closure_1_s * rotate_closure_1_t;
+
+struct rotate_closure_1_s {uint32_t count;
+         rotate_funtype_0_ftbl_t ftbl;
+         rotate_funtype_0_htbl_t htbl;
+        uint8_t fvar_1;};
+
+uint8_t f_rotate_closure_1(struct rotate_closure_1_s * closure, uint8_t bvar);
+
+uint8_t m_rotate_closure_1(struct rotate_closure_1_s * closure, uint8_t bvar);
+
+extern uint8_t h_rotate_closure_1(uint8_t ivar_6, uint8_t ivar_1);
+
+extern rotate_closure_1_t new_rotate_closure_1(void);
+
+extern void release_rotate_closure_1(rotate_funtype_0_t closure);
+
+extern rotate_closure_1_t copy_rotate_closure_1(rotate_closure_1_t x);
+
+
+
+struct rotate_array_2_s { uint32_t count;
+        uint32_t size;
+         uint32_t max;
+         uint8_t elems[]; };
+typedef struct rotate_array_2_s * rotate_array_2_t;
+
+extern rotate_array_2_t new_rotate_array_2(uint32_t size);
+
+extern void release_rotate_array_2(rotate_array_2_t x);
+
+void release_rotate_array_2_ptr(pointer_t x, type_actual_t rotate_array_2);
+
+extern rotate_array_2_t copy_rotate_array_2(rotate_array_2_t x);
+extern bool_t equal_rotate_array_2(rotate_array_2_t x, rotate_array_2_t y);
+
+extern bool_t equal_rotate_array_2_ptr(pointer_t x, pointer_t y, type_actual_t T);
+typedef struct actual_rotate_array_2_s {equal_ptr_t equal_ptr; release_ptr_t release_ptr;} * actual_rotate_array_2_t;
+
+actual_rotate_array_2_t actual_rotate_array_2(void);
+
+extern rotate_array_2_t update_rotate_array_2(rotate_array_2_t x, uint32_t i, uint8_t v);
+
+extern rotate_array_2_t upgrade_rotate_array_2(rotate_array_2_t x, uint32_t i, uint8_t v);
+
+
+
+struct rotate_record_3_s {
+        uint32_t count; 
+        uint32_t length;
+        rotate_array_2_t seq;};
+typedef struct rotate_record_3_s * rotate_record_3_t;
+
+extern rotate_record_3_t new_rotate_record_3(void);
+
+extern void release_rotate_record_3(rotate_record_3_t x);
+
+void release_rotate_record_3_ptr(pointer_t x, type_actual_t rotate_record_3);
+
+extern rotate_record_3_t copy_rotate_record_3(rotate_record_3_t x);
+extern bool_t equal_rotate_record_3(rotate_record_3_t x, rotate_record_3_t y);
+
+extern bool_t equal_rotate_record_3_ptr(pointer_t x, pointer_t y, type_actual_t T);
+typedef struct actual_rotate_record_3_s {equal_ptr_t equal_ptr; release_ptr_t release_ptr;} * actual_rotate_record_3_t;
+
+actual_rotate_record_3_t actual_rotate_record_3(void);
+
+extern rotate_record_3_t update_rotate_record_3_length(rotate_record_3_t x, uint32_t v);
+
+extern rotate_record_3_t update_rotate_record_3_seq(rotate_record_3_t x, rotate_array_2_t v);
+
+
+
+struct rotate_funtype_4_s;
+        typedef struct rotate_funtype_4_s * rotate_funtype_4_t;
+
+struct rotate_funtype_4_ftbl_s {uint16_t (* fptr)(struct rotate_funtype_4_s *, uint8_t);
+        uint16_t (* mptr)(struct rotate_funtype_4_s *, uint8_t);
+        void (* rptr)(struct rotate_funtype_4_s *);
+        struct rotate_funtype_4_s * (* cptr)(struct rotate_funtype_4_s *);};
+typedef struct rotate_funtype_4_ftbl_s * rotate_funtype_4_ftbl_t;
+
+struct rotate_funtype_4_hashentry_s {uint32_t keyhash; uint8_t key; uint16_t value;}; 
+typedef struct rotate_funtype_4_hashentry_s rotate_funtype_4_hashentry_t;
+
+struct rotate_funtype_4_htbl_s {uint32_t size; uint32_t num_entries; rotate_funtype_4_hashentry_t * data;}; 
+typedef struct rotate_funtype_4_htbl_s * rotate_funtype_4_htbl_t;
+
+struct rotate_funtype_4_s {uint32_t count;
+        rotate_funtype_4_ftbl_t ftbl;
+        rotate_funtype_4_htbl_t htbl;};
+typedef struct rotate_funtype_4_s * rotate_funtype_4_t;
+
+extern void release_rotate_funtype_4(rotate_funtype_4_t x);
+
+extern rotate_funtype_4_t copy_rotate_funtype_4(rotate_funtype_4_t x);
+
+uint32_t lookup_rotate_funtype_4(rotate_funtype_4_htbl_t htbl, uint8_t i, uint32_t ihash);
+
+rotate_funtype_4_t dupdate_rotate_funtype_4(rotate_funtype_4_t a, uint8_t i, uint16_t v);
+
+extern rotate_funtype_4_t update_rotate_funtype_4(rotate_funtype_4_t a, uint8_t i, uint16_t v);
+
+extern rotate_funtype_4_t equal_rotate_funtype_4(rotate_funtype_4_t x, rotate_funtype_4_t y);
+
+
+
+
+struct rotate_closure_5_s;
+        typedef struct rotate_closure_5_s * rotate_closure_5_t;
+
+struct rotate_closure_5_s {uint32_t count;
+         rotate_funtype_4_ftbl_t ftbl;
+         rotate_funtype_4_htbl_t htbl;
+        uint16_t fvar_1;};
+
+uint8_t f_rotate_closure_5(struct rotate_closure_5_s * closure, uint8_t bvar);
+
+uint8_t m_rotate_closure_5(struct rotate_closure_5_s * closure, uint8_t bvar);
+
+extern uint8_t h_rotate_closure_5(uint8_t ivar_6, uint16_t ivar_1);
+
+extern rotate_closure_5_t new_rotate_closure_5(void);
+
+extern void release_rotate_closure_5(rotate_funtype_4_t closure);
+
+extern rotate_closure_5_t copy_rotate_closure_5(rotate_closure_5_t x);
+
+
+
+struct rotate_funtype_6_s;
+        typedef struct rotate_funtype_6_s * rotate_funtype_6_t;
+
+struct rotate_funtype_6_ftbl_s {uint32_t (* fptr)(struct rotate_funtype_6_s *, uint8_t);
+        uint32_t (* mptr)(struct rotate_funtype_6_s *, uint8_t);
+        void (* rptr)(struct rotate_funtype_6_s *);
+        struct rotate_funtype_6_s * (* cptr)(struct rotate_funtype_6_s *);};
+typedef struct rotate_funtype_6_ftbl_s * rotate_funtype_6_ftbl_t;
+
+struct rotate_funtype_6_hashentry_s {uint32_t keyhash; uint8_t key; uint32_t value;}; 
+typedef struct rotate_funtype_6_hashentry_s rotate_funtype_6_hashentry_t;
+
+struct rotate_funtype_6_htbl_s {uint32_t size; uint32_t num_entries; rotate_funtype_6_hashentry_t * data;}; 
+typedef struct rotate_funtype_6_htbl_s * rotate_funtype_6_htbl_t;
+
+struct rotate_funtype_6_s {uint32_t count;
+        rotate_funtype_6_ftbl_t ftbl;
+        rotate_funtype_6_htbl_t htbl;};
+typedef struct rotate_funtype_6_s * rotate_funtype_6_t;
+
+extern void release_rotate_funtype_6(rotate_funtype_6_t x);
+
+extern rotate_funtype_6_t copy_rotate_funtype_6(rotate_funtype_6_t x);
+
+uint32_t lookup_rotate_funtype_6(rotate_funtype_6_htbl_t htbl, uint8_t i, uint32_t ihash);
+
+rotate_funtype_6_t dupdate_rotate_funtype_6(rotate_funtype_6_t a, uint8_t i, uint32_t v);
+
+extern rotate_funtype_6_t update_rotate_funtype_6(rotate_funtype_6_t a, uint8_t i, uint32_t v);
+
+extern rotate_funtype_6_t equal_rotate_funtype_6(rotate_funtype_6_t x, rotate_funtype_6_t y);
+
+
+
+
+struct rotate_closure_7_s;
+        typedef struct rotate_closure_7_s * rotate_closure_7_t;
+
+struct rotate_closure_7_s {uint32_t count;
+         rotate_funtype_6_ftbl_t ftbl;
+         rotate_funtype_6_htbl_t htbl;
+        uint32_t fvar_1;};
+
+uint8_t f_rotate_closure_7(struct rotate_closure_7_s * closure, uint8_t bvar);
+
+uint8_t m_rotate_closure_7(struct rotate_closure_7_s * closure, uint8_t bvar);
+
+extern uint8_t h_rotate_closure_7(uint8_t ivar_6, uint32_t ivar_1);
+
+extern rotate_closure_7_t new_rotate_closure_7(void);
+
+extern void release_rotate_closure_7(rotate_funtype_6_t closure);
+
+extern rotate_closure_7_t copy_rotate_closure_7(rotate_closure_7_t x);
+
+
+
+struct rotate_funtype_8_s;
+        typedef struct rotate_funtype_8_s * rotate_funtype_8_t;
+
+struct rotate_funtype_8_ftbl_s {uint64_t (* fptr)(struct rotate_funtype_8_s *, uint8_t);
+        uint64_t (* mptr)(struct rotate_funtype_8_s *, uint8_t);
+        void (* rptr)(struct rotate_funtype_8_s *);
+        struct rotate_funtype_8_s * (* cptr)(struct rotate_funtype_8_s *);};
+typedef struct rotate_funtype_8_ftbl_s * rotate_funtype_8_ftbl_t;
+
+struct rotate_funtype_8_hashentry_s {uint32_t keyhash; uint8_t key; uint64_t value;}; 
+typedef struct rotate_funtype_8_hashentry_s rotate_funtype_8_hashentry_t;
+
+struct rotate_funtype_8_htbl_s {uint32_t size; uint32_t num_entries; rotate_funtype_8_hashentry_t * data;}; 
+typedef struct rotate_funtype_8_htbl_s * rotate_funtype_8_htbl_t;
+
+struct rotate_funtype_8_s {uint32_t count;
+        rotate_funtype_8_ftbl_t ftbl;
+        rotate_funtype_8_htbl_t htbl;};
+typedef struct rotate_funtype_8_s * rotate_funtype_8_t;
+
+extern void release_rotate_funtype_8(rotate_funtype_8_t x);
+
+extern rotate_funtype_8_t copy_rotate_funtype_8(rotate_funtype_8_t x);
+
+uint32_t lookup_rotate_funtype_8(rotate_funtype_8_htbl_t htbl, uint8_t i, uint32_t ihash);
+
+rotate_funtype_8_t dupdate_rotate_funtype_8(rotate_funtype_8_t a, uint8_t i, uint64_t v);
+
+extern rotate_funtype_8_t update_rotate_funtype_8(rotate_funtype_8_t a, uint8_t i, uint64_t v);
+
+extern rotate_funtype_8_t equal_rotate_funtype_8(rotate_funtype_8_t x, rotate_funtype_8_t y);
+
+
+
+
+struct rotate_closure_9_s;
+        typedef struct rotate_closure_9_s * rotate_closure_9_t;
+
+struct rotate_closure_9_s {uint32_t count;
+         rotate_funtype_8_ftbl_t ftbl;
+         rotate_funtype_8_htbl_t htbl;
+        uint64_t fvar_1;};
+
+uint8_t f_rotate_closure_9(struct rotate_closure_9_s * closure, uint8_t bvar);
+
+uint8_t m_rotate_closure_9(struct rotate_closure_9_s * closure, uint8_t bvar);
+
+extern uint8_t h_rotate_closure_9(uint8_t ivar_6, uint64_t ivar_1);
+
+extern rotate_closure_9_t new_rotate_closure_9(void);
+
+extern void release_rotate_closure_9(rotate_funtype_8_t closure);
+
+extern rotate_closure_9_t copy_rotate_closure_9(rotate_closure_9_t x);
+
+
+
+extern uint8_t rotate__u8rightrotate(uint8_t ivar_1, uint8_t ivar_2);
+
+extern uint16_t rotate__u16rightrotate(uint16_t ivar_1, uint8_t ivar_2);
+
+extern uint32_t rotate__u32rightrotate(uint32_t ivar_1, uint8_t ivar_2);
+
+extern uint64_t rotate__u64rightrotate(uint64_t ivar_1, uint8_t ivar_2);
+
+extern bytestrings__bytestring_t rotate__u8tobytestring(uint8_t ivar_1);
+
+extern rotate_record_3_t rotate__u16tobytestring(uint16_t ivar_1);
+
+extern rotate_record_3_t rotate__u32tobytestring(uint32_t ivar_1);
+
+extern rotate_record_3_t rotate__u64tobytestring(uint64_t ivar_1);
+#endif

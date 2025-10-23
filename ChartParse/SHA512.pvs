@@ -1,0 +1,198 @@
+SHA512  	: THEORY
+
+  BEGIN
+
+
+  h0: uint64_t = 0x6a09e667f3bcc908
+  h1: uint64_t = 0xbb67ae8584caa73b
+  h2: uint64_t = 0x3c6ef372fe94f82b
+  h3: uint64_t = 0xa54ff53a5f1d36f1 
+  h4: uint64_t = 0x510e527fade682d1
+  h5: uint64_t = 0x9b05688c2b3e6c1f
+  h6: uint64_t = 0x1f83d9abfb41bd6b
+  h7: uint64_t = 0x5be0cd19137e2179
+
+  h(i: below(8)): uint32 =
+   COND
+    i = 0 -> h0,
+    i = 1 -> h1,
+    i = 2 -> h2,
+    i = 3 -> h3,
+    i = 4 -> h4,
+    i = 5 -> h5,
+    i = 6 -> h6,
+    ELSE  -> h7
+    ENDCOND
+
+    k(i : uint8): uint32 =
+   COND
+    i = 0 -> 0x428a2f98d728ae22,
+    i = 1 -> 0x7137449123ef65cd,
+    i = 2 -> 0xb5c0fbcfec4d3b2f,
+    i = 3 -> 0xe9b5dba58189dbbc,
+    i = 4 -> 0x3956c25bf348b538, 
+    i = 5 -> 0x59f111f1b605d019,
+    i = 6 -> 0x923f82a4af194f9b,
+    i = 7 -> 0xab1c5ed5da6d8118,
+    i = 8 -> 0xd807aa98a3030242,
+    i = 9 -> 0x12835b0145706fbe, 
+    i = 10 -> 0x243185be4ee4b28c,
+    i = 11 -> 0x550c7dc3d5ffb4e2,
+    i = 12 -> 0x72be5d74f27b896f,
+    i = 13 -> 0x80deb1fe3b1696b1,
+    i = 14 -> 0x9bdc06a725c71235, 
+    i = 15 -> 0xc19bf174cf692694,
+    i = 16 -> 0xe49b69c19ef14ad2,
+    i = 17 -> 0xefbe4786384f25e3,
+    i = 18 -> 0x0fc19dc68b8cd5b5,
+    i = 19 -> 0x240ca1cc77ac9c65, 
+    i = 20 -> 0x2de92c6f592b0275,
+    i = 21 -> 0x4a7484aa6ea6e483,
+    i = 22 -> 0x5cb0a9dcbd41fbd4,
+    i = 23 -> 0x76f988da831153b5,
+    i = 24 -> 0x983e5152ee66dfab, 
+    i = 25 -> 0xa831c66d2db43210,
+    i = 26 -> 0xb00327c898fb213f,
+    i = 27 -> 0xbf597fc7beef0ee4,
+    i = 28 -> 0xc6e00bf33da88fc2,
+    i = 29 -> 0xd5a79147930aa725, 
+    i = 30 -> 0x06ca6351e003826f,
+    i = 31 -> 0x142929670a0e6e70,
+    i = 32 -> 0x27b70a8546d22ffc,
+    i = 33 -> 0x2e1b21385c26c926,
+    i = 34 -> 0x4d2c6dfc5ac42aed, 
+    i = 35 -> 0x53380d139d95b3df,
+    i = 36 -> 0x650a73548baf63de,
+    i = 37 -> 0x766a0abb3c77b2a8,
+    i = 38 -> 0x81c2c92e47edaee6,
+    i = 39 -> 0x92722c851482353b, 
+    i = 40 -> 0xa2bfe8a14cf10364,
+    i = 41 -> 0xa81a664bbc423001,
+    i = 42 -> 0xc24b8b70d0f89791,
+    i = 43 -> 0xc76c51a30654be30,
+    i = 44 -> 0xd192e819d6ef5218,
+    i = 45 -> 0xd69906245565a910,
+    i = 46 -> 0xf40e35855771202a,
+    i = 47 -> 0x106aa07032bbd1b8,
+    i = 48 -> 0x19a4c116b8d2d0c8,
+    i = 49 -> 0x1e376c085141ab53, 
+    i = 50 -> 0x2748774cdf8eeb99,
+    i = 51 -> 0x34b0bcb5e19b48a8,
+    i = 52 -> 0x391c0cb3c5c95a63,
+    i = 53 -> 0x4ed8aa4ae3418acb,
+    i = 54 -> 0x5b9cca4f7763e373, 
+    i = 55 -> 0x682e6ff3d6b2b8a3,
+    i = 56 -> 0x748f82ee5defb2fc,
+    i = 57 -> 0x78a5636f43172f60,
+    i = 58 -> 0x84c87814a1f0ab72,
+    i = 59 -> 0x8cc702081a6439ec, 
+    i = 60 -> 0x90befffa23631e28,
+    i = 61 -> 0xa4506cebde82bde9,
+    i = 62 -> 0xbef9a3f7b2c67915,
+    i = 63 -> 0xc67178f2e372532b,
+    i = 64 -> 0xca273eceea26619c, 
+    i = 65 ->  0xd186b8c721c0c207,
+    i = 66 -> 0xeada7dd6cde0eb1e,
+    i = 67 -> 0xf57d4f7fee6ed178,
+    i = 68 -> 0x06f067aa72176fba,
+    i = 69 -> 0x0a637dc5a2c898a6, 
+    i = 70 -> 0x113f9804bef90dae,
+    i = 71 -> 0x1b710b35131c471b,
+    i = 72 -> 0x28db77f523047d84,
+    i = 73 -> 0x32caab7b40c72493,
+    i = 74 -> 0x3c9ebe0a15c9bebc, 
+    i = 75 -> 0x431d67c49c100d4c,
+    i = 76 -> 0x4cc5d4becb3e42b6,
+    i = 77 -> 0x597f299cfc657e2a,
+    i = 78 -> 0x5fcb6fab3ad6faec,
+    ELSE  -> 0x6c44198c4a475817
+  ENDCOND
+
+%1024 bits/128 bytes per block rendered as an array of 16 64-bit words
+    extractBlocks(X)(i: below(u32ceiling((X`length + 10)/128))): ARRAY[below(16) -> uint64] = %no need to pad the message
+     (LAMBDA (j: below(16)):
+       LET cursor: uint32 = u32plus(u32times(64, i), u32times(4, j))
+        IN 
+         (IF cursor + 7 < X`length
+           THEN bytes2uint64(X, cursor)
+           ELSIF cursor + 6 < X`length
+	   THEN u64plus(u64lshift(bytes2uint64(X, cursor), 8), 0x80)
+	   ELSIF cursor + 5 < X`length
+	   THEN u64plus(u64lshift(bytes2uint64(X, cursor), 16), 0x8000)
+           ELSIF cursor + 4 < X`length
+	   THEN u64plus(u64lshift(bytes2uint64(X, cursor), 24), 0x800000)
+	   ELSIF cursor + 3 < X`length
+	   THEN u64plus(u64lshift(bytes2uint64(X, cursor), 32), 0x80000000)
+	   ELSIF cursor + 2 < X`length
+	   THEN u64plus(u64lshift(bytes2uint64(X, cursor), 40), 0x8000000000)
+	   ELSIF cursor + 1 < X`length
+	   THEN u64plus(u64lshift(bytes2uint64(X, cursor), 48), 0x800000000000)
+	   ELSIF cursor < X`length
+	   THEN u32plus(u32lshift(bytes2uint32(X, cursor), 56), 0x80000000000000)
+	   ELSIF cursor = X`length
+	   THEN 0x8000000000000000
+	   ELSIF j = 15 THEN 8 * X`length %the actual length is in 128-bits but our length will always fit in 64-bits
+	   ELSE 0x0000000000000000
+       ENDIF))
+
+     w0(inblock: ARRAY[below(16) -> uint64]): ARRAY[below(80) -> uint64]
+     =
+       (LAMBDA (i: below(64)):
+         IF i < 16 THEN inblock(i)
+	  ELSE 0x0000000000000000
+	  ENDIF)
+	  
+    % print32(s: bytestring, x: uint32): uint32 = x
+    %     % (LET d = printstr(s),
+    % 	%      e = printstr(format(" ~a ", x))
+    % 	%      IN x)
+
+
+     extendW(v: ARRAY[below(80) -> uint64], i: subrange(16,64)): RECURSIVE ARRAY[below(64)->uint64]
+     = IF i = 80 THEN v
+        ELSE LET s0 = u64xor(u64xor(u64rightrotate(v(i - 15), 1), u64rightrotate(v(i-15), 8)),
+	                     u64rshift(v(i-15), 7)),
+	         s1 = u64xor(u64xor(u64rightrotate(v(i-2), 19), u64rightrotate(v(i-2), 16)),
+		             u64rshift(v(i-2), 6)),
+                 vi = u64plus(u64plus(v(i-16), s0), u64plus(v(i-7), s1))
+ 		 IN extendW(v WITH [(i) := vi], i + 1)
+	       ENDIF
+       MEASURE 80 - i
+
+
+     sha256rec(v: ARRAY[below(80) -> uint64], 
+               g: ARRAY[below(8) -> uint64],
+	       i : upto(64)) :
+	    RECURSIVE ARRAY[below(8) -> uint64]
+     = (IF i = 80 THEN g
+          ELSE (LET S1 = u64xor(u64xor(u64rightrotate(g(4), 14), u64rightrotate(g(4), 18)),
+	                 u64rightrotate(g(4), 41)),
+                    ch = u64xor(u64and(g(4), g(5)), u64and(u64not(g(4)), g(6))),
+		    temp1 = u64plus(g(7), u64plus(S1, u64plus(ch, u64plus(k(i), v(i))))),
+		    S0 = u64xor(u64xor(u64rightrotate(g(0), 28), u64rightrotate(g(0), 34)),
+		                u64rightrotate(g(0), 39)),
+		    maj = u64xor(u64xor(u64and(g(0), g(1)), u64and(g(0), g(2))), u64and(g(1), g(2))),
+		    temp2 = u64plus(S0, maj)
+		    IN sha256rec(v, g WITH [(7) := g(6),
+		                            (6) := g(5),
+					    (5) := g(4),
+					    (4) := u64plus(g(3), temp1),
+					    (3) := g(2),
+					    (2) := g(1),
+					    (1) := g(0),
+					    (0) := u64plus(temp1, temp2)], i+1))
+	    ENDIF)
+	    MEASURE 64 - i
+
+sha256(v: ARRAY[below(64) -> uint64], 
+       h: ARRAY[below(8) -> uint64]): ARRAY[below(8) -> uint64]
+       =
+       sha256rec(v, h, 0)
+
+digest(h: ARRAY[below(8) -> uint64]): bytestring
+ = u64tobytestring(h(0)) ++ u64tobytestring(h(1)) ++ u64tobytestring(h(2)) ++ u64tobytestring(h(3)) ++
+   u64tobytestring(h(4)) ++ u64tobytestring(h(5)) ++ u64tobytestring(h(6)) ++ u64tobytestring(h(7))
+
+
+  END SHA512
+

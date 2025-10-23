@@ -1,0 +1,100 @@
+KDF  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+  IMPORTING  HMAC
+
+  % argstring?(s): RECURSIVE bool =
+  %  (LET l = length(s)
+  %   IN IF l > 2
+  %       THEN LET size = get(s)(l-1) + (64 * get(s)(l-2))
+  % 	       IN IF l < size + 4 THEN FALSE
+  % 	           ELSE argstring?(prefix(s, size + 2))
+  % 		   ENDIF
+  %      ELSE l = 2
+  %      ENDIF)
+
+   bytestring16: TYPE = {s : bytestring | s`length < u32pow2(16)}
+
+   u8to_bstring(x : uint8): bytestring16 =
+   (# length := 1, 
+      seq := (LAMBDA (i: below(1)): x) #)
+
+   u16to_bstring(x : uint16): bytestring16 =
+   (# length := 2, 
+      seq := (LAMBDA (i: below(2)):  %big-endian
+       	     	     IF i = 0 THEN u16div(x, 256)
+       		     ELSE u16rem(x, 256) ENDIF) #)
+
+   u32to_bstring(x : uint32): bytestring16 =
+   (# length := 4, 
+      seq := (LAMBDA (i: below(4)):  %big-endian
+       	     	     IF i = 0 THEN u32rem(u32rshift(x, 24), 256)
+       		     ELSIF i = 1 THEN u32rem(u32rshift(x, 16), 256)
+		     ELSIF i = 2 THEN u32rem(u32rshift(x, 8), 256)
+		     ELSE u32rem(x, 256)
+		     ENDIF) #)
+
+   u64to_bstring(x : uint32): bytestring16 =
+   (# length := 8, 
+      seq := (LAMBDA (i: below(8)):  %big-endian
+       	     	     IF i = 0 THEN u32rem(u32rshift(x, 56), 256)
+       		     ELSIF i = 1 THEN u32rem(u32rshift(x, 48), 256)
+		     ELSIF i = 2 THEN u32rem(u32rshift(x, 40), 256)
+		     ELSIF i = 3 THEN u32rem(u32rshift(x, 32), 256)
+		     ELSIF i = 4 THEN u32rem(u32rshift(x, 24), 256)
+		     ELSIF i = 5 THEN u32rem(u32rshift(x, 16), 256)
+		     ELSIF i = 6 THEN u32rem(u32rshift(x, 8), 256)
+		     ELSE u32rem(x, 256)		     
+		     ENDIF) #)
+
+   % uto_bstring(x: below(exp2(24))): bytestring16 =
+   %   (# length := log2(x) + 1,
+   %      seq := (LAMBDA (i: below(16)): nrem(ndiv(x, exp2(i)), pow2(i + 1))) #)
+
+   FCbytes: TYPE = {s: bytestring | s`length = 1 OR s`length = 2}
+   
+
+   KDF1(key: bytestring16, FC: FCbytes, message: bytestring16): lbytes(32) = 
+    hmac256(key, FC ++ message ++ u16to_bstring(message`length), 64, 32)
+
+
+   KDF2(key: bytestring16, FC: FCbytes, message1, message2: bytestring16): lbytes(32) = 
+    hmac256(key, FC ++ message1 ++ u16to_bstring(message1`length) ++ message2 ++ u16to_bstring(message2`length), 64, 32)
+
+   KDF3(key: bytestring16, FC: FCbytes, message1, message2, message3: bytestring16): lbytes(32) = 
+    hmac256(key, FC ++ message1 ++ u16to_bstring(message1`length) ++ message2 ++ u16to_bstring(message2`length) ++ message3 ++ u16to_bstring(message3`length), 64, 32)
+
+   KAUSF(CK, IK: lbytes(16), SQN, AK: lbytes(6), SN: bytestring16): lbytes(32)
+     = KDF2(CK ++ IK, 0x6A, SN, lbytesXOR(6)(SQN, AK)) 
+
+   KSEAF(kausf: lbytes(32), SN: bytestring16): lbytes(32)
+     = KDF1(kausf, 0x6C, SN)
+
+   KAMF(kseaf: lbytes(32), id: bytestring16, ABBA: bytestring16): lbytes(32)
+     = KDF2(kseaf, 0x6D, id, ABBA)
+
+   RESstar((CK, IK: lbytes(16), SN: bytestring16, RAND: lbytes(8), RESXRES: bytestring): lbytes(32)
+    = KDF3(CK ++ IK, 0x6B, SN, RAND, RESXRES)
+
+   XRESstar(Rstar: lbytes(32)): lbytes(16)
+    = suffix(Rstar, 16)
+
+   test_KDF1: lbytes(32) = KDF1("key", 0x6C, "This is a message.")
+
+   test_KDF2: lbytes(32) = KDF2("key", 0x6D, "This is a message.", "This is another message.")
+
+   test_KDF3: lbytes(32) = KDF3("key", 0x6D, "This is a message.", "This is another message.", "This is the final message.")
+
+   test_KAUSF: lbytes(32) = KAUSF(nbytes(0x33, 16), nbytes(0xAA, 16), nbytes(0x05, 6), nbytes(0x00, 6), "ServerNetwork")
+
+   test_KSEAF: lbytes(32) = KSEAF(test_KAUSF, "MySecretID")
+
+   test_KAMF: lbytes(32) = KAMF(test_KSEAF, "AMF_ID", "ABBA")
+
+
+
+   
+
+  END KDF

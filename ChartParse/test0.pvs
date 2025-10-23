@@ -1,0 +1,12 @@
+test0  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+  % ASSUMING
+   % assuming declarations
+  % ENDASSUMING
+
+    foo(n: uint8): uint8 = (n + 0)
+
+  END test0

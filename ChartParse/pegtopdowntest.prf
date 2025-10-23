@@ -1,0 +1,421 @@
+(pegtopdowntest
+ (pyaml_TCC1 0
+  (pyaml_TCC1-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "1" "non_terminal")))
+ (pyaml_TCC2 0
+  (pyaml_TCC2-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "3" "non_terminal")))
+ (pyaml_TCC3 0
+  (pyaml_TCC3-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "2" "non_terminal")))
+ (pyaml_TCC4 0
+  (pyaml_TCC4-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "1" "non_terminal")))
+ (pyaml_TCC5 0
+  (pyaml_TCC5-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "4" "non_terminal")))
+ (pyaml_TCC6 0
+  (pyaml_TCC6-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "35" "non_terminal")))
+ (pyaml_TCC7 0
+  (pyaml_TCC7-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "5" "non_terminal")))
+ (pyaml_TCC8 0
+  (pyaml_TCC8-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "11" "non_terminal")))
+ (pyaml_TCC9 0
+  (pyaml_TCC9-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "6" "non_terminal")))
+ (pyaml_TCC10 0
+  (pyaml_TCC10-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC11 0
+  (pyaml_TCC11-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil))
+   nil (pyaml subtype "\"{\"" "{fs | fs`length = 1}")))
+ (pyaml_TCC12 0
+  (pyaml_TCC12-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "8" "non_terminal")))
+ (pyaml_TCC13 0
+  (pyaml_TCC13-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "10" "non_terminal")))
+ (pyaml_TCC14 0
+  (pyaml_TCC14-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "9" "non_terminal")))
+ (pyaml_TCC15 0
+  (pyaml_TCC15-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC16 0
+  (pyaml_TCC16-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil))
+   nil (pyaml subtype "\" \"" "{fs | fs`length = 1}")))
+ (pyaml_TCC17 0
+  (pyaml_TCC17-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "12" "non_terminal")))
+ (pyaml_TCC18 0
+  (pyaml_TCC18-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "14" "non_terminal")))
+ (pyaml_TCC19 0
+  (pyaml_TCC19-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "13" "non_terminal")))
+ (pyaml_TCC20 0
+  (pyaml_TCC20-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC21 0
+  (pyaml_TCC21-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil))
+   nil (pyaml subtype "\"}\"" "{fs | fs`length = 1}")))
+ (pyaml_TCC22 0
+  (pyaml_TCC22-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "15" "non_terminal")))
+ (pyaml_TCC23 0
+  (pyaml_TCC23-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "31" "non_terminal")))
+ (pyaml_TCC24 0
+  (pyaml_TCC24-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "16" "non_terminal")))
+ (pyaml_TCC25 0
+  (pyaml_TCC25-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "28" "non_terminal")))
+ (pyaml_TCC26 0
+  (pyaml_TCC26-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "1" "non_terminal")))
+ (pyaml_TCC27 0
+  (pyaml_TCC27-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "17" "non_terminal")))
+ (pyaml_TCC28 0
+  (pyaml_TCC28-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "18" "non_terminal")))
+ (pyaml_TCC29 0
+  (pyaml_TCC29-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC30 0
+  (pyaml_TCC30-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "19" "non_terminal")))
+ (pyaml_TCC31 0
+  (pyaml_TCC31-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "25" "non_terminal")))
+ (pyaml_TCC32 0
+  (pyaml_TCC32-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil))
+   nil (pyaml subtype "\"'\"" "{fs | fs`length = 1}")))
+ (pyaml_TCC33 0
+  (pyaml_TCC33-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "21" "non_terminal")))
+ (pyaml_TCC34 0
+  (pyaml_TCC34-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "25" "non_terminal")))
+ (pyaml_TCC35 0
+  (pyaml_TCC35-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "22" "non_terminal")))
+ (pyaml_TCC36 0
+  (pyaml_TCC36-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "20" "non_terminal")))
+ (pyaml_TCC37 0
+  (pyaml_TCC37-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "23" "non_terminal")))
+ (pyaml_TCC38 0
+  (pyaml_TCC38-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "19" "non_terminal")))
+ (pyaml_TCC39 0
+  (pyaml_TCC39-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil))
+   nil (pyaml subtype "\"\\\\\\\\\"" "{fs | fs`length = 1}")))
+ (pyaml_TCC40 0
+  (pyaml_TCC40-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "19" "non_terminal")))
+ (pyaml_TCC41 0
+  (pyaml_TCC41-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC42 0
+  (pyaml_TCC42-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "24" "non_terminal")))
+ (pyaml_TCC43 0
+  (pyaml_TCC43-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "26" "non_terminal")))
+ (pyaml_TCC44 0
+  (pyaml_TCC44-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "27" "non_terminal")))
+ (pyaml_TCC45 0
+  (pyaml_TCC45-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "20" "non_terminal")))
+ (pyaml_TCC46 0
+  (pyaml_TCC46-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "29" "non_terminal")))
+ (pyaml_TCC47 0
+  (pyaml_TCC47-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "0" "non_terminal")))
+ (pyaml_TCC48 0
+  (pyaml_TCC48-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "30" "non_terminal")))
+ (pyaml_TCC49 0
+  (pyaml_TCC49-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC50 0
+  (pyaml_TCC50-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil))
+   nil (pyaml subtype "\":\"" "{fs | fs`length = 1}")))
+ (pyaml_TCC51 0
+  (pyaml_TCC51-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "32" "non_terminal")))
+ (pyaml_TCC52 0
+  (pyaml_TCC52-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "12" "non_terminal")))
+ (pyaml_TCC53 0
+  (pyaml_TCC53-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "33" "non_terminal")))
+ (pyaml_TCC54 0
+  (pyaml_TCC54-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "14" "non_terminal")))
+ (pyaml_TCC55 0
+  (pyaml_TCC55-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "34" "non_terminal")))
+ (pyaml_TCC56 0
+  (pyaml_TCC56-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC57 0
+  (pyaml_TCC57-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil))
+   nil (pyaml subtype "\",\"" "{fs | fs`length = 1}")))
+ (pyaml_TCC58 0
+  (pyaml_TCC58-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "36" "non_terminal")))
+ (pyaml_TCC59 0
+  (pyaml_TCC59-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "38" "non_terminal")))
+ (pyaml_TCC60 0
+  (pyaml_TCC60-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "37" "non_terminal")))
+ (pyaml_TCC61 0
+  (pyaml_TCC61-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC62 0
+  (pyaml_TCC62-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil))
+   nil (pyaml subtype "\"[\"" "{fs | fs`length = 1}")))
+ (pyaml_TCC63 0
+  (pyaml_TCC63-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "39" "non_terminal")))
+ (pyaml_TCC64 0
+  (pyaml_TCC64-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "43" "non_terminal")))
+ (pyaml_TCC65 0
+  (pyaml_TCC65-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "40" "non_terminal")))
+ (pyaml_TCC66 0
+  (pyaml_TCC66-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "10" "non_terminal")))
+ (pyaml_TCC67 0
+  (pyaml_TCC67-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "0" "non_terminal")))
+ (pyaml_TCC68 0
+  (pyaml_TCC68-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "41" "non_terminal")))
+ (pyaml_TCC69 0
+  (pyaml_TCC69-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "42" "non_terminal")))
+ (pyaml_TCC70 0
+  (pyaml_TCC70-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "10" "non_terminal")))
+ (pyaml_TCC71 0
+  (pyaml_TCC71-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "33" "non_terminal")))
+ (pyaml_TCC72 0
+  (pyaml_TCC72-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "40" "non_terminal")))
+ (pyaml_TCC73 0
+  (pyaml_TCC73-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "44" "non_terminal")))
+ (pyaml_TCC74 0
+  (pyaml_TCC74-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC75 0
+  (pyaml_TCC75-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil))
+   nil (pyaml subtype "\"]\"" "{fs | fs`length = 1}")))
+ (tok0_TCC1 0
+  (tok0_TCC1-1 nil 3809380981 ("" (subtype-tcc) nil nil) nil nil
+   (tok0 subtype "7" "uint32")))
+ (tok0_TCC2 0
+  (tok0_TCC2-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   nil (tok0 subtype "\"'token'\"" "pegtopdown.strings(7)")))
+ (tok1_TCC1 0
+  (tok1_TCC1-1 nil 3809380981 ("" (subtype-tcc) nil nil) nil nil
+   (tok1 subtype "9" "uint32")))
+ (tok1_TCC2 0
+  (tok1_TCC2-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   nil (tok1 subtype "\"'token\\\\\\\\''\"" "pegtopdown.strings(9)")))
+ (emptydict_TCC1 0
+  (emptydict_TCC1-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   nil (emptydict subtype "\"{      } \"" "pegtopdown.strings(9)")))
+ (obrace_TCC1 0
+  (obrace_TCC1-1 nil 3809380981 ("" (subtype-tcc) nil nil) nil nil
+   (obrace subtype "3" "uint32")))
+ (obrace_TCC2 0
+  (obrace_TCC2-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   nil (obrace subtype "\"{  \"" "pegtopdown.strings(3)")))
+ (cbrace_TCC1 0
+  (cbrace_TCC1-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   nil (cbrace subtype "\"}  \"" "pegtopdown.strings(3)")))
+ (colon_TCC1 0
+  (colon_TCC1-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   nil (colon subtype "\":  \"" "pegtopdown.strings(3)")))
+ (emptydict2_TCC1 0
+  (emptydict2_TCC1-1 nil 3809380981 ("" (subtype-tcc) nil nil) nil nil
+   (emptydict2 subtype "6" "uint32")))
+ (emptydict2_TCC2 0
+  (emptydict2_TCC2-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (obrace const-decl "strings(3)" pegtopdowntest nil)
+    (cbrace const-decl "strings(3)" pegtopdowntest nil)
+    (O const-decl "finseq" finite_sequences nil)
+    (concat const-decl "string" stdstr nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   nil
+   (emptydict2 subtype
+    "stdstr.concat(pegtopdowntest.obrace, pegtopdowntest.cbrace)"
+    "pegtopdown.strings(6)")))
+ (dict1_TCC1 0
+  (dict1_TCC1-1 nil 3809380981 ("" (subtype-tcc) nil nil) nil nil
+   (dict1 subtype "22" "uint32")))
+ (dict1_TCC2 0
+  (dict1_TCC2-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (obrace const-decl "strings(3)" pegtopdowntest nil)
+    (tok0 const-decl "strings(7)" pegtopdowntest nil)
+    (colon const-decl "strings(3)" pegtopdowntest nil)
+    (cbrace const-decl "strings(3)" pegtopdowntest nil)
+    (O const-decl "finseq" finite_sequences nil)
+    (concat const-decl "string" stdstr nil)
+    (emptydict2 const-decl "strings(6)" pegtopdowntest nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   nil
+   (dict1 subtype
+    "stdstr.concat(pegtopdowntest.obrace, stdstr.concat(pegtopdowntest.tok0, stdstr.concat(pegtopdowntest.colon, stdstr.concat(pegtopdowntest.emptydict2, pegtopdowntest.cbrace))))"
+    "pegtopdown.strings(22)")))
+ (test0_TCC1 0
+  (test0_TCC1-1 nil 3809380981 ("" (subtype-tcc) nil nil) nil nil
+   (test0 subtype "2" "uint32")))
+ (test0_TCC2 0
+  (test0_TCC2-1 nil 3809380981 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   nil (test0 subtype "\"  \"" "pegtopdown.strings(2)")))
+ (test0_TCC3 0
+  (test0_TCC3-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (test0 subtype "7" "non_terminal")))
+ (test1_TCC1 0
+  (test1_TCC1-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (test1 subtype "17" "non_terminal")))
+ (test2_TCC1 0
+  (test2_TCC1-1 nil 3809380981 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" pegtopdown nil)) nil
+   (test2 subtype "0" "non_terminal"))))
+

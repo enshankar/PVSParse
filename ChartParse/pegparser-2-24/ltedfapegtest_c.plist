@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+ <key>clang_version</key>
+<string>Apple clang version 12.0.0 (clang-1200.0.32.29)</string>
+ <key>diagnostics</key>
+ <array>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>3027</integer>
+      <key>col</key><integer>14</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>3027</integer>
+         <key>col</key><integer>23</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>3027</integer>
+         <key>col</key><integer>40</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;ivar_2&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;ivar_2&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;ivar_2&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>2629cc54578dbb7ba654f06fc6433041</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__empty</string>
+  <key>issue_hash_function_offset</key><string>9</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>3027</integer>
+   <key>col</key><integer>14</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>3027</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>3533</integer>
+      <key>col</key><integer>10</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>3533</integer>
+         <key>col</key><integer>21</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>3533</integer>
+         <key>col</key><integer>59</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;scaf6224&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;scaf6224&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;scaf6224&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>8d9d939601715637463aaba0b18ab68b</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__iparse</string>
+  <key>issue_hash_function_offset</key><string>76</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>3533</integer>
+   <key>col</key><integer>10</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>3533</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>3536</integer>
+      <key>col</key><integer>10</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>3536</integer>
+         <key>col</key><integer>22</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>3536</integer>
+         <key>col</key><integer>45</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;depth6225&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;depth6225&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;depth6225&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>bb7932686a59512bc04b3729d00e9fa1</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__iparse</string>
+  <key>issue_hash_function_offset</key><string>79</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>3536</integer>
+   <key>col</key><integer>10</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>3536</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>3540</integer>
+      <key>col</key><integer>10</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>3540</integer>
+         <key>col</key><integer>22</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>3540</integer>
+         <key>col</key><integer>57</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;stack6226&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;stack6226&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;stack6226&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>69a5876360f0a1363d6fb68eadbc6f81</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__iparse</string>
+  <key>issue_hash_function_offset</key><string>83</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>3540</integer>
+   <key>col</key><integer>10</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>3540</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>3543</integer>
+      <key>col</key><integer>10</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>3543</integer>
+         <key>col</key><integer>22</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>3543</integer>
+         <key>col</key><integer>43</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;lflag6227&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;lflag6227&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;lflag6227&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>75f6fea3a8449c51511ee39511ed4992</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__iparse</string>
+  <key>issue_hash_function_offset</key><string>86</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>3543</integer>
+   <key>col</key><integer>10</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>3543</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>3582</integer>
+      <key>col</key><integer>14</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>3582</integer>
+         <key>col</key><integer>24</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>3582</integer>
+         <key>col</key><integer>71</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;ivar_37&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;ivar_37&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;ivar_37&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>771ec72d10a473dff22f5e976cbc8fff</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonreadfile</string>
+  <key>issue_hash_function_offset</key><string>12</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>3582</integer>
+   <key>col</key><integer>14</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>3582</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>3665</integer>
+      <key>col</key><integer>14</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>3665</integer>
+         <key>col</key><integer>24</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>3665</integer>
+         <key>col</key><integer>57</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;ivar_86&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;ivar_86&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;ivar_86&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>9cf0a20d47580bc2ecb16662ca1d72b9</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonreadfileinit</string>
+  <key>issue_hash_function_offset</key><string>71</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>3665</integer>
+   <key>col</key><integer>14</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>3665</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>3784</integer>
+      <key>col</key><integer>11</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>3784</integer>
+         <key>col</key><integer>22</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>3784</integer>
+         <key>col</key><integer>60</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;scaf6306&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;scaf6306&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;scaf6306&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>44ab27ddd34e1aaf570ae5d311b58283</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonparsecheckfile</string>
+  <key>issue_hash_function_offset</key><string>103</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>3784</integer>
+   <key>col</key><integer>11</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>3784</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>3787</integer>
+      <key>col</key><integer>11</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>3787</integer>
+         <key>col</key><integer>23</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>3787</integer>
+         <key>col</key><integer>46</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;depth6307&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;depth6307&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;depth6307&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>a67794a6ed29d211e3ac091db41bcdac</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonparsecheckfile</string>
+  <key>issue_hash_function_offset</key><string>106</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>3787</integer>
+   <key>col</key><integer>11</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>3787</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>3791</integer>
+      <key>col</key><integer>11</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>3791</integer>
+         <key>col</key><integer>23</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>3791</integer>
+         <key>col</key><integer>58</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;stack6308&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;stack6308&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;stack6308&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>ae5dd8e79c06db23670c49fddff1c7b0</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonparsecheckfile</string>
+  <key>issue_hash_function_offset</key><string>110</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>3791</integer>
+   <key>col</key><integer>11</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>3791</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>3794</integer>
+      <key>col</key><integer>11</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>3794</integer>
+         <key>col</key><integer>23</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>3794</integer>
+         <key>col</key><integer>44</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;lflag6309&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;lflag6309&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;lflag6309&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>6d6efec01f2b7748143a614d2ce92156</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonparsecheckfile</string>
+  <key>issue_hash_function_offset</key><string>113</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>3794</integer>
+   <key>col</key><integer>11</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>3794</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>4030</integer>
+      <key>col</key><integer>11</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>4030</integer>
+         <key>col</key><integer>22</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>4030</integer>
+         <key>col</key><integer>60</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;scaf6405&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;scaf6405&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;scaf6405&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>043178bba4f3b35606afd4b134d82bad</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonparsefile</string>
+  <key>issue_hash_function_offset</key><string>103</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>4030</integer>
+   <key>col</key><integer>11</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>4030</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>4033</integer>
+      <key>col</key><integer>11</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>4033</integer>
+         <key>col</key><integer>23</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>4033</integer>
+         <key>col</key><integer>46</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;depth6406&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;depth6406&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;depth6406&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>90236b9e3dba59fda96df593053a59e4</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonparsefile</string>
+  <key>issue_hash_function_offset</key><string>106</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>4033</integer>
+   <key>col</key><integer>11</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>4033</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>4037</integer>
+      <key>col</key><integer>11</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>4037</integer>
+         <key>col</key><integer>23</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>4037</integer>
+         <key>col</key><integer>58</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;stack6407&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;stack6407&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;stack6407&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>9702e71b8ed6a3528856ecddc45fc5d9</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonparsefile</string>
+  <key>issue_hash_function_offset</key><string>110</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>4037</integer>
+   <key>col</key><integer>11</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>4037</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>4040</integer>
+      <key>col</key><integer>11</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>4040</integer>
+         <key>col</key><integer>23</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>4040</integer>
+         <key>col</key><integer>44</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;lflag6408&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;lflag6408&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;lflag6408&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>a8f166d8cae3d09a50f07a68548874b2</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonparsefile</string>
+  <key>issue_hash_function_offset</key><string>113</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>4040</integer>
+   <key>col</key><integer>11</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>4040</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>4225</integer>
+      <key>col</key><integer>11</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>4225</integer>
+         <key>col</key><integer>22</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>4225</integer>
+         <key>col</key><integer>60</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;scaf6480&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;scaf6480&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;scaf6480&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>ef706494d352398b09963e6f4b465261</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonpureparsefile</string>
+  <key>issue_hash_function_offset</key><string>103</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>4225</integer>
+   <key>col</key><integer>11</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>4225</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>4228</integer>
+      <key>col</key><integer>11</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>4228</integer>
+         <key>col</key><integer>23</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>4228</integer>
+         <key>col</key><integer>46</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;depth6481&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;depth6481&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;depth6481&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>8cf11e7d9ac2ed4ddd380c9dcd7b9341</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonpureparsefile</string>
+  <key>issue_hash_function_offset</key><string>106</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>4228</integer>
+   <key>col</key><integer>11</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>4228</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>4232</integer>
+      <key>col</key><integer>11</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>4232</integer>
+         <key>col</key><integer>23</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>4232</integer>
+         <key>col</key><integer>58</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;stack6482&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;stack6482&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;stack6482&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>d0c5e5b03f4e8be67472c0635a81067f</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonpureparsefile</string>
+  <key>issue_hash_function_offset</key><string>110</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>4232</integer>
+   <key>col</key><integer>11</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>4232</integer>
+   </array>
+  </dict>
+  </dict>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>4235</integer>
+      <key>col</key><integer>11</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>ranges</key>
+     <array>
+       <array>
+        <dict>
+         <key>line</key><integer>4235</integer>
+         <key>col</key><integer>23</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+        <dict>
+         <key>line</key><integer>4235</integer>
+         <key>col</key><integer>44</integer>
+         <key>file</key><integer>0</integer>
+        </dict>
+       </array>
+     </array>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>Value stored to &apos;lflag6483&apos; is never read</string>
+     <key>message</key>
+     <string>Value stored to &apos;lflag6483&apos; is never read</string>
+    </dict>
+   </array>
+   <key>description</key><string>Value stored to &apos;lflag6483&apos; is never read</string>
+   <key>category</key><string>Dead store</string>
+   <key>type</key><string>Dead assignment</string>
+   <key>check_name</key><string>deadcode.DeadStores</string>
+   <!-- This hash is experimental and going to change! -->
+   <key>issue_hash_content_of_line_in_context</key><string>3448858699004d9b13e5e5d168a951d0</string>
+  <key>issue_context_kind</key><string>function</string>
+  <key>issue_context</key><string>ltedfapegtest__jsonpureparsefile</string>
+  <key>issue_hash_function_offset</key><string>113</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>4235</integer>
+   <key>col</key><integer>11</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  <key>ExecutedLines</key>
+  <dict>
+   <key>0</key>
+   <array>
+    <integer>4235</integer>
+   </array>
+  </dict>
+  </dict>
+ </array>
+ <key>files</key>
+ <array>
+  <string>ltedfapegtest_c.c</string>
+ </array>
+</dict>
+</plist>

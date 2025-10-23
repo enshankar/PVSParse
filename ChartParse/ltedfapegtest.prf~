@@ -1,0 +1,1302 @@
+(ltedfapegtest
+ (djson_TCC1 0
+  (djson_TCC1-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "3" "non_terminal")))
+ (djson_TCC2 0
+  (djson_TCC2-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "1" "non_terminal")))
+ (djson_TCC3 0
+  (djson_TCC3-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "31" "non_terminal")))
+ (djson_TCC4 0
+  (djson_TCC4-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "16" "non_terminal")))
+ (djson_TCC5 0
+  (djson_TCC5-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "31" "non_terminal")))
+ (djson_TCC6 0
+  (djson_TCC6-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "2" "non_terminal")))
+ (djson_TCC7 0
+  (djson_TCC7-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "24" "non_terminal")))
+ (djson_TCC8 0
+  (djson_TCC8-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "5" "non_terminal")))
+ (djson_TCC9 0
+  (djson_TCC9-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "7" "non_terminal")))
+ (djson_TCC10 0
+  (djson_TCC10-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "4" "non_terminal")))
+ (djson_TCC11 0
+  (djson_TCC11-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "31" "non_terminal")))
+ (djson_TCC12 0
+  (djson_TCC12-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "25" "non_terminal")))
+ (djson_TCC13 0
+  (djson_TCC13-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "31" "non_terminal")))
+ (djson_TCC14 0
+  (djson_TCC14-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "6" "non_terminal")))
+ (djson_TCC15 0
+  (djson_TCC15-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "8" "non_terminal")))
+ (djson_TCC16 0
+  (djson_TCC16-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "10" "non_terminal")))
+ (djson_TCC17 0
+  (djson_TCC17-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "30" "non_terminal")))
+ (djson_TCC18 0
+  (djson_TCC18-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "8" "non_terminal")))
+ (djson_TCC19 0
+  (djson_TCC19-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "31" "non_terminal")))
+ (djson_TCC20 0
+  (djson_TCC20-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "9" "non_terminal")))
+ (djson_TCC21 0
+  (djson_TCC21-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "26" "non_terminal")))
+ (djson_TCC22 0
+  (djson_TCC22-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "13" "non_terminal")))
+ (djson_TCC23 0
+  (djson_TCC23-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "33" "non_terminal")))
+ (djson_TCC24 0
+  (djson_TCC24-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "29" "non_terminal")))
+ (djson_TCC25 0
+  (djson_TCC25-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "11" "non_terminal")))
+ (djson_TCC26 0
+  (djson_TCC26-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "30" "non_terminal")))
+ (djson_TCC27 0
+  (djson_TCC27-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "1" "non_terminal")))
+ (djson_TCC28 0
+  (djson_TCC28-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "12" "non_terminal")))
+ (djson_TCC29 0
+  (djson_TCC29-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "30" "non_terminal")))
+ (djson_TCC30 0
+  (djson_TCC30-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "28" "non_terminal")))
+ (djson_TCC31 0
+  (djson_TCC31-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "5" "non_terminal")))
+ (djson_TCC32 0
+  (djson_TCC32-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "25" "non_terminal")))
+ (djson_TCC33 0
+  (djson_TCC33-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "27" "non_terminal")))
+ (djson_TCC34 0
+  (djson_TCC34-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "31" "non_terminal")))
+ (djson_TCC35 0
+  (djson_TCC35-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "15" "non_terminal")))
+ (djson_TCC36 0
+  (djson_TCC36-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "28" "non_terminal")))
+ (djson_TCC37 0
+  (djson_TCC37-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "15" "non_terminal")))
+ (djson_TCC38 0
+  (djson_TCC38-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "27" "non_terminal")))
+ (djson_TCC39 0
+  (djson_TCC39-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "1" "non_terminal")))
+ (djson_TCC40 0
+  (djson_TCC40-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "14" "non_terminal")))
+ (djson_TCC41 0
+  (djson_TCC41-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "30" "non_terminal")))
+ (djson_TCC42 0
+  (djson_TCC42-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "17" "non_terminal")))
+ (djson_TCC43 0
+  (djson_TCC43-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "3" "non_terminal")))
+ (djson_TCC44 0
+  (djson_TCC44-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "30" "non_terminal")))
+ (djson_TCC45 0
+  (djson_TCC45-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "18" "non_terminal")))
+ (djson_TCC46 0
+  (djson_TCC46-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "3" "non_terminal")))
+ (djson_TCC47 0
+  (djson_TCC47-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "30" "non_terminal")))
+ (djson_TCC48 0
+  (djson_TCC48-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "19" "non_terminal")))
+ (djson_TCC49 0
+  (djson_TCC49-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "3" "non_terminal")))
+ (djson_TCC50 0
+  (djson_TCC50-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "30" "non_terminal")))
+ (djson_TCC51 0
+  (djson_TCC51-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "20" "non_terminal")))
+ (djson_TCC52 0
+  (djson_TCC52-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "3" "non_terminal")))
+ (djson_TCC53 0
+  (djson_TCC53-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "30" "non_terminal")))
+ (djson_TCC54 0
+  (djson_TCC54-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "22" "non_terminal")))
+ (djson_TCC55 0
+  (djson_TCC55-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "3" "non_terminal")))
+ (djson_TCC56 0
+  (djson_TCC56-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "30" "non_terminal")))
+ (djson_TCC57 0
+  (djson_TCC57-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "23" "non_terminal")))
+ (djson_TCC58 0
+  (djson_TCC58-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "3" "non_terminal")))
+ (djson_TCC59 0
+  (djson_TCC59-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)) nil
+   (djson subtype "30" "non_terminal")))
+ (empty_TCC1 0
+  (empty_TCC1-1 nil 3907538780 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil (empty subtype "ltedfapegtest.len" "index")))
+ (cat_TCC1 0
+  (cat_TCC1-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((nil application-judgement "above(n)" exp2 nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil
+   (cat subtype
+    "(number_fields.-)((number_fields.-)(exp2.exp2(8), ltedfapegtest.l1), 1)"
+    "uint8")))
+ (cat_TCC2 0
+  (cat_TCC2-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (bijective? const-decl "bool" functions nil)
+    (I const-decl "(bijective?[T, T])" identity nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil (cat subtype "ltedfapegtest.l2" "uint8")))
+ (cat_TCC3 0
+  (cat_TCC3-1 nil 3907538780 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (bijective? const-decl "bool" functions nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (I const-decl "(bijective?[T, T])" identity nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil (cat subtype "identity[uint8].I(ltedfapegtest.l2)" "index")))
+ (cat_TCC4 0
+  (cat_TCC4-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (bijective? const-decl "bool" functions nil)
+    (I const-decl "(bijective?[T, T])" identity nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil
+   (cat subtype "(number_fields.+)(ltedfapegtest.l1, ltedfapegtest.l2)"
+    "uint8")))
+ (cat_TCC5 0
+  (cat_TCC5-1 nil 3907538780 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (bijective? const-decl "bool" functions nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (I const-decl "(bijective?[T, T])" identity nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil
+   (cat subtype
+    "identity[uint8].I((number_fields.+)(ltedfapegtest.l1, ltedfapegtest.l2))"
+    "index")))
+ (cat_TCC6 0
+  (cat_TCC6-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (bijective? const-decl "bool" functions nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (I const-decl "(bijective?[T, T])" identity nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil
+   (cat subtype "(number_fields.-)(ltedfapegtest.i, ltedfapegtest.l1)"
+    "naturalnumbers.below(identity[uint8].I(ltedfapegtest.l2))")))
+ (cat_TCC7 0
+  (cat_TCC7-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((nil application-judgement "above(n)" exp2 nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (I const-decl "(bijective?[T, T])" identity nil))
+   nil
+   (cat subtype
+    "LAMBDA (i: naturalnumbers.below((number_fields.+)(ltedfapegtest.l1, ltedfapegtest.l2))): IF reals.<(i, ltedfapegtest.l1) THEN ltedfapegtest.s1(i) ELSE ltedfapegtest.s2((number_fields.-)(i, ltedfapegtest.l1)) ENDIF"
+    "dfa.strings(identity[uint8].I((number_fields.+)(ltedfapegtest.l1, ltedfapegtest.l2)))")))
+ (tok0_TCC1 0
+  (tok0_TCC1-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (tok0 subtype "7" "index")))
+ (tok0_TCC2 0
+  (tok0_TCC2-1 nil 3907538780 ("" (cond-coverage-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (tok0 coverage
+    "COND ltedfapegtest.i = 0 -> 39, ltedfapegtest.i = 1 -> 116, ltedfapegtest.i = 2 -> 111, ltedfapegtest.i = 3 -> 107, ltedfapegtest.i = 4 -> 101, ltedfapegtest.i = 5 -> 110, ltedfapegtest.i = 6 -> 39 ENDCOND"
+    "nil")))
+ (tok1_TCC1 0
+  (tok1_TCC1-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (tok1 subtype "9" "index")))
+ (tok1_TCC2 0
+  (tok1_TCC2-1 nil 3907538780 ("" (cond-coverage-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (tok1 coverage
+    "COND ltedfapegtest.i = 0 -> 39, ltedfapegtest.i = 1 -> 116, ltedfapegtest.i = 2 -> 111, ltedfapegtest.i = 3 -> 107, ltedfapegtest.i = 4 -> 101, ltedfapegtest.i = 5 -> 110, ltedfapegtest.i = 6 -> 92, ltedfapegtest.i = 7 -> 39, ltedfapegtest.i = 8 -> 39 ENDCOND"
+    "nil")))
+ (obrace_TCC1 0
+  (obrace_TCC1-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (obrace subtype "3" "index")))
+ (obrace_TCC2 0
+  (obrace_TCC2-1 nil 3907538780 ("" (cond-coverage-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (obrace coverage
+    "COND ltedfapegtest.i = 0 -> 123, ltedfapegtest.i = 1 -> 32, ltedfapegtest.i = 2 -> 32 ENDCOND"
+    "nil")))
+ (emptydict2_TCC1 0
+  (emptydict2_TCC1-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (emptydict2 subtype "6" "index")))
+ (emptydict2_TCC2 0
+  (emptydict2_TCC2-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((I const-decl "(bijective?[T, T])" identity nil)) nil
+   (emptydict2 subtype "ltedfapegtest.cbrace"
+    "dfa.strings(identity[uint8].I(3))")))
+ (emptydict2_TCC3 0
+  (emptydict2_TCC3-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (I const-decl "(bijective?[T, T])" identity nil))
+   nil
+   (emptydict2 subtype "3"
+    "naturalnumbers.below(identity[uint8].I((number_fields.-)(exp2.exp2(8), 4)))")))
+ (emptydict2_TCC4 0
+  (emptydict2_TCC4-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((I const-decl "(bijective?[T, T])" identity nil)) nil
+   (emptydict2 subtype
+    "ltedfapegtest.cat(3, 3)(ltedfapegtest.obrace, ltedfapegtest.cbrace)"
+    "dfa.strings(6)")))
+ (dict1_TCC1 0
+  (dict1_TCC1-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (dict1 subtype "22" "index")))
+ (dict1_TCC2 0
+  (dict1_TCC2-1 nil 3907538780 ("" (grind) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (I const-decl "(bijective?[T, T])" identity nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil
+   (dict1 subtype "3"
+    "naturalnumbers.below(identity[uint8].I((number_fields.-)(exp2.exp2(8), 7)))")))
+ (dict1_TCC3 0
+  (dict1_TCC3-1 nil 3907538780 ("" (grind) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (I const-decl "(bijective?[T, T])" identity nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil
+   (dict1 subtype "9"
+    "naturalnumbers.below(identity[uint8].I((number_fields.-)(exp2.exp2(8), 4)))")))
+ (dict1_TCC4 0
+  (dict1_TCC4-1 nil 3907538780 ("" (grind) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (I const-decl "(bijective?[T, T])" identity nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil
+   (dict1 subtype "12"
+    "naturalnumbers.below(identity[uint8].I((number_fields.-)(exp2.exp2(8), 8)))")))
+ (dict1_TCC5 0
+  (dict1_TCC5-1 nil 3907538780 ("" (grind) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (I const-decl "(bijective?[T, T])" identity nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil
+   (dict1 subtype "19"
+    "naturalnumbers.below(identity[uint8].I((number_fields.-)(exp2.exp2(8), 4)))")))
+ (dict1_TCC6 0
+  (dict1_TCC6-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((I const-decl "(bijective?[T, T])" identity nil)) nil
+   (dict1 subtype
+    "ltedfapegtest.cat(3, 19)(ltedfapegtest.obrace, ltedfapegtest.cat(7, 12)(ltedfapegtest.tok0, ltedfapegtest.cat(3, 9)(ltedfapegtest.colon, ltedfapegtest.cat(6, 3)(ltedfapegtest.emptydict2, ltedfapegtest.cbrace))))"
+    "dfa.strings(22)")))
+ (iparse_TCC1 0
+  (iparse_TCC1-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (byte type-eq-decl nil dfa nil)
+    (non_terminal type-eq-decl nil ltedfapeg nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (<= const-decl "bool" reals nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (good_good_entry? const-decl "bool" ltedfapeg nil)
+    (num_non_terminals const-decl "byte" ltedfapeg nil)
+    (good_push_entry? const-decl "bool" ltedfapeg nil)
+    (nice_entry? const-decl "bool" ltedfapeg nil))
+   nil
+   (iparse subtype "ltedfapegtest.pend"
+    "[non_terminal -> (ltedfapeg.nice_entry?(ltedfapegtest.len, ltedfapegtest.i))]")))
+ (iparse_TCC2 0
+  (iparse_TCC2-1 nil 3907538780 ("" (subtype-tcc) nil nil) nil nil
+   (iparse subtype "ltedfapeg.num_non_terminals" "uint8")))
+ (iparse_TCC3 0
+  (iparse_TCC3-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)
+    (good_good_entry? const-decl "bool" ltedfapeg nil)
+    (good_push_entry? const-decl "bool" ltedfapeg nil)
+    (nice_entry? const-decl "bool" ltedfapeg nil))
+   nil
+   (iparse subtype "ltedfapeg.push(0, ltedfapeg.num_non_terminals)"
+    "(ltedfapeg.nice_entry?(ltedfapegtest.len, ltedfapegtest.start))")))
+ (iparse_TCC4 0
+  (iparse_TCC4-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (<= const-decl "bool" reals nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (byte type-eq-decl nil dfa nil)
+    (non_terminal type-eq-decl nil ltedfapeg nil)
+    (good_entry? const-decl "bool" ltedfapeg nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (num_non_terminals const-decl "byte" ltedfapeg nil)
+    (good_good_entry? const-decl "bool" ltedfapeg nil)
+    (good_push_entry? const-decl "bool" ltedfapeg nil)
+    (nice_entry? const-decl "bool" ltedfapeg nil)
+    (good_root? const-decl "bool" ltedfapeg nil)
+    (good_or_fail? const-decl "bool" ltedfapeg nil)
+    (count const-decl "upto(len)" arrayCount nil)
+    (scafcount const-decl "uint64" ltedfapeg nil)
+    (gfcount const-decl "uint64" ltedfapeg nil)
+    (good_tscaffold? const-decl "bool" ltedfapeg nil)
+    (fine_scaffold? const-decl "bool" ltedfapeg nil))
+   nil
+   (iparse subtype
+    "(LAMBDA (i: naturalnumbers.upto(ltedfapegtest.len)): ltedfapegtest.pend) WITH [(ltedfapegtest.start)(ltedfapegtest.root) := ltedfapeg.push(0, ltedfapeg.num_non_terminals)]"
+    "(ltedfapeg.fine_scaffold?(ltedfapegtest.len, ltedfapegtest.G, ltedfapegtest.s)(ltedfapegtest.start, ltedfapegtest.root))")))
+ (iparse_TCC5 0
+  (iparse_TCC5-1 nil 3907538780 ("" (subtype-tcc) nil nil) nil nil
+   (iparse subtype "1"
+    "(ltedfapeg.good_depth?(ltedfapegtest.len, (LAMBDA (i: naturalnumbers.upto(ltedfapegtest.len)): ltedfapegtest.pend) WITH [(ltedfapegtest.start)(ltedfapegtest.root) := ltedfapeg.push(0, ltedfapeg.num_non_terminals)]))")))
+ (iparse_TCC6 0
+  (iparse_TCC6-1 nil 3907538780 ("" (subtype-tcc) nil nil) nil nil
+   (iparse subtype "ltedfapegtest.start" "uint32")))
+ (iparse_TCC7 0
+  (iparse_TCC7-1 nil 3907538780 ("" (subtype-tcc) nil nil) nil nil
+   (iparse subtype
+    "ltedfapeg.push(ltedfapegtest.start, ltedfapegtest.root)"
+    "(ltedfapeg.fine_stack?(ltedfapegtest.len, ltedfapegtest.G, 1, (LAMBDA (i: naturalnumbers.upto(ltedfapegtest.len)): ltedfapegtest.pend) WITH [(ltedfapegtest.start)(ltedfapegtest.root) := ltedfapeg.push(0, ltedfapeg.num_non_terminals)]))")))
+ (iparse_TCC8 0
+  (iparse_TCC8-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (<= const-decl "bool" reals nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (byte type-eq-decl nil dfa nil)
+    (non_terminal type-eq-decl nil ltedfapeg nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (num_non_terminals const-decl "byte" ltedfapeg nil))
+   nil
+   (iparse subtype "booleans.FALSE"
+    "{b: booleans.bool | IF b THEN booleans.OR(ltedfapegtest.root = ltedfapeg.num_non_terminals, ltedfapeg.loop_ready?(ltedfapegtest.len, ltedfapegtest.G, (LAMBDA (i: naturalnumbers.upto(ltedfapegtest.len)): ltedfapegtest.pend) WITH [(ltedfapegtest.start)(ltedfapegtest.root) := ltedfapeg.push(0, ltedfapeg.num_non_terminals)], ltedfapegtest.start, ltedfapegtest.root)) ELSE FORALL (i_1: naturalnumbers.upto(ltedfapegtest.len)), n: (booleans.NOT)(ltedfapeg.loop?((LAMBDA (i: naturalnumbers.upto(ltedfapegtest.len)): ltedfapegtest.pend) WITH [(ltedfapegtest.start)(ltedfapegtest.root) := ltedfapeg.push(0, ltedfapeg.num_non_terminals)](i_1)(ltedfapeg.n))) ENDIF}")))
+ (jsonparsecheckfile_TCC1 0
+  (jsonparsecheckfile_TCC1-1 nil 3907543933
+   ("" (grind)
+    (("" (typepred "file_size(contents(open(fn!1)))")
+      (("" (grind) nil nil)) nil))
+    nil)
+   ((open const-decl "lifted_file" file nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (contents adt-accessor-decl "[(pass?) -> file]" file nil)
+    (pass? adt-recognizer-decl "[lifted_file -> boolean]" file nil)
+    (lifted_file type-decl nil file nil)
+    (file_size const-decl "index" file nil)
+    (index type-eq-decl nil integertypes nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (file nonempty-type-decl nil file nil)
+    (<= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil
+   (jsonparsecheckfile subtype "file.file_size(ltedfapegtest.f)"
+    "uint32")))
+ (jsonparsecheckfile_TCC2 0
+  (jsonparsecheckfile_TCC1-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (<= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (jsonparsecheckfile subtype "0"
+    "naturalnumbers.upto(file.file_size(ltedfapegtest.f))")))
+ (jsonparsecheckfile_TCC3 0
+  (jsonparsecheckfile_TCC2-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (<= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (jsonparsecheckfile subtype "ltedfapegtest.fs"
+    "{size: naturalnumbers.upto(file.file_size(ltedfapegtest.f)) | booleans.TRUE}")))
+ (jsonparsecheckfile_TCC4 0
+  (jsonparsecheckfile_TCC3-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (non_terminal type-eq-decl nil ltedfapeg nil)
+    (byte type-eq-decl nil dfa nil) (< const-decl "bool" reals nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (<= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (good_good_entry? const-decl "bool" ltedfapeg nil)
+    (num_non_terminals const-decl "byte" ltedfapeg nil)
+    (good_push_entry? const-decl "bool" ltedfapeg nil)
+    (nice_entry? const-decl "bool" ltedfapeg nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (jsonparsecheckfile subtype "ltedfapegtest.pend"
+    "[non_terminal -> (ltedfapeg.nice_entry?(ltedfapegtest.fs, ltedfapegtest.i))]")))
+ (jsonparsecheckfile_TCC5 0
+  (jsonparsecheckfile_TCC4-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((nil application-judgement "above(n)" exp2 nil)) nil
+   (jsonparsecheckfile subtype "0"
+    "naturalnumbers.upto(ltedfapegtest.fs)")))
+ (jsonparsecheckfile_TCC6 0
+  (jsonparsecheckfile_TCC5-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (jsonparsecheckfile subtype "0" "non_terminal")))
+ (jsonparsecheckfile_TCC7 0
+  (jsonparsecheckfile_TCC6-1 nil 3907538780 ("" (grind) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (jsonparsecheckfile subtype "ltedfapeg.num_non_terminals" "uint8")))
+ (jsonparsecheckfile_TCC8 0
+  (jsonparsecheckfile_TCC7-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)
+    (good_good_entry? const-decl "bool" ltedfapeg nil)
+    (good_push_entry? const-decl "bool" ltedfapeg nil)
+    (nice_entry? const-decl "bool" ltedfapeg nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (jsonparsecheckfile subtype
+    "ltedfapeg.push(0, ltedfapeg.num_non_terminals)"
+    "(ltedfapeg.nice_entry?(ltedfapegtest.fs, 0))")))
+ (jsonparsecheckfile_TCC9 0
+  (jsonparsecheckfile_TCC8-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (non_terminal type-eq-decl nil ltedfapeg nil)
+    (byte type-eq-decl nil dfa nil) (< const-decl "bool" reals nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (good_entry? const-decl "bool" ltedfapeg nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (<= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (num_non_terminals const-decl "byte" ltedfapeg nil)
+    (good_good_entry? const-decl "bool" ltedfapeg nil)
+    (good_push_entry? const-decl "bool" ltedfapeg nil)
+    (nice_entry? const-decl "bool" ltedfapeg nil)
+    (good_root? const-decl "bool" ltedfapeg nil)
+    (good_or_fail? const-decl "bool" ltedfapeg nil)
+    (count const-decl "upto(len)" arrayCount nil)
+    (scafcount const-decl "uint64" ltedfapeg nil)
+    (gfcount const-decl "uint64" ltedfapeg nil)
+    (good_tscaffold? const-decl "bool" ltedfapeg nil)
+    (fine_scaffold? const-decl "bool" ltedfapeg nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (jsonparsecheckfile subtype
+    "(LAMBDA (i: naturalnumbers.upto(ltedfapegtest.fs)): ltedfapegtest.pend) WITH [(0)(0) := ltedfapeg.push(0, ltedfapeg.num_non_terminals)]"
+    "(ltedfapeg.fine_scaffold?(ltedfapegtest.fs, ltedfapegtest.djson, ltedfapegtest.fstr`seq)(0, 0))")))
+ (jsonparsecheckfile_TCC10 0
+  (jsonparsecheckfile_TCC9-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   nil nil
+   (jsonparsecheckfile subtype "1"
+    "(ltedfapeg.good_depth?(ltedfapegtest.fs, (LAMBDA (i: naturalnumbers.upto(ltedfapegtest.fs)): ltedfapegtest.pend) WITH [(0)(0) := ltedfapeg.push(0, ltedfapeg.num_non_terminals)]))")))
+ (jsonparsecheckfile_TCC11 0
+  (jsonparsecheckfile_TCC10-1 nil 3907538780 ("" (grind) nil nil)
+   ((num_non_terminals const-decl "byte" ltedfapeg nil)
+    (good_push_entry? const-decl "bool" ltedfapeg nil)
+    (djson const-decl "prepeg" ltedfapegtest nil)
+    (successor const-decl "bool" ltedfapeg nil)
+    (good_stack? def-decl "bool" ltedfapeg nil)
+    (mem_stack? def-decl "bool" ltedfapeg nil)
+    (fine_stack? def-decl "bool" ltedfapeg nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (jsonparsecheckfile subtype "ltedfapeg.push(0, 0)"
+    "(ltedfapeg.fine_stack?(ltedfapegtest.fs, ltedfapegtest.djson, 1, (LAMBDA (i: naturalnumbers.upto(ltedfapegtest.fs)): ltedfapegtest.pend) WITH [(0)(0) := ltedfapeg.push(0, ltedfapeg.num_non_terminals)]))")))
+ (jsonparsecheckfile_TCC12 0
+  (jsonparsecheckfile_TCC11-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (< const-decl "bool" reals nil) (byte type-eq-decl nil dfa nil)
+    (non_terminal type-eq-decl nil ltedfapeg nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (<= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (num_non_terminals const-decl "byte" ltedfapeg nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (jsonparsecheckfile subtype "booleans.FALSE"
+    "{b: booleans.bool | IF b THEN booleans.OR(0 = ltedfapeg.num_non_terminals, ltedfapeg.loop_ready?(ltedfapegtest.fs, ltedfapegtest.djson, (LAMBDA (i: naturalnumbers.upto(ltedfapegtest.fs)): ltedfapegtest.pend) WITH [(0)(0) := ltedfapeg.push(0, ltedfapeg.num_non_terminals)], 0, 0)) ELSE FORALL (i_1: naturalnumbers.upto(ltedfapegtest.fs)), n: (booleans.NOT)(ltedfapeg.loop?((LAMBDA (i: naturalnumbers.upto(ltedfapegtest.fs)): ltedfapegtest.pend) WITH [(0)(0) := ltedfapeg.push(0, ltedfapeg.num_non_terminals)](i_1)(ltedfapeg.n))) ENDIF}")))
+ (jsonparsecheckfile_TCC13 0
+  (jsonparsecheckfile_TCC12-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (<= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (num_non_terminals const-decl "byte" ltedfapeg nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil (jsonparsecheckfile subtype "ltedfapegtest.fs" "index")))
+ (jsonparsecheckfile_TCC14 0
+  (jsonparsecheckfile_TCC13-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   nil nil
+   (jsonparsecheckfile subtype "ltedfapegtest.fstr`seq"
+    "dfa.strings(ltedfapegtest.fs)")))
+ (jsonparsecheckfile_TCC15 0
+  (jsonparsecheckfile_TCC14-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   nil nil
+   (jsonparsecheckfile subtype "0"
+    "{i | booleans.AND(reals.<=(ltedfapegproof.i, ltedfapegtest.fs), ltedfapegproof.defent?(ltedfapeg.parse(ltedfapegtest.fs, ltedfapegtest.djson, ltedfapegtest.fstr`seq, 0, 0, ltedfapegtest.St)`scaf(ltedfapegproof.i)(0)))}")))
+ (jsonparsecheckfile_TCC16 0
+  (jsonparsecheckfile_TCC15-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (parse def-decl "endstate(len, G, s, start, root)" ltedfapeg nil)
+    (endstate type-eq-decl nil ltedfapeg nil)
+    (empty? const-decl "bool" ltedfapeg nil)
+    (state type-eq-decl nil ltedfapeg nil)
+    (loop? adt-recognizer-decl "[ent -> boolean]" ltedfapeg nil)
+    (pos adt-accessor-decl "[(push?) -> uint32]" ltedfapeg nil)
+    (loop_ready? const-decl "bool" ltedfapeg nil)
+    (nt adt-accessor-decl "[(push?) -> uint8]" ltedfapeg nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (push? adt-recognizer-decl "[ent -> boolean]" ltedfapeg nil)
+    (OR const-decl "[bool, bool -> bool]" booleans nil)
+    (IF const-decl "[boolean, T, T -> T]" if_def nil)
+    (fine_stack? def-decl "bool" ltedfapeg nil)
+    (good_stack? def-decl "bool" ltedfapeg nil)
+    (good_push_entry? const-decl "bool" ltedfapeg nil)
+    (good_depth? const-decl "bool" ltedfapeg nil)
+    (uint64 type-eq-decl nil integertypes nil)
+    (fine_scaffold? const-decl "bool" ltedfapeg nil)
+    (scaffold type-eq-decl nil ltedfapeg nil)
+    (nice_entry? const-decl "bool" ltedfapeg nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (entry shared-adt-accessor-decl "[parsetree -> defent]"
+     ltedfapegproof nil)
+    (defent type-eq-decl nil ltedfapegproof nil)
+    (defent? const-decl "bool" ltedfapegproof nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (ent type-decl nil ltedfapeg nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (qempty adt-constructor-decl "(qempty?)" ltedfapegproof nil)
+    (qempty? adt-recognizer-decl "[qstack -> boolean]" ltedfapegproof
+     nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (djson const-decl "prepeg" ltedfapegtest nil)
+    (good_parsetree? def-decl "bool" ltedfapegproof nil)
+    (parsetree type-decl nil ltedfapegproof nil)
+    (qstack type-decl nil ltedfapegproof nil)
+    (strings type-eq-decl nil dfa nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (lang_spec type-eq-decl nil ltedfapeg nil)
+    (prepeg type-decl nil ltedfapeg nil)
+    (non_terminal type-eq-decl nil ltedfapeg nil)
+    (byte type-eq-decl nil dfa nil) (< const-decl "bool" reals nil)
+    (index type-eq-decl nil integertypes nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (<= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (num_non_terminals const-decl "byte" ltedfapeg nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (jsonparsecheckfile subtype "0"
+    "{i | reals.<=(ltedfapegproof.i, ltedfapegtest.fstr`length)}")))
+ (jsonparsecheckfile_TCC17 0
+  (jsonparsecheckfile_TCC16-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   nil nil
+   (jsonparsecheckfile subtype "ltedfapegtest.fstr`seq"
+    "dfa.strings(ltedfapegtest.fstr`length)")))
+ (jsonparsefile_TCC1 0
+  (jsonparsefile_TCC1-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((defent? const-decl "bool" ltedfapegproof nil)) nil
+   (jsonparsefile subtype "ltedfapeg.fail(0)" "defent")))
+ (jsonpureparsefile_TCC1 0
+  (jsonpureparsefile_TCC1-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   nil nil
+   (jsonpureparsefile subtype "ltedfapegtest.fs" "non_terminal")))
+ (jsonpureparsefile_TCC2 0
+  (jsonpureparsefile_TCC2-1 nil 3907538780 ("" (subtype-tcc) nil nil)
+   ((minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (< const-decl "bool" reals nil) (byte type-eq-decl nil dfa nil)
+    (non_terminal type-eq-decl nil ltedfapeg nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (<= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (num_non_terminals const-decl "byte" ltedfapeg nil)
+    (djsontable const-decl "[non_terminal -> prepeg]" ltedfapegtest
+     nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (jsonpureparsefile subtype "ltedfapegtest.St"
+    "ltedfapeg.state(ltedfapegtest.fs, ltedfapegtest.djsontable, ltedfapegtest.fstr`seq, 0, 0)"))))
+

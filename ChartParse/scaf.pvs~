@@ -1,0 +1,168 @@
+scaf[num_non_terminals : posnat, terminal_type : TYPE+]
+		: THEORY
+
+  BEGIN
+
+  entry: DATATYPE
+  BEGIN
+  fail: fail?
+  pending: pending?
+  loop: loop?
+  good(span: nat): good?
+  END entry
+
+  atomic_peg  : DATATYPE
+  BEGIN
+   epsilon : epsilon?
+   fail : fail?
+   any : any?
+   terminal(a: terminal_type) : terminal?
+   concat(e1, e2: below(num_non_terminals)) : concat?
+   choice(e1, e2: below(num_non_terminals)) : or?
+   check(e: below(num_non_terminals)) : and?
+   neg(e: below(num_non_terminals)) : not?
+  END atomic_peg
+
+non_terminal : TYPE = below(num_non_terminals)
+
+m, n: VAR non_terminal
+
+lang_spec  : TYPE = [non_terminal -> atomic_peg]
+
+% FOR EXAMPLE:
+% AStar : lang_spec(4, char) = 
+%     0 -> or(1, 3)
+%     1 -> concat(2, 0)
+%     2 -> terminal('a')
+%     3 -> epsilon
+
+%=======================================================
+
+len: VAR nat %the length of the input
+
+%The scaffold entry can be fail, loop, good(span), or loop.
+
+good_entry?(len, (pos: upto(len)))(x: entry): bool = (good?(x) IMPLIES pos + span(x) <= len)
+
+scaffold(len) : TYPE = [pos: upto(len) -> [non_terminal -> (good_entry?(len, pos))]]
+% (not quite below(len) for range, because we can also fail, so need to include -1 (and later -2 to allow the "incomplete" filling of the scaffold)
+
+% To enforce as a judgement: [x -> [posbelow(num_non_terminals) -> below(x)]]
+
+
+strings(len) : TYPE = [below(len) -> terminal_type]
+a, b, c: VAR terminal_type
+
+G: VAR lang_spec
+
+
+
+good_fail?(len, G, (s: strings(len)))((A: scaffold(len)), (i : upto(len)), n): bool =
+  (CASES G(n) OF
+           any: i = len,
+           terminal(n): i = len OR n /= s(i),
+           concat(n1, n2):  fail?(A(i)(n1)) OR
+                             (good?(A(i)(n1)) AND %span(A(i)(n1)) <= len - i AND 
+  			      fail?(A(i + span(A(i)(n1)))(n2))),
+           choice(n1, n2): fail?(A(i)(n1)) AND fail?(A(i)(n2)),
+           check(n1): fail?(A(i)(n1)),
+  	   neg(n1): good?(A(i)(n1)),
+  	   fail: TRUE
+           ELSE FALSE
+       ENDCASES)
+
+
+good_fail_update: LEMMA
+    (FORALL (s: strings(len)), (A: scaffold(len)), (i, j: upto(len)), (v: (good_entry?(len, j))) : 
+    (i /= j OR n /= m) AND
+    (pending?(A(j)(m)) OR loop?(A(j)(m))) AND 
+    good_fail?(len, G, s)(A, i, n)
+    => good_fail?(len, G, s)(A WITH [(j)(m) := v], i, n))
+
+good_loop?(len, G, (s: strings(len)))((A: scaffold(len)), (i: upto(len)), n): bool =
+(CASES G(n) OF
+           concat(n1, n2):  loop?(A(i)(n1)) or
+  	                    (good?(A(i)(n1)) %AND span(A(i)(n1)) <= len - i
+  			     AND loop?(A(i + span(A(i)(n1)))(n2))),
+           choice(n1, n2): loop?(A(i)(n1)) or (fail?(A(i)(n1)) AND loop?(A(i)(n2))),
+           check(n1): loop?(A(i)(n1)),
+  	   neg(n1): loop?(A(i)(n1))
+           ELSE FALSE
+       ENDCASES)
+
+good_loop_update: LEMMA
+    (FORALL (s: strings(len)), (A: scaffold(len)), (i, j: upto(len)), (v: (good_entry?(len, j))) : 
+    (i /= j OR n /= m) AND
+    pending?(A(j)(m)) AND
+    good_loop?(len, G, s)(A, i, n)
+    => good_loop?(len, G, s)(A WITH [(j)(m) := v], i, n))
+
+
+good_good?(len, G, (s: strings(len)))((A: scaffold(len)), (i: upto(len)), n, (sp :upto(len - i))): bool =
+ (CASES G(n) OF
+         epsilon: sp = 0,
+  	 any: sp = 1,
+  	 terminal(a): sp = 1 AND s(i) = a,
+  	 concat(n1, n2): good?(A(i)(n1)) %AND span(A(i)(n1)) <= len - i
+  	                 AND good?(A(i + span(A(i)(n1)))(n2)),
+  	 choice(n1, n2): good?(A(i)(n1)) OR (fail?(A(i)(n1)) AND good?(A(i)(n2))),
+  	 check(n1): good?(A(i)(n1)) AND sp = 0,
+  	 neg(n1): fail?(A(i)(n1)) AND sp = 0,
+  	 fail: FALSE
+  	 ENDCASES)
+
+good_good_update: LEMMA
+    (FORALL (s: strings(len)), (A: scaffold(len)), (i, j: upto(len)), (v: (good_entry?(len, j))), (sp: upto(len - i)) : 
+    (i /= j OR n /= m) AND
+    pending?(A(j)(m)) AND
+    good_good?(len, G, s)(A, i, n, sp)
+    => good_good?(len, G, s)(A WITH [(j)(m) := v], i, n, sp))
+
+
+good_scaffold?(len, G, (s: strings(len)), stack : list[non_terminal])(A : scaffold(len)): bool =
+ (FORALL (i: upto(len)), n:
+   CASES A(i)(n) OF
+    fail: good_fail?(len, G, s)(A, i, n),
+    loop: member(n, stack) OR good_loop?(len, G, s)(A, i, n), 
+    good(sp):  sp <= len - i AND good_good?(len, G, s)(A, i, n, sp),
+    pending: TRUE
+    ENDCASES)
+
+full_scaffold?(len, (i : upto(len)), (n: upto(num_non_terminals)))(A: scaffold(len)): bool =
+  (FORALL (j: upto(len)), (m:  non_terminal):
+     pending?(A(j)(m)) IMPLIES (j < i OR (j = i AND n <= m)))
+
+fine_scaffold?(len, G, (s: strings(len)))((i : upto(len)), (stack: list[non_terminal]), n: upto(num_non_terminals))(A : scaffold(len)): bool =
+   good_scaffold?(len, G, s, stack)(A)
+   AND full_scaffold?(len, i, n)(A)
+
+stack_scaffold?(len, G, (s: strings(len)), (i : upto(len)), (stack: list[non_terminal]))(A : scaffold(len)): bool =
+   (FORALL m: member(m, stack) => pending?(A(i)(m)))
+
+fine_stack_scaffold?(len, G, (s: strings(len)))((i : upto(len)), (stack: list[non_terminal]), (root: upto(num_non_terminals)))(A : scaffold(len)): bool =
+   fine_scaffold?(len, G, s)(i, stack, root)(A) AND
+   stack_scaffold?(len, G, s, i, stack)(A)
+
+stack_scaffold_stack: LEMMA
+  (FORALL (s: strings(len)), (i : upto(len)), (stack: list[non_terminal]), (A : scaffold(len)), (v: (good_entry?(len, i))): 
+   NOT member(n, stack) AND 
+   stack_scaffold?(len, G, s, i, stack)(A)
+   IMPLIES stack_scaffold?(len, G, s, i, stack)(A WITH [(i)(n) := v]))
+
+
+extends(len)(A, B: scaffold(len)): bool  =
+ (FORALL (i : upto(len)), n:  pending?(A(i)(n)) OR B(i)(n) = A(i)(n))
+
+up_non_terminal: TYPE = upto(num_non_terminal)
+
+state(len, G, (s: string(len))): TYPE
+    = [# pos : upto(len),
+         root : up_non_terminal,
+	 cur : non_terminal,
+         stack: list[non_terminal], 
+         scaf: (fine_stack_scaffold?(len, G, s)(pos, root, stack)) #]
+
+
+  
+
+  END scaf

@@ -1,0 +1,9 @@
+#include "cstopdowntest_c.h"
+
+void main(){
+  cstopdown_ent_adt_t cstopdowntest_test0(void);
+  cstopdown_ent_adt_t cstopdowntest_test1(void);
+  cstopdown_ent_adt_t cstopdowntest_test11(void);
+  cstopdown_ent_adt_t cstopdowntest_test2(void);
+  return 1;
+}

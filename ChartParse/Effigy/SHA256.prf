@@ -1,0 +1,1392 @@
+(SHA256
+ (h1_TCC1 0
+  (h1_TCC1-1 nil 3827348879 ("" (grind) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil (h1 subtype "0xbb67ae85" "uint32")))
+ (h3_TCC1 0
+  (h3_TCC1-1 nil 3827348879 ("" (grind) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil (h3 subtype "0xa54ff53a" "uint32")))
+ (h5_TCC1 0
+  (h5_TCC1-1 nil 3827348879 ("" (grind) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil (h5 subtype "0x9b05688c" "uint32")))
+ (k_TCC1 0
+  (k_TCC3-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xb5c0fbcf" "uint32")))
+ (k_TCC2 0
+  (k_TCC4-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xe9b5dba5" "uint32")))
+ (k_TCC3 0
+  (k_TCC7-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0x923f82a4" "uint32")))
+ (k_TCC4 0
+  (k_TCC8-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xab1c5ed5" "uint32")))
+ (k_TCC5 0
+  (k_TCC9-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xd807aa98" "uint32")))
+ (k_TCC6 0
+  (k_TCC14-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0x80deb1fe" "uint32")))
+ (k_TCC7 0
+  (k_TCC15-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0x9bdc06a7" "uint32")))
+ (k_TCC8 0
+  (k_TCC16-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xc19bf174" "uint32")))
+ (k_TCC9 0
+  (k_TCC17-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xe49b69c1" "uint32")))
+ (k_TCC10 0
+  (k_TCC18-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xefbe4786" "uint32")))
+ (k_TCC11 0
+  (k_TCC25-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0x983e5152" "uint32")))
+ (k_TCC12 0
+  (k_TCC26-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xa831c66d" "uint32")))
+ (k_TCC13 0
+  (k_TCC27-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xb00327c8" "uint32")))
+ (k_TCC14 0
+  (k_TCC28-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xbf597fc7" "uint32")))
+ (k_TCC15 0
+  (k_TCC29-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xc6e00bf3" "uint32")))
+ (k_TCC16 0
+  (k_TCC30-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xd5a79147" "uint32")))
+ (k_TCC17 0
+  (k_TCC39-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0x81c2c92e" "uint32")))
+ (k_TCC18 0
+  (k_TCC40-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0x92722c85" "uint32")))
+ (k_TCC19 0
+  (k_TCC41-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xa2bfe8a1" "uint32")))
+ (k_TCC20 0
+  (k_TCC42-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xa81a664b" "uint32")))
+ (k_TCC21 0
+  (k_TCC43-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xc24b8b70" "uint32")))
+ (k_TCC22 0
+  (k_TCC44-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xc76c51a3" "uint32")))
+ (k_TCC23 0
+  (k_TCC45-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xd192e819" "uint32")))
+ (k_TCC24 0
+  (k_TCC46-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xd6990624" "uint32")))
+ (k_TCC25 0
+  (k_TCC47-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xf40e3585" "uint32")))
+ (k_TCC26 0
+  (k_TCC59-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0x84c87814" "uint32")))
+ (k_TCC27 0
+  (k_TCC60-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0x8cc70208" "uint32")))
+ (k_TCC28 0
+  (k_TCC61-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0x90befffa" "uint32")))
+ (k_TCC29 0
+  (k_TCC62-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xa4506ceb" "uint32")))
+ (k_TCC30 0
+  (k_TCC63-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xbef9a3f7" "uint32")))
+ (k_TCC31 0
+  (k_TCC64-1 nil 3827348879 ("" (grind) nil nil)
+   ((exp2 def-decl "posnat" exp2 nil)) nil
+   (k subtype "0xc67178f2" "uint32")))
+ (bytes2uint32_TCC1 0
+  (bytes2uint32_TCC1-1 nil 3827348879 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (get const-decl "byte" bytestrings nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil
+   (bytes2uint32 subtype "bytestrings.get(SHA256.X, SHA256.i)"
+    "uint32")))
+ (bytes2uint32_TCC2 0
+  (bytes2uint32_TCC2-1 nil 3827348879 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (bytes2uint32 subtype "(number_fields.+)(SHA256.i, 1)"
+    "naturalnumbers.below(length(SHA256.X))")))
+ (bytes2uint32_TCC3 0
+  (bytes2uint32_TCC3-1 nil 3827348879 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (get const-decl "byte" bytestrings nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil
+   (bytes2uint32 subtype
+    "bytestrings.get(SHA256.X, (number_fields.+)(SHA256.i, 1))"
+    "uint32")))
+ (bytes2uint32_TCC4 0
+  (bytes2uint32_TCC4-1 nil 3827348879 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (bytes2uint32 subtype "(number_fields.+)(SHA256.i, 2)"
+    "naturalnumbers.below(length(SHA256.X))")))
+ (bytes2uint32_TCC5 0
+  (bytes2uint32_TCC5-1 nil 3827348879 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (get const-decl "byte" bytestrings nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil
+   (bytes2uint32 subtype
+    "bytestrings.get(SHA256.X, (number_fields.+)(SHA256.i, 2))"
+    "uint32")))
+ (bytes2uint32_TCC6 0
+  (bytes2uint32_TCC6-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil
+   nil
+   (bytes2uint32 subtype
+    "(number_fields.+)((number_fields.+)((number_fields.+)(integertypes.u32lshift(bytestrings.get(SHA256.X, SHA256.i), 24), integertypes.u32lshift(bytestrings.get(SHA256.X, (number_fields.+)(SHA256.i, 1)), 16)), integertypes.u32lshift(bytestrings.get(SHA256.X, (number_fields.+)(SHA256.i, 2)), 8)), bytestrings.get(SHA256.X, (number_fields.+)(SHA256.i, 3)))"
+    "uint32")))
+ (bytes2uint32_TCC7 0
+  (bytes2uint32_TCC7-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil
+   nil
+   (bytes2uint32 subtype "bytestrings.get(SHA256.X, SHA256.i)"
+    "uint32")))
+ (bytes2uint32_TCC8 0
+  (bytes2uint32_TCC8-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (bytes2uint32 subtype "(number_fields.+)(SHA256.i, 1)"
+    "naturalnumbers.below(length(SHA256.X))")))
+ (bytes2uint32_TCC9 0
+  (bytes2uint32_TCC9-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil
+   nil
+   (bytes2uint32 subtype
+    "bytestrings.get(SHA256.X, (number_fields.+)(SHA256.i, 1))"
+    "uint32")))
+ (bytes2uint32_TCC10 0
+  (bytes2uint32_TCC10-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil
+   nil
+   (bytes2uint32 subtype
+    "(number_fields.+)((number_fields.+)(integertypes.u32lshift(bytestrings.get(SHA256.X, SHA256.i), 16), integertypes.u32lshift(bytestrings.get(SHA256.X, (number_fields.+)(SHA256.i, 1)), 8)), bytestrings.get(SHA256.X, (number_fields.+)(SHA256.i, 2)))"
+    "uint32")))
+ (bytes2uint32_TCC11 0
+  (bytes2uint32_TCC11-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil
+   nil
+   (bytes2uint32 subtype "bytestrings.get(SHA256.X, SHA256.i)"
+    "uint32")))
+ (bytes2uint32_TCC12 0
+  (bytes2uint32_TCC12-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil
+   nil
+   (bytes2uint32 subtype
+    "(number_fields.+)(integertypes.u32lshift(bytestrings.get(SHA256.X, SHA256.i), 8), bytestrings.get(SHA256.X, (number_fields.+)(SHA256.i, 1)))"
+    "uint32")))
+ (bytes2uint32_TCC13 0
+  (bytes2uint32_TCC13-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil
+   nil
+   (bytes2uint32 subtype "bytestrings.get(SHA256.X, SHA256.i)"
+    "uint32")))
+ (equalUpto_TCC1 0
+  (equalUpto_TCC1-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (<= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (min const-decl "{p: real | p <= m AND p <= n}" real_defs nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (< const-decl "bool" reals nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nat_min application-judgement "{k: nat | k <= i AND k <= j}"
+     real_defs nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (equalUpto subtype "SHA256.j" "below[length(X)]")))
+ (bytes2uint32array_TCC1 0
+  (bytes2uint32array_TCC1-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((nnrat_div_posrat_is_nnrat application-judgement "nonneg_rat"
+     rationals nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (integer nonempty-type-from-decl nil integers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (ceiling const-decl "{i | x <= i & i < x + 1}" floor_ceil nil)
+    (/= const-decl "boolean" notequal nil)
+    (nznum nonempty-type-eq-decl nil number_fields nil)
+    (/ const-decl "[numfield, nznum -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil))
+   nil
+   (bytes2uint32array subtype "number_fields.*(4, SHA256.j)"
+    "naturalnumbers.below(SHA256.X`length)")))
+ (appendOne_TCC1 0
+  (appendOne_TCC1-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (appendOne subtype "SHA256.X`length"
+    "{i: integertypes.uint32 | reals.<=(i, real_defs.min(SHA256.X`length, SHA256.Y`length))}")))
+ (appendOne_TCC2 0
+  (appendOne_TCC2-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (equalUpto const-decl "bool" SHA256 nil))
+   nil
+   (appendOne subtype "SHA256.X`length"
+    "naturalnumbers.below(SHA256.Y`length)")))
+ (appendOne_TCC3 0
+  (appendOne_TCC4-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (appendOne subtype "(number_fields.+)(SHA256.X`length, 1)"
+    "naturalnumbers.below(0x100000000)")))
+ (appendOne_TCC4 0
+  (appendOne_TCC3-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (appendOne subtype "SHA256.X`length"
+    "naturalnumbers.below((number_fields.+)(1, SHA256.X`length))")))
+ (appendOne_TCC5 0
+  (appendOne_TCC5-1 nil 3831690310 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (appendOne subtype "SHA256.x"
+    "naturalnumbers.below(SHA256.X`length)")))
+ (appendOne_TCC6 0
+  (appendOne_TCC6-1 nil 3831690310 ("" (subtype-tcc) nil nil)
+   ((equalUpto const-decl "bool" SHA256 nil)) nil
+   (appendOne subtype
+    "SHA256.X WITH [`length := (number_fields.+)(SHA256.X`length, 1), `seq(SHA256.X`length) |-> 0x80]"
+    "{Y | booleans.AND(SHA256.Y`length = (number_fields.+)(1, SHA256.X`length), booleans.AND(SHA256.equalUpto(SHA256.X, SHA256.Y, SHA256.X`length), SHA256.Y`seq(SHA256.X`length) = 0x80))}")))
+ (padMessage_TCC1 0
+  (padMessage_TCC1-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (u32rshift const-decl "uint32" integertypes nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "upto(n)" modulo_arithmetic nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (padMessage subtype "SHA256.i" "uint32")))
+ (padMessage_TCC2 0
+  (padMessage_TCC2-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (padMessage subtype "SHA256.X`length"
+    "{i: integertypes.uint32 | reals.<=(i, real_defs.min(SHA256.X`length, SHA256.Y`length))}")))
+ (padMessage_TCC3 0
+  (padMessage_TCC3-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (padMessage subtype "SHA256.X"
+    "{Y: bytestrings.bytestring | booleans.AND(EXISTS (i: naturalnumbers.below(integertypes.u32rshift(0x100000000, 9))): Y`length = integertypes.u32lshift(i, 9), booleans.AND(SHA256.equalUpto(SHA256.X, Y, SHA256.X`length), FORALL (i: naturalnumbers.below(Y`length)): booleans.IMPLIES(reals.>=(i, SHA256.X`length), Y`seq(i) = 0x0)))}")))
+ (padMessage_TCC4 0
+  (padMessage_TCC4-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (padMessage subtype "SHA256.n"
+    "naturalnumbers.below(0x100000000)")))
+ (padMessage_TCC5 0
+  (padMessage_TCC5-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (mod nonempty-type-eq-decl nil euclidean_division nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (int_plus_int_is_int application-judgement "int" integers nil)
+    (minus_odd_is_odd application-judgement "odd_int" integers nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil))
+   nil
+   (padMessage subtype "SHA256.i"
+    "naturalnumbers.below(SHA256.X`length)")))
+ (padMessage_TCC6 0
+  (padMessage_TCC6-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (padMessage subtype
+    "(# length := SHA256.n, seq := (LAMBDA (i: naturalnumbers.below(SHA256.n)): IF reals.<(i, SHA256.m) THEN SHA256.X`seq(i) ELSE 0x0 ENDIF) #)"
+    "{Y: bytestrings.bytestring | booleans.AND(EXISTS (i: naturalnumbers.below(integertypes.u32rshift(0x100000000, 9))): Y`length = integertypes.u32lshift(i, 9), booleans.AND(SHA256.equalUpto(SHA256.X, Y, SHA256.X`length), FORALL (i: naturalnumbers.below(Y`length)): booleans.IMPLIES(reals.>=(i, SHA256.X`length), Y`seq(i) = 0x0)))}")))
+ (extractBlocks_TCC1 0
+  (extractBlocks_TCC1-1 nil 3831690310 ("" (subtype-tcc) nil nil)
+   ((posrat_div_posrat_is_posrat application-judgement "posrat"
+     rationals nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (integer nonempty-type-from-decl nil integers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (ceiling const-decl "{i | x <= i & i < x + 1}" floor_ceil nil)
+    (/= const-decl "boolean" notequal nil)
+    (nznum nonempty-type-eq-decl nil number_fields nil)
+    (/ const-decl "[numfield, nznum -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (even? const-decl "bool" integers nil)
+    (even_int nonempty-type-eq-decl nil integers nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_plus_even_is_even application-judgement "even_int" integers
+     nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (odd_plus_even_is_odd application-judgement "odd_int" integers nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil))
+   nil
+   (extractBlocks subtype "SHA256.cursor"
+    "naturalnumbers.below(SHA256.X`length)")))
+ (extractBlocks_TCC2 0
+  (extractBlocks_TCC2-1 nil 3831690310 ("" (subtype-tcc) nil nil)
+   ((posrat_div_posrat_is_posrat application-judgement "posrat"
+     rationals nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (integer nonempty-type-from-decl nil integers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (ceiling const-decl "{i | x <= i & i < x + 1}" floor_ceil nil)
+    (/= const-decl "boolean" notequal nil)
+    (nznum nonempty-type-eq-decl nil number_fields nil)
+    (/ const-decl "[numfield, nznum -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (even? const-decl "bool" integers nil)
+    (even_int nonempty-type-eq-decl nil integers nil)
+    (odd_plus_even_is_odd application-judgement "odd_int" integers nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_plus_even_is_even application-judgement "even_int" integers
+     nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil))
+   nil
+   (extractBlocks subtype "SHA256.cursor"
+    "naturalnumbers.below(SHA256.X`length)")))
+ (extractBlocks_TCC3 0
+  (extractBlocks_TCC3-1 nil 3831690310 ("" (subtype-tcc) nil nil) nil
+   nil (extractBlocks subtype "0x80" "uint32")))
+ (extractBlocks_TCC4 0
+  (extractBlocks_TCC4-1 nil 3831690310 ("" (subtype-tcc) nil nil)
+   ((posrat_div_posrat_is_posrat application-judgement "posrat"
+     rationals nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (integer nonempty-type-from-decl nil integers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (ceiling const-decl "{i | x <= i & i < x + 1}" floor_ceil nil)
+    (/= const-decl "boolean" notequal nil)
+    (nznum nonempty-type-eq-decl nil number_fields nil)
+    (/ const-decl "[numfield, nznum -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (even? const-decl "bool" integers nil)
+    (even_int nonempty-type-eq-decl nil integers nil)
+    (odd_plus_even_is_odd application-judgement "odd_int" integers nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_plus_even_is_even application-judgement "even_int" integers
+     nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil))
+   nil
+   (extractBlocks subtype "SHA256.cursor"
+    "naturalnumbers.below(SHA256.X`length)")))
+ (extractBlocks_TCC5 0
+  (extractBlocks_TCC5-1 nil 3831690310 ("" (subtype-tcc) nil nil)
+   ((posrat_div_posrat_is_posrat application-judgement "posrat"
+     rationals nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (integer nonempty-type-from-decl nil integers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (ceiling const-decl "{i | x <= i & i < x + 1}" floor_ceil nil)
+    (/= const-decl "boolean" notequal nil)
+    (nznum nonempty-type-eq-decl nil number_fields nil)
+    (/ const-decl "[numfield, nznum -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (even? const-decl "bool" integers nil)
+    (even_int nonempty-type-eq-decl nil integers nil)
+    (odd_plus_even_is_odd application-judgement "odd_int" integers nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_plus_even_is_even application-judgement "even_int" integers
+     nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil))
+   nil
+   (extractBlocks subtype "SHA256.cursor"
+    "naturalnumbers.below(SHA256.X`length)")))
+ (extractBlocks_TCC6 0
+  (extractBlocks_TCC6-1 nil 3831690310 ("" (subtype-tcc) nil nil) nil
+   nil (extractBlocks subtype "0x80000000" "uint32")))
+ (extractBlocks_TCC7 0
+  (extractBlocks_TCC7-1 nil 3831690310 ("" (subtype-tcc) nil nil) nil
+   nil
+   (extractBlocks subtype "number_fields.*(8, SHA256.X`length)"
+    "uint64")))
+ (extractBlocks_TCC8 0
+  (extractBlocks_TCC8-1 nil 3831690310 ("" (subtype-tcc) nil nil) nil
+   nil
+   (extractBlocks subtype
+    "integertypes.u64rshift(number_fields.*(8, SHA256.X`length), 32)"
+    "uint32")))
+ (extractBlocks_TCC9 0
+  (extractBlocks_TCC9-1 nil 3831690310 ("" (subtype-tcc) nil nil) nil
+   nil
+   (extractBlocks subtype "number_fields.*(8, SHA256.X`length)"
+    "uint64")))
+ (extractBlocks_TCC10 0
+  (extractBlocks_TCC10-1 nil 3831690310 ("" (subtype-tcc) nil nil) nil
+   nil
+   (extractBlocks subtype
+    "integertypes.u64rshift(integertypes.u64lshift(number_fields.*(8, SHA256.X`length), 32), 32)"
+    "uint32")))
+ (extractBlocks_TCC11 0
+  (extractBlocks_TCC1-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((posrat_div_posrat_is_posrat application-judgement "posrat"
+     rationals nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (integer nonempty-type-from-decl nil integers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (ceiling const-decl "{i | x <= i & i < x + 1}" floor_ceil nil)
+    (/= const-decl "boolean" notequal nil)
+    (nznum nonempty-type-eq-decl nil number_fields nil)
+    (/ const-decl "[numfield, nznum -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (even? const-decl "bool" integers nil)
+    (even_int nonempty-type-eq-decl nil integers nil)
+    (odd_plus_even_is_odd application-judgement "odd_int" integers nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_plus_even_is_even application-judgement "even_int" integers
+     nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (extractBlocks subtype "0x0" "uint32")))
+ (w0_TCC1 0
+  (w0_TCC1-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (w0 subtype "0x0" "uint32")))
+ (extendW_TCC1 0
+  (extendW_TCC1-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (extendW subtype "(number_fields.-)(64, SHA256.i)"
+    "naturalnumber")))
+ (extendW_TCC2 0
+  (extendW_TCC2-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((u32lshift const-decl "uint32" integertypes nil)
+    (u32rshift const-decl "uint32" integertypes nil)
+    (max32 const-decl "uint32" integertypes nil)
+    (u32rightrotate const-decl "uint32" rotate nil)
+    (bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (u32xor const-decl "uint32" integer_bv_ops nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (extendW subtype "(number_fields.-)(SHA256.i, 2)"
+    "naturalnumbers.below(64)")))
+ (extendW_TCC3 0
+  (extendW_TCC3-1 nil 3831690310 ("" (existence-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (<= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (subrange type-eq-decl nil integers nil)
+    (nil application-judgement "upto(n)" modulo_arithmetic nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (u32lshift const-decl "uint32" integertypes nil)
+    (u32rshift const-decl "uint32" integertypes nil)
+    (max32 const-decl "uint32" integertypes nil)
+    (u32rightrotate const-decl "uint32" rotate nil)
+    (bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (u32xor const-decl "uint32" integer_bv_ops nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil))
+   nil (extendW existence "" "integers.subrange(16, 64)")))
+ (extendW_TCC4 0
+  (extendW_TCC4-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((u32lshift const-decl "uint32" integertypes nil)
+    (u32rshift const-decl "uint32" integertypes nil)
+    (max32 const-decl "uint32" integertypes nil)
+    (u32rightrotate const-decl "uint32" rotate nil)
+    (bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (u32xor const-decl "uint32" integer_bv_ops nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (extendW subtype "(number_fields.-)(SHA256.i, 16)"
+    "naturalnumbers.below(64)")))
+ (extendW_TCC5 0
+  (extendW_TCC5-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((u32lshift const-decl "uint32" integertypes nil)
+    (u32rshift const-decl "uint32" integertypes nil)
+    (max32 const-decl "uint32" integertypes nil)
+    (u32rightrotate const-decl "uint32" rotate nil)
+    (bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (u32xor const-decl "uint32" integer_bv_ops nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (extendW subtype "(number_fields.-)(SHA256.i, 7)"
+    "naturalnumbers.below(64)")))
+ (extendW_TCC6 0
+  (extendW_TCC3-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (<= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (subrange type-eq-decl nil integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "upto(n)" modulo_arithmetic nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (u32lshift const-decl "uint32" integertypes nil)
+    (u32rshift const-decl "uint32" integertypes nil)
+    (max32 const-decl "uint32" integertypes nil)
+    (u32rightrotate const-decl "uint32" rotate nil)
+    (bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (u32xor const-decl "uint32" integer_bv_ops nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (print32 const-decl "uint32" SHA256 nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil))
+   nil (extendW subtype "SHA256.i" "naturalnumbers.below(64)")))
+ (extendW_TCC7 0
+  (extendW_TCC6-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (<= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (subrange type-eq-decl nil integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "upto(n)" modulo_arithmetic nil)
+    (even_minus_odd_is_odd application-judgement "odd_int" integers
+     nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (u32lshift const-decl "uint32" integertypes nil)
+    (u32rshift const-decl "uint32" integertypes nil)
+    (max32 const-decl "uint32" integertypes nil)
+    (u32rightrotate const-decl "uint32" rotate nil)
+    (bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (u32xor const-decl "uint32" integer_bv_ops nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (print32 const-decl "uint32" SHA256 nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil))
+   nil
+   (extendW subtype "(number_fields.+)(SHA256.i, 1)"
+    "integers.subrange(16, 64)")))
+ (extendW_TCC8 0
+  (extendW_TCC7-1 nil 3827348879
+   ("" (skeep*) (("" (hide -) (("" (assert) nil nil)) nil)) nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (TRUE const-decl "bool" booleans nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (extendW termination
+    "SHA256.extendW(SHA256.v WITH [(SHA256.i) := SHA256.vi], (number_fields.+)(SHA256.i, 1))"
+    "nil")))
+ (extendW_TCC9 0
+  (extendW_TCC8-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (extendW subtype "(number_fields.-)(SHA256.i, 15)"
+    "naturalnumbers.below(64)")))
+ (sha256rec_TCC1 0
+  (sha256rec_TCC1-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (sha256rec subtype "(number_fields.-)(64, SHA256.i)"
+    "naturalnumber")))
+ (sha256rec_TCC2 0
+  (sha256rec_TCC2-1 nil 3827348879
+   ("" (subtype-tcc) (("" (hide -) (("" (grind) nil nil)) nil)) nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (<= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "upto(n)" modulo_arithmetic nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (u32lshift const-decl "uint32" integertypes nil)
+    (u32rshift const-decl "uint32" integertypes nil)
+    (max32 const-decl "uint32" integertypes nil)
+    (u32rightrotate const-decl "uint32" rotate nil)
+    (print32 const-decl "uint32" SHA256 nil)
+    (bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (u32xor const-decl "uint32" integer_bv_ops nil)
+    (u32and const-decl "uint32" integer_bv_ops nil)
+    (u32not const-decl "uint32" integer_bv_ops nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil))
+   nil (sha256rec subtype "SHA256.i" "uint8")))
+ (sha256rec_TCC3 0
+  (sha256rec_TCC3-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (<= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "upto(n)" modulo_arithmetic nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (u32lshift const-decl "uint32" integertypes nil)
+    (u32rshift const-decl "uint32" integertypes nil)
+    (max32 const-decl "uint32" integertypes nil)
+    (u32rightrotate const-decl "uint32" rotate nil)
+    (print32 const-decl "uint32" SHA256 nil)
+    (bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (u32xor const-decl "uint32" integer_bv_ops nil)
+    (u32and const-decl "uint32" integer_bv_ops nil)
+    (u32not const-decl "uint32" integer_bv_ops nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil))
+   nil (sha256rec subtype "SHA256.i" "naturalnumbers.below(64)")))
+ (sha256rec_TCC4 0
+  (sha256rec_TCC4-1 nil 3827348879 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (<= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nil application-judgement "upto(n)" modulo_arithmetic nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (u32lshift const-decl "uint32" integertypes nil)
+    (u32rshift const-decl "uint32" integertypes nil)
+    (max32 const-decl "uint32" integertypes nil)
+    (u32rightrotate const-decl "uint32" rotate nil)
+    (print32 const-decl "uint32" SHA256 nil)
+    (bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (u32xor const-decl "uint32" integer_bv_ops nil)
+    (u32and const-decl "uint32" integer_bv_ops nil)
+    (u32not const-decl "uint32" integer_bv_ops nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_times_int_is_int application-judgement "int" integers nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil))
+   nil
+   (sha256rec subtype "(number_fields.+)(SHA256.i, 1)"
+    "naturalnumbers.upto(64)")))
+ (sha256rec_TCC5 0
+  (sha256rec_TCC5-1 nil 3827348879 ("" (termination-tcc) nil nil) nil
+   nil
+   (sha256rec termination
+    "SHA256.sha256rec(SHA256.v, SHA256.g WITH [(7) := SHA256.print32(\" g7 \", SHA256.g(6)), (6) := SHA256.print32(\" g6  \", SHA256.g(5)), (5) := SHA256.print32(\" g5 \", SHA256.g(4)), (4) := SHA256.print32(\" g4  \", integertypes.u32plus(SHA256.g(3), SHA256.temp1)), (3) := SHA256.print32(\" g3  \", SHA256.g(2)), (2) := SHA256.print32(\" g2  \", SHA256.g(1)), (1) := SHA256.print32(\" g1  \", SHA256.g(0)), (0) := SHA256.print32(\" g0 \", integertypes.u32plus(SHA256.temp1, SHA256.temp2))], (number_fields.+)(SHA256.i, 1))"
+    "nil")))
+ (digest_TCC1 0
+  (digest_TCC1-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (digest subtype "rotate.u32tobytestring(SHA256.h(1))"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, rotate.u32tobytestring(SHA256.h(0))`length), 0x100000000)}")))
+ (digest_TCC2 0
+  (digest_TCC2-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (digest subtype "rotate.u32tobytestring(SHA256.h(2))"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(rotate.u32tobytestring(SHA256.h(0)), rotate.u32tobytestring(SHA256.h(1))))`length), 0x100000000)}")))
+ (digest_TCC3 0
+  (digest_TCC3-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (digest subtype "rotate.u32tobytestring(SHA256.h(3))"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(rotate.u32tobytestring(SHA256.h(0)), rotate.u32tobytestring(SHA256.h(1))), rotate.u32tobytestring(SHA256.h(2))))`length), 0x100000000)}")))
+ (digest_TCC4 0
+  (digest_TCC4-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (digest subtype "rotate.u32tobytestring(SHA256.h(4))"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(rotate.u32tobytestring(SHA256.h(0)), rotate.u32tobytestring(SHA256.h(1))), rotate.u32tobytestring(SHA256.h(2))), rotate.u32tobytestring(SHA256.h(3))))`length), 0x100000000)}")))
+ (digest_TCC5 0
+  (digest_TCC5-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (digest subtype "rotate.u32tobytestring(SHA256.h(5))"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(rotate.u32tobytestring(SHA256.h(0)), rotate.u32tobytestring(SHA256.h(1))), rotate.u32tobytestring(SHA256.h(2))), rotate.u32tobytestring(SHA256.h(3))), rotate.u32tobytestring(SHA256.h(4))))`length), 0x100000000)}")))
+ (digest_TCC6 0
+  (digest_TCC6-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (digest subtype "rotate.u32tobytestring(SHA256.h(6))"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(rotate.u32tobytestring(SHA256.h(0)), rotate.u32tobytestring(SHA256.h(1))), rotate.u32tobytestring(SHA256.h(2))), rotate.u32tobytestring(SHA256.h(3))), rotate.u32tobytestring(SHA256.h(4))), rotate.u32tobytestring(SHA256.h(5))))`length), 0x100000000)}")))
+ (digest_TCC7 0
+  (digest_TCC7-1 nil 3827348879 ("" (subtype-tcc) nil nil) nil nil
+   (digest subtype "rotate.u32tobytestring(SHA256.h(7))"
+    "{s2 | reals.<((number_fields.+)(bytestrings.s2`length, (bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(bytestrings.++(rotate.u32tobytestring(SHA256.h(0)), rotate.u32tobytestring(SHA256.h(1))), rotate.u32tobytestring(SHA256.h(2))), rotate.u32tobytestring(SHA256.h(3))), rotate.u32tobytestring(SHA256.h(4))), rotate.u32tobytestring(SHA256.h(5))), rotate.u32tobytestring(SHA256.h(6))))`length), 0x100000000)}")))
+ (printW_TCC1 0
+  (printW_TCC1-1 nil 3831690310 ("" (subtype-tcc) nil nil) nil nil
+   (printW subtype "(number_fields.-)(16, SHA256.i)" "naturalnumber")))
+ (printW_TCC2 0
+  (printW_TCC2-1 nil 3831690310 ("" (subtype-tcc) nil nil) nil nil
+   (printW subtype "(number_fields.+)(SHA256.i, 1)"
+    "naturalnumbers.upto(16)")))
+ (printW_TCC3 0
+  (printW_TCC3-1 nil 3831690310 ("" (termination-tcc) nil nil) nil nil
+   (printW termination
+    "SHA256.printW(SHA256.w, (number_fields.+)(SHA256.i, 1))" "nil")))
+ (printW_TCC4 0
+  (printW_TCC4-1 nil 3831690310 ("" (subtype-tcc) nil nil) nil nil
+   (printW subtype "SHA256.i" "naturalnumbers.below(16)")))
+ (printV_TCC1 0
+  (printV_TCC1-1 nil 3831690310 ("" (subtype-tcc) nil nil) nil nil
+   (printV subtype "(number_fields.+)(SHA256.i, 1)"
+    "naturalnumbers.upto(64)")))
+ (printV_TCC2 0
+  (printV_TCC2-1 nil 3831690310 ("" (termination-tcc) nil nil) nil nil
+   (printV termination
+    "SHA256.printV(SHA256.v, (number_fields.+)(SHA256.i, 1))" "nil")))
+ (printV_TCC3 0
+  (printV_TCC3-1 nil 3831690310 ("" (subtype-tcc) nil nil) nil nil
+   (printV subtype "SHA256.i" "naturalnumbers.below(64)")))
+ (sha256message_rec_TCC1 0
+  (sha256message_rec_TCC1-1 nil 3831690310 ("" (subtype-tcc) nil nil)
+   nil nil
+   (sha256message_rec subtype
+    "(number_fields.-)(floor_ceil.ceiling(number_fields./(((number_fields.+)(SHA256.X`length, 9)), 64)), SHA256.i)"
+    "naturalnumber")))
+ (sha256message_rec_TCC2 0
+  (sha256message_rec_TCC2-1 nil 3831690310 ("" (subtype-tcc) nil nil)
+   nil nil
+   (sha256message_rec subtype "SHA256.w"
+    "[naturalnumbers.below(64) -> uint32]")))
+ (sha256message_rec_TCC3 0
+  (sha256message_rec_TCC3-1 nil 3831690310 ("" (subtype-tcc) nil nil)
+   nil nil
+   (sha256message_rec subtype "(number_fields.+)(SHA256.i, 1)"
+    "naturalnumbers.upto(floor_ceil.ceiling(number_fields./((number_fields.+)(9, SHA256.X`length), 64)))")))
+ (sha256message_rec_TCC4 0
+  (sha256message_rec_TCC4-1 nil 3831690310
+   ("" (termination-tcc) nil nil) nil nil
+   (sha256message_rec termination
+    "SHA256.sha256message_rec(SHA256.X, (number_fields.+)(SHA256.i, 1), SHA256.updateHash(SHA256.H, SHA256.G))"
+    "nil")))
+ (sha256message_rec_TCC5 0
+  (sha256message_rec_TCC5-1 nil 3831690310 ("" (subtype-tcc) nil nil)
+   nil nil
+   (sha256message_rec subtype "SHA256.i"
+    "naturalnumbers.below(floor_ceil.ceiling(number_fields./((number_fields.+)(9, SHA256.X`length), 64)))")))
+ (sha256message_TCC1 0
+  (sha256message_TCC1-1 nil 3831690310 ("" (subtype-tcc) nil nil) nil
+   nil
+   (sha256message subtype "0"
+    "naturalnumbers.upto(floor_ceil.ceiling(number_fields./((number_fields.+)(9, SHA256.X`length), 64)))"))))
+

@@ -1,0 +1,1 @@
+scaffold(len) : TYPE = [pos: upto(len) -> [non_terminal -> (nice_entry?(len, pos))]]

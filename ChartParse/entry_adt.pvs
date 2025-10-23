@@ -1,0 +1,161 @@
+%%% ADT file generated from scaf
+
+entry_adt: THEORY
+ BEGIN
+
+  entry: TYPE
+
+  fail?, pending?, loop?, good?: [entry -> boolean]
+
+  span: [(good?) -> nat]
+
+  fail: (fail?)
+
+  pending: (pending?)
+
+  loop: (loop?)
+
+  good: [nat -> (good?)]
+
+  entry_ord: [entry -> upto(3)]
+
+  entry_ord_defaxiom: AXIOM
+    entry_ord(fail) = 0 AND
+     entry_ord(pending) = 1 AND
+      entry_ord(loop) = 2 AND FORALL (span: nat): entry_ord(good(span)) = 3;
+
+  ord(x: entry): upto(3) =
+      CASES x OF fail: 0, pending: 1, loop: 2, good(good1_var): 3 ENDCASES
+
+  entry_fail_extensionality: AXIOM
+    FORALL (fail?_var: (fail?), fail?_var2: (fail?)):
+      fail?_var = fail?_var2;
+
+  entry_pending_extensionality: AXIOM
+    FORALL (pending?_var: (pending?), pending?_var2: (pending?)):
+      pending?_var = pending?_var2;
+
+  entry_loop_extensionality: AXIOM
+    FORALL (loop?_var: (loop?), loop?_var2: (loop?)):
+      loop?_var = loop?_var2;
+
+  entry_good_extensionality: AXIOM
+    FORALL (good?_var: (good?), good?_var2: (good?)):
+      span(good?_var) = span(good?_var2) IMPLIES good?_var = good?_var2;
+
+  entry_good_eta: AXIOM
+    FORALL (good?_var: (good?)): good(span(good?_var)) = good?_var;
+
+  entry_span_good: AXIOM
+    FORALL (good1_var: nat): span(good(good1_var)) = good1_var;
+
+  entry_inclusive: AXIOM
+    FORALL (entry_var: entry):
+      fail?(entry_var) OR
+       pending?(entry_var) OR loop?(entry_var) OR good?(entry_var);
+
+  entry_induction: AXIOM
+    FORALL (p: [entry -> boolean]):
+      (p(fail) AND
+        p(pending) AND
+         p(loop) AND FORALL (good1_var: nat): p(good(good1_var)))
+       IMPLIES FORALL (entry_var: entry): p(entry_var);
+
+  subterm(x: entry, y: entry):  boolean = x = y;
+
+  <<:  (strict_well_founded?[entry]) = LAMBDA (x, y: entry): FALSE;
+
+  entry_well_founded: AXIOM strict_well_founded?[entry](<<);
+
+  reduce_nat(fail?_fun: nat, pending?_fun: nat, loop?_fun: nat,
+             good?_fun: [nat -> nat]):
+        [entry -> nat] =
+      LAMBDA (entry_adtvar: entry):
+        LET red: [entry -> nat] =
+              reduce_nat(fail?_fun, pending?_fun, loop?_fun, good?_fun)
+          IN
+          CASES entry_adtvar
+            OF fail: fail?_fun,
+               pending: pending?_fun,
+               loop: loop?_fun,
+               good(good1_var): good?_fun(good1_var)
+            ENDCASES;
+
+  REDUCE_nat(fail?_fun: [entry -> nat], pending?_fun: [entry -> nat],
+             loop?_fun: [entry -> nat], good?_fun: [[nat, entry] -> nat]):
+        [entry -> nat] =
+      LAMBDA (entry_adtvar: entry):
+        LET red: [entry -> nat] =
+              REDUCE_nat(fail?_fun, pending?_fun, loop?_fun, good?_fun)
+          IN
+          CASES entry_adtvar
+            OF fail: fail?_fun(entry_adtvar),
+               pending: pending?_fun(entry_adtvar),
+               loop: loop?_fun(entry_adtvar),
+               good(good1_var): good?_fun(good1_var, entry_adtvar)
+            ENDCASES;
+
+  reduce_ordinal(fail?_fun: ordinal, pending?_fun: ordinal,
+                 loop?_fun: ordinal, good?_fun: [nat -> ordinal]):
+        [entry -> ordinal] =
+      LAMBDA (entry_adtvar: entry):
+        LET red: [entry -> ordinal] =
+              reduce_ordinal(fail?_fun, pending?_fun, loop?_fun, good?_fun)
+          IN
+          CASES entry_adtvar
+            OF fail: fail?_fun,
+               pending: pending?_fun,
+               loop: loop?_fun,
+               good(good1_var): good?_fun(good1_var)
+            ENDCASES;
+
+  REDUCE_ordinal(fail?_fun: [entry -> ordinal],
+                 pending?_fun: [entry -> ordinal],
+                 loop?_fun: [entry -> ordinal],
+                 good?_fun: [[nat, entry] -> ordinal]):
+        [entry -> ordinal] =
+      LAMBDA (entry_adtvar: entry):
+        LET red: [entry -> ordinal] =
+              REDUCE_ordinal(fail?_fun, pending?_fun, loop?_fun, good?_fun)
+          IN
+          CASES entry_adtvar
+            OF fail: fail?_fun(entry_adtvar),
+               pending: pending?_fun(entry_adtvar),
+               loop: loop?_fun(entry_adtvar),
+               good(good1_var): good?_fun(good1_var, entry_adtvar)
+            ENDCASES;
+ END entry_adt
+
+entry_adt_reduce[range: TYPE]: THEORY
+ BEGIN
+
+  IMPORTING entry_adt
+
+  reduce(fail?_fun: range, pending?_fun: range, loop?_fun: range,
+         good?_fun: [nat -> range]):
+        [entry -> range] =
+      LAMBDA (entry_adtvar: entry):
+        LET red: [entry -> range] =
+              reduce(fail?_fun, pending?_fun, loop?_fun, good?_fun)
+          IN
+          CASES entry_adtvar
+            OF fail: fail?_fun,
+               pending: pending?_fun,
+               loop: loop?_fun,
+               good(good1_var): good?_fun(good1_var)
+            ENDCASES;
+
+  REDUCE(fail?_fun: [entry -> range], pending?_fun: [entry -> range],
+         loop?_fun: [entry -> range], good?_fun: [[nat, entry] -> range]):
+        [entry -> range] =
+      LAMBDA (entry_adtvar: entry):
+        LET red: [entry -> range] =
+              REDUCE(fail?_fun, pending?_fun, loop?_fun, good?_fun)
+          IN
+          CASES entry_adtvar
+            OF fail: fail?_fun(entry_adtvar),
+               pending: pending?_fun(entry_adtvar),
+               loop: loop?_fun(entry_adtvar),
+               good(good1_var): good?_fun(good1_var, entry_adtvar)
+            ENDCASES;
+ END entry_adt_reduce

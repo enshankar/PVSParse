@@ -1,0 +1,10 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{A Top-Down Chart Parser for PEGs}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Example: Matching Parentheses}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Example: Power of Two}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Example: Loop}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Chart Parsing: Formalization and Proof}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Formal Specification of a Chart Parser}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Defining the Parser Interpreter}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.3}{Proving Correctness}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Conclusions}{}% 10

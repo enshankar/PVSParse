@@ -1,0 +1,43 @@
+SHA224 		: THEORY
+
+  BEGIN
+
+   IMPORTING SHA256
+
+   h0: uint32 = 0xc1059ed8
+   h1: uint32 = 0x367cd507
+   h2: uint32 = 0x3070dd17
+   h3: uint32 = 0xf70e5939
+   h4: uint32 = 0xffc00b31
+   h5: uint32 = 0x68581511
+   h6: uint32 = 0x64f98fa7
+   h7: uint32 = 0xbefa4fa4
+
+h(i: below(8)): uint32 =
+   COND
+    i = 0 -> h0,
+    i = 1 -> h1,
+    i = 2 -> h2,
+    i = 3 -> h3,
+    i = 4 -> h4,
+    i = 5 -> h5,
+    i = 6 -> h6,
+    ELSE  -> h7
+    ENDCOND
+
+digest(H: ARRAY[below(8) -> uint32]): bytestring
+ = u32tobytestring(H(0)) ++ u32tobytestring(H(1)) ++ u32tobytestring(H(2)) ++ u32tobytestring(H(3)) ++
+   u32tobytestring(H(4)) ++ u32tobytestring(H(5)) ++ u32tobytestring(H(6))
+
+X: VAR bytestring
+
+%sha224 uses sha256message but with a different initial h and a 7-word digest.
+sha224message(X) : bytestring = digest(sha256message_rec(X, 0, h))
+
+hX: VAR hexstring
+
+hexsha224message(hX): bytestring = sha224message(hex2bytestring(hX))
+
+  
+
+  END SHA224

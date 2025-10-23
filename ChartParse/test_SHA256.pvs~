@@ -1,0 +1,8 @@
+test_SHA256  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+    bytestring2hexstring(sha256message(hex2bytestring("00")))
+
+  END test_SHA256

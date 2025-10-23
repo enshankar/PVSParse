@@ -1,0 +1,91 @@
+(iccMax
+ (Tag_TCC1 0
+  (Tag_TCC1-1 nil 3801247631 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil nat_types nil)
+    (character type-decl nil character_adt nil)
+    (char? adt-recognizer-decl "[character -> boolean]" character_adt
+     nil)
+    (char type-eq-decl nil strings nil)
+    (string type-eq-decl nil strings nil)
+    (lstring type-eq-decl nil iccMax nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (>= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil (Tag subtype "iccMax.string2seq(iccMax.x)" "tagEntry")))
+ (calcElem_TCC1 0
+  (calcElem_TCC1-1 nil 3801240084 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   nil (calcElem subtype "\"func\"" "iccMax.lstring(4)")))
+ (constOp_TCC1 0
+  (constOp_TCC1-1 nil 3801247631 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil))
+   nil (constOp subtype "iccMax.string2seq(\"data\")" "tagEntry")))
+ (envOp_TCC1 0
+  (envOp_TCC1-1 nil 3801247631 ("" (subtype-tcc) nil nil) nil nil
+   (envOp subtype "iccMax.string2seq(\"env \")" "tagEntry")))
+ (cvectop?_TCC1 0
+  (cvectop?_TCC1-1 nil 3801247631 ("" (subtype-tcc) nil nil) nil nil
+   (cvectop? subtype "finite_sequences[char].finseq_appl(\"in  \")"
+    "tagEntry")))
+ (cvectop?_TCC2 0
+  (cvectop?_TCC2-1 nil 3801247631 ("" (subtype-tcc) nil nil) nil nil
+   (cvectop? subtype "finite_sequences[char].finseq_appl(\"out \")"
+    "tagEntry")))
+ (cvectop?_TCC3 0
+  (cvectop?_TCC3-1 nil 3801247631 ("" (subtype-tcc) nil nil) nil nil
+   (cvectop? subtype "finite_sequences[char].finseq_appl(\"tget\")"
+    "tagEntry")))
+ (cvectop?_TCC4 0
+  (cvectop?_TCC4-1 nil 3801247631 ("" (subtype-tcc) nil nil) nil nil
+   (cvectop? subtype "finite_sequences[char].finseq_appl(\"tput\")"
+    "tagEntry")))
+ (cvectop?_TCC5 0
+  (cvectop?_TCC5-1 nil 3801247631 ("" (subtype-tcc) nil nil) nil nil
+   (cvectop? subtype "finite_sequences[char].finseq_appl(\"tsav\")"
+    "tagEntry")))
+ (stackop?_TCC1 0
+  (stackop?_TCC1-1 nil 3801247631 ("" (subtype-tcc) nil nil) nil nil
+   (stackop? subtype "finite_sequences[char].finseq_appl(\"copy\")"
+    "tagEntry")))
+ (stackop?_TCC2 0
+  (stackop?_TCC2-1 nil 3801247631 ("" (subtype-tcc) nil nil) nil nil
+   (stackop? subtype "finite_sequences[char].finseq_appl(\"rotl\")"
+    "tagEntry")))
+ (stackop?_TCC3 0
+  (stackop?_TCC3-1 nil 3801247631 ("" (subtype-tcc) nil nil) nil nil
+   (stackop? subtype "finite_sequences[char].finseq_appl(\"rotr\")"
+    "tagEntry")))
+ (stackop?_TCC4 0
+  (stackop?_TCC4-1 nil 3801247631 ("" (subtype-tcc) nil nil) nil nil
+   (stackop? subtype "finite_sequences[char].finseq_appl(\"posd\")"
+    "tagEntry")))
+ (stackop?_TCC5 0
+  (stackop?_TCC5-1 nil 3801247631 ("" (subtype-tcc) nil nil) nil nil
+   (stackop? subtype "finite_sequences[char].finseq_appl(\"flip\")"
+    "tagEntry")))
+ (stackop?_TCC6 0
+  (stackop?_TCC6-1 nil 3801247631 ("" (subtype-tcc) nil nil) nil nil
+   (stackop? subtype "finite_sequences[char].finseq_appl(\"pop \")"
+    "tagEntry"))))
+

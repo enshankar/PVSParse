@@ -1,0 +1,244 @@
+Parsing is a fundamental operation for transforming concrete
+representations of data such as documents and program text into their
+abstract machine-representable counterparts~\cite{GruneJacobs}.  Even though parsing is
+one of the most developed fields of computing, a number of significant
+computing vulnerabilities have been attributable to parsing
+errors. For example,  parsing errors were detected in the unverified
+front-end of the verified CompCert
+compiler~\cite{csmith}, and security vulnerabilities~\cite{DBLP:journals/usenix-login/BratusHHLMPS17} such as Heartbleed~\cite{carvalho2014heartbleed}  
+and SIGRed~\cite{SIGRed} stem from improper input
+validation attributable to parsing errors. Such shortcomings are
+especially lamentable given that language theory and parsing are
+amenable to rigorous formalization.   We present the formalization of a
+top-down chart parsing interpreter for PEG grammars developed using
+SRI's Prototype Verification System (PVS)~\cite{Owre95:prolegomena}.  Equal in importance to
+the correctness guarantees derived from the formalization
+is the iterative proof development process by which formalization is achieved.
+We  describe how through an interactive dialogue, a proof
+assistant accelerates the construction of a correct, robust, and
+reusable formalization.
+
+
+
+% Parsing is a fundamental operation for transforming concrete representations of data such as a document or a program text into its abstract machine-representable counterpart. The Chomsky hierarchy of grammars:
+
+%Parsing is one of the most developed fields of computing, and yet a
+%number of significant computing vulnerabilities are attributable to
+%parsing errors.  Language theory and parsing are also amenable to
+%rigorous formalization but there are only a few examples of verified
+%parser developments in the literature.  Chart parsing is a powerful
+%framework that supports both top-down and bottom-up views of parsing.
+%We present the formalization of a top-down chart parsing interpreter
+%developed using SRI's Prototype Verification System.  The
+%parser employs a table mapping each position in the input string and
+%nonterminal to an entry that represents the parse result for the
+%nonterminal at the given position.  Our parser is presented as a
+%tail-recursive state machine that can be easily mapped to a hardware
+%implementation.  The invariants associated with the parse table are
+%complex since the table encapsulates a web of relationships that are
+%impacted by an update to even a single entry.  The formalization was
+%greatly aided by the dialogue with an interactive proof assistant.  We
+%discuss how such a dialogue helps accelerate the construction of a
+%formalization that is correct, robust, and reusable.
+%
+%Parsing is a fundamental operation for transforming concrete
+%representations of data such as a document or a program text into its
+%abstract machine-representable counterpart.  Parsing errors are critical
+%since they can lead to semantic errors, e.g., in the CompCert compiler~\cite{csmith}, 
+%and numerous security vulnerabilities such as those caused by
+%\emph{improper input validation}~\cite{DBLP:journals/usenix-login/BratusHHLMPS17}, e.g., Heartbleed, SigRed.
+%
+% Parsing is a fundamental operation for natural and artificial
+% languages that checks and processes input in concrete syntax into an
+% unambiguous machine-friendly representation. 
+% The Chomsky hierarchy of grammars:
+
+%  \begin{eqnarray*}
+% \text{regular} &\sqsubset  &\\
+%  		\text{context-free} &\sqsubset  &\\
+%  		\text{context-sensitive} &\sqsubset &\\
+%  		\text{recursively enumerable}
+%  \end{eqnarray*}
+%  has dominated the discussion of parsing.
+%  Such grammars can be ambiguous in admitting multiple distinct parse trees for the
+%  same input string.
+% Within parsing, much of the attention has focused
+% on deterministic context-free languages since they admit efficient
+% parsing. Parsing is usually done by
+%  applying a lexer to extract a stream
+%   of tokens,
+%   parsing this stream according to a grammar specification to produce a
+%   parse tree, and
+%  applying semantic actions to evaluate the parse tree.
+
+
+ Parsers~\cite{GruneJacobs} can operate
+ \begin{itemize}
+ \item \emph{Top-down}, by consuming input token strings
+    matching a given grammar category, e.g., recursive descent and
+    $LL(k)$ parsers, and Earley parsing for arbitrary context-free grammars,
+    or 
+ \item \emph{Bottom-up}, where the
+   contiguous tokens are grouped into grammar categories, e.g.,
+   precedence parsers, LR(k) (and variants SLR,
+ LALR, CLR), as well as GLR and CYK parsers for arbitrary context-free
+ grammars. 
+ \end{itemize}
+
+% A top-down recursive descent parser is just a mutually recursive program with a
+% parsing function for each nonterminal.  An $LL(k)$ (Left-to-right scan of the input,
+% Leftmost derivation with $k$ token look-ahead) parser is another example of a
+% top-down parsing scheme.  $LL(k)$ parsing starts with the construction
+% of a lookup table associating production rules from the given grammar
+% with nonterminals and look-ahead strings.  $LL(k)$ parsing employs a stack of symbols
+% (terminals and nonterminals) together with the lookup table to either
+% move the cursor representing the parse position in the input string
+% when the token at the cursor matches the top symbol in the stack, or
+% looking up the matching production for a nonterminal at the top of the
+% stack against the $k$ leading tokens at the cursor, identifying the
+% matching production and replacing the top nonterminal with the symbols
+% (in reverse order) from the right-hand side of the production.  Not
+% all grammars support consistent $LL(k)$ lookup tables.  Also, left
+% recursion poses a challenge for top-down parsing since it can lead to a nonterminating parse.
+
+% Bottom-up parsers work by processing the input token stream and
+% constructing the parse tree from a forest generated by the leaves upwards.
+% Examples of bottom-up parsers  include precedence parsers, LR(k) (and variants SLR,
+% LALR, CLR), and GLR  and CYK parsers for arbitrary context-free
+% grammars.  Left recursion is a challenge for some but not all bottom-up parsers.
+% The popular class of shift-reduce parsers use a
+% stack to extract matching nonterminals for a substring by applying
+% one of 
+% \begin{itemize}
+% \item A \emph{shift} step which moves a token from the input onto the stack
+% \item A \emph{reduce} step which replaces the top few symbols in the stack
+%   with a matching nonterminal according to a grammar production rule.  
+% \end{itemize}
+
+Parsing algorithms like the Earley and CYK algorithms are examples of \emph{chart
+parsers}~\cite{earley1970efficient,kay1986algorithm,pereira1983parsing} based on dynamic programming where the goal is to
+progressively label larger and larger spans of the input string with
+terminals and nonterminals based on the labels of contiguous subspans.
+Earley parsing takes a top-down approach whereas the CYK and Valiant
+algorithms take a bottom-up approach to parsing.
+
+Our chart parser employs a table or a \emph{scaffold} mapping each
+position in the input string and non-terminal to an entry that
+represents the parse result for the non-terminal at the given
+position. Our chart parser is a tail-recursive state machine that
+operates on fixed storage so that it can be easily mapped to a
+hardware implementation. With respect to formalization, the invariants
+associated with the parse table are complex since the table
+encapsulates a web of relationships that are impacted by an update to
+even a single entry. Using PVS as an interactive proof assistant
+greatly assisted in managing this complexity.  More strongly, it 
+would be extremely hard to construct or understand such proofs
+without the aid of a proof assistant. 
+
+
+In the present work, we focus on a class of grammars called Parsing
+Expression Grammars (PEGs) introduced by Ford~\cite{DBLP:conf/popl/Ford04}.  These grammars are
+unambiguous and efficient for both top-down and bottom-up parsing.
+PEGs replace the unordered choice operation $e_1 ~|~ e_2$ in CFGs with
+an ordered choice operation $e_1/e_2$\@.  In addition to concatenation
+$e_1 e_2$, the grammar supports an check operation $\& e$ that looks
+ahead for a match to $e$ without consuming any tokens, and negation
+$!e$ that succeeds consuming no tokens only when a match against $e$
+fails.   PEG grammars are a good match for  recursive descent
+parsers.  Parser combinators can be defined for each PEG construct that
+combine parsers for the grammar sub-expressions into a parser for the
+expression.  PEG grammars can be \emph{ill-formed} and contain loops, for
+example in the case of left recursion where, for example, a
+nonterminal $n$ is mapped to the expression $n/n'$\@.  PEG grammars can
+be checked for \emph{well-formedness} through a static analysis, where
+well-formed grammars always yield parses that terminate in success or
+failure, however such an analysis can miss cases where the grammar
+is in fact loop-free.  
+
+Prior research has explored the formalization of PEG parsing
+where the grammars are conservatively analyzed for termination using recursive
+descent parsers~\cite{trx,blaudeau2020verified}\@.  Top-down parsers
+that have been verified include the CakeML parser~\cite{DBLP:conf/popl/KumarMNO14},
+an LL(1) parser~\cite{DBLP:conf/itp/LasserCFR19}, an SLR parser generator~\cite{conf/esop/BarthwalN09}, and a recursive descent parser for context-free languages~\cite{conf/cpp/Ridge11}\@.  We believe that our work is the first to address the
+verification of an Earley-style chart parsing algorithm.  We allow ill-formed
+grammars but extend the parser to dynamically check for loops.  
+In this more general setting, it is possible to demonstrate that the
+parser is well-behaved on well-formed grammars while still admitting potentially
+ill-formed grammars.  
+
+We also formalize the parser interpreter as a state machine by
+internalizing the stack. The parser is centered around a table
+$A$ where for each position $i$ on the input string, there is
+an array $A(i)$ such that for each nonterminal $n$, $A(i)(n)$ is a
+table entry.  Initially, all the table entries $A(i)(n)$ are
+\emph{pending} indicating that parsing has not yet been initiated at
+any string position $i$ for any nonterminal $n$\@.  Once the root
+query has been launched for non-terminal $r$ at position $0$, we place
+a pair representing $(0, r)$ on the stack.  The production
+$\prodn{r}{e}$ corresponding to the nonterminal $r$ is evaluated, and
+parsing is continued through a case analysis on $e$.  This can lead to
+pushing more position/nonterminal pairs on to the stack or to \emph{finalized}
+entries representing failed, loopy, or successful parses.  When a parse query is
+initiated on a position/nonterminal pair that is already on the stack,
+a loop is signaled, and this loop is propagated back through the stack
+to the root query.
+
+We arrived at the above algorithm in a series of steps.  We first
+started by formalizing the \emph{scaffolding automata} algorithm due
+to Loff, Moreira, and Reis~\cite{loff2020computational}.  This is a
+bottom-up, right-to-left algorithm that fills in the scaffold from the
+final position backwards.  In each iteration, it fills out the entries
+for a given position for each nonterminal.  It is possible to sort the
+nonterminals so that the sub-queries for each nonterminal at a given
+position have already been processed.  This variant would be quite
+straightforward to verify since the sequencing of the operations
+ensures that each entry is consistent with the entries corresponding
+to the sub-queries.  Since it is challenging to write a grammar that
+passes a termination check, we allowed the nonterminals to be
+unordered.  This introduces the possibility of loops.  For example, a
+grammar with $\prodn{S}{R S}$, where $R$ happens to succeed without
+consuming any tokens.  We tried an alternative that involved using a
+stack to process any as yet unprocessed sub-queries.  The use of the
+stack complicated the picture.  We decided that if we were going to
+use a stack, then we might as well employ a top-down algorithm.  We
+then formalized a top-down algorithm with an explicit stack argument,
+and soon noticed that the stack could be embedded within the scaffold
+itself.  We then wrote out a full state machine and a few days of
+dialogue with the proof assistant yielded the invariants for the
+parsing algorithm.  We then noticed that the flat state machine could
+be refactored to make the proofs less repetitive and more compact.
+This required additional strengthenings of the invariants suggested by
+a couple more days of dialogue with the proof assistant.  Many of the
+definitions and invariants would have been painfully difficult to
+derive without the benefit of the interactive dialogue supported by
+powerful automation.  Many of the proofs employ a heavy amount of
+automation even when it is obvious from experience that the automation
+will succeed.  Others need to be handled more delicately since they
+might fail and we as users need to understand the root cause of the
+failure.
+
+The parsing algorithm we formalize is attractive since it captures
+top-down PEG parsing as a state machine with a single statically
+allocated data structure.  This makes it hardware-friendly.  We added
+dynamic loop detection in order to support a more liberal class of 
+PEGs that admit cyclic dependencies and to address a novel verification
+challenge.  If the grammar does not contain cyclic dependencies, the
+loop detection can be turned off.  Our basic
+algorithm can also support certain optimizations for speeding up parsing.
+The chart parsing algorithm presents several challenges for verification.
+The key result we want at the end is that the parsing operation
+yields a consistent scaffold yielding a chart labeling the root query.  Defining a consistent
+scaffold is itself quite challenging.  The conditions on partially
+completed scaffold have to be characterized in such a way that each step
+of the parsing algorithm preserves this condition as an invariant, and
+the resulting completed chart is consistent.  The final challenge is
+structuring the proof in order to make it easy to demonstrate that the
+invariant is preserved.  
+
+
+
+% >>>>> Following has been moved up >>>
+%Despite its importance as a semantic bridge and a
+%critical access point for security attacks, formal aspects of parsing have not
+%been deeply analyzed.
+%A few parsing algorithms have been verified.

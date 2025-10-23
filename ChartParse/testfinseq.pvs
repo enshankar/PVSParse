@@ -1,0 +1,19 @@
+testfinseq   [ T: TYPE ]
+		: THEORY
+
+  BEGIN
+
+   seq: TYPE = finseq[T]
+
+   rr, ss, tt: VAR seq
+
+   x, y, z: VAR T
+
+     add(x, rr): finseq[T] =
+     rr WITH [`length := rr`length + 1,
+              `seq(0) |-> x]
+
+
+
+
+  END testfinseq

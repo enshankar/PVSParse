@@ -1,0 +1,106 @@
+sigmatopdowntest 	: THEORY
+
+  BEGIN
+   IMPORTING sigmatopdown
+
+   digit(x: byte): bool = (x >= 48 AND x <= 57)
+   any(x: byte): bool = TRUE
+   
+
+   pyaml(n: non_terminal): peg =
+   COND 
+    n = 0 -> choice(1, 3),  %data -> numeral / adata
+    n = 1 ->  concat(2, 1),  %numeral -> any(48-57) o numeral
+    n = 2 -> any(digit),
+    n = 3 -> choice(4, 35),  %adata -> dict / array
+    n = 4 -> concat(5, 11),  %dict -> obrace o dictail
+    n = 5 -> concat(6, 7),  %obrace -> { o wspace
+    n = 6 -> terminal(123), %{
+    n = 7 -> choice(8, 10), %wspace ->  wspace$ / epsilon
+    n = 8 -> concat(9, 7),  %wspace$ -> terminal(32) o wspace
+    n = 9 -> terminal(32),  %space
+    n = 10 -> epsilon,
+    n = 11 -> choice(12, 14), %dictail -> cbrace / dictail$
+    n = 12 -> concat(13, 7), %cbrace -> terminal(125) o wspace
+    n = 13 -> terminal(125),
+    n = 14 -> concat(15, 31), % dictail$ -> dictentry o dictailc
+    n = 15 -> concat(16, 28), %dictentry -> lhs o seprhs
+    n = 16 -> choice(1, 17),  %lhs -> numeral / token
+    n = 17 -> concat(18, 7), %token -> token$ o wspace
+    n = 18 -> concat(19, 25), %token$ -> terminal(39) o tokentail
+    n = 19 -> terminal(39),
+    n = 20 -> choice(21, 25), %tokentail-> esctail / qtail
+    n = 21 -> concat(22, 20), %esctail -> esquote o tokentail
+    n = 22 -> concat(23, 19), %esquote -> terminal(92) o terminal(39)
+    n = 23 -> terminal(92),
+    n = 24 -> concat(19, 7), %quote -> terminal(39) o wspace
+    n = 25 -> choice(24, 26), %qtail -> quote / tktail
+    n = 26 -> concat(27, 20), %tktail -> any o tokentail
+    n = 27 -> any(any),
+    n = 28 -> concat(29, 0), %seprhs -> separator o data
+    n = 29 -> concat(30, 7), %separator -> terminal(58) o wspace
+    n = 30 -> terminal(58),
+    n = 31 -> choice(32, 12),  %dictailc -> cdictailc / cbrace
+    n = 32 -> concat(33, 14),   %cdictailc -> comma o dictail$
+    n = 33 -> concat(34, 7),  %comma -> terminal(44) o wspace 
+    n = 34 -> terminal(44),
+    n = 35 -> concat(36, 38), %array -> obrack o aentries
+    n = 36 -> concat(37, 7), %obrack -> terminal(91) o wspace 
+    n = 37 -> terminal(91),
+    n = 38 -> choice(39, 43), %aentries -> aentries* o cbrack
+    n = 39 -> choice(40, 10), %aentries* -> aentries$ / epsilon
+    n = 40 -> concat(0, 41), %aentries$ -> data o aentriestail
+    n = 41 -> choice(42, 10), %aentriestail -> centries / epsilon
+    n = 42 -> concat(33, 40), %centries -> comma o aentries$
+    n = 43 -> concat(44, 7),  %cbrack -> terminal(93) o wspace
+    n = 44 -> terminal(93),
+    ELSE -> epsilon
+    ENDCOND
+
+    len, l1, l2 : VAR uint8
+    
+    empty(len)(i:below(len)): byte = 32
+
+    cat(l1, (l2 : below(exp2(8) - l1)))(s1: strings(l1), s2: strings(l2)): strings(l1 + l2) = 
+     LAMBDA (i:below(l1 + l2)): IF i < l1 THEN s1(i) ELSE s2(i - l1) ENDIF
+
+    tok0(i : below(7)): byte =
+     COND i = 0 -> 39, i = 1 -> 116, i = 2 -> 111, i = 3 -> 107, i = 4 -> 101, i = 5 -> 110, i = 6 -> 39 ENDCOND
+    
+    tok1(i : below(9)): byte =
+     COND i = 0 -> 39, i = 1 -> 116, i = 2 -> 111, i = 3 -> 107, i = 4 -> 101, i = 5 -> 110, i = 6 -> 92, i = 7 -> 39, i = 8 -> 39 ENDCOND
+
+    emptydict(i: below(9)): byte = 
+         COND i = 0 -> 123, i = 1 -> 32, i = 2 -> 32, i = 3 -> 32, i = 4 -> 32, i = 5 -> 32, i = 6 -> 32, i = 7 -> 125, i = 8 -> 32 ENDCOND
+
+    obrace(i: below(3)): byte = COND i = 0 -> 123, i = 1 -> 32, i = 2 -> 32 ENDCOND
+    cbrace(i: below(3)): byte = COND i = 0 -> 125, i = 1 -> 32, i = 2 -> 32 ENDCOND
+    colon(i: below(3)): byte = COND i = 0 -> 58, i = 1 -> 32, i = 2 -> 32 ENDCOND
+    emptydict2: strings(6) =
+      cat(3, 3)(obrace, cbrace)
+
+    dict1: strings(22) =
+      cat(3, 19)(obrace, cat(7, 12)(tok0, cat(3, 9)(colon, cat(6, 3)(emptydict2, cbrace))))
+
+    test0: ent = doparse(2, pyaml, empty(2), 7)
+    test0eval: LEMMA good?(test0)
+     
+    test1: ent = doparse(7, pyaml, tok0, 17)
+    test11: ent = doparse(9, pyaml, tok1, 17)
+    test2: ent = doparse(22, pyaml, dict1, 0)
+
+%    test2eval: LEMMA good?(test2)
+
+    G: VAR lang_spec
+    n: VAR non_terminal
+
+    iparse(len, G, (s: strings(len)), (start: upto(len)), (root: non_terminal)): ent
+    = (LET pend = (LAMBDA n: pending),
+          St: state(len, G, s, start, root) = (# 
+ 		 stack := push(start, root),
+		 depth := 1,
+		 lflag := FALSE, 
+ 		 scaf := (LAMBDA (i: upto(len)): pend) WITH [(start)(root) := push(0, num_non_terminals)] #)
+      IN parse(len, G, s, start, root)(St)`scaf(start)(root))
+    
+  END sigmatopdowntest

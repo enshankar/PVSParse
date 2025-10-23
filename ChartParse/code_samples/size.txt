@@ -1,0 +1,8 @@
+size(len, G, (s: strings(len)), pos: upto(len), n)(St : state(len, G, s, pos, n)): ordinal
+  =
+    lex2(scafcount(len, St`scaf, push_or_pending?, len), 
+         ((len + 1) * num_non_terminals) - St`depth)
+
+ endstate(len, G, (s: strings(len)), (rootpos: upto(len)), (rootnt: non_terminal)): TYPE
+  = {st: state(len, G, s, rootpos, rootnt) |
+      empty?(st`stack)}

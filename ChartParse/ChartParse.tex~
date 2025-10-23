@@ -1,0 +1,253 @@
+%% For double-blind review submission, w/o CCS and ACM Reference (max submission space)
+\documentclass[sigplan,screen]{acmart}\settopmatter{printfolios=true}
+%% For double-blind review submission, w/ CCS and ACM Reference
+%\documentclass[sigplan,review,anonymous]{acmart}\settopmatter{printfolios=true}
+%% For single-blind review submission, w/o CCS and ACM Reference (max submission space)
+%\documentclass[sigplan,review]{acmart}\settopmatter{printfolios=true,printccs=false,printacmref=false}
+%% For single-blind review submission, w/ CCS and ACM Reference
+%\documentclass[sigplan,review]{acmart}\settopmatter{printfolios=true}
+%% For final camera-ready submission, w/ required CCS and ACM Reference
+%\documentclass[sigplan,screen]{acmart}\settopmatter{}
+
+
+%% Conference information
+%% Supplied to authors by publisher for camera-ready submission;
+%% use defaults for review submission.
+%\acmConference[CPP'20]{The 10th ACM SIGPLAN International Conference on Certified Programs and Proofs}{}{}
+%\acmYear{2020}
+%\acmISBN{} % \acmISBN{978-x-xxxx-xxxx-x/YY/MM}
+%\acmDOI{} % \acmDOI{10.1145/nnnnnnn.nnnnnnn}
+%\startPage{1}
+
+%% Copyright information
+%% Supplied to authors (based on authors' rights management selection;
+%% see authors.acm.org) by publisher for camera-ready submission;
+%% use 'none' for review submission.
+\setcopyright{acmlicensed}
+\acmPrice{15.00}
+\acmDOI{10.1145/3372885.3373836}
+\acmYear{2020}
+\copyrightyear{2020}
+\acmISBN{978-1-4503-7097-4/20/01}
+\acmConference[CPP '21]{Proceedings of the 10th ACM SIGPLAN International Conference on Certified Programs and Proofs}{January 20--21, 2020}{New Orleans, LA, USA}
+\acmBooktitle{Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs (CPP '20), January 20--21, 2020, New Orleans, LA, USA}
+
+% \acmBooktitle{Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs (CPP '20), January 20--21, 2020, New Orleans, LA, USA}
+
+%\setcopyright{none}
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\copyrightyear{2018}           %% If different from \acmYear
+
+%% Bibliography style
+\bibliographystyle{ACM-Reference-Format}
+%% Citation style
+%\citestyle{acmauthoryear}  %% For author/year citations
+%\citestyle{acmnumeric}     %% For numeric citations
+%\setcitestyle{nosort}      %% With 'acmnumeric', to disable automatic
+                            %% sorting of references within a single citation;
+                            %% e.g., \cite{Smith99,Carpenter05,Baker12}
+                            %% rendered as [14,5,2] rather than [2,5,14].
+%\setcitesyle{nocompress}   %% With 'acmnumeric', to disable automatic
+                            %% compression of sequential references within a
+                            %% single citation;
+                            %% e.g., \cite{Baker12,Baker14,Baker16}
+                            %% rendered as [2,3,4] rather than [2-4].
+
+
+
+%% Some recommended packages.
+\usepackage{booktabs}
+\usepackage{subcaption}
+%\usepackage{incgraph}
+%\usepackage{lmodern}
+\usepackage{amsthm}
+\usepackage{stmaryrd}
+\usepackage{mathrsfs}
+%\usepackage{textcomp}
+\usepackage{mdframed}
+%\usepackage{titlesec}
+\usepackage{wrapfig}
+\usepackage{bussproofs}
+\usepackage{balance}
+\newenvironment{bprooftree}
+  {\leavevmode\hbox\bgroup}
+  {\DisplayProof\egroup}
+%\usepackage{relative}
+\input{lstmacro.tex}
+
+
+\begin{document}
+
+%% Title information
+\title{Formal Development of a Top-Down Chart Parser for Parsing Expression Grammars}
+\titlenote{This work was supported by the National Institute of Aerospace
+ Award C18-201097-SRI, NSF Grant
+ SHF-1817204,  and DARPA under agreement number HR001119C0075. 
+ The views and conclusions contained herein are those of the authors and
+ should not be interpreted as necessarily representing the official
+ policies or endorsements, either expressed or implied, of NASA, NSF, DARPA, Ecole Polytechnique, or the
+ U.S. Government.  We thank the anonymous referees for their detailed comments and 
+ constructive feedback.
+}
+%% Author information
+%% Contents and number of authors suppressed with 'anonymous'.
+%% Each author should be introduced by \author, followed by
+%% \authornote (optional), \orcid (optional), \affiliation, and
+%% \email.
+%% An author may have multiple affiliations and/or emails; repeat the
+%% appropriate command.
+%% Many elements are not rendered, but should be provided for metadata
+%% extraction tools.
+
+%% Author with single affiliation.
+
+\author{Zephyr S. Lucas}
+ \affiliation{
+ \department{Department of Computer Science}
+ \institution{Dartmouth College}
+ \streetaddress{6211 Sudikoff Laboratory}
+ \city{Hanover}
+ \state{NH}
+ \postcode{03755-3510}
+ \country{USA}}
+\email{Zephyr.S.Lucas.GR@dartmouth.edu}
+
+
+\author{Natarajan Shankar}
+ \affiliation{
+ \department{Computer Science Laboratory}
+ \institution{SRI International}
+ \streetaddress{333 Ravenswood Avenue}
+ \city{Menlo Park}
+ \state{CA}
+ \postcode{94025}
+ \country{USA}}
+\email{shankar@csl.sri.com}
+
+\author{Sean Smith}
+ \affiliation{
+ \department{Department of Computer Science}
+ \institution{Dartmouth College}
+ \streetaddress{6211 Sudikoff Laboratory}
+ \city{Hanover}
+ \state{NH}
+ \postcode{03755-3510}
+ \country{USA}}
+\email{sws@cs.dartmouth.edu}
+
+
+
+\begin{abstract}
+  Formalization is often seen as an exclamation point on a
+  mathematical development certifying its correctness.  However, in
+  the context of a proof assistant, formalization supports a creative
+  dialogue that identifies gaps, tags errors, and refines the
+  definitions, claims, and proofs to iteratively enhance the elegance,
+  reusability, automation, and robustness of the mathematical content.
+  With this goal in mind, we explore the formalization of a top-down
+  chart parser for parsing expression grammars (PEGs) using SRI's
+  Prototype Verification System (PVS).  The parser, which supports
+  dynamic loop detection, operates on a chart data structure that also
+  embeds the parsing stack.  Since the parsing algorithm operates on
+  fixed storage, it is hardware-friendly.  The invariants needed to
+  establish the correctness of the chart parser are complex and
+  delicate.  These were developed through interactions with PVS.  The
+  generated proof obligations and proof attempts led to a number of
+  significant corrections and improvements to the formal development.
+  We examine the interaction between the language, type system, and
+  proof automation/interaction in PVS in the context of iteratively
+  creating, revising, and restructuring formal content.
+
+  
+\end{abstract}
+
+%% 2012 ACM Computing Classification System (CSS) concepts
+%% Generate at 'http://dl.acm.org/ccs/ccs.cfm'.
+
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10003752.10003766.10003771</concept_id>
+<concept_desc>Theory of computation~Grammars and context-free languages</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10003752.10003790.10003794</concept_id>
+<concept_desc>Theory of computation~Automated reasoning</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10011007.10011006.10011039.10011040</concept_id>
+<concept_desc>Software and its engineering~Syntax</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+</ccs2012>
+
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10003752.10003766.10003771</concept_id>
+<concept_desc>Theory of computation~Grammars and context-free languages</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10003752.10003790.10003794</concept_id>
+<concept_desc>Theory of computation~Automated reasoning</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10011007.10011006.10011039.10011040</concept_id>
+<concept_desc>Software and its engineering~Syntax</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+\ccsdesc[500]{Theory of computation~Grammars and context-free languages}
+\ccsdesc[500]{Theory of computation~Automated reasoning}
+\ccsdesc[500]{Software and its engineering~Syntax}
+%% End of generated code
+
+
+%% Keywords
+%% comma separated list
+\keywords{PVS, PEG grammar, chart parsing, verified parser, top-down parsing}  %% \keywords are mandatory in final camera-ready submission
+
+
+%% \maketitle
+%% Note: \maketitle command must come after title commands, author
+%% commands, abstract environment, Computing Classification System
+%% environment and commands, and keywords command.
+\maketitle
+
+
+%% Acknowledgments
+% \begin{acks} This work was supported by NSF Grant
+% CSR-EHCS(CPS)-0834810, NASA Cooperative Agreement NNA10DE73C, and by
+% DARPA under agreement number FA8750-12-C-02&84 and  FA8750-16-C-0043. 
+% The views and conclusions contained herein are those of the authors and
+% should not be interpreted as necessarily representing the official
+% policies or endorsements, either expressed or implied, of NSF, NASA, DARPA or the
+% U.S. Government.
+% \end{acks}
+
+
+\section{Introduction}
+
+Parsing is one of the most developed fields of computing, and yet a
+number of significant computing vulnerabilities are attributable to
+parsing errors.  Language theory and parsing are also amenable to
+rigorous formalization but there are only a few examples of verified
+parser developments in the literature.  Chart parsing is a powerful
+framework that supports both top-down and bottom-up views of parsing.
+
+
+
+\section{A Top-Down Chart Parser for PEGs}
+
+\section{Chart Parsing: Formalization and Proof}
+
+\section{Observations}
+
+\section{Conclusions}

@@ -1,0 +1,392 @@
+iccMax2  	: THEORY
+
+  BEGIN
+
+    IMPORTING hex, rotate
+
+
+
+   result: DATATYPE
+   BEGIN
+    error(code: uint8, loc: index, occ: uint8): error?
+    value(vmin, vmax: uint32): value?
+   END result
+
+   DefaultError: uint8 = 0
+   Underflow: uint8 = 1
+   Overflow: uint8 = 2
+   nonZero: uint8 = 3
+   Tval: uint8 = 4
+   Eval: uint8 = 5
+   UnexpectedEOF: uint8 = 6
+   badTag : uint8 = 7
+
+print32(s: string, x: uint32): uint32 =
+     (LET d = printstr(s),
+          e = printstr(format(" ~a ", x))
+          IN x)
+
+print16(s: string, x: uint16): uint16 =
+     (LET d = printstr(s),
+          e = printstr(format(" ~a ", x))
+          IN x)
+
+   dataTag: uint32 = 0x64617461
+
+   channelVecOp?(tag: uint32): bool =
+     (tag = 0x696e2020 OR %in
+      tag = 0x6f757420 OR %out
+      tag = 0x74676574 OR %tget
+      tag = 0x74707574 OR %tput
+      tag = 0x74736176)   %tsav
+
+%need to also check the channel ranges.
+    ChannelVecOp(tag: uint32, stackLimit, cur: index, inMin: uint32, (inMax:uint32 | inMin <= inMax), S, T: uint16): result =
+      (COND (tag = 0x696e2020 OR tag = 0x74676574)
+            -> IF inMax + T + 1 < stackLimit THEN value(inMin + T + 1, inMax + T + 1) ELSE error(Overflow, cur, 21) ENDIF,
+            (tag = 0x6f757420 OR tag = 0x74707574)
+	    -> IF inMin < T + 1 THEN error(Underflow, cur, 22) ELSE value(inMin - T - 1, inMax - T - 1) ENDIF,
+            tag = 0x74736176
+	    -> IF inMin < T + 1 THEN error(Underflow, cur, 23) ELSE value(inMin, inMax)  ENDIF
+	    ENDCOND)
+ 
+
+   subElemTag?(tag : uint32): bool =
+     (tag = 0x63757276 OR %curv
+      tag = 0x6d747820 OR %mtx
+      tag = 0x636c7574 OR %clut
+      tag = 0x63616c63 OR %calc
+      tag = 0x74696e74 OR %tint
+      tag = 0x656c656d)   %elem
+
+   stackOpTag?(tag: uint32): bool =
+     (tag = 0x636f7079 OR % copy
+      tag = 0x726f746c  OR % rotl
+      tag = 0x726f7472  OR % rotr
+      tag = 0x706f7364  OR % posd
+      tag = 0x666c6970 OR  % flip
+      tag = 0x706f7020)    % pop
+
+   stackOut(tag: (stackOpTag?), S, T: uint16): uint32 =
+    (COND
+     tag = 0x636f7079 -> (T + 1) * (S + 1),
+     tag = 0x726f746c  -> S + 1,
+     tag = 0x726f7472  -> S + 1,
+     tag = 0x706f7364  -> S + 1 + T + 1, 
+     tag = 0x666c6970  -> S + 1,
+     tag = 0x706f7020  -> 0
+     ENDCOND)
+   
+   matrixOpTag?(tag: uint32): bool =
+     (tag = 0x736f6c76 OR tag = 0x7472616e)
+
+   matrixIn(tag: uint32, S, T: uint16): uint32 =
+     IF tag = 0x736f6c76
+      THEN (S + 1) * (T + 1) + S + 1
+      ELSE (S + 1) * (T + 1)
+      ENDIF
+
+   matrixOut(tag: uint32, S, T: uint16): uint32 =
+    IF tag = 0x736f6c76
+     THEN T + 1
+     ELSE (S + 1) * (T + 1)
+    ENDIF
+
+   seqFuncOp?(tag: uint32): bool =
+    (tag = 0x73756d20 OR  %sum
+     tag = 0x70726f64 OR  %prod
+     tag = 0x6d696e20 OR  %min
+     tag = 0x6d617820 OR  %max
+     tag = 0x616e6420 OR  %and
+     tag = 0x6f722020)    %or
+
+   FuncVecOp?(tag: uint32): bool =
+     (tag = 0x70692020 OR %pi
+      tag = 0x2b494e46 OR %+inf
+      tag = 0x2d494e46 OR %-inf
+      tag = 0x4e614e20 OR %NaN
+      tag = 0x61646420 OR %add
+      tag = 0x73756220 OR %sub
+      tag = 0x6d756c20 OR %mul
+      tag = 0x64697620 OR %div
+      tag = 0x6d6f6420 OR %mod
+      tag = 0x706f7720 OR %pow
+      tag = 0x67616d61 OR %gama
+      tag = 0x73616464 OR %sadd
+      tag = 0x73737562 OR %ssub
+      tag = 0x736d756c OR %smul
+      tag = 0x73646976 OR %sdiv
+      tag = 0x73712020 OR %sq
+      tag = 0x73717274 OR %sqrt
+      tag = 0x63622020 OR %cb
+      tag = 0x63627274 OR %cbrt
+      tag = 0x61627320 OR %abs
+      tag = 0x6e656720 OR %neg
+      tag = 0x726f6e64 OR %rond
+      tag = 0x666c6f72 OR %flor
+      tag = 0x6365696c OR %ceil
+      tag = 0x74726e63 OR %trnc
+      tag = 0x7369676e OR %sign
+      tag = 0x65787020 OR %exp
+      tag = 0x6c6f6720 OR %log
+      tag = 0x6c6e2020 OR %ln
+      tag = 0x73696e20 OR %sin
+      tag = 0x636f7320 OR %cos
+      tag = 0x74616e20 OR %tan
+      tag = 0x6173696e OR %asin
+      tag = 0x61636f73 OR %acos
+      tag = 0x6174616e OR %atan
+      tag = 0x61746e32 OR %atn2
+      tag = 0x63746f70 OR %ctop
+      tag = 0x70746f63 OR %ptoc
+      tag = 0x726e756d OR %rnum
+      tag = 0x6c742020 OR %lt
+      tag = 0x6c652020 OR %le
+      tag = 0x65712020 OR %eq
+      tag = 0x6e656172 OR %near
+      tag = 0x67652020 OR %ge
+      tag = 0x67742020 OR %gt
+      tag = 0x766d696e OR %vmin
+      tag = 0x766d6178 OR %vmax
+      tag = 0x76616e64 OR %vand
+      tag = 0x766f7220 OR %vor
+      tag = 0x744c6162 OR %tLab
+      tag = 0x7458595a)   %tXYZ
+
+   FuncVecIn(tag: uint32, S: uint16): uint32 =
+    (IF (tag = 0x70692020 OR 
+        tag = 0x2b494e46 OR 
+        tag = 0x2d494e46)
+     THEN 0
+     ELSIF (tag = 0x67616d61 OR 
+            tag = 0x73616464 OR 
+            tag = 0x73737562 OR 
+            tag = 0x736d756c OR 
+            tag = 0x73646976)
+     THEN S + 2
+     ELSIF (tag = 0x744c6162 OR
+            tag = 0x7458595a)
+     THEN 3*(S + 1)
+     ELSIF (tag = 0x73712020 OR 
+            tag = 0x73717274 OR 
+            tag = 0x63622020 OR 
+            tag = 0x63627274 OR 
+            tag = 0x61627320 OR 
+            tag = 0x6e656720 OR 
+            tag = 0x726f6e64 OR 
+            tag = 0x666c6f72 OR 
+            tag = 0x6365696c OR 
+            tag = 0x74726e63 OR 
+            tag = 0x7369676e OR 
+            tag = 0x65787020 OR 
+            tag = 0x6c6f6720 OR 
+            tag = 0x6c6e2020 OR 
+            tag = 0x73696e20 OR 
+            tag = 0x636f7320 OR 
+            tag = 0x74616e20 OR 
+            tag = 0x6173696e OR 
+            tag = 0x61636f73 OR 
+            tag = 0x6174616e OR
+	    tag = 0x726e756d)
+      THEN S + 1
+      ELSE 2 * (S + 1)
+      ENDIF)
+
+   FuncVecOut(tag: uint32, S : uint16): uint32 =
+    (IF (tag = 0x70692020 OR 
+        tag = 0x2b494e46 OR 
+        tag = 0x2d494e46)
+     THEN 1
+     ELSIF (tag = 0x67616d61 OR 
+            tag = 0x73616464 OR 
+            tag = 0x73737562 OR 
+            tag = 0x736d756c OR 
+            tag = 0x73646976)
+     THEN S + 1
+     ELSIF (tag = 0x744c6162 OR
+            tag = 0x7458595a)
+     THEN 3*(S + 1)
+     ELSIF (tag = 0x73712020 OR 
+            tag = 0x73717274 OR 
+            tag = 0x63622020 OR 
+            tag = 0x63627274 OR 
+            tag = 0x61627320 OR 
+            tag = 0x6e656720 OR 
+            tag = 0x726f6e64 OR 
+            tag = 0x666c6f72 OR 
+            tag = 0x6365696c OR 
+            tag = 0x74726e63 OR 
+            tag = 0x7369676e OR 
+            tag = 0x65787020 OR 
+            tag = 0x6c6f6720 OR 
+            tag = 0x6c6e2020 OR 
+            tag = 0x73696e20 OR 
+            tag = 0x636f7320 OR 
+            tag = 0x74616e20 OR 
+            tag = 0x6173696e OR 
+            tag = 0x61636f73 OR 
+            tag = 0x6174616e OR
+	    tag = 0x726e756d)
+      THEN S + 1
+      ELSIF (tag = 0x63746f70 OR tag = 0x70746f63)
+      THEN 2 * (S +  1)
+      ELSE (S + 1)
+      ENDIF)
+
+   envTag: uint32 = 0x656e7620
+   ifTag : uint32 = 0x69662020
+   elseTag: uint32 = 0x656c7365
+   selTag: uint32 = 0x73656c20
+   dfltTag: uint32 = 0x64666c74
+   caseTag: uint32 = 0x63617365
+
+   readU16(s : bytestring, (cur : below(s`length))): uint16
+   = bytes2uint16(s, cur)
+
+   readU32(s : bytestring, (cur : below(s`length))): uint32
+   = bytes2uint32(s, cur)
+
+
+   parseOperation((stackLimit: uint32 | 65535 <= stackLimit),
+                  s: bytestring,
+		  endpos : upto(s`length), startpos: upto(endpos),
+		  inMin: uint32, (inMax : uint32 | inMin <= inMax))
+		  : RECURSIVE result
+   =
+      IF startpos >= endpos
+       THEN value(inMin, inMax)
+       ELSIF startpos + 8 > endpos
+       THEN error(UnexpectedEOF, startpos, 0)
+       ELSE
+        (LET cur = print32("cur = ", startpos),
+	     tag = print32("tag = ", readU32(s, cur)),
+	     inMin = print32("inMin = ", inMin),
+	     inMax = print32("inMax = ", inMax)
+         IN
+	 (COND tag = dataTag -> parseOperation(stackLimit, s, endpos, startpos + 8, inMin + 1, inMax + 1), %push data
+	        channelVecOp?(tag) -> LET res = ChannelVecOp(tag, stackLimit, cur, inMin, inMax, readU16(s, cur + 4), readU16(s, cur + 6))
+		                          IN CASES res OF
+					      error(code, loc, occ): res,
+					      value(m, M): parseOperation(stackLimit, s, endpos, startpos + 8, m, M)
+					      ENDCASES,
+	        tag = envTag -> parseOperation(stackLimit, s, endpos, startpos + 8, inMin + 2, inMax + 2),  %no check for validity of env variable
+		subElemTag?(tag) -> LET S = readU16(s, cur + 4),
+		                        T = readU16(s, cur + 6)
+			             IN IF S > inMin THEN error(Underflow, cur, 41)
+				        ELSIF inMax - S + T > stackLimit
+					THEN error(Overflow, cur, 42)
+					ELSE parseOperation(stackLimit, s, endpos, startpos + 8, inMin - S + T, inMax - S + T)
+					ENDIF,
+                stackOpTag?(tag) -> 
+		   LET S = readU16(s, cur + 4),
+		       T = readU16(s, cur + 6),
+		       stackout = stackOut(tag, S, T)
+		      IN IF S + 1 > inMin THEN error(Underflow, cur, 51)
+		         ELSIF inMax - S - 1 + stackout > stackLimit
+			 THEN  error(Overflow, cur, 52)
+			 ELSIF (tag = 0x666c6970 OR tag = 0x706f7020) AND T /= 0
+			 THEN error(nonZero, cur, 53)
+			 ELSE parseOperation(stackLimit, s, endpos, startpos + 8, inMin - S - 1 + stackout, inMax - S - 1 + stackout)
+			 ENDIF, 
+                matrixOpTag?(tag) -> 
+		   LET S = readU16(s, cur + 4),
+		       T = readU16(s, cur + 6),
+		       stackin = matrixIn(tag, S, T),
+		       stackout = matrixOut(tag, S, T)
+		      IN IF stackin > inMin THEN error(Underflow, cur, 61)
+		         %overflow check is redundant
+			 ELSE parseOperation(stackLimit, s, endpos, startpos + 8, inMin - stackin + stackout, inMax - stackin + stackout)
+			 ENDIF,
+
+               seqFuncOp?(tag) -> 
+                   LET S = readU16(s, cur + 4),
+		       T = readU16(s, cur + 6)
+		      IN IF T /= 0 THEN error(nonZero, cur, 71)
+		         ELSIF S + 1 > inMin THEN error(Underflow, cur, 72)
+		         %overflow check is redundant
+			 ELSE parseOperation(stackLimit, s, endpos, startpos + 8, inMin - S, inMax - S)
+			 ENDIF,
+               FuncVecOp?(tag) ->
+	          LET S = readU16(s, cur + 4),
+		       T = readU16(s, cur + 6),
+		       stackin = FuncVecIn(tag, S),
+		       stackout = FuncVecOut(tag, S)
+		      IN IF stackin > inMin THEN error(Underflow, cur, 81)
+		         %overflow check is redundant
+			 ELSE parseOperation(stackLimit, s, endpos, startpos + 8, inMin - stackin + stackout, inMax - stackin + stackout)
+			 ENDIF,
+	      tag = ifTag ->
+	         LET T = readU32(s, cur + 4)
+		 IN IF startpos + 16 <= endpos AND readU32(s, cur + 8) = elseTag
+		     THEN (LET U = readU32(s, cur + 12)
+		           IN IF startpos + 16 + 8*T <= endpos
+		              THEN
+			       (LET Tval = parseOperation(stackLimit, s, startpos + 16 + 8*T, startpos + 16, inMin, inMax)
+			        IN IF error?(Tval)
+			            THEN Tval
+			           ELSIF startpos + 16 + 8*(T + U) <= endpos
+				   THEN (LET Eval = parseOperation(stackLimit, s, startpos + 16 + 8*(T + U), startpos + 8*(T + 2), inMin, inMax)
+			                  IN IF error?(Eval)
+				             THEN Eval
+				             ELSE parseOperation(stackLimit, s, endpos, startpos + 8*(T + U + 2),
+					                         u32min(vmin(Tval), vmin(Eval)), u32max(vmax(Tval), vmax(Eval)))
+				             ENDIF)
+				   ELSE error(Overflow, cur, 92)
+				   ENDIF)
+			      ELSE error(Overflow, cur, 93)
+ 			     ENDIF)
+		    ELSIF startpos + 8 + 8*T <= endpos
+                     THEN (LET Tval = parseOperation(stackLimit, s, startpos + 8 + 8*T, startpos + 8, inMin, inMax)
+			        IN IF error?(Tval)
+			            THEN Tval
+				    ELSE parseOperation(stackLimit, s, endpos, startpos + 8*(T + 1), vmin(Tval), vmax(Tval))
+				    ENDIF)
+			ELSE error(Underflow, cur, 94)	    
+			ENDIF,
+                ELSE -> error(DefaultError, cur, 100)
+		ENDCOND))
+		ENDIF
+	MEASURE endpos - startpos
+
+    parsefunc((stackLimit: uint32 | 65535 <= stackLimit),
+                  s: bytestring,
+		  endpos : upto(ndiv(s`length, 8)), startpos: upto(endpos)
+		  ) : result =
+      (IF endpos <= startpos + 12
+       THEN error(UnexpectedEOF, startpos, 0)
+       ELSE
+        (LET cur = startpos,
+	     tag = readU32(s, cur),
+	     S = readU32(s, cur + 4), 
+	     N = print32("N = ", readU32(s, cur + 8)),
+	     E = print32("E = ", startpos + 12 + (8 * N))
+	  IN IF tag = 0x66756e63
+	      THEN IF S = 0
+	            THEN IF  E <= endpos
+		          THEN parseOperation(stackLimit, s, startpos + 12 + 8*N, startpos + 12, 0, 0)
+		          ELSE error(UnexpectedEOF, startpos, 0)
+			  ENDIF
+		    ELSE error(nonZero, startpos, 0)
+		    ENDIF
+	      ELSE error(badTag, startpos, 0)
+	      ENDIF)
+	      ENDIF)
+	     
+   iccteststring1: bytestring = hex2bytestring("66756e630000000000000026696e20200000000264617461400cc00067616d61000200007473617600000002646174610000000064617461000000006461746100000000657120200002000073756d2000010000646174614040000065712020000000006966202000000007646174613f800000646174614000000073756d2000020000646174613f80000074707574000700007069202000000000706f7020000000007467657400000002646174613f13a08e646174613e3e030d646174613e40bec76d756c200002000073756d20000100007467657400000002646174613e983d5c646174613f209ad1646174613d9a307f6d756c200002000073756d20000100007467657400000002646174613cdd7459646174613d90c50f646174613f7dc8a16d756c200002000073756d20000100006f75742000000002")
+
+   iccteststring2: bytestring = hex2bytestring("66756e630000000000000006696e202000000002646174613f800000646174613f800000646174613f80000061646420000200006f75742000000002")
+	  
+   iccteststring3: bytestring = hex2bytestring("66756e630000000000000026696e2020000000027473617600000002646174610000000064617461000000006461746100000000657120200002000073756d2000010000646174614040000065712020000000006966202000000007646174613f800000646174614000000073756d2000020000646174613f80000074707574000700007069202000000000706f7020000000007467657400000002646174614002a96964617461bf10a47f64617461beb080736d756c200002000073756d2000010000696e20200000000264617461bf78201d646174613ff01fc9646174613d2a3ad26d756c200002000073756d2000010000696e202000000002646174613c5c337264617461bdf266ba646174613f81f1176d756c200002000073756d2000010000646174613ee8cf5967616d61000200006f75742000000002")
+
+   iccteststring4: bytestring = hex2bytestring("66756e630000000000000006696e202000000002646174613f800000646174613f800000646174613f80000061646420000200006f75742000000002")
+
+   test1: result = parsefunc(65535, iccteststring1, iccteststring1`length, 0)
+
+   test2: result = parsefunc(65535, iccteststring2, iccteststring2`length, 0)
+
+   test3: result = parsefunc(65535, iccteststring3, iccteststring3`length, 0)
+
+   test4: result = parsefunc(65535, iccteststring4, iccteststring4`length, 0)
+    
+
+  END iccMax2

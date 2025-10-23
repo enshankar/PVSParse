@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdarg.h>
+/* Function prototype for averaging n double-typed numbers */
+double average(unsigned int n, ...);
+int main() {
+   double avg1, avg2;
+   avg1 = average(2, 50.3, 49.7);
+   avg2 = average(5, 12.45, 2.87, 0.256, 90.1532, 6320.12);
+   printf("avg1: %f\navg2: %f", avg1, avg2);
+}
+double average(unsigned int n, ...) {
+   /* pointer to the variable arguments list */
+   va_list pargs;
+   
+   /* Initialise pargs to point to the first optional argument */ 
+   va_start(pargs, n);
+   
+   double sum = 0;
+   unsigned int i;
+   for(i=0;i<n;i++) {  /* iterate though the optional arguments */
+    double x = va_arg(pargs, double);
+    sum += x;
+   }
+   va_end(pargs);
+   return (n > 0)? (sum / n):0.00;
+}

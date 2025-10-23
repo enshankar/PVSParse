@@ -1,0 +1,7 @@
+fine_scaffold?(len, G, (s: strings(len)))
+                   ((rootpos : upto(len)),
+                    (rootnt: non_terminal))
+                   (A : scaffold(len))
+   : bool =
+   good_root?(len, A)(rootpos, rootnt) AND
+   good_tscaffold?(len, G, s)(A)

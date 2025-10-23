@@ -1,0 +1,1467 @@
+(base) CSL-CAS16442:pegparser-2-24 e21660$ cc --analyze --analyzer-output html -Wall  -Wno-unused-variable -Wno-incompatible-pointer-types -g -fsanitize=address,undefined -lgmp -I /Users/e21660/shankar/pvs.git//include /Users/e21660/shankar/pvs.git//lib/pvslib.c -I /Users/e21660/shankar/pvs.git/lib /Users/e21660/shankar/pvs.git/lib/lex2_c.c /Users/e21660/shankar/pvs.git/lib/sets_c.c /Users/e21660/shankar/pvs.git/lib/identity_c.c /Users/e21660/shankar/pvs.git/lib/file_c.c /Users/e21660/shankar/pvs.git/lib/bytestrings_c.c /Users/e21660/shankar/pvs.git/lib/gen_strings_c.c /Users/e21660/shankar/pvs.git/lib/strings_c.c /Users/e21660/shankar/pvs.git/lib/integertypes_c.c /Users/e21660/shankar/pvs.git/lib/real_defs_c.c /Users/e21660/shankar/pvs.git/lib/exp2_c.c /Users/e21660/shankar/pvs.git/lib/modulo_arithmetic_c.c /Users/e21660/shankar/pvs.git/lib/euclidean_division_c.c /Users/e21660/shankar/pvs.git/lib/character_adt_c.c /Users/e21660/shankar/pvs.git/lib/ordinals_c.c /Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c identity_uint8_c.c ltedfapegtest_c.c ltedfapegproof_c.c ltedfapeg_c.c dfa_c.c arrayCount_c.c ltedfapegtest_m.c 
+clang: warning: -lgmp: 'linker' input unused [-Wunused-command-line-argument]
+/Users/e21660/shankar/pvs.git//lib/pvslib.c:628:24: warning: Potential leak of memory pointed to by 'sepstring'
+  char * closestring = safe_malloc(8);
+                       ^~~~~~~~~~~
+/Users/e21660/shankar/pvs.git//lib/pvslib.c:630:7: warning: Potential leak of memory pointed to by 'closestring'
+  tmp = safe_strcat(tmp, closestring);
+  ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NSH: Error: Fixed in pvslib.c  
+warning: could not create file in 'pvslib.plist': Not a directory
+warning: could not create file in 'pvslib.plist': Not a directory
+2 warnings generated.
+NSH: All the "dereference of a null pointer" are spurious; these are inputs that can't be null.
+/Users/e21660/shankar/pvs.git/lib/sets_c.c:5:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+warning: could not create file in 'sets_c.plist': Not a directory
+1 warning generated.
+/Users/e21660/shankar/pvs.git/lib/file_c.c:11:9: warning: Access to field 'file__lifted_file_adt_index' results in a dereference of a null pointer
+      (loaded from variable 'x')
+switch (x->file__lifted_file_adt_index) {
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/file_c.c:167:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/file_c.c:180:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/file_c.c:212:38: warning: Use of memory after it is freed
+             ivar_22 = (file__file_t)file__lifted_file_adt_contents((file__lifted_file_adt_t)ivar_5);
+                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NSH: spurious: The count is bumped before release is invoked so the return value is not really freed 				     
+/Users/e21660/shankar/pvs.git/lib/file_c.c:340:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/file_c.c:370:14: warning: Use of memory after it is freed
+             ivar_6->count++;
+             ^~~~~~~~~~~~~~~
+NSH: spurious: The count for ivar_6 is bumped before it is passed as a parameter, so memory is not freed.
+/Users/e21660/shankar/pvs.git/lib/file_c.c:415:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/file_c.c:428:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/file_c.c:461:38: warning: Use of memory after it is freed
+             ivar_22 = (file__file_t)file__lifted_file_adt_contents((file__lifted_file_adt_t)ivar_5);
+                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NSH: Same as above				     
+/Users/e21660/shankar/pvs.git/lib/file_c.c:507:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/file_c.c:537:14: warning: Use of memory after it is freed
+             ivar_6->count++;
+             ^~~~~~~~~~~~~~~
+NSH: Same as above	     
+/Users/e21660/shankar/pvs.git/lib/file_c.c:616:32: warning: Use of memory after it is freed
+        result = (file__pass_t)update_file__pass_contents(ivar_2, ivar_3);
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NSH: spurious: the accounting in update_file__pass_contents looks fine			       
+/Users/e21660/shankar/pvs.git/lib/file_c.c:629:32: warning: Use of memory after it is freed
+        result = (file__file_t)ivar_2->contents;
+                               ^~~~~~~~~~~~~~~~
+warning: could not create file in 'file_c.plist': Not a directory
+warning: could not create file in 'file_c.plist': Not a directory
+warning: could not create file in 'file_c.plist': Not a directory
+warning: could not create file in 'file_c.plist': Not a directory
+warning: could not create file in 'file_c.plist': Not a directory
+warning: could not create file in 'file_c.plist': Not a directory
+warning: could not create file in 'file_c.plist': Not a directory
+warning: could not create file in 'file_c.plist': Not a directory
+warning: could not create file in 'file_c.plist': Not a directory
+warning: could not create file in 'file_c.plist': Not a directory
+warning: could not create file in 'file_c.plist': Not a directory
+warning: could not create file in 'file_c.plist': Not a directory
+warning: could not create file in 'file_c.plist': Not a directory
+13 warnings generated.
+/Users/e21660/shankar/pvs.git/lib/bytestrings_c.c:93:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/bytestrings_c.c:95:10: warning: Use of memory after it is freed
+         release_bytestrings_array_0(x->seq);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/bytestrings_c.c:197:9: warning: Use of memory after it is freed
+        ivar_7->count++;
+        ^~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/bytestrings_c.c:223:14: warning: Value stored to 'ivar_5' is never read
+             ivar_5 = (uint8_t)index2317;
+             ^        ~~~~~~~~~~~~~~~~~~
+NSH: Example where the bound variable for a lambda-expr does not appear in the body. Fixed in ir2c*(ir-lambda) 	     
+/Users/e21660/shankar/pvs.git/lib/bytestrings_c.c:251:14: warning: Value stored to 'ivar_5' is never read
+             ivar_5 = (uint8_t)index2324;
+             ^        ~~~~~~~~~~~~~~~~~~
+NSH: same above 	     
+/Users/e21660/shankar/pvs.git/lib/bytestrings_c.c:376:9: warning: Use of memory after it is freed
+        return result;
+        ^~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/bytestrings_c.c:455:34: warning: Use of memory after it is freed
+             ivar_23 = (uint32_t)ivar_2->length;
+                                 ^~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/bytestrings_c.c:463:34: warning: Use of memory after it is freed
+             ivar_29 = (uint32_t)ivar_2->length;
+                                 ^~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/bytestrings_c.c:541:9: warning: Use of memory after it is freed
+        return result;
+        ^~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/bytestrings_c.c:595:9: warning: Use of memory after it is freed
+        return result;
+        ^~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/bytestrings_c.c:625:33: warning: Access to field 'length' results in a dereference of a null pointer
+      (loaded from variable 'ivar_3')
+        highvar2415 = (uint32_t)ivar_3->length;
+                                ^~~~~~~~~~~~~~
+NSH: Nothing to see: input is always non-NULL				
+warning: could not create file in 'bytestrings_c.plist': Not a directory
+warning: could not create file in 'bytestrings_c.plist': Not a directory
+warning: could not create file in 'bytestrings_c.plist': Not a directory
+warning: could not create file in 'bytestrings_c.plist': Not a directory
+warning: could not create file in 'bytestrings_c.plist': Not a directory
+warning: could not create file in 'bytestrings_c.plist': Not a directory
+warning: could not create file in 'bytestrings_c.plist': Not a directory
+warning: could not create file in 'bytestrings_c.plist': Not a directory
+warning: could not create file in 'bytestrings_c.plist': Not a directory
+warning: could not create file in 'bytestrings_c.plist': Not a directory
+warning: could not create file in 'bytestrings_c.plist': Not a directory
+11 warnings generated.
+/Users/e21660/shankar/pvs.git/lib/gen_strings_c.c:90:38: warning: Value stored to 'tempvalue' is never read
+            else {uint32_t tempvalue;tempvalue = (uint32_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (uint32_t)v;};
+NSH: Fixed this in "function-destructive-update-body	    
+                                     ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/gen_strings_c.c:189:38: warning: Value stored to 'tempvalue' is never read
+            else {uint32_t tempvalue;tempvalue = (uint32_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (uint32_t)v;};
+                                     ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NSH: Same as above
+warning: could not create file in 'gen_strings_c.plist': Not a directory
+warning: could not create file in 'gen_strings_c.plist': Not a directory
+2 warnings generated.
+/Users/e21660/shankar/pvs.git/lib/strings_c.c:90:38: warning: Value stored to 'tempvalue' is never read
+            else {uint32_t tempvalue;tempvalue = (uint32_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (uint32_t)v;};
+                                     ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NSH: Same as above
+/Users/e21660/shankar/pvs.git/lib/strings_c.c:198:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/strings_c.c:351:38: warning: Value stored to 'tempvalue' is never read
+            else {uint32_t tempvalue;tempvalue = (uint32_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (uint32_t)v;};
+                                     ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NSH: Same as above
+warning: could not create file in 'strings_c.plist': Not a directory
+warning: could not create file in 'strings_c.plist': Not a directory
+warning: could not create file in 'strings_c.plist': Not a directory
+3 warnings generated.
+/Users/e21660/shankar/pvs.git/lib/character_adt_c.c:11:9: warning: Access to field 'character_adt__character_adt_index' results in a dereference of a null
+      pointer (loaded from variable 'x')
+switch (x->character_adt__character_adt_index) {
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/character_adt_c.c:177:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/character_adt_c.c:405:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/character_adt_c.c:482:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/character_adt_c.c:634:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/character_adt_c.c:719:41: warning: Use of memory after it is freed
+        result = (character_adt__char_t)update_character_adt__char_code(ivar_2, ivar_3);
+                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/character_adt_c.c:732:28: warning: Use of memory after it is freed
+        result = (uint32_t)ivar_2->code;
+                           ^~~~~~~~~~~~
+warning: could not create file in 'character_adt_c.plist': Not a directory
+warning: could not create file in 'character_adt_c.plist': Not a directory
+warning: could not create file in 'character_adt_c.plist': Not a directory
+warning: could not create file in 'character_adt_c.plist': Not a directory
+warning: could not create file in 'character_adt_c.plist': Not a directory
+warning: could not create file in 'character_adt_c.plist': Not a directory
+warning: could not create file in 'character_adt_c.plist': Not a directory
+7 warnings generated.
+In file included from /Users/e21660/shankar/pvs.git/lib/ordinals_c.c:2:
+In file included from /Users/e21660/shankar/pvs.git/lib/ordinals_c.h:29:
+/Users/e21660/shankar/pvs.git/lib/pvslib.h:61:20: warning: Argument to free() is the address of the local variable 'bvar_1', which is not memory allocated by
+      malloc()
+  if (ptr != NULL) free(ptr);
+                   ^~~~~~~~~
+warning: could not create file in 'ordinals_c.plist': Not a directory
+1 warning generated.
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:11:9: warning: Access to field 'ordstruct_adt__ordstruct_adt_index' results in a dereference of a null
+      pointer (loaded from variable 'x')
+switch (x->ordstruct_adt__ordstruct_adt_index) {
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:329:14: warning: Use of memory after it is freed
+             ivar_5->count++;
+             ^~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:332:14: warning: Use of memory after it is freed
+             ivar_5->count++;
+             ^~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:335:56: warning: Use of memory after it is freed
+             ivar_24 = (ordstruct_adt__ordstruct_adt_t)ordstruct_adt__ordstruct_adt_rest((ordstruct_adt__ordstruct_adt_t)ivar_5);
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:521:14: warning: Use of memory after it is freed
+             ivar_6->count++;
+             ^~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:524:14: warning: Use of memory after it is freed
+             ivar_6->count++;
+             ^~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:527:14: warning: Use of memory after it is freed
+             ivar_6->count++;
+             ^~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:609:40: warning: Use of memory after it is freed
+        result = (ordstruct_adt__add_t)update_ordstruct_adt__add_coef(ivar_2, ivar_3);
+                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:625:9: warning: Use of memory after it is freed
+        release_ordstruct_adt__add(ivar_2);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:638:40: warning: Use of memory after it is freed
+        result = (ordstruct_adt__add_t)update_ordstruct_adt__add_exp(ivar_2, ivar_3);
+                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:651:50: warning: Use of memory after it is freed
+        result = (ordstruct_adt__ordstruct_adt_t)ivar_2->exp;
+                                                 ^~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:666:40: warning: Use of memory after it is freed
+        result = (ordstruct_adt__add_t)update_ordstruct_adt__add_rest(ivar_2, ivar_3);
+                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:770:12: warning: Use of memory after it is freed
+           ivar_2->count++;
+           ^~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:773:54: warning: Use of memory after it is freed
+           ivar_15 = (ordstruct_adt__ordstruct_adt_t)ordstruct_adt__ordstruct_adt_rest((ordstruct_adt__ordstruct_adt_t)ivar_2);
+                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:779:12: warning: Use of memory after it is freed
+           release_ordstruct_adt__ordstruct_adt(ivar_1);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:804:14: warning: Use of memory after it is freed
+             ivar_2->count++;
+             ^~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:807:56: warning: Use of memory after it is freed
+             ivar_10 = (ordstruct_adt__ordstruct_adt_t)ordstruct_adt__ordstruct_adt_rest((ordstruct_adt__ordstruct_adt_t)ivar_2);
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:823:12: warning: Use of memory after it is freed
+           release_ordstruct_adt__ordstruct_adt(ivar_1);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/e21660/shankar/pvs.git/lib/ordstruct_adt_c.c:828:12: warning: Use of memory after it is freed
+           ivar_1->count++;
+           ^~~~~~~~~~~~~~~
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+warning: could not create file in 'ordstruct_adt_c.plist': Not a directory
+19 warnings generated.
+ltedfapegtest_c.c:446:42: warning: Use of memory after it is freed
+        ltedfapegtest_array_3_t result = h_ltedfapegtest_closure_6(bvar_1, bvar_2, closure->fvar_1, closure->fvar_2); 
+                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:3027:14: warning: Value stored to 'ivar_2' is never read
+             ivar_2 = (uint8_t)index6166;
+             ^        ~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:3533:10: warning: Value stored to 'scaf6224' is never read
+         scaf6224 = (ltedfapegtest_array_13_t)ivar_11->scaf;
+         ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:3536:10: warning: Value stored to 'depth6225' is never read
+         depth6225 = (uint64_t)ivar_11->depth;
+         ^           ~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:3540:10: warning: Value stored to 'stack6226' is never read
+         stack6226 = (ltedfapeg__ent_adt_t)ivar_11->stack;
+         ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:3543:10: warning: Value stored to 'lflag6227' is never read
+         lflag6227 = (bool_t)ivar_11->lflag;
+         ^           ~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:3582:14: warning: Value stored to 'ivar_37' is never read
+             ivar_37 = (uint32_t)file__file_size((file__file_t)ivar_10);
+             ^         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:3665:14: warning: Value stored to 'ivar_86' is never read
+             ivar_86 = (ltedfapegtest_record_17_t)tmp6298;
+             ^         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:3784:11: warning: Value stored to 'scaf6306' is never read
+          scaf6306 = (ltedfapegtest_array_13_t)ivar_43->scaf;
+          ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:3787:11: warning: Value stored to 'depth6307' is never read
+          depth6307 = (uint64_t)ivar_43->depth;
+          ^           ~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:3791:11: warning: Value stored to 'stack6308' is never read
+          stack6308 = (ltedfapeg__ent_adt_t)ivar_43->stack;
+          ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:3794:11: warning: Value stored to 'lflag6309' is never read
+          lflag6309 = (bool_t)ivar_43->lflag;
+          ^           ~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:4030:11: warning: Value stored to 'scaf6405' is never read
+          scaf6405 = (ltedfapegtest_array_13_t)ivar_42->scaf;
+          ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:4033:11: warning: Value stored to 'depth6406' is never read
+          depth6406 = (uint64_t)ivar_42->depth;
+          ^           ~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:4037:11: warning: Value stored to 'stack6407' is never read
+          stack6407 = (ltedfapeg__ent_adt_t)ivar_42->stack;
+          ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:4040:11: warning: Value stored to 'lflag6408' is never read
+          lflag6408 = (bool_t)ivar_42->lflag;
+          ^           ~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:4225:11: warning: Value stored to 'scaf6480' is never read
+          scaf6480 = (ltedfapegtest_array_13_t)ivar_42->scaf;
+          ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:4228:11: warning: Value stored to 'depth6481' is never read
+          depth6481 = (uint64_t)ivar_42->depth;
+          ^           ~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:4232:11: warning: Value stored to 'stack6482' is never read
+          stack6482 = (ltedfapeg__ent_adt_t)ivar_42->stack;
+          ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:4235:11: warning: Value stored to 'lflag6483' is never read
+          lflag6483 = (bool_t)ivar_42->lflag;
+          ^           ~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:4261:50: warning: Use of memory after it is freed
+             ivar_88 = (ltedfapegtest_array_12_t)ivar_92->elems[ivar_115];
+                                                 ^~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_c.c:4267:45: warning: Use of memory after it is freed
+             result = (ltedfapeg__ent_adt_t)ivar_88->elems[ivar_116];
+                                            ^~~~~~~~~~~~~~~~~~~~~~~~
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_c.plist': Not a directory
+22 warnings generated.
+ltedfapegproof_c.c:11:9: warning: Access to field 'ltedfapegproof__parsetree_adt_index' results in a dereference of a null pointer (loaded from variable 'x')
+switch (x->ltedfapegproof__parsetree_adt_index) {
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:623:46: warning: Use of memory after it is freed
+             ivar_25 = (ltedfapeg__ent_adt_t)ltedfapegproof__parsetree_adt_entry((ltedfapegproof__parsetree_adt_t)ivar_8);
+                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:628:14: warning: Use of memory after it is freed
+             ivar_8->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:649:55: warning: Use of memory after it is freed
+           ivar_64 = (ltedfapegproof__parsetree_adt_t)ltedfapegproof__parsetree_adt_subtwo((ltedfapegproof__parsetree_adt_t)ivar_8);
+                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:1045:14: warning: Use of memory after it is freed
+             ivar_8->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:1051:14: warning: Use of memory after it is freed
+             ivar_8->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:1073:12: warning: Use of memory after it is freed
+           ivar_8->count++;
+           ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:1381:46: warning: Use of memory after it is freed
+             ivar_25 = (ltedfapeg__ent_adt_t)ltedfapegproof__parsetree_adt_entry((ltedfapegproof__parsetree_adt_t)ivar_8);
+                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:1386:14: warning: Use of memory after it is freed
+             ivar_8->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:1407:55: warning: Use of memory after it is freed
+           ivar_64 = (ltedfapegproof__parsetree_adt_t)ltedfapegproof__parsetree_adt_subtwo((ltedfapegproof__parsetree_adt_t)ivar_8);
+                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:1733:14: warning: Use of memory after it is freed
+             ivar_8->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:1739:14: warning: Use of memory after it is freed
+             ivar_8->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:1761:12: warning: Use of memory after it is freed
+           ivar_8->count++;
+           ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:1822:9: warning: Access to field 'ltedfapegproof__qstack_adt_index' results in a dereference of a null pointer (loaded from variable 'x')
+switch (x->ltedfapegproof__qstack_adt_index) {
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:1892:10: warning: Use of memory after it is freed
+         release_ltedfapegproof__qstack_adt(x->qpop);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:2140:14: warning: Use of memory after it is freed
+             ivar_5->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:2143:14: warning: Use of memory after it is freed
+             ivar_5->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:2146:54: warning: Use of memory after it is freed
+             ivar_24 = (ltedfapegproof__qstack_adt_t)ltedfapegproof__qstack_adt_qpop((ltedfapegproof__qstack_adt_t)ivar_5);
+                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:2332:14: warning: Use of memory after it is freed
+             ivar_6->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:2335:14: warning: Use of memory after it is freed
+             ivar_6->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:2338:14: warning: Use of memory after it is freed
+             ivar_6->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:2530:14: warning: Use of memory after it is freed
+             ivar_5->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:2533:14: warning: Use of memory after it is freed
+             ivar_5->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:2536:54: warning: Use of memory after it is freed
+             ivar_24 = (ltedfapegproof__qstack_adt_t)ltedfapegproof__qstack_adt_qpop((ltedfapegproof__qstack_adt_t)ivar_5);
+                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:2728:14: warning: Use of memory after it is freed
+             ivar_6->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:2731:14: warning: Use of memory after it is freed
+             ivar_6->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:2734:14: warning: Use of memory after it is freed
+             ivar_6->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:2805:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapegproof_c.c:3062:25: warning: Use of memory after it is freed
+        bool_t result = h_ltedfapegproof_closure_53(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4); 
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:3075:14: warning: Use of memory after it is freed
+             ivar_7->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:3106:30: warning: Use of memory after it is freed
+            result = (bool_t)ivar_54->ftbl->fptr(ivar_54, ivar_11);
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:3110:13: warning: Use of memory after it is freed
+            release_ltedfapegproof__qstack_adt(ivar_11);
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:3115:12: warning: Use of memory after it is freed
+           release_ltedfapegproof__qstack_adt(ivar_11);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:3305:25: warning: Use of memory after it is freed
+        bool_t result = h_ltedfapegproof_closure_56(bvar_1, bvar_2, bvar_3, bvar_4, closure->fvar_1, closure->fvar_2, closure->fvar_3); 
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:3306:9: warning: Use of memory after it is freed
+        release_ltedfapegproof__qstack_adt(bvar_1);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:3311:16: warning: Use of memory after it is freed
+        return h_ltedfapegproof_closure_56(bvar_1, bvar_2, bvar_3, bvar_4, closure->fvar_1, closure->fvar_2, closure->fvar_3);}
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:3320:46: warning: Use of memory after it is freed
+             ivar_10 = (ltedfapeg__ent_adt_t)ltedfapegproof__parsetree_adt_entry((ltedfapegproof__parsetree_adt_t)ivar_8);
+                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:3461:14: warning: Use of memory after it is freed
+             ivar_8->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:3524:56: warning: Use of memory after it is freed
+           ivar_225 = (ltedfapegproof__parsetree_adt_t)ltedfapegproof__parsetree_adt_subtwo((ltedfapegproof__parsetree_adt_t)ivar_8);
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4147:50: warning: Use of memory after it is freed
+  ...result = h_ltedfapegproof_closure_61(bvar_1, bvar_2, bvar_3, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5); 
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4670:56: warning: Use of memory after it is freed
+             result = (ltedfapegproof__parsetree_adt_t)update_ltedfapegproof__zero_entry(ivar_12, ivar_11);
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4685:54: warning: Use of memory after it is freed
+           result = (ltedfapegproof__parsetree_adt_t)update_ltedfapegproof__one_entry(ivar_16, ivar_11);
+                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4693:54: warning: Use of memory after it is freed
+           result = (ltedfapegproof__parsetree_adt_t)update_ltedfapegproof__two_entry(ivar_20, ivar_11);
+                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4742:43: warning: Use of memory after it is freed
+           result = (ltedfapeg__ent_adt_t)ivar_10->entry;
+                                          ^~~~~~~~~~~~~~
+ltedfapegproof_c.c:4766:56: warning: Use of memory after it is freed
+             result = (ltedfapegproof__parsetree_adt_t)update_ltedfapegproof__one_subone(ivar_8, ivar_7);
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4774:56: warning: Use of memory after it is freed
+             result = (ltedfapegproof__parsetree_adt_t)update_ltedfapegproof__two_subone(ivar_12, ivar_7);
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4795:56: warning: Use of memory after it is freed
+             result = (ltedfapegproof__parsetree_adt_t)ivar_2->subone;
+                                                       ^~~~~~~~~~~~~~
+ltedfapegproof_c.c:4805:56: warning: Use of memory after it is freed
+             result = (ltedfapegproof__parsetree_adt_t)ivar_6->subone;
+                                                       ^~~~~~~~~~~~~~
+ltedfapegproof_c.c:4821:41: warning: Use of memory after it is freed
+        result = (ltedfapegproof__two_t)update_ltedfapegproof__two_subtwo(ivar_2, ivar_3);
+                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4902:14: warning: Use of memory after it is freed
+             release_ltedfapegproof__parsetree_adt(ivar_1);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4907:14: warning: Use of memory after it is freed
+             ivar_1->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4938:12: warning: Use of memory after it is freed
+           release_ltedfapegproof__parsetree_adt(ivar_2);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4943:12: warning: Use of memory after it is freed
+           ivar_2->count++;
+           ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4955:55: warning: Use of memory after it is freed
+           ivar_36 = (ltedfapegproof__parsetree_adt_t)ltedfapegproof__parsetree_adt_subtwo((ltedfapegproof__parsetree_adt_t)ivar_2);
+                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4961:13: warning: Use of memory after it is freed
+            release_ltedfapegproof__parsetree_adt(ivar_1);
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4982:14: warning: Use of memory after it is freed
+             release_ltedfapegproof__parsetree_adt(ivar_2);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:4987:14: warning: Use of memory after it is freed
+             ivar_2->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5010:55: warning: Use of memory after it is freed
+           ivar_37 = (ltedfapegproof__parsetree_adt_t)ltedfapegproof__parsetree_adt_subtwo((ltedfapegproof__parsetree_adt_t)ivar_2);
+                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5026:12: warning: Use of memory after it is freed
+           release_ltedfapegproof__parsetree_adt(ivar_1);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5159:43: warning: Use of memory after it is freed
+        result = (ltedfapegproof__qpush_t)update_ltedfapegproof__qpush_nonterm(ivar_2, ivar_3);
+                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5172:27: warning: Use of memory after it is freed
+        result = (uint8_t)ivar_2->nonterm;
+                          ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5186:43: warning: Use of memory after it is freed
+        result = (ltedfapegproof__qpush_t)update_ltedfapegproof__qpush_pos(ivar_2, ivar_3);
+                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5213:43: warning: Use of memory after it is freed
+        result = (ltedfapegproof__qpush_t)update_ltedfapegproof__qpush_qpop(ivar_2, ivar_3);
+                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5315:52: warning: Use of memory after it is freed
+           ivar_15 = (ltedfapegproof__qstack_adt_t)ltedfapegproof__qstack_adt_qpop((ltedfapegproof__qstack_adt_t)ivar_2);
+                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5336:54: warning: Use of memory after it is freed
+             ivar_10 = (ltedfapegproof__qstack_adt_t)ltedfapegproof__qstack_adt_qpop((ltedfapegproof__qstack_adt_t)ivar_2);
+                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5424:14: warning: Use of memory after it is freed
+             ivar_3->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5427:14: warning: Use of memory after it is freed
+             ivar_3->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5430:53: warning: Use of memory after it is freed
+             ivar_7 = (ltedfapegproof__qstack_adt_t)ltedfapegproof__qstack_adt_qpop((ltedfapegproof__qstack_adt_t)ivar_3);
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5464:53: warning: Use of memory after it is freed
+             ivar_5 = (ltedfapegproof__qstack_adt_t)ltedfapegproof__qstack_adt_qpop((ltedfapegproof__qstack_adt_t)ivar_1);
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5867:45: warning: Use of memory after it is freed
+             ivar_3 = (ltedfapeg__ent_adt_t)ltedfapegproof__parsetree_adt_entry((ltedfapegproof__parsetree_adt_t)ivar_1);
+                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5872:14: warning: Use of memory after it is freed
+             ivar_1->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5895:12: warning: Use of memory after it is freed
+           ivar_1->count++;
+           ^~~~~~~~~~~~~~~
+ltedfapegproof_c.c:5898:55: warning: Use of memory after it is freed
+           ivar_37 = (ltedfapegproof__parsetree_adt_t)ltedfapegproof__parsetree_adt_subtwo((ltedfapegproof__parsetree_adt_t)ivar_1);
+                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+warning: could not create file in 'ltedfapegproof_c.plist': Not a directory
+73 warnings generated.
+In file included from ltedfapeg_c.c:2:
+In file included from ./ltedfapeg_c.h:29:
+./pvslib.h:61:20: warning: Argument to free() is the address of the local variable 'bvar_5', which is not memory allocated by malloc()
+  if (ptr != NULL) free(ptr);
+                   ^~~~~~~~~
+ltedfapeg_c.c:11:9: warning: Access to field 'ltedfapeg__ent_adt_index' results in a dereference of a null pointer (loaded from variable 'x')
+switch (x->ltedfapeg__ent_adt_index) {
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:350:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:363:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:540:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:631:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:658:34: warning: Use of memory after it is freed
+             ivar_31 = (uint64_t)ltedfapeg__ent_adt_dep((ltedfapeg__ent_adt_t)ivar_10);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:663:14: warning: Use of memory after it is freed
+             ivar_10->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:696:32: warning: Use of memory after it is freed
+            ivar_72 = (uint8_t)ltedfapeg__ent_adt_nt((ltedfapeg__ent_adt_t)ivar_10);
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:830:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:936:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:1042:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:1069:14: warning: Use of memory after it is freed
+             ivar_12->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:1075:14: warning: Use of memory after it is freed
+             ivar_12->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:1105:13: warning: Use of memory after it is freed
+            ivar_12->count++;
+            ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:1159:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:1172:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:1271:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:1284:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:1311:34: warning: Use of memory after it is freed
+             ivar_31 = (uint64_t)ltedfapeg__ent_adt_dep((ltedfapeg__ent_adt_t)ivar_10);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:1316:14: warning: Use of memory after it is freed
+             ivar_10->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:1351:32: warning: Use of memory after it is freed
+            ivar_72 = (uint8_t)ltedfapeg__ent_adt_nt((ltedfapeg__ent_adt_t)ivar_10);
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:1406:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:1419:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:1432:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:1459:14: warning: Use of memory after it is freed
+             ivar_12->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:1465:14: warning: Use of memory after it is freed
+             ivar_12->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:1495:13: warning: Use of memory after it is freed
+            ivar_12->count++;
+            ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:1557:9: warning: Access to field 'ltedfapeg__prepeg_adt_index' results in a dereference of a null pointer (loaded from variable 'x')
+switch (x->ltedfapeg__prepeg_adt_index) {
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:1899:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:1912:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:1925:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:2114:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:2146:14: warning: Use of memory after it is freed
+             ivar_10->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:2176:13: warning: Use of memory after it is freed
+            ivar_10->count++;
+            ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:2179:32: warning: Use of memory after it is freed
+            ivar_67 = (uint8_t)ltedfapeg__prepeg_adt_lelse((ltedfapeg__prepeg_adt_t)ivar_10);
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:2316:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:2410:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:2528:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:2558:14: warning: Use of memory after it is freed
+             ivar_12->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:2588:13: warning: Use of memory after it is freed
+            ivar_12->count++;
+            ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:2591:13: warning: Use of memory after it is freed
+            ivar_12->count++;
+            ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:2645:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:2658:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:2671:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:2770:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:2803:14: warning: Use of memory after it is freed
+             ivar_10->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:2834:13: warning: Use of memory after it is freed
+            ivar_10->count++;
+            ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:2837:32: warning: Use of memory after it is freed
+            ivar_67 = (uint8_t)ltedfapeg__prepeg_adt_lelse((ltedfapeg__prepeg_adt_t)ivar_10);
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:2892:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:2905:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:2918:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:2948:14: warning: Use of memory after it is freed
+             ivar_12->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:2978:13: warning: Use of memory after it is freed
+            ivar_12->count++;
+            ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:2981:13: warning: Use of memory after it is freed
+            ivar_12->count++;
+            ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3118:14: warning: Use of memory after it is freed
+             ivar_3->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:3123:31: warning: Use of memory after it is freed
+           ivar_17 = (uint8_t)ltedfapeg__ent_adt_nt((ltedfapeg__ent_adt_t)ivar_3);
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3129:12: warning: Use of memory after it is freed
+           release_ltedfapeg__ent_adt(ivar_3);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3134:14: warning: Use of memory after it is freed
+             release_ltedfapeg__ent_adt(ivar_3);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3192:33: warning: Use of memory after it is freed
+             ivar_15 = (uint8_t)ltedfapeg__ent_adt_nt((ltedfapeg__ent_adt_t)ivar_3);
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3198:14: warning: Use of memory after it is freed
+             release_ltedfapeg__ent_adt(ivar_3);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3255:14: warning: Use of memory after it is freed
+             ivar_4->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:3264:14: warning: Use of memory after it is freed
+             ivar_4->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:3773:25: warning: Use of memory after it is freed
+        bool_t result = h_ltedfapeg_closure_67(bvar_1, bvar_2, closure->fvar_1, closure->fvar_2, closure->fvar_3); 
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3774:9: warning: Use of memory after it is freed
+        release_ltedfapeg__ent_adt(bvar_1);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3775:9: warning: Use of memory after it is freed
+        release_ltedfapeg__ent_adt(bvar_2);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3787:28: warning: Use of memory after it is freed
+        ivar_12 = (uint8_t)ltedfapeg__ent_adt_nt((ltedfapeg__ent_adt_t)ivar_6);
+                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3792:28: warning: Use of memory after it is freed
+        ivar_20 = (uint8_t)ltedfapeg__ent_adt_nt((ltedfapeg__ent_adt_t)ivar_7);
+                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3809:12: warning: Use of memory after it is freed
+           ivar_29->count++;
+           ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3812:12: warning: Use of memory after it is freed
+           ivar_29->count++;
+           ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3815:31: warning: Use of memory after it is freed
+           ivar_36 = (uint8_t)ltedfapeg__prepeg_adt_lelse((ltedfapeg__prepeg_adt_t)ivar_29);
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:3893:12: warning: Use of memory after it is freed
+           release_ltedfapeg__prepeg_adt(ivar_29);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4138:8: warning: Use of memory after it is freed
+return h_ltedfapeg_closure_70(bvar, closure->fvar_1, closure->fvar_2);}
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4415:36: warning: Value stored to 'tempvalue' is never read
+            else {bool_t tempvalue;tempvalue = (bool_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (bool_t)v;};
+                                   ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4519:14: warning: Use of memory after it is freed
+             release_ltedfapeg__ent_adt(ivar_7);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4528:14: warning: Use of memory after it is freed
+             ivar_7->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:4533:14: warning: Use of memory after it is freed
+             ivar_7->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:4548:12: warning: Use of memory after it is freed
+           ivar_18->count++;
+           ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4554:12: warning: Use of memory after it is freed
+           release_ltedfapeg__ent_adt(ivar_7);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4562:12: warning: Use of memory after it is freed
+           ivar_18->count++;
+           ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4563:30: warning: Use of memory after it is freed
+           ivar_45 = (bool_t)ivar_59->ftbl->mptr(ivar_59, ivar_18, ivar_7);
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4585:30: warning: Use of memory after it is freed
+            result = (bool_t)ivar_80->ftbl->fptr(ivar_80, ivar_18);
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4589:13: warning: Use of memory after it is freed
+            release_ltedfapeg__ent_adt(ivar_18);
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4594:12: warning: Use of memory after it is freed
+           release_ltedfapeg__ent_adt(ivar_18);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4599:12: warning: Use of memory after it is freed
+           release_ltedfapeg__ent_adt(ivar_7);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4600:12: warning: Use of memory after it is freed
+           release_ltedfapeg__ent_adt(ivar_18);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4655:25: warning: Use of memory after it is freed
+        bool_t result = h_ltedfapeg_closure_78(bvar_1, bvar_2, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4); 
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4656:9: warning: Use of memory after it is freed
+        release_ltedfapeg__ent_adt(bvar_1);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4657:9: warning: Use of memory after it is freed
+        release_ltedfapeg__ent_adt(bvar_2);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4674:14: warning: Use of memory after it is freed
+             release_ltedfapeg__ent_adt(ivar_8);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4680:14: warning: Use of memory after it is freed
+             ivar_8->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:4709:31: warning: Use of memory after it is freed
+           ivar_37 = (uint8_t)ltedfapeg__ent_adt_nt((ltedfapeg__ent_adt_t)ivar_8);
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4777:14: warning: Use of memory after it is freed
+             release_ltedfapeg__ent_adt(ivar_7);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:4784:14: warning: Use of memory after it is freed
+             ivar_7->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:4789:14: warning: Use of memory after it is freed
+             ivar_7->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:4809:14: warning: Use of memory after it is freed
+             ivar_7->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:4835:31: warning: Use of memory after it is freed
+           ivar_73 = (uint8_t)ltedfapeg__ent_adt_nt((ltedfapeg__ent_adt_t)ivar_7);
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:5016:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+ltedfapeg_c.c:5106:16: warning: Use of memory after it is freed
+        return h_ltedfapeg_closure_83(bvar_1, bvar_2, bvar_3, bvar_4, closure->fvar_1, closure->fvar_2, closure->fvar_3);}
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:5119:36: warning: Use of memory after it is freed
+             ivar_16 = (dfa__dfa_t)ltedfapeg__prepeg_adt_dfa((ltedfapeg__prepeg_adt_t)ivar_11);
+                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:5136:14: warning: Use of memory after it is freed
+             ivar_11->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:5171:12: warning: Use of memory after it is freed
+           ivar_11->count++;
+           ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:5174:31: warning: Use of memory after it is freed
+           ivar_71 = (uint8_t)ltedfapeg__prepeg_adt_lelse((ltedfapeg__prepeg_adt_t)ivar_11);
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:5519:14: warning: Use of memory after it is freed
+             ivar_9->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:5606:14: warning: Use of memory after it is freed
+             release_ltedfapeg__prepeg_adt(ivar_9);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:5798:16: warning: Use of memory after it is freed
+        return h_ltedfapeg_closure_89(bvar_1, bvar_2, bvar_3, bvar_4, bvar_5, closure->fvar_1, closure->fvar_2, closure->fvar_3);}
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:5827:14: warning: Use of memory after it is freed
+             ivar_18->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:5899:13: warning: Use of memory after it is freed
+            ivar_18->count++;
+            ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:5902:33: warning: Use of memory after it is freed
+            ivar_101 = (uint8_t)ltedfapeg__prepeg_adt_lelse((ltedfapeg__prepeg_adt_t)ivar_18);
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6241:25: warning: Use of memory after it is freed
+        bool_t result = h_ltedfapeg_closure_92(bvar_1, bvar_2, bvar_3, bvar_4, closure->fvar_1, closure->fvar_2, closure->fvar_3); 
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6243:9: warning: Use of memory after it is freed
+        release_ltedfapeg__ent_adt(bvar_4);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6256:34: warning: Use of memory after it is freed
+             ivar_12 = (uint64_t)ltedfapeg__ent_adt_dep((ltedfapeg__ent_adt_t)ivar_10);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6266:14: warning: Use of memory after it is freed
+             ivar_10->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6369:25: warning: Use of memory after it is freed
+        bool_t result = h_ltedfapeg_closure_93(bvar_1, bvar_2, bvar_3, bvar_4, closure->fvar_1, closure->fvar_2, closure->fvar_3); 
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6371:9: warning: Use of memory after it is freed
+        release_ltedfapeg__ent_adt(bvar_4);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6384:34: warning: Use of memory after it is freed
+             ivar_12 = (uint64_t)ltedfapeg__ent_adt_dep((ltedfapeg__ent_adt_t)ivar_10);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6394:14: warning: Use of memory after it is freed
+             ivar_10->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6785:10: warning: Use of memory after it is freed
+         release_ltedfapeg__ent_adt(x->stack);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6799:31: warning: Use of memory after it is freed
+        if (y->stack != NULL){y->stack->count++;};
+                              ^~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6898:41: warning: Use of memory after it is freed
+        ltedfapeg_record_100_t result = h_ltedfapeg_closure_102(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3); 
+                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6919:14: warning: Use of memory after it is freed
+             release_ltedfapeg__ent_adt(ivar_17);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6927:14: warning: Use of memory after it is freed
+             ivar_17->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6930:14: warning: Use of memory after it is freed
+             ivar_17->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:6948:12: warning: Use of memory after it is freed
+           release_ltedfapeg__ent_adt(ivar_17);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:7007:12: warning: Use of memory after it is freed
+           ivar_49->count++;
+           ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:7234:14: warning: Use of memory after it is freed
+             ivar_49->count++;
+             ^~~~~~~~~~~~~~~~
+ltedfapeg_c.c:7237:34: warning: Use of memory after it is freed
+             ivar_281 = (uint8_t)ltedfapeg__prepeg_adt_lelse((ltedfapeg__prepeg_adt_t)ivar_49);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:7254:36: warning: Use of memory after it is freed
+              ivar_303 = (uint64_t)ltedfapeg__ent_adt_dep((ltedfapeg__ent_adt_t)ivar_291);
+                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:7269:37: warning: Use of memory after it is freed
+               ivar_317 = (uint64_t)ltedfapeg__ent_adt_dep((ltedfapeg__ent_adt_t)ivar_307);
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:7335:16: warning: Use of memory after it is freed
+               ivar_307->count++;
+               ^~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:7517:15: warning: Use of memory after it is freed
+              ivar_291->count++;
+              ^~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:7544:38: warning: Use of memory after it is freed
+                ivar_534 = (uint64_t)ltedfapeg__ent_adt_dep((ltedfapeg__ent_adt_t)ivar_519);
+                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:7610:17: warning: Use of memory after it is freed
+                ivar_519->count++;
+                ^~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:7916:9: warning: Use of memory after it is freed
+        return result;
+        ^~~~~~~~~~~~~
+ltedfapeg_c.c:8625:45: warning: Use of memory after it is freed
+             result = (ltedfapeg__ent_adt_t)update_ltedfapeg__fail_dep(ivar_8, ivar_7);
+                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:8633:45: warning: Use of memory after it is freed
+             result = (ltedfapeg__ent_adt_t)update_ltedfapeg__good_dep(ivar_12, ivar_7);
+                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:8654:33: warning: Use of memory after it is freed
+             result = (uint64_t)ivar_2->dep;
+                                ^~~~~~~~~~~
+ltedfapeg_c.c:8663:33: warning: Use of memory after it is freed
+             result = (uint64_t)ivar_6->dep;
+                                ^~~~~~~~~~~
+ltedfapeg_c.c:8678:37: warning: Use of memory after it is freed
+        result = (ltedfapeg__good_t)update_ltedfapeg__good_span(ivar_2, ivar_3);
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:8691:28: warning: Use of memory after it is freed
+        result = (uint32_t)ivar_2->span;
+                           ^~~~~~~~~~~~
+ltedfapeg_c.c:8705:37: warning: Use of memory after it is freed
+        result = (ltedfapeg__push_t)update_ltedfapeg__push_pos(ivar_2, ivar_3);
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:8718:28: warning: Use of memory after it is freed
+        result = (uint32_t)ivar_2->pos;
+                           ^~~~~~~~~~~
+ltedfapeg_c.c:8732:37: warning: Use of memory after it is freed
+        result = (ltedfapeg__push_t)update_ltedfapeg__push_nt(ivar_2, ivar_3);
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:8745:27: warning: Use of memory after it is freed
+        result = (uint8_t)ivar_2->nt;
+                          ^~~~~~~~~~
+ltedfapeg_c.c:8843:14: warning: Use of memory after it is freed
+             release_ltedfapeg__ent_adt(ivar_1);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:8848:14: warning: Use of memory after it is freed
+             ivar_1->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:9064:36: warning: Use of memory after it is freed
+        result = (ltedfapeg__any_t)update_ltedfapeg__any_dfa(ivar_2, ivar_3);
+                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:9077:30: warning: Use of memory after it is freed
+        result = (dfa__dfa_t)ivar_2->dfa;
+                             ^~~~~~~~~~~
+ltedfapeg_c.c:9092:41: warning: Use of memory after it is freed
+        result = (ltedfapeg__terminal_t)update_ltedfapeg__terminal_a(ivar_2, ivar_3);
+                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:9105:27: warning: Use of memory after it is freed
+        result = (uint8_t)ivar_2->a;
+                          ^~~~~~~~~
+ltedfapeg_c.c:9119:36: warning: Use of memory after it is freed
+        result = (ltedfapeg__lte_t)update_ltedfapeg__lte_fst(ivar_2, ivar_3);
+                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:9132:27: warning: Use of memory after it is freed
+        result = (uint8_t)ivar_2->fst;
+                          ^~~~~~~~~~~
+ltedfapeg_c.c:9146:36: warning: Use of memory after it is freed
+        result = (ltedfapeg__lte_t)update_ltedfapeg__lte_lthen(ivar_2, ivar_3);
+                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:9173:36: warning: Use of memory after it is freed
+        result = (ltedfapeg__lte_t)update_ltedfapeg__lte_lelse(ivar_2, ivar_3);
+                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:9289:14: warning: Use of memory after it is freed
+             ivar_1->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:9601:14: warning: Use of memory after it is freed
+             release_ltedfapeg__ent_adt(ivar_1);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:9605:31: warning: Use of memory after it is freed
+             result = (bool_t)r_ltedfapeg__failp((ltedfapeg__ent_adt_t)ivar_1);
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:9680:14: warning: Use of memory after it is freed
+             release_ltedfapeg__ent_adt(ivar_1);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:9684:31: warning: Use of memory after it is freed
+             result = (bool_t)r_ltedfapeg__pendingp((ltedfapeg__ent_adt_t)ivar_1);
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:9720:14: warning: Use of memory after it is freed
+             ivar_7->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:9723:14: warning: Use of memory after it is freed
+             ivar_7->count++;
+             ^~~~~~~~~~~~~~~
+ltedfapeg_c.c:9726:33: warning: Use of memory after it is freed
+             ivar_14 = (uint8_t)ltedfapeg__prepeg_adt_lelse((ltedfapeg__prepeg_adt_t)ivar_7);
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:9808:14: warning: Use of memory after it is freed
+             release_ltedfapeg__prepeg_adt(ivar_7);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:10005:47: warning: Use of memory after it is freed
+  ...ltedfapeg__parse((uint32_t)ivar_1, (ltedfapeg__lang_spec_t)ivar_2, (ltedfapeg_array_82_t)ivar_3, (uint32_t)ivar_4, (uint8_t)ivar_5, (ltedfapeg_record_100_t)ivar_52);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:10009:9: warning: Use of memory after it is freed
+        return result;
+        ^~~~~~~~~~~~~
+ltedfapeg_c.c:10092:10: warning: Value stored to 'scaf5691' is never read
+         scaf5691 = (ltedfapeg_array_62_t)ivar_10->scaf;
+         ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:10095:10: warning: Value stored to 'depth5692' is never read
+         depth5692 = (uint64_t)ivar_10->depth;
+         ^           ~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:10099:10: warning: Value stored to 'stack5693' is never read
+         stack5693 = (ltedfapeg__ent_adt_t)ivar_10->stack;
+         ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:10102:10: warning: Value stored to 'lflag5694' is never read
+         lflag5694 = (bool_t)ivar_10->lflag;
+         ^           ~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:10119:41: warning: Use of memory after it is freed
+        ivar_56 = (ltedfapeg_array_61_t)ivar_60->elems[ivar_80];
+                                        ^~~~~~~~~~~~~~~~~~~~~~~
+ltedfapeg_c.c:10122:40: warning: Use of memory after it is freed
+        result = (ltedfapeg__ent_adt_t)ivar_56->elems[ivar_4];
+                                       ^~~~~~~~~~~~~~~~~~~~~~
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+warning: could not create file in 'ltedfapeg_c.plist': Not a directory
+171 warnings generated.
+dfa_c.c:11:9: warning: Access to field 'dfa__dfaResult_adt_index' results in a dereference of a null pointer (loaded from variable 'x')
+switch (x->dfa__dfaResult_adt_index) {
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+dfa_c.c:164:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+dfa_c.c:177:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+dfa_c.c:295:34: warning: Use of memory after it is freed
+             ivar_22 = (uint32_t)dfa__dfaResult_adt_span((dfa__dfaResult_adt_t)ivar_5);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dfa_c.c:420:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+dfa_c.c:450:14: warning: Use of memory after it is freed
+             ivar_6->count++;
+             ^~~~~~~~~~~~~~~
+dfa_c.c:495:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+dfa_c.c:508:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+dfa_c.c:627:34: warning: Use of memory after it is freed
+             ivar_22 = (uint32_t)dfa__dfaResult_adt_span((dfa__dfaResult_adt_t)ivar_5);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dfa_c.c:673:9: warning: Access to field 'count' results in a dereference of a null pointer (loaded from variable 'x')
+        x->count--;
+        ^~~~~~~~~~
+dfa_c.c:703:14: warning: Use of memory after it is freed
+             ivar_6->count++;
+             ^~~~~~~~~~~~~~~
+dfa_c.c:778:34: warning: Use of memory after it is freed
+             ivar_13 = (uint32_t)dfa__dfaResult_adt_span((dfa__dfaResult_adt_t)ivar_4);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dfa_c.c:999:51: warning: Use of memory after it is freed
+                for (int i = 0; i < x->size; i++){release_dfa_array_17(x->elems[i]);};
+                                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dfa_c.c:1090:10: warning: Use of memory after it is freed
+         release_dfa_array_16(x->terminal);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dfa_c.c:1270:37: warning: Value stored to 'tempvalue' is never read
+            else {uint8_t tempvalue;tempvalue = (uint8_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (uint8_t)v;};
+                                    ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dfa_c.c:1716:34: warning: Use of memory after it is freed
+        result = (dfa__success_t)update_dfa__success_span(ivar_2, ivar_3);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dfa_c.c:1729:28: warning: Use of memory after it is freed
+        result = (uint32_t)ivar_2->span;
+                           ^~~~~~~~~~~~
+dfa_c.c:1917:12: warning: Use of memory after it is freed
+           ivar_27->count++;
+           ^~~~~~~~~~~~~~~~
+dfa_c.c:1956:31: warning: Use of memory after it is freed
+           ivar_55 = (uint8_t)ivar_66->elems[ivar_81];
+                              ^~~~~~~~~~~~~~~~~~~~~~~
+dfa_c.c:2281:14: warning: Value stored to 'ivar_4' is never read
+             ivar_4 = (uint8_t)index4882;
+             ^        ~~~~~~~~~~~~~~~~~~
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+warning: could not create file in 'dfa_c.plist': Not a directory
+20 warnings generated.
+ltedfapegtest_m.c:45:24: warning: Value stored to 'test3' during its initialization is never read
+  ltedfapeg__ent_adt_t test3 = ltedfapegtest__jsonpureparsefile(make_bytestring("irModel.json"));
+                       ^~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ltedfapegtest_m.c:53:35: warning: Value stored to 'test4' during its initialization is never read
+  ltedfapegproof__parsetree_adt_t test4 = ltedfapegtest__jsonparsefile(make_bytestring("irModel.json"));
+                                  ^~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: could not create file in 'ltedfapegtest_m.plist': Not a directory
+warning: could not create file in 'ltedfapegtest_m.plist': Not a directory
+2 warnings generated.
+You have mail in /var/mail/e21660
+(base) CSL-CAS16442:pegparser-2-24 e21660$ ls *.html
+ls: *.html: No such file or directory
+(base) CSL-CAS16442:pegparser-2-24 e21660$ ls
+K_conversion_c.c		bv_int_defs_c.c			finite_sequences_c.c		list_adt_c.c			pvslib.c
+K_conversion_c.h		bv_int_defs_c.h			finite_sequences_c.h		list_adt_c.h			pvslib.h
+Makefile			bytestrings_c.c			function_iterate_c.c		ltedfapeg_c.c			pvslib.plist
+Makefile~			bytestrings_c.h			function_iterate_c.h		ltedfapeg_c.c~			real_defs_c.c
+README				bytestrings_c.plist		gen_strings_c.c			ltedfapeg_c.h			real_defs_c.h
+README~				character_adt_c.c		gen_strings_c.h			ltedfapeg_c.plist		real_defs_c.plist
+arrayCount_c.c			character_adt_c.h		gen_strings_c.plist		ltedfapegproof_c.c		restrict_c.c
+arrayCount_c.h			character_adt_c.plist		identity_c.c			ltedfapegproof_c.h		restrict_c.h
+arrayCount_c.h~			charstrings_c.c			identity_c.h			ltedfapegproof_c.plist		sequences_c.c
+arrayCount_c.plist		charstrings_c.h			identity_c.plist		ltedfapegtest			sequences_c.h
+array_sequences_c.c		dfa_c.c				identity_uint8_c.c		ltedfapegtest.dSYM		sets_c.c
+array_sequences_c.h		dfa_c.h				identity_uint8_c.h		ltedfapegtest_c.c		sets_c.h
+bit_c.c				dfa_c.plist			identity_uint8_c.plist		ltedfapegtest_c.h		sets_c.plist
+bit_c.h				empty_bv_c.c			integer_bv_ops_c.c		ltedfapegtest_c.plist		strings_c.c
+bv_arith_nat_defs_c.c		empty_bv_c.h			integer_bv_ops_c.h		ltedfapegtest_m.c		strings_c.h
+bv_arith_nat_defs_c.h		euclidean_division_c.c		integertypes_c.c		ltedfapegtest_m.c~		strings_c.plist
+bv_arithmetic_defs_c.c		euclidean_division_c.h		integertypes_c.h		ltedfapegtest_m.plist		tostring_c.c
+bv_arithmetic_defs_c.h		euclidean_division_c.plist	integertypes_c.plist		modulo_arithmetic_c.c		tostring_c.h
+bv_bitwise_c.c			exp2_c.c			irModel.json			modulo_arithmetic_c.h		transpose_c.c
+bv_bitwise_c.h			exp2_c.h			lex2_c.c			modulo_arithmetic_c.plist	transpose_c.h
+bv_c.c				exp2_c.plist			lex2_c.h			more_finseq_c.c			union_adt_c.c
+bv_c.h				extend_bool_c.c			lex2_c.plist			more_finseq_c.h			union_adt_c.h
+bv_caret_c.c			extend_bool_c.h			lex3_c.c			ordinals_c.c			xor_def_c.c
+bv_caret_c.h			file_c.c			lex3_c.h			ordinals_c.h			xor_def_c.h
+bv_concat_def_c.c		file_c.h			lex4_c.c			ordinals_c.plist
+bv_concat_def_c.h		file_c.plist			lex4_c.h			ordstruct_adt_c.c
+bv_extend_defs_c.c		filters_c.c			lift_adt_c.c			ordstruct_adt_c.h
+bv_extend_defs_c.h		filters_c.h			lift_adt_c.h			ordstruct_adt_c.plist
+(base) CSL-CAS16442:pegparser-2-24 e21660$ ls *.plist
+arrayCount_c.plist		exp2_c.plist			integertypes_c.plist		ltedfapegtest_m.plist		real_defs_c.plist
+bytestrings_c.plist		file_c.plist			lex2_c.plist			modulo_arithmetic_c.plist	sets_c.plist
+character_adt_c.plist		gen_strings_c.plist		ltedfapeg_c.plist		ordinals_c.plist		strings_c.plist
+dfa_c.plist			identity_c.plist		ltedfapegproof_c.plist		ordstruct_adt_c.plist
+euclidean_division_c.plist	identity_uint8_c.plist		ltedfapegtest_c.plist		pvslib.plist
+You have mail in /var/mail/e21660
+(base) CSL-CAS16442:pegparser-2-24 e21660$ 

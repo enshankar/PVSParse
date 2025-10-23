@@ -1,0 +1,31 @@
+
+\usepackage{listings}
+%% Gestion des codes sources
+\lstdefinelanguage{PVS}{
+   morekeywords={AND, CONJECTURE, FACT, LET, TABLE, ANDTHEN, CONTAINING, FALSE, LIBRARY, THEN, ARRAY, CONVERSION, FORALL, MACRO, THEOREM, ASSUMING, CONVERSION+, FORMULA, MEASURE, THEORY, ASSUMPTION, CONVERSION-, FROM, NONEMPTY, TYPE, TRUE, AUTO, REWRITE, COROLLARY, FUNCTION, NOT, TYPE, AUTO, REWRITE+, DATATYPE, HAS, TYPE, O, TYPE+, AUTO, REWRITE-, ELSE, IF, OBLIGATION, VAR, AXIOM, ELSIF, IFF, OF, WHEN, BEGIN, END, IMPLIES, OR, WHERE, BUT, ENDASSUMING, IMPORTING, ORELSE, WITH, BY, ENDCASES, IN, POSTULATE, XOR, CASES, ENDCOND, INDUCTIVE, PROPOSITION, CHALLENGE, ENDIF, JUDGEMENT, RECURSIVE, CLAIM, ENDTABLE, LAMBDA, SUBLEMMA, CLOSURE, EXISTS, LAW, SUBTYPES, COND, EXPORTING, LEMMA, SUBTYPE, OF},
+    sensitive=false, % keywords are not case-sensitive
+    morecomment=[l]{\%}, % l is for line comment
+    morestring=[b]" % defines that strings are enclosed in double quotes
+}
+\definecolor{gainsboro}{rgb}{0.86, 0.86, 0.86}
+\lstset{keepspaces=true}
+\lstset{columns=fixed}
+\lstset{linewidth=.99\linewidth}
+\lstset {
+	basicstyle=\small\smaller\ttfamily,
+	keywordstyle=\color{purple},
+	commentstyle=\color{red},
+	breaklines,
+	breakindent=0.7em,
+	backgroundcolor=\color{gainsboro},
+    %numbers=left,
+    tabsize=2,
+    %stepnumber=1,
+	frame=single,
+    inputencoding=utf8,
+    extendedchars=true,
+	literate={\ \ }{{\ }}1 {ε}{{$\epsilon$}}1 {λ}{{$\lambda$}}1 {∀}{{$\forall$}}1 {⇒}{{$\Rightarrow$ }}1 {∧}{{$\wedge$ }}1 {∨}{{$\vee$ }}1 {Δ}{{$\Delta$}}1 {⇔}{{ $\iff$ }}1 {ω}{{$\omega$ }}1  {⊥}{{$\bot$ }}1 {⊤}{{$\top$ }}1
+}
+\newcommand{\lstin}[1]{\lstinline[language=PVS]{#1}}
+
+

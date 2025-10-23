@@ -1,0 +1,194 @@
+//Code generated using pvs2ir
+#ifndef _arrayCount_h 
+#define _arrayCount_h
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <inttypes.h>
+
+#include <stdbool.h>
+
+#include <stdarg.h>
+
+#include <string.h>
+
+#include <math.h>
+
+#include <gmp.h>
+
+#include "pvslib.h"
+
+#include "sets_c.h"
+
+//cc -O3 -Wall -o arrayCount -I /Users/e21660/shankar/pvs.git/src/groundeval/ /Users/e21660/shankar/pvs.git/src/groundeval/pvslib.c  -I /Users/e21660/shankar/pvs.git/lib /Users/e21660/shankar/pvs.git/lib/sets_c.c arrayCount_c.c -lgmp 
+
+typedef pointer_t arrayCount__T_t;
+
+struct arrayCount_funtype_0_s;
+        typedef struct arrayCount_funtype_0_s * arrayCount_funtype_0_t;
+
+struct arrayCount_funtype_0_ftbl_s {bool_t (* fptr)(struct arrayCount_funtype_0_s *, arrayCount__T_t);
+        bool_t (* mptr)(struct arrayCount_funtype_0_s *, arrayCount__T_t);
+        void (* rptr)(struct arrayCount_funtype_0_s *);
+        struct arrayCount_funtype_0_s * (* cptr)(struct arrayCount_funtype_0_s *);};
+typedef struct arrayCount_funtype_0_ftbl_s * arrayCount_funtype_0_ftbl_t;
+
+struct arrayCount_funtype_0_hashentry_s {uint32_t keyhash; arrayCount__T_t key; bool_t value;}; 
+typedef struct arrayCount_funtype_0_hashentry_s arrayCount_funtype_0_hashentry_t;
+
+struct arrayCount_funtype_0_htbl_s {uint32_t size; uint32_t num_entries; arrayCount_funtype_0_hashentry_t * data;}; 
+typedef struct arrayCount_funtype_0_htbl_s * arrayCount_funtype_0_htbl_t;
+
+struct arrayCount_funtype_0_s {uint32_t count;
+        arrayCount_funtype_0_ftbl_t ftbl;
+        arrayCount_funtype_0_htbl_t htbl;};
+typedef struct arrayCount_funtype_0_s * arrayCount_funtype_0_t;
+
+extern void release_arrayCount_funtype_0(arrayCount_funtype_0_t x, type_actual_t arrayCount__T);
+
+extern arrayCount_funtype_0_t copy_arrayCount_funtype_0(arrayCount_funtype_0_t x);
+
+extern bool_t equal_arrayCount_funtype_0(arrayCount_funtype_0_t x, arrayCount_funtype_0_t y, type_actual_t arrayCount__T);
+
+
+
+struct arrayCount_funtype_1_s;
+        typedef struct arrayCount_funtype_1_s * arrayCount_funtype_1_t;
+
+struct arrayCount_funtype_1_ftbl_s {arrayCount__T_t (* fptr)(struct arrayCount_funtype_1_s *, mpz_ptr_t);
+        arrayCount__T_t (* mptr)(struct arrayCount_funtype_1_s *, mpz_ptr_t);
+        void (* rptr)(struct arrayCount_funtype_1_s *);
+        struct arrayCount_funtype_1_s * (* cptr)(struct arrayCount_funtype_1_s *);};
+typedef struct arrayCount_funtype_1_ftbl_s * arrayCount_funtype_1_ftbl_t;
+
+struct arrayCount_funtype_1_hashentry_s {uint32_t keyhash; mpz_ptr_t key; arrayCount__T_t value;}; 
+typedef struct arrayCount_funtype_1_hashentry_s arrayCount_funtype_1_hashentry_t;
+
+struct arrayCount_funtype_1_htbl_s {uint32_t size; uint32_t num_entries; arrayCount_funtype_1_hashentry_t * data;}; 
+typedef struct arrayCount_funtype_1_htbl_s * arrayCount_funtype_1_htbl_t;
+
+struct arrayCount_funtype_1_s {uint32_t count;
+        arrayCount_funtype_1_ftbl_t ftbl;
+        arrayCount_funtype_1_htbl_t htbl;};
+typedef struct arrayCount_funtype_1_s * arrayCount_funtype_1_t;
+
+extern void release_arrayCount_funtype_1(arrayCount_funtype_1_t x, type_actual_t arrayCount__T);
+
+extern arrayCount_funtype_1_t copy_arrayCount_funtype_1(arrayCount_funtype_1_t x);
+
+uint32_t lookup_arrayCount_funtype_1(arrayCount_funtype_1_htbl_t htbl, mpz_ptr_t i, uint32_t ihash);
+
+arrayCount_funtype_1_t dupdate_arrayCount_funtype_1(arrayCount_funtype_1_t a, mpz_ptr_t i, arrayCount__T_t v, type_actual_t arrayCount__T);
+
+extern arrayCount_funtype_1_t update_arrayCount_funtype_1(arrayCount_funtype_1_t a, mpz_ptr_t i, arrayCount__T_t v, type_actual_t arrayCount__T);
+
+extern bool_t equal_arrayCount_funtype_1(arrayCount_funtype_1_t x, arrayCount_funtype_1_t y, type_actual_t arrayCount__T);
+
+
+
+struct arrayCount_funtype_2_s;
+        typedef struct arrayCount_funtype_2_s * arrayCount_funtype_2_t;
+
+struct arrayCount_funtype_2_ftbl_s {mpz_ptr_t (* fptr)(struct arrayCount_funtype_2_s *, arrayCount_funtype_1_t);
+        mpz_ptr_t (* mptr)(struct arrayCount_funtype_2_s *, arrayCount_funtype_1_t);
+        void (* rptr)(struct arrayCount_funtype_2_s *);
+        struct arrayCount_funtype_2_s * (* cptr)(struct arrayCount_funtype_2_s *);};
+typedef struct arrayCount_funtype_2_ftbl_s * arrayCount_funtype_2_ftbl_t;
+
+struct arrayCount_funtype_2_hashentry_s {uint32_t keyhash; arrayCount_funtype_1_t key; mpz_t value;}; 
+typedef struct arrayCount_funtype_2_hashentry_s arrayCount_funtype_2_hashentry_t;
+
+struct arrayCount_funtype_2_htbl_s {uint32_t size; uint32_t num_entries; arrayCount_funtype_2_hashentry_t * data;}; 
+typedef struct arrayCount_funtype_2_htbl_s * arrayCount_funtype_2_htbl_t;
+
+struct arrayCount_funtype_2_s {uint32_t count;
+        arrayCount_funtype_2_ftbl_t ftbl;
+        arrayCount_funtype_2_htbl_t htbl;};
+typedef struct arrayCount_funtype_2_s * arrayCount_funtype_2_t;
+
+extern void release_arrayCount_funtype_2(arrayCount_funtype_2_t x, type_actual_t arrayCount__T);
+
+extern arrayCount_funtype_2_t copy_arrayCount_funtype_2(arrayCount_funtype_2_t x);
+
+extern bool_t equal_arrayCount_funtype_2(arrayCount_funtype_2_t x, arrayCount_funtype_2_t y, type_actual_t arrayCount__T);
+
+
+
+struct arrayCount_funtype_3_s;
+        typedef struct arrayCount_funtype_3_s * arrayCount_funtype_3_t;
+
+struct arrayCount_funtype_3_ftbl_s {arrayCount_funtype_2_t (* fptr)(struct arrayCount_funtype_3_s *, arrayCount_funtype_0_t);
+        arrayCount_funtype_2_t (* mptr)(struct arrayCount_funtype_3_s *, arrayCount_funtype_0_t);
+        void (* rptr)(struct arrayCount_funtype_3_s *);
+        struct arrayCount_funtype_3_s * (* cptr)(struct arrayCount_funtype_3_s *);};
+typedef struct arrayCount_funtype_3_ftbl_s * arrayCount_funtype_3_ftbl_t;
+
+struct arrayCount_funtype_3_hashentry_s {uint32_t keyhash; arrayCount_funtype_0_t key; arrayCount_funtype_2_t value;}; 
+typedef struct arrayCount_funtype_3_hashentry_s arrayCount_funtype_3_hashentry_t;
+
+struct arrayCount_funtype_3_htbl_s {uint32_t size; uint32_t num_entries; arrayCount_funtype_3_hashentry_t * data;}; 
+typedef struct arrayCount_funtype_3_htbl_s * arrayCount_funtype_3_htbl_t;
+
+struct arrayCount_funtype_3_s {uint32_t count;
+        arrayCount_funtype_3_ftbl_t ftbl;
+        arrayCount_funtype_3_htbl_t htbl;};
+typedef struct arrayCount_funtype_3_s * arrayCount_funtype_3_t;
+
+extern void release_arrayCount_funtype_3(arrayCount_funtype_3_t x, type_actual_t arrayCount__T);
+
+extern arrayCount_funtype_3_t copy_arrayCount_funtype_3(arrayCount_funtype_3_t x);
+
+extern bool_t equal_arrayCount_funtype_3(arrayCount_funtype_3_t x, arrayCount_funtype_3_t y, type_actual_t arrayCount__T);
+
+
+
+
+struct arrayCount_closure_4_s;
+        typedef struct arrayCount_closure_4_s * arrayCount_closure_4_t;
+
+struct arrayCount_closure_4_s {uint32_t count;
+         arrayCount_funtype_3_ftbl_t ftbl;
+         arrayCount_funtype_3_htbl_t htbl;
+        type_actual_t fvar_1;};
+
+arrayCount_funtype_2_t f_arrayCount_closure_4(struct arrayCount_closure_4_s * closure, arrayCount_funtype_0_t bvar);
+
+arrayCount_funtype_2_t m_arrayCount_closure_4(struct arrayCount_closure_4_s * closure, arrayCount_funtype_0_t bvar);
+
+extern arrayCount_funtype_2_t h_arrayCount_closure_4(arrayCount_funtype_0_t ivar_6, type_actual_t arrayCount__T);
+
+extern arrayCount_closure_4_t new_arrayCount_closure_4(void);
+
+extern void release_arrayCount_closure_4(arrayCount_funtype_3_t closure, type_actual_t arrayCount__T);
+
+extern arrayCount_closure_4_t copy_arrayCount_closure_4(arrayCount_closure_4_t x);
+
+
+
+
+struct arrayCount_closure_5_s;
+        typedef struct arrayCount_closure_5_s * arrayCount_closure_5_t;
+
+struct arrayCount_closure_5_s {uint32_t count;
+         arrayCount_funtype_2_ftbl_t ftbl;
+         arrayCount_funtype_2_htbl_t htbl;
+        type_actual_t fvar_1;};
+
+mpz_ptr_t f_arrayCount_closure_5(struct arrayCount_closure_5_s * closure, arrayCount_funtype_1_t bvar);
+
+mpz_ptr_t m_arrayCount_closure_5(struct arrayCount_closure_5_s * closure, arrayCount_funtype_1_t bvar);
+
+extern mpz_ptr_t h_arrayCount_closure_5(arrayCount_funtype_1_t ivar_10, type_actual_t arrayCount__T);
+
+extern arrayCount_closure_5_t new_arrayCount_closure_5(void);
+
+extern void release_arrayCount_closure_5(arrayCount_funtype_2_t closure, type_actual_t arrayCount__T);
+
+extern arrayCount_closure_5_t copy_arrayCount_closure_5(arrayCount_closure_5_t x);
+
+
+
+extern arrayCount_funtype_3_t arrayCount__count(type_actual_t arrayCount__T, mpz_ptr_t ivar_1);
+#endif

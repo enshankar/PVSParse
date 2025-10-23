@@ -1,0 +1,3 @@
+lang_spec: TYPE = [non_terminal -> peg]
+
+G: VAR lang_spec

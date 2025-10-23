@@ -1,0 +1,64 @@
+(testlist
+ (nthrev32_TCC1 0
+  (nthrev32_TCC1-1 nil 3875481316
+   ("" (grind :rewrites "length_reverse") nil nil)
+   ((length_reverse formula-decl nil list_props nil)) nil
+   (nthrev32 subtype "testlist.i"
+    "below[length[uint32](reverse[uint32](l32))]")))
+ (nthrevnat_TCC1 0
+  (nthrevnat_TCC1-1 nil 3875481316
+   ("" (grind :rewrites "length_reverse") nil nil)
+   ((length_reverse formula-decl nil list_props nil)) nil
+   (nthrevnat subtype "testlist.i"
+    "below[length[nat](reverse[nat](lnat))]")))
+ (nthrevreal_TCC1 0
+  (nthrevreal_TCC1-1 nil 3875481316
+   ("" (grind :rewrites "length_reverse") nil nil)
+   ((length_reverse formula-decl nil list_props nil)) nil
+   (nthrevreal subtype "testlist.i"
+    "below[length[real](reverse[real](lreal))]")))
+ (nthrevfin_TCC1 0
+  (nthrevfin_TCC1-1 nil 3875481316
+   ("" (grind :rewrites "length_reverse") nil nil)
+   ((length_reverse formula-decl nil list_props nil)) nil
+   (nthrevfin subtype "testlist.i"
+    "below[length[finseq[uint32]](reverse[finseq[uint32]](lfin))]")))
+ (testnthrev32_TCC1 0
+  (testnthrev32_TCC1-1 nil 3875488055 ("" (grind) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (length def-decl "nat" list_props nil))
+   nil
+   (testnthrev32 subtype "3"
+    "naturalnumbers.below(list_props[uint32].length((: 0, 1, 2, 3, 4, 5 :)))")))
+ (testnthrevnat_TCC1 0
+  (testnthrevnat_TCC1-1 nil 3875488055 ("" (grind) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (length def-decl "nat" list_props nil))
+   nil
+   (testnthrevnat subtype "4"
+    "naturalnumbers.below(list_props[nat].length((: 0, 1, 2, 3, 4793013040015022, 5 :)))")))
+ (testnthrevreal_TCC1 0
+  (testnthrevreal_TCC1-1 nil 3875488055 ("" (grind) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (posrat_div_posrat_is_posrat application-judgement "posrat"
+     rationals nil)
+    (minus_nzint_is_nzint application-judgement "nzint" integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (length def-decl "nat" list_props nil))
+   nil
+   (testnthrevreal subtype "5"
+    "naturalnumbers.below(list_props[real].length((: 0, number_fields./(1, 2), number_fields./(1, 3), number_fields./(1, 4), number_fields./(1, 17), number_fields./(1, 31) :)))")))
+ (testnthrevfin_TCC1 0
+  (testnthrevfin_TCC1-1 nil 3875488055 ("" (subtype-tcc) nil nil) nil
+   nil
+   (testnthrevfin subtype "4"
+    "naturalnumbers.below(list_props[finseq[uint32]].length((: list2finseq[uint32].list2finseq((: 0 :)), list2finseq[uint32].list2finseq((: 0, 1 :)), list2finseq[uint32].list2finseq((: 0, 1, 2 :)), list2finseq[uint32].list2finseq((: 0, 1, 2, 3 :)), list2finseq[uint32].list2finseq((: 0, 1, 2, 3, 4 :)) :)))"))))
+

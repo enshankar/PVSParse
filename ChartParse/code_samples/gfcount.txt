@@ -1,0 +1,5 @@
+pushcount(len, (A: scaffold(len))): uint64 = scafcount(len, A, push?, len)
+
+good_or_fail?(entry: ent): bool = (good?(entry) OR fail?(entry))
+
+gfcount(len, (A: scaffold(len))): uint64 = scafcount(len, A, good_or_fail?, len)

@@ -1,0 +1,76 @@
+//Code generated using pvs2ir
+#ifndef _useusepoly_h 
+#define _useusepoly_h
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <inttypes.h>
+
+#include <stdbool.h>
+
+#include <string.h>
+
+#include <math.h>
+
+#include <gmp.h>
+
+#include "pvslib.h"
+
+#include "usepoly_c.h"
+
+#include "poly_c.h"
+
+#include "integertypes_c.h"
+
+#include "exp2_c.h"
+
+#include "modulo_arithmetic_c.h"
+
+#include "euclidean_division_c.h"
+
+//cc -O3 -Wall -o useusepoly -I /Users/e21660 1 2 3/shankar/pvs.git/src/groundeval/ pvslib.c  useusepoly_c.c usepoly_c.c poly_c.c integertypes_c.c exp2_c.c modulo_arithmetic_c.c euclidean_division_c.c -lgmp 
+
+struct useusepoly_array_0_s { uint32_t count;
+        uint16_t size;
+         uint64_t elems[]; };
+typedef struct useusepoly_array_0_s * useusepoly_array_0_t;
+
+extern useusepoly_array_0_t new_useusepoly_array_0(uint16_t size);
+
+extern void release_useusepoly_array_0(useusepoly_array_0_t x);
+
+extern useusepoly_array_0_t copy_useusepoly_array_0(useusepoly_array_0_t x);
+
+extern bool_t equal_useusepoly_array_0(useusepoly_array_0_t x, useusepoly_array_0_t y);
+struct type_actual_s actual_useusepoly_array_0 = {(*equal_useusepoly_array_0), (*release_useusepoly_array_0)};
+
+extern useusepoly_array_0_t update_useusepoly_array_0(useusepoly_array_0_t x, uint32_t i, uint64_t v);
+
+
+
+struct useusepoly_array_1_s { uint32_t count;
+        uint16_t size;
+         useusepoly_array_0_t elems[]; };
+typedef struct useusepoly_array_1_s * useusepoly_array_1_t;
+
+extern useusepoly_array_1_t new_useusepoly_array_1(uint16_t size);
+
+extern void release_useusepoly_array_1(useusepoly_array_1_t x);
+
+extern useusepoly_array_1_t copy_useusepoly_array_1(useusepoly_array_1_t x);
+
+extern bool_t equal_useusepoly_array_1(useusepoly_array_1_t x, useusepoly_array_1_t y);
+struct type_actual_s actual_useusepoly_array_1 = {(*equal_useusepoly_array_1), (*release_useusepoly_array_1)};
+
+extern useusepoly_array_1_t update_useusepoly_array_1(useusepoly_array_1_t x, uint32_t i, useusepoly_array_0_t v);
+
+
+
+extern useusepoly_array_0_t useusepoly__box64(void);
+
+extern useusepoly_array_0_t useusepoly__square(uint8_t ivar_1);
+
+extern uint64_t useusepoly__test(void);
+#endif

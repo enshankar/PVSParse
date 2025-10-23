@@ -1,0 +1,93 @@
+tseitin  : THEORY
+
+  BEGIN
+
+    bfmla: DATATYPE
+    BEGIN
+      bvar(index: nat): bvar?
+      bneg(body: bfmla): neg?
+      band(left, right: bfmla): band?
+      bor(left, right: bfmla): bor?
+      bimplies(left, right: bfmla): bimplies?
+      biff(left, right: bfmla): biff?
+    END bfmla
+
+    A, B, C: VAR bfmla
+
+    max: VAR nat
+
+    wfbfmla?(max)(A: bfmla): RECURSIVE bool =
+     CASES A OF
+       bvar(i): i < max,
+       bneg(B): wfbfmla?(max)(B)
+       band(B, C): wfbfmla?(max)(B) AND wfbfmla?(max)(C),
+       bor(B, C): wfbfmla?(max)(B) AND wfbfmla?(max)(C),
+       bimplies(B, C): wfbfmla?(max)(B) AND wfbfmla?(max)(C),
+       biff(B, C): wfbfmla?(max)(B) AND wfbfmla?(max)(C)
+     ENDCASES
+
+     wfbfmla(max): TYPE = (wfbfmla?(max))
+
+     assignment: TYPE = [nat -> bool]
+     R: VAR assignment
+
+    meaning(A, R): RECURSIVE bool =
+     CASES A OF
+       bvar(i): R(i),
+       bneg(B): NOT meaning(B, R),
+       band(B, C): meaning(B, R) AND meaning(C, R)
+       bor(B, C): meaning(B, R) OR meaning(C, R),
+       bimplies(B, C): meaning(B, R) IMPLIES meaning(C, R)
+       biff(B, C): meaning(B, R) = meaning(C, R)
+     ENDCASES
+
+     literal(max): TYPE = {i : nzint | abs(i) <= max}
+     clause(max): TYPE = finseq[literal(max)]
+     Cset(max): TYPE = list[clause(max)]
+
+     litvalue(max, (l: literal(max), R): bool = IF l > 0 THEN R(l-1) ELSE R(l + 1) ENDIF
+     clausevalue(max, (K: Cset(max)), R): bool =
+       (EXISTS (i: below(K`size)): litvalue(K(i), R))
+
+     value(max, (G: clause(max)), R): RECURSIVE bool =
+        (CASES G OF
+	  null: TRUE,
+	  cons(K, H): clausevalue(K, R) AND value(H, R)
+	  ENDCASES)
+	  MEASURE G BY <<
+
+      defn: TYPE = {A | CASES A OF bvar(i): TRUE, bneg(B): bvar?(B) ELSE bvar?(left(A)) and bvar?(right(A))}
+
+      entry: TYPE = [# fmla: bfmla, eq: 
+
+      wflist(max): TYPE = {AA | every?(wfbfmla?(max))(AA)}
+      
+
+      output(max, (A: wfbfmla(max)), (AA: flist(max))): TYPE =
+           [# newmax: upfrom(max0,
+	      newflist: flist(newmax)
+
+     
+
+     % output(max, (A: wfbfmla(max)), (G: Cset(max))): TYPE =
+     %    [# newmax: nat,
+     % 	   newCset: {H : Cset(newmax) | (FORALL R: value(H, R) = value(A, R) AND value(G, R))},
+     % 	   topvar: {i: below(newmax) | (FORALL R: value(H, R) IMPLIES R(i) = meaning(A, R))}
+     % 	   #]
+
+
+     % cnf(max, (A | wfbfmla?(A, max)), G): RECURSIVE output(max, A, G)
+     %   =
+     %   CASES A OF
+     %     bvar(i): (A, H),
+     % 	 bneg(B): (# newmax := max + 1,
+     % 	             newCset := cons(max + 1, H),
+     % 		     topvar := max #),
+     %     band(B, C): LET OB = cnf(max, B, G),
+     % 	                 OC = cnf(OB`newmax, C, OB`newCset)
+     % 	             IN (# newmax := OC`newmax  + 1,
+     % 		            newCset := cons(OC`Cset 
+       ENDCASES
+     
+
+  END tseitin

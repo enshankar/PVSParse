@@ -1,0 +1,177 @@
+//Code generated using pvs2ir
+#ifndef _hsummation_h 
+#define _hsummation_h
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <inttypes.h>
+
+#include <stdbool.h>
+
+#include <string.h>
+
+#include <math.h>
+
+#include <gmp.h>
+
+#include "pvslib.h"
+
+//cc -O3 -Wall -o hsummation pvslib.c  hsummation_c.c -lgmp 
+
+struct hsummation_funtype_0_s;
+        typedef struct hsummation_funtype_0_s * hsummation_funtype_0_t;
+
+struct hsummation_funtype_0_ftbl_s {mpz_ptr_t (* fptr)(struct hsummation_funtype_0_s *, mpz_t);
+        mpz_ptr_t (* mptr)(struct hsummation_funtype_0_s *, mpz_t);
+        void (* rptr)(struct hsummation_funtype_0_s *);
+        struct hsummation_funtype_0_s * (* cptr)(struct hsummation_funtype_0_s *);};
+typedef struct hsummation_funtype_0_ftbl_s * hsummation_funtype_0_ftbl_t;
+
+struct hsummation_funtype_0_hashentry_s {uint32_t keyhash; mpz_t key; mpz_t value;}; 
+typedef struct hsummation_funtype_0_hashentry_s hsummation_funtype_0_hashentry_t;
+
+struct hsummation_funtype_0_htbl_s {uint32_t size; uint32_t num_entries; hsummation_funtype_0_hashentry_t * data;}; 
+typedef struct hsummation_funtype_0_htbl_s * hsummation_funtype_0_htbl_t;
+
+struct hsummation_funtype_0_s {uint32_t count;
+        hsummation_funtype_0_ftbl_t ftbl;
+        hsummation_funtype_0_htbl_t htbl;};
+typedef struct hsummation_funtype_0_s * hsummation_funtype_0_t;
+
+extern void release_hsummation_funtype_0(hsummation_funtype_0_t x);
+
+extern hsummation_funtype_0_t copy_hsummation_funtype_0(hsummation_funtype_0_t x);
+
+
+
+
+struct hsummation_closure_1_s;
+        typedef struct hsummation_closure_1_s * hsummation_closure_1_t;
+
+struct hsummation_closure_1_s {uint32_t count;
+         hsummation_funtype_0_ftbl_t ftbl;
+         hsummation_funtype_0_htbl_t htbl;
+        hsummation_funtype_0_t fvar_1;};
+
+mpz_ptr_t f_hsummation_closure_1(struct hsummation_closure_1_s * closure, mpz_t bvar);
+
+mpz_ptr_t m_hsummation_closure_1(struct hsummation_closure_1_s * closure, mpz_t bvar);
+
+extern mpz_ptr_t h_hsummation_closure_1(mpz_t ivar_2, hsummation_funtype_0_t ivar_1);
+
+extern hsummation_closure_1_t new_hsummation_closure_1(void);
+
+extern void release_hsummation_closure_1(hsummation_funtype_0_t closure);
+
+extern hsummation_closure_1_t copy_hsummation_closure_1(hsummation_closure_1_t x);
+
+
+
+
+struct hsummation_closure_2_s;
+        typedef struct hsummation_closure_2_s * hsummation_closure_2_t;
+
+struct hsummation_closure_2_s {uint32_t count;
+         hsummation_funtype_0_ftbl_t ftbl;
+         hsummation_funtype_0_htbl_t htbl;};
+
+mpz_ptr_t f_hsummation_closure_2(struct hsummation_closure_2_s * closure, mpz_t bvar);
+
+mpz_ptr_t m_hsummation_closure_2(struct hsummation_closure_2_s * closure, mpz_t bvar);
+
+extern mpz_ptr_t h_hsummation_closure_2(mpz_t ivar_6);
+
+extern hsummation_closure_2_t new_hsummation_closure_2(void);
+
+extern void release_hsummation_closure_2(hsummation_funtype_0_t closure);
+
+extern hsummation_closure_2_t copy_hsummation_closure_2(hsummation_closure_2_t x);
+
+
+
+
+struct hsummation_closure_3_s;
+        typedef struct hsummation_closure_3_s * hsummation_closure_3_t;
+
+struct hsummation_closure_3_s {uint32_t count;
+         hsummation_funtype_0_ftbl_t ftbl;
+         hsummation_funtype_0_htbl_t htbl;};
+
+mpz_ptr_t f_hsummation_closure_3(struct hsummation_closure_3_s * closure, mpz_t bvar);
+
+mpz_ptr_t m_hsummation_closure_3(struct hsummation_closure_3_s * closure, mpz_t bvar);
+
+extern mpz_ptr_t h_hsummation_closure_3(mpz_t ivar_6);
+
+extern hsummation_closure_3_t new_hsummation_closure_3(void);
+
+extern void release_hsummation_closure_3(hsummation_funtype_0_t closure);
+
+extern hsummation_closure_3_t copy_hsummation_closure_3(hsummation_closure_3_t x);
+
+
+
+
+struct hsummation_closure_4_s;
+        typedef struct hsummation_closure_4_s * hsummation_closure_4_t;
+
+struct hsummation_closure_4_s {uint32_t count;
+         hsummation_funtype_0_ftbl_t ftbl;
+         hsummation_funtype_0_htbl_t htbl;};
+
+mpz_ptr_t f_hsummation_closure_4(struct hsummation_closure_4_s * closure, mpz_t bvar);
+
+mpz_ptr_t m_hsummation_closure_4(struct hsummation_closure_4_s * closure, mpz_t bvar);
+
+extern mpz_ptr_t h_hsummation_closure_4(mpz_t ivar_6);
+
+extern hsummation_closure_4_t new_hsummation_closure_4(void);
+
+extern void release_hsummation_closure_4(hsummation_funtype_0_t closure);
+
+extern hsummation_closure_4_t copy_hsummation_closure_4(hsummation_closure_4_t x);
+
+
+
+
+struct hsummation_closure_5_s;
+        typedef struct hsummation_closure_5_s * hsummation_closure_5_t;
+
+struct hsummation_closure_5_s {uint32_t count;
+         hsummation_funtype_0_ftbl_t ftbl;
+         hsummation_funtype_0_htbl_t htbl;};
+
+mpz_ptr_t f_hsummation_closure_5(struct hsummation_closure_5_s * closure, mpz_t bvar);
+
+mpz_ptr_t m_hsummation_closure_5(struct hsummation_closure_5_s * closure, mpz_t bvar);
+
+extern mpz_ptr_t h_hsummation_closure_5(mpz_t ivar_6);
+
+extern hsummation_closure_5_t new_hsummation_closure_5(void);
+
+extern void release_hsummation_closure_5(hsummation_funtype_0_t closure);
+
+extern hsummation_closure_5_t copy_hsummation_closure_5(hsummation_closure_5_t x);
+
+
+
+extern hsummation_funtype_0_t hsummation_hsum(hsummation_funtype_0_t ivar_1);
+
+extern mpz_ptr_t hsummation_id(mpz_t ivar_1);
+
+extern mpz_ptr_t hsummation_square(mpz_t ivar_1);
+
+extern mpz_ptr_t hsummation_cube(mpz_t ivar_1);
+
+extern mpz_ptr_t hsummation_quart(mpz_t ivar_1);
+
+extern mpz_ptr_t hsummation_sum_id(mpz_t ivar_1);
+
+extern mpz_ptr_t hsummation_sum_square(mpz_t ivar_1);
+
+extern mpz_ptr_t hsummation_sum_cube(mpz_t ivar_1);
+
+extern mpz_ptr_t hsummation_sum_quart(mpz_t ivar_1);
+#endif

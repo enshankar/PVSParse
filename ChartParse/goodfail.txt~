@@ -1,0 +1,21 @@
+good_fail?(len, G, (s: strings(len)))
+          ((A: scaffold(len)), (i : upto(len)),
+           n, (d: uint64))
+  : bool =
+  (CASES G(n) OF
+     any(p): (i = len OR NOT p(s(i))) AND d = 0,
+     terminal(a): (i = len OR a /= s(i)) AND d = 0,
+     concat(n1, n2):
+        (fail?(A(i)(n1)) AND d = 1 + dep(A(i)(n1)))
+        OR (good?(A(i)(n1)) AND 
+            fail?(A(i + span(A(i)(n1)))(n2)) AND
+            d = 1 + max(dep(A(i)(n1)),
+                        dep(A(i + span(A(i)(n1)))(n2)))),
+     choice(n1, n2): fail?(A(i)(n1)) AND fail?(A(i)(n2))
+                     AND d = 1 + max(dep(A(i)(n1)),
+                                     dep(A(i)(n2))),
+     check(n1): fail?(A(i)(n1)) AND d = 1 + dep(A(i)(n1)),
+     neg(n1): good?(A(i)(n1)) AND d = 1 + dep(A(i)(n1)),
+     failure: d = 0
+     ELSE FALSE
+  ENDCASES)

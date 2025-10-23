@@ -1,0 +1,24 @@
+good_good_entry?(len, (pos: upto(len)))
+                (x: (good?)): bool
+   =  (pos + span(x) <= len)
+
+good_push_entry?(len)(x: ent): bool
+   = (push?(x) AND pos(x) <= len AND
+      nt(x) <= num_non_terminals)
+
+fine_push_entry?(len)(x: ent): bool
+   = good_push_entry?(len)(x) AND
+     nt(x) < num_non_terminals
+
+nice_entry?(len, (pos: upto(len)))(x: ent): bool
+   = (good?(x) => good_good_entry?(len, pos)(x))
+      AND (push?(x) => good_push_entry?(len)(x))
+    
+m, n: VAR non_terminal
+
+loop_or_push?(e: ent): bool
+   = (loop?(e) or push?(e))
+
+push_or_pending?(entry: ent): bool 
+   = push?(entry) OR pending?(entry)
+

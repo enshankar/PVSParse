@@ -1,0 +1,24 @@
+good_good?(len, G, (s: strings(len)))
+                 ((A: scaffold(len)), (i: upto(len)),
+                    n, (d: uint64), (sp :upto(len - i)))
+   : bool =
+ (CASES G(n) OF
+    epsilon: sp = 0 AND d = 0,
+    any(p): sp = 1 AND p(s(i)) AND d = 0,
+    terminal(a): sp = 1 AND s(i) = a AND d = 0,
+    concat(n1, n2):
+        good?(A(i)(n1)) AND
+        good?(A(i + span(A(i)(n1)))(n2)) AND
+        d = 1 + max(dep(A(i)(n1)),
+                                dep(A(i + span(A(i)(n1)))(n2))),
+    choice(n1, n2):
+        (good?(A(i)(n1)) AND d = 1 + dep(A(i)(n1)))
+         OR (fail?(A(i)(n1)) AND good?(A(i)(n2))
+         AND d = 1 + max(dep(A(i)(n1)),
+                                      dep(A(i)(n2)))),
+    check(n1): good?(A(i)(n1)) AND sp = 0
+                        AND d = 1 + dep(A(i)(n1)),
+    neg(n1): fail?(A(i)(n1)) AND sp = 0
+                    AND d = 1 + dep(A(i)(n1)),
+    failure: FALSE
+  ENDCASES)

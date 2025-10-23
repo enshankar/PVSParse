@@ -1,0 +1,13 @@
+good_good_tscaffold: LEMMA
+  (FORALL (s: strings(len)), (A: scaffold(len)),
+               (pos: upto(len)), (nt: non_terminal),
+               (u: (nice_entry?(len, pos))):
+   push_or_pending?(A(pos)(nt)) AND
+   good_tscaffold?(len, G, s)(A) AND
+   fine_entry?(len, G, s)(A, pos, nt, u) AND
+   (FORALL (j: upto(len)), m: loop?(A(j)(m))
+      IMPLIES
+        loop_ready?(len, G, A, pos, nt))
+   IMPLIES
+   good_tscaffold?(len, G, s)
+                               (A WITH [(pos)(nt):= u]))

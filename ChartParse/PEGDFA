@@ -1,0 +1,44 @@
+  We need to extend the current LTE framework in a number of directions.
+1. Replacing the ad hoc DFA with a format for specifying regex-like grammars
+2. The current lte grammar uses Chomsky Normal Form (ChNF). We need to use a non-ChNF grammar
+input format that can be compiled to ChNF.  This affects how we do semantic actions.  We currently build
+an intern PVS JSON representation  based on the ChNF grammar.  The extended grammar format can include
+semantic actions directly.
+3. Adding more Parsley features to the basic PEG format.  The main extension here would be to handle
+data-dependency as in reading an integer k and then parsing k contiguous instances of a format.
+
+Ignoring 2 and 3 for now, here's a proposal for 1.
+
+The regex language R consists of
+skip
+literals: "abc"
+predicates: any(p)
+concatenation: G1;G2
+(guarded) Repetition: (gG)* , where the guard g is a nonempty literal or a predicate
+let-then-else: g : G1 / G2, where g has to be a nonempty literal or a predicate.
+(One could add recursion to this by introducing nonterminals and productions while avoiding repetition
+The restriction on recursion is that it should be tail-recursive and any path from a nonterminal n to itself through
+productions should go through at least one G1 (then) part of a let-then-else expression
+to ensure that at least one character is consumed on the way to the recursive call, possibly
+through the G1 part of a concatenation.   The tail of G1;G2 is the tail of G2.  The tail  of g: G1 / G2 is
+the tail of G1 or G2.  Tail recursion means that a recursive nonterminal can only occur in a tail positions.
+The AST returned from parsing returns sub-asts from concatenation so that G1;G2 returns a pair of
+asts from G1 and G2, respectively, and (gG)* returns the array of sub-asts from matches for gG.
+)
+
+The important consideration in extracting a DFA is that there should be no state, e.g., stack,
+apart from the input position and the DFA state.  The regex grammar can be converted into a DFA as follows:
+skip: accept
+literals: Check input against the literal to accept or reject while updating the string position
+predicate: same as literal with predicate instead of literal check
+concatenation: connect the accepting states of the first (G1 dfa) to the initial states of the second (C2 dfa).
+Repetition: This needs the "lookahead" guard since we need to be greedy about parsing as many repetitions as possible.
+  (Unguarded repetition is very difficult to implement as a DFA. )
+(With tail-recursion, we won't need to worry about guarding the iteration since this would
+happen automatically.  The DFA for a nonterminal n <- G would connect the final state to the initial state for the nonterminal.
+Tail-recursiveness ensures that this always works.)
+
+I'll start formalizing the guarded iteration (if it looks sensible to both of you).  For the other action points, i.e.,
+Chomskyfication and other Parsley features,  I'll write this up in a separate message.
+
+-Shankar

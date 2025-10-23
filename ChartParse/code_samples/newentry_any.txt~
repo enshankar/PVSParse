@@ -1,0 +1,1 @@
+IF pos = len OR NOT p(s(pos)) THEN fail(0) ELSE good(0, 1) ENDIF,

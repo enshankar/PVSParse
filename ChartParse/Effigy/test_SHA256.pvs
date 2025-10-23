@@ -1,0 +1,16 @@
+test_SHA256  % [ parameters ]
+		: THEORY
+
+  BEGIN
+    IMPORTING SHA256
+    test1: hexstring = hexsha256message("00") %"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    test2: hexstring = hexsha256message("d3") %28969cdfa74a12c82f3bad960b0b000aca2ac329deea5c2328ebc6f2ba9802c1
+    test3: hexstring = hexsha256message("11af") %5ca7133fa735326081558ac312c620eeca9970d1e70a4b95533d956f072d1f98
+    test4: hexstring = hexsha256message("b4190e") %dff2e73091f6c05e528896c4c831b9448653dc2ff043528f6769437bc7b975c2
+    test5: hexstring = hexsha256message("74ba2521") %b16aa56be3880d18cd41e68384cf1ec8c17680c45a02b1575dc1518923ae8b0e
+    test6: hexstring = hexsha256message("c299209682") %f0887fe961c9cd3beab957e8222494abb969b1ce4c6557976df8b0f6d20e9166
+    test7: hexstring = hexsha256message("e1dc724d5621") %eca0a060b489636225b4fa64d267dabbe44273067ac679f20820bddc6b6a90ac
+    test8: hexstring = hexsha256message("06e076f5a442d5") %3fd877e27450e6bbd5d74bb82f9870c64c66e109418baa8e6bbcff355e287926
+
+
+  END test_SHA256

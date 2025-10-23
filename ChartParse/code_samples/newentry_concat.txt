@@ -1,0 +1,12 @@
+(CASES St`scaf(pos)(n1) OF
+   fail(d1): fail(d1+1), 
+   good(d1, sp):
+     CASES St`scaf(pos + sp)(n2) OF
+       fail(d2): fail(1 + max(d1, d2)),
+       good(d2, sp2): good(1+max(d1, d2), sp + sp2), 
+       pending: push(pos + sp, n2) 
+       ELSE loop
+     ENDCASES,
+   pending: push(pos, n1)
+   ELSE loop
+ ENDCASES)

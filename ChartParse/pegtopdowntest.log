@@ -1,0 +1,70 @@
+; While compiling #'_newentry_0 at top level:
+Warning: Variable rest is never used.
+Warning: Variable rootnt is never used.
+Warning: Variable start is never used.
+; While compiling #'newentry!_0 at top level:
+Warning: Variable rest is never used.
+Warning: Variable rootnt is never used.
+Warning: Variable start is never used.
+; While compiling #'(:internal newentry_0 0) at top level:
+Warning: Variable rootnt is never used.
+Warning: Variable start is never used.
+; While compiling #'(:internal (:internal newentry_0 0) 0) at top level:
+Warning: Variable rest is never used.
+; While compiling #'_step_0 at top level:
+Warning: Variable E4179 is never used.
+Warning: Variable E4176 is never used.
+Warning: Variable E4173 is never used.
+Warning: Variable E4165 is never used.
+Warning: Variable E4162 is never used.
+Warning: Variable lflag is never used.
+; While compiling #'step!_0 at top level:
+Warning: Variable lflag is never used.
+; While compiling #'(:internal (:internal step_1 0) 0) at top level:
+Warning: Variable E4379 is never used.
+Warning: Variable E4376 is never used.
+Warning: Variable E4373 is never used.
+Warning: Variable E4365 is never used.
+Warning: Variable E4362 is never used.
+Warning: Variable lflag is never used.
+; While compiling #'_doparse_0 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'(:internal _doparse_0 4) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal _doparse_0 0) at top level:
+Warning: Variable n#0 is never used.
+; While compiling #'doparse!_0 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'(:internal doparse!_0 5) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal doparse!_0 4) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal doparse!_0 0) at top level:
+Warning: Variable n#0 is never used.
+; While compiling #'(:internal doparse_0 0) at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'(:internal (:internal doparse_0 0) 4) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal (:internal doparse_0 0) 0) at top level:
+Warning: Variable n#0 is never used.
+; While compiling #'_any_0 at top level:
+Warning: Variable c is never used.
+; While compiling #'any!_0 at top level:
+Warning: Variable c is never used.
+; While compiling #'(:internal any_0 0) at top level:
+Warning: Variable c is never used.
+; While compiling #'(:internal _ppow_0 0) at top level:
+Warning: Variable c is never used.
+; While compiling #'(:internal ppow!_0 0) at top level:
+Warning: Variable c is never used.
+; While compiling #'(:internal (:internal ppow_0 0) 0) at top level:
+Warning: Variable c is never used.

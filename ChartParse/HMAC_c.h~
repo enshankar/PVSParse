@@ -1,0 +1,408 @@
+//Code generated using pvs2ir
+#ifndef _HMAC_h 
+#define _HMAC_h
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <inttypes.h>
+
+#include <stdbool.h>
+
+#include <stdarg.h>
+
+#include <string.h>
+
+#include <math.h>
+
+#include <gmp.h>
+
+#include "pvslib.h"
+
+#include "SHA256_c.h"
+
+#include "rotate_c.h"
+
+#include "bytestrings_c.h"
+
+#include "gen_strings_c.h"
+
+#include "strings_c.h"
+
+#include "ordinals_c.h"
+
+#include "ordstruct_adt_c.h"
+
+#include "integer_bv_ops_c.h"
+
+#include "bv_nat_c.h"
+
+#include "bv_c.h"
+
+#include "bit_c.h"
+
+#include "integertypes_c.h"
+
+#include "exp2_c.h"
+
+#include "modulo_arithmetic_c.h"
+
+#include "euclidean_division_c.h"
+
+#include "real_defs_c.h"
+
+//cc -O3 -Wall -o HMAC -I /Users/e21660/shankar/pvs.git/src/groundeval/ pvslib.c  HMAC_c.c SHA256_c.c rotate_c.c bytestrings_c.c gen_strings_c.c strings_c.c ordinals_c.c ordstruct_adt_c.c integer_bv_ops_c.c bv_nat_c.c bv_c.c bit_c.c integertypes_c.c exp2_c.c modulo_arithmetic_c.c euclidean_division_c.c real_defs_c.c -lgmp 
+
+struct HMAC_funtype_0_s;
+        typedef struct HMAC_funtype_0_s * HMAC_funtype_0_t;
+
+struct HMAC_funtype_0_ftbl_s {bytestrings__bytestring_t (* fptr)(struct HMAC_funtype_0_s *, bytestrings__bytestring_t);
+        bytestrings__bytestring_t (* mptr)(struct HMAC_funtype_0_s *, bytestrings__bytestring_t);
+        void (* rptr)(struct HMAC_funtype_0_s *);
+        struct HMAC_funtype_0_s * (* cptr)(struct HMAC_funtype_0_s *);};
+typedef struct HMAC_funtype_0_ftbl_s * HMAC_funtype_0_ftbl_t;
+
+struct HMAC_funtype_0_hashentry_s {uint32_t keyhash; bytestrings__bytestring_t key; bytestrings__bytestring_t value;}; 
+typedef struct HMAC_funtype_0_hashentry_s HMAC_funtype_0_hashentry_t;
+
+struct HMAC_funtype_0_htbl_s {uint32_t size; uint32_t num_entries; HMAC_funtype_0_hashentry_t * data;}; 
+typedef struct HMAC_funtype_0_htbl_s * HMAC_funtype_0_htbl_t;
+
+struct HMAC_funtype_0_s {uint32_t count;
+        HMAC_funtype_0_ftbl_t ftbl;
+        HMAC_funtype_0_htbl_t htbl;};
+typedef struct HMAC_funtype_0_s * HMAC_funtype_0_t;
+
+extern void release_HMAC_funtype_0(HMAC_funtype_0_t x);
+
+extern HMAC_funtype_0_t copy_HMAC_funtype_0(HMAC_funtype_0_t x);
+
+extern HMAC_funtype_0_t equal_HMAC_funtype_0(HMAC_funtype_0_t x, HMAC_funtype_0_t y);
+
+
+
+
+struct HMAC_closure_1_s;
+        typedef struct HMAC_closure_1_s * HMAC_closure_1_t;
+
+struct HMAC_closure_1_s {uint32_t count;
+         HMAC_funtype_0_ftbl_t ftbl;
+         HMAC_funtype_0_htbl_t htbl;
+        uint8_t fvar_1;};
+
+bytestrings__bytestring_t f_HMAC_closure_1(struct HMAC_closure_1_s * closure, bytestrings__bytestring_t bvar);
+
+bytestrings__bytestring_t m_HMAC_closure_1(struct HMAC_closure_1_s * closure, bytestrings__bytestring_t bvar);
+
+extern bytestrings__bytestring_t h_HMAC_closure_1(bytestrings__bytestring_t ivar_3, uint8_t ivar_1);
+
+extern HMAC_closure_1_t new_HMAC_closure_1(void);
+
+extern void release_HMAC_closure_1(HMAC_funtype_0_t closure);
+
+extern HMAC_closure_1_t copy_HMAC_closure_1(HMAC_closure_1_t x);
+
+
+
+struct HMAC_funtype_2_s;
+        typedef struct HMAC_funtype_2_s * HMAC_funtype_2_t;
+
+struct HMAC_funtype_2_ftbl_s {mpz_ptr_t (* fptr)(struct HMAC_funtype_2_s *, uint8_t);
+        mpz_ptr_t (* mptr)(struct HMAC_funtype_2_s *, uint8_t);
+        void (* rptr)(struct HMAC_funtype_2_s *);
+        struct HMAC_funtype_2_s * (* cptr)(struct HMAC_funtype_2_s *);};
+typedef struct HMAC_funtype_2_ftbl_s * HMAC_funtype_2_ftbl_t;
+
+struct HMAC_funtype_2_hashentry_s {uint32_t keyhash; uint8_t key; mpz_t value;}; 
+typedef struct HMAC_funtype_2_hashentry_s HMAC_funtype_2_hashentry_t;
+
+struct HMAC_funtype_2_htbl_s {uint32_t size; uint32_t num_entries; HMAC_funtype_2_hashentry_t * data;}; 
+typedef struct HMAC_funtype_2_htbl_s * HMAC_funtype_2_htbl_t;
+
+struct HMAC_funtype_2_s {uint32_t count;
+        HMAC_funtype_2_ftbl_t ftbl;
+        HMAC_funtype_2_htbl_t htbl;};
+typedef struct HMAC_funtype_2_s * HMAC_funtype_2_t;
+
+extern void release_HMAC_funtype_2(HMAC_funtype_2_t x);
+
+extern HMAC_funtype_2_t copy_HMAC_funtype_2(HMAC_funtype_2_t x);
+
+uint32_t lookup_HMAC_funtype_2(HMAC_funtype_2_htbl_t htbl, uint8_t i, uint32_t ihash);
+
+HMAC_funtype_2_t dupdate_HMAC_funtype_2(HMAC_funtype_2_t a, uint8_t i, mpz_t v);
+
+extern HMAC_funtype_2_t update_HMAC_funtype_2(HMAC_funtype_2_t a, uint8_t i, mpz_t v);
+
+extern HMAC_funtype_2_t equal_HMAC_funtype_2(HMAC_funtype_2_t x, HMAC_funtype_2_t y);
+
+
+
+
+struct HMAC_closure_3_s;
+        typedef struct HMAC_closure_3_s * HMAC_closure_3_t;
+
+struct HMAC_closure_3_s {uint32_t count;
+         HMAC_funtype_2_ftbl_t ftbl;
+         HMAC_funtype_2_htbl_t htbl;
+        bytestrings__bytestring_t fvar_1;};
+
+uint8_t f_HMAC_closure_3(struct HMAC_closure_3_s * closure, uint8_t bvar);
+
+uint8_t m_HMAC_closure_3(struct HMAC_closure_3_s * closure, uint8_t bvar);
+
+extern uint8_t h_HMAC_closure_3(uint8_t ivar_7, bytestrings__bytestring_t ivar_3);
+
+extern HMAC_closure_3_t new_HMAC_closure_3(void);
+
+extern void release_HMAC_closure_3(HMAC_funtype_2_t closure);
+
+extern HMAC_closure_3_t copy_HMAC_closure_3(HMAC_closure_3_t x);
+
+
+
+struct HMAC_array_4_s { uint32_t count;
+        uint32_t size;
+         uint32_t max;
+         uint8_t elems[]; };
+typedef struct HMAC_array_4_s * HMAC_array_4_t;
+
+extern HMAC_array_4_t new_HMAC_array_4(uint32_t size);
+
+extern void release_HMAC_array_4(HMAC_array_4_t x);
+
+void release_HMAC_array_4_ptr(pointer_t x, type_actual_t HMAC_array_4);
+
+extern HMAC_array_4_t copy_HMAC_array_4(HMAC_array_4_t x);
+extern bool_t equal_HMAC_array_4(HMAC_array_4_t x, HMAC_array_4_t y);
+
+extern bool_t equal_HMAC_array_4_ptr(pointer_t x, pointer_t y, type_actual_t T);
+typedef struct actual_HMAC_array_4_s {equal_ptr_t equal_ptr; release_ptr_t release_ptr;} * actual_HMAC_array_4_t;
+
+actual_HMAC_array_4_t actual_HMAC_array_4(void);
+
+extern HMAC_array_4_t update_HMAC_array_4(HMAC_array_4_t x, uint32_t i, uint8_t v);
+
+extern HMAC_array_4_t upgrade_HMAC_array_4(HMAC_array_4_t x, uint32_t i, uint8_t v);
+
+
+
+struct HMAC_record_5_s {
+        uint32_t count; 
+        uint32_t length;
+        HMAC_array_4_t seq;};
+typedef struct HMAC_record_5_s * HMAC_record_5_t;
+
+extern HMAC_record_5_t new_HMAC_record_5(void);
+
+extern void release_HMAC_record_5(HMAC_record_5_t x);
+
+void release_HMAC_record_5_ptr(pointer_t x, type_actual_t HMAC_record_5);
+
+extern HMAC_record_5_t copy_HMAC_record_5(HMAC_record_5_t x);
+extern bool_t equal_HMAC_record_5(HMAC_record_5_t x, HMAC_record_5_t y);
+
+extern bool_t equal_HMAC_record_5_ptr(pointer_t x, pointer_t y, type_actual_t T);
+typedef struct actual_HMAC_record_5_s {equal_ptr_t equal_ptr; release_ptr_t release_ptr;} * actual_HMAC_record_5_t;
+
+actual_HMAC_record_5_t actual_HMAC_record_5(void);
+
+extern HMAC_record_5_t update_HMAC_record_5_length(HMAC_record_5_t x, uint32_t v);
+
+extern HMAC_record_5_t update_HMAC_record_5_seq(HMAC_record_5_t x, HMAC_array_4_t v);
+
+
+
+struct HMAC_record_6_s {
+        uint32_t count; 
+        HMAC_record_5_t project_1;
+        HMAC_record_5_t project_2;};
+typedef struct HMAC_record_6_s * HMAC_record_6_t;
+
+extern HMAC_record_6_t new_HMAC_record_6(void);
+
+extern void release_HMAC_record_6(HMAC_record_6_t x);
+
+void release_HMAC_record_6_ptr(pointer_t x, type_actual_t HMAC_record_6);
+
+extern HMAC_record_6_t copy_HMAC_record_6(HMAC_record_6_t x);
+extern bool_t equal_HMAC_record_6(HMAC_record_6_t x, HMAC_record_6_t y);
+
+extern bool_t equal_HMAC_record_6_ptr(pointer_t x, pointer_t y, type_actual_t T);
+typedef struct actual_HMAC_record_6_s {equal_ptr_t equal_ptr; release_ptr_t release_ptr;} * actual_HMAC_record_6_t;
+
+actual_HMAC_record_6_t actual_HMAC_record_6(void);
+
+extern HMAC_record_6_t update_HMAC_record_6_project_1(HMAC_record_6_t x, HMAC_record_5_t v);
+
+extern HMAC_record_6_t update_HMAC_record_6_project_2(HMAC_record_6_t x, HMAC_record_5_t v);
+
+
+
+struct HMAC_funtype_7_s;
+        typedef struct HMAC_funtype_7_s * HMAC_funtype_7_t;
+
+struct HMAC_funtype_7_ftbl_s {HMAC_record_5_t (* fptr)(struct HMAC_funtype_7_s *, HMAC_record_6_t);
+        HMAC_record_5_t (* mptr)(struct HMAC_funtype_7_s *, HMAC_record_5_t, HMAC_record_5_t);
+        void (* rptr)(struct HMAC_funtype_7_s *);
+        struct HMAC_funtype_7_s * (* cptr)(struct HMAC_funtype_7_s *);};
+typedef struct HMAC_funtype_7_ftbl_s * HMAC_funtype_7_ftbl_t;
+
+struct HMAC_funtype_7_hashentry_s {uint32_t keyhash; HMAC_record_6_t key; HMAC_record_5_t value;}; 
+typedef struct HMAC_funtype_7_hashentry_s HMAC_funtype_7_hashentry_t;
+
+struct HMAC_funtype_7_htbl_s {uint32_t size; uint32_t num_entries; HMAC_funtype_7_hashentry_t * data;}; 
+typedef struct HMAC_funtype_7_htbl_s * HMAC_funtype_7_htbl_t;
+
+struct HMAC_funtype_7_s {uint32_t count;
+        HMAC_funtype_7_ftbl_t ftbl;
+        HMAC_funtype_7_htbl_t htbl;};
+typedef struct HMAC_funtype_7_s * HMAC_funtype_7_t;
+
+extern void release_HMAC_funtype_7(HMAC_funtype_7_t x);
+
+extern HMAC_funtype_7_t copy_HMAC_funtype_7(HMAC_funtype_7_t x);
+
+extern HMAC_funtype_7_t equal_HMAC_funtype_7(HMAC_funtype_7_t x, HMAC_funtype_7_t y);
+
+
+
+
+struct HMAC_closure_8_s;
+        typedef struct HMAC_closure_8_s * HMAC_closure_8_t;
+
+struct HMAC_closure_8_s {uint32_t count;
+         HMAC_funtype_7_ftbl_t ftbl;
+         HMAC_funtype_7_htbl_t htbl;
+        uint8_t fvar_1;};
+
+HMAC_record_5_t f_HMAC_closure_8(struct HMAC_closure_8_s * closure, HMAC_record_6_t bvar);
+
+HMAC_record_5_t m_HMAC_closure_8(struct HMAC_closure_8_s * closure, HMAC_record_5_t bvar_1, HMAC_record_5_t bvar_2);
+
+extern HMAC_record_5_t h_HMAC_closure_8(HMAC_record_5_t ivar_3, HMAC_record_5_t ivar_4, uint8_t ivar_1);
+
+extern HMAC_closure_8_t new_HMAC_closure_8(void);
+
+extern void release_HMAC_closure_8(HMAC_funtype_7_t closure);
+
+extern HMAC_closure_8_t copy_HMAC_closure_8(HMAC_closure_8_t x);
+
+
+
+struct HMAC_funtype_9_s;
+        typedef struct HMAC_funtype_9_s * HMAC_funtype_9_t;
+
+struct HMAC_funtype_9_ftbl_s {uint8_t (* fptr)(struct HMAC_funtype_9_s *, uint8_t);
+        uint8_t (* mptr)(struct HMAC_funtype_9_s *, uint8_t);
+        void (* rptr)(struct HMAC_funtype_9_s *);
+        struct HMAC_funtype_9_s * (* cptr)(struct HMAC_funtype_9_s *);};
+typedef struct HMAC_funtype_9_ftbl_s * HMAC_funtype_9_ftbl_t;
+
+struct HMAC_funtype_9_hashentry_s {uint32_t keyhash; uint8_t key; uint8_t value;}; 
+typedef struct HMAC_funtype_9_hashentry_s HMAC_funtype_9_hashentry_t;
+
+struct HMAC_funtype_9_htbl_s {uint32_t size; uint32_t num_entries; HMAC_funtype_9_hashentry_t * data;}; 
+typedef struct HMAC_funtype_9_htbl_s * HMAC_funtype_9_htbl_t;
+
+struct HMAC_funtype_9_s {uint32_t count;
+        HMAC_funtype_9_ftbl_t ftbl;
+        HMAC_funtype_9_htbl_t htbl;};
+typedef struct HMAC_funtype_9_s * HMAC_funtype_9_t;
+
+extern void release_HMAC_funtype_9(HMAC_funtype_9_t x);
+
+extern HMAC_funtype_9_t copy_HMAC_funtype_9(HMAC_funtype_9_t x);
+
+uint32_t lookup_HMAC_funtype_9(HMAC_funtype_9_htbl_t htbl, uint8_t i, uint32_t ihash);
+
+HMAC_funtype_9_t dupdate_HMAC_funtype_9(HMAC_funtype_9_t a, uint8_t i, uint8_t v);
+
+extern HMAC_funtype_9_t update_HMAC_funtype_9(HMAC_funtype_9_t a, uint8_t i, uint8_t v);
+
+extern HMAC_funtype_9_t equal_HMAC_funtype_9(HMAC_funtype_9_t x, HMAC_funtype_9_t y);
+
+
+
+
+struct HMAC_closure_10_s;
+        typedef struct HMAC_closure_10_s * HMAC_closure_10_t;
+
+struct HMAC_closure_10_s {uint32_t count;
+         HMAC_funtype_9_ftbl_t ftbl;
+         HMAC_funtype_9_htbl_t htbl;
+        HMAC_record_5_t fvar_1;
+        HMAC_record_5_t fvar_2;};
+
+uint8_t f_HMAC_closure_10(struct HMAC_closure_10_s * closure, uint8_t bvar);
+
+uint8_t m_HMAC_closure_10(struct HMAC_closure_10_s * closure, uint8_t bvar);
+
+extern uint8_t h_HMAC_closure_10(uint8_t ivar_8, HMAC_record_5_t ivar_3, HMAC_record_5_t ivar_4);
+
+extern HMAC_closure_10_t new_HMAC_closure_10(void);
+
+extern void release_HMAC_closure_10(HMAC_funtype_9_t closure);
+
+extern HMAC_closure_10_t copy_HMAC_closure_10(HMAC_closure_10_t x);
+
+
+
+
+struct HMAC_closure_11_s;
+        typedef struct HMAC_closure_11_s * HMAC_closure_11_t;
+
+struct HMAC_closure_11_s {uint32_t count;
+         HMAC_funtype_9_ftbl_t ftbl;
+         HMAC_funtype_9_htbl_t htbl;
+        uint8_t fvar_1;};
+
+uint8_t f_HMAC_closure_11(struct HMAC_closure_11_s * closure, uint8_t bvar);
+
+uint8_t m_HMAC_closure_11(struct HMAC_closure_11_s * closure, uint8_t bvar);
+
+extern uint8_t h_HMAC_closure_11(uint8_t ivar_6, uint8_t ivar_1);
+
+extern HMAC_closure_11_t new_HMAC_closure_11(void);
+
+extern void release_HMAC_closure_11(HMAC_funtype_9_t closure);
+
+extern HMAC_closure_11_t copy_HMAC_closure_11(HMAC_closure_11_t x);
+
+
+
+
+struct HMAC_closure_12_s;
+        typedef struct HMAC_closure_12_s * HMAC_closure_12_t;
+
+struct HMAC_closure_12_s {uint32_t count;
+         HMAC_funtype_0_ftbl_t ftbl;
+         HMAC_funtype_0_htbl_t htbl;};
+
+HMAC_record_5_t f_HMAC_closure_12(struct HMAC_closure_12_s * closure, HMAC_record_5_t bvar);
+
+HMAC_record_5_t m_HMAC_closure_12(struct HMAC_closure_12_s * closure, HMAC_record_5_t bvar);
+
+extern HMAC_record_5_t h_HMAC_closure_12(HMAC_record_5_t ivar_11);
+
+extern HMAC_closure_12_t new_HMAC_closure_12(void);
+
+extern void release_HMAC_closure_12(HMAC_funtype_0_t closure);
+
+extern HMAC_closure_12_t copy_HMAC_closure_12(HMAC_closure_12_t x);
+
+
+
+extern HMAC_funtype_0_t HMAC__padright(uint8_t ivar_1);
+
+extern HMAC_funtype_7_t HMAC__lbytesXOR(uint8_t ivar_1);
+
+extern HMAC_record_5_t HMAC__nbytes(uint8_t ivar_1, uint8_t ivar_2);
+
+extern HMAC_record_5_t HMAC__hmac(HMAC_record_5_t ivar_1, HMAC_record_5_t ivar_2, uint8_t ivar_3, uint8_t ivar_4, HMAC_funtype_0_t ivar_5);
+
+extern HMAC_record_5_t HMAC__hmac256(HMAC_record_5_t ivar_1, HMAC_record_5_t ivar_2, uint8_t ivar_3, uint8_t ivar_4);
+
+extern HMAC_record_5_t HMAC__test1(void);
+#endif

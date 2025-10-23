@@ -1,0 +1,81 @@
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: ChartParse.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: biblio.bib
+You're missing a field name---line 195 of file biblio.bib
+ : 
+ : %  url       = {https://www.usenix.org/publications/login/spring2017/bratus},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--string name "ieeetse" is undefined
+--line 702 of file biblio.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty address in conf/esop/BarthwalN09
+Warning--empty publisher in blanchette2010nitpick
+Warning--empty address in blanchette2010nitpick
+Warning--empty publisher in blaudeau2020verified
+Warning--empty address in blaudeau2020verified
+Warning--empty address in DBLP:conf/popl/Ford04
+Warning--empty address in GruneJacobs
+Warning--empty address in Jackson2006:book
+Warning--empty publisher in kay1986algorithm
+Warning--empty address in kay1986algorithm
+Warning--empty address in DBLP:conf/popl/KumarMNO14
+Warning--empty address in DBLP:conf/itp/LasserCFR19
+Warning--no number and no volume in loff2020computational
+Warning--page numbers missing in both pages and numpages fields in loff2020computational
+Warning--no journal in Owre95:prolegomena
+Warning--empty publisher in padon2016ivy
+Warning--empty address in padon2016ivy
+Warning--empty publisher in pereira1983parsing
+Warning--empty address in pereira1983parsing
+Warning--empty address in conf/cpp/Ridge11
+Warning--no journal in SIGRed
+Warning--no number and no volume in SIGRed
+Warning--page numbers missing in both pages and numpages fields in SIGRed
+Warning--empty address in csmith
+You've used 20 entries,
+            5706 wiz_defined-function locations,
+            1466 strings with 20215 characters,
+and the built_in function-call counts, 23780 in all, are:
+= -- 2835
+> -- 836
+< -- 0
++ -- 254
+- -- 420
+* -- 1683
+:= -- 2489
+add.period$ -- 103
+call.type$ -- 20
+change.case$ -- 133
+chr.to.int$ -- 20
+cite$ -- 44
+duplicate$ -- 1870
+empty$ -- 1361
+format.name$ -- 350
+if$ -- 5515
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 87
+newline$ -- 206
+num.names$ -- 170
+pop$ -- 838
+preamble$ -- 1
+purify$ -- 233
+quote$ -- 0
+skip$ -- 698
+stack$ -- 0
+substring$ -- 2102
+swap$ -- 178
+text.length$ -- 253
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 472
+warning$ -- 24
+while$ -- 182
+width$ -- 0
+write$ -- 402
+(There was 1 error message)

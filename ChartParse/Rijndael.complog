@@ -1,0 +1,42 @@
+; While compiling #'_hex16_4 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'hex16!_4 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'(:internal hex16_4 0) at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'_test0RD_1 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'test0RD!_1 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'test0RD_1 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.

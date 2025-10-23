@@ -1,0 +1,10 @@
+scafstring  : THEORY
+
+  BEGIN
+    
+  IMPORTING scaf
+
+  
+
+
+  END scafstring

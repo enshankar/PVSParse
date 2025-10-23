@@ -1,0 +1,31 @@
+bytes  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+  b, b1, b2: VAR byte
+  B, B1, B2: VAR bytestring
+  l, n: VAR index
+
+  lbytes(l): TYPE = {B | length(B) = l}
+
+  nbytes(b, n): RECURSIVE lbytes(n) =
+  (IF n = 0 THEN null
+   ELSE unit(b) ++ nbytes(b, n-1)
+   ENDIF)
+   MEASURE n
+
+   padright(n)(B | length(B) + n <= maxindex): lbytes(length(B) + n)
+    = B ++ nbytes(0, n);
+
+   XOR(B1, B2): RECURSIVE {B | B`length = max(B1`length, B2`length)}
+    = IF length(B1) > 0
+       THEN IF length(B2) > 0
+             THEN unit(bv2nat[8](nat2bv(get(B1, 0)) XOR nat2bv(get(B1, 0)))) ++  (suffix(B1, 1) XOR suffix(B2, 1))
+	     ELSE B1
+	     ENDIF
+       ELSE B2
+       ENDIF
+       MEASURE length(B1)
+
+  END bytes

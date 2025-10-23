@@ -1,0 +1,45 @@
+scafstring  : THEORY
+
+  BEGIN
+    
+  IMPORTING scaf
+
+  parsestring(N : posnat, (G: lang_spec[N, character]), nonterm: below(N))(str: string): entry
+   = doparse(str`length, G, str`seq, nonterm)
+   
+  %extracts the first character from a nonempty string
+  nestring: TYPE = {x : string | x`length > 0}
+   
+  str2char(x : nestring): character = x`seq(0)
+
+  CONVERSION- extract1
+  CONVERSION+ str2char
+
+  gr1(n: below(4)): scaf[4, character].atomic_peg =
+    (COND n = 0 -> choice(1, 3),
+          n = 1 -> concat(2, 0),
+	  n = 2 -> terminal("a"),
+	  n = 3 -> epsilon
+     ENDCOND)
+
+  test1: entry =
+   parsestring(121, gr1, 0)("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+
+  test11: entry =
+   parsestring(121, gr1, 0)("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab")
+
+  good_test: LEMMA good?(test1)
+
+  gr2(n: below(4)): scaf[4, character].atomic_peg =
+    (COND n = 0 -> choice(1, 3),
+          n = 1 -> concat(2, 0),
+	  n = 2 -> concat(1, 3),
+	  n = 3 -> epsilon
+     ENDCOND)
+
+  test2: entry =
+   parsestring(4, gr2, 0)("aaaaa")
+
+
+
+  END scafstring

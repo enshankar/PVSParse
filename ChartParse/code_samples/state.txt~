@@ -1,0 +1,8 @@
+state(len, G, (s: strings(len)), (rootpos: upto(len)), (rootnt: non_terminal)): TYPE
+    = [# scaf: (fine_scaffold?(len, G, s)(rootpos, rootnt)), 
+         depth: (good_depth?(len, scaf)),
+	 stack: (fine_stack?(len, G, depth, scaf)),
+	 lflag: {b: bool | IF b
+	                     THEN nt(stack) = num_non_terminals OR loop_ready?(len, G, scaf, pos(stack), nt(stack))
+			     ELSE (FORALL (i: upto(len)), n: NOT loop?(scaf(i)(n))) ENDIF}
+	#]

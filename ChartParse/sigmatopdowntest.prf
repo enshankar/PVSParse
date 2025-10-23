@@ -1,0 +1,793 @@
+(sigmatopdowntest
+ (pyaml_TCC1 0
+  (pyaml_TCC1-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "1" "non_terminal")))
+ (pyaml_TCC2 0
+  (pyaml_TCC2-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "3" "non_terminal")))
+ (pyaml_TCC3 0
+  (pyaml_TCC3-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "2" "non_terminal")))
+ (pyaml_TCC4 0
+  (pyaml_TCC4-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "1" "non_terminal")))
+ (pyaml_TCC5 0
+  (pyaml_TCC5-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "4" "non_terminal")))
+ (pyaml_TCC6 0
+  (pyaml_TCC6-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "35" "non_terminal")))
+ (pyaml_TCC7 0
+  (pyaml_TCC7-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "5" "non_terminal")))
+ (pyaml_TCC8 0
+  (pyaml_TCC8-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "11" "non_terminal")))
+ (pyaml_TCC9 0
+  (pyaml_TCC9-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "6" "non_terminal")))
+ (pyaml_TCC10 0
+  (pyaml_TCC10-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC11 0
+  (pyaml_TCC11-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "8" "non_terminal")))
+ (pyaml_TCC12 0
+  (pyaml_TCC12-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "10" "non_terminal")))
+ (pyaml_TCC13 0
+  (pyaml_TCC13-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "9" "non_terminal")))
+ (pyaml_TCC14 0
+  (pyaml_TCC14-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC15 0
+  (pyaml_TCC15-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "12" "non_terminal")))
+ (pyaml_TCC16 0
+  (pyaml_TCC16-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "14" "non_terminal")))
+ (pyaml_TCC17 0
+  (pyaml_TCC17-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "13" "non_terminal")))
+ (pyaml_TCC18 0
+  (pyaml_TCC18-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC19 0
+  (pyaml_TCC19-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "15" "non_terminal")))
+ (pyaml_TCC20 0
+  (pyaml_TCC20-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "31" "non_terminal")))
+ (pyaml_TCC21 0
+  (pyaml_TCC21-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "16" "non_terminal")))
+ (pyaml_TCC22 0
+  (pyaml_TCC22-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "28" "non_terminal")))
+ (pyaml_TCC23 0
+  (pyaml_TCC23-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "1" "non_terminal")))
+ (pyaml_TCC24 0
+  (pyaml_TCC24-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "17" "non_terminal")))
+ (pyaml_TCC25 0
+  (pyaml_TCC25-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "18" "non_terminal")))
+ (pyaml_TCC26 0
+  (pyaml_TCC26-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC27 0
+  (pyaml_TCC27-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "19" "non_terminal")))
+ (pyaml_TCC28 0
+  (pyaml_TCC28-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "25" "non_terminal")))
+ (pyaml_TCC29 0
+  (pyaml_TCC29-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "21" "non_terminal")))
+ (pyaml_TCC30 0
+  (pyaml_TCC30-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "25" "non_terminal")))
+ (pyaml_TCC31 0
+  (pyaml_TCC31-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "22" "non_terminal")))
+ (pyaml_TCC32 0
+  (pyaml_TCC32-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "20" "non_terminal")))
+ (pyaml_TCC33 0
+  (pyaml_TCC33-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "23" "non_terminal")))
+ (pyaml_TCC34 0
+  (pyaml_TCC34-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "19" "non_terminal")))
+ (pyaml_TCC35 0
+  (pyaml_TCC35-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "19" "non_terminal")))
+ (pyaml_TCC36 0
+  (pyaml_TCC36-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC37 0
+  (pyaml_TCC37-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "24" "non_terminal")))
+ (pyaml_TCC38 0
+  (pyaml_TCC38-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "26" "non_terminal")))
+ (pyaml_TCC39 0
+  (pyaml_TCC39-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "27" "non_terminal")))
+ (pyaml_TCC40 0
+  (pyaml_TCC40-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "20" "non_terminal")))
+ (pyaml_TCC41 0
+  (pyaml_TCC41-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "29" "non_terminal")))
+ (pyaml_TCC42 0
+  (pyaml_TCC42-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "0" "non_terminal")))
+ (pyaml_TCC43 0
+  (pyaml_TCC43-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "30" "non_terminal")))
+ (pyaml_TCC44 0
+  (pyaml_TCC44-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC45 0
+  (pyaml_TCC45-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "32" "non_terminal")))
+ (pyaml_TCC46 0
+  (pyaml_TCC46-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "12" "non_terminal")))
+ (pyaml_TCC47 0
+  (pyaml_TCC47-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "33" "non_terminal")))
+ (pyaml_TCC48 0
+  (pyaml_TCC48-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "14" "non_terminal")))
+ (pyaml_TCC49 0
+  (pyaml_TCC49-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "34" "non_terminal")))
+ (pyaml_TCC50 0
+  (pyaml_TCC50-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC51 0
+  (pyaml_TCC51-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "36" "non_terminal")))
+ (pyaml_TCC52 0
+  (pyaml_TCC52-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "38" "non_terminal")))
+ (pyaml_TCC53 0
+  (pyaml_TCC53-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "37" "non_terminal")))
+ (pyaml_TCC54 0
+  (pyaml_TCC54-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (pyaml_TCC55 0
+  (pyaml_TCC55-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "39" "non_terminal")))
+ (pyaml_TCC56 0
+  (pyaml_TCC56-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "43" "non_terminal")))
+ (pyaml_TCC57 0
+  (pyaml_TCC57-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "40" "non_terminal")))
+ (pyaml_TCC58 0
+  (pyaml_TCC58-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "10" "non_terminal")))
+ (pyaml_TCC59 0
+  (pyaml_TCC59-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "0" "non_terminal")))
+ (pyaml_TCC60 0
+  (pyaml_TCC60-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "41" "non_terminal")))
+ (pyaml_TCC61 0
+  (pyaml_TCC61-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "42" "non_terminal")))
+ (pyaml_TCC62 0
+  (pyaml_TCC62-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "10" "non_terminal")))
+ (pyaml_TCC63 0
+  (pyaml_TCC63-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "33" "non_terminal")))
+ (pyaml_TCC64 0
+  (pyaml_TCC64-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "40" "non_terminal")))
+ (pyaml_TCC65 0
+  (pyaml_TCC65-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "44" "non_terminal")))
+ (pyaml_TCC66 0
+  (pyaml_TCC66-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)) nil
+   (pyaml subtype "7" "non_terminal")))
+ (cat_TCC1 0
+  (cat_TCC1-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((nil application-judgement "above(n)" exp2 nil)) nil
+   (cat subtype "(number_fields.-)(exp2.exp2(8), sigmatopdowntest.l1)"
+    "nat")))
+ (cat_TCC2 0
+  (cat_TCC2-1 nil 3805067364 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil (cat subtype "sigmatopdowntest.l1" "uint32")))
+ (cat_TCC3 0
+  (cat_TCC3-1 nil 3805067364 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (cat subtype "sigmatopdowntest.l2" "uint32")))
+ (cat_TCC4 0
+  (cat_TCC4-1 nil 3805067364 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (cat subtype "(number_fields.+)(sigmatopdowntest.l1, sigmatopdowntest.l2)"
+    "uint32")))
+ (cat_TCC5 0
+  (cat_TCC5-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (cat subtype "(number_fields.-)(sigmatopdowntest.i, sigmatopdowntest.l1)"
+    "naturalnumbers.below(sigmatopdowntest.l2)")))
+ (tok0_TCC1 0
+  (tok0_TCC1-1 nil 3805067364 ("" (cond-coverage-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (tok0 coverage
+    "COND sigmatopdowntest.i = 0 -> 39, sigmatopdowntest.i = 1 -> 116, sigmatopdowntest.i = 2 -> 111, sigmatopdowntest.i = 3 -> 107, sigmatopdowntest.i = 4 -> 101, sigmatopdowntest.i = 5 -> 110, sigmatopdowntest.i = 6 -> 39 ENDCOND"
+    "nil")))
+ (tok1_TCC1 0
+  (tok1_TCC1-1 nil 3805067364 ("" (cond-coverage-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (tok1 coverage
+    "COND sigmatopdowntest.i = 0 -> 39, sigmatopdowntest.i = 1 -> 116, sigmatopdowntest.i = 2 -> 111, sigmatopdowntest.i = 3 -> 107, sigmatopdowntest.i = 4 -> 101, sigmatopdowntest.i = 5 -> 110, sigmatopdowntest.i = 6 -> 92, sigmatopdowntest.i = 7 -> 39, sigmatopdowntest.i = 8 -> 39 ENDCOND"
+    "nil")))
+ (obrace_TCC1 0
+  (obrace_TCC1-1 nil 3805067364 ("" (cond-coverage-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (obrace coverage
+    "COND sigmatopdowntest.i = 0 -> 123, sigmatopdowntest.i = 1 -> 32, sigmatopdowntest.i = 2 -> 32 ENDCOND"
+    "nil")))
+ (emptydict2_TCC1 0
+  (emptydict2_TCC1-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (emptydict2 subtype "6" "uint32")))
+ (emptydict2_TCC2 0
+  (emptydict2_TCC3-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (emptydict2 subtype "3"
+    "naturalnumbers.below((number_fields.-)(exp2.exp2(8), 3))")))
+ (dict1_TCC1 0
+  (dict1_TCC1-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (dict1 subtype "22" "uint32")))
+ (dict1_TCC2 0
+  (dict1_TCC3-1 nil 3805067364 ("" (grind) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil
+   (dict1 subtype "3"
+    "naturalnumbers.below((number_fields.-)(exp2.exp2(8), 6))")))
+ (dict1_TCC3 0
+  (dict1_TCC4-1 nil 3805067364 ("" (grind) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil
+   (dict1 subtype "9"
+    "naturalnumbers.below((number_fields.-)(exp2.exp2(8), 3))")))
+ (dict1_TCC4 0
+  (dict1_TCC6-1 nil 3805067364 ("" (grind) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil
+   (dict1 subtype "12"
+    "naturalnumbers.below((number_fields.-)(exp2.exp2(8), 7))")))
+ (dict1_TCC5 0
+  (dict1_TCC7-1 nil 3805067364 ("" (grind) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil
+   (dict1 subtype "19"
+    "naturalnumbers.below((number_fields.-)(exp2.exp2(8), 3))")))
+ (test0_TCC1 0
+  (test0_TCC1-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (test0 subtype "2" "uint32")))
+ (test0_TCC2 0
+  (test0_TCC3-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil (test0 subtype "7" "non_terminal")))
+ (test0eval 0
+  (test0eval-1 nil 3805071593
+   ("" (auto-rewrite-theory "sigmatopdown")
+    (("" (auto-rewrite-theory "sigmatopdowntest")
+      (("" (assert) (("" (postpone) nil nil)) nil)) nil))
+    nil)
+   nil shostak))
+ (test1_TCC1 0
+  (test1_TCC1-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (test1 subtype "7" "uint32")))
+ (test1_TCC2 0
+  (test1_TCC2-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil (test1 subtype "17" "non_terminal")))
+ (test11_TCC1 0
+  (test11_TCC1-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (test11 subtype "9" "uint32")))
+ (test2_TCC1 0
+  (test2_TCC1-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil (test2 subtype "0" "non_terminal")))
+ (iparse_TCC1 0
+  (iparse_TCC1-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (byte type-eq-decl nil sigmatopdown nil)
+    (non_terminal type-eq-decl nil sigmatopdown nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (<= const-decl "bool" reals nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (good_good_entry? const-decl "bool" sigmatopdown nil)
+    (num_non_terminals const-decl "byte" sigmatopdown nil)
+    (good_push_entry? const-decl "bool" sigmatopdown nil)
+    (nice_entry? const-decl "bool" sigmatopdown nil))
+   nil
+   (iparse subtype "sigmatopdowntest.pend"
+    "[non_terminal -> (sigmatopdown.nice_entry?(sigmatopdowntest.len, sigmatopdowntest.i))]")))
+ (iparse_TCC2 0
+  (iparse_TCC2-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (byte type-eq-decl nil sigmatopdown nil)
+    (num_non_terminals const-decl "byte" sigmatopdown nil)
+    (non_terminal type-eq-decl nil sigmatopdown nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (iparse subtype "0" "uint32")))
+ (iparse_TCC3 0
+  (iparse_TCC3-1 nil 3805067364 ("" (grind) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)
+    (exp2 def-decl "posnat" exp2 nil))
+   nil (iparse subtype "sigmatopdown.num_non_terminals" "uint8")))
+ (iparse_TCC4 0
+  (iparse_TCC4-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((num_non_terminals const-decl "byte" sigmatopdown nil)
+    (good_good_entry? const-decl "bool" sigmatopdown nil)
+    (good_push_entry? const-decl "bool" sigmatopdown nil)
+    (nice_entry? const-decl "bool" sigmatopdown nil))
+   nil
+   (iparse subtype "sigmatopdown.push(0, sigmatopdown.num_non_terminals)"
+    "(sigmatopdown.nice_entry?(sigmatopdowntest.len, sigmatopdowntest.start))")))
+ (iparse_TCC5 0
+  (iparse_TCC5-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (<= const-decl "bool" reals nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (byte type-eq-decl nil sigmatopdown nil)
+    (non_terminal type-eq-decl nil sigmatopdown nil)
+    (good_entry? const-decl "bool" sigmatopdown nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (num_non_terminals const-decl "byte" sigmatopdown nil)
+    (good_good_entry? const-decl "bool" sigmatopdown nil)
+    (good_push_entry? const-decl "bool" sigmatopdown nil)
+    (nice_entry? const-decl "bool" sigmatopdown nil)
+    (good_root? const-decl "bool" sigmatopdown nil)
+    (good_or_fail? const-decl "bool" sigmatopdown nil)
+    (count const-decl "upto(len)" arrayCount nil)
+    (scafcount const-decl "uint64" sigmatopdown nil)
+    (gfcount const-decl "uint64" sigmatopdown nil)
+    (good_tscaffold? const-decl "bool" sigmatopdown nil)
+    (fine_scaffold? const-decl "bool" sigmatopdown nil))
+   nil
+   (iparse subtype
+    "(LAMBDA (i: naturalnumbers.upto(sigmatopdowntest.len)): sigmatopdowntest.pend) WITH [(sigmatopdowntest.start)(sigmatopdowntest.root) := sigmatopdown.push(0, sigmatopdown.num_non_terminals)]"
+    "(sigmatopdown.fine_scaffold?(sigmatopdowntest.len, sigmatopdowntest.G, sigmatopdowntest.s)(sigmatopdowntest.start, sigmatopdowntest.root))")))
+ (iparse_TCC6 0
+  (iparse_TCC6-1 nil 3805067364 ("" (subtype-tcc) nil nil) nil nil
+   (iparse subtype "1"
+    "(sigmatopdown.good_depth?(sigmatopdowntest.len, (LAMBDA (i: naturalnumbers.upto(sigmatopdowntest.len)): sigmatopdowntest.pend) WITH [(sigmatopdowntest.start)(sigmatopdowntest.root) := sigmatopdown.push(0, sigmatopdown.num_non_terminals)]))")))
+ (iparse_TCC7 0
+  (iparse_TCC7-1 nil 3805067364 ("" (subtype-tcc) nil nil) nil nil
+   (iparse subtype "sigmatopdowntest.start" "uint32")))
+ (iparse_TCC8 0
+  (iparse_TCC8-1 nil 3805067364 ("" (subtype-tcc) nil nil) nil nil
+   (iparse subtype
+    "sigmatopdown.push(sigmatopdowntest.start, sigmatopdowntest.root)"
+    "(sigmatopdown.fine_stack?(sigmatopdowntest.len, sigmatopdowntest.G, 1, (LAMBDA (i: naturalnumbers.upto(sigmatopdowntest.len)): sigmatopdowntest.pend) WITH [(sigmatopdowntest.start)(sigmatopdowntest.root) := sigmatopdown.push(0, sigmatopdown.num_non_terminals)]))")))
+ (iparse_TCC9 0
+  (iparse_TCC9-1 nil 3805067364 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (<= const-decl "bool" reals nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (byte type-eq-decl nil sigmatopdown nil)
+    (non_terminal type-eq-decl nil sigmatopdown nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (num_non_terminals const-decl "byte" sigmatopdown nil))
+   nil
+   (iparse subtype "booleans.FALSE"
+    "{b: booleans.bool | IF b THEN booleans.OR(sigmatopdowntest.root = sigmatopdown.num_non_terminals, sigmatopdown.loop_ready?(sigmatopdowntest.len, sigmatopdowntest.G, (LAMBDA (i: naturalnumbers.upto(sigmatopdowntest.len)): sigmatopdowntest.pend) WITH [(sigmatopdowntest.start)(sigmatopdowntest.root) := sigmatopdown.push(0, sigmatopdown.num_non_terminals)], sigmatopdowntest.start, sigmatopdowntest.root)) ELSE FORALL (i_1: naturalnumbers.upto(sigmatopdowntest.len)), n: (booleans.NOT)(sigmatopdown.loop?((LAMBDA (i: naturalnumbers.upto(sigmatopdowntest.len)): sigmatopdowntest.pend) WITH [(sigmatopdowntest.start)(sigmatopdowntest.root) := sigmatopdown.push(0, sigmatopdown.num_non_terminals)](i_1)(sigmatopdown.n))) ENDIF}"))))
+

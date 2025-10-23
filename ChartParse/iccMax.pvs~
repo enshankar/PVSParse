@@ -1,0 +1,19 @@
+iccMax  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+    stringElems(str: string): [below(str`length)->char]
+      = str`elems
+
+    CONVERSION+ stringElems
+
+    calcElem: TYPE = [# tag: {chararray: [below(4)-> char] | chararray = stringElems("func")},
+                        reserved: {i: uint32 | i = 0},
+			N : uint32,
+			funops : [below(8)->uint8]
+			#]
+
+    
+
+  END iccMax

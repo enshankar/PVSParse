@@ -1,0 +1,13 @@
+testfinseq  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+
+     add(x, rr): finseq[T] =
+     rr WITH [`length := rr`length + 1]
+
+
+
+
+  END testfinseq

@@ -1,0 +1,14 @@
+test_string  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+   string1: string = unit(0xAB)
+   string2: string = unit(0xCD)
+   string3: string = unit(0xEF)
+
+   string4: string = "ABC123"
+   string5: string = "αβγ̧pu"
+
+
+  END test_string

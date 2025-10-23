@@ -1,0 +1,24 @@
+testlist  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+  % Testing PVS2C on polymorphic lists
+
+  u32list: TYPE = list[uint32]
+  l32, m32, n32: VAR u32list
+  natlist: TYPE = list[nat]
+  lnat, mnat, nnat: VAR natlist
+  reallist: TYPE = list[real]
+  lreal, mreal, nreal: VAR reallist
+  finseqlist: TYPE = list[finseq[uint32]]
+  lfin, mfin, nfin: VAR finseqlist
+  nthrev32(l32, (i: below(length(l)))): uint32 = nth(reverse(l32), i)
+  nthrevnat(lnat, (i: below(length(l)))): nat = nth(reverse(lnat), i)
+  nthrevreal(lreal, (i: below(length(l)))): nat = nth(reverse(lreal), i)
+
+    
+
+  
+
+  END testlist

@@ -1,0 +1,16 @@
+#include "filetest_c.h"
+
+int main(){
+double start = get_cpu_time();
+printf("\n filetest Tests");
+ printf("\n Byte 0 is %c", 0);
+ printf("\n byte = %c", filetest__test1());
+double end = get_cpu_time();
+printf("\n CPU Time = %f seconds\n", end - start);
+
+return 0;
+}
+
+
+
+

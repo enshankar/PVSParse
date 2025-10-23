@@ -1,0 +1,163 @@
+(bytestring
+ (get_TCC1 0
+  (get_TCC1-1 nil 3818008822
+   (""
+    (inst +
+     "LAMBDA (s: bytestring): (LAMBDA (i: below(length(s))): 0)")
+    nil nil)
+   nil nil
+   (get existence ""
+        "[s: bytestring.bytestring -> [naturalnumbers.below(bytestring.length(s)) -> byte]]")))
+ (unit_ax_TCC1 0
+  (unit_ax_TCC1-1 nil 3818024682
+   ("" (skeep* :preds? t)
+    (("" (rewrite "length_unit") (("" (assert) nil nil)) nil)) nil)
+   nil nil
+   (unit_ax subtype "0"
+    "naturalnumbers.below(bytestring.length(bytestring.unit(bytestring.b)))")))
+ (extensionality_TCC1 0
+  (extensionality_TCC1-1 nil 3818008822 ("" (subtype-tcc) nil nil) nil
+   nil
+   (extensionality subtype "bytestring.i"
+                   "naturalnumbers.below(bytestring.length(bytestring.s2))")))
+ (char_concat_TCC1 0
+  (char_concat_TCC1-1 nil 3818008822
+   ("" (skeep* :preds? t) (("" (rewrite "length_concat") nil nil)) nil)
+   nil nil
+   (char_concat subtype "bytestring.i"
+    "naturalnumbers.below(bytestring.length((bytestring.+)(bytestring.s1, bytestring.s2)))")))
+ (char_concat_TCC2 0
+  (char_concat_TCC2-1 nil 3818008822 ("" (subtype-tcc) nil nil) nil nil
+   (char_concat subtype
+    "(number_fields.-)(bytestring.i, bytestring.length(bytestring.s1))"
+    "naturalnumbers.below(bytestring.length(bytestring.s2))")))
+ (strdiff_eq_TCC1 0
+  (strdiff_eq_TCC1-1 nil 3818008822
+   ("" (skeep* :preds? t)
+    (("" (typepred "strdiff(s1, s2)") (("" (grind) nil nil)) nil)) nil)
+   nil nil
+   (strdiff_eq subtype "bytestring.j"
+    "naturalnumbers.below(bytestring.length(bytestring.s1))")))
+ (strdiff_eq_TCC2 0
+  (strdiff_eq_TCC2-1 nil 3818008822
+   ("" (skeep* :preds? t)
+    (("" (typepred "strdiff(s1, s2)") (("" (grind) nil nil)) nil)) nil)
+   nil nil
+   (strdiff_eq subtype "bytestring.j"
+    "naturalnumbers.below(bytestring.length(bytestring.s2))")))
+ (strdiff_neq_TCC1 0
+  (strdiff_neq_TCC1-1 nil 3818008822 ("" (subtype-tcc) nil nil) nil nil
+   (strdiff_neq subtype "bytestring.i"
+    "naturalnumbers.below(bytestring.length(bytestring.s1))")))
+ (strdiff_neq_TCC2 0
+  (strdiff_neq_TCC2-1 nil 3818008822 ("" (subtype-tcc) nil nil) nil nil
+   (strdiff_neq subtype "bytestring.i"
+    "naturalnumbers.below(bytestring.length(bytestring.s2))")))
+ (strcmp_TCC1 0
+  (strcmp_TCC1-1 nil 3818008822
+   ("" (inst + "LAMBDA (x: [bytestring, bytestring]): 0") nil nil) nil
+   nil
+   (strcmp existence ""
+    "[[bytestring.bytestring, bytestring.bytestring] -> integers.subrange((number_fields.-)(1), 1)]")))
+ (prefix_ax_TCC1 0
+  (prefix_ax_TCC1-1 nil 3818008822
+   ("" (skeep* :preds? t) (("" (rewrite "length_prefix") nil nil)) nil)
+   nil nil
+   (prefix_ax subtype "bytestring.j"
+    "naturalnumbers.below(bytestring.length(bytestring.prefix(bytestring.s, bytestring.i)))")))
+ (prefix_ax_TCC2 0
+  (prefix_ax_TCC2-1 nil 3818008822 ("" (subtype-tcc) nil nil) nil nil
+   (prefix_ax subtype "bytestring.j"
+    "naturalnumbers.below(bytestring.length(bytestring.s))")))
+ (suffix_ax_TCC1 0
+  (suffix_ax_TCC1-1 nil 3818008822
+   ("" (skeep* :preds? t) (("" (rewrite "length_suffix") nil nil)) nil)
+   ((int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (length_suffix formula-decl nil bytestring nil)
+    (bytestring nonempty-type-decl nil bytestring nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (length const-decl "uint32" bytestring nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (TRUE const-decl "bool" booleans nil))
+   nil
+   (suffix_ax subtype "bytestring.j"
+    "naturalnumbers.below(bytestring.length(bytestring.suffix(bytestring.s, bytestring.i)))")))
+ (suffix_ax_TCC2 0
+  (suffix_ax_TCC2-1 nil 3818008822 ("" (subtype-tcc) nil nil) nil nil
+   (suffix_ax subtype "(number_fields.+)(bytestring.i, bytestring.j)"
+    "naturalnumbers.below(bytestring.length(bytestring.s))")))
+ (substr_TCC1 0
+  (substr_TCC1-1 nil 3818008822
+   ("" (skeep* :preds? t)
+    (("" (rewrite "length_suffix") (("" (ground) nil nil)) nil)) nil)
+   ((length_suffix formula-decl nil bytestring nil)
+    (bytestring nonempty-type-decl nil bytestring nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (length const-decl "uint32" bytestring nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (TRUE const-decl "bool" booleans nil))
+   nil
+   (substr subtype "(number_fields.-)(bytestring.j, bytestring.i)"
+    "naturalnumbers.upto(bytestring.length(bytestring.suffix(bytestring.s, bytestring.i)))")))
+ (utf8string_TCC1 0
+  (utf8string_TCC1-1 nil 3818008822 ("" (subtype-tcc) nil nil) nil nil
+   (utf8string subtype "(number_fields.+)(bytestring.i, 1)"
+    "naturalnumbers.below(bytestring.length(bytestring.s))")))
+ (utf8string_TCC2 0
+  (utf8string_TCC2-1 nil 3818008822 ("" (subtype-tcc) nil nil) nil nil
+   (utf8string subtype "(number_fields.+)(bytestring.i, 1)"
+    "naturalnumbers.below(bytestring.length(bytestring.s))")))
+ (utf8string_TCC3 0
+  (utf8string_TCC3-1 nil 3818008822 ("" (subtype-tcc) nil nil) nil nil
+   (utf8string subtype "(number_fields.+)(bytestring.i, 2)"
+    "naturalnumbers.below(bytestring.length(bytestring.s))"))))
+

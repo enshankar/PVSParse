@@ -1,0 +1,12 @@
+bvadd  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+
+   N: VAR posnat
+   add_com: LEMMA FORALL (b1, b2, b3: bvec[N]): (b1  + b2) + b3 = b1 + (b2 + b3)
+
+  
+
+  END bvadd

@@ -1,0 +1,9 @@
+empty?(stack): bool
+  = (nt(stack) = num_non_terminals)
+
+ne_state(len, G, (s: strings(len)),
+                (rootpos: upto(len)),
+	           (rootnt: non_terminal))
+  : TYPE
+ = {st: state(len, G, s, rootpos, rootnt) |
+       NOT empty?(st`stack)}

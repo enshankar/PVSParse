@@ -1,0 +1,212 @@
+; While compiling #'_step at top level:
+Warning: Variable E29169 is never used.
+Warning: Variable E29166 is never used.
+Warning: Variable E29163 is never used.
+Warning: Variable E29150 is never used.
+Warning: Variable E29147 is never used.
+Warning: Variable E29144 is never used.
+Warning: Variable E29141 is never used.
+Warning: Variable E29133 is never used.
+Warning: Variable E29130 is never used.
+Warning: Variable E29122 is never used.
+Warning: Variable E29119 is never used.
+Warning: Variable E29116 is never used.
+Warning: Variable E29103 is never used.
+Warning: Variable E29100 is never used.
+Warning: Variable E29097 is never used.
+Warning: Variable E29094 is never used.
+Warning: Variable E29086 is never used.
+Warning: Variable E29083 is never used.
+Warning: Variable E29075 is never used.
+Warning: Variable E29072 is never used.
+Warning: Variable E29069 is never used.
+Warning: Variable E29056 is never used.
+Warning: Variable E29053 is never used.
+Warning: Variable E29050 is never used.
+Warning: Variable E29047 is never used.
+Warning: Variable E29039 is never used.
+Warning: Variable E29036 is never used.
+Warning: Variable E29033 is never used.
+Warning: Variable E29020 is never used.
+Warning: Variable E29017 is never used.
+Warning: Variable E29014 is never used.
+Warning: Variable E29011 is never used.
+Warning: Variable E29003 is never used.
+Warning: Variable E29000 is never used.
+Warning: Variable E28992 is never used.
+Warning: Variable E28989 is never used.
+Warning: Variable E28986 is never used.
+Warning: Variable E28973 is never used.
+Warning: Variable E28970 is never used.
+Warning: Variable E28967 is never used.
+Warning: Variable E28964 is never used.
+Warning: Variable E28961 is never used.
+Warning: Variable E28948 is never used.
+Warning: Variable E28945 is never used.
+Warning: Variable E28942 is never used.
+Warning: Variable E28939 is never used.
+Warning: Variable E28931 is never used.
+Warning: Variable E28928 is never used.
+Warning: Variable E28920 is never used.
+Warning: Variable E28917 is never used.
+Warning: Variable E28909 is never used.
+Warning: Variable E28906 is never used.
+Warning: Variable E28894 is never used.
+Warning: Variable E28891 is never used.
+Warning: Variable E28883 is never used.
+Warning: Variable E28880 is never used.
+Warning: Variable E28872 is never used.
+Warning: Variable E28869 is never used.
+Warning: Variable lflag is never used.
+Warning: Variable rootnt is never used.
+Warning: Variable start is never used.
+; While compiling #'step!_1 at top level:
+Warning: Variable lflag is never used.
+Warning: Variable rootnt is never used.
+Warning: Variable start is never used.
+; While compiling #'(:internal step_0 0) at top level:
+Warning: Variable rootnt is never used.
+Warning: Variable start is never used.
+; While compiling #'(:internal (:internal step_0 0) 0) at top level:
+Warning: Variable E30605 is never used.
+Warning: Variable E30602 is never used.
+Warning: Variable E30599 is never used.
+Warning: Variable E30586 is never used.
+Warning: Variable E30583 is never used.
+Warning: Variable E30580 is never used.
+Warning: Variable E30577 is never used.
+Warning: Variable E30569 is never used.
+Warning: Variable E30566 is never used.
+Warning: Variable E30558 is never used.
+Warning: Variable E30555 is never used.
+Warning: Variable E30552 is never used.
+Warning: Variable E30539 is never used.
+Warning: Variable E30536 is never used.
+Warning: Variable E30533 is never used.
+Warning: Variable E30530 is never used.
+Warning: Variable E30522 is never used.
+Warning: Variable E30519 is never used.
+Warning: Variable E30511 is never used.
+Warning: Variable E30508 is never used.
+Warning: Variable E30505 is never used.
+Warning: Variable E30492 is never used.
+Warning: Variable E30489 is never used.
+Warning: Variable E30486 is never used.
+Warning: Variable E30483 is never used.
+Warning: Variable E30475 is never used.
+Warning: Variable E30472 is never used.
+Warning: Variable E30469 is never used.
+Warning: Variable E30456 is never used.
+Warning: Variable E30453 is never used.
+Warning: Variable E30450 is never used.
+Warning: Variable E30447 is never used.
+Warning: Variable E30439 is never used.
+Warning: Variable E30436 is never used.
+Warning: Variable E30428 is never used.
+Warning: Variable E30425 is never used.
+Warning: Variable E30422 is never used.
+Warning: Variable E30409 is never used.
+Warning: Variable E30406 is never used.
+Warning: Variable E30403 is never used.
+Warning: Variable E30400 is never used.
+Warning: Variable E30397 is never used.
+Warning: Variable E30384 is never used.
+Warning: Variable E30381 is never used.
+Warning: Variable E30378 is never used.
+Warning: Variable E30375 is never used.
+Warning: Variable E30367 is never used.
+Warning: Variable E30364 is never used.
+Warning: Variable E30356 is never used.
+Warning: Variable E30353 is never used.
+Warning: Variable E30345 is never used.
+Warning: Variable E30342 is never used.
+Warning: Variable E30334 is never used.
+Warning: Variable E30331 is never used.
+Warning: Variable E30323 is never used.
+Warning: Variable E30320 is never used.
+Warning: Variable E30312 is never used.
+Warning: Variable E30309 is never used.
+Warning: Variable lflag is never used.
+; While compiling #'_doparse at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'(:internal _doparse 4) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal _doparse 0) at top level:
+Warning: Variable n#0 is never used.
+; While compiling #'doparse!_1 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'(:internal doparse!_1 5) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal doparse!_1 4) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal doparse!_1 0) at top level:
+Warning: Variable n#0 is never used.
+; While compiling #'(:internal doparse 0) at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'(:internal (:internal doparse 0) 4) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal (:internal doparse 0) 0) at top level:
+Warning: Variable n#0 is never used.
+; While compiling #'_any at top level:
+Warning: Variable x is never used.
+; While compiling #'any! at top level:
+Warning: Variable x is never used.
+; While compiling #'(:internal any 0) at top level:
+Warning: Variable x is never used.
+; While compiling #'_mk_bytestring at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'mk_bytestring! at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'(:internal mk_bytestring 0) at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'_empty at top level:
+Warning: Variable len is never used.
+; While compiling #'empty! at top level:
+Warning: Variable len is never used.
+; While compiling #'(:internal empty 0) at top level:
+Warning: Variable len is never used.
+; While compiling #'_++ at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'++! at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'(:internal ++ 0) at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.

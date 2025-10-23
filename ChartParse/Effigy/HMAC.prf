@@ -1,0 +1,234 @@
+(HMAC
+ (nbytes_TCC1 0
+  (nbytes_TCC1-1 nil 3821408737
+   ("" (rewrite "length_empty") (("" (grind) nil nil)) nil)
+   ((nil application-judgement "above(n)" exp2 nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (<= const-decl "bool" reals nil) (byte type-eq-decl nil byte nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (< const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (length_empty formula-decl nil bytestring nil))
+   nil (nbytes subtype "bytestring.empty" "HMAC.lbytes(HMAC.n)")))
+ (nbytes_TCC2 0
+  (nbytes_TCC2-1 nil 3821408737 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil) (byte type-eq-decl nil byte nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (nbytes subtype "(number_fields.-)(HMAC.n, 1)" "uint32")))
+ (nbytes_TCC3 0
+  (nbytes_TCC3-1 nil 3821408737 ("" (termination-tcc) nil nil)
+   ((nil application-judgement "above(n)" exp2 nil)) nil
+   (nbytes termination
+    "HMAC.nbytes(HMAC.b, (number_fields.-)(HMAC.n, 1))" "nil")))
+ (nbytes_TCC4 0
+  (nbytes_TCC4-1 nil 3821408737
+   ("" (skeep :preds? t)
+    (("" (rewrite "length_concat")
+      (("" (typepred "v(b, n - 1)")
+        (("" (rewrite "length_unit") (("" (ground) nil nil)) nil))
+        nil))
+      nil))
+    nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (length_concat formula-decl nil bytestring nil)
+    (bytestring nonempty-type-decl nil bytestring nil)
+    (number nonempty-type-decl nil numbers nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (< const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil) (byte type-eq-decl nil byte nil)
+    (unit const-decl "bytestring" bytestring nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (length const-decl "uint32" bytestring nil)
+    (lbytes type-eq-decl nil HMAC nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (length_unit formula-decl nil bytestring nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil
+   (nbytes subtype
+    "(bytestring.+)(bytestring.unit(HMAC.b), HMAC.nbytes(HMAC.b, (number_fields.-)(HMAC.n, 1)))"
+    "HMAC.lbytes(HMAC.n)")))
+ (padright_TCC1 0
+  (padright_TCC1-1 nil 3821408737 ("" (subtype-tcc) nil nil) nil nil
+   (padright subtype
+    "(number_fields.+)(bytestring.length(HMAC.B), HMAC.n)" "uint32")))
+ (padright_TCC2 0
+  (padright_TCC2-1 nil 3821408737 ("" (subtype-tcc) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (padright subtype "0" "byte")))
+ (padright_TCC3 0
+  (padright_TCC3-1 nil 3821408737 ("" (subtype-tcc) nil nil) nil nil
+   (padright subtype "(bytestring.+)(HMAC.B, HMAC.nbytes(0, HMAC.n))"
+    "HMAC.lbytes((number_fields.+)(HMAC.n, bytestring.length(HMAC.B)))")))
+ (XOR_TCC1 0
+  (XOR_TCC1-1 nil 3821408737 ("" (subtype-tcc) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (XOR subtype "0"
+    "naturalnumbers.below(bytestring.length(HMAC.B1))")))
+ (XOR_TCC2 0
+  (XOR_TCC2-1 nil 3821408737 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (XOR subtype "1"
+    "naturalnumbers.upto(bytestring.length(HMAC.B1))")))
+ (XOR_TCC3 0
+  (XOR_TCC3-1 nil 3821408737 ("" (subtype-tcc) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (XOR subtype "1"
+    "naturalnumbers.upto(bytestring.length(HMAC.B2))")))
+ (XOR_TCC4 0
+  (XOR_TCC4-1 nil 3821408737 ("" (termination-tcc) nil nil) nil nil
+   (XOR termination
+    "(HMAC.XOR(bytestring.suffix(HMAC.B1, 1), bytestring.suffix(HMAC.B2, 1)))"
+    "nil")))
+ (hmac_TCC1 0
+  (hmac_TCC1-1 nil 3821410620 ("" (subtype-tcc) nil nil) nil nil
+   (hmac subtype "HMAC.outputSize" "uint32")))
+ (hmac_TCC2 0
+  (hmac_TCC2-1 nil 3821410620 ("" (subtype-tcc) nil nil) nil nil
+   (hmac subtype
+    "(number_fields.-)(HMAC.blockSize, bytestring.length(HMAC.newkey))"
+    "uint32")))
+ (hmac_TCC3 0
+  (hmac_TCC3-1 nil 3821410620 ("" (subtype-tcc) nil nil) nil nil
+   (hmac subtype "HMAC.newkey" "HMAC.lbytes(HMAC.blockSize)")))
+ (hmac_TCC4 0
+  (hmac_TCC4-1 nil 3821410620 ("" (subtype-tcc) nil nil) nil nil
+   (hmac subtype "0x5c" "byte")))
+ (hmac_TCC5 0
+  (hmac_TCC5-1 nil 3821410620 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (bytestring nonempty-type-decl nil bytestring nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (uint32 type-eq-decl nil integertypes nil)
+    (length const-decl "uint32" bytestring nil)
+    (lbytes type-eq-decl nil HMAC nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (padright const-decl "lbytes(length(B) + n)" HMAC nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   nil (hmac subtype "HMAC.blockSize" "uint32")))
+ (hmac_TCC6 0
+  (hmac_TCC6-1 nil 3821410620 ("" (subtype-tcc) nil nil) nil nil
+   (hmac subtype "0x36" "byte"))))
+

@@ -1,0 +1,11 @@
+mem_stack?(len, G, depth, (A : scaffold(len)))
+          (entry: (fine_push_entry?(len)),
+           stack: (good_stack?(len, G, depth, A)))
+    : RECURSIVE bool
+ = (IF nt(stack) >= num_non_terminals
+     THEN FALSE
+     ELSE entry = stack OR
+          mem_stack?(len, G, depth - 1, A)
+                    (entry, A(pos(stack))(nt(stack)))
+    ENDIF)
+    MEASURE depth

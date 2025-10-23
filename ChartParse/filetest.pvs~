@@ -1,0 +1,25 @@
+filetest  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+   test1: byte = 
+     (LET lf : lifted_file = open("/Users/e21660/shankar/projects/SafeDocs/Parsley/ChartParse/testfile.txt")
+       IN IF pass?(lf)
+           THEN LET f: file = contents(lf),
+	            fs : uint32 = file_size(f),
+                    b : bytestring = "Add to the end.",
+	            lff : lifted_file = append(f, b)
+		    IN IF pass?(lff)
+		         THEN  
+		          (LET ff = contents(lff),
+			      ffs : uint32 = file_size(ff),
+		              leff = IF ffs > 0 THEN setbyte(ff, ffs - 1, 44) ELSE pass(ff) ENDIF
+                           IN IF pass?(lff) AND file_size(contents(lff)) > 0
+		              THEN getbyte(contents(lff), 0)
+			      ELSE 0 ENDIF)
+			  ELSE 0 ENDIF
+	  ELSE 0 ENDIF)
+       
+
+  END filetest

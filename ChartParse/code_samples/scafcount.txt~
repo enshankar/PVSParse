@@ -1,0 +1,1 @@
+scafcount(len, (A: scaffold(len)), (P: [ent->bool]), (j: upto(len))): uint64 = sigma(0, j, LAMBDA (i: upto(len)) : count(num_non_terminals)(P)(A(i)))

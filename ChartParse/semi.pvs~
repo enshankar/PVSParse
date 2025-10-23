@@ -1,0 +1,49 @@
+semi   [input, output, local:  TYPE ]
+		: THEORY
+
+  BEGIN
+
+   state: TYPE =
+          [# inp: input,
+             outp: output,
+	     loc : local #]
+
+   s, s1, s2: VAR state
+
+   p, q: VAR PRED[state]
+   P, Q: VAR PRED[state, state]
+
+   system: DATATYPE
+    BEGIN
+     init(predicate: PRED[state]): init?
+     trans(relation: PRED[state, state]): trans?
+     invariant(invpred: PRED[state]): invariant?
+    END system
+
+    M, M1, M2: VAR system
+
+    trail: TYPE = {r: finseq[state] | r`length > 0}
+
+    r, t: VAR trail
+
+    trace: TYPE = sequence[state]
+
+    R, T: VAR trace
+
+    INIT(p)(r): bool = p(r(0))
+    INIT(p)(R): bool = p(R(0))
+
+    TRANS(P)(r): bool = (r`length > 1 AND (∀ (i: below(r`length - 1)): P(r`seq(i), r`seq(i+1))))
+    TRANS(P)(R): bool = (∀ (i: nat): P(R(i), R(i + 1)))
+
+    INV(p)(r): bool = (∀ (i:below(r`length)): p(r`seq(i)))
+    INV(p)(R): bool = (∀ (i: nat): p(R(i)))
+
+    systrail(M)(r): bool =
+      INIT(M`init)(r) ∧ TRANS(M`trans)(r) ∧ INV(M`invariant)(r)
+
+    systrace(M)(R): bool =
+      INIT(M`init)(R) ∧ TRANS(M`trans)(R) ∧ INV(M`invariant)(R)
+     
+
+  END semi

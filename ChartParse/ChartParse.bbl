@@ -1,0 +1,306 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{00}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{Barthwal and Norrish}{Barthwal and
+  Norrish}{2009}]%
+        {conf/esop/BarthwalN09}
+\bibfield{author}{\bibinfo{person}{Aditi Barthwal} {and}
+  \bibinfo{person}{Michael Norrish}.} \bibinfo{year}{2009}\natexlab{}.
+\newblock \showarticletitle{Verified, executable parsing}. In
+  \bibinfo{booktitle}{{\em Programming Languages and Systems, 18th European
+  Symposium on Programming, ESOP 2009}} {\em (\bibinfo{series}{Lecture Notes in
+  Computer Science})}, \bibfield{editor}{\bibinfo{person}{Giuseppe Castagna}}
+  (Ed.), Vol.~\bibinfo{volume}{5502}. \bibinfo{publisher}{Springer},
+  \bibinfo{pages}{160--174}.
+\newblock
+\showISBNx{978-3-642-00589-3}
+
+
+\bibitem[\protect\citeauthoryear{Blanchette and Nipkow}{Blanchette and
+  Nipkow}{2010}]%
+        {blanchette2010nitpick}
+\bibfield{author}{\bibinfo{person}{Jasmin~Christian Blanchette} {and}
+  \bibinfo{person}{Tobias Nipkow}.} \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{Nitpick: A counterexample generator for
+  higher-order logic based on a relational model finder}. In
+  \bibinfo{booktitle}{{\em International conference on interactive theorem
+  proving}}. Springer, \bibinfo{pages}{131--146}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Blaudeau and Shankar}{Blaudeau and
+  Shankar}{2020}]%
+        {blaudeau2020verified}
+\bibfield{author}{\bibinfo{person}{Clement Blaudeau} {and}
+  \bibinfo{person}{Natarajan Shankar}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{A Verified Packrat parser interpreter for {Parsing
+  Expression Grammars}}. In \bibinfo{booktitle}{{\em Proceedings of the 9th ACM
+  SIGPLAN International Conference on Certified Programs and Proofs}}.
+  \bibinfo{pages}{3--17}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Bratus, Hermerschmidt, Hallberg, Locasto,
+  Momot, Patterson, and Shubina}{Bratus et~al\mbox{.}}{2017}]%
+        {DBLP:journals/usenix-login/BratusHHLMPS17}
+\bibfield{author}{\bibinfo{person}{Sergey Bratus}, \bibinfo{person}{Lars
+  Hermerschmidt}, \bibinfo{person}{Sven~M. Hallberg},
+  \bibinfo{person}{Michael~E. Locasto}, \bibinfo{person}{Falcon Momot},
+  \bibinfo{person}{Meredith~L. Patterson}, {and} \bibinfo{person}{Anna
+  Shubina}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Curing the vulnerable parser: Design patterns for
+  secure input handling}.
+\newblock \bibinfo{journal}{{\em ;login:\/}} \bibinfo{volume}{42},
+  \bibinfo{number}{1} (\bibinfo{year}{2017}), \bibinfo{pages}{33--39}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Carvalho, DeMott, Ford, and Wheeler}{Carvalho
+  et~al\mbox{.}}{2014}]%
+        {carvalho2014heartbleed}
+\bibfield{author}{\bibinfo{person}{Marco Carvalho}, \bibinfo{person}{Jared
+  DeMott}, \bibinfo{person}{Richard Ford}, {and} \bibinfo{person}{David~A
+  Wheeler}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Heartbleed 101}.
+\newblock \bibinfo{journal}{{\em IEEE security \& privacy\/}}
+  \bibinfo{volume}{12}, \bibinfo{number}{4} (\bibinfo{year}{2014}),
+  \bibinfo{pages}{63--67}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Earley}{Earley}{1970}]%
+        {earley1970efficient}
+\bibfield{author}{\bibinfo{person}{Jay Earley}.}
+  \bibinfo{year}{1970}\natexlab{}.
+\newblock \showarticletitle{An efficient context-free parsing algorithm}.
+\newblock \bibinfo{journal}{{\it Commun. ACM}} \bibinfo{volume}{13},
+  \bibinfo{number}{2} (\bibinfo{year}{1970}), \bibinfo{pages}{94--102}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Ford}{Ford}{2004}]%
+        {DBLP:conf/popl/Ford04}
+\bibfield{author}{\bibinfo{person}{Bryan Ford}.}
+  \bibinfo{year}{2004}\natexlab{}.
+\newblock \showarticletitle{Parsing expression grammars: A recognition-based
+  syntactic foundation}. In \bibinfo{booktitle}{{\em Proceedings of the 31st
+  {ACM} {SIGPLAN-SIGACT} Symposium on Principles of Programming Languages,
+  {POPL} 2004, Venice, Italy, January 14-16, 2004}},
+  \bibfield{editor}{\bibinfo{person}{Neil~D. Jones} {and}
+  \bibinfo{person}{Xavier Leroy}} (Eds.). \bibinfo{publisher}{{ACM}},
+  \bibinfo{pages}{111--122}.
+\newblock
+\showISBNx{1-58113-729-X}
+\showDOI{%
+\url{https://doi.org/10.1145/964001.964011}}
+
+
+\bibitem[\protect\citeauthoryear{Grune and Jacobs}{Grune and Jacobs}{2008}]%
+        {GruneJacobs}
+\bibfield{author}{\bibinfo{person}{Dick Grune} {and}
+  \bibinfo{person}{Ceriel~J.H. Jacobs}.} \bibinfo{year}{2008}\natexlab{}.
+\newblock \bibinfo{booktitle}{{\em Parsing Techniques (Second Edition)}}.
+\newblock \bibinfo{publisher}{Springer}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Jackson}{Jackson}{2006}]%
+        {Jackson2006:book}
+\bibfield{author}{\bibinfo{person}{Daniel Jackson}.}
+  \bibinfo{year}{2006}\natexlab{}.
+\newblock \bibinfo{booktitle}{{\em Software Abstractions: Logic, Language, and
+  Analysis}}.
+\newblock \bibinfo{publisher}{MIT Press}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Kay}{Kay}{1986}]%
+        {kay1986algorithm}
+\bibfield{author}{\bibinfo{person}{M Kay}.} \bibinfo{year}{1986}\natexlab{}.
+\newblock \showarticletitle{Algorithm schemata and data structures in syntactic
+  processing}. In \bibinfo{booktitle}{{\em Readings in natural language
+  processing}}. Morgan Kaufmann Publishers Inc., \bibinfo{pages}{35--70}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Koprowski and Binsztok}{Koprowski and
+  Binsztok}{2011}]%
+        {trx}
+\bibfield{author}{\bibinfo{person}{Adam Koprowski} {and} \bibinfo{person}{Henri
+  Binsztok}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{{TRX:} {A} formally verified parser interpreter}.
+\newblock \bibinfo{journal}{{\em Logical Methods in Computer Science\/}}
+  \bibinfo{volume}{7}, \bibinfo{number}{2} (\bibinfo{year}{2011}),
+  \bibinfo{pages}{1--26}.
+\newblock
+\showDOI{%
+\url{https://doi.org/10.2168/LMCS-7(2:18)2011}}
+
+
+\bibitem[\protect\citeauthoryear{Kumar, Myreen, Norrish, and Owens}{Kumar
+  et~al\mbox{.}}{2014}]%
+        {DBLP:conf/popl/KumarMNO14}
+\bibfield{author}{\bibinfo{person}{Ramana Kumar}, \bibinfo{person}{Magnus~O.
+  Myreen}, \bibinfo{person}{Michael Norrish}, {and} \bibinfo{person}{Scott
+  Owens}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{CakeML: A verified implementation of {ML}}. In
+  \bibinfo{booktitle}{{\em The 41st Annual {ACM} {SIGPLAN-SIGACT} Symposium on
+  Principles of Programming Languages, {POPL} '14, San Diego, CA, USA, January
+  20-21, 2014}}, \bibfield{editor}{\bibinfo{person}{Suresh Jagannathan} {and}
+  \bibinfo{person}{Peter Sewell}} (Eds.). \bibinfo{publisher}{{ACM}},
+  \bibinfo{pages}{179--192}.
+\newblock
+\showISBNx{978-1-4503-2544-8}
+\showDOI{%
+\url{https://doi.org/10.1145/2535838.2535841}}
+
+
+\bibitem[\protect\citeauthoryear{Lasser, Casinghino, Fisher, and Roux}{Lasser
+  et~al\mbox{.}}{2019}]%
+        {DBLP:conf/itp/LasserCFR19}
+\bibfield{author}{\bibinfo{person}{Sam Lasser}, \bibinfo{person}{Chris
+  Casinghino}, \bibinfo{person}{Kathleen Fisher}, {and} \bibinfo{person}{Cody
+  Roux}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{A verified {LL(1)} parser generator}. In
+  \bibinfo{booktitle}{{\em 10th International Conference on Interactive Theorem
+  Proving, {ITP} 2019, September 9-12, 2019, Portland, OR, {USA.}}} {\em
+  (\bibinfo{series}{LIPIcs})}, \bibfield{editor}{\bibinfo{person}{John
+  Harrison}, \bibinfo{person}{John O'Leary}, {and} \bibinfo{person}{Andrew
+  Tolmach}} (Eds.), Vol.~\bibinfo{volume}{141}. \bibinfo{publisher}{Schloss
+  Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik},
+  \bibinfo{pages}{24:1--24:18}.
+\newblock
+\showISBNx{978-3-95977-122-1}
+\showDOI{%
+\url{https://doi.org/10.4230/LIPIcs.ITP.2019.24}}
+
+
+\bibitem[\protect\citeauthoryear{Loff, Moreira, and Reis}{Loff
+  et~al\mbox{.}}{2020}]%
+        {loff2020computational}
+\bibfield{author}{\bibinfo{person}{Bruno Loff}, \bibinfo{person}{Nelma
+  Moreira}, {and} \bibinfo{person}{Rog{\'e}rio Reis}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{The computational power of parsing expression
+  grammars}.
+\newblock \bibinfo{journal}{{\it J. Comput. System Sci.}}
+  (\bibinfo{year}{2020}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Owre, Rushby, Shankar, and von Henke}{Owre
+  et~al\mbox{.}}{1995}]%
+        {Owre95:prolegomena}
+\bibfield{author}{\bibinfo{person}{Sam Owre}, \bibinfo{person}{John Rushby},
+  \bibinfo{person}{Natarajan Shankar}, {and} \bibinfo{person}{Friedrich von
+  Henke}.} \bibinfo{year}{1995}\natexlab{}.
+\newblock \showarticletitle{Formal Verification for Fault-Tolerant
+  Architectures: Prolegomena to the Design of {PVS}}.
+\newblock  \bibinfo{volume}{21}, \bibinfo{number}{2} (\bibinfo{date}{Feb.}
+  \bibinfo{year}{1995}), \bibinfo{pages}{107--125}.
+\newblock
+\newblock
+\shownote{{PVS} home page: \url{http://pvs.csl.sri.com}.}
+
+
+\bibitem[\protect\citeauthoryear{Padon, McMillan, Panda, Sagiv, and
+  Shoham}{Padon et~al\mbox{.}}{2016}]%
+        {padon2016ivy}
+\bibfield{author}{\bibinfo{person}{Oded Padon}, \bibinfo{person}{Kenneth~L
+  McMillan}, \bibinfo{person}{Aurojit Panda}, \bibinfo{person}{Mooly Sagiv},
+  {and} \bibinfo{person}{Sharon Shoham}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Ivy: Safety verification by interactive
+  generalization}. In \bibinfo{booktitle}{{\em Proceedings of the 37th ACM
+  SIGPLAN Conference on Programming Language Design and Implementation}}.
+  \bibinfo{pages}{614--630}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Pereira and Warren}{Pereira and
+  Warren}{1983}]%
+        {pereira1983parsing}
+\bibfield{author}{\bibinfo{person}{Fernando~CN Pereira} {and}
+  \bibinfo{person}{David~HD Warren}.} \bibinfo{year}{1983}\natexlab{}.
+\newblock \showarticletitle{Parsing as deduction}. In \bibinfo{booktitle}{{\em
+  21st Annual Meeting of the Association for Computational Linguistics}}.
+  \bibinfo{pages}{137--144}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Ridge}{Ridge}{2011}]%
+        {conf/cpp/Ridge11}
+\bibfield{author}{\bibinfo{person}{Tom Ridge}.}
+  \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Simple, Functional, Sound and Complete Parsing for
+  All Context-Free Grammars}. In \bibinfo{booktitle}{{\em Certified Programs
+  and Proofs - First International Conference, CPP 2011, Kenting, Taiwan,
+  December 7-9, 2011. Proceedings}} {\em (\bibinfo{series}{Lecture Notes in
+  Computer Science})}, \bibfield{editor}{\bibinfo{person}{Jean-Pierre
+  Jouannaud} {and} \bibinfo{person}{Zhong Shao}} (Eds.),
+  Vol.~\bibinfo{volume}{7086}. \bibinfo{publisher}{Springer},
+  \bibinfo{pages}{103--118}.
+\newblock
+\showISBNx{978-3-642-25378-2}
+
+
+\bibitem[\protect\citeauthoryear{Tzadik}{Tzadik}{2020}]%
+        {SIGRed}
+\bibfield{author}{\bibinfo{person}{Sagi Tzadik}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{{SIGRed} - Resolving Your Way into Domain Admin:
+  Exploiting a 17 Year-old Bug in {Windows DNS} Servers}.
+\newblock  (\bibinfo{date}{July} \bibinfo{year}{2020}).
+\newblock
+\showURL{%
+\url{https://research.checkpoint.com/2020/resolving-your-way-into-domain-admin-exploiting-a-17-year-old-bug-in-windows-dns-servers/}}
+
+
+\bibitem[\protect\citeauthoryear{Yang, Chen, Eide, and Regehr}{Yang
+  et~al\mbox{.}}{2011}]%
+        {csmith}
+\bibfield{author}{\bibinfo{person}{Xuejun Yang}, \bibinfo{person}{Yang Chen},
+  \bibinfo{person}{Eric Eide}, {and} \bibinfo{person}{John Regehr}.}
+  \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Finding and Understanding Bugs in {C} Compilers}.
+  In \bibinfo{booktitle}{{\em PLDI'11}}. \bibinfo{publisher}{ACM},
+  \bibinfo{pages}{283--294}.
+\newblock
+
+
+\end{thebibliography}

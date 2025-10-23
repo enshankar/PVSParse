@@ -1,0 +1,26 @@
+newentry(len, G, (s: strings(len)),
+                (start: upto(len)),
+                (rootnt: non_terminal))
+               (St : ne_state(len, G, s, start, rootnt)):
+   finer_entry(len, G, s, St`scaf, St`stack,
+                      pos(St`stack), nt(St`stack))
+   =
+    (LET pos = pos(St`stack),
+         cur = nt(St`stack),
+         rest = St`scaf(pos)(cur)
+     IN CASES G(cur) OF
+         epsilon: good(0, 0),
+         failure: fail(0),
+         any(p): IF pos = len OR NOT p(s(pos))
+                 THEN fail(0)
+                 ELSE good(0, 1)
+                 ENDIF,
+         terminal(a): IF pos = len OR a /= s(pos)
+                      THEN fail(0)
+                      ELSE good(0, 1)
+                      ENDIF,
+         concat(n1, n2): ...,
+          choice(n1, n2): ...,
+          check(n1): ...,
+          neg(n1): ...
+        ENDCASES)

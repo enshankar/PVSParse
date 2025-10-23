@@ -1,0 +1,16 @@
+This directory contains the files that are code-generated from PVS for the Key Derivation Functions in
+the 5g-AKA protocol.
+
+The files pvslib.h and pvslib.c are hand-written files containing some background code.
+All the other files are generated directly from the PVS specifications.
+The main executables are test_SHA256, test_HMAC, and KDF, respectively created by the
+compiler commands below. The clang compiler generates a long series of warnings that can be
+ignored.  These are mainly due to missing casts. The executables test the SHA256, HMAC, and KDF
+functions and generate some test information. 
+
+cc -O3 -Wall -o test_SHA256 pvslib.c finite_sequences_c.c bytestrings_c.c gen_strings_c.c strings_c.c ordinals_c.c ordstruct_adt_c.c integertypes_c.c real_defs_c.c exp2_c.c euclidean_division_c.c test_SHA256_c.c SHA256_c.c rotate_c.c test_SHA256_m.c -lgmp
+
+cc -O3 -Wall -o test_SHA256 pvslib.c finite_sequences_c.c bytestrings_c.c gen_strings_c.c strings_c.c ordinals_c.c ordstruct_adt_c.c integertypes_c.c real_defs_c.c exp2_c.c euclidean_division_c.c test_HMAC_c.c HMAC_c.c SHA256_c.c rotate_c.c test_HMAC_m.c -lgmp
+
+cc -O3 -Wall -o KDF pvslib.c bytestrings_c.c gen_strings_c.c strings_c.c integertypes_c.c exp2_c.c euclidean_division_c.c ordinals_c.c ordstruct_adt_c.c finite_sequences_c.c real_defs_c.c KDF_c.c HMAC_c.c SHA256_c.c rotate_c.c KDF_m.c -lgmp
+

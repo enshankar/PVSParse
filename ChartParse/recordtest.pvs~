@@ -1,0 +1,10 @@
+recordtest  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+   rec: TYPE = [# a : uint8, b : below(a), c : below(a + b) #]
+
+   mkrec(x : uint8 | x < 255): rec = (# a := x+1, b := x, c := x #)
+
+  END recordtest

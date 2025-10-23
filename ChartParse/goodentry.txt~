@@ -1,0 +1,7 @@
+good_entry?(len, G, (s: strings(len)))(A : scaffold(len), (i : upto(len)), n, (u: ent)): bool =
+   CASES u OF
+    fail(d): good_fail?(len, G, s)(A, i, n, d),
+    loop: loop_ready?(len, G, A,  i, n), %don't need good_loop?
+    good(d, sp):  sp <= len - i AND good_good?(len, G, s)(A, i, n, d, sp)
+    ELSE TRUE
+    ENDCASES

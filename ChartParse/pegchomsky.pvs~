@@ -1,0 +1,34 @@
+pegchomsky   [num_non_terminals : posnat, terminal_type : TYPE+]
+		: THEORY 
+  BEGIN
+
+  non_terminal: TYPE = below(num_non_terminals)
+
+  peg  : DATATYPE
+  BEGIN
+   epsilon : epsilon?
+   failure : failure?
+   any : any?
+   terminal(a: terminal_type) : terminal?
+   nonterminal(n: non_terminal): nonterminal?
+   concat(e1, e2: peg) : concat?
+   choice(e1, e2: peg) : or?
+   check(e: peg) : and?
+   neg(e: peg) : not?
+  END peg
+
+  peg_production: TYPE = [nonterminal -> peg]
+
+  
+
+  atomic_peg  : DATATYPE
+  BEGIN
+   epsilon : epsilon?
+   failure : failure?
+   any : any?
+   terminal(a: terminal_type) : terminal?
+   concat(e1, e2: below(num_non_terminals)) : concat?
+   choice(e1, e2: below(num_non_terminals)) : or?
+   check(e: below(num_non_terminals)) : and?
+   neg(e: below(num_non_terminals)) : not?
+  END atomic_peg

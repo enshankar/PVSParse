@@ -1,0 +1,69 @@
+semi   [input, output, local:  TYPE ]
+		: THEORY
+
+  BEGIN
+
+   state: TYPE =
+          [# inp: input,
+             outp: output,
+	     loc : local #]
+
+   s, s1, s2: VAR state
+
+   p, q: VAR PRED[state]
+   P, Q: VAR PRED[[state, state]]
+
+   system: TYPE =
+      [# init : PRED[state],
+         trans : PRED[[state, state]],
+         inv : PRED[state] #]
+
+
+   defsystem(init: PRED[state],
+             trans: PRED[[state, state]],
+	     inv: PRED[state]): system
+    = (# init := init, trans := trans, inv := inv #)
+
+    M, M1, M2: VAR system
+
+    trail: TYPE = {r: finseq[state] | r`length > 0}
+
+    r, t: VAR trail
+
+    trace: TYPE = sequence[state]
+
+    R, T: VAR trace
+
+    init(p)(r): bool = p(r`seq(0))
+    INIT(p)(R): bool = p(R(0))
+    CONVERSION+ init, INIT
+
+    trans(P)(r): bool = (r`length > 1 AND (∀ (i: below(r`length - 1)): P(r`seq(i), r`seq(i+1))))
+    TRANS(P)(R): bool = (∀ (i: nat): P(R(i), R(i + 1)))
+
+    inv(p)(r): bool = (∀ (i:below(r`length)): p(r`seq(i)))
+    INV(p)(R): bool = (∀ (i: nat): p(R(i)))
+
+    systrail(M)(r): bool =
+      init(M`init)(r) ∧ trans(M`trans)(r) ∧ inv(M`inv)(r)
+
+    systrace(M)(R): bool =
+      INIT(M`init)(R) ∧ TRANS(M`trans)(R) ∧ INV(M`inv)(R)
+
+    a, b: VAR PRED[trail]
+    A, B: VAR PRED[trace]
+
+    suffix(r, (i: below(r`length))): trail
+     = (# length := r`length - i,
+          seq := (λ (j: below(r`length - i)): r`seq(i + j)) #)
+
+    always(a)(r): bool = (∀ (i: below(r`length)): a(suffix(r, i)))
+    ALWAYS(A)(R): bool = (∀ (i: nat): A(suffix(R, i)))
+
+    eventually(a)(r): bool = NOT always(a)(r)
+    EVENTUALLY(A)(R): bool = NOT ALWAYS(A)(R)
+
+    FAIR(A)(R): bool = ALWAYS(EVENTUALLY(A))(R)
+    
+
+  END semi

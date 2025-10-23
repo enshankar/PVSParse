@@ -1,0 +1,2 @@
+good_root?(len, (A: scaffold(len)))((rootpos: upto(len)), rootnt : non_terminal): bool =
+  (NOT pending?(A(rootpos)(rootnt)))

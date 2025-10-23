@@ -1,0 +1,536 @@
+\relax 
+\providecommand\zref@newlabel[2]{}
+\citation{GruneJacobs}
+\citation{csmith}
+\citation{DBLP:journals/usenix-login/BratusHHLMPS17}
+\citation{carvalho2014heartbleed}
+\citation{SIGRed}
+\citation{Owre95:prolegomena}
+\@writefile{toc}{\contentsline {title}{Formal Development of a Top-Down Chart Parser for Parsing Expression Grammars}{1}\protected@file@percent }
+\@writefile{toc}{\authcount {2}}
+\@writefile{toc}{\contentsline {author}{Zephyr S. Lucas\unskip {} \and Natarajan Shankar\unskip {}}{1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}}
+\citation{GruneJacobs}
+\citation{earley1970efficient,kay1986algorithm,pereira1983parsing}
+\citation{DBLP:conf/popl/Ford04}
+\citation{trx,blaudeau2020verified}
+\citation{DBLP:conf/popl/KumarMNO14}
+\citation{DBLP:conf/itp/LasserCFR19}
+\citation{conf/esop/BarthwalN09}
+\citation{conf/cpp/Ridge11}
+\citation{loff2020computational}
+\@writefile{toc}{\contentsline {section}{\numberline {2}A Top-Down Chart Parser for PEGs}{4}\protected@file@percent }
+\newlabel{sec:PEG}{{2}{4}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces \relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ {\leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ }\belowdisplayskip \abovedisplayskip Each row in contains one of the set of fundamental PEG normal-form operations we implemented. Here $n_{j}$, $n_{k}$ are non-terminals, $c$ is a character in our character space, and $p$ is a predicate over our character space.}}{4}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{table:NormalForm}{{1}{4}}
+\savepointas{a}{pgfid1}{0pt}{0pt}
+\savepicturepage{pgfid1}{5}
+\pgfsyspdfmark {pgfid1}{19760851}{42447670}
+\savepointas{b}{pgfid2}{0pt}{0pt}
+\savepicturepage{pgfid2}{5}
+\pgfsyspdfmark {pgfid2}{19752685}{40476855}
+\savepointas{c}{pgfid3}{0pt}{0pt}
+\savepicturepage{pgfid3}{5}
+\pgfsyspdfmark {pgfid3}{20534352}{39253150}
+\savepicturepage{pgfid4}{5}
+\pgfsyspdfmark {pgfid4}{8865054}{37640963}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ {\leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ }\belowdisplayskip \abovedisplayskip A generic scaffold for a PEG consisting of $N$ productions (the rows) over an input token string $s$ of length $L$ (the columns)}}{5}\protected@file@percent }
+\newlabel{fig:GenericScaffold}{{1}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Example: Matching Parentheses}{5}\protected@file@percent }
+\savepointas{a00}{pgfid5}{0pt}{0pt}
+\savepicturepage{pgfid5}{6}
+\pgfsyspdfmark {pgfid5}{19411323}{37832206}
+\savepointas{a01}{pgfid6}{0pt}{0pt}
+\savepicturepage{pgfid6}{6}
+\pgfsyspdfmark {pgfid6}{20156946}{37832206}
+\savepointas{a02}{pgfid7}{0pt}{0pt}
+\savepicturepage{pgfid7}{6}
+\pgfsyspdfmark {pgfid7}{20902569}{37832206}
+\savepointas{a03}{pgfid8}{0pt}{0pt}
+\savepicturepage{pgfid8}{6}
+\pgfsyspdfmark {pgfid8}{21648192}{37832206}
+\savepointas{a04}{pgfid9}{0pt}{0pt}
+\savepicturepage{pgfid9}{6}
+\pgfsyspdfmark {pgfid9}{22393815}{37832206}
+\savepointas{a05}{pgfid10}{0pt}{0pt}
+\savepicturepage{pgfid10}{6}
+\pgfsyspdfmark {pgfid10}{23139438}{37832206}
+\savepointas{a06}{pgfid11}{0pt}{0pt}
+\savepicturepage{pgfid11}{6}
+\pgfsyspdfmark {pgfid11}{23885061}{37832206}
+\savepointas{a07}{pgfid12}{0pt}{0pt}
+\savepicturepage{pgfid12}{6}
+\pgfsyspdfmark {pgfid12}{24630684}{37832206}
+\savepointas{a08}{pgfid13}{0pt}{0pt}
+\savepicturepage{pgfid13}{6}
+\pgfsyspdfmark {pgfid13}{25376307}{37832206}
+\savepointas{a10}{pgfid14}{0pt}{0pt}
+\savepicturepage{pgfid14}{6}
+\pgfsyspdfmark {pgfid14}{19411323}{37085096}
+\savepointas{a11}{pgfid15}{0pt}{0pt}
+\savepicturepage{pgfid15}{6}
+\pgfsyspdfmark {pgfid15}{20156946}{37085096}
+\savepointas{a12}{pgfid16}{0pt}{0pt}
+\savepicturepage{pgfid16}{6}
+\pgfsyspdfmark {pgfid16}{20800707}{37085096}
+\savepointas{a13}{pgfid17}{0pt}{0pt}
+\savepicturepage{pgfid17}{6}
+\pgfsyspdfmark {pgfid17}{21648192}{37085096}
+\savepointas{a14}{pgfid18}{0pt}{0pt}
+\savepicturepage{pgfid18}{6}
+\pgfsyspdfmark {pgfid18}{22291953}{37085096}
+\savepointas{a15}{pgfid19}{0pt}{0pt}
+\savepicturepage{pgfid19}{6}
+\pgfsyspdfmark {pgfid19}{23037576}{37085096}
+\savepointas{a16}{pgfid20}{0pt}{0pt}
+\savepicturepage{pgfid20}{6}
+\pgfsyspdfmark {pgfid20}{23885061}{37085096}
+\savepointas{a17}{pgfid21}{0pt}{0pt}
+\savepicturepage{pgfid21}{6}
+\pgfsyspdfmark {pgfid21}{24528822}{37085096}
+\savepointas{a18}{pgfid22}{0pt}{0pt}
+\savepicturepage{pgfid22}{6}
+\pgfsyspdfmark {pgfid22}{25274445}{37085096}
+\savepointas{a20}{pgfid23}{0pt}{0pt}
+\savepicturepage{pgfid23}{6}
+\pgfsyspdfmark {pgfid23}{19411323}{36337986}
+\savepointas{a21}{pgfid24}{0pt}{0pt}
+\savepicturepage{pgfid24}{6}
+\pgfsyspdfmark {pgfid24}{20156946}{36337986}
+\savepointas{a22}{pgfid25}{0pt}{0pt}
+\savepicturepage{pgfid25}{6}
+\pgfsyspdfmark {pgfid25}{20800707}{36337986}
+\savepointas{a23}{pgfid26}{0pt}{0pt}
+\savepicturepage{pgfid26}{6}
+\pgfsyspdfmark {pgfid26}{21648192}{36337986}
+\savepointas{a24}{pgfid27}{0pt}{0pt}
+\savepicturepage{pgfid27}{6}
+\pgfsyspdfmark {pgfid27}{22291953}{36337986}
+\savepointas{a25}{pgfid28}{0pt}{0pt}
+\savepicturepage{pgfid28}{6}
+\pgfsyspdfmark {pgfid28}{23037576}{36337986}
+\savepointas{a26}{pgfid29}{0pt}{0pt}
+\savepicturepage{pgfid29}{6}
+\pgfsyspdfmark {pgfid29}{23885061}{36337986}
+\savepointas{a27}{pgfid30}{0pt}{0pt}
+\savepicturepage{pgfid30}{6}
+\pgfsyspdfmark {pgfid30}{24528822}{36337986}
+\savepointas{a28}{pgfid31}{0pt}{0pt}
+\savepicturepage{pgfid31}{6}
+\pgfsyspdfmark {pgfid31}{25274445}{36337986}
+\savepointas{a31}{pgfid32}{0pt}{0pt}
+\savepicturepage{pgfid32}{6}
+\pgfsyspdfmark {pgfid32}{20156946}{35590876}
+\savepointas{a32}{pgfid33}{0pt}{0pt}
+\savepicturepage{pgfid33}{6}
+\pgfsyspdfmark {pgfid33}{20902569}{35590876}
+\savepointas{a34}{pgfid34}{0pt}{0pt}
+\savepicturepage{pgfid34}{6}
+\pgfsyspdfmark {pgfid34}{22393815}{35590876}
+\savepointas{a37}{pgfid35}{0pt}{0pt}
+\savepicturepage{pgfid35}{6}
+\pgfsyspdfmark {pgfid35}{24630684}{35590876}
+\savepointas{a42}{pgfid36}{0pt}{0pt}
+\savepicturepage{pgfid36}{6}
+\pgfsyspdfmark {pgfid36}{20902569}{34843766}
+\savepointas{a44}{pgfid37}{0pt}{0pt}
+\savepicturepage{pgfid37}{6}
+\pgfsyspdfmark {pgfid37}{22393815}{34843766}
+\savepointas{a45}{pgfid38}{0pt}{0pt}
+\savepicturepage{pgfid38}{6}
+\pgfsyspdfmark {pgfid38}{23139438}{34843766}
+\savepointas{a47}{pgfid39}{0pt}{0pt}
+\savepicturepage{pgfid39}{6}
+\pgfsyspdfmark {pgfid39}{24630684}{34843766}
+\savepointas{a52}{pgfid40}{0pt}{0pt}
+\savepicturepage{pgfid40}{6}
+\pgfsyspdfmark {pgfid40}{20902569}{34096656}
+\savepointas{a54}{pgfid41}{0pt}{0pt}
+\savepicturepage{pgfid41}{6}
+\pgfsyspdfmark {pgfid41}{22393815}{34096656}
+\savepointas{a55}{pgfid42}{0pt}{0pt}
+\savepicturepage{pgfid42}{6}
+\pgfsyspdfmark {pgfid42}{23139438}{34096656}
+\savepointas{a57}{pgfid43}{0pt}{0pt}
+\savepicturepage{pgfid43}{6}
+\pgfsyspdfmark {pgfid43}{24630684}{34096656}
+\savepointas{a62}{pgfid44}{0pt}{0pt}
+\savepicturepage{pgfid44}{6}
+\pgfsyspdfmark {pgfid44}{20902569}{33349546}
+\savepointas{a64}{pgfid45}{0pt}{0pt}
+\savepicturepage{pgfid45}{6}
+\pgfsyspdfmark {pgfid45}{22393815}{33349546}
+\savepointas{a65}{pgfid46}{0pt}{0pt}
+\savepicturepage{pgfid46}{6}
+\pgfsyspdfmark {pgfid46}{23139438}{33349546}
+\savepointas{a67}{pgfid47}{0pt}{0pt}
+\savepicturepage{pgfid47}{6}
+\pgfsyspdfmark {pgfid47}{24630684}{33349546}
+\savepointas{a68}{pgfid48}{0pt}{0pt}
+\savepicturepage{pgfid48}{6}
+\pgfsyspdfmark {pgfid48}{25376307}{33349546}
+\savepicturepage{pgfid49}{6}
+\pgfsyspdfmark {pgfid49}{8865054}{32484469}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ {\leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ }\belowdisplayskip \abovedisplayskip Matching Parenthesis on "\texttt  {(()())()}". This shows the contents of the scaffold after the parsing process has completed. Blue arrows show the successful parse tree, and red arrows show the proof of a failed parse. Scaffold entries marked $g_{i}$ indicate an entry of \emph  {good} with a span of $i$, and entries marked $f$ indicate a fail.}}{6}\protected@file@percent }
+\newlabel{scaffold:matchingParenthesis}{{2}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Example: Power of Two}{6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Example: Loop}{6}\protected@file@percent }
+\savepointas{b00}{pgfid50}{0pt}{0pt}
+\savepicturepage{pgfid50}{7}
+\pgfsyspdfmark {pgfid50}{18489092}{42447670}
+\savepointas{ba4}{pgfid51}{0pt}{0pt}
+\savepicturepage{pgfid51}{7}
+\pgfsyspdfmark {pgfid51}{23795366}{41700560}
+\savepointas{b82}{pgfid52}{0pt}{0pt}
+\savepicturepage{pgfid52}{7}
+\pgfsyspdfmark {pgfid52}{21193574}{40953450}
+\savepointas{b84}{pgfid53}{0pt}{0pt}
+\savepicturepage{pgfid53}{7}
+\pgfsyspdfmark {pgfid53}{23897228}{40953450}
+\savepointas{b86}{pgfid54}{0pt}{0pt}
+\savepicturepage{pgfid54}{7}
+\pgfsyspdfmark {pgfid54}{26701916}{40953450}
+\savepointas{b10}{pgfid55}{0pt}{0pt}
+\savepicturepage{pgfid55}{7}
+\pgfsyspdfmark {pgfid55}{18590954}{40206340}
+\savepointas{b11}{pgfid56}{0pt}{0pt}
+\savepicturepage{pgfid56}{7}
+\pgfsyspdfmark {pgfid56}{19841747}{40206340}
+\savepointas{b12}{pgfid57}{0pt}{0pt}
+\savepicturepage{pgfid57}{7}
+\pgfsyspdfmark {pgfid57}{21193574}{40206340}
+\savepointas{b13}{pgfid58}{0pt}{0pt}
+\savepicturepage{pgfid58}{7}
+\pgfsyspdfmark {pgfid58}{22545401}{40206340}
+\savepointas{b14}{pgfid59}{0pt}{0pt}
+\savepicturepage{pgfid59}{7}
+\pgfsyspdfmark {pgfid59}{23897228}{40206340}
+\savepointas{b15}{pgfid60}{0pt}{0pt}
+\savepicturepage{pgfid60}{7}
+\pgfsyspdfmark {pgfid60}{25249055}{40206340}
+\savepointas{b16}{pgfid61}{0pt}{0pt}
+\savepicturepage{pgfid61}{7}
+\pgfsyspdfmark {pgfid61}{26701916}{40206340}
+\savepointas{b41}{pgfid62}{0pt}{0pt}
+\savepicturepage{pgfid62}{7}
+\pgfsyspdfmark {pgfid62}{19841747}{39459230}
+\savepointas{b42}{pgfid63}{0pt}{0pt}
+\savepicturepage{pgfid63}{7}
+\pgfsyspdfmark {pgfid63}{21091712}{39459230}
+\savepointas{b43}{pgfid64}{0pt}{0pt}
+\savepicturepage{pgfid64}{7}
+\pgfsyspdfmark {pgfid64}{22545401}{39459230}
+\savepointas{b44}{pgfid65}{0pt}{0pt}
+\savepicturepage{pgfid65}{7}
+\pgfsyspdfmark {pgfid65}{23795366}{39459230}
+\savepointas{b45}{pgfid66}{0pt}{0pt}
+\savepicturepage{pgfid66}{7}
+\pgfsyspdfmark {pgfid66}{25249055}{39459230}
+\savepointas{b46}{pgfid67}{0pt}{0pt}
+\savepicturepage{pgfid67}{7}
+\pgfsyspdfmark {pgfid67}{26600054}{39459230}
+\savepointas{b20}{pgfid68}{0pt}{0pt}
+\savepicturepage{pgfid68}{7}
+\pgfsyspdfmark {pgfid68}{18590954}{38712120}
+\savepointas{b21}{pgfid69}{0pt}{0pt}
+\savepicturepage{pgfid69}{7}
+\pgfsyspdfmark {pgfid69}{19739885}{38712120}
+\savepointas{b22}{pgfid70}{0pt}{0pt}
+\savepicturepage{pgfid70}{7}
+\pgfsyspdfmark {pgfid70}{21193574}{38712120}
+\savepointas{b23}{pgfid71}{0pt}{0pt}
+\savepicturepage{pgfid71}{7}
+\pgfsyspdfmark {pgfid71}{22443539}{38712120}
+\savepointas{b24}{pgfid72}{0pt}{0pt}
+\savepicturepage{pgfid72}{7}
+\pgfsyspdfmark {pgfid72}{23897228}{38712120}
+\savepointas{b25}{pgfid73}{0pt}{0pt}
+\savepicturepage{pgfid73}{7}
+\pgfsyspdfmark {pgfid73}{25147193}{38712120}
+\savepointas{b26}{pgfid74}{0pt}{0pt}
+\savepicturepage{pgfid74}{7}
+\pgfsyspdfmark {pgfid74}{26600054}{38712120}
+\savepointas{b30}{pgfid75}{0pt}{0pt}
+\savepicturepage{pgfid75}{7}
+\pgfsyspdfmark {pgfid75}{18590954}{37965010}
+\savepointas{b31}{pgfid76}{0pt}{0pt}
+\savepicturepage{pgfid76}{7}
+\pgfsyspdfmark {pgfid76}{19942781}{37965010}
+\savepointas{b32}{pgfid77}{0pt}{0pt}
+\savepicturepage{pgfid77}{7}
+\pgfsyspdfmark {pgfid77}{21294608}{37965010}
+\savepointas{b33}{pgfid78}{0pt}{0pt}
+\savepicturepage{pgfid78}{7}
+\pgfsyspdfmark {pgfid78}{22646435}{37965010}
+\savepointas{b34}{pgfid79}{0pt}{0pt}
+\savepicturepage{pgfid79}{7}
+\pgfsyspdfmark {pgfid79}{23998262}{37965010}
+\savepointas{b35}{pgfid80}{0pt}{0pt}
+\savepicturepage{pgfid80}{7}
+\pgfsyspdfmark {pgfid80}{25350089}{37965010}
+\savepointas{b36}{pgfid81}{0pt}{0pt}
+\savepicturepage{pgfid81}{7}
+\pgfsyspdfmark {pgfid81}{26600054}{37965010}
+\savepointas{b51}{pgfid82}{0pt}{0pt}
+\savepicturepage{pgfid82}{7}
+\pgfsyspdfmark {pgfid82}{19841747}{37217900}
+\savepointas{b53}{pgfid83}{0pt}{0pt}
+\savepicturepage{pgfid83}{7}
+\pgfsyspdfmark {pgfid83}{22545401}{37217900}
+\savepointas{b55}{pgfid84}{0pt}{0pt}
+\savepicturepage{pgfid84}{7}
+\pgfsyspdfmark {pgfid84}{25249055}{37217900}
+\savepointas{b56}{pgfid85}{0pt}{0pt}
+\savepicturepage{pgfid85}{7}
+\pgfsyspdfmark {pgfid85}{26701916}{37217900}
+\savepointas{b95}{pgfid86}{0pt}{0pt}
+\savepicturepage{pgfid86}{7}
+\pgfsyspdfmark {pgfid86}{25249055}{36470790}
+\savepointas{b96}{pgfid87}{0pt}{0pt}
+\savepicturepage{pgfid87}{7}
+\pgfsyspdfmark {pgfid87}{26701916}{36470790}
+\savepointas{b61}{pgfid88}{0pt}{0pt}
+\savepicturepage{pgfid88}{7}
+\pgfsyspdfmark {pgfid88}{19841747}{35723680}
+\savepointas{b63}{pgfid89}{0pt}{0pt}
+\savepicturepage{pgfid89}{7}
+\pgfsyspdfmark {pgfid89}{22545401}{35723680}
+\savepointas{b65}{pgfid90}{0pt}{0pt}
+\savepicturepage{pgfid90}{7}
+\pgfsyspdfmark {pgfid90}{25147193}{35723680}
+\savepointas{b66}{pgfid91}{0pt}{0pt}
+\savepicturepage{pgfid91}{7}
+\pgfsyspdfmark {pgfid91}{26600054}{35723680}
+\savepointas{b72}{pgfid92}{0pt}{0pt}
+\savepicturepage{pgfid92}{7}
+\pgfsyspdfmark {pgfid92}{21193574}{34976570}
+\savepointas{b74}{pgfid93}{0pt}{0pt}
+\savepicturepage{pgfid93}{7}
+\pgfsyspdfmark {pgfid93}{23897228}{34976570}
+\savepointas{b76}{pgfid94}{0pt}{0pt}
+\savepicturepage{pgfid94}{7}
+\pgfsyspdfmark {pgfid94}{26600054}{34976570}
+\savepicturepage{pgfid95}{7}
+\pgfsyspdfmark {pgfid95}{8865054}{34111493}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ {\leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ }\belowdisplayskip \abovedisplayskip Power of two length on "\texttt  {parsed}". The rows have been rearranged to make it easier to follow the arrows. Note in the $n_{1}$ row there reason to believe this grammar would accept inputs of length $2$, $4$, and $0$. This is because the $n_{10}$ just checks that $n_{1}$ consumed all the input, so if the string started with the {\tt  r} (meaning it had length $4$), then $n_{0}$ would correctly accept and consume all $4$ characters.}}{7}\protected@file@percent }
+\newlabel{scaffold:powerOfTwo}{{3}{7}}
+\savepointas{c00}{pgfid96}{0pt}{0pt}
+\savepicturepage{pgfid96}{7}
+\pgfsyspdfmark {pgfid96}{20485416}{27910551}
+\savepointas{c02}{pgfid97}{0pt}{0pt}
+\savepicturepage{pgfid97}{7}
+\pgfsyspdfmark {pgfid97}{22621776}{27910551}
+\savepointas{c03}{pgfid98}{0pt}{0pt}
+\savepicturepage{pgfid98}{7}
+\pgfsyspdfmark {pgfid98}{23384093}{27910551}
+\savepointas{c10}{pgfid99}{0pt}{0pt}
+\savepicturepage{pgfid99}{7}
+\pgfsyspdfmark {pgfid99}{20162859}{27163441}
+\savepointas{c12}{pgfid100}{0pt}{0pt}
+\savepicturepage{pgfid100}{7}
+\pgfsyspdfmark {pgfid100}{22299219}{27163441}
+\savepointas{c13}{pgfid101}{0pt}{0pt}
+\savepicturepage{pgfid101}{7}
+\pgfsyspdfmark {pgfid101}{23569809}{27163441}
+\savepointas{c20}{pgfid102}{0pt}{0pt}
+\savepicturepage{pgfid102}{7}
+\pgfsyspdfmark {pgfid102}{20162859}{26416331}
+\savepointas{c22}{pgfid103}{0pt}{0pt}
+\savepicturepage{pgfid103}{7}
+\pgfsyspdfmark {pgfid103}{22299219}{26416331}
+\savepointas{c23}{pgfid104}{0pt}{0pt}
+\savepicturepage{pgfid104}{7}
+\pgfsyspdfmark {pgfid104}{23569809}{26416331}
+\savepointas{c30}{pgfid105}{0pt}{0pt}
+\savepicturepage{pgfid105}{7}
+\pgfsyspdfmark {pgfid105}{20060997}{25669221}
+\savepointas{c32}{pgfid106}{0pt}{0pt}
+\savepicturepage{pgfid106}{7}
+\pgfsyspdfmark {pgfid106}{22197357}{25669221}
+\savepointas{c33}{pgfid107}{0pt}{0pt}
+\savepicturepage{pgfid107}{7}
+\pgfsyspdfmark {pgfid107}{23467947}{25669221}
+\savepointas{c40}{pgfid108}{0pt}{0pt}
+\savepicturepage{pgfid108}{7}
+\pgfsyspdfmark {pgfid108}{20162859}{24922111}
+\savepointas{c42}{pgfid109}{0pt}{0pt}
+\savepicturepage{pgfid109}{7}
+\pgfsyspdfmark {pgfid109}{22299219}{24922111}
+\savepointas{c43}{pgfid110}{0pt}{0pt}
+\savepicturepage{pgfid110}{7}
+\pgfsyspdfmark {pgfid110}{23569809}{24922111}
+\savepointas{c50}{pgfid111}{0pt}{0pt}
+\savepicturepage{pgfid111}{7}
+\pgfsyspdfmark {pgfid111}{20162859}{24175001}
+\savepointas{c52}{pgfid112}{0pt}{0pt}
+\savepicturepage{pgfid112}{7}
+\pgfsyspdfmark {pgfid112}{22299219}{24175001}
+\savepointas{c53}{pgfid113}{0pt}{0pt}
+\savepicturepage{pgfid113}{7}
+\pgfsyspdfmark {pgfid113}{23569809}{24175001}
+\savepointas{c60}{pgfid114}{0pt}{0pt}
+\savepicturepage{pgfid114}{7}
+\pgfsyspdfmark {pgfid114}{20162859}{23427891}
+\savepointas{c62}{pgfid115}{0pt}{0pt}
+\savepicturepage{pgfid115}{7}
+\pgfsyspdfmark {pgfid115}{22197357}{23427891}
+\savepointas{c63}{pgfid116}{0pt}{0pt}
+\savepicturepage{pgfid116}{7}
+\pgfsyspdfmark {pgfid116}{23467947}{23427891}
+\savepointas{c72}{pgfid117}{0pt}{0pt}
+\savepicturepage{pgfid117}{7}
+\pgfsyspdfmark {pgfid117}{22299219}{22680781}
+\savepointas{c73}{pgfid118}{0pt}{0pt}
+\savepicturepage{pgfid118}{7}
+\pgfsyspdfmark {pgfid118}{23569809}{22680781}
+\savepointas{c81}{pgfid119}{0pt}{0pt}
+\savepicturepage{pgfid119}{7}
+\pgfsyspdfmark {pgfid119}{21231039}{21933671}
+\savepointas{c82}{pgfid120}{0pt}{0pt}
+\savepicturepage{pgfid120}{7}
+\pgfsyspdfmark {pgfid120}{22299219}{21933671}
+\savepointas{c83}{pgfid121}{0pt}{0pt}
+\savepicturepage{pgfid121}{7}
+\pgfsyspdfmark {pgfid121}{23569809}{21933671}
+\savepointas{c91}{pgfid122}{0pt}{0pt}
+\savepicturepage{pgfid122}{7}
+\pgfsyspdfmark {pgfid122}{21231039}{21186561}
+\savepointas{c92}{pgfid123}{0pt}{0pt}
+\savepicturepage{pgfid123}{7}
+\pgfsyspdfmark {pgfid123}{22299219}{21186561}
+\savepointas{c93}{pgfid124}{0pt}{0pt}
+\savepicturepage{pgfid124}{7}
+\pgfsyspdfmark {pgfid124}{23467947}{21186561}
+\savepointas{ca2}{pgfid125}{0pt}{0pt}
+\savepicturepage{pgfid125}{7}
+\pgfsyspdfmark {pgfid125}{22501629}{20439451}
+\savepointas{ca3}{pgfid126}{0pt}{0pt}
+\savepicturepage{pgfid126}{7}
+\pgfsyspdfmark {pgfid126}{23772218}{20439451}
+\savepointas{cb2}{pgfid127}{0pt}{0pt}
+\savepicturepage{pgfid127}{7}
+\pgfsyspdfmark {pgfid127}{22197357}{19692341}
+\savepointas{cb3}{pgfid128}{0pt}{0pt}
+\savepicturepage{pgfid128}{7}
+\pgfsyspdfmark {pgfid128}{23467947}{19692341}
+\savepicturepage{pgfid129}{7}
+\pgfsyspdfmark {pgfid129}{8865054}{18827264}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ {\leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ }\belowdisplayskip \abovedisplayskip Computation of the block grammar on the string "{\tt  abbda\#}". The scaffold is shown midway through its computation at the time it detected the loop. The entries in the form $p_{i,j}$ show {\tt  push} entries with position $i$ and non-terminal $j$, and the $l$ entry shows a {\tt  loop}. The orange arrows between the {\tt  push} entries is the embedded call stack, while the green arrow shows the relationship that first detected the loop. If this scaffold were to continue running, the {\tt  push} entries would become {\tt  loop} entries as the program backed its way up the embedded stack where it will terminate and declare a loop. Note if this {\tt  d}, were a {\tt  c} then it would have already rejected by this point, and if the {\tt  d} were an {\tt  a} or a {\tt  b}, then it would eventually accept the whole input.}}{7}\protected@file@percent }
+\newlabel{scaffold:loop}{{4}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Chart Parsing: Formalization and Proof}{7}\protected@file@percent }
+\newlabel{sec:chartparsing}{{3}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Formal Specification of a Chart Parser}{8}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/byte.txt}{9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Basic type definitions.}}{9}\protected@file@percent }
+\newlabel{pvs:byte}{{5}{9}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/ent.txt}{9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The entry type for the scaffold.}}{9}\protected@file@percent }
+\newlabel{pvs:ent}{{6}{9}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/peg.txt}{10}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces The PEG syntax}}{10}\protected@file@percent }
+\newlabel{pvs:peg}{{7}{10}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/grammar.txt}{10}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces \relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ {\leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ }\belowdisplayskip \abovedisplayskip Language Specification Type}}{10}\protected@file@percent }
+\newlabel{pvs:grammar}{{8}{10}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/checkentry.txt}{11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Predicates for checking the scaffold entries.}}{11}\protected@file@percent }
+\newlabel{pvs:checkentry}{{9}{11}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/scaffold.txt}{11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces The scaffold type}}{11}\protected@file@percent }
+\newlabel{pvs:scaffold}{{10}{11}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/grammar.txt}{11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Language Specification Type}}{11}\protected@file@percent }
+\newlabel{pvs:grammar}{{11}{11}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/successor.txt}{12}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces The successor relation on stack entries}}{12}\protected@file@percent }
+\newlabel{pvs:successor}{{12}{12}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/goodstack.txt}{13}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Checking that the stack is well-formed. }}{13}\protected@file@percent }
+\newlabel{pvs:goodstack}{{13}{13}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/memstack.txt}{13}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Checking membership in the stack. }}{13}\protected@file@percent }
+\newlabel{pvs:memcheck}{{14}{13}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/finestack.txt}{14}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces A stack with no repeating elements }}{14}\protected@file@percent }
+\newlabel{pvs:finestack}{{15}{14}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/loopready.txt}{14}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Condition under which a cell can be marked as a loop}}{14}\protected@file@percent }
+\newlabel{pvs:loopready}{{16}{14}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/goodgood.txt}{15}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Condition allowing a cell to be marked as \texttt  {good}}}{15}\protected@file@percent }
+\newlabel{pvs:goodgood}{{17}{15}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/goodentry.txt}{16}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Condition under which a cell can be marked as \texttt  {good}, \texttt  {loop}, or \texttt  {fail}}}{16}\protected@file@percent }
+\newlabel{pvs:goodentry}{{18}{16}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/scafcount.txt}{16}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Computing cardinalities over the scaffold}}{16}\protected@file@percent }
+\newlabel{pvs:scafcount}{{19}{16}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/gfcount.txt}{17}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Computing cardinalities over the scaffold of push entries, and good or fail entries}}{17}\protected@file@percent }
+\newlabel{pvs:gfcount}{{20}{17}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/goodtscaffold.txt}{17}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Main Scaffold Invariant}}{17}\protected@file@percent }
+\newlabel{pvs:goodtscaffold}{{21}{17}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/gooddepth.txt}{17}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Depth Invariant}}{17}\protected@file@percent }
+\newlabel{pvs:gooddepth}{{22}{17}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/goodroot.txt}{18}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces The root query must be on the stack if the stack is nonempty}}{18}\protected@file@percent }
+\newlabel{pvs:goodroot}{{23}{18}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/finescaffold.txt}{18}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces A fine scaffold has all good entries and a good root}}{18}\protected@file@percent }
+\newlabel{pvs:finescaffold}{{24}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Defining the Parser Interpreter}{18}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/state.txt}{19}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Parser State Type}}{19}\protected@file@percent }
+\newlabel{pvs:state}{{25}{19}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/empty.txt}{19}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces Nonempty State Type}}{19}\protected@file@percent }
+\newlabel{pvs:empty}{{26}{19}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/fineentry.txt}{20}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces Condition on an entry to be inserted into the scaffold}}{20}\protected@file@percent }
+\newlabel{pvs:fineentry}{{27}{20}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/finerentry.txt}{21}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces Strengthened condition on an entry to be inserted into the scaffold}}{21}\protected@file@percent }
+\newlabel{pvs:finerentry}{{28}{21}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/finerentrytype.txt}{21}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces Predicate subtype declaration for \texttt  {finer\_entry}}}{21}\protected@file@percent }
+\newlabel{pvs:finerentrytype}{{29}{21}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/newentrytop.txt}{22}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces Top level of the \texttt  {newentry} parsing function}}{22}\protected@file@percent }
+\newlabel{pvs:newentrytop}{{30}{22}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/newentry\textunderscore concat.txt}{23}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {31}{\ignorespaces \texttt  {newentry} definition for \texttt  {concat(n1, n2)}}}{23}\protected@file@percent }
+\newlabel{pvs:newentry_concat}{{31}{23}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/newentry\textunderscore choice.txt}{23}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {32}{\ignorespaces \texttt  {newentry} definition for \texttt  {choice(n1, n2)}}}{23}\protected@file@percent }
+\newlabel{pvs:newentry_choice}{{32}{23}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/newentry\textunderscore check.txt}{24}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {33}{\ignorespaces \texttt  {newentry} definition for \texttt  {check(n1)}}}{24}\protected@file@percent }
+\newlabel{pvs:newentry_check}{{33}{24}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/newentry\textunderscore neg.txt}{24}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {34}{\ignorespaces \texttt  {newentry} definition for \texttt  {neg(n1)}}}{24}\protected@file@percent }
+\newlabel{pvs:newentry_neg}{{34}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Proving Correctness}{24}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/step.txt}{25}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {35}{\ignorespaces The parsing state machine step function}}{25}\protected@file@percent }
+\newlabel{pvs:step}{{35}{25}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/endstate.txt}{25}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {36}{\ignorespaces The termination state}}{25}\protected@file@percent }
+\newlabel{pvs:endstate}{{36}{25}}
+\citation{Jackson2006:book}
+\citation{padon2016ivy}
+\citation{blanchette2010nitpick}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/parser.txt}{26}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {37}{\ignorespaces The parsing engine}}{26}\protected@file@percent }
+\newlabel{pvs:parser}{{37}{26}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/doparse.txt}{26}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {38}{\ignorespaces The gateway parsing operation}}{26}\protected@file@percent }
+\newlabel{pvs:doparse}{{38}{26}}
+\@writefile{lol}{\contentsline {lstlisting}{code\textunderscore samples/goodgoodtscaffold.txt}{26}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {39}{\ignorespaces \relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ {\leftmargin \leftmargini \parsep 0\p@ plus1\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 0\p@ }\belowdisplayskip \abovedisplayskip Key lemma for invariant preservation}}{26}\protected@file@percent }
+\newlabel{pvs:goodgoodtscaffold}{{39}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusions}{27}\protected@file@percent }
+\bibdata{biblio.bib}

@@ -1,0 +1,22 @@
+byte  : THEORY
+
+  BEGIN
+
+    byte : TYPE = uint8
+
+    b, b1, b2: VAR byte
+
+    bindex: TYPE = below(8)
+    i, j, k: VAR bindex
+
+    
+    &(b1, b2): {b| ∀ i: nat2bv(b)(i) = (nat2bv(b1)(i) & nat2bv(b2)(i))}
+    ‌‌OR(b1, b2): {b| ∀ i: nat2bv(b)(i) = (nat2bv(b1)(i) OR nat2bv(b2)(i))}
+    ‌X‌OR(b1, b2): {b| ∀ i: nat2bv(b)(i) = (nat2bv(b1)(i) XOR nat2bv(b2)(i))}
+    NOT(b1): {b| ∀ i: nat2bv(b)(i) = (NOT nat2bv(b1)(i))}
+
+    m, n: VAR upto[8]
+    rshift(b1, n): byte = u8rshift(b1, n)
+    lshift(b1, n): byte = u8lshift(b1, n)
+
+  END byte

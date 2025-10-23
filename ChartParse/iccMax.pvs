@@ -1,0 +1,59 @@
+iccMax  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+    string2seq(str: string): [below(str`length)->char]
+      = str`seq
+
+    CONVERSION+ string2seq
+
+    lstring(n: nat) : TYPE = {str: string | str`length = n}
+
+    tagEntry: TYPE = [below(4)-> char]
+
+    Tag(x : lstring(4)) : TYPE = {chararray: tagEntry  | chararray = string2seq(x)}
+
+    Op: TYPE = [# tag: tagEntry,
+                  data: uint32
+		  #]
+
+    calcElem: TYPE = [# tag: Tag("func"),
+                        reserved: {i: uint32 | i = 0},
+			N : uint32,
+			funops : [below(N)-> Op]
+			#]
+
+    IMPORTING float@float32
+
+    constOp: TYPE = {x : Op | x`tag = string2seq("data")}
+
+    envOp: TYPE = {x : Op | x`tag = string2seq("env ")}
+
+    cvectop?(x : tagEntry): bool =
+       (x = "in  " OR x = "out " OR x = "tget" OR x = "tput" OR x = "tsav")
+
+    cvectOp: TYPE = {x : Op | cvectop?(x`tag)}
+
+    stackop?(x: tagEntry): bool =
+       (x = "copy" OR x = "rotl" OR x = "rotr" OR x = "posd" OR x = "flip" OR x = "pop ")
+
+    stackOp: TYPE = {x : Op | stackop?(x`tag)}
+
+    matrixop?(x: tagEntry): bool =
+       (x = "solv" OR x = "tran")
+
+    matrixOp: TYPE = {x : Op | matrixop?(x`tag)}
+
+    seqop?(x: tagEntry): bool =
+      (x = "sum " OR x = "prod" OR x = "min " OR x = "max " OR x = "and " OR x = "or  ")
+
+    uu: VAR uint32
+
+    up(uu): uint16 = ndiv(uu, exp2(16))
+    down(uu): uint16 = rem(exp2(16))(uu)
+
+    seqOp: TYPE = {x : Op | seqop?(x`tag) AND down(x`data) = 0}
+       
+
+  END iccMax

@@ -1,0 +1,49 @@
+cstring : THEORY
+
+  BEGIN
+
+   string: TYPE+
+   s, s1, s2: VAR string
+
+   char: TYPE+
+
+   c, c1, c2: VAR char
+
+   code(c): below(256)
+
+   codeExt: AXIOM
+     code(c1) = code(c2) ⇒ c1 = c2
+
+   length(s): nat
+
+   char(s, (i: below(length(s)))): char
+
+   empty: string
+
+   length_empty: AXIOM length(empty) = 0
+
+   extensionality: AXIOM
+       s1 = s2 IFF (length(s1) = length(s2) AND ∀ (i:below(length(s1))): char(s1, i) = char(s2, i));
+
+   +(s1, s2): string
+
+   length_concat: AXIOM length(s1 + s2) = length(s1) + length(s2)
+
+   char_concat: AXIOM
+   (FORALL (i: below(length(s1) + length(s2))):
+    char(s1 + s2, i)  =
+     IF i < length(s1)
+      THEN char(s1, i)
+      ELSE char(s2, i - length(s1))
+     ENDIF)
+
+    substr(s, (i, j : subrange(i, length(s)))
+      : {s1 | length(s1) = j - i AND ∀ (k : below(k - i)): char(s1, k) = char(s, k + i)}
+
+    prefix(s, (i: upto(length(s)))): {s1 | length(s1 = i) AND ∀ (i:below(length(s1))): char(s1, i) = char(s2, i)}
+    = substr(s, 0, i)
+
+    suffix(s, (i: upto(length(s)))): {s1 | length(s1 = i) AND ∀ (i:below(length(s1))): char(s1, i) = char(s2, i)}
+    = substr(s, i, length(s))
+
+  END cstring

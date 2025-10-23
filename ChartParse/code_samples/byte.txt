@@ -1,0 +1,9 @@
+byte: TYPE = below(256)
+strings(len: uint32): TYPE
+   = {s : string | s`length = len} 
+num_non_terminals: byte = 255
+non_terminal: TYPE = below(num_non_terminals)
+len: VAR uint32 
+JUDGEMENT upto(len) SUBTYPE_OF uint32
+JUDGEMENT non_terminal SUBTYPE_OF uint8
+

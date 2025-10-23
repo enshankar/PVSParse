@@ -1,0 +1,23 @@
+test_transpose  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+   rtype: TYPE = [# x, y:  uint32 #]
+
+   r, r1, r2: VAR rtype
+
+   swap(r): rtype = r WITH [`x := r`x, `y := r`y]
+
+   R1: rtype = (# x := 3, y := 5 #)
+   R2: rtype = (# x := 5, y := 2 #)
+
+   sub(r1)(r2): rtype = r2 WITH [`x := u32minus(r1`x, r2`x),
+                                 `y := u32minus(r1`y, r2`y)]
+
+   test1: int32 = transpose(sub)(R1)(R2)`x
+   test2: int32 = transpose(sub)(R1)(R2)`y   
+   test3: int32 = transpose(sub)(R2)(R1)`x
+   test4: int32 = transpose(sub)(R2)(R1)`y   
+
+  END test_transpose

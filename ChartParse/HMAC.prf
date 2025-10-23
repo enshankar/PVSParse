@@ -1,0 +1,244 @@
+(HMAC
+ (hmac_TCC1 0
+  (hmac_TCC1-1 nil 3821410620 ("" (subtype-tcc) nil nil) nil nil
+   (hmac subtype "HMAC.outputSize" "uint8")))
+ (hmac_TCC2 0
+  (hmac_TCC3-1 nil 3821410620 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (<= const-decl "bool" reals nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil (hmac subtype "HMAC.newkey" "rotate.lbytes(HMAC.blockSize)")))
+ (hmac_TCC3 0
+  (hmac_TCC2-1 nil 3821410620 ("" (subtype-tcc) nil nil)
+   ((padright const-decl "lbytes(blocksize)" rotate nil)
+    (nbytes const-decl "lbytes(l)" rotate nil)
+    (bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (u8xor const-decl "uint8" integer_bv_ops nil)
+    (lbytesXOR const-decl "lbytes(l)" rotate nil))
+   nil
+   (hmac subtype "HMAC.message"
+    "{s2 | reals.<((number_fields.+)(HMAC.iKeyPad`length, bytestrings.s2`length), 0x100000000)}")))
+ (hmac_TCC4 0
+  (hmac_TCC4-1 nil 3821410620
+   ("" (skeep*)
+    ((""
+      (typepred
+       "lbytesXOR(blockSize)(newerkey, nbytes(0x5c, blockSize))")
+      (("" (typepred "hash(iKeyPad ++ message)")
+        (("" (assert)
+          (("" (typepred "blockSize") (("" (grind) nil nil)) nil))
+          nil))
+        nil))
+      nil))
+    nil)
+   ((nbytes const-decl "lbytes(l)" rotate nil)
+    (lbytesXOR const-decl "lbytes(l)" rotate nil)
+    (lbytes type-eq-decl nil rotate nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (< const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (bytestring type-eq-decl nil bytestrings nil)
+    (byte nonempty-type-eq-decl nil bytestrings nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (uint8 type-eq-decl nil integertypes nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (<= const-decl "bool" reals nil)
+    (upto nonempty-type-eq-decl nil naturalnumbers nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (++ const-decl "bytestring" bytestrings nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (TRUE const-decl "bool" booleans nil))
+   nil
+   (hmac subtype
+    "HMAC.hash(bytestrings.++(HMAC.iKeyPad, HMAC.message))"
+    "{s2 | reals.<((number_fields.+)(HMAC.oKeyPad`length, bytestrings.s2`length), 0x100000000)}")))
+ (hmac256_TCC1 0
+  (hmac256_TCC1-1 nil 3843013716 ("" (subtype-tcc) nil nil) nil nil
+   (hmac256 subtype "HMAC.message"
+    "{message: bytestrings.bytestring | reals.<((number_fields.+)(HMAC.blockSize, message`length), 0x100000000)}")))
+ (hmac256_TCC2 0
+  (hmac256_TCC2-1 nil 3843013716 ("" (subtype-tcc) nil nil) nil nil
+   (hmac256 subtype "32" "naturalnumbers.upto(HMAC.blockSize)")))
+ (test1_TCC1 0
+  (test1_TCC1-1 nil 3843013716
+   ("" (ground)
+    (("1" (grind) nil nil)
+     ("2" (use "every_nth" :subst ("l" "(: 'k', 'e', 'y' :)"))
+      (("2" (inst - "LAMBDA (c : character): code(c) < 256")
+        (("2" (grind) nil nil)) nil))
+      nil))
+    nil)
+   ((every_nth formula-decl nil list_props nil)
+    (list type-decl nil list_adt nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (cons? adt-recognizer-decl "[list -> boolean]" list_adt nil)
+    (cons adt-constructor-decl "[[T, list] -> (cons?)]" list_adt nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (< const-decl "bool" reals nil)
+    (below type-eq-decl nil nat_types nil)
+    (char? adt-recognizer-decl "[character -> boolean]" character_adt
+     nil)
+    (char adt-constructor-decl "[below[0x110000] -> (char?)]"
+          character_adt nil)
+    (character type-decl nil character_adt nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (finseq type-eq-decl nil finite_sequences nil)
+    (char type-eq-decl nil strings nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (get const-decl "char" gen_strings nil)
+    (every adt-def-decl "boolean" list_adt nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (PRED type-eq-decl nil defined_types nil)
+    (code adt-accessor-decl "[character -> below[0x110000]]"
+          character_adt nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (length def-decl "nat" list_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil (test1 subtype "\"key\"" "bstring")))
+ (test1_TCC2 0
+  (test1_TCC2-1 nil 3843013716
+   ("" (ground)
+    (("1" (grind) nil nil)
+     ("2"
+      (use "every_nth" :subst
+           ("P" "LAMBDA (c: character): code(c) < 256"))
+      (("2" (grind) nil nil)) nil))
+    nil)
+   ((every_nth formula-decl nil list_props nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (PRED type-eq-decl nil defined_types nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil nat_types nil)
+    (code adt-accessor-decl "[character -> below[0x110000]]"
+          character_adt nil)
+    (character type-decl nil character_adt nil)
+    (char adt-constructor-decl "[below[0x110000] -> (char?)]"
+          character_adt nil)
+    (cons adt-constructor-decl "[[T, list] -> (cons?)]" list_adt nil)
+    (cons? adt-recognizer-decl "[list -> boolean]" list_adt nil)
+    (char type-eq-decl nil strings nil)
+    (char? adt-recognizer-decl "[character -> boolean]" character_adt
+     nil)
+    (list type-decl nil list_adt nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (every adt-def-decl "boolean" list_adt nil)
+    (get const-decl "char" gen_strings nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (finseq type-eq-decl nil finite_sequences nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (length def-decl "nat" list_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (test1 subtype "\"The quick brown fox jumps over the lazy dog\""
+    "bstring")))
+ (test1_TCC3 0
+  (test1_TCC3-1 nil 3843013716 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (get const-decl "char" gen_strings nil)
+    (mk_bytestring const-decl "bytestring" bytestrings nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (test1 subtype
+    "bytestrings.mk_bytestring(\"The quick brown fox jumps over the lazy dog\")"
+    "{message: bytestrings.bytestring | reals.<((number_fields.+)(64, message`length), 0x100000000)}"))))
+

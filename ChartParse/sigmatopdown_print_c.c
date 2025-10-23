@@ -1,0 +1,14478 @@
+//Code generated using pvs2ir2c
+#include "sigmatopdown_c.h"
+
+
+sigmatopdown__ent_adt_t new_sigmatopdown__ent_adt(void){
+        sigmatopdown__ent_adt_t tmp = (sigmatopdown__ent_adt_t) safe_malloc(sizeof(struct sigmatopdown__ent_adt_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown__ent_adt(sigmatopdown__ent_adt_t x){
+switch (x->sigmatopdown__ent_adt_index) {
+case 0:  release_sigmatopdown__fail((sigmatopdown__fail_t) x); break;
+case 3:  release_sigmatopdown__good((sigmatopdown__good_t) x); break;
+case 4:  release_sigmatopdown__push((sigmatopdown__push_t) x); break;
+}}
+
+void release_sigmatopdown__ent_adt_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown__ent_adt((sigmatopdown__ent_adt_t)x);
+}
+
+sigmatopdown__ent_adt_t copy_sigmatopdown__ent_adt(sigmatopdown__ent_adt_t x){
+        sigmatopdown__ent_adt_t y = new_sigmatopdown__ent_adt();
+        y->sigmatopdown__ent_adt_index = (uint8_t)x->sigmatopdown__ent_adt_index;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown__ent_adt(sigmatopdown__ent_adt_t x, sigmatopdown__ent_adt_t y){
+        bool_t tmp = x->sigmatopdown__ent_adt_index == y->sigmatopdown__ent_adt_index;
+        switch  (x->sigmatopdown__ent_adt_index) {
+                case 0: tmp = tmp && equal_sigmatopdown__fail((sigmatopdown__fail_t) x, (sigmatopdown__fail_t) y); break;
+                case 3: tmp = tmp && equal_sigmatopdown__good((sigmatopdown__good_t) x, (sigmatopdown__good_t) y); break;
+                case 4: tmp = tmp && equal_sigmatopdown__push((sigmatopdown__push_t) x, (sigmatopdown__push_t) y); break;
+        }
+        return tmp;
+}
+
+bool_t equal_sigmatopdown__ent_adt_ptr(pointer_t x, pointer_t y, actual_sigmatopdown__ent_adt_t T){
+        return equal_sigmatopdown__ent_adt((sigmatopdown__ent_adt_t)x, (sigmatopdown__ent_adt_t)y);
+}
+
+actual_sigmatopdown__ent_adt_t actual_sigmatopdown__ent_adt(){
+        actual_sigmatopdown__ent_adt_t new = (actual_sigmatopdown__ent_adt_t)safe_malloc(sizeof(struct actual_sigmatopdown__ent_adt_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown__ent_adt_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown__ent_adt_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown__ent_adt_t update_sigmatopdown__ent_adt_sigmatopdown__ent_adt_index(sigmatopdown__ent_adt_t x, uint8_t v){
+        sigmatopdown__ent_adt_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__ent_adt(x); x->count--;};
+        y->sigmatopdown__ent_adt_index = (uint8_t)v;
+        return y;}
+
+
+
+
+sigmatopdown__fail_t new_sigmatopdown__fail(void){
+        sigmatopdown__fail_t tmp = (sigmatopdown__fail_t) safe_malloc(sizeof(struct sigmatopdown__fail_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown__fail(sigmatopdown__fail_t x){
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown__fail_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown__fail((sigmatopdown__fail_t)x);
+}
+
+sigmatopdown__fail_t copy_sigmatopdown__fail(sigmatopdown__fail_t x){
+        sigmatopdown__fail_t y = new_sigmatopdown__fail();
+        y->sigmatopdown__ent_adt_index = (uint8_t)x->sigmatopdown__ent_adt_index;
+        y->dep = (uint64_t)x->dep;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown__fail(sigmatopdown__fail_t x, sigmatopdown__fail_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->sigmatopdown__ent_adt_index == y->sigmatopdown__ent_adt_index;
+        tmp = tmp && x->dep == y->dep;
+        return tmp;}
+
+bool_t equal_sigmatopdown__fail_ptr(pointer_t x, pointer_t y, actual_sigmatopdown__fail_t T){
+        return equal_sigmatopdown__fail((sigmatopdown__fail_t)x, (sigmatopdown__fail_t)y);
+}
+
+actual_sigmatopdown__fail_t actual_sigmatopdown__fail(){
+        actual_sigmatopdown__fail_t new = (actual_sigmatopdown__fail_t)safe_malloc(sizeof(struct actual_sigmatopdown__fail_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown__fail_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown__fail_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown__fail_t update_sigmatopdown__fail_sigmatopdown__ent_adt_index(sigmatopdown__fail_t x, uint8_t v){
+        sigmatopdown__fail_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__fail(x); x->count--;};
+        y->sigmatopdown__ent_adt_index = (uint8_t)v;
+        return y;}
+
+sigmatopdown__fail_t update_sigmatopdown__fail_dep(sigmatopdown__fail_t x, uint64_t v){
+        sigmatopdown__fail_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__fail(x); x->count--;};
+        y->dep = (uint64_t)v;
+        return y;}
+
+
+
+
+sigmatopdown__good_t new_sigmatopdown__good(void){
+        sigmatopdown__good_t tmp = (sigmatopdown__good_t) safe_malloc(sizeof(struct sigmatopdown__good_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown__good(sigmatopdown__good_t x){
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown__good_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown__good((sigmatopdown__good_t)x);
+}
+
+sigmatopdown__good_t copy_sigmatopdown__good(sigmatopdown__good_t x){
+        sigmatopdown__good_t y = new_sigmatopdown__good();
+        y->sigmatopdown__ent_adt_index = (uint8_t)x->sigmatopdown__ent_adt_index;
+        y->dep = (uint64_t)x->dep;
+        y->span = (uint32_t)x->span;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown__good(sigmatopdown__good_t x, sigmatopdown__good_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->sigmatopdown__ent_adt_index == y->sigmatopdown__ent_adt_index;
+        tmp = tmp && x->dep == y->dep;
+        tmp = tmp && x->span == y->span;
+        return tmp;}
+
+bool_t equal_sigmatopdown__good_ptr(pointer_t x, pointer_t y, actual_sigmatopdown__good_t T){
+        return equal_sigmatopdown__good((sigmatopdown__good_t)x, (sigmatopdown__good_t)y);
+}
+
+actual_sigmatopdown__good_t actual_sigmatopdown__good(){
+        actual_sigmatopdown__good_t new = (actual_sigmatopdown__good_t)safe_malloc(sizeof(struct actual_sigmatopdown__good_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown__good_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown__good_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown__good_t update_sigmatopdown__good_sigmatopdown__ent_adt_index(sigmatopdown__good_t x, uint8_t v){
+        sigmatopdown__good_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__good(x); x->count--;};
+        y->sigmatopdown__ent_adt_index = (uint8_t)v;
+        return y;}
+
+sigmatopdown__good_t update_sigmatopdown__good_dep(sigmatopdown__good_t x, uint64_t v){
+        sigmatopdown__good_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__good(x); x->count--;};
+        y->dep = (uint64_t)v;
+        return y;}
+
+sigmatopdown__good_t update_sigmatopdown__good_span(sigmatopdown__good_t x, uint32_t v){
+        sigmatopdown__good_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__good(x); x->count--;};
+        y->span = (uint32_t)v;
+        return y;}
+
+
+
+
+sigmatopdown__push_t new_sigmatopdown__push(void){
+        sigmatopdown__push_t tmp = (sigmatopdown__push_t) safe_malloc(sizeof(struct sigmatopdown__push_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown__push(sigmatopdown__push_t x){
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown__push_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown__push((sigmatopdown__push_t)x);
+}
+
+sigmatopdown__push_t copy_sigmatopdown__push(sigmatopdown__push_t x){
+        sigmatopdown__push_t y = new_sigmatopdown__push();
+        y->sigmatopdown__ent_adt_index = (uint8_t)x->sigmatopdown__ent_adt_index;
+        y->pos = (uint32_t)x->pos;
+        y->nt = (uint8_t)x->nt;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown__push(sigmatopdown__push_t x, sigmatopdown__push_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->sigmatopdown__ent_adt_index == y->sigmatopdown__ent_adt_index;
+        tmp = tmp && x->pos == y->pos;
+        tmp = tmp && x->nt == y->nt;
+        return tmp;}
+
+bool_t equal_sigmatopdown__push_ptr(pointer_t x, pointer_t y, actual_sigmatopdown__push_t T){
+        return equal_sigmatopdown__push((sigmatopdown__push_t)x, (sigmatopdown__push_t)y);
+}
+
+actual_sigmatopdown__push_t actual_sigmatopdown__push(){
+        actual_sigmatopdown__push_t new = (actual_sigmatopdown__push_t)safe_malloc(sizeof(struct actual_sigmatopdown__push_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown__push_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown__push_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown__push_t update_sigmatopdown__push_sigmatopdown__ent_adt_index(sigmatopdown__push_t x, uint8_t v){
+        sigmatopdown__push_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__push(x); x->count--;};
+        y->sigmatopdown__ent_adt_index = (uint8_t)v;
+        return y;}
+
+sigmatopdown__push_t update_sigmatopdown__push_pos(sigmatopdown__push_t x, uint32_t v){
+        sigmatopdown__push_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__push(x); x->count--;};
+        y->pos = (uint32_t)v;
+        return y;}
+
+sigmatopdown__push_t update_sigmatopdown__push_nt(sigmatopdown__push_t x, uint8_t v){
+        sigmatopdown__push_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__push(x); x->count--;};
+        y->nt = (uint8_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_4(sigmatopdown_funtype_4_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_4_t copy_sigmatopdown_funtype_4(sigmatopdown_funtype_4_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_4(sigmatopdown_funtype_4_t x, sigmatopdown_funtype_4_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_5(sigmatopdown_funtype_5_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_5_t copy_sigmatopdown_funtype_5(sigmatopdown_funtype_5_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_5(sigmatopdown_funtype_5_t x, sigmatopdown_funtype_5_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_6(sigmatopdown_funtype_6_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_6_t copy_sigmatopdown_funtype_6(sigmatopdown_funtype_6_t x){return x->ftbl->cptr(x);}
+
+uint32_t lookup_sigmatopdown_funtype_6(sigmatopdown_funtype_6_htbl_t htbl, uint64_t i, uint32_t ihash){
+        uint32_t mask = htbl->size - 1;
+        uint32_t hashindex = ihash & mask; sigmatopdown_funtype_6_hashentry_t data = htbl->data[hashindex];
+        bool_t keyzero;
+	printf("\nlookup: num_entries = %"PRIu32"", htbl->num_entries);	
+        keyzero = (data.key == 0);
+        bool_t keymatch;
+        keymatch = (data.key == i);
+        while ((!keyzero || data.keyhash != 0) &&
+                 (data.keyhash != ihash || !keymatch)){
+                hashindex++;
+                hashindex = hashindex & mask;
+                data = htbl->data[hashindex];
+
+        keyzero = (data.key == 0);
+
+        keymatch = (data.key == i);
+                }
+        return hashindex;
+        }
+
+sigmatopdown_funtype_6_t dupdate_sigmatopdown_funtype_6(sigmatopdown_funtype_6_t a, uint64_t i, mpz_ptr_t v){
+        sigmatopdown_funtype_6_htbl_t htbl = a->htbl;
+        if (htbl == NULL){//construct new htbl
+                htbl = (sigmatopdown_funtype_6_htbl_t)safe_malloc(sizeof(struct sigmatopdown_funtype_6_htbl_s));
+                htbl->size = HTBL_DEFAULT_SIZE; htbl->num_entries = 0;
+                htbl->data = (sigmatopdown_funtype_6_hashentry_t *)safe_malloc(HTBL_DEFAULT_SIZE * sizeof(struct sigmatopdown_funtype_6_hashentry_s));
+                for (uint32_t j = 0; j < HTBL_DEFAULT_SIZE; j++){htbl->data[j].key = (uint64_t)0; htbl->data[j].keyhash = 0;
+                }
+                a->htbl = htbl;
+        }
+        uint32_t size = htbl->size;
+        uint32_t num_entries = htbl->num_entries;
+	printf("\ndupdating_funtype6: num_entries = %"PRIu32", a = %p, i = %"PRIu64"", num_entries, a, i);	
+        sigmatopdown_funtype_6_hashentry_t * data = htbl->data;
+        if (num_entries/3 >  size/5){//resize data
+	  printf("\nresizing: num_entries = %"PRIu32"", num_entries);
+                uint32_t new_size = 2*size; uint32_t new_mask = new_size - 1;
+                if (size >= HTBL_MAX_SIZE) out_of_memory();
+                sigmatopdown_funtype_6_hashentry_t * new_data = (sigmatopdown_funtype_6_hashentry_t *)safe_malloc(new_size * sizeof(struct sigmatopdown_funtype_6_hashentry_s));
+                for (uint32_t j = 0; j < size; j++){//transfer entries
+                        uint32_t keyhash = data[j].keyhash;
+                        bool_t keyzero;
+                        keyzero = (data[j].key == 0);
+                        if (!keyzero || keyhash != 0){
+                                uint32_t new_loc = keyhash ^ new_mask;
+                                keyzero = (new_data[new_loc].key == 0);
+                                while (keyzero && new_data[new_loc].keyhash == 0){
+                                        new_loc++;
+                                        new_loc = new_loc ^ new_mask;
+
+                                        keyzero = (new_data[new_loc].key == 0);
+                                }
+                                new_data[new_loc].key = (uint64_t)data[j].key;
+                                new_data[new_loc].keyhash = keyhash;
+                                mpz_set(new_data[new_loc].value, data[j].value);
+                                }}
+                htbl->size = new_size;
+                htbl->num_entries = num_entries;
+                htbl->data = new_data;
+                safe_free(data);}
+        uint32_t ihash = uint64_hash(i);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_6(htbl, i, ihash);
+        sigmatopdown_funtype_6_hashentry_t hentry = htbl->data[hashindex];
+        uint32_t hkeyhash = hentry.keyhash;
+        bool_t hentrykeyzero;
+        hentrykeyzero = (hentry.key == 0);
+
+        if (hentrykeyzero && (hkeyhash == 0))
+	  {htbl->data[hashindex].key = (uint64_t)i; htbl->data[hashindex].keyhash = ihash; mpz_set(htbl->data[hashindex].value, v); htbl->num_entries++;}
+	else {mpz_ptr_t tempvalue;mpz_mk_set(tempvalue, htbl->data[hashindex].value);mpz_set(htbl->data[hashindex].value, v);mpz_clear(tempvalue);};
+        return a;
+
+}
+
+sigmatopdown_funtype_6_t update_sigmatopdown_funtype_6(sigmatopdown_funtype_6_t a, uint64_t i, mpz_ptr_t v){
+        if (a->count == 1){
+                return dupdate_sigmatopdown_funtype_6(a, i, v);
+            } else {
+                sigmatopdown_funtype_6_t x = copy_sigmatopdown_funtype_6(a);
+                x->count--;
+                return dupdate_sigmatopdown_funtype_6(x, i, v);
+            }}
+
+bool_t equal_sigmatopdown_funtype_6(sigmatopdown_funtype_6_t x, sigmatopdown_funtype_6_t y){
+        return false;}
+
+
+sigmatopdown_record_7_t new_sigmatopdown_record_7(void){
+        sigmatopdown_record_7_t tmp = (sigmatopdown_record_7_t) safe_malloc(sizeof(struct sigmatopdown_record_7_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_7(sigmatopdown_record_7_t x){
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_7_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_7((sigmatopdown_record_7_t)x);
+}
+
+sigmatopdown_record_7_t copy_sigmatopdown_record_7(sigmatopdown_record_7_t x){
+        sigmatopdown_record_7_t y = new_sigmatopdown_record_7();
+        y->project_1 = (uint64_t)x->project_1;
+        y->project_2 = (uint32_t)x->project_2;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_7(sigmatopdown_record_7_t x, sigmatopdown_record_7_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->project_1 == y->project_1;
+        tmp = tmp && x->project_2 == y->project_2;
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_7_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_7_t T){
+        return equal_sigmatopdown_record_7((sigmatopdown_record_7_t)x, (sigmatopdown_record_7_t)y);
+}
+
+actual_sigmatopdown_record_7_t actual_sigmatopdown_record_7(){
+        actual_sigmatopdown_record_7_t new = (actual_sigmatopdown_record_7_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_7_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_7_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_7_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_7_t update_sigmatopdown_record_7_project_1(sigmatopdown_record_7_t x, uint64_t v){
+        sigmatopdown_record_7_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_7(x); x->count--;};
+        y->project_1 = (uint64_t)v;
+        return y;}
+
+sigmatopdown_record_7_t update_sigmatopdown_record_7_project_2(sigmatopdown_record_7_t x, uint32_t v){
+        sigmatopdown_record_7_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_7(x); x->count--;};
+        y->project_2 = (uint32_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_8(sigmatopdown_funtype_8_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_8_t copy_sigmatopdown_funtype_8(sigmatopdown_funtype_8_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_8(sigmatopdown_funtype_8_t x, sigmatopdown_funtype_8_t y){
+        return false;}
+
+
+sigmatopdown_record_9_t new_sigmatopdown_record_9(void){
+        sigmatopdown_record_9_t tmp = (sigmatopdown_record_9_t) safe_malloc(sizeof(struct sigmatopdown_record_9_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_9(sigmatopdown_record_9_t x){
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_9_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_9((sigmatopdown_record_9_t)x);
+}
+
+sigmatopdown_record_9_t copy_sigmatopdown_record_9(sigmatopdown_record_9_t x){
+        sigmatopdown_record_9_t y = new_sigmatopdown_record_9();
+        y->project_1 = (uint32_t)x->project_1;
+        y->project_2 = (uint8_t)x->project_2;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_9(sigmatopdown_record_9_t x, sigmatopdown_record_9_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->project_1 == y->project_1;
+        tmp = tmp && x->project_2 == y->project_2;
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_9_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_9_t T){
+        return equal_sigmatopdown_record_9((sigmatopdown_record_9_t)x, (sigmatopdown_record_9_t)y);
+}
+
+actual_sigmatopdown_record_9_t actual_sigmatopdown_record_9(){
+        actual_sigmatopdown_record_9_t new = (actual_sigmatopdown_record_9_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_9_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_9_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_9_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_9_t update_sigmatopdown_record_9_project_1(sigmatopdown_record_9_t x, uint32_t v){
+        sigmatopdown_record_9_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_9(x); x->count--;};
+        y->project_1 = (uint32_t)v;
+        return y;}
+
+sigmatopdown_record_9_t update_sigmatopdown_record_9_project_2(sigmatopdown_record_9_t x, uint8_t v){
+        sigmatopdown_record_9_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_9(x); x->count--;};
+        y->project_2 = (uint8_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_10(sigmatopdown_funtype_10_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_10_t copy_sigmatopdown_funtype_10(sigmatopdown_funtype_10_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_10(sigmatopdown_funtype_10_t x, sigmatopdown_funtype_10_t y){
+        return false;}
+
+
+mpz_ptr_t f_sigmatopdown_closure_11(struct sigmatopdown_closure_11_s * closure, sigmatopdown__ent_adt_t bvar){
+        mpz_ptr_t result = h_sigmatopdown_closure_11(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5); 
+        return result;}
+
+mpz_ptr_t m_sigmatopdown_closure_11(struct sigmatopdown_closure_11_s * closure, sigmatopdown__ent_adt_t bvar){
+        return h_sigmatopdown_closure_11(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5);}
+
+extern mpz_ptr_t h_sigmatopdown_closure_11(sigmatopdown__ent_adt_t ivar_10, sigmatopdown_funtype_8_t ivar_5, sigmatopdown_funtype_10_t ivar_7, mpz_ptr_t ivar_4, mpz_ptr_t ivar_3, sigmatopdown_funtype_6_t ivar_1){
+        mpz_ptr_t result;
+        bool_t ivar_83;
+        ivar_10->count++;
+        ivar_83 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_10);
+        if (ivar_83){ 
+             uint64_t ivar_74;
+             ivar_74 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_10);
+             sigmatopdown_funtype_6_t ivar_81;
+             //copying to sigmatopdown_funtype_6 from sigmatopdown_funtype_6;
+             ivar_81 = (sigmatopdown_funtype_6_t)ivar_1;
+             ivar_81->count++;
+             result = (mpz_ptr_t)ivar_81->ftbl->fptr(ivar_81, ivar_74);
+             ivar_81->ftbl->rptr(ivar_81);
+} else {
+        
+             bool_t ivar_87;
+             ivar_10->count++;
+             ivar_87 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_10);
+             if (ivar_87){  
+           release_sigmatopdown__ent_adt(ivar_10);
+           result = safe_malloc(sizeof(mpz_t));
+           mpz_init(result);
+           //copying to mpz from mpz;
+           mpz_mk_set(result, ivar_3);
+} else {
+             
+           bool_t ivar_91;
+           ivar_10->count++;
+           ivar_91 = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_10);
+           if (ivar_91){   
+           release_sigmatopdown__ent_adt(ivar_10);
+           result = safe_malloc(sizeof(mpz_t));
+           mpz_init(result);
+           //copying to mpz from mpz;
+           mpz_mk_set(result, ivar_4);
+} else {
+           
+           bool_t ivar_110;
+           ivar_10->count++;
+           ivar_110 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_10);
+           if (ivar_110){    
+            uint64_t ivar_95;
+            ivar_10->count++;
+            ivar_95 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_10);
+            uint32_t ivar_96;
+            ivar_96 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_10);
+            sigmatopdown_funtype_8_t ivar_107;
+            //copying to sigmatopdown_funtype_8 from sigmatopdown_funtype_8;
+            ivar_107 = (sigmatopdown_funtype_8_t)ivar_5;
+            ivar_107->count++;
+            result = (mpz_ptr_t)ivar_107->ftbl->mptr(ivar_107, ivar_95, ivar_96);
+            ivar_107->ftbl->rptr(ivar_107);
+} else {
+           
+            uint32_t ivar_114;
+            ivar_10->count++;
+            ivar_114 = (uint32_t)sigmatopdown__ent_adt_pos((sigmatopdown__ent_adt_t)ivar_10);
+            uint8_t ivar_115;
+            ivar_115 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_10);
+            sigmatopdown_funtype_10_t ivar_126;
+            //copying to sigmatopdown_funtype_10 from sigmatopdown_funtype_10;
+            ivar_126 = (sigmatopdown_funtype_10_t)ivar_7;
+            ivar_126->count++;
+            result = (mpz_ptr_t)ivar_126->ftbl->mptr(ivar_126, ivar_114, ivar_115);
+            ivar_126->ftbl->rptr(ivar_126);
+};
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_11_t new_sigmatopdown_closure_11(void){
+        static struct sigmatopdown_funtype_5_ftbl_s ftbl = {.fptr = (mpz_ptr_t (*)(sigmatopdown_funtype_5_t, sigmatopdown__ent_adt_t))&f_sigmatopdown_closure_11, .mptr = (mpz_ptr_t (*)(sigmatopdown_funtype_5_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_11, .rptr =  (void (*)(sigmatopdown_funtype_5_t))&release_sigmatopdown_closure_11, .cptr = (sigmatopdown_funtype_5_t (*)(sigmatopdown_funtype_5_t))&copy_sigmatopdown_closure_11};
+        sigmatopdown_closure_11_t tmp = (sigmatopdown_closure_11_t) safe_malloc(sizeof(struct sigmatopdown_closure_11_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        mpz_init(tmp->fvar_3);
+        mpz_init(tmp->fvar_4);
+        return tmp;}
+
+void release_sigmatopdown_closure_11(sigmatopdown_funtype_5_t closure){
+        sigmatopdown_closure_11_t x = (sigmatopdown_closure_11_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_8(x->fvar_1);
+         release_sigmatopdown_funtype_10(x->fvar_2);
+         release_sigmatopdown_funtype_6(x->fvar_5);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_11_t copy_sigmatopdown_closure_11(sigmatopdown_closure_11_t x){
+        sigmatopdown_closure_11_t y = new_sigmatopdown_closure_11();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        mpz_set(y->fvar_3, x->fvar_3);
+        mpz_set(y->fvar_4, x->fvar_4);
+        y->fvar_5 = x->fvar_5; x->fvar_5->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_5_htbl_t new_htbl = (sigmatopdown_funtype_5_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_5_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_5_hashentry_t * new_data = (sigmatopdown_funtype_5_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_5_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_5_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_record_12_t new_sigmatopdown_record_12(void){
+        sigmatopdown_record_12_t tmp = (sigmatopdown_record_12_t) safe_malloc(sizeof(struct sigmatopdown_record_12_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_12(sigmatopdown_record_12_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown__ent_adt(x->project_2);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_12_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_12((sigmatopdown_record_12_t)x);
+}
+
+sigmatopdown_record_12_t copy_sigmatopdown_record_12(sigmatopdown_record_12_t x){
+        sigmatopdown_record_12_t y = new_sigmatopdown_record_12();
+        y->project_1 = (uint64_t)x->project_1;
+        y->project_2 = x->project_2;
+        if (y->project_2 != NULL){y->project_2->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_12(sigmatopdown_record_12_t x, sigmatopdown_record_12_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->project_1 == y->project_1;
+        tmp = tmp && equal_sigmatopdown__ent_adt(x->project_2, y->project_2);
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_12_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_12_t T){
+        return equal_sigmatopdown_record_12((sigmatopdown_record_12_t)x, (sigmatopdown_record_12_t)y);
+}
+
+actual_sigmatopdown_record_12_t actual_sigmatopdown_record_12(){
+        actual_sigmatopdown_record_12_t new = (actual_sigmatopdown_record_12_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_12_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_12_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_12_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_12_t update_sigmatopdown_record_12_project_1(sigmatopdown_record_12_t x, uint64_t v){
+        sigmatopdown_record_12_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_12(x); x->count--;};
+        y->project_1 = (uint64_t)v;
+        return y;}
+
+sigmatopdown_record_12_t update_sigmatopdown_record_12_project_2(sigmatopdown_record_12_t x, sigmatopdown__ent_adt_t v){
+        sigmatopdown_record_12_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_2 != NULL){release_sigmatopdown__ent_adt(x->project_2);};}
+        else {y = copy_sigmatopdown_record_12(x); x->count--; y->project_2->count--;};
+        y->project_2 = (sigmatopdown__ent_adt_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_13(sigmatopdown_funtype_13_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_13_t copy_sigmatopdown_funtype_13(sigmatopdown_funtype_13_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_13(sigmatopdown_funtype_13_t x, sigmatopdown_funtype_13_t y){
+        return false;}
+
+
+sigmatopdown_record_14_t new_sigmatopdown_record_14(void){
+        sigmatopdown_record_14_t tmp = (sigmatopdown_record_14_t) safe_malloc(sizeof(struct sigmatopdown_record_14_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_14(sigmatopdown_record_14_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown__ent_adt(x->project_3);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_14_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_14((sigmatopdown_record_14_t)x);
+}
+
+sigmatopdown_record_14_t copy_sigmatopdown_record_14(sigmatopdown_record_14_t x){
+        sigmatopdown_record_14_t y = new_sigmatopdown_record_14();
+        y->project_1 = (uint64_t)x->project_1;
+        y->project_2 = (uint32_t)x->project_2;
+        y->project_3 = x->project_3;
+        if (y->project_3 != NULL){y->project_3->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_14(sigmatopdown_record_14_t x, sigmatopdown_record_14_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->project_1 == y->project_1;
+        tmp = tmp && x->project_2 == y->project_2;
+        tmp = tmp && equal_sigmatopdown__ent_adt(x->project_3, y->project_3);
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_14_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_14_t T){
+        return equal_sigmatopdown_record_14((sigmatopdown_record_14_t)x, (sigmatopdown_record_14_t)y);
+}
+
+actual_sigmatopdown_record_14_t actual_sigmatopdown_record_14(){
+        actual_sigmatopdown_record_14_t new = (actual_sigmatopdown_record_14_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_14_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_14_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_14_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_14_t update_sigmatopdown_record_14_project_1(sigmatopdown_record_14_t x, uint64_t v){
+        sigmatopdown_record_14_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_14(x); x->count--;};
+        y->project_1 = (uint64_t)v;
+        return y;}
+
+sigmatopdown_record_14_t update_sigmatopdown_record_14_project_2(sigmatopdown_record_14_t x, uint32_t v){
+        sigmatopdown_record_14_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_14(x); x->count--;};
+        y->project_2 = (uint32_t)v;
+        return y;}
+
+sigmatopdown_record_14_t update_sigmatopdown_record_14_project_3(sigmatopdown_record_14_t x, sigmatopdown__ent_adt_t v){
+        sigmatopdown_record_14_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_3 != NULL){release_sigmatopdown__ent_adt(x->project_3);};}
+        else {y = copy_sigmatopdown_record_14(x); x->count--; y->project_3->count--;};
+        y->project_3 = (sigmatopdown__ent_adt_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_15(sigmatopdown_funtype_15_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_15_t copy_sigmatopdown_funtype_15(sigmatopdown_funtype_15_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_15(sigmatopdown_funtype_15_t x, sigmatopdown_funtype_15_t y){
+        return false;}
+
+
+sigmatopdown_record_16_t new_sigmatopdown_record_16(void){
+        sigmatopdown_record_16_t tmp = (sigmatopdown_record_16_t) safe_malloc(sizeof(struct sigmatopdown_record_16_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_16(sigmatopdown_record_16_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown__ent_adt(x->project_3);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_16_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_16((sigmatopdown_record_16_t)x);
+}
+
+sigmatopdown_record_16_t copy_sigmatopdown_record_16(sigmatopdown_record_16_t x){
+        sigmatopdown_record_16_t y = new_sigmatopdown_record_16();
+        y->project_1 = (uint32_t)x->project_1;
+        y->project_2 = (uint8_t)x->project_2;
+        y->project_3 = x->project_3;
+        if (y->project_3 != NULL){y->project_3->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_16(sigmatopdown_record_16_t x, sigmatopdown_record_16_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->project_1 == y->project_1;
+        tmp = tmp && x->project_2 == y->project_2;
+        tmp = tmp && equal_sigmatopdown__ent_adt(x->project_3, y->project_3);
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_16_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_16_t T){
+        return equal_sigmatopdown_record_16((sigmatopdown_record_16_t)x, (sigmatopdown_record_16_t)y);
+}
+
+actual_sigmatopdown_record_16_t actual_sigmatopdown_record_16(){
+        actual_sigmatopdown_record_16_t new = (actual_sigmatopdown_record_16_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_16_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_16_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_16_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_16_t update_sigmatopdown_record_16_project_1(sigmatopdown_record_16_t x, uint32_t v){
+        sigmatopdown_record_16_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_16(x); x->count--;};
+        y->project_1 = (uint32_t)v;
+        return y;}
+
+sigmatopdown_record_16_t update_sigmatopdown_record_16_project_2(sigmatopdown_record_16_t x, uint8_t v){
+        sigmatopdown_record_16_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_16(x); x->count--;};
+        y->project_2 = (uint8_t)v;
+        return y;}
+
+sigmatopdown_record_16_t update_sigmatopdown_record_16_project_3(sigmatopdown_record_16_t x, sigmatopdown__ent_adt_t v){
+        sigmatopdown_record_16_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_3 != NULL){release_sigmatopdown__ent_adt(x->project_3);};}
+        else {y = copy_sigmatopdown_record_16(x); x->count--; y->project_3->count--;};
+        y->project_3 = (sigmatopdown__ent_adt_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_17(sigmatopdown_funtype_17_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_17_t copy_sigmatopdown_funtype_17(sigmatopdown_funtype_17_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_17(sigmatopdown_funtype_17_t x, sigmatopdown_funtype_17_t y){
+        return false;}
+
+
+mpz_ptr_t f_sigmatopdown_closure_18(struct sigmatopdown_closure_18_s * closure, sigmatopdown__ent_adt_t bvar){
+        mpz_ptr_t result = h_sigmatopdown_closure_18(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5); 
+        return result;}
+
+mpz_ptr_t m_sigmatopdown_closure_18(struct sigmatopdown_closure_18_s * closure, sigmatopdown__ent_adt_t bvar){
+        return h_sigmatopdown_closure_18(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5);}
+
+extern mpz_ptr_t h_sigmatopdown_closure_18(sigmatopdown__ent_adt_t ivar_12, sigmatopdown_funtype_15_t ivar_7, sigmatopdown_funtype_17_t ivar_9, sigmatopdown_funtype_5_t ivar_5, sigmatopdown_funtype_5_t ivar_3, sigmatopdown_funtype_13_t ivar_1){
+        mpz_ptr_t result;
+        bool_t ivar_125;
+        ivar_12->count++;
+        ivar_125 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_12);
+        if (ivar_125){ 
+             uint64_t ivar_114;
+             ivar_12->count++;
+             ivar_114 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_12);
+             sigmatopdown_funtype_13_t ivar_122;
+             //copying to sigmatopdown_funtype_13 from sigmatopdown_funtype_13;
+             ivar_122 = (sigmatopdown_funtype_13_t)ivar_1;
+             ivar_122->count++;
+             result = (mpz_ptr_t)ivar_122->ftbl->mptr(ivar_122, ivar_114, ivar_12);
+             ivar_122->ftbl->rptr(ivar_122);
+} else {
+        
+             bool_t ivar_134;
+             ivar_12->count++;
+             ivar_134 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_12);
+             if (ivar_134){  
+           sigmatopdown_funtype_5_t ivar_132;
+           //copying to sigmatopdown_funtype_5 from sigmatopdown_funtype_5;
+           ivar_132 = (sigmatopdown_funtype_5_t)ivar_3;
+           ivar_132->count++;
+           result = (mpz_ptr_t)ivar_132->ftbl->fptr(ivar_132, ivar_12);
+           ivar_132->ftbl->rptr(ivar_132);
+} else {
+             
+           bool_t ivar_143;
+           ivar_12->count++;
+           ivar_143 = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_12);
+           if (ivar_143){   
+           sigmatopdown_funtype_5_t ivar_141;
+           //copying to sigmatopdown_funtype_5 from sigmatopdown_funtype_5;
+           ivar_141 = (sigmatopdown_funtype_5_t)ivar_5;
+           ivar_141->count++;
+           result = (mpz_ptr_t)ivar_141->ftbl->fptr(ivar_141, ivar_12);
+           ivar_141->ftbl->rptr(ivar_141);
+} else {
+           
+           bool_t ivar_164;
+           ivar_12->count++;
+           ivar_164 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_12);
+           if (ivar_164){    
+            uint64_t ivar_147;
+            ivar_12->count++;
+            ivar_147 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_12);
+            uint32_t ivar_148;
+            ivar_12->count++;
+            ivar_148 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_12);
+            sigmatopdown_funtype_15_t ivar_160;
+            //copying to sigmatopdown_funtype_15 from sigmatopdown_funtype_15;
+            ivar_160 = (sigmatopdown_funtype_15_t)ivar_7;
+            ivar_160->count++;
+            result = (mpz_ptr_t)ivar_160->ftbl->mptr(ivar_160, ivar_147, ivar_148, ivar_12);
+            ivar_160->ftbl->rptr(ivar_160);
+} else {
+           
+            uint32_t ivar_168;
+            ivar_12->count++;
+            ivar_168 = (uint32_t)sigmatopdown__ent_adt_pos((sigmatopdown__ent_adt_t)ivar_12);
+            uint8_t ivar_169;
+            ivar_12->count++;
+            ivar_169 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_12);
+            sigmatopdown_funtype_17_t ivar_181;
+            //copying to sigmatopdown_funtype_17 from sigmatopdown_funtype_17;
+            ivar_181 = (sigmatopdown_funtype_17_t)ivar_9;
+            ivar_181->count++;
+            result = (mpz_ptr_t)ivar_181->ftbl->mptr(ivar_181, ivar_168, ivar_169, ivar_12);
+            ivar_181->ftbl->rptr(ivar_181);
+};
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_18_t new_sigmatopdown_closure_18(void){
+        static struct sigmatopdown_funtype_5_ftbl_s ftbl = {.fptr = (mpz_ptr_t (*)(sigmatopdown_funtype_5_t, sigmatopdown__ent_adt_t))&f_sigmatopdown_closure_18, .mptr = (mpz_ptr_t (*)(sigmatopdown_funtype_5_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_18, .rptr =  (void (*)(sigmatopdown_funtype_5_t))&release_sigmatopdown_closure_18, .cptr = (sigmatopdown_funtype_5_t (*)(sigmatopdown_funtype_5_t))&copy_sigmatopdown_closure_18};
+        sigmatopdown_closure_18_t tmp = (sigmatopdown_closure_18_t) safe_malloc(sizeof(struct sigmatopdown_closure_18_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_18(sigmatopdown_funtype_5_t closure){
+        sigmatopdown_closure_18_t x = (sigmatopdown_closure_18_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_15(x->fvar_1);
+         release_sigmatopdown_funtype_17(x->fvar_2);
+         release_sigmatopdown_funtype_5(x->fvar_3);
+         release_sigmatopdown_funtype_5(x->fvar_4);
+         release_sigmatopdown_funtype_13(x->fvar_5);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_18_t copy_sigmatopdown_closure_18(sigmatopdown_closure_18_t x){
+        sigmatopdown_closure_18_t y = new_sigmatopdown_closure_18();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        y->fvar_4 = x->fvar_4; x->fvar_4->count++;
+        y->fvar_5 = x->fvar_5; x->fvar_5->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_5_htbl_t new_htbl = (sigmatopdown_funtype_5_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_5_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_5_hashentry_t * new_data = (sigmatopdown_funtype_5_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_5_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_5_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_sigmatopdown_funtype_19(sigmatopdown_funtype_19_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_19_t copy_sigmatopdown_funtype_19(sigmatopdown_funtype_19_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_19(sigmatopdown_funtype_19_t x, sigmatopdown_funtype_19_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_20(sigmatopdown_funtype_20_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_20_t copy_sigmatopdown_funtype_20(sigmatopdown_funtype_20_t x){return x->ftbl->cptr(x);}
+
+uint32_t lookup_sigmatopdown_funtype_20(sigmatopdown_funtype_20_htbl_t htbl, uint64_t i, uint32_t ihash){
+        uint32_t mask = htbl->size - 1;
+        uint32_t hashindex = ihash & mask; sigmatopdown_funtype_20_hashentry_t data = htbl->data[hashindex];
+        bool_t keyzero;
+	printf("\nlookup: num_entries = %"PRIu32"", htbl->num_entries);	
+        keyzero = (data.key == 0);
+        bool_t keymatch;
+        keymatch = (data.key == i);
+        while ((!keyzero || data.keyhash != 0) &&
+                 (data.keyhash != ihash || !keymatch)){
+                hashindex++;
+                hashindex = hashindex & mask;
+                data = htbl->data[hashindex];
+
+        keyzero = (data.key == 0);
+
+        keymatch = (data.key == i);
+                }
+        return hashindex;
+        }
+
+sigmatopdown_funtype_20_t dupdate_sigmatopdown_funtype_20(sigmatopdown_funtype_20_t a, uint64_t i, ordstruct_adt__ordstruct_adt_t v){
+        sigmatopdown_funtype_20_htbl_t htbl = a->htbl;
+        if (htbl == NULL){//construct new htbl
+                htbl = (sigmatopdown_funtype_20_htbl_t)safe_malloc(sizeof(struct sigmatopdown_funtype_20_htbl_s));
+                htbl->size = HTBL_DEFAULT_SIZE; htbl->num_entries = 0;
+                htbl->data = (sigmatopdown_funtype_20_hashentry_t *)safe_malloc(HTBL_DEFAULT_SIZE * sizeof(struct sigmatopdown_funtype_20_hashentry_s));
+                for (uint32_t j = 0; j < HTBL_DEFAULT_SIZE; j++){htbl->data[j].key = (uint64_t)0; htbl->data[j].keyhash = 0;
+                }
+                a->htbl = htbl;
+        }
+        uint32_t size = htbl->size;
+        uint32_t num_entries = htbl->num_entries;
+	printf("\ndupdating_funtype20: num_entries = %"PRIu32", a = %p, i = %"PRIu64"", num_entries, a, i);	
+        sigmatopdown_funtype_20_hashentry_t * data = htbl->data;
+        if (num_entries/3 >  size/5){//resize data
+	  printf("\nresizing: num_entries = %"PRIu32"", num_entries);
+                uint32_t new_size = 2*size; uint32_t new_mask = new_size - 1;
+                if (size >= HTBL_MAX_SIZE) out_of_memory();
+                sigmatopdown_funtype_20_hashentry_t * new_data = (sigmatopdown_funtype_20_hashentry_t *)safe_malloc(new_size * sizeof(struct sigmatopdown_funtype_20_hashentry_s));
+                for (uint32_t j = 0; j < size; j++){//transfer entries
+                        uint32_t keyhash = data[j].keyhash;
+                        bool_t keyzero;
+                        keyzero = (data[j].key == 0);
+                        if (!keyzero || keyhash != 0){
+                                uint32_t new_loc = keyhash ^ new_mask;
+                                keyzero = (new_data[new_loc].key == 0);
+                                while (keyzero && new_data[new_loc].keyhash == 0){
+                                        new_loc++;
+                                        new_loc = new_loc ^ new_mask;
+
+                                        keyzero = (new_data[new_loc].key == 0);
+                                }
+                                new_data[new_loc].key = (uint64_t)data[j].key;
+                                new_data[new_loc].keyhash = keyhash;
+                                new_data[new_loc].value = (ordstruct_adt__ordstruct_adt_t)data[j].value;
+                                }}
+                htbl->size = new_size;
+                htbl->num_entries = num_entries;
+                htbl->data = new_data;
+                safe_free(data);}
+        uint32_t ihash = uint64_hash(i);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_20(htbl, i, ihash);
+        sigmatopdown_funtype_20_hashentry_t hentry = htbl->data[hashindex];
+        uint32_t hkeyhash = hentry.keyhash;
+        bool_t hentrykeyzero;
+        hentrykeyzero = (hentry.key == 0);
+
+        if (hentrykeyzero && (hkeyhash == 0))
+	  {htbl->data[hashindex].key = (uint64_t)i; htbl->data[hashindex].keyhash = ihash; htbl->data[hashindex].value = (ordstruct_adt__ordstruct_adt_t)v; htbl->num_entries++;}
+	else {ordstruct_adt__ordstruct_adt_t tempvalue;tempvalue = (ordstruct_adt__ordstruct_adt_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (ordstruct_adt__ordstruct_adt_t)v;if (tempvalue != NULL)release_ordstruct_adt__ordstruct_adt(tempvalue);};
+        return a;
+
+}
+
+sigmatopdown_funtype_20_t update_sigmatopdown_funtype_20(sigmatopdown_funtype_20_t a, uint64_t i, ordstruct_adt__ordstruct_adt_t v){
+        if (a->count == 1){
+                return dupdate_sigmatopdown_funtype_20(a, i, v);
+            } else {
+                sigmatopdown_funtype_20_t x = copy_sigmatopdown_funtype_20(a);
+                x->count--;
+                return dupdate_sigmatopdown_funtype_20(x, i, v);
+            }}
+
+bool_t equal_sigmatopdown_funtype_20(sigmatopdown_funtype_20_t x, sigmatopdown_funtype_20_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_21(sigmatopdown_funtype_21_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_21_t copy_sigmatopdown_funtype_21(sigmatopdown_funtype_21_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_21(sigmatopdown_funtype_21_t x, sigmatopdown_funtype_21_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_22(sigmatopdown_funtype_22_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_22_t copy_sigmatopdown_funtype_22(sigmatopdown_funtype_22_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_22(sigmatopdown_funtype_22_t x, sigmatopdown_funtype_22_t y){
+        return false;}
+
+
+ordstruct_adt__ordstruct_adt_t f_sigmatopdown_closure_23(struct sigmatopdown_closure_23_s * closure, sigmatopdown__ent_adt_t bvar){
+        ordstruct_adt__ordstruct_adt_t result = h_sigmatopdown_closure_23(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5); 
+        return result;}
+
+ordstruct_adt__ordstruct_adt_t m_sigmatopdown_closure_23(struct sigmatopdown_closure_23_s * closure, sigmatopdown__ent_adt_t bvar){
+        return h_sigmatopdown_closure_23(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5);}
+
+extern ordstruct_adt__ordstruct_adt_t h_sigmatopdown_closure_23(sigmatopdown__ent_adt_t ivar_10, sigmatopdown_funtype_21_t ivar_5, sigmatopdown_funtype_22_t ivar_7, ordstruct_adt__ordstruct_adt_t ivar_4, ordstruct_adt__ordstruct_adt_t ivar_3, sigmatopdown_funtype_20_t ivar_1){
+        ordstruct_adt__ordstruct_adt_t result;
+        bool_t ivar_39;
+        ivar_10->count++;
+        ivar_39 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_10);
+        if (ivar_39){ 
+             uint64_t ivar_30;
+             ivar_30 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_10);
+             ordstruct_adt__ordstruct_adt_t ivar_35;
+             ivar_35 = (ordstruct_adt__ordstruct_adt_t)ivar_1->ftbl->fptr(ivar_1, ivar_30);
+             //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+             result = (ordstruct_adt__ordstruct_adt_t)ivar_35;
+             result->count++;
+             release_ordstruct_adt__ordstruct_adt(ivar_35);
+} else {
+        
+             bool_t ivar_43;
+             ivar_10->count++;
+             ivar_43 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_10);
+             if (ivar_43){  
+           release_sigmatopdown__ent_adt(ivar_10);
+           //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+           result = (ordstruct_adt__ordstruct_adt_t)ivar_3;
+           result->count++;
+} else {
+             
+           bool_t ivar_47;
+           ivar_10->count++;
+           ivar_47 = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_10);
+           if (ivar_47){   
+           release_sigmatopdown__ent_adt(ivar_10);
+           //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+           result = (ordstruct_adt__ordstruct_adt_t)ivar_4;
+           result->count++;
+} else {
+           
+           bool_t ivar_66;
+           ivar_10->count++;
+           ivar_66 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_10);
+           if (ivar_66){    
+            uint64_t ivar_51;
+            ivar_10->count++;
+            ivar_51 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_10);
+            uint32_t ivar_52;
+            ivar_52 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_10);
+            ordstruct_adt__ordstruct_adt_t ivar_61;
+            ivar_61 = (ordstruct_adt__ordstruct_adt_t)ivar_5->ftbl->mptr(ivar_5, ivar_51, ivar_52);
+            //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+            result = (ordstruct_adt__ordstruct_adt_t)ivar_61;
+            result->count++;
+            release_ordstruct_adt__ordstruct_adt(ivar_61);
+} else {
+           
+            uint32_t ivar_70;
+            ivar_10->count++;
+            ivar_70 = (uint32_t)sigmatopdown__ent_adt_pos((sigmatopdown__ent_adt_t)ivar_10);
+            uint8_t ivar_71;
+            ivar_71 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_10);
+            ordstruct_adt__ordstruct_adt_t ivar_80;
+            ivar_80 = (ordstruct_adt__ordstruct_adt_t)ivar_7->ftbl->mptr(ivar_7, ivar_70, ivar_71);
+            //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+            result = (ordstruct_adt__ordstruct_adt_t)ivar_80;
+            result->count++;
+            release_ordstruct_adt__ordstruct_adt(ivar_80);
+};
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_23_t new_sigmatopdown_closure_23(void){
+        static struct sigmatopdown_funtype_19_ftbl_s ftbl = {.fptr = (ordstruct_adt__ordstruct_adt_t (*)(sigmatopdown_funtype_19_t, sigmatopdown__ent_adt_t))&f_sigmatopdown_closure_23, .mptr = (ordstruct_adt__ordstruct_adt_t (*)(sigmatopdown_funtype_19_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_23, .rptr =  (void (*)(sigmatopdown_funtype_19_t))&release_sigmatopdown_closure_23, .cptr = (sigmatopdown_funtype_19_t (*)(sigmatopdown_funtype_19_t))&copy_sigmatopdown_closure_23};
+        sigmatopdown_closure_23_t tmp = (sigmatopdown_closure_23_t) safe_malloc(sizeof(struct sigmatopdown_closure_23_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_23(sigmatopdown_funtype_19_t closure){
+        sigmatopdown_closure_23_t x = (sigmatopdown_closure_23_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_21(x->fvar_1);
+         release_sigmatopdown_funtype_22(x->fvar_2);
+         release_ordstruct_adt__ordstruct_adt(x->fvar_3);
+         release_ordstruct_adt__ordstruct_adt(x->fvar_4);
+         release_sigmatopdown_funtype_20(x->fvar_5);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_23_t copy_sigmatopdown_closure_23(sigmatopdown_closure_23_t x){
+        sigmatopdown_closure_23_t y = new_sigmatopdown_closure_23();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        y->fvar_4 = x->fvar_4; x->fvar_4->count++;
+        y->fvar_5 = x->fvar_5; x->fvar_5->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_19_htbl_t new_htbl = (sigmatopdown_funtype_19_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_19_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_19_hashentry_t * new_data = (sigmatopdown_funtype_19_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_19_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_19_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_sigmatopdown_funtype_24(sigmatopdown_funtype_24_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_24_t copy_sigmatopdown_funtype_24(sigmatopdown_funtype_24_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_24(sigmatopdown_funtype_24_t x, sigmatopdown_funtype_24_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_25(sigmatopdown_funtype_25_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_25_t copy_sigmatopdown_funtype_25(sigmatopdown_funtype_25_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_25(sigmatopdown_funtype_25_t x, sigmatopdown_funtype_25_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_26(sigmatopdown_funtype_26_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_26_t copy_sigmatopdown_funtype_26(sigmatopdown_funtype_26_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_26(sigmatopdown_funtype_26_t x, sigmatopdown_funtype_26_t y){
+        return false;}
+
+
+ordstruct_adt__ordstruct_adt_t f_sigmatopdown_closure_27(struct sigmatopdown_closure_27_s * closure, sigmatopdown__ent_adt_t bvar){
+        ordstruct_adt__ordstruct_adt_t result = h_sigmatopdown_closure_27(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5); 
+        return result;}
+
+ordstruct_adt__ordstruct_adt_t m_sigmatopdown_closure_27(struct sigmatopdown_closure_27_s * closure, sigmatopdown__ent_adt_t bvar){
+        return h_sigmatopdown_closure_27(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5);}
+
+extern ordstruct_adt__ordstruct_adt_t h_sigmatopdown_closure_27(sigmatopdown__ent_adt_t ivar_12, sigmatopdown_funtype_25_t ivar_7, sigmatopdown_funtype_26_t ivar_9, sigmatopdown_funtype_19_t ivar_5, sigmatopdown_funtype_19_t ivar_3, sigmatopdown_funtype_24_t ivar_1){
+        ordstruct_adt__ordstruct_adt_t result;
+        bool_t ivar_45;
+        ivar_12->count++;
+        ivar_45 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_12);
+        if (ivar_45){ 
+             uint64_t ivar_34;
+             ivar_12->count++;
+             ivar_34 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_12);
+             ordstruct_adt__ordstruct_adt_t ivar_40;
+             ivar_40 = (ordstruct_adt__ordstruct_adt_t)ivar_1->ftbl->mptr(ivar_1, ivar_34, ivar_12);
+             //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+             result = (ordstruct_adt__ordstruct_adt_t)ivar_40;
+             result->count++;
+             release_ordstruct_adt__ordstruct_adt(ivar_40);
+} else {
+        
+             bool_t ivar_54;
+             ivar_12->count++;
+             ivar_54 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_12);
+             if (ivar_54){  
+           ordstruct_adt__ordstruct_adt_t ivar_50;
+           ivar_50 = (ordstruct_adt__ordstruct_adt_t)ivar_3->ftbl->fptr(ivar_3, ivar_12);
+           //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+           result = (ordstruct_adt__ordstruct_adt_t)ivar_50;
+           result->count++;
+           release_ordstruct_adt__ordstruct_adt(ivar_50);
+} else {
+             
+           bool_t ivar_63;
+           ivar_12->count++;
+           ivar_63 = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_12);
+           if (ivar_63){   
+           ordstruct_adt__ordstruct_adt_t ivar_59;
+           ivar_59 = (ordstruct_adt__ordstruct_adt_t)ivar_5->ftbl->fptr(ivar_5, ivar_12);
+           //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+           result = (ordstruct_adt__ordstruct_adt_t)ivar_59;
+           result->count++;
+           release_ordstruct_adt__ordstruct_adt(ivar_59);
+} else {
+           
+           bool_t ivar_84;
+           ivar_12->count++;
+           ivar_84 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_12);
+           if (ivar_84){    
+            uint64_t ivar_67;
+            ivar_12->count++;
+            ivar_67 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_12);
+            uint32_t ivar_68;
+            ivar_12->count++;
+            ivar_68 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_12);
+            ordstruct_adt__ordstruct_adt_t ivar_78;
+            ivar_78 = (ordstruct_adt__ordstruct_adt_t)ivar_7->ftbl->mptr(ivar_7, ivar_67, ivar_68, ivar_12);
+            //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+            result = (ordstruct_adt__ordstruct_adt_t)ivar_78;
+            result->count++;
+            release_ordstruct_adt__ordstruct_adt(ivar_78);
+} else {
+           
+            uint32_t ivar_88;
+            ivar_12->count++;
+            ivar_88 = (uint32_t)sigmatopdown__ent_adt_pos((sigmatopdown__ent_adt_t)ivar_12);
+            uint8_t ivar_89;
+            ivar_12->count++;
+            ivar_89 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_12);
+            ordstruct_adt__ordstruct_adt_t ivar_99;
+            ivar_99 = (ordstruct_adt__ordstruct_adt_t)ivar_9->ftbl->mptr(ivar_9, ivar_88, ivar_89, ivar_12);
+            //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+            result = (ordstruct_adt__ordstruct_adt_t)ivar_99;
+            result->count++;
+            release_ordstruct_adt__ordstruct_adt(ivar_99);
+};
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_27_t new_sigmatopdown_closure_27(void){
+        static struct sigmatopdown_funtype_19_ftbl_s ftbl = {.fptr = (ordstruct_adt__ordstruct_adt_t (*)(sigmatopdown_funtype_19_t, sigmatopdown__ent_adt_t))&f_sigmatopdown_closure_27, .mptr = (ordstruct_adt__ordstruct_adt_t (*)(sigmatopdown_funtype_19_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_27, .rptr =  (void (*)(sigmatopdown_funtype_19_t))&release_sigmatopdown_closure_27, .cptr = (sigmatopdown_funtype_19_t (*)(sigmatopdown_funtype_19_t))&copy_sigmatopdown_closure_27};
+        sigmatopdown_closure_27_t tmp = (sigmatopdown_closure_27_t) safe_malloc(sizeof(struct sigmatopdown_closure_27_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_27(sigmatopdown_funtype_19_t closure){
+        sigmatopdown_closure_27_t x = (sigmatopdown_closure_27_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_25(x->fvar_1);
+         release_sigmatopdown_funtype_26(x->fvar_2);
+         release_sigmatopdown_funtype_19(x->fvar_3);
+         release_sigmatopdown_funtype_19(x->fvar_4);
+         release_sigmatopdown_funtype_24(x->fvar_5);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_27_t copy_sigmatopdown_closure_27(sigmatopdown_closure_27_t x){
+        sigmatopdown_closure_27_t y = new_sigmatopdown_closure_27();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        y->fvar_4 = x->fvar_4; x->fvar_4->count++;
+        y->fvar_5 = x->fvar_5; x->fvar_5->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_19_htbl_t new_htbl = (sigmatopdown_funtype_19_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_19_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_19_hashentry_t * new_data = (sigmatopdown_funtype_19_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_19_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_19_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown__peg_adt_t new_sigmatopdown__peg_adt(void){
+        sigmatopdown__peg_adt_t tmp = (sigmatopdown__peg_adt_t) safe_malloc(sizeof(struct sigmatopdown__peg_adt_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown__peg_adt(sigmatopdown__peg_adt_t x){
+switch (x->sigmatopdown__peg_adt_index) {
+case 2:  release_sigmatopdown__any((sigmatopdown__any_t) x); break;
+case 3:  release_sigmatopdown__terminal((sigmatopdown__terminal_t) x); break;
+case 4:  release_sigmatopdown__concat((sigmatopdown__concat_t) x); break;
+case 5:  release_sigmatopdown__choice((sigmatopdown__choice_t) x); break;
+case 6:  release_sigmatopdown__check((sigmatopdown__check_t) x); break;
+case 7:  release_sigmatopdown__neg((sigmatopdown__neg_t) x); break;
+}}
+
+void release_sigmatopdown__peg_adt_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown__peg_adt((sigmatopdown__peg_adt_t)x);
+}
+
+sigmatopdown__peg_adt_t copy_sigmatopdown__peg_adt(sigmatopdown__peg_adt_t x){
+        sigmatopdown__peg_adt_t y = new_sigmatopdown__peg_adt();
+        y->sigmatopdown__peg_adt_index = (uint8_t)x->sigmatopdown__peg_adt_index;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown__peg_adt(sigmatopdown__peg_adt_t x, sigmatopdown__peg_adt_t y){
+        bool_t tmp = x->sigmatopdown__peg_adt_index == y->sigmatopdown__peg_adt_index;
+        switch  (x->sigmatopdown__peg_adt_index) {
+                case 2: tmp = tmp && equal_sigmatopdown__any((sigmatopdown__any_t) x, (sigmatopdown__any_t) y); break;
+                case 3: tmp = tmp && equal_sigmatopdown__terminal((sigmatopdown__terminal_t) x, (sigmatopdown__terminal_t) y); break;
+                case 4: tmp = tmp && equal_sigmatopdown__concat((sigmatopdown__concat_t) x, (sigmatopdown__concat_t) y); break;
+                case 5: tmp = tmp && equal_sigmatopdown__choice((sigmatopdown__choice_t) x, (sigmatopdown__choice_t) y); break;
+                case 6: tmp = tmp && equal_sigmatopdown__check((sigmatopdown__check_t) x, (sigmatopdown__check_t) y); break;
+                case 7: tmp = tmp && equal_sigmatopdown__neg((sigmatopdown__neg_t) x, (sigmatopdown__neg_t) y); break;
+        }
+        return tmp;
+}
+
+bool_t equal_sigmatopdown__peg_adt_ptr(pointer_t x, pointer_t y, actual_sigmatopdown__peg_adt_t T){
+        return equal_sigmatopdown__peg_adt((sigmatopdown__peg_adt_t)x, (sigmatopdown__peg_adt_t)y);
+}
+
+actual_sigmatopdown__peg_adt_t actual_sigmatopdown__peg_adt(){
+        actual_sigmatopdown__peg_adt_t new = (actual_sigmatopdown__peg_adt_t)safe_malloc(sizeof(struct actual_sigmatopdown__peg_adt_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown__peg_adt_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown__peg_adt_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown__peg_adt_t update_sigmatopdown__peg_adt_sigmatopdown__peg_adt_index(sigmatopdown__peg_adt_t x, uint8_t v){
+        sigmatopdown__peg_adt_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__peg_adt(x); x->count--;};
+        y->sigmatopdown__peg_adt_index = (uint8_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_29(sigmatopdown_funtype_29_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_29_t copy_sigmatopdown_funtype_29(sigmatopdown_funtype_29_t x){return x->ftbl->cptr(x);}
+
+uint32_t lookup_sigmatopdown_funtype_29(sigmatopdown_funtype_29_htbl_t htbl, uint8_t i, uint32_t ihash){
+        uint32_t mask = htbl->size - 1;
+        uint32_t hashindex = ihash & mask; sigmatopdown_funtype_29_hashentry_t data = htbl->data[hashindex];
+        bool_t keyzero;
+	printf("\nlookup: num_entries = %"PRIu32"", htbl->num_entries);	
+        keyzero = (data.key == 0);
+        bool_t keymatch;
+        keymatch = (data.key == i);
+        while ((!keyzero || data.keyhash != 0) &&
+                 (data.keyhash != ihash || !keymatch)){
+                hashindex++;
+                hashindex = hashindex & mask;
+                data = htbl->data[hashindex];
+
+        keyzero = (data.key == 0);
+
+        keymatch = (data.key == i);
+                }
+        return hashindex;
+        }
+
+sigmatopdown_funtype_29_t dupdate_sigmatopdown_funtype_29(sigmatopdown_funtype_29_t a, uint8_t i, bool_t v){
+        sigmatopdown_funtype_29_htbl_t htbl = a->htbl;
+        if (htbl == NULL){//construct new htbl
+                htbl = (sigmatopdown_funtype_29_htbl_t)safe_malloc(sizeof(struct sigmatopdown_funtype_29_htbl_s));
+                htbl->size = HTBL_DEFAULT_SIZE; htbl->num_entries = 0;
+                htbl->data = (sigmatopdown_funtype_29_hashentry_t *)safe_malloc(HTBL_DEFAULT_SIZE * sizeof(struct sigmatopdown_funtype_29_hashentry_s));
+                for (uint32_t j = 0; j < HTBL_DEFAULT_SIZE; j++){htbl->data[j].key = (uint8_t)0; htbl->data[j].keyhash = 0;
+                }
+                a->htbl = htbl;
+        }
+        uint32_t size = htbl->size;
+        uint32_t num_entries = htbl->num_entries;
+	printf("\ndupdating_funtype29: num_entries = %"PRIu32", a = %p, i = %"PRIu8"", num_entries, a, i);	
+        sigmatopdown_funtype_29_hashentry_t * data = htbl->data;
+        if (num_entries/3 >  size/5){//resize data
+	  printf("\nresizing: num_entries = %"PRIu32"", num_entries);
+                uint32_t new_size = 2*size; uint32_t new_mask = new_size - 1;
+                if (size >= HTBL_MAX_SIZE) out_of_memory();
+                sigmatopdown_funtype_29_hashentry_t * new_data = (sigmatopdown_funtype_29_hashentry_t *)safe_malloc(new_size * sizeof(struct sigmatopdown_funtype_29_hashentry_s));
+                for (uint32_t j = 0; j < size; j++){//transfer entries
+                        uint32_t keyhash = data[j].keyhash;
+                        bool_t keyzero;
+                        keyzero = (data[j].key == 0);
+                        if (!keyzero || keyhash != 0){
+                                uint32_t new_loc = keyhash ^ new_mask;
+                                keyzero = (new_data[new_loc].key == 0);
+                                while (keyzero && new_data[new_loc].keyhash == 0){
+                                        new_loc++;
+                                        new_loc = new_loc ^ new_mask;
+
+                                        keyzero = (new_data[new_loc].key == 0);
+                                }
+                                new_data[new_loc].key = (uint8_t)data[j].key;
+                                new_data[new_loc].keyhash = keyhash;
+                                new_data[new_loc].value = (bool_t)data[j].value;
+                                }}
+                htbl->size = new_size;
+                htbl->num_entries = num_entries;
+                htbl->data = new_data;
+                safe_free(data);}
+        uint32_t ihash = uint32_hash(i);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_29(htbl, i, ihash);
+        sigmatopdown_funtype_29_hashentry_t hentry = htbl->data[hashindex];
+        uint32_t hkeyhash = hentry.keyhash;
+        bool_t hentrykeyzero;
+        hentrykeyzero = (hentry.key == 0);
+
+        if (hentrykeyzero && (hkeyhash == 0))
+                {htbl->data[hashindex].key = (uint8_t)i; htbl->data[hashindex].keyhash = ihash; htbl->data[hashindex].value = (bool_t)v;htbl->num_entries++;}
+            else {bool_t tempvalue;tempvalue = (bool_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (bool_t)v;};
+        return a;
+
+}
+
+sigmatopdown_funtype_29_t update_sigmatopdown_funtype_29(sigmatopdown_funtype_29_t a, uint8_t i, bool_t v){
+        if (a->count == 1){
+                return dupdate_sigmatopdown_funtype_29(a, i, v);
+            } else {
+                sigmatopdown_funtype_29_t x = copy_sigmatopdown_funtype_29(a);
+                x->count--;
+                return dupdate_sigmatopdown_funtype_29(x, i, v);
+            }}
+
+bool_t equal_sigmatopdown_funtype_29(sigmatopdown_funtype_29_t x, sigmatopdown_funtype_29_t y){
+        return false;}
+
+
+sigmatopdown__any_t new_sigmatopdown__any(void){
+        sigmatopdown__any_t tmp = (sigmatopdown__any_t) safe_malloc(sizeof(struct sigmatopdown__any_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown__any(sigmatopdown__any_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_29(x->p);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown__any_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown__any((sigmatopdown__any_t)x);
+}
+
+sigmatopdown__any_t copy_sigmatopdown__any(sigmatopdown__any_t x){
+        sigmatopdown__any_t y = new_sigmatopdown__any();
+        y->sigmatopdown__peg_adt_index = (uint8_t)x->sigmatopdown__peg_adt_index;
+        y->p = x->p;
+        if (y->p != NULL){y->p->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown__any(sigmatopdown__any_t x, sigmatopdown__any_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->sigmatopdown__peg_adt_index == y->sigmatopdown__peg_adt_index;
+        tmp = tmp && equal_sigmatopdown_funtype_29(x->p, y->p);
+        return tmp;}
+
+bool_t equal_sigmatopdown__any_ptr(pointer_t x, pointer_t y, actual_sigmatopdown__any_t T){
+        return equal_sigmatopdown__any((sigmatopdown__any_t)x, (sigmatopdown__any_t)y);
+}
+
+actual_sigmatopdown__any_t actual_sigmatopdown__any(){
+        actual_sigmatopdown__any_t new = (actual_sigmatopdown__any_t)safe_malloc(sizeof(struct actual_sigmatopdown__any_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown__any_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown__any_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown__any_t update_sigmatopdown__any_sigmatopdown__peg_adt_index(sigmatopdown__any_t x, uint8_t v){
+        sigmatopdown__any_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__any(x); x->count--;};
+        y->sigmatopdown__peg_adt_index = (uint8_t)v;
+        return y;}
+
+sigmatopdown__any_t update_sigmatopdown__any_p(sigmatopdown__any_t x, sigmatopdown_funtype_29_t v){
+        sigmatopdown__any_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->p != NULL){release_sigmatopdown_funtype_29(x->p);};}
+        else {y = copy_sigmatopdown__any(x); x->count--; y->p->count--;};
+        y->p = (sigmatopdown_funtype_29_t)v;
+        return y;}
+
+
+
+
+sigmatopdown__terminal_t new_sigmatopdown__terminal(void){
+        sigmatopdown__terminal_t tmp = (sigmatopdown__terminal_t) safe_malloc(sizeof(struct sigmatopdown__terminal_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown__terminal(sigmatopdown__terminal_t x){
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown__terminal_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown__terminal((sigmatopdown__terminal_t)x);
+}
+
+sigmatopdown__terminal_t copy_sigmatopdown__terminal(sigmatopdown__terminal_t x){
+        sigmatopdown__terminal_t y = new_sigmatopdown__terminal();
+        y->sigmatopdown__peg_adt_index = (uint8_t)x->sigmatopdown__peg_adt_index;
+        y->a = (uint8_t)x->a;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown__terminal(sigmatopdown__terminal_t x, sigmatopdown__terminal_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->sigmatopdown__peg_adt_index == y->sigmatopdown__peg_adt_index;
+        tmp = tmp && x->a == y->a;
+        return tmp;}
+
+bool_t equal_sigmatopdown__terminal_ptr(pointer_t x, pointer_t y, actual_sigmatopdown__terminal_t T){
+        return equal_sigmatopdown__terminal((sigmatopdown__terminal_t)x, (sigmatopdown__terminal_t)y);
+}
+
+actual_sigmatopdown__terminal_t actual_sigmatopdown__terminal(){
+        actual_sigmatopdown__terminal_t new = (actual_sigmatopdown__terminal_t)safe_malloc(sizeof(struct actual_sigmatopdown__terminal_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown__terminal_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown__terminal_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown__terminal_t update_sigmatopdown__terminal_sigmatopdown__peg_adt_index(sigmatopdown__terminal_t x, uint8_t v){
+        sigmatopdown__terminal_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__terminal(x); x->count--;};
+        y->sigmatopdown__peg_adt_index = (uint8_t)v;
+        return y;}
+
+sigmatopdown__terminal_t update_sigmatopdown__terminal_a(sigmatopdown__terminal_t x, uint8_t v){
+        sigmatopdown__terminal_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__terminal(x); x->count--;};
+        y->a = (uint8_t)v;
+        return y;}
+
+
+
+
+sigmatopdown__concat_t new_sigmatopdown__concat(void){
+        sigmatopdown__concat_t tmp = (sigmatopdown__concat_t) safe_malloc(sizeof(struct sigmatopdown__concat_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown__concat(sigmatopdown__concat_t x){
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown__concat_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown__concat((sigmatopdown__concat_t)x);
+}
+
+sigmatopdown__concat_t copy_sigmatopdown__concat(sigmatopdown__concat_t x){
+        sigmatopdown__concat_t y = new_sigmatopdown__concat();
+        y->sigmatopdown__peg_adt_index = (uint8_t)x->sigmatopdown__peg_adt_index;
+        y->e1 = (uint8_t)x->e1;
+        y->e2 = (uint8_t)x->e2;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown__concat(sigmatopdown__concat_t x, sigmatopdown__concat_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->sigmatopdown__peg_adt_index == y->sigmatopdown__peg_adt_index;
+        tmp = tmp && x->e1 == y->e1;
+        tmp = tmp && x->e2 == y->e2;
+        return tmp;}
+
+bool_t equal_sigmatopdown__concat_ptr(pointer_t x, pointer_t y, actual_sigmatopdown__concat_t T){
+        return equal_sigmatopdown__concat((sigmatopdown__concat_t)x, (sigmatopdown__concat_t)y);
+}
+
+actual_sigmatopdown__concat_t actual_sigmatopdown__concat(){
+        actual_sigmatopdown__concat_t new = (actual_sigmatopdown__concat_t)safe_malloc(sizeof(struct actual_sigmatopdown__concat_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown__concat_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown__concat_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown__concat_t update_sigmatopdown__concat_sigmatopdown__peg_adt_index(sigmatopdown__concat_t x, uint8_t v){
+        sigmatopdown__concat_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__concat(x); x->count--;};
+        y->sigmatopdown__peg_adt_index = (uint8_t)v;
+        return y;}
+
+sigmatopdown__concat_t update_sigmatopdown__concat_e1(sigmatopdown__concat_t x, uint8_t v){
+        sigmatopdown__concat_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__concat(x); x->count--;};
+        y->e1 = (uint8_t)v;
+        return y;}
+
+sigmatopdown__concat_t update_sigmatopdown__concat_e2(sigmatopdown__concat_t x, uint8_t v){
+        sigmatopdown__concat_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__concat(x); x->count--;};
+        y->e2 = (uint8_t)v;
+        return y;}
+
+
+
+
+sigmatopdown__choice_t new_sigmatopdown__choice(void){
+        sigmatopdown__choice_t tmp = (sigmatopdown__choice_t) safe_malloc(sizeof(struct sigmatopdown__choice_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown__choice(sigmatopdown__choice_t x){
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown__choice_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown__choice((sigmatopdown__choice_t)x);
+}
+
+sigmatopdown__choice_t copy_sigmatopdown__choice(sigmatopdown__choice_t x){
+        sigmatopdown__choice_t y = new_sigmatopdown__choice();
+        y->sigmatopdown__peg_adt_index = (uint8_t)x->sigmatopdown__peg_adt_index;
+        y->e1 = (uint8_t)x->e1;
+        y->e2 = (uint8_t)x->e2;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown__choice(sigmatopdown__choice_t x, sigmatopdown__choice_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->sigmatopdown__peg_adt_index == y->sigmatopdown__peg_adt_index;
+        tmp = tmp && x->e1 == y->e1;
+        tmp = tmp && x->e2 == y->e2;
+        return tmp;}
+
+bool_t equal_sigmatopdown__choice_ptr(pointer_t x, pointer_t y, actual_sigmatopdown__choice_t T){
+        return equal_sigmatopdown__choice((sigmatopdown__choice_t)x, (sigmatopdown__choice_t)y);
+}
+
+actual_sigmatopdown__choice_t actual_sigmatopdown__choice(){
+        actual_sigmatopdown__choice_t new = (actual_sigmatopdown__choice_t)safe_malloc(sizeof(struct actual_sigmatopdown__choice_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown__choice_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown__choice_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown__choice_t update_sigmatopdown__choice_sigmatopdown__peg_adt_index(sigmatopdown__choice_t x, uint8_t v){
+        sigmatopdown__choice_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__choice(x); x->count--;};
+        y->sigmatopdown__peg_adt_index = (uint8_t)v;
+        return y;}
+
+sigmatopdown__choice_t update_sigmatopdown__choice_e1(sigmatopdown__choice_t x, uint8_t v){
+        sigmatopdown__choice_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__choice(x); x->count--;};
+        y->e1 = (uint8_t)v;
+        return y;}
+
+sigmatopdown__choice_t update_sigmatopdown__choice_e2(sigmatopdown__choice_t x, uint8_t v){
+        sigmatopdown__choice_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__choice(x); x->count--;};
+        y->e2 = (uint8_t)v;
+        return y;}
+
+
+
+
+sigmatopdown__check_t new_sigmatopdown__check(void){
+        sigmatopdown__check_t tmp = (sigmatopdown__check_t) safe_malloc(sizeof(struct sigmatopdown__check_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown__check(sigmatopdown__check_t x){
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown__check_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown__check((sigmatopdown__check_t)x);
+}
+
+sigmatopdown__check_t copy_sigmatopdown__check(sigmatopdown__check_t x){
+        sigmatopdown__check_t y = new_sigmatopdown__check();
+        y->sigmatopdown__peg_adt_index = (uint8_t)x->sigmatopdown__peg_adt_index;
+        y->e = (uint8_t)x->e;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown__check(sigmatopdown__check_t x, sigmatopdown__check_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->sigmatopdown__peg_adt_index == y->sigmatopdown__peg_adt_index;
+        tmp = tmp && x->e == y->e;
+        return tmp;}
+
+bool_t equal_sigmatopdown__check_ptr(pointer_t x, pointer_t y, actual_sigmatopdown__check_t T){
+        return equal_sigmatopdown__check((sigmatopdown__check_t)x, (sigmatopdown__check_t)y);
+}
+
+actual_sigmatopdown__check_t actual_sigmatopdown__check(){
+        actual_sigmatopdown__check_t new = (actual_sigmatopdown__check_t)safe_malloc(sizeof(struct actual_sigmatopdown__check_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown__check_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown__check_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown__check_t update_sigmatopdown__check_sigmatopdown__peg_adt_index(sigmatopdown__check_t x, uint8_t v){
+        sigmatopdown__check_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__check(x); x->count--;};
+        y->sigmatopdown__peg_adt_index = (uint8_t)v;
+        return y;}
+
+sigmatopdown__check_t update_sigmatopdown__check_e(sigmatopdown__check_t x, uint8_t v){
+        sigmatopdown__check_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__check(x); x->count--;};
+        y->e = (uint8_t)v;
+        return y;}
+
+
+
+
+sigmatopdown__neg_t new_sigmatopdown__neg(void){
+        sigmatopdown__neg_t tmp = (sigmatopdown__neg_t) safe_malloc(sizeof(struct sigmatopdown__neg_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown__neg(sigmatopdown__neg_t x){
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown__neg_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown__neg((sigmatopdown__neg_t)x);
+}
+
+sigmatopdown__neg_t copy_sigmatopdown__neg(sigmatopdown__neg_t x){
+        sigmatopdown__neg_t y = new_sigmatopdown__neg();
+        y->sigmatopdown__peg_adt_index = (uint8_t)x->sigmatopdown__peg_adt_index;
+        y->e = (uint8_t)x->e;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown__neg(sigmatopdown__neg_t x, sigmatopdown__neg_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->sigmatopdown__peg_adt_index == y->sigmatopdown__peg_adt_index;
+        tmp = tmp && x->e == y->e;
+        return tmp;}
+
+bool_t equal_sigmatopdown__neg_ptr(pointer_t x, pointer_t y, actual_sigmatopdown__neg_t T){
+        return equal_sigmatopdown__neg((sigmatopdown__neg_t)x, (sigmatopdown__neg_t)y);
+}
+
+actual_sigmatopdown__neg_t actual_sigmatopdown__neg(){
+        actual_sigmatopdown__neg_t new = (actual_sigmatopdown__neg_t)safe_malloc(sizeof(struct actual_sigmatopdown__neg_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown__neg_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown__neg_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown__neg_t update_sigmatopdown__neg_sigmatopdown__peg_adt_index(sigmatopdown__neg_t x, uint8_t v){
+        sigmatopdown__neg_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__neg(x); x->count--;};
+        y->sigmatopdown__peg_adt_index = (uint8_t)v;
+        return y;}
+
+sigmatopdown__neg_t update_sigmatopdown__neg_e(sigmatopdown__neg_t x, uint8_t v){
+        sigmatopdown__neg_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown__neg(x); x->count--;};
+        y->e = (uint8_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_36(sigmatopdown_funtype_36_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_36_t copy_sigmatopdown_funtype_36(sigmatopdown_funtype_36_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_36(sigmatopdown_funtype_36_t x, sigmatopdown_funtype_36_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_37(sigmatopdown_funtype_37_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_37_t copy_sigmatopdown_funtype_37(sigmatopdown_funtype_37_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_37(sigmatopdown_funtype_37_t x, sigmatopdown_funtype_37_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_38(sigmatopdown_funtype_38_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_38_t copy_sigmatopdown_funtype_38(sigmatopdown_funtype_38_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_38(sigmatopdown_funtype_38_t x, sigmatopdown_funtype_38_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_39(sigmatopdown_funtype_39_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_39_t copy_sigmatopdown_funtype_39(sigmatopdown_funtype_39_t x){return x->ftbl->cptr(x);}
+
+uint32_t lookup_sigmatopdown_funtype_39(sigmatopdown_funtype_39_htbl_t htbl, uint8_t i, uint32_t ihash){
+        uint32_t mask = htbl->size - 1;
+        uint32_t hashindex = ihash & mask; sigmatopdown_funtype_39_hashentry_t data = htbl->data[hashindex];
+        bool_t keyzero;
+	printf("\nlookup: num_entries = %"PRIu32"", htbl->num_entries);	
+        keyzero = (data.key == 0);
+        bool_t keymatch;
+        keymatch = (data.key == i);
+        while ((!keyzero || data.keyhash != 0) &&
+                 (data.keyhash != ihash || !keymatch)){
+                hashindex++;
+                hashindex = hashindex & mask;
+                data = htbl->data[hashindex];
+
+        keyzero = (data.key == 0);
+
+        keymatch = (data.key == i);
+                }
+        return hashindex;
+        }
+
+sigmatopdown_funtype_39_t dupdate_sigmatopdown_funtype_39(sigmatopdown_funtype_39_t a, uint8_t i, mpz_ptr_t v){
+        sigmatopdown_funtype_39_htbl_t htbl = a->htbl;
+        if (htbl == NULL){//construct new htbl
+                htbl = (sigmatopdown_funtype_39_htbl_t)safe_malloc(sizeof(struct sigmatopdown_funtype_39_htbl_s));
+                htbl->size = HTBL_DEFAULT_SIZE; htbl->num_entries = 0;
+                htbl->data = (sigmatopdown_funtype_39_hashentry_t *)safe_malloc(HTBL_DEFAULT_SIZE * sizeof(struct sigmatopdown_funtype_39_hashentry_s));
+                for (uint32_t j = 0; j < HTBL_DEFAULT_SIZE; j++){htbl->data[j].key = (uint8_t)0; htbl->data[j].keyhash = 0;
+                }
+                a->htbl = htbl;
+        }
+        uint32_t size = htbl->size;
+        uint32_t num_entries = htbl->num_entries;
+	printf("\ndupdating_funtype39: num_entries = %"PRIu32", a = %p, i = %"PRIu8"", num_entries, a, i);	
+        sigmatopdown_funtype_39_hashentry_t * data = htbl->data;
+        if (num_entries/3 >  size/5){//resize data
+	  printf("\nresizing: num_entries = %"PRIu32"", num_entries);
+                uint32_t new_size = 2*size; uint32_t new_mask = new_size - 1;
+                if (size >= HTBL_MAX_SIZE) out_of_memory();
+                sigmatopdown_funtype_39_hashentry_t * new_data = (sigmatopdown_funtype_39_hashentry_t *)safe_malloc(new_size * sizeof(struct sigmatopdown_funtype_39_hashentry_s));
+                for (uint32_t j = 0; j < size; j++){//transfer entries
+                        uint32_t keyhash = data[j].keyhash;
+                        bool_t keyzero;
+                        keyzero = (data[j].key == 0);
+                        if (!keyzero || keyhash != 0){
+                                uint32_t new_loc = keyhash ^ new_mask;
+                                keyzero = (new_data[new_loc].key == 0);
+                                while (keyzero && new_data[new_loc].keyhash == 0){
+                                        new_loc++;
+                                        new_loc = new_loc ^ new_mask;
+
+                                        keyzero = (new_data[new_loc].key == 0);
+                                }
+                                new_data[new_loc].key = (uint8_t)data[j].key;
+                                new_data[new_loc].keyhash = keyhash;
+                                mpz_set(new_data[new_loc].value, data[j].value);
+                                }}
+                htbl->size = new_size;
+                htbl->num_entries = num_entries;
+                htbl->data = new_data;
+                safe_free(data);}
+        uint32_t ihash = uint32_hash(i);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_39(htbl, i, ihash);
+        sigmatopdown_funtype_39_hashentry_t hentry = htbl->data[hashindex];
+        uint32_t hkeyhash = hentry.keyhash;
+        bool_t hentrykeyzero;
+        hentrykeyzero = (hentry.key == 0);
+
+        if (hentrykeyzero && (hkeyhash == 0))
+                {htbl->data[hashindex].key = (uint8_t)i; htbl->data[hashindex].keyhash = ihash; mpz_set(htbl->data[hashindex].value, v);htbl->num_entries++;}
+	else {mpz_ptr_t tempvalue;mpz_mk_set(tempvalue, htbl->data[hashindex].value);mpz_set(htbl->data[hashindex].value, v);mpz_clear(tempvalue);};
+        return a;
+
+}
+
+sigmatopdown_funtype_39_t update_sigmatopdown_funtype_39(sigmatopdown_funtype_39_t a, uint8_t i, mpz_ptr_t v){
+        if (a->count == 1){
+                return dupdate_sigmatopdown_funtype_39(a, i, v);
+            } else {
+                sigmatopdown_funtype_39_t x = copy_sigmatopdown_funtype_39(a);
+                x->count--;
+                return dupdate_sigmatopdown_funtype_39(x, i, v);
+            }}
+
+bool_t equal_sigmatopdown_funtype_39(sigmatopdown_funtype_39_t x, sigmatopdown_funtype_39_t y){
+        return false;}
+
+
+sigmatopdown_record_40_t new_sigmatopdown_record_40(void){
+        sigmatopdown_record_40_t tmp = (sigmatopdown_record_40_t) safe_malloc(sizeof(struct sigmatopdown_record_40_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_40(sigmatopdown_record_40_t x){
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_40_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_40((sigmatopdown_record_40_t)x);
+}
+
+sigmatopdown_record_40_t copy_sigmatopdown_record_40(sigmatopdown_record_40_t x){
+        sigmatopdown_record_40_t y = new_sigmatopdown_record_40();
+        y->project_1 = (uint8_t)x->project_1;
+        y->project_2 = (uint8_t)x->project_2;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_40(sigmatopdown_record_40_t x, sigmatopdown_record_40_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->project_1 == y->project_1;
+        tmp = tmp && x->project_2 == y->project_2;
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_40_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_40_t T){
+        return equal_sigmatopdown_record_40((sigmatopdown_record_40_t)x, (sigmatopdown_record_40_t)y);
+}
+
+actual_sigmatopdown_record_40_t actual_sigmatopdown_record_40(){
+        actual_sigmatopdown_record_40_t new = (actual_sigmatopdown_record_40_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_40_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_40_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_40_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_40_t update_sigmatopdown_record_40_project_1(sigmatopdown_record_40_t x, uint8_t v){
+        sigmatopdown_record_40_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_40(x); x->count--;};
+        y->project_1 = (uint8_t)v;
+        return y;}
+
+sigmatopdown_record_40_t update_sigmatopdown_record_40_project_2(sigmatopdown_record_40_t x, uint8_t v){
+        sigmatopdown_record_40_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_40(x); x->count--;};
+        y->project_2 = (uint8_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_41(sigmatopdown_funtype_41_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_41_t copy_sigmatopdown_funtype_41(sigmatopdown_funtype_41_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_41(sigmatopdown_funtype_41_t x, sigmatopdown_funtype_41_t y){
+        return false;}
+
+
+mpz_ptr_t f_sigmatopdown_closure_42(struct sigmatopdown_closure_42_s * closure, sigmatopdown__peg_adt_t bvar){
+        mpz_ptr_t result = h_sigmatopdown_closure_42(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5, closure->fvar_6, closure->fvar_7, closure->fvar_8); 
+        return result;}
+
+mpz_ptr_t m_sigmatopdown_closure_42(struct sigmatopdown_closure_42_s * closure, sigmatopdown__peg_adt_t bvar){
+        return h_sigmatopdown_closure_42(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5, closure->fvar_6, closure->fvar_7, closure->fvar_8);}
+
+extern mpz_ptr_t h_sigmatopdown_closure_42(sigmatopdown__peg_adt_t ivar_17, sigmatopdown_funtype_39_t ivar_12, sigmatopdown_funtype_39_t ivar_14, sigmatopdown_funtype_41_t ivar_10, sigmatopdown_funtype_41_t ivar_8, sigmatopdown_funtype_39_t ivar_6, sigmatopdown_funtype_38_t ivar_3, mpz_ptr_t ivar_2, mpz_ptr_t ivar_1){
+        mpz_ptr_t result;
+        bool_t ivar_127;
+        ivar_17->count++;
+        ivar_127 = (bool_t)r_sigmatopdown__epsilonp((sigmatopdown__peg_adt_t)ivar_17);
+        if (ivar_127){ 
+             release_sigmatopdown__peg_adt(ivar_17);
+             result = safe_malloc(sizeof(mpz_t));
+             mpz_init(result);
+             //copying to mpz from mpz;
+             mpz_mk_set(result, ivar_1);
+} else {
+        
+             bool_t ivar_131;
+             ivar_17->count++;
+             ivar_131 = (bool_t)r_sigmatopdown__failurep((sigmatopdown__peg_adt_t)ivar_17);
+             if (ivar_131){  
+           release_sigmatopdown__peg_adt(ivar_17);
+           result = safe_malloc(sizeof(mpz_t));
+           mpz_init(result);
+           //copying to mpz from mpz;
+           mpz_mk_set(result, ivar_2);
+} else {
+             
+           bool_t ivar_147;
+           ivar_17->count++;
+           ivar_147 = (bool_t)r_sigmatopdown__anyp((sigmatopdown__peg_adt_t)ivar_17);
+           if (ivar_147){   
+           sigmatopdown_funtype_29_t ivar_135;
+           sigmatopdown_funtype_29_t ivar_139;
+           ivar_139 = (sigmatopdown_funtype_29_t)sigmatopdown__peg_adt_p((sigmatopdown__peg_adt_t)ivar_17);
+           //copying to sigmatopdown_funtype_29 from sigmatopdown_funtype_29;
+           ivar_135 = (sigmatopdown_funtype_29_t)ivar_139;
+           ivar_135->count++;
+           release_sigmatopdown_funtype_29(ivar_139);
+           sigmatopdown_funtype_38_t ivar_145;
+           //copying to sigmatopdown_funtype_38 from sigmatopdown_funtype_38;
+           ivar_145 = (sigmatopdown_funtype_38_t)ivar_3;
+           ivar_145->count++;
+           result = (mpz_ptr_t)ivar_145->ftbl->fptr(ivar_145, ivar_135);
+           ivar_145->ftbl->rptr(ivar_145);
+} else {
+           
+           bool_t ivar_160;
+           ivar_17->count++;
+           ivar_160 = (bool_t)r_sigmatopdown__terminalp((sigmatopdown__peg_adt_t)ivar_17);
+           if (ivar_160){    
+            uint8_t ivar_151;
+            ivar_151 = (uint8_t)sigmatopdown__peg_adt_a((sigmatopdown__peg_adt_t)ivar_17);
+            sigmatopdown_funtype_39_t ivar_158;
+            //copying to sigmatopdown_funtype_39 from sigmatopdown_funtype_39;
+            ivar_158 = (sigmatopdown_funtype_39_t)ivar_6;
+            ivar_158->count++;
+            result = (mpz_ptr_t)ivar_158->ftbl->fptr(ivar_158, ivar_151);
+            ivar_158->ftbl->rptr(ivar_158);
+} else {
+           
+            bool_t ivar_179;
+            ivar_17->count++;
+            ivar_179 = (bool_t)r_sigmatopdown__concatp((sigmatopdown__peg_adt_t)ivar_17);
+            if (ivar_179){     
+             uint8_t ivar_164;
+             ivar_17->count++;
+             ivar_164 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_17);
+             uint8_t ivar_165;
+             ivar_165 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_17);
+             sigmatopdown_funtype_41_t ivar_176;
+             //copying to sigmatopdown_funtype_41 from sigmatopdown_funtype_41;
+             ivar_176 = (sigmatopdown_funtype_41_t)ivar_8;
+             ivar_176->count++;
+             result = (mpz_ptr_t)ivar_176->ftbl->mptr(ivar_176, ivar_164, ivar_165);
+             ivar_176->ftbl->rptr(ivar_176);
+} else {
+            
+             bool_t ivar_198;
+             ivar_17->count++;
+             ivar_198 = (bool_t)r_sigmatopdown__orp((sigmatopdown__peg_adt_t)ivar_17);
+             if (ivar_198){      
+              uint8_t ivar_183;
+              ivar_17->count++;
+              ivar_183 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_17);
+              uint8_t ivar_184;
+              ivar_184 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_17);
+              sigmatopdown_funtype_41_t ivar_195;
+              //copying to sigmatopdown_funtype_41 from sigmatopdown_funtype_41;
+              ivar_195 = (sigmatopdown_funtype_41_t)ivar_10;
+              ivar_195->count++;
+              result = (mpz_ptr_t)ivar_195->ftbl->mptr(ivar_195, ivar_183, ivar_184);
+              ivar_195->ftbl->rptr(ivar_195);
+} else {
+             
+              bool_t ivar_211;
+              ivar_17->count++;
+              ivar_211 = (bool_t)r_sigmatopdown__andp((sigmatopdown__peg_adt_t)ivar_17);
+              if (ivar_211){       
+               uint8_t ivar_202;
+               ivar_202 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_17);
+               sigmatopdown_funtype_39_t ivar_209;
+               //copying to sigmatopdown_funtype_39 from sigmatopdown_funtype_39;
+               ivar_209 = (sigmatopdown_funtype_39_t)ivar_12;
+               ivar_209->count++;
+               result = (mpz_ptr_t)ivar_209->ftbl->fptr(ivar_209, ivar_202);
+               ivar_209->ftbl->rptr(ivar_209);
+} else {
+              
+               uint8_t ivar_215;
+               ivar_215 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_17);
+               sigmatopdown_funtype_39_t ivar_222;
+               //copying to sigmatopdown_funtype_39 from sigmatopdown_funtype_39;
+               ivar_222 = (sigmatopdown_funtype_39_t)ivar_14;
+               ivar_222->count++;
+               result = (mpz_ptr_t)ivar_222->ftbl->fptr(ivar_222, ivar_215);
+               ivar_222->ftbl->rptr(ivar_222);
+};
+};
+};
+};
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_42_t new_sigmatopdown_closure_42(void){
+        static struct sigmatopdown_funtype_37_ftbl_s ftbl = {.fptr = (mpz_ptr_t (*)(sigmatopdown_funtype_37_t, sigmatopdown__peg_adt_t))&f_sigmatopdown_closure_42, .mptr = (mpz_ptr_t (*)(sigmatopdown_funtype_37_t, sigmatopdown__peg_adt_t))&m_sigmatopdown_closure_42, .rptr =  (void (*)(sigmatopdown_funtype_37_t))&release_sigmatopdown_closure_42, .cptr = (sigmatopdown_funtype_37_t (*)(sigmatopdown_funtype_37_t))&copy_sigmatopdown_closure_42};
+        sigmatopdown_closure_42_t tmp = (sigmatopdown_closure_42_t) safe_malloc(sizeof(struct sigmatopdown_closure_42_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        mpz_init(tmp->fvar_7);
+        mpz_init(tmp->fvar_8);
+        return tmp;}
+
+void release_sigmatopdown_closure_42(sigmatopdown_funtype_37_t closure){
+        sigmatopdown_closure_42_t x = (sigmatopdown_closure_42_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_39(x->fvar_1);
+         release_sigmatopdown_funtype_39(x->fvar_2);
+         release_sigmatopdown_funtype_41(x->fvar_3);
+         release_sigmatopdown_funtype_41(x->fvar_4);
+         release_sigmatopdown_funtype_39(x->fvar_5);
+         release_sigmatopdown_funtype_38(x->fvar_6);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_42_t copy_sigmatopdown_closure_42(sigmatopdown_closure_42_t x){
+        sigmatopdown_closure_42_t y = new_sigmatopdown_closure_42();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        y->fvar_4 = x->fvar_4; x->fvar_4->count++;
+        y->fvar_5 = x->fvar_5; x->fvar_5->count++;
+        y->fvar_6 = x->fvar_6; x->fvar_6->count++;
+        mpz_set(y->fvar_7, x->fvar_7);
+        mpz_set(y->fvar_8, x->fvar_8);
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_37_htbl_t new_htbl = (sigmatopdown_funtype_37_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_37_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_37_hashentry_t * new_data = (sigmatopdown_funtype_37_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_37_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_37_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_record_43_t new_sigmatopdown_record_43(void){
+        sigmatopdown_record_43_t tmp = (sigmatopdown_record_43_t) safe_malloc(sizeof(struct sigmatopdown_record_43_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_43(sigmatopdown_record_43_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_29(x->project_1);
+         release_sigmatopdown__peg_adt(x->project_2);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_43_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_43((sigmatopdown_record_43_t)x);
+}
+
+sigmatopdown_record_43_t copy_sigmatopdown_record_43(sigmatopdown_record_43_t x){
+        sigmatopdown_record_43_t y = new_sigmatopdown_record_43();
+        y->project_1 = x->project_1;
+        if (y->project_1 != NULL){y->project_1->count++;};
+        y->project_2 = x->project_2;
+        if (y->project_2 != NULL){y->project_2->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_43(sigmatopdown_record_43_t x, sigmatopdown_record_43_t y){
+        bool_t tmp = true;
+        tmp = tmp && equal_sigmatopdown_funtype_29(x->project_1, y->project_1);
+        tmp = tmp && equal_sigmatopdown__peg_adt(x->project_2, y->project_2);
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_43_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_43_t T){
+        return equal_sigmatopdown_record_43((sigmatopdown_record_43_t)x, (sigmatopdown_record_43_t)y);
+}
+
+actual_sigmatopdown_record_43_t actual_sigmatopdown_record_43(){
+        actual_sigmatopdown_record_43_t new = (actual_sigmatopdown_record_43_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_43_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_43_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_43_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_43_t update_sigmatopdown_record_43_project_1(sigmatopdown_record_43_t x, sigmatopdown_funtype_29_t v){
+        sigmatopdown_record_43_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_1 != NULL){release_sigmatopdown_funtype_29(x->project_1);};}
+        else {y = copy_sigmatopdown_record_43(x); x->count--; y->project_1->count--;};
+        y->project_1 = (sigmatopdown_funtype_29_t)v;
+        return y;}
+
+sigmatopdown_record_43_t update_sigmatopdown_record_43_project_2(sigmatopdown_record_43_t x, sigmatopdown__peg_adt_t v){
+        sigmatopdown_record_43_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_2 != NULL){release_sigmatopdown__peg_adt(x->project_2);};}
+        else {y = copy_sigmatopdown_record_43(x); x->count--; y->project_2->count--;};
+        y->project_2 = (sigmatopdown__peg_adt_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_44(sigmatopdown_funtype_44_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_44_t copy_sigmatopdown_funtype_44(sigmatopdown_funtype_44_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_44(sigmatopdown_funtype_44_t x, sigmatopdown_funtype_44_t y){
+        return false;}
+
+
+sigmatopdown_record_45_t new_sigmatopdown_record_45(void){
+        sigmatopdown_record_45_t tmp = (sigmatopdown_record_45_t) safe_malloc(sizeof(struct sigmatopdown_record_45_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_45(sigmatopdown_record_45_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown__peg_adt(x->project_2);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_45_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_45((sigmatopdown_record_45_t)x);
+}
+
+sigmatopdown_record_45_t copy_sigmatopdown_record_45(sigmatopdown_record_45_t x){
+        sigmatopdown_record_45_t y = new_sigmatopdown_record_45();
+        y->project_1 = (uint8_t)x->project_1;
+        y->project_2 = x->project_2;
+        if (y->project_2 != NULL){y->project_2->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_45(sigmatopdown_record_45_t x, sigmatopdown_record_45_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->project_1 == y->project_1;
+        tmp = tmp && equal_sigmatopdown__peg_adt(x->project_2, y->project_2);
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_45_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_45_t T){
+        return equal_sigmatopdown_record_45((sigmatopdown_record_45_t)x, (sigmatopdown_record_45_t)y);
+}
+
+actual_sigmatopdown_record_45_t actual_sigmatopdown_record_45(){
+        actual_sigmatopdown_record_45_t new = (actual_sigmatopdown_record_45_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_45_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_45_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_45_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_45_t update_sigmatopdown_record_45_project_1(sigmatopdown_record_45_t x, uint8_t v){
+        sigmatopdown_record_45_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_45(x); x->count--;};
+        y->project_1 = (uint8_t)v;
+        return y;}
+
+sigmatopdown_record_45_t update_sigmatopdown_record_45_project_2(sigmatopdown_record_45_t x, sigmatopdown__peg_adt_t v){
+        sigmatopdown_record_45_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_2 != NULL){release_sigmatopdown__peg_adt(x->project_2);};}
+        else {y = copy_sigmatopdown_record_45(x); x->count--; y->project_2->count--;};
+        y->project_2 = (sigmatopdown__peg_adt_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_46(sigmatopdown_funtype_46_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_46_t copy_sigmatopdown_funtype_46(sigmatopdown_funtype_46_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_46(sigmatopdown_funtype_46_t x, sigmatopdown_funtype_46_t y){
+        return false;}
+
+
+sigmatopdown_record_47_t new_sigmatopdown_record_47(void){
+        sigmatopdown_record_47_t tmp = (sigmatopdown_record_47_t) safe_malloc(sizeof(struct sigmatopdown_record_47_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_47(sigmatopdown_record_47_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown__peg_adt(x->project_3);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_47_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_47((sigmatopdown_record_47_t)x);
+}
+
+sigmatopdown_record_47_t copy_sigmatopdown_record_47(sigmatopdown_record_47_t x){
+        sigmatopdown_record_47_t y = new_sigmatopdown_record_47();
+        y->project_1 = (uint8_t)x->project_1;
+        y->project_2 = (uint8_t)x->project_2;
+        y->project_3 = x->project_3;
+        if (y->project_3 != NULL){y->project_3->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_47(sigmatopdown_record_47_t x, sigmatopdown_record_47_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->project_1 == y->project_1;
+        tmp = tmp && x->project_2 == y->project_2;
+        tmp = tmp && equal_sigmatopdown__peg_adt(x->project_3, y->project_3);
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_47_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_47_t T){
+        return equal_sigmatopdown_record_47((sigmatopdown_record_47_t)x, (sigmatopdown_record_47_t)y);
+}
+
+actual_sigmatopdown_record_47_t actual_sigmatopdown_record_47(){
+        actual_sigmatopdown_record_47_t new = (actual_sigmatopdown_record_47_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_47_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_47_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_47_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_47_t update_sigmatopdown_record_47_project_1(sigmatopdown_record_47_t x, uint8_t v){
+        sigmatopdown_record_47_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_47(x); x->count--;};
+        y->project_1 = (uint8_t)v;
+        return y;}
+
+sigmatopdown_record_47_t update_sigmatopdown_record_47_project_2(sigmatopdown_record_47_t x, uint8_t v){
+        sigmatopdown_record_47_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_47(x); x->count--;};
+        y->project_2 = (uint8_t)v;
+        return y;}
+
+sigmatopdown_record_47_t update_sigmatopdown_record_47_project_3(sigmatopdown_record_47_t x, sigmatopdown__peg_adt_t v){
+        sigmatopdown_record_47_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_3 != NULL){release_sigmatopdown__peg_adt(x->project_3);};}
+        else {y = copy_sigmatopdown_record_47(x); x->count--; y->project_3->count--;};
+        y->project_3 = (sigmatopdown__peg_adt_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_48(sigmatopdown_funtype_48_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_48_t copy_sigmatopdown_funtype_48(sigmatopdown_funtype_48_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_48(sigmatopdown_funtype_48_t x, sigmatopdown_funtype_48_t y){
+        return false;}
+
+
+mpz_ptr_t f_sigmatopdown_closure_49(struct sigmatopdown_closure_49_s * closure, sigmatopdown__peg_adt_t bvar){
+        mpz_ptr_t result = h_sigmatopdown_closure_49(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5, closure->fvar_6, closure->fvar_7, closure->fvar_8); 
+        return result;}
+
+mpz_ptr_t m_sigmatopdown_closure_49(struct sigmatopdown_closure_49_s * closure, sigmatopdown__peg_adt_t bvar){
+        return h_sigmatopdown_closure_49(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5, closure->fvar_6, closure->fvar_7, closure->fvar_8);}
+
+extern mpz_ptr_t h_sigmatopdown_closure_49(sigmatopdown__peg_adt_t ivar_19, sigmatopdown_funtype_46_t ivar_14, sigmatopdown_funtype_46_t ivar_16, sigmatopdown_funtype_48_t ivar_12, sigmatopdown_funtype_48_t ivar_10, sigmatopdown_funtype_46_t ivar_8, sigmatopdown_funtype_44_t ivar_5, sigmatopdown_funtype_37_t ivar_3, sigmatopdown_funtype_37_t ivar_1){
+        mpz_ptr_t result;
+        bool_t ivar_184;
+        ivar_19->count++;
+        ivar_184 = (bool_t)r_sigmatopdown__epsilonp((sigmatopdown__peg_adt_t)ivar_19);
+        if (ivar_184){ 
+             sigmatopdown_funtype_37_t ivar_182;
+             //copying to sigmatopdown_funtype_37 from sigmatopdown_funtype_37;
+             ivar_182 = (sigmatopdown_funtype_37_t)ivar_1;
+             ivar_182->count++;
+             result = (mpz_ptr_t)ivar_182->ftbl->fptr(ivar_182, ivar_19);
+             ivar_182->ftbl->rptr(ivar_182);
+} else {
+        
+             bool_t ivar_193;
+             ivar_19->count++;
+             ivar_193 = (bool_t)r_sigmatopdown__failurep((sigmatopdown__peg_adt_t)ivar_19);
+             if (ivar_193){  
+           sigmatopdown_funtype_37_t ivar_191;
+           //copying to sigmatopdown_funtype_37 from sigmatopdown_funtype_37;
+           ivar_191 = (sigmatopdown_funtype_37_t)ivar_3;
+           ivar_191->count++;
+           result = (mpz_ptr_t)ivar_191->ftbl->fptr(ivar_191, ivar_19);
+           ivar_191->ftbl->rptr(ivar_191);
+} else {
+             
+           bool_t ivar_211;
+           ivar_19->count++;
+           ivar_211 = (bool_t)r_sigmatopdown__anyp((sigmatopdown__peg_adt_t)ivar_19);
+           if (ivar_211){   
+           sigmatopdown_funtype_29_t ivar_197;
+           sigmatopdown_funtype_29_t ivar_201;
+           ivar_19->count++;
+           ivar_201 = (sigmatopdown_funtype_29_t)sigmatopdown__peg_adt_p((sigmatopdown__peg_adt_t)ivar_19);
+           //copying to sigmatopdown_funtype_29 from sigmatopdown_funtype_29;
+           ivar_197 = (sigmatopdown_funtype_29_t)ivar_201;
+           ivar_197->count++;
+           release_sigmatopdown_funtype_29(ivar_201);
+           sigmatopdown_funtype_44_t ivar_208;
+           //copying to sigmatopdown_funtype_44 from sigmatopdown_funtype_44;
+           ivar_208 = (sigmatopdown_funtype_44_t)ivar_5;
+           ivar_208->count++;
+           result = (mpz_ptr_t)ivar_208->ftbl->mptr(ivar_208, ivar_197, ivar_19);
+           ivar_208->ftbl->rptr(ivar_208);
+} else {
+           
+           bool_t ivar_226;
+           ivar_19->count++;
+           ivar_226 = (bool_t)r_sigmatopdown__terminalp((sigmatopdown__peg_adt_t)ivar_19);
+           if (ivar_226){    
+            uint8_t ivar_215;
+            ivar_19->count++;
+            ivar_215 = (uint8_t)sigmatopdown__peg_adt_a((sigmatopdown__peg_adt_t)ivar_19);
+            sigmatopdown_funtype_46_t ivar_223;
+            //copying to sigmatopdown_funtype_46 from sigmatopdown_funtype_46;
+            ivar_223 = (sigmatopdown_funtype_46_t)ivar_8;
+            ivar_223->count++;
+            result = (mpz_ptr_t)ivar_223->ftbl->mptr(ivar_223, ivar_215, ivar_19);
+            ivar_223->ftbl->rptr(ivar_223);
+} else {
+           
+            bool_t ivar_247;
+            ivar_19->count++;
+            ivar_247 = (bool_t)r_sigmatopdown__concatp((sigmatopdown__peg_adt_t)ivar_19);
+            if (ivar_247){     
+             uint8_t ivar_230;
+             ivar_19->count++;
+             ivar_230 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_19);
+             uint8_t ivar_231;
+             ivar_19->count++;
+             ivar_231 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_19);
+             sigmatopdown_funtype_48_t ivar_243;
+             //copying to sigmatopdown_funtype_48 from sigmatopdown_funtype_48;
+             ivar_243 = (sigmatopdown_funtype_48_t)ivar_10;
+             ivar_243->count++;
+             result = (mpz_ptr_t)ivar_243->ftbl->mptr(ivar_243, ivar_230, ivar_231, ivar_19);
+             ivar_243->ftbl->rptr(ivar_243);
+} else {
+            
+             bool_t ivar_268;
+             ivar_19->count++;
+             ivar_268 = (bool_t)r_sigmatopdown__orp((sigmatopdown__peg_adt_t)ivar_19);
+             if (ivar_268){      
+              uint8_t ivar_251;
+              ivar_19->count++;
+              ivar_251 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_19);
+              uint8_t ivar_252;
+              ivar_19->count++;
+              ivar_252 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_19);
+              sigmatopdown_funtype_48_t ivar_264;
+              //copying to sigmatopdown_funtype_48 from sigmatopdown_funtype_48;
+              ivar_264 = (sigmatopdown_funtype_48_t)ivar_12;
+              ivar_264->count++;
+              result = (mpz_ptr_t)ivar_264->ftbl->mptr(ivar_264, ivar_251, ivar_252, ivar_19);
+              ivar_264->ftbl->rptr(ivar_264);
+} else {
+             
+              bool_t ivar_283;
+              ivar_19->count++;
+              ivar_283 = (bool_t)r_sigmatopdown__andp((sigmatopdown__peg_adt_t)ivar_19);
+              if (ivar_283){       
+               uint8_t ivar_272;
+               ivar_19->count++;
+               ivar_272 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_19);
+               sigmatopdown_funtype_46_t ivar_280;
+               //copying to sigmatopdown_funtype_46 from sigmatopdown_funtype_46;
+               ivar_280 = (sigmatopdown_funtype_46_t)ivar_14;
+               ivar_280->count++;
+               result = (mpz_ptr_t)ivar_280->ftbl->mptr(ivar_280, ivar_272, ivar_19);
+               ivar_280->ftbl->rptr(ivar_280);
+} else {
+              
+               uint8_t ivar_287;
+               ivar_19->count++;
+               ivar_287 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_19);
+               sigmatopdown_funtype_46_t ivar_295;
+               //copying to sigmatopdown_funtype_46 from sigmatopdown_funtype_46;
+               ivar_295 = (sigmatopdown_funtype_46_t)ivar_16;
+               ivar_295->count++;
+               result = (mpz_ptr_t)ivar_295->ftbl->mptr(ivar_295, ivar_287, ivar_19);
+               ivar_295->ftbl->rptr(ivar_295);
+};
+};
+};
+};
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_49_t new_sigmatopdown_closure_49(void){
+        static struct sigmatopdown_funtype_37_ftbl_s ftbl = {.fptr = (mpz_ptr_t (*)(sigmatopdown_funtype_37_t, sigmatopdown__peg_adt_t))&f_sigmatopdown_closure_49, .mptr = (mpz_ptr_t (*)(sigmatopdown_funtype_37_t, sigmatopdown__peg_adt_t))&m_sigmatopdown_closure_49, .rptr =  (void (*)(sigmatopdown_funtype_37_t))&release_sigmatopdown_closure_49, .cptr = (sigmatopdown_funtype_37_t (*)(sigmatopdown_funtype_37_t))&copy_sigmatopdown_closure_49};
+        sigmatopdown_closure_49_t tmp = (sigmatopdown_closure_49_t) safe_malloc(sizeof(struct sigmatopdown_closure_49_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_49(sigmatopdown_funtype_37_t closure){
+        sigmatopdown_closure_49_t x = (sigmatopdown_closure_49_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_46(x->fvar_1);
+         release_sigmatopdown_funtype_46(x->fvar_2);
+         release_sigmatopdown_funtype_48(x->fvar_3);
+         release_sigmatopdown_funtype_48(x->fvar_4);
+         release_sigmatopdown_funtype_46(x->fvar_5);
+         release_sigmatopdown_funtype_44(x->fvar_6);
+         release_sigmatopdown_funtype_37(x->fvar_7);
+         release_sigmatopdown_funtype_37(x->fvar_8);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_49_t copy_sigmatopdown_closure_49(sigmatopdown_closure_49_t x){
+        sigmatopdown_closure_49_t y = new_sigmatopdown_closure_49();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        y->fvar_4 = x->fvar_4; x->fvar_4->count++;
+        y->fvar_5 = x->fvar_5; x->fvar_5->count++;
+        y->fvar_6 = x->fvar_6; x->fvar_6->count++;
+        y->fvar_7 = x->fvar_7; x->fvar_7->count++;
+        y->fvar_8 = x->fvar_8; x->fvar_8->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_37_htbl_t new_htbl = (sigmatopdown_funtype_37_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_37_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_37_hashentry_t * new_data = (sigmatopdown_funtype_37_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_37_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_37_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_sigmatopdown_funtype_50(sigmatopdown_funtype_50_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_50_t copy_sigmatopdown_funtype_50(sigmatopdown_funtype_50_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_50(sigmatopdown_funtype_50_t x, sigmatopdown_funtype_50_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_51(sigmatopdown_funtype_51_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_51_t copy_sigmatopdown_funtype_51(sigmatopdown_funtype_51_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_51(sigmatopdown_funtype_51_t x, sigmatopdown_funtype_51_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_52(sigmatopdown_funtype_52_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_52_t copy_sigmatopdown_funtype_52(sigmatopdown_funtype_52_t x){return x->ftbl->cptr(x);}
+
+uint32_t lookup_sigmatopdown_funtype_52(sigmatopdown_funtype_52_htbl_t htbl, uint8_t i, uint32_t ihash){
+        uint32_t mask = htbl->size - 1;
+        uint32_t hashindex = ihash & mask; sigmatopdown_funtype_52_hashentry_t data = htbl->data[hashindex];
+        bool_t keyzero;
+	printf("\nlookup: num_entries = %"PRIu32"", htbl->num_entries);	
+        keyzero = (data.key == 0);
+        bool_t keymatch;
+        keymatch = (data.key == i);
+        while ((!keyzero || data.keyhash != 0) &&
+                 (data.keyhash != ihash || !keymatch)){
+                hashindex++;
+                hashindex = hashindex & mask;
+                data = htbl->data[hashindex];
+
+        keyzero = (data.key == 0);
+
+        keymatch = (data.key == i);
+                }
+        return hashindex;
+        }
+
+sigmatopdown_funtype_52_t dupdate_sigmatopdown_funtype_52(sigmatopdown_funtype_52_t a, uint8_t i, ordstruct_adt__ordstruct_adt_t v){
+        sigmatopdown_funtype_52_htbl_t htbl = a->htbl;
+        if (htbl == NULL){//construct new htbl
+                htbl = (sigmatopdown_funtype_52_htbl_t)safe_malloc(sizeof(struct sigmatopdown_funtype_52_htbl_s));
+                htbl->size = HTBL_DEFAULT_SIZE; htbl->num_entries = 0;
+                htbl->data = (sigmatopdown_funtype_52_hashentry_t *)safe_malloc(HTBL_DEFAULT_SIZE * sizeof(struct sigmatopdown_funtype_52_hashentry_s));
+                for (uint32_t j = 0; j < HTBL_DEFAULT_SIZE; j++){htbl->data[j].key = (uint8_t)0; htbl->data[j].keyhash = 0;
+                }
+                a->htbl = htbl;
+        }
+        uint32_t size = htbl->size;
+        uint32_t num_entries = htbl->num_entries;
+	printf("\ndupdating_funtype52: num_entries = %"PRIu32", a = %p, i = %"PRIu8"", num_entries, a, i);	
+        sigmatopdown_funtype_52_hashentry_t * data = htbl->data;
+        if (num_entries/3 >  size/5){//resize data
+	  	  printf("\nresizing: num_entries = %"PRIu32"", num_entries);
+                uint32_t new_size = 2*size; uint32_t new_mask = new_size - 1;
+                if (size >= HTBL_MAX_SIZE) out_of_memory();
+                sigmatopdown_funtype_52_hashentry_t * new_data = (sigmatopdown_funtype_52_hashentry_t *)safe_malloc(new_size * sizeof(struct sigmatopdown_funtype_52_hashentry_s));
+                for (uint32_t j = 0; j < size; j++){//transfer entries
+                        uint32_t keyhash = data[j].keyhash;
+                        bool_t keyzero;
+                        keyzero = (data[j].key == 0);
+                        if (!keyzero || keyhash != 0){
+                                uint32_t new_loc = keyhash ^ new_mask;
+                                keyzero = (new_data[new_loc].key == 0);
+                                while (keyzero && new_data[new_loc].keyhash == 0){
+                                        new_loc++;
+                                        new_loc = new_loc ^ new_mask;
+
+                                        keyzero = (new_data[new_loc].key == 0);
+                                }
+                                new_data[new_loc].key = (uint8_t)data[j].key;
+                                new_data[new_loc].keyhash = keyhash;
+                                new_data[new_loc].value = (ordstruct_adt__ordstruct_adt_t)data[j].value;
+                                }}
+                htbl->size = new_size;
+                htbl->num_entries = num_entries;
+                htbl->data = new_data;
+                safe_free(data);}
+        uint32_t ihash = uint32_hash(i);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_52(htbl, i, ihash);
+        sigmatopdown_funtype_52_hashentry_t hentry = htbl->data[hashindex];
+        uint32_t hkeyhash = hentry.keyhash;
+        bool_t hentrykeyzero;
+        hentrykeyzero = (hentry.key == 0);
+
+        if (hentrykeyzero && (hkeyhash == 0))
+                {htbl->data[hashindex].key = (uint8_t)i; htbl->data[hashindex].keyhash = ihash; htbl->data[hashindex].value = (ordstruct_adt__ordstruct_adt_t)v;htbl->num_entries++;}
+	else {ordstruct_adt__ordstruct_adt_t tempvalue;tempvalue = (ordstruct_adt__ordstruct_adt_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (ordstruct_adt__ordstruct_adt_t)v;if (tempvalue != NULL)release_ordstruct_adt__ordstruct_adt(tempvalue);};
+        return a;
+
+}
+
+sigmatopdown_funtype_52_t update_sigmatopdown_funtype_52(sigmatopdown_funtype_52_t a, uint8_t i, ordstruct_adt__ordstruct_adt_t v){
+        if (a->count == 1){
+                return dupdate_sigmatopdown_funtype_52(a, i, v);
+            } else {
+                sigmatopdown_funtype_52_t x = copy_sigmatopdown_funtype_52(a);
+                x->count--;
+                return dupdate_sigmatopdown_funtype_52(x, i, v);
+            }}
+
+bool_t equal_sigmatopdown_funtype_52(sigmatopdown_funtype_52_t x, sigmatopdown_funtype_52_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_53(sigmatopdown_funtype_53_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_53_t copy_sigmatopdown_funtype_53(sigmatopdown_funtype_53_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_53(sigmatopdown_funtype_53_t x, sigmatopdown_funtype_53_t y){
+        return false;}
+
+
+ordstruct_adt__ordstruct_adt_t f_sigmatopdown_closure_54(struct sigmatopdown_closure_54_s * closure, sigmatopdown__peg_adt_t bvar){
+        ordstruct_adt__ordstruct_adt_t result = h_sigmatopdown_closure_54(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5, closure->fvar_6, closure->fvar_7, closure->fvar_8); 
+        return result;}
+
+ordstruct_adt__ordstruct_adt_t m_sigmatopdown_closure_54(struct sigmatopdown_closure_54_s * closure, sigmatopdown__peg_adt_t bvar){
+        return h_sigmatopdown_closure_54(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5, closure->fvar_6, closure->fvar_7, closure->fvar_8);}
+
+extern ordstruct_adt__ordstruct_adt_t h_sigmatopdown_closure_54(sigmatopdown__peg_adt_t ivar_17, sigmatopdown_funtype_52_t ivar_12, sigmatopdown_funtype_52_t ivar_14, sigmatopdown_funtype_53_t ivar_10, sigmatopdown_funtype_53_t ivar_8, sigmatopdown_funtype_52_t ivar_6, sigmatopdown_funtype_51_t ivar_3, ordstruct_adt__ordstruct_adt_t ivar_2, ordstruct_adt__ordstruct_adt_t ivar_1){
+        ordstruct_adt__ordstruct_adt_t result;
+        bool_t ivar_47;
+        ivar_17->count++;
+        ivar_47 = (bool_t)r_sigmatopdown__epsilonp((sigmatopdown__peg_adt_t)ivar_17);
+        if (ivar_47){ 
+             release_sigmatopdown__peg_adt(ivar_17);
+             //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+             result = (ordstruct_adt__ordstruct_adt_t)ivar_1;
+             result->count++;
+} else {
+        
+             bool_t ivar_51;
+             ivar_17->count++;
+             ivar_51 = (bool_t)r_sigmatopdown__failurep((sigmatopdown__peg_adt_t)ivar_17);
+             if (ivar_51){  
+           release_sigmatopdown__peg_adt(ivar_17);
+           //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+           result = (ordstruct_adt__ordstruct_adt_t)ivar_2;
+           result->count++;
+} else {
+             
+           bool_t ivar_67;
+           ivar_17->count++;
+           ivar_67 = (bool_t)r_sigmatopdown__anyp((sigmatopdown__peg_adt_t)ivar_17);
+           if (ivar_67){   
+           sigmatopdown_funtype_29_t ivar_55;
+           sigmatopdown_funtype_29_t ivar_59;
+           ivar_59 = (sigmatopdown_funtype_29_t)sigmatopdown__peg_adt_p((sigmatopdown__peg_adt_t)ivar_17);
+           //copying to sigmatopdown_funtype_29 from sigmatopdown_funtype_29;
+           ivar_55 = (sigmatopdown_funtype_29_t)ivar_59;
+           ivar_55->count++;
+           release_sigmatopdown_funtype_29(ivar_59);
+           ordstruct_adt__ordstruct_adt_t ivar_62;
+           ivar_62 = (ordstruct_adt__ordstruct_adt_t)ivar_3->ftbl->fptr(ivar_3, ivar_55);
+           //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+           result = (ordstruct_adt__ordstruct_adt_t)ivar_62;
+           result->count++;
+           release_ordstruct_adt__ordstruct_adt(ivar_62);
+} else {
+           
+           bool_t ivar_80;
+           ivar_17->count++;
+           ivar_80 = (bool_t)r_sigmatopdown__terminalp((sigmatopdown__peg_adt_t)ivar_17);
+           if (ivar_80){    
+            uint8_t ivar_71;
+            ivar_71 = (uint8_t)sigmatopdown__peg_adt_a((sigmatopdown__peg_adt_t)ivar_17);
+            ordstruct_adt__ordstruct_adt_t ivar_76;
+            ivar_76 = (ordstruct_adt__ordstruct_adt_t)ivar_6->ftbl->fptr(ivar_6, ivar_71);
+            //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+            result = (ordstruct_adt__ordstruct_adt_t)ivar_76;
+            result->count++;
+            release_ordstruct_adt__ordstruct_adt(ivar_76);
+} else {
+           
+            bool_t ivar_99;
+            ivar_17->count++;
+            ivar_99 = (bool_t)r_sigmatopdown__concatp((sigmatopdown__peg_adt_t)ivar_17);
+            if (ivar_99){     
+             uint8_t ivar_84;
+             ivar_17->count++;
+             ivar_84 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_17);
+             uint8_t ivar_85;
+             ivar_85 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_17);
+             ordstruct_adt__ordstruct_adt_t ivar_94;
+             ivar_94 = (ordstruct_adt__ordstruct_adt_t)ivar_8->ftbl->mptr(ivar_8, ivar_84, ivar_85);
+             //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+             result = (ordstruct_adt__ordstruct_adt_t)ivar_94;
+             result->count++;
+             release_ordstruct_adt__ordstruct_adt(ivar_94);
+} else {
+            
+             bool_t ivar_118;
+             ivar_17->count++;
+             ivar_118 = (bool_t)r_sigmatopdown__orp((sigmatopdown__peg_adt_t)ivar_17);
+             if (ivar_118){      
+              uint8_t ivar_103;
+              ivar_17->count++;
+              ivar_103 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_17);
+              uint8_t ivar_104;
+              ivar_104 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_17);
+              ordstruct_adt__ordstruct_adt_t ivar_113;
+              ivar_113 = (ordstruct_adt__ordstruct_adt_t)ivar_10->ftbl->mptr(ivar_10, ivar_103, ivar_104);
+              //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+              result = (ordstruct_adt__ordstruct_adt_t)ivar_113;
+              result->count++;
+              release_ordstruct_adt__ordstruct_adt(ivar_113);
+} else {
+             
+              bool_t ivar_131;
+              ivar_17->count++;
+              ivar_131 = (bool_t)r_sigmatopdown__andp((sigmatopdown__peg_adt_t)ivar_17);
+              if (ivar_131){       
+               uint8_t ivar_122;
+               ivar_122 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_17);
+               ordstruct_adt__ordstruct_adt_t ivar_127;
+               ivar_127 = (ordstruct_adt__ordstruct_adt_t)ivar_12->ftbl->fptr(ivar_12, ivar_122);
+               //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+               result = (ordstruct_adt__ordstruct_adt_t)ivar_127;
+               result->count++;
+               release_ordstruct_adt__ordstruct_adt(ivar_127);
+} else {
+              
+               uint8_t ivar_135;
+               ivar_135 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_17);
+               ordstruct_adt__ordstruct_adt_t ivar_140;
+               ivar_140 = (ordstruct_adt__ordstruct_adt_t)ivar_14->ftbl->fptr(ivar_14, ivar_135);
+               //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+               result = (ordstruct_adt__ordstruct_adt_t)ivar_140;
+               result->count++;
+               release_ordstruct_adt__ordstruct_adt(ivar_140);
+};
+};
+};
+};
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_54_t new_sigmatopdown_closure_54(void){
+        static struct sigmatopdown_funtype_50_ftbl_s ftbl = {.fptr = (ordstruct_adt__ordstruct_adt_t (*)(sigmatopdown_funtype_50_t, sigmatopdown__peg_adt_t))&f_sigmatopdown_closure_54, .mptr = (ordstruct_adt__ordstruct_adt_t (*)(sigmatopdown_funtype_50_t, sigmatopdown__peg_adt_t))&m_sigmatopdown_closure_54, .rptr =  (void (*)(sigmatopdown_funtype_50_t))&release_sigmatopdown_closure_54, .cptr = (sigmatopdown_funtype_50_t (*)(sigmatopdown_funtype_50_t))&copy_sigmatopdown_closure_54};
+        sigmatopdown_closure_54_t tmp = (sigmatopdown_closure_54_t) safe_malloc(sizeof(struct sigmatopdown_closure_54_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_54(sigmatopdown_funtype_50_t closure){
+        sigmatopdown_closure_54_t x = (sigmatopdown_closure_54_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_52(x->fvar_1);
+         release_sigmatopdown_funtype_52(x->fvar_2);
+         release_sigmatopdown_funtype_53(x->fvar_3);
+         release_sigmatopdown_funtype_53(x->fvar_4);
+         release_sigmatopdown_funtype_52(x->fvar_5);
+         release_sigmatopdown_funtype_51(x->fvar_6);
+         release_ordstruct_adt__ordstruct_adt(x->fvar_7);
+         release_ordstruct_adt__ordstruct_adt(x->fvar_8);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_54_t copy_sigmatopdown_closure_54(sigmatopdown_closure_54_t x){
+        sigmatopdown_closure_54_t y = new_sigmatopdown_closure_54();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        y->fvar_4 = x->fvar_4; x->fvar_4->count++;
+        y->fvar_5 = x->fvar_5; x->fvar_5->count++;
+        y->fvar_6 = x->fvar_6; x->fvar_6->count++;
+        y->fvar_7 = x->fvar_7; x->fvar_7->count++;
+        y->fvar_8 = x->fvar_8; x->fvar_8->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_50_htbl_t new_htbl = (sigmatopdown_funtype_50_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_50_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_50_hashentry_t * new_data = (sigmatopdown_funtype_50_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_50_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_50_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_sigmatopdown_funtype_55(sigmatopdown_funtype_55_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_55_t copy_sigmatopdown_funtype_55(sigmatopdown_funtype_55_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_55(sigmatopdown_funtype_55_t x, sigmatopdown_funtype_55_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_56(sigmatopdown_funtype_56_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_56_t copy_sigmatopdown_funtype_56(sigmatopdown_funtype_56_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_56(sigmatopdown_funtype_56_t x, sigmatopdown_funtype_56_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_57(sigmatopdown_funtype_57_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_57_t copy_sigmatopdown_funtype_57(sigmatopdown_funtype_57_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_57(sigmatopdown_funtype_57_t x, sigmatopdown_funtype_57_t y){
+        return false;}
+
+
+ordstruct_adt__ordstruct_adt_t f_sigmatopdown_closure_58(struct sigmatopdown_closure_58_s * closure, sigmatopdown__peg_adt_t bvar){
+        ordstruct_adt__ordstruct_adt_t result = h_sigmatopdown_closure_58(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5, closure->fvar_6, closure->fvar_7, closure->fvar_8); 
+        return result;}
+
+ordstruct_adt__ordstruct_adt_t m_sigmatopdown_closure_58(struct sigmatopdown_closure_58_s * closure, sigmatopdown__peg_adt_t bvar){
+        return h_sigmatopdown_closure_58(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5, closure->fvar_6, closure->fvar_7, closure->fvar_8);}
+
+extern ordstruct_adt__ordstruct_adt_t h_sigmatopdown_closure_58(sigmatopdown__peg_adt_t ivar_19, sigmatopdown_funtype_56_t ivar_14, sigmatopdown_funtype_56_t ivar_16, sigmatopdown_funtype_57_t ivar_12, sigmatopdown_funtype_57_t ivar_10, sigmatopdown_funtype_56_t ivar_8, sigmatopdown_funtype_55_t ivar_5, sigmatopdown_funtype_50_t ivar_3, sigmatopdown_funtype_50_t ivar_1){
+        ordstruct_adt__ordstruct_adt_t result;
+        bool_t ivar_56;
+        ivar_19->count++;
+        ivar_56 = (bool_t)r_sigmatopdown__epsilonp((sigmatopdown__peg_adt_t)ivar_19);
+        if (ivar_56){ 
+             ordstruct_adt__ordstruct_adt_t ivar_52;
+             ivar_52 = (ordstruct_adt__ordstruct_adt_t)ivar_1->ftbl->fptr(ivar_1, ivar_19);
+             //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+             result = (ordstruct_adt__ordstruct_adt_t)ivar_52;
+             result->count++;
+             release_ordstruct_adt__ordstruct_adt(ivar_52);
+} else {
+        
+             bool_t ivar_65;
+             ivar_19->count++;
+             ivar_65 = (bool_t)r_sigmatopdown__failurep((sigmatopdown__peg_adt_t)ivar_19);
+             if (ivar_65){  
+           ordstruct_adt__ordstruct_adt_t ivar_61;
+           ivar_61 = (ordstruct_adt__ordstruct_adt_t)ivar_3->ftbl->fptr(ivar_3, ivar_19);
+           //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+           result = (ordstruct_adt__ordstruct_adt_t)ivar_61;
+           result->count++;
+           release_ordstruct_adt__ordstruct_adt(ivar_61);
+} else {
+             
+           bool_t ivar_83;
+           ivar_19->count++;
+           ivar_83 = (bool_t)r_sigmatopdown__anyp((sigmatopdown__peg_adt_t)ivar_19);
+           if (ivar_83){   
+           sigmatopdown_funtype_29_t ivar_69;
+           sigmatopdown_funtype_29_t ivar_73;
+           ivar_19->count++;
+           ivar_73 = (sigmatopdown_funtype_29_t)sigmatopdown__peg_adt_p((sigmatopdown__peg_adt_t)ivar_19);
+           //copying to sigmatopdown_funtype_29 from sigmatopdown_funtype_29;
+           ivar_69 = (sigmatopdown_funtype_29_t)ivar_73;
+           ivar_69->count++;
+           release_sigmatopdown_funtype_29(ivar_73);
+           ordstruct_adt__ordstruct_adt_t ivar_77;
+           ivar_77 = (ordstruct_adt__ordstruct_adt_t)ivar_5->ftbl->mptr(ivar_5, ivar_69, ivar_19);
+           //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+           result = (ordstruct_adt__ordstruct_adt_t)ivar_77;
+           result->count++;
+           release_ordstruct_adt__ordstruct_adt(ivar_77);
+} else {
+           
+           bool_t ivar_98;
+           ivar_19->count++;
+           ivar_98 = (bool_t)r_sigmatopdown__terminalp((sigmatopdown__peg_adt_t)ivar_19);
+           if (ivar_98){    
+            uint8_t ivar_87;
+            ivar_19->count++;
+            ivar_87 = (uint8_t)sigmatopdown__peg_adt_a((sigmatopdown__peg_adt_t)ivar_19);
+            ordstruct_adt__ordstruct_adt_t ivar_93;
+            ivar_93 = (ordstruct_adt__ordstruct_adt_t)ivar_8->ftbl->mptr(ivar_8, ivar_87, ivar_19);
+            //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+            result = (ordstruct_adt__ordstruct_adt_t)ivar_93;
+            result->count++;
+            release_ordstruct_adt__ordstruct_adt(ivar_93);
+} else {
+           
+            bool_t ivar_119;
+            ivar_19->count++;
+            ivar_119 = (bool_t)r_sigmatopdown__concatp((sigmatopdown__peg_adt_t)ivar_19);
+            if (ivar_119){     
+             uint8_t ivar_102;
+             ivar_19->count++;
+             ivar_102 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_19);
+             uint8_t ivar_103;
+             ivar_19->count++;
+             ivar_103 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_19);
+             ordstruct_adt__ordstruct_adt_t ivar_113;
+             ivar_113 = (ordstruct_adt__ordstruct_adt_t)ivar_10->ftbl->mptr(ivar_10, ivar_102, ivar_103, ivar_19);
+             //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+             result = (ordstruct_adt__ordstruct_adt_t)ivar_113;
+             result->count++;
+             release_ordstruct_adt__ordstruct_adt(ivar_113);
+} else {
+            
+             bool_t ivar_140;
+             ivar_19->count++;
+             ivar_140 = (bool_t)r_sigmatopdown__orp((sigmatopdown__peg_adt_t)ivar_19);
+             if (ivar_140){      
+              uint8_t ivar_123;
+              ivar_19->count++;
+              ivar_123 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_19);
+              uint8_t ivar_124;
+              ivar_19->count++;
+              ivar_124 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_19);
+              ordstruct_adt__ordstruct_adt_t ivar_134;
+              ivar_134 = (ordstruct_adt__ordstruct_adt_t)ivar_12->ftbl->mptr(ivar_12, ivar_123, ivar_124, ivar_19);
+              //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+              result = (ordstruct_adt__ordstruct_adt_t)ivar_134;
+              result->count++;
+              release_ordstruct_adt__ordstruct_adt(ivar_134);
+} else {
+             
+              bool_t ivar_155;
+              ivar_19->count++;
+              ivar_155 = (bool_t)r_sigmatopdown__andp((sigmatopdown__peg_adt_t)ivar_19);
+              if (ivar_155){       
+               uint8_t ivar_144;
+               ivar_19->count++;
+               ivar_144 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_19);
+               ordstruct_adt__ordstruct_adt_t ivar_150;
+               ivar_150 = (ordstruct_adt__ordstruct_adt_t)ivar_14->ftbl->mptr(ivar_14, ivar_144, ivar_19);
+               //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+               result = (ordstruct_adt__ordstruct_adt_t)ivar_150;
+               result->count++;
+               release_ordstruct_adt__ordstruct_adt(ivar_150);
+} else {
+              
+               uint8_t ivar_159;
+               ivar_19->count++;
+               ivar_159 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_19);
+               ordstruct_adt__ordstruct_adt_t ivar_165;
+               ivar_165 = (ordstruct_adt__ordstruct_adt_t)ivar_16->ftbl->mptr(ivar_16, ivar_159, ivar_19);
+               //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+               result = (ordstruct_adt__ordstruct_adt_t)ivar_165;
+               result->count++;
+               release_ordstruct_adt__ordstruct_adt(ivar_165);
+};
+};
+};
+};
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_58_t new_sigmatopdown_closure_58(void){
+        static struct sigmatopdown_funtype_50_ftbl_s ftbl = {.fptr = (ordstruct_adt__ordstruct_adt_t (*)(sigmatopdown_funtype_50_t, sigmatopdown__peg_adt_t))&f_sigmatopdown_closure_58, .mptr = (ordstruct_adt__ordstruct_adt_t (*)(sigmatopdown_funtype_50_t, sigmatopdown__peg_adt_t))&m_sigmatopdown_closure_58, .rptr =  (void (*)(sigmatopdown_funtype_50_t))&release_sigmatopdown_closure_58, .cptr = (sigmatopdown_funtype_50_t (*)(sigmatopdown_funtype_50_t))&copy_sigmatopdown_closure_58};
+        sigmatopdown_closure_58_t tmp = (sigmatopdown_closure_58_t) safe_malloc(sizeof(struct sigmatopdown_closure_58_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_58(sigmatopdown_funtype_50_t closure){
+        sigmatopdown_closure_58_t x = (sigmatopdown_closure_58_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_56(x->fvar_1);
+         release_sigmatopdown_funtype_56(x->fvar_2);
+         release_sigmatopdown_funtype_57(x->fvar_3);
+         release_sigmatopdown_funtype_57(x->fvar_4);
+         release_sigmatopdown_funtype_56(x->fvar_5);
+         release_sigmatopdown_funtype_55(x->fvar_6);
+         release_sigmatopdown_funtype_50(x->fvar_7);
+         release_sigmatopdown_funtype_50(x->fvar_8);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_58_t copy_sigmatopdown_closure_58(sigmatopdown_closure_58_t x){
+        sigmatopdown_closure_58_t y = new_sigmatopdown_closure_58();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        y->fvar_4 = x->fvar_4; x->fvar_4->count++;
+        y->fvar_5 = x->fvar_5; x->fvar_5->count++;
+        y->fvar_6 = x->fvar_6; x->fvar_6->count++;
+        y->fvar_7 = x->fvar_7; x->fvar_7->count++;
+        y->fvar_8 = x->fvar_8; x->fvar_8->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_50_htbl_t new_htbl = (sigmatopdown_funtype_50_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_50_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_50_hashentry_t * new_data = (sigmatopdown_funtype_50_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_50_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_50_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_sigmatopdown_funtype_59(sigmatopdown_funtype_59_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_59_t copy_sigmatopdown_funtype_59(sigmatopdown_funtype_59_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_59(sigmatopdown_funtype_59_t x, sigmatopdown_funtype_59_t y){
+        return false;}
+
+
+bool_t f_sigmatopdown_closure_60(struct sigmatopdown_closure_60_s * closure, sigmatopdown__ent_adt_t bvar){
+        bool_t result = h_sigmatopdown_closure_60(bvar, closure->fvar_1, closure->fvar_2); 
+        return result;}
+
+bool_t m_sigmatopdown_closure_60(struct sigmatopdown_closure_60_s * closure, sigmatopdown__ent_adt_t bvar){
+        return h_sigmatopdown_closure_60(bvar, closure->fvar_1, closure->fvar_2);}
+
+extern bool_t h_sigmatopdown_closure_60(sigmatopdown__ent_adt_t ivar_4, uint32_t ivar_2, uint32_t ivar_1){
+        bool_t result;
+        uint64_t ivar_5;
+        uint32_t ivar_8;
+        ivar_8 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_4);
+        ivar_5 = (uint64_t)(ivar_2 + ivar_8);
+        result = (ivar_5 <= ivar_1);
+
+        return result;
+}
+
+sigmatopdown_closure_60_t new_sigmatopdown_closure_60(void){
+        static struct sigmatopdown_funtype_59_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&f_sigmatopdown_closure_60, .mptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_60, .rptr =  (void (*)(sigmatopdown_funtype_59_t))&release_sigmatopdown_closure_60, .cptr = (sigmatopdown_funtype_59_t (*)(sigmatopdown_funtype_59_t))&copy_sigmatopdown_closure_60};
+        sigmatopdown_closure_60_t tmp = (sigmatopdown_closure_60_t) safe_malloc(sizeof(struct sigmatopdown_closure_60_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_60(sigmatopdown_funtype_59_t closure){
+        sigmatopdown_closure_60_t x = (sigmatopdown_closure_60_t)closure;
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_60_t copy_sigmatopdown_closure_60(sigmatopdown_closure_60_t x){
+        sigmatopdown_closure_60_t y = new_sigmatopdown_closure_60();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = (uint32_t)x->fvar_1;
+        y->fvar_2 = (uint32_t)x->fvar_2;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_59_htbl_t new_htbl = (sigmatopdown_funtype_59_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_59_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_59_hashentry_t * new_data = (sigmatopdown_funtype_59_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+bool_t f_sigmatopdown_closure_61(struct sigmatopdown_closure_61_s * closure, sigmatopdown__ent_adt_t bvar){
+        bool_t result = h_sigmatopdown_closure_61(bvar, closure->fvar_1); 
+        return result;}
+
+bool_t m_sigmatopdown_closure_61(struct sigmatopdown_closure_61_s * closure, sigmatopdown__ent_adt_t bvar){
+        return h_sigmatopdown_closure_61(bvar, closure->fvar_1);}
+
+extern bool_t h_sigmatopdown_closure_61(sigmatopdown__ent_adt_t ivar_3, uint32_t ivar_1){
+        bool_t result;
+        bool_t ivar_4;
+        ivar_3->count++;
+        ivar_4 = (bool_t)r_sigmatopdown__pushp((sigmatopdown__ent_adt_t)ivar_3);
+        bool_t ivar_5;
+        bool_t ivar_9;
+        uint32_t ivar_11;
+        ivar_3->count++;
+        ivar_11 = (uint32_t)sigmatopdown__ent_adt_pos((sigmatopdown__ent_adt_t)ivar_3);
+        ivar_9 = (ivar_11 <= ivar_1);
+        bool_t ivar_10;
+        uint8_t ivar_17;
+        ivar_17 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_3);
+        uint8_t ivar_18;
+        ivar_18 = (uint8_t)sigmatopdown__num_non_terminals();
+        ivar_10 = (ivar_17 <= ivar_18);
+        ivar_5 = ivar_9 && ivar_10;
+        result = ivar_4 && ivar_5;
+
+        return result;
+}
+
+sigmatopdown_closure_61_t new_sigmatopdown_closure_61(void){
+        static struct sigmatopdown_funtype_59_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&f_sigmatopdown_closure_61, .mptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_61, .rptr =  (void (*)(sigmatopdown_funtype_59_t))&release_sigmatopdown_closure_61, .cptr = (sigmatopdown_funtype_59_t (*)(sigmatopdown_funtype_59_t))&copy_sigmatopdown_closure_61};
+        sigmatopdown_closure_61_t tmp = (sigmatopdown_closure_61_t) safe_malloc(sizeof(struct sigmatopdown_closure_61_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_61(sigmatopdown_funtype_59_t closure){
+        sigmatopdown_closure_61_t x = (sigmatopdown_closure_61_t)closure;
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_61_t copy_sigmatopdown_closure_61(sigmatopdown_closure_61_t x){
+        sigmatopdown_closure_61_t y = new_sigmatopdown_closure_61();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = (uint32_t)x->fvar_1;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_59_htbl_t new_htbl = (sigmatopdown_funtype_59_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_59_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_59_hashentry_t * new_data = (sigmatopdown_funtype_59_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+bool_t f_sigmatopdown_closure_62(struct sigmatopdown_closure_62_s * closure, sigmatopdown__ent_adt_t bvar){
+        bool_t result = h_sigmatopdown_closure_62(bvar, closure->fvar_1); 
+        return result;}
+
+bool_t m_sigmatopdown_closure_62(struct sigmatopdown_closure_62_s * closure, sigmatopdown__ent_adt_t bvar){
+        return h_sigmatopdown_closure_62(bvar, closure->fvar_1);}
+
+extern bool_t h_sigmatopdown_closure_62(sigmatopdown__ent_adt_t ivar_3, uint32_t ivar_1){
+        bool_t result;
+        bool_t ivar_4;
+        sigmatopdown_funtype_59_t ivar_9;
+        sigmatopdown_funtype_59_t ivar_12;
+        ivar_12 = (sigmatopdown_funtype_59_t)sigmatopdown__good_push_entryp((uint32_t)ivar_1);
+        //copying to sigmatopdown_funtype_59 from sigmatopdown_funtype_59;
+        ivar_9 = (sigmatopdown_funtype_59_t)ivar_12;
+        ivar_9->count++;
+        release_sigmatopdown_funtype_59(ivar_12);
+        ivar_3->count++;
+        ivar_4 = (bool_t)ivar_9->ftbl->fptr(ivar_9, ivar_3);
+        ivar_9->ftbl->rptr(ivar_9);
+        bool_t ivar_5;
+        uint8_t ivar_15;
+        ivar_15 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_3);
+        uint8_t ivar_16;
+        ivar_16 = (uint8_t)sigmatopdown__num_non_terminals();
+        ivar_5 = (ivar_15 < ivar_16);
+        result = ivar_4 && ivar_5;
+
+        return result;
+}
+
+sigmatopdown_closure_62_t new_sigmatopdown_closure_62(void){
+        static struct sigmatopdown_funtype_59_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&f_sigmatopdown_closure_62, .mptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_62, .rptr =  (void (*)(sigmatopdown_funtype_59_t))&release_sigmatopdown_closure_62, .cptr = (sigmatopdown_funtype_59_t (*)(sigmatopdown_funtype_59_t))&copy_sigmatopdown_closure_62};
+        sigmatopdown_closure_62_t tmp = (sigmatopdown_closure_62_t) safe_malloc(sizeof(struct sigmatopdown_closure_62_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_62(sigmatopdown_funtype_59_t closure){
+        sigmatopdown_closure_62_t x = (sigmatopdown_closure_62_t)closure;
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_62_t copy_sigmatopdown_closure_62(sigmatopdown_closure_62_t x){
+        sigmatopdown_closure_62_t y = new_sigmatopdown_closure_62();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = (uint32_t)x->fvar_1;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_59_htbl_t new_htbl = (sigmatopdown_funtype_59_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_59_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_59_hashentry_t * new_data = (sigmatopdown_funtype_59_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+bool_t f_sigmatopdown_closure_63(struct sigmatopdown_closure_63_s * closure, sigmatopdown__ent_adt_t bvar){
+        bool_t result = h_sigmatopdown_closure_63(bvar, closure->fvar_1, closure->fvar_2); 
+        return result;}
+
+bool_t m_sigmatopdown_closure_63(struct sigmatopdown_closure_63_s * closure, sigmatopdown__ent_adt_t bvar){
+        return h_sigmatopdown_closure_63(bvar, closure->fvar_1, closure->fvar_2);}
+
+extern bool_t h_sigmatopdown_closure_63(sigmatopdown__ent_adt_t ivar_4, uint32_t ivar_1, uint32_t ivar_2){
+        bool_t result;
+        bool_t ivar_5;
+        bool_t ivar_7;
+        ivar_4->count++;
+        ivar_7 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_4);
+        bool_t ivar_8;
+        sigmatopdown_funtype_59_t ivar_15;
+        sigmatopdown_funtype_59_t ivar_19;
+        ivar_19 = (sigmatopdown_funtype_59_t)sigmatopdown__good_good_entryp((uint32_t)ivar_1, (uint32_t)ivar_2);
+        //copying to sigmatopdown_funtype_59 from sigmatopdown_funtype_59;
+        ivar_15 = (sigmatopdown_funtype_59_t)ivar_19;
+        ivar_15->count++;
+        release_sigmatopdown_funtype_59(ivar_19);
+        ivar_4->count++;
+        ivar_8 = (bool_t)ivar_15->ftbl->fptr(ivar_15, ivar_4);
+        ivar_15->ftbl->rptr(ivar_15);
+        ivar_5 = (!ivar_7) ||  ivar_8;
+        bool_t ivar_6;
+        bool_t ivar_24;
+        ivar_4->count++;
+        ivar_24 = (bool_t)r_sigmatopdown__pushp((sigmatopdown__ent_adt_t)ivar_4);
+        bool_t ivar_25;
+        sigmatopdown_funtype_59_t ivar_32;
+        sigmatopdown_funtype_59_t ivar_35;
+        ivar_35 = (sigmatopdown_funtype_59_t)sigmatopdown__good_push_entryp((uint32_t)ivar_1);
+        //copying to sigmatopdown_funtype_59 from sigmatopdown_funtype_59;
+        ivar_32 = (sigmatopdown_funtype_59_t)ivar_35;
+        ivar_32->count++;
+        release_sigmatopdown_funtype_59(ivar_35);
+        ivar_25 = (bool_t)ivar_32->ftbl->fptr(ivar_32, ivar_4);
+        ivar_32->ftbl->rptr(ivar_32);
+        ivar_6 = (!ivar_24) ||  ivar_25;
+        result = ivar_5 && ivar_6;
+
+        return result;
+}
+
+sigmatopdown_closure_63_t new_sigmatopdown_closure_63(void){
+        static struct sigmatopdown_funtype_59_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&f_sigmatopdown_closure_63, .mptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_63, .rptr =  (void (*)(sigmatopdown_funtype_59_t))&release_sigmatopdown_closure_63, .cptr = (sigmatopdown_funtype_59_t (*)(sigmatopdown_funtype_59_t))&copy_sigmatopdown_closure_63};
+        sigmatopdown_closure_63_t tmp = (sigmatopdown_closure_63_t) safe_malloc(sizeof(struct sigmatopdown_closure_63_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_63(sigmatopdown_funtype_59_t closure){
+        sigmatopdown_closure_63_t x = (sigmatopdown_closure_63_t)closure;
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_63_t copy_sigmatopdown_closure_63(sigmatopdown_closure_63_t x){
+        sigmatopdown_closure_63_t y = new_sigmatopdown_closure_63();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = (uint32_t)x->fvar_1;
+        y->fvar_2 = (uint32_t)x->fvar_2;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_59_htbl_t new_htbl = (sigmatopdown_funtype_59_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_59_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_59_hashentry_t * new_data = (sigmatopdown_funtype_59_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_sigmatopdown_funtype_64(sigmatopdown_funtype_64_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_64_t copy_sigmatopdown_funtype_64(sigmatopdown_funtype_64_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_64(sigmatopdown_funtype_64_t x, sigmatopdown_funtype_64_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_65(sigmatopdown_funtype_65_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_65_t copy_sigmatopdown_funtype_65(sigmatopdown_funtype_65_t x){return x->ftbl->cptr(x);}
+
+uint32_t lookup_sigmatopdown_funtype_65(sigmatopdown_funtype_65_htbl_t htbl, uint8_t i, uint32_t ihash){
+        uint32_t mask = htbl->size - 1;
+        uint32_t hashindex = ihash & mask; sigmatopdown_funtype_65_hashentry_t data = htbl->data[hashindex];
+        bool_t keyzero;
+	printf("\nlookup: num_entries = %"PRIu32"", htbl->num_entries);	
+        keyzero = (data.key == 0);
+        bool_t keymatch;
+        keymatch = (data.key == i);
+        while ((!keyzero || data.keyhash != 0) &&
+                 (data.keyhash != ihash || !keymatch)){
+                hashindex++;
+                hashindex = hashindex & mask;
+                data = htbl->data[hashindex];
+
+        keyzero = (data.key == 0);
+
+        keymatch = (data.key == i);
+                }
+        return hashindex;
+        }
+
+sigmatopdown_funtype_65_t dupdate_sigmatopdown_funtype_65(sigmatopdown_funtype_65_t a, uint8_t i, sigmatopdown__ent_adt_t v){
+        sigmatopdown_funtype_65_htbl_t htbl = a->htbl;
+        if (htbl == NULL){//construct new htbl
+                htbl = (sigmatopdown_funtype_65_htbl_t)safe_malloc(sizeof(struct sigmatopdown_funtype_65_htbl_s));
+                htbl->size = HTBL_DEFAULT_SIZE; htbl->num_entries = 0;
+                htbl->data = (sigmatopdown_funtype_65_hashentry_t *)safe_malloc(HTBL_DEFAULT_SIZE * sizeof(struct sigmatopdown_funtype_65_hashentry_s));
+                for (uint32_t j = 0; j < HTBL_DEFAULT_SIZE; j++){htbl->data[j].key = (uint8_t)0; htbl->data[j].keyhash = 0;
+                }
+                a->htbl = htbl;
+        }
+        uint32_t size = htbl->size;
+        uint32_t num_entries = htbl->num_entries;
+	printf("\ndupdating_funtype65: num_entries = %"PRIu32", a = %p, i = %"PRIu8"", num_entries, a, i);	
+        sigmatopdown_funtype_65_hashentry_t * data = htbl->data;
+        if (num_entries/3 >  size/5){//resize data
+	  printf("\nresizing: num_entries = %"PRIu32"", num_entries);
+                uint32_t new_size = 2*size; uint32_t new_mask = new_size - 1;
+                if (size >= HTBL_MAX_SIZE) out_of_memory();
+                sigmatopdown_funtype_65_hashentry_t * new_data = (sigmatopdown_funtype_65_hashentry_t *)safe_malloc(new_size * sizeof(struct sigmatopdown_funtype_65_hashentry_s));
+                for (uint32_t j = 0; j < size; j++){//transfer entries
+                        uint32_t keyhash = data[j].keyhash;
+                        bool_t keyzero;
+                        keyzero = (data[j].key == 0);
+                        if (!keyzero || keyhash != 0){
+                                uint32_t new_loc = keyhash ^ new_mask;
+                                keyzero = (new_data[new_loc].key == 0);
+                                while (keyzero && new_data[new_loc].keyhash == 0){
+                                        new_loc++;
+                                        new_loc = new_loc ^ new_mask;
+
+                                        keyzero = (new_data[new_loc].key == 0);
+                                }
+                                new_data[new_loc].key = (uint8_t)data[j].key;
+                                new_data[new_loc].keyhash = keyhash;
+                                new_data[new_loc].value = (sigmatopdown__ent_adt_t)data[j].value;
+                                }}
+                htbl->size = new_size;
+                htbl->num_entries = num_entries;
+                htbl->data = new_data;
+                safe_free(data);}
+        uint32_t ihash = uint32_hash(i);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_65(htbl, i, ihash);
+        sigmatopdown_funtype_65_hashentry_t hentry = htbl->data[hashindex];
+        uint32_t hkeyhash = hentry.keyhash;
+        bool_t hentrykeyzero;
+        hentrykeyzero = (hentry.key == 0);
+
+        if (hentrykeyzero && (hkeyhash == 0))
+                {htbl->data[hashindex].key = (uint8_t)i; htbl->data[hashindex].keyhash = ihash; htbl->data[hashindex].value = (sigmatopdown__ent_adt_t)v;htbl->num_entries++;}
+            else {sigmatopdown__ent_adt_t tempvalue;tempvalue = (sigmatopdown__ent_adt_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (sigmatopdown__ent_adt_t)v;if (tempvalue != NULL)release_sigmatopdown__ent_adt(tempvalue);};
+	sigmatopdown__ent_adt_t vv = a->ftbl->fptr(a, i);
+	assert (vv == v);
+
+        return a;
+
+}
+
+sigmatopdown_funtype_65_t update_sigmatopdown_funtype_65(sigmatopdown_funtype_65_t a, uint8_t i, sigmatopdown__ent_adt_t v){
+        if (a->count == 1){
+                sigmatopdown_funtype_65_t result =  dupdate_sigmatopdown_funtype_65(a, i, v);
+		assert(a == result);
+		return result;
+            } else {
+                sigmatopdown_funtype_65_t x = copy_sigmatopdown_funtype_65(a);
+                x->count--;
+		sigmatopdown_funtype_65_t result = dupdate_sigmatopdown_funtype_65(x, i, v);
+		assert(x == result);		
+		return result;
+            }}
+
+bool_t equal_sigmatopdown_funtype_65(sigmatopdown_funtype_65_t x, sigmatopdown_funtype_65_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_66(sigmatopdown_funtype_66_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_66_t copy_sigmatopdown_funtype_66(sigmatopdown_funtype_66_t x){return x->ftbl->cptr(x);}
+
+uint32_t lookup_sigmatopdown_funtype_66(sigmatopdown_funtype_66_htbl_t htbl, uint32_t i, uint32_t ihash){
+        uint32_t mask = htbl->size - 1;
+        uint32_t hashindex = ihash & mask; sigmatopdown_funtype_66_hashentry_t data = htbl->data[hashindex];
+        bool_t keyzero;
+	printf("\nlookup: num_entries = %"PRIu32"", htbl->num_entries);	
+        keyzero = (data.key == 0);
+        bool_t keymatch;
+        keymatch = (data.key == i);
+        while ((!keyzero || data.keyhash != 0) &&
+                 (data.keyhash != ihash || !keymatch)){
+                hashindex++;
+                hashindex = hashindex & mask;
+                data = htbl->data[hashindex];
+
+        keyzero = (data.key == 0);
+
+        keymatch = (data.key == i);
+                }
+        return hashindex;
+        }
+
+sigmatopdown_funtype_66_t dupdate_sigmatopdown_funtype_66(sigmatopdown_funtype_66_t a, uint32_t i, sigmatopdown_funtype_65_t v){
+        sigmatopdown_funtype_66_htbl_t htbl = a->htbl;
+        if (htbl == NULL){//construct new htbl
+                htbl = (sigmatopdown_funtype_66_htbl_t)safe_malloc(sizeof(struct sigmatopdown_funtype_66_htbl_s));
+                htbl->size = HTBL_DEFAULT_SIZE; htbl->num_entries = 0;
+                htbl->data = (sigmatopdown_funtype_66_hashentry_t *)safe_malloc(HTBL_DEFAULT_SIZE * sizeof(struct sigmatopdown_funtype_66_hashentry_s));
+                for (uint32_t j = 0; j < HTBL_DEFAULT_SIZE; j++){htbl->data[j].key = (uint32_t)0; htbl->data[j].keyhash = 0;
+                }
+                a->htbl = htbl;
+        }
+        uint32_t size = htbl->size;
+        uint32_t num_entries = htbl->num_entries;
+	printf("\ndupdating_funtype66: num_entries = %"PRIu32", a = %p, i = %"PRIu32"", num_entries, a, i);	
+        sigmatopdown_funtype_66_hashentry_t * data = htbl->data;
+        if (num_entries/3 >  size/5){//resize data
+	  printf("\nresizing: num_entries = %"PRIu32"", num_entries);
+                uint32_t new_size = 2*size; uint32_t new_mask = new_size - 1;
+                if (size >= HTBL_MAX_SIZE) out_of_memory();
+                sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *)safe_malloc(new_size * sizeof(struct sigmatopdown_funtype_66_hashentry_s));
+                for (uint32_t j = 0; j < size; j++){//transfer entries
+                        uint32_t keyhash = data[j].keyhash;
+                        bool_t keyzero;
+                        keyzero = (data[j].key == 0);
+                        if (!keyzero || keyhash != 0){
+                                uint32_t new_loc = keyhash ^ new_mask;
+                                keyzero = (new_data[new_loc].key == 0);
+                                while (keyzero && new_data[new_loc].keyhash == 0){
+                                        new_loc++;
+                                        new_loc = new_loc ^ new_mask;
+
+                                        keyzero = (new_data[new_loc].key == 0);
+                                }
+                                new_data[new_loc].key = (uint32_t)data[j].key;
+                                new_data[new_loc].keyhash = keyhash;
+                                new_data[new_loc].value = (sigmatopdown_funtype_65_t)data[j].value;
+                                }}
+                htbl->size = new_size;
+                htbl->num_entries = num_entries;
+                htbl->data = new_data;
+                safe_free(data);}
+        uint32_t ihash = uint32_hash(i);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, i, ihash);
+        sigmatopdown_funtype_66_hashentry_t hentry = htbl->data[hashindex];
+        uint32_t hkeyhash = hentry.keyhash;
+        bool_t hentrykeyzero;
+        hentrykeyzero = (hentry.key == 0);
+
+        if (hentrykeyzero && (hkeyhash == 0))
+                {htbl->data[hashindex].key = (uint32_t)i; htbl->data[hashindex].keyhash = ihash; htbl->data[hashindex].value = (sigmatopdown_funtype_65_t)v; htbl->num_entries++;}
+	else {sigmatopdown_funtype_65_t tempvalue;tempvalue = (sigmatopdown_funtype_65_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (sigmatopdown_funtype_65_t)v;if (tempvalue != NULL)release_sigmatopdown_funtype_65(tempvalue);};
+	sigmatopdown_funtype_65_t vv = a->ftbl->fptr(a, i);
+	assert (vv == v);
+	if (vv != NULL) printf("\ndupdate66: vv->htbl->num_entries = %d", vv->htbl->num_entries);
+        return a;
+
+}
+
+sigmatopdown_funtype_66_t update_sigmatopdown_funtype_66(sigmatopdown_funtype_66_t a, uint32_t i, sigmatopdown_funtype_65_t v){
+        if (a->count == 1){
+                return dupdate_sigmatopdown_funtype_66(a, i, v);
+            } else {
+                sigmatopdown_funtype_66_t x = copy_sigmatopdown_funtype_66(a);
+                a->count--;
+                return dupdate_sigmatopdown_funtype_66(x, i, v);
+            }}
+
+bool_t equal_sigmatopdown_funtype_66(sigmatopdown_funtype_66_t x, sigmatopdown_funtype_66_t y){
+        return false;}
+
+
+bool_t f_sigmatopdown_closure_67(struct sigmatopdown_closure_67_s * closure, sigmatopdown_record_9_t bvar){
+        uint32_t bvar_1;
+        bvar_1 = (uint32_t)bvar->project_1;
+        uint8_t bvar_2;
+        bvar_2 = (uint8_t)bvar->project_2;
+        release_sigmatopdown_record_9(bvar);
+        bool_t result = h_sigmatopdown_closure_67(bvar_1, bvar_2, closure->fvar_1); 
+        return result;}
+
+bool_t m_sigmatopdown_closure_67(struct sigmatopdown_closure_67_s * closure, uint32_t bvar_1, uint8_t bvar_2){
+        return h_sigmatopdown_closure_67(bvar_1, bvar_2, closure->fvar_1);}
+
+extern bool_t h_sigmatopdown_closure_67(uint32_t ivar_6, uint8_t ivar_7, sigmatopdown_funtype_66_t ivar_2){
+        bool_t result;
+        sigmatopdown__ent_adt_t ivar_22;
+        sigmatopdown_funtype_65_t ivar_12;
+        sigmatopdown_funtype_66_t ivar_18;
+        //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+        ivar_18 = (sigmatopdown_funtype_66_t)ivar_2;
+        ivar_18->count++;
+        uint32_t ivar_19;
+        //copying to uint32 from uint32;
+        ivar_19 = (uint32_t)ivar_6;
+        sigmatopdown_funtype_65_t ivar_15;
+        ivar_15 = (sigmatopdown_funtype_65_t)ivar_18->ftbl->fptr(ivar_18, ivar_19);
+        ivar_18->ftbl->rptr(ivar_18);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        ivar_12 = (sigmatopdown_funtype_65_t)ivar_15;
+        ivar_12->count++;
+        release_sigmatopdown_funtype_65(ivar_15);
+        sigmatopdown__ent_adt_t ivar_10;
+        ivar_10 = (sigmatopdown__ent_adt_t)ivar_12->ftbl->fptr(ivar_12, ivar_7);
+        ivar_12->ftbl->rptr(ivar_12);
+        //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+        ivar_22 = (sigmatopdown__ent_adt_t)ivar_10;
+        ivar_22->count++;
+        release_sigmatopdown__ent_adt(ivar_10);
+        result = (bool_t)r_sigmatopdown__pushp((sigmatopdown__ent_adt_t)ivar_22);
+
+        return result;
+}
+
+sigmatopdown_closure_67_t new_sigmatopdown_closure_67(void){
+        static struct sigmatopdown_funtype_64_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_64_t, sigmatopdown_record_9_t))&f_sigmatopdown_closure_67, .mptr = (bool_t (*)(sigmatopdown_funtype_64_t, uint32_t, uint8_t))&m_sigmatopdown_closure_67, .rptr =  (void (*)(sigmatopdown_funtype_64_t))&release_sigmatopdown_closure_67, .cptr = (sigmatopdown_funtype_64_t (*)(sigmatopdown_funtype_64_t))&copy_sigmatopdown_closure_67};
+        sigmatopdown_closure_67_t tmp = (sigmatopdown_closure_67_t) safe_malloc(sizeof(struct sigmatopdown_closure_67_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_67(sigmatopdown_funtype_64_t closure){
+        sigmatopdown_closure_67_t x = (sigmatopdown_closure_67_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_67_t copy_sigmatopdown_closure_67(sigmatopdown_closure_67_t x){
+        sigmatopdown_closure_67_t y = new_sigmatopdown_closure_67();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_64_htbl_t new_htbl = (sigmatopdown_funtype_64_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_64_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_64_hashentry_t * new_data = (sigmatopdown_funtype_64_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_64_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_64_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_record_68_t new_sigmatopdown_record_68(void){
+        sigmatopdown_record_68_t tmp = (sigmatopdown_record_68_t) safe_malloc(sizeof(struct sigmatopdown_record_68_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_68(sigmatopdown_record_68_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown__ent_adt(x->project_1);
+         release_sigmatopdown__ent_adt(x->project_2);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_68_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_68((sigmatopdown_record_68_t)x);
+}
+
+sigmatopdown_record_68_t copy_sigmatopdown_record_68(sigmatopdown_record_68_t x){
+        sigmatopdown_record_68_t y = new_sigmatopdown_record_68();
+        y->project_1 = x->project_1;
+        if (y->project_1 != NULL){y->project_1->count++;};
+        y->project_2 = x->project_2;
+        if (y->project_2 != NULL){y->project_2->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_68(sigmatopdown_record_68_t x, sigmatopdown_record_68_t y){
+        bool_t tmp = true;
+        tmp = tmp && equal_sigmatopdown__ent_adt(x->project_1, y->project_1);
+        tmp = tmp && equal_sigmatopdown__ent_adt(x->project_2, y->project_2);
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_68_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_68_t T){
+        return equal_sigmatopdown_record_68((sigmatopdown_record_68_t)x, (sigmatopdown_record_68_t)y);
+}
+
+actual_sigmatopdown_record_68_t actual_sigmatopdown_record_68(){
+        actual_sigmatopdown_record_68_t new = (actual_sigmatopdown_record_68_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_68_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_68_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_68_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_68_t update_sigmatopdown_record_68_project_1(sigmatopdown_record_68_t x, sigmatopdown__ent_adt_t v){
+        sigmatopdown_record_68_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_1 != NULL){release_sigmatopdown__ent_adt(x->project_1);};}
+        else {y = copy_sigmatopdown_record_68(x); x->count--; y->project_1->count--;};
+        y->project_1 = (sigmatopdown__ent_adt_t)v;
+        return y;}
+
+sigmatopdown_record_68_t update_sigmatopdown_record_68_project_2(sigmatopdown_record_68_t x, sigmatopdown__ent_adt_t v){
+        sigmatopdown_record_68_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_2 != NULL){release_sigmatopdown__ent_adt(x->project_2);};}
+        else {y = copy_sigmatopdown_record_68(x); x->count--; y->project_2->count--;};
+        y->project_2 = (sigmatopdown__ent_adt_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_69(sigmatopdown_funtype_69_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_69_t copy_sigmatopdown_funtype_69(sigmatopdown_funtype_69_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_69(sigmatopdown_funtype_69_t x, sigmatopdown_funtype_69_t y){
+        return false;}
+
+void release_sigmatopdown__lang_spec(sigmatopdown__lang_spec_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown__lang_spec_t copy_sigmatopdown__lang_spec(sigmatopdown__lang_spec_t x){return x->ftbl->cptr(x);}
+
+uint32_t lookup_sigmatopdown__lang_spec(sigmatopdown__lang_spec_htbl_t htbl, uint8_t i, uint32_t ihash){
+        uint32_t mask = htbl->size - 1;
+        uint32_t hashindex = ihash & mask; sigmatopdown__lang_spec_hashentry_t data = htbl->data[hashindex];
+        bool_t keyzero;
+	printf("\nlookup: num_entries = %"PRIu32"", htbl->num_entries);	
+        keyzero = (data.key == 0);
+        bool_t keymatch;
+        keymatch = (data.key == i);
+        while ((!keyzero || data.keyhash != 0) &&
+                 (data.keyhash != ihash || !keymatch)){
+                hashindex++;
+                hashindex = hashindex & mask;
+                data = htbl->data[hashindex];
+
+        keyzero = (data.key == 0);
+
+        keymatch = (data.key == i);
+                }
+        return hashindex;
+        }
+
+sigmatopdown__lang_spec_t dupdate_sigmatopdown__lang_spec(sigmatopdown__lang_spec_t a, uint8_t i, sigmatopdown__peg_adt_t v){
+        sigmatopdown__lang_spec_htbl_t htbl = a->htbl;
+        if (htbl == NULL){//construct new htbl
+                htbl = (sigmatopdown__lang_spec_htbl_t)safe_malloc(sizeof(struct sigmatopdown__lang_spec_htbl_s));
+                htbl->size = HTBL_DEFAULT_SIZE; htbl->num_entries = 0;
+                htbl->data = (sigmatopdown__lang_spec_hashentry_t *)safe_malloc(HTBL_DEFAULT_SIZE * sizeof(struct sigmatopdown__lang_spec_hashentry_s));
+                for (uint32_t j = 0; j < HTBL_DEFAULT_SIZE; j++){htbl->data[j].key = (uint8_t)0; htbl->data[j].keyhash = 0;
+                }
+                a->htbl = htbl;
+        }
+        uint32_t size = htbl->size;
+        uint32_t num_entries = htbl->num_entries;
+	printf("\ndupdating_langspec: num_entries = %"PRIu32", a = %p, i = %"PRIu8"", num_entries, a, i);	
+        sigmatopdown__lang_spec_hashentry_t * data = htbl->data;
+        if (num_entries/3 >  size/5){//resize data
+	  printf("\nresizing: num_entries = %"PRIu32"", num_entries);
+                uint32_t new_size = 2*size; uint32_t new_mask = new_size - 1;
+                if (size >= HTBL_MAX_SIZE) out_of_memory();
+                sigmatopdown__lang_spec_hashentry_t * new_data = (sigmatopdown__lang_spec_hashentry_t *)safe_malloc(new_size * sizeof(struct sigmatopdown__lang_spec_hashentry_s));
+                for (uint32_t j = 0; j < size; j++){//transfer entries
+                        uint32_t keyhash = data[j].keyhash;
+                        bool_t keyzero;
+                        keyzero = (data[j].key == 0);
+                        if (!keyzero || keyhash != 0){
+                                uint32_t new_loc = keyhash ^ new_mask;
+                                keyzero = (new_data[new_loc].key == 0);
+                                while (keyzero && new_data[new_loc].keyhash == 0){
+                                        new_loc++;
+                                        new_loc = new_loc ^ new_mask;
+
+                                        keyzero = (new_data[new_loc].key == 0);
+                                }
+                                new_data[new_loc].key = (uint8_t)data[j].key;
+                                new_data[new_loc].keyhash = keyhash;
+                                new_data[new_loc].value = (sigmatopdown__peg_adt_t)data[j].value;
+                                }}
+                htbl->size = new_size;
+                htbl->num_entries = num_entries;
+                htbl->data = new_data;
+                safe_free(data);}
+        uint32_t ihash = uint32_hash(i);
+        uint32_t hashindex = lookup_sigmatopdown__lang_spec(htbl, i, ihash);
+        sigmatopdown__lang_spec_hashentry_t hentry = htbl->data[hashindex];
+        uint32_t hkeyhash = hentry.keyhash;
+        bool_t hentrykeyzero;
+        hentrykeyzero = (hentry.key == 0);
+
+        if (hentrykeyzero && (hkeyhash == 0))
+                {htbl->data[hashindex].key = (uint8_t)i; htbl->data[hashindex].keyhash = ihash; htbl->data[hashindex].value = (sigmatopdown__peg_adt_t)v; htbl->num_entries++;}
+	else {sigmatopdown__peg_adt_t tempvalue;tempvalue = (sigmatopdown__peg_adt_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (sigmatopdown__peg_adt_t)v;if (tempvalue != NULL)release_sigmatopdown__peg_adt(tempvalue);};
+        return a;
+
+}
+
+sigmatopdown__lang_spec_t update_sigmatopdown__lang_spec(sigmatopdown__lang_spec_t a, uint8_t i, sigmatopdown__peg_adt_t v){
+        if (a->count == 1){
+                return dupdate_sigmatopdown__lang_spec(a, i, v);
+            } else {
+                sigmatopdown__lang_spec_t x = copy_sigmatopdown__lang_spec(a);
+                a->count--;
+                return dupdate_sigmatopdown__lang_spec(x, i, v);
+            }}
+
+bool_t equal_sigmatopdown__lang_spec(sigmatopdown__lang_spec_t x, sigmatopdown__lang_spec_t y){
+        return false;}
+
+
+bool_t f_sigmatopdown_closure_71(struct sigmatopdown_closure_71_s * closure, sigmatopdown_record_68_t bvar){
+        sigmatopdown__ent_adt_t bvar_1;
+        bvar_1 = (sigmatopdown__ent_adt_t)bvar->project_1;
+        bvar->project_1->count++;
+        sigmatopdown__ent_adt_t bvar_2;
+        bvar_2 = (sigmatopdown__ent_adt_t)bvar->project_2;
+        bvar->project_2->count++;
+        release_sigmatopdown_record_68(bvar);
+        bool_t result = h_sigmatopdown_closure_71(bvar_1, bvar_2, closure->fvar_1, closure->fvar_2); 
+        release_sigmatopdown__ent_adt(bvar_1);
+        release_sigmatopdown__ent_adt(bvar_2);
+        return result;}
+
+bool_t m_sigmatopdown_closure_71(struct sigmatopdown_closure_71_s * closure, sigmatopdown__ent_adt_t bvar_1, sigmatopdown__ent_adt_t bvar_2){
+        return h_sigmatopdown_closure_71(bvar_1, bvar_2, closure->fvar_1, closure->fvar_2);}
+
+extern bool_t h_sigmatopdown_closure_71(sigmatopdown__ent_adt_t ivar_7, sigmatopdown__ent_adt_t ivar_8, sigmatopdown_funtype_66_t ivar_3, sigmatopdown__lang_spec_t ivar_2){
+        bool_t result;
+        /* p1 */ uint32_t ivar_9;
+        ivar_7->count++;
+        ivar_9 = (uint32_t)sigmatopdown__ent_adt_pos((sigmatopdown__ent_adt_t)ivar_7);
+        /* nt1 */ uint8_t ivar_13;
+        ivar_13 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_7);
+        /* p2 */ uint32_t ivar_17;
+        ivar_8->count++;
+        ivar_17 = (uint32_t)sigmatopdown__ent_adt_pos((sigmatopdown__ent_adt_t)ivar_8);
+        /* nt2 */ uint8_t ivar_21;
+        ivar_21 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_8);
+        bool_t ivar_25;
+        uint8_t ivar_28;
+        ivar_28 = (uint8_t)sigmatopdown__num_non_terminals();
+        ivar_25 = (ivar_13 >= ivar_28);
+        bool_t ivar_26;
+        sigmatopdown__peg_adt_t ivar_30;
+        sigmatopdown__peg_adt_t ivar_32;
+        ivar_32 = (sigmatopdown__peg_adt_t)ivar_2->ftbl->fptr(ivar_2, ivar_13);
+        //copying to sigmatopdown__peg_adt from sigmatopdown__peg_adt;
+        ivar_30 = (sigmatopdown__peg_adt_t)ivar_32;
+        ivar_30->count++;
+        release_sigmatopdown__peg_adt(ivar_32);
+        bool_t ivar_100;
+        ivar_30->count++;
+        ivar_100 = (bool_t)r_sigmatopdown__concatp((sigmatopdown__peg_adt_t)ivar_30);
+        if (ivar_100){ 
+             uint8_t ivar_35;
+             ivar_30->count++;
+             ivar_35 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_30);
+             uint8_t ivar_36;
+             ivar_36 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_30);
+             bool_t ivar_43;
+             bool_t ivar_45;
+             ivar_45 = (ivar_17 == ivar_9);
+             bool_t ivar_46;
+             ivar_46 = (ivar_21 == ivar_35);
+             ivar_43 = ivar_45 && ivar_46;
+             bool_t ivar_44;
+             bool_t ivar_54;
+             sigmatopdown__ent_adt_t ivar_70;
+             sigmatopdown_funtype_65_t ivar_60;
+             sigmatopdown_funtype_66_t ivar_66;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_66 = (sigmatopdown_funtype_66_t)ivar_3;
+             ivar_66->count++;
+             uint32_t ivar_67;
+             //copying to uint32 from uint32;
+             ivar_67 = (uint32_t)ivar_9;
+             sigmatopdown_funtype_65_t ivar_63;
+             ivar_63 = (sigmatopdown_funtype_65_t)ivar_66->ftbl->fptr(ivar_66, ivar_67);
+             ivar_66->ftbl->rptr(ivar_66);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_60 = (sigmatopdown_funtype_65_t)ivar_63;
+             ivar_60->count++;
+             release_sigmatopdown_funtype_65(ivar_63);
+             sigmatopdown__ent_adt_t ivar_58;
+             ivar_58 = (sigmatopdown__ent_adt_t)ivar_60->ftbl->fptr(ivar_60, ivar_35);
+             ivar_60->ftbl->rptr(ivar_60);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_70 = (sigmatopdown__ent_adt_t)ivar_58;
+             ivar_70->count++;
+             release_sigmatopdown__ent_adt(ivar_58);
+             ivar_54 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_70);
+             bool_t ivar_55;
+             bool_t ivar_71;
+             ivar_71 = (ivar_21 == ivar_36);
+             bool_t ivar_72;
+             uint64_t ivar_77;
+             uint32_t ivar_79;
+             sigmatopdown__ent_adt_t ivar_94;
+             sigmatopdown_funtype_65_t ivar_84;
+             sigmatopdown_funtype_66_t ivar_90;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_90 = (sigmatopdown_funtype_66_t)ivar_3;
+             ivar_90->count++;
+             uint32_t ivar_91;
+             //copying to uint32 from uint32;
+             ivar_91 = (uint32_t)ivar_9;
+             sigmatopdown_funtype_65_t ivar_87;
+             ivar_87 = (sigmatopdown_funtype_65_t)ivar_90->ftbl->fptr(ivar_90, ivar_91);
+             ivar_90->ftbl->rptr(ivar_90);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_84 = (sigmatopdown_funtype_65_t)ivar_87;
+             ivar_84->count++;
+             release_sigmatopdown_funtype_65(ivar_87);
+             sigmatopdown__ent_adt_t ivar_82;
+             ivar_82 = (sigmatopdown__ent_adt_t)ivar_84->ftbl->fptr(ivar_84, ivar_35);
+             ivar_84->ftbl->rptr(ivar_84);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_94 = (sigmatopdown__ent_adt_t)ivar_82;
+             ivar_94->count++;
+             release_sigmatopdown__ent_adt(ivar_82);
+             ivar_79 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_94);
+             ivar_77 = (uint64_t)(ivar_9 + ivar_79);
+             ivar_72 = (ivar_17 == ivar_77);
+             ivar_55 = ivar_71 && ivar_72;
+             ivar_44 = ivar_54 && ivar_55;
+             ivar_26 = ivar_43 || ivar_44;
+} else {
+        
+             bool_t ivar_151;
+             ivar_30->count++;
+             ivar_151 = (bool_t)r_sigmatopdown__orp((sigmatopdown__peg_adt_t)ivar_30);
+             if (ivar_151){  
+           uint8_t ivar_104;
+           ivar_30->count++;
+           ivar_104 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_30);
+           uint8_t ivar_105;
+           ivar_105 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_30);
+           bool_t ivar_112;
+           bool_t ivar_114;
+           ivar_114 = (ivar_17 == ivar_9);
+           bool_t ivar_115;
+           ivar_115 = (ivar_21 == ivar_104);
+           ivar_112 = ivar_114 && ivar_115;
+           bool_t ivar_113;
+           bool_t ivar_123;
+           sigmatopdown__ent_adt_t ivar_139;
+           sigmatopdown_funtype_65_t ivar_129;
+           sigmatopdown_funtype_66_t ivar_135;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_135 = (sigmatopdown_funtype_66_t)ivar_3;
+           ivar_135->count++;
+           uint32_t ivar_136;
+           //copying to uint32 from uint32;
+           ivar_136 = (uint32_t)ivar_9;
+           sigmatopdown_funtype_65_t ivar_132;
+           ivar_132 = (sigmatopdown_funtype_65_t)ivar_135->ftbl->fptr(ivar_135, ivar_136);
+           ivar_135->ftbl->rptr(ivar_135);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_129 = (sigmatopdown_funtype_65_t)ivar_132;
+           ivar_129->count++;
+           release_sigmatopdown_funtype_65(ivar_132);
+           sigmatopdown__ent_adt_t ivar_127;
+           ivar_127 = (sigmatopdown__ent_adt_t)ivar_129->ftbl->fptr(ivar_129, ivar_104);
+           ivar_129->ftbl->rptr(ivar_129);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_139 = (sigmatopdown__ent_adt_t)ivar_127;
+           ivar_139->count++;
+           release_sigmatopdown__ent_adt(ivar_127);
+           ivar_123 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_139);
+           bool_t ivar_124;
+           bool_t ivar_140;
+           ivar_140 = (ivar_21 == ivar_105);
+           bool_t ivar_141;
+           ivar_141 = (ivar_17 == ivar_9);
+           ivar_124 = ivar_140 && ivar_141;
+           ivar_113 = ivar_123 && ivar_124;
+           ivar_26 = ivar_112 || ivar_113;
+} else {
+             
+           bool_t ivar_168;
+           ivar_30->count++;
+           ivar_168 = (bool_t)r_sigmatopdown__andp((sigmatopdown__peg_adt_t)ivar_30);
+           if (ivar_168){   
+           uint8_t ivar_155;
+           ivar_155 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_30);
+           bool_t ivar_159;
+           ivar_159 = (ivar_21 == ivar_155);
+           bool_t ivar_160;
+           ivar_160 = (ivar_17 == ivar_9);
+           ivar_26 = ivar_159 && ivar_160;
+} else {
+           
+           bool_t ivar_185;
+           ivar_30->count++;
+           ivar_185 = (bool_t)r_sigmatopdown__notp((sigmatopdown__peg_adt_t)ivar_30);
+           if (ivar_185){    
+            uint8_t ivar_172;
+            ivar_172 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_30);
+            bool_t ivar_176;
+            ivar_176 = (ivar_21 == ivar_172);
+            bool_t ivar_177;
+            ivar_177 = (ivar_17 == ivar_9);
+            ivar_26 = ivar_176 && ivar_177;
+} else {
+           
+            release_sigmatopdown__peg_adt(ivar_30);
+            ivar_26 = (bool_t) false;
+};
+};
+};
+};
+        result = ivar_25 || ivar_26;
+
+        return result;
+}
+
+sigmatopdown_closure_71_t new_sigmatopdown_closure_71(void){
+        static struct sigmatopdown_funtype_69_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_69_t, sigmatopdown_record_68_t))&f_sigmatopdown_closure_71, .mptr = (bool_t (*)(sigmatopdown_funtype_69_t, sigmatopdown__ent_adt_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_71, .rptr =  (void (*)(sigmatopdown_funtype_69_t))&release_sigmatopdown_closure_71, .cptr = (sigmatopdown_funtype_69_t (*)(sigmatopdown_funtype_69_t))&copy_sigmatopdown_closure_71};
+        sigmatopdown_closure_71_t tmp = (sigmatopdown_closure_71_t) safe_malloc(sizeof(struct sigmatopdown_closure_71_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_71(sigmatopdown_funtype_69_t closure){
+        sigmatopdown_closure_71_t x = (sigmatopdown_closure_71_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+         release_sigmatopdown__lang_spec(x->fvar_2);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_71_t copy_sigmatopdown_closure_71(sigmatopdown_closure_71_t x){
+        sigmatopdown_closure_71_t y = new_sigmatopdown_closure_71();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_69_htbl_t new_htbl = (sigmatopdown_funtype_69_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_69_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_69_hashentry_t * new_data = (sigmatopdown_funtype_69_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_69_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_69_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_sigmatopdown_funtype_72(sigmatopdown_funtype_72_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_72_t copy_sigmatopdown_funtype_72(sigmatopdown_funtype_72_t x){return x->ftbl->cptr(x);}
+
+uint32_t lookup_sigmatopdown_funtype_72(sigmatopdown_funtype_72_htbl_t htbl, uint32_t i, uint32_t ihash){
+        uint32_t mask = htbl->size - 1;
+        uint32_t hashindex = ihash & mask; sigmatopdown_funtype_72_hashentry_t data = htbl->data[hashindex];
+        bool_t keyzero;
+	printf("\nlookup: num_entries = %"PRIu32"", htbl->num_entries);	
+        keyzero = (data.key == 0);
+        bool_t keymatch;
+        keymatch = (data.key == i);
+        while ((!keyzero || data.keyhash != 0) &&
+                 (data.keyhash != ihash || !keymatch)){
+                hashindex++;
+                hashindex = hashindex & mask;
+                data = htbl->data[hashindex];
+
+        keyzero = (data.key == 0);
+
+        keymatch = (data.key == i);
+                }
+        return hashindex;
+        }
+
+sigmatopdown_funtype_72_t dupdate_sigmatopdown_funtype_72(sigmatopdown_funtype_72_t a, uint32_t i, mpz_ptr_t v){
+        sigmatopdown_funtype_72_htbl_t htbl = a->htbl;
+        if (htbl == NULL){//construct new htbl
+                htbl = (sigmatopdown_funtype_72_htbl_t)safe_malloc(sizeof(struct sigmatopdown_funtype_72_htbl_s));
+                htbl->size = HTBL_DEFAULT_SIZE; htbl->num_entries = 0;
+                htbl->data = (sigmatopdown_funtype_72_hashentry_t *)safe_malloc(HTBL_DEFAULT_SIZE * sizeof(struct sigmatopdown_funtype_72_hashentry_s));
+                for (uint32_t j = 0; j < HTBL_DEFAULT_SIZE; j++){htbl->data[j].key = (uint32_t)0; htbl->data[j].keyhash = 0;
+                }
+                a->htbl = htbl;
+        }
+        uint32_t size = htbl->size;
+        uint32_t num_entries = htbl->num_entries;
+	printf("\ndupdating_funtype72: num_entries = %"PRIu32", a = %p, i = %"PRIu32"", num_entries, a, i);	
+        sigmatopdown_funtype_72_hashentry_t * data = htbl->data;
+        if (num_entries/3 >  size/5){//resize data
+	  printf("\nresizing: num_entries = %"PRIu32"", num_entries);
+                uint32_t new_size = 2*size; uint32_t new_mask = new_size - 1;
+                if (size >= HTBL_MAX_SIZE) out_of_memory();
+                sigmatopdown_funtype_72_hashentry_t * new_data = (sigmatopdown_funtype_72_hashentry_t *)safe_malloc(new_size * sizeof(struct sigmatopdown_funtype_72_hashentry_s));
+                for (uint32_t j = 0; j < size; j++){//transfer entries
+                        uint32_t keyhash = data[j].keyhash;
+                        bool_t keyzero;
+                        keyzero = (data[j].key == 0);
+                        if (!keyzero || keyhash != 0){
+                                uint32_t new_loc = keyhash ^ new_mask;
+                                keyzero = (new_data[new_loc].key == 0);
+                                while (keyzero && new_data[new_loc].keyhash == 0){
+                                        new_loc++;
+                                        new_loc = new_loc ^ new_mask;
+
+                                        keyzero = (new_data[new_loc].key == 0);
+                                }
+                                new_data[new_loc].key = (uint32_t)data[j].key;
+                                new_data[new_loc].keyhash = keyhash;
+                                mpz_set(new_data[new_loc].value, data[j].value);
+                                }}
+                htbl->size = new_size;
+                htbl->num_entries = num_entries;
+                htbl->data = new_data;
+                safe_free(data);}
+        uint32_t ihash = uint32_hash(i);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_72(htbl, i, ihash);
+        sigmatopdown_funtype_72_hashentry_t hentry = htbl->data[hashindex];
+        uint32_t hkeyhash = hentry.keyhash;
+        bool_t hentrykeyzero;
+        hentrykeyzero = (hentry.key == 0);
+
+        if (hentrykeyzero && (hkeyhash == 0))
+                {htbl->data[hashindex].key = (uint32_t)i; htbl->data[hashindex].keyhash = ihash; mpz_set(htbl->data[hashindex].value, v); htbl->num_entries++;}
+	else {mpz_ptr_t tempvalue;mpz_mk_set(tempvalue, htbl->data[hashindex].value);mpz_set(htbl->data[hashindex].value, v); mpz_clear(tempvalue);};
+        return a;
+
+}
+
+sigmatopdown_funtype_72_t update_sigmatopdown_funtype_72(sigmatopdown_funtype_72_t a, uint32_t i, mpz_ptr_t v){
+        if (a->count == 1){
+                return dupdate_sigmatopdown_funtype_72(a, i, v);
+            } else {
+                sigmatopdown_funtype_72_t x = copy_sigmatopdown_funtype_72(a);
+                a->count--;
+                return dupdate_sigmatopdown_funtype_72(x, i, v);
+            }}
+
+bool_t equal_sigmatopdown_funtype_72(sigmatopdown_funtype_72_t x, sigmatopdown_funtype_72_t y){
+        return false;}
+
+
+mpz_ptr_t f_sigmatopdown_closure_73(struct sigmatopdown_closure_73_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_72_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_72(htbl, bvar, hash);
+        sigmatopdown_funtype_72_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            mpz_ptr_t result;
+            mpz_mk_set(result, entry.value);
+            return result;}
+        
+
+        return h_sigmatopdown_closure_73(bvar, closure->fvar_1, closure->fvar_2);};
+
+return h_sigmatopdown_closure_73(bvar, closure->fvar_1, closure->fvar_2);}
+
+mpz_ptr_t m_sigmatopdown_closure_73(struct sigmatopdown_closure_73_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_73(bvar, closure->fvar_1, closure->fvar_2);}
+
+extern mpz_ptr_t h_sigmatopdown_closure_73(uint32_t ivar_5, sigmatopdown_funtype_72_t ivar_2, uint32_t ivar_1){
+        mpz_ptr_t result;
+        bool_t ivar_6;
+        ivar_6 = (ivar_5 == ivar_1);
+        if (ivar_6){ 
+             result = safe_malloc(sizeof(mpz_t));
+             mpz_init(result);
+             mpz_mk_set_ui(result, 0);
+} else {
+        
+             mpz_ptr_t ivar_10;
+             sigmatopdown_funtype_72_t ivar_15;
+             //copying to sigmatopdown_funtype_72 from sigmatopdown_funtype_72;
+             ivar_15 = (sigmatopdown_funtype_72_t)ivar_2;
+             ivar_15->count++;
+             ivar_10 = (mpz_ptr_t)ivar_15->ftbl->fptr(ivar_15, ivar_5);
+             ivar_15->ftbl->rptr(ivar_15);
+             mpz_ptr_t ivar_11;
+             sigmatopdown_funtype_72_t ivar_23;
+             sigmatopdown_funtype_72_t ivar_37;
+             //copying to sigmatopdown_funtype_72 from sigmatopdown_funtype_72;
+             ivar_37 = (sigmatopdown_funtype_72_t)ivar_2;
+             ivar_37->count++;
+             sigmatopdown_funtype_72_t ivar_29;
+             sigmatopdown_closure_74_t cl21433;
+             cl21433 = new_sigmatopdown_closure_74();
+             cl21433->fvar_1 = (sigmatopdown_funtype_72_t)ivar_37;
+             cl21433->fvar_1->count++;
+             release_sigmatopdown_funtype_72(ivar_37);
+             ivar_29 = (sigmatopdown_funtype_72_t)cl21433;
+             sigmatopdown_funtype_72_t ivar_27;
+             ivar_27 = (sigmatopdown_funtype_72_t)sigmatopdown__sigma((uint32_t)ivar_1, (sigmatopdown_funtype_72_t)ivar_29);
+             //copying to sigmatopdown_funtype_72 from sigmatopdown_funtype_72;
+             ivar_23 = (sigmatopdown_funtype_72_t)ivar_27;
+             ivar_23->count++;
+             release_sigmatopdown_funtype_72(ivar_27);
+             uint32_t ivar_43;
+             uint8_t ivar_19;
+             ivar_19 = (uint8_t)1;
+             ivar_43 = (uint32_t)(ivar_5 - ivar_19);
+             ivar_11 = (mpz_ptr_t)ivar_23->ftbl->fptr(ivar_23, ivar_43);
+             ivar_23->ftbl->rptr(ivar_23);
+             mpz_mk_add(result, ivar_11, ivar_10);
+};
+
+        return result;
+}
+
+sigmatopdown_closure_73_t new_sigmatopdown_closure_73(void){
+        static struct sigmatopdown_funtype_72_ftbl_s ftbl = {.fptr = (mpz_ptr_t (*)(sigmatopdown_funtype_72_t, uint32_t))&f_sigmatopdown_closure_73, .mptr = (mpz_ptr_t (*)(sigmatopdown_funtype_72_t, uint32_t))&m_sigmatopdown_closure_73, .rptr =  (void (*)(sigmatopdown_funtype_72_t))&release_sigmatopdown_closure_73, .cptr = (sigmatopdown_funtype_72_t (*)(sigmatopdown_funtype_72_t))&copy_sigmatopdown_closure_73};
+        sigmatopdown_closure_73_t tmp = (sigmatopdown_closure_73_t) safe_malloc(sizeof(struct sigmatopdown_closure_73_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_73(sigmatopdown_funtype_72_t closure){
+        sigmatopdown_closure_73_t x = (sigmatopdown_closure_73_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_72(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_73_t copy_sigmatopdown_closure_73(sigmatopdown_closure_73_t x){
+        sigmatopdown_closure_73_t y = new_sigmatopdown_closure_73();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = (uint32_t)x->fvar_2;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_72_htbl_t new_htbl = (sigmatopdown_funtype_72_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_72_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_72_hashentry_t * new_data = (sigmatopdown_funtype_72_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_72_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_72_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+mpz_ptr_t f_sigmatopdown_closure_74(struct sigmatopdown_closure_74_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_72_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_72(htbl, bvar, hash);
+        sigmatopdown_funtype_72_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            mpz_ptr_t result;
+            mpz_mk_set(result, entry.value);
+            return result;}
+        
+
+        return h_sigmatopdown_closure_74(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_74(bvar, closure->fvar_1);}
+
+mpz_ptr_t m_sigmatopdown_closure_74(struct sigmatopdown_closure_74_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_74(bvar, closure->fvar_1);}
+
+extern mpz_ptr_t h_sigmatopdown_closure_74(uint32_t ivar_40, sigmatopdown_funtype_72_t ivar_37){
+        mpz_ptr_t result;
+        mpz_ptr_t ivar_42;
+        ivar_42 = (mpz_ptr_t)ivar_37->ftbl->fptr(ivar_37, ivar_40);
+        mpz_ptr_t ivar_38;
+        //copying to mpz from mpz;
+        mpz_mk_set(ivar_38, ivar_42);
+        mpz_clear(ivar_42);
+        mpz_ptr_t ivar_41;
+        //copying to mpz from mpz;
+        mpz_mk_set(ivar_41, ivar_38);
+        mpz_clear(ivar_38);
+        //copying to mpz from mpz;
+        mpz_mk_set(result, ivar_41);
+        mpz_clear(ivar_41);
+
+        return result;
+}
+
+sigmatopdown_closure_74_t new_sigmatopdown_closure_74(void){
+        static struct sigmatopdown_funtype_72_ftbl_s ftbl = {.fptr = (mpz_ptr_t (*)(sigmatopdown_funtype_72_t, uint32_t))&f_sigmatopdown_closure_74, .mptr = (mpz_ptr_t (*)(sigmatopdown_funtype_72_t, uint32_t))&m_sigmatopdown_closure_74, .rptr =  (void (*)(sigmatopdown_funtype_72_t))&release_sigmatopdown_closure_74, .cptr = (sigmatopdown_funtype_72_t (*)(sigmatopdown_funtype_72_t))&copy_sigmatopdown_closure_74};
+        sigmatopdown_closure_74_t tmp = (sigmatopdown_closure_74_t) safe_malloc(sizeof(struct sigmatopdown_closure_74_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_74(sigmatopdown_funtype_72_t closure){
+        sigmatopdown_closure_74_t x = (sigmatopdown_closure_74_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_72(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_74_t copy_sigmatopdown_closure_74(sigmatopdown_closure_74_t x){
+        sigmatopdown_closure_74_t y = new_sigmatopdown_closure_74();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_72_htbl_t new_htbl = (sigmatopdown_funtype_72_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_72_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_72_hashentry_t * new_data = (sigmatopdown_funtype_72_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_72_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_72_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_sigmatopdown_funtype_75(sigmatopdown_funtype_75_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_75_t copy_sigmatopdown_funtype_75(sigmatopdown_funtype_75_t x){return x->ftbl->cptr(x);}
+
+uint32_t lookup_sigmatopdown_funtype_75(sigmatopdown_funtype_75_htbl_t htbl, uint32_t i, uint32_t ihash){
+        uint32_t mask = htbl->size - 1;
+        uint32_t hashindex = ihash & mask; sigmatopdown_funtype_75_hashentry_t data = htbl->data[hashindex];
+        bool_t keyzero;
+	printf("\nlookup: num_entries = %"PRIu32"", htbl->num_entries);	
+        keyzero = (data.key == 0);
+        bool_t keymatch;
+        keymatch = (data.key == i);
+        while ((!keyzero || data.keyhash != 0) &&
+                 (data.keyhash != ihash || !keymatch)){
+                hashindex++;
+                hashindex = hashindex & mask;
+                data = htbl->data[hashindex];
+
+        keyzero = (data.key == 0);
+
+        keymatch = (data.key == i);
+                }
+        return hashindex;
+        }
+
+sigmatopdown_funtype_75_t dupdate_sigmatopdown_funtype_75(sigmatopdown_funtype_75_t a, uint32_t i, uint8_t v){
+        sigmatopdown_funtype_75_htbl_t htbl = a->htbl;
+        if (htbl == NULL){//construct new htbl
+                htbl = (sigmatopdown_funtype_75_htbl_t)safe_malloc(sizeof(struct sigmatopdown_funtype_75_htbl_s));
+                htbl->size = HTBL_DEFAULT_SIZE; htbl->num_entries = 0;
+                htbl->data = (sigmatopdown_funtype_75_hashentry_t *)safe_malloc(HTBL_DEFAULT_SIZE * sizeof(struct sigmatopdown_funtype_75_hashentry_s));
+                for (uint32_t j = 0; j < HTBL_DEFAULT_SIZE; j++){htbl->data[j].key = (uint32_t)0; htbl->data[j].keyhash = 0;
+                }
+                a->htbl = htbl;
+        }
+        uint32_t size = htbl->size;
+        uint32_t num_entries = htbl->num_entries;
+	printf("\ndupdating_funtype75: num_entries = %"PRIu32", a = %p, i = %"PRIu32"", num_entries, a, i);	
+        sigmatopdown_funtype_75_hashentry_t * data = htbl->data;
+        if (num_entries/3 >  size/5){//resize data
+	  printf("\nresizing: num_entries = %"PRIu32"", num_entries);
+                uint32_t new_size = 2*size; uint32_t new_mask = new_size - 1;
+                if (size >= HTBL_MAX_SIZE) out_of_memory();
+                sigmatopdown_funtype_75_hashentry_t * new_data = (sigmatopdown_funtype_75_hashentry_t *)safe_malloc(new_size * sizeof(struct sigmatopdown_funtype_75_hashentry_s));
+                for (uint32_t j = 0; j < size; j++){//transfer entries
+                        uint32_t keyhash = data[j].keyhash;
+                        bool_t keyzero;
+                        keyzero = (data[j].key == 0);
+                        if (!keyzero || keyhash != 0){
+                                uint32_t new_loc = keyhash ^ new_mask;
+                                keyzero = (new_data[new_loc].key == 0);
+                                while (keyzero && new_data[new_loc].keyhash == 0){
+                                        new_loc++;
+                                        new_loc = new_loc ^ new_mask;
+
+                                        keyzero = (new_data[new_loc].key == 0);
+                                }
+                                new_data[new_loc].key = (uint32_t)data[j].key;
+                                new_data[new_loc].keyhash = keyhash;
+                                new_data[new_loc].value = (uint8_t)data[j].value;
+                                }}
+                htbl->size = new_size;
+                htbl->num_entries = num_entries;
+                htbl->data = new_data;
+                safe_free(data);}
+        uint32_t ihash = uint32_hash(i);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_75(htbl, i, ihash);
+        sigmatopdown_funtype_75_hashentry_t hentry = htbl->data[hashindex];
+        uint32_t hkeyhash = hentry.keyhash;
+        bool_t hentrykeyzero;
+        hentrykeyzero = (hentry.key == 0);
+
+        if (hentrykeyzero && (hkeyhash == 0))
+                {htbl->data[hashindex].key = (uint32_t)i; htbl->data[hashindex].keyhash = ihash; htbl->data[hashindex].value = (uint8_t)v; htbl->num_entries++;}
+            else {uint8_t tempvalue;tempvalue = (uint8_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (uint8_t)v;};
+        return a;
+
+}
+
+sigmatopdown_funtype_75_t update_sigmatopdown_funtype_75(sigmatopdown_funtype_75_t a, uint32_t i, uint8_t v){
+        if (a->count == 1){
+                return dupdate_sigmatopdown_funtype_75(a, i, v);
+            } else {
+                sigmatopdown_funtype_75_t x = copy_sigmatopdown_funtype_75(a);
+                a->count--;
+                return dupdate_sigmatopdown_funtype_75(x, i, v);
+            }}
+
+bool_t equal_sigmatopdown_funtype_75(sigmatopdown_funtype_75_t x, sigmatopdown_funtype_75_t y){
+        return false;}
+
+
+uint8_t f_sigmatopdown_closure_76(struct sigmatopdown_closure_76_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_75_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_75(htbl, bvar, hash);
+        sigmatopdown_funtype_75_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            uint8_t result;
+            result = (uint8_t)entry.value;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_76(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3);};
+
+return h_sigmatopdown_closure_76(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3);}
+
+uint8_t m_sigmatopdown_closure_76(struct sigmatopdown_closure_76_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_76(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3);}
+
+extern uint8_t h_sigmatopdown_closure_76(uint32_t ivar_15, type_actual_t ivar_45, sigmatopdown_funtype_59_t ivar_5, sigmatopdown_funtype_66_t ivar_2){
+        uint8_t result;
+        sigmatopdown_funtype_77_t ivar_29;
+        sigmatopdown_funtype_78_t ivar_38;
+        uint8_t ivar_48;
+        ivar_48 = (uint8_t)sigmatopdown__num_non_terminals();
+        mpz_ptr_t ivar_47;
+        //copying to mpz from uint8;
+        mpz_mk_set_ui(ivar_47, ivar_48);
+        sigmatopdown_funtype_78_t ivar_44;
+        ivar_44 = (sigmatopdown_funtype_78_t)arrayCount__count((type_actual_t)ivar_45, (mpz_ptr_t)ivar_47);
+        //copying to sigmatopdown_funtype_78 from sigmatopdown_funtype_78;
+        ivar_38 = (sigmatopdown_funtype_78_t)ivar_44;
+        ivar_38->count++;
+        release_sigmatopdown_funtype_78(ivar_44);
+        sigmatopdown_funtype_77_t ivar_33;
+        ivar_5->count++;
+        ivar_33 = (sigmatopdown_funtype_77_t)ivar_38->ftbl->fptr(ivar_38, ivar_5);
+        ivar_38->ftbl->rptr(ivar_38);
+        //copying to sigmatopdown_funtype_77 from sigmatopdown_funtype_77;
+        ivar_29 = (sigmatopdown_funtype_77_t)ivar_33;
+        ivar_29->count++;
+        release_sigmatopdown_funtype_77(ivar_33);
+        sigmatopdown_funtype_65_t ivar_50;
+        sigmatopdown_funtype_66_t ivar_22;
+        //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+        ivar_22 = (sigmatopdown_funtype_66_t)ivar_2;
+        ivar_22->count++;
+        uint32_t ivar_23;
+        //copying to uint32 from uint32;
+        ivar_23 = (uint32_t)ivar_15;
+        sigmatopdown_funtype_65_t ivar_19;
+        ivar_19 = (sigmatopdown_funtype_65_t)ivar_22->ftbl->fptr(ivar_22, ivar_23);
+        ivar_22->ftbl->rptr(ivar_22);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        ivar_50 = (sigmatopdown_funtype_65_t)ivar_19;
+        ivar_50->count++;
+        release_sigmatopdown_funtype_65(ivar_19);
+        result = (uint8_t)ivar_29->ftbl->fptr(ivar_29, ivar_50);
+        ivar_29->ftbl->rptr(ivar_29);
+
+        return result;
+}
+
+sigmatopdown_closure_76_t new_sigmatopdown_closure_76(void){
+        static struct sigmatopdown_funtype_75_ftbl_s ftbl = {.fptr = (uint8_t (*)(sigmatopdown_funtype_75_t, uint32_t))&f_sigmatopdown_closure_76, .mptr = (uint8_t (*)(sigmatopdown_funtype_75_t, uint32_t))&m_sigmatopdown_closure_76, .rptr =  (void (*)(sigmatopdown_funtype_75_t))&release_sigmatopdown_closure_76, .cptr = (sigmatopdown_funtype_75_t (*)(sigmatopdown_funtype_75_t))&copy_sigmatopdown_closure_76};
+        sigmatopdown_closure_76_t tmp = (sigmatopdown_closure_76_t) safe_malloc(sizeof(struct sigmatopdown_closure_76_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_76(sigmatopdown_funtype_75_t closure){
+        sigmatopdown_closure_76_t x = (sigmatopdown_closure_76_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_59(x->fvar_2);
+         release_sigmatopdown_funtype_66(x->fvar_3);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_76_t copy_sigmatopdown_closure_76(sigmatopdown_closure_76_t x){
+        sigmatopdown_closure_76_t y = new_sigmatopdown_closure_76();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = (type_actual_t)x->fvar_1;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_75_htbl_t new_htbl = (sigmatopdown_funtype_75_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_75_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_75_hashentry_t * new_data = (sigmatopdown_funtype_75_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_75_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_75_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_sigmatopdown_funtype_77(sigmatopdown_funtype_77_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_77_t copy_sigmatopdown_funtype_77(sigmatopdown_funtype_77_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_77(sigmatopdown_funtype_77_t x, sigmatopdown_funtype_77_t y){
+        return false;}
+
+void release_sigmatopdown_funtype_78(sigmatopdown_funtype_78_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_78_t copy_sigmatopdown_funtype_78(sigmatopdown_funtype_78_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_78(sigmatopdown_funtype_78_t x, sigmatopdown_funtype_78_t y){
+        return false;}
+
+
+mpz_ptr_t f_sigmatopdown_closure_79(struct sigmatopdown_closure_79_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_72_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_72(htbl, bvar, hash);
+        sigmatopdown_funtype_72_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+	 if (!keyzero || entry.keyhash != 0){
+            mpz_ptr_t result;
+            mpz_mk_set(result, entry.value);
+            return result;}
+        
+
+        return h_sigmatopdown_closure_79(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_79(bvar, closure->fvar_1);}
+
+mpz_ptr_t m_sigmatopdown_closure_79(struct sigmatopdown_closure_79_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_79(bvar, closure->fvar_1);}
+
+extern mpz_ptr_t h_sigmatopdown_closure_79(uint32_t ivar_65, sigmatopdown_funtype_75_t ivar_62){
+        mpz_ptr_t result;
+        uint8_t ivar_63;
+        ivar_63 = (uint8_t)ivar_62->ftbl->fptr(ivar_62, ivar_65);
+        mpz_ptr_t ivar_66;
+        //copying to mpz from uint8;
+        mpz_mk_set_ui(ivar_66, ivar_63);
+        //copying to mpz from mpz;
+        mpz_mk_set(result, ivar_66);
+        mpz_clear(ivar_66);
+
+        return result;
+}
+
+sigmatopdown_closure_79_t new_sigmatopdown_closure_79(void){
+        static struct sigmatopdown_funtype_72_ftbl_s ftbl = {.fptr = (mpz_ptr_t (*)(sigmatopdown_funtype_72_t, uint32_t))&f_sigmatopdown_closure_79, .mptr = (mpz_ptr_t (*)(sigmatopdown_funtype_72_t, uint32_t))&m_sigmatopdown_closure_79, .rptr =  (void (*)(sigmatopdown_funtype_72_t))&release_sigmatopdown_closure_79, .cptr = (sigmatopdown_funtype_72_t (*)(sigmatopdown_funtype_72_t))&copy_sigmatopdown_closure_79};
+        sigmatopdown_closure_79_t tmp = (sigmatopdown_closure_79_t) safe_malloc(sizeof(struct sigmatopdown_closure_79_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_79(sigmatopdown_funtype_72_t closure){
+        sigmatopdown_closure_79_t x = (sigmatopdown_closure_79_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_75(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_79_t copy_sigmatopdown_closure_79(sigmatopdown_closure_79_t x){
+        sigmatopdown_closure_79_t y = new_sigmatopdown_closure_79();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_72_htbl_t new_htbl = (sigmatopdown_funtype_72_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_72_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_72_hashentry_t * new_data = (sigmatopdown_funtype_72_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_72_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_72_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_80(struct sigmatopdown_closure_80_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_80(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_80(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_80(struct sigmatopdown_closure_80_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_80(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_80(uint32_t ivar_30, sigmatopdown_funtype_66_t ivar_2){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_28;
+        uint32_t ivar_29;
+        //copying to uint32 from uint32;
+        ivar_29 = (uint32_t)ivar_30;
+        ivar_28 = (sigmatopdown_funtype_65_t)ivar_2->ftbl->fptr(ivar_2, ivar_29);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_28;
+        if (result != NULL) result->count++;
+        release_sigmatopdown_funtype_65(ivar_28);
+
+        return result;
+}
+
+sigmatopdown_closure_80_t new_sigmatopdown_closure_80(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_80, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_80, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_80, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_80};
+        sigmatopdown_closure_80_t tmp = (sigmatopdown_closure_80_t) safe_malloc(sizeof(struct sigmatopdown_closure_80_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_80(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_80_t x = (sigmatopdown_closure_80_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_80_t copy_sigmatopdown_closure_80(sigmatopdown_closure_80_t x){
+        sigmatopdown_closure_80_t y = new_sigmatopdown_closure_80();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+bool_t f_sigmatopdown_closure_81(struct sigmatopdown_closure_81_s * closure, sigmatopdown__ent_adt_t bvar){
+        bool_t result = h_sigmatopdown_closure_81(bvar); 
+        return result;}
+
+bool_t m_sigmatopdown_closure_81(struct sigmatopdown_closure_81_s * closure, sigmatopdown__ent_adt_t bvar){
+        return h_sigmatopdown_closure_81(bvar);}
+
+extern bool_t h_sigmatopdown_closure_81(sigmatopdown__ent_adt_t ivar_26){
+        bool_t result;
+        result = (bool_t)r_sigmatopdown__pushp((sigmatopdown__ent_adt_t)ivar_26);
+
+        return result;
+}
+
+sigmatopdown_closure_81_t new_sigmatopdown_closure_81(void){
+        static struct sigmatopdown_funtype_59_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&f_sigmatopdown_closure_81, .mptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_81, .rptr =  (void (*)(sigmatopdown_funtype_59_t))&release_sigmatopdown_closure_81, .cptr = (sigmatopdown_funtype_59_t (*)(sigmatopdown_funtype_59_t))&copy_sigmatopdown_closure_81};
+        sigmatopdown_closure_81_t tmp = (sigmatopdown_closure_81_t) safe_malloc(sizeof(struct sigmatopdown_closure_81_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_81(sigmatopdown_funtype_59_t closure){
+        sigmatopdown_closure_81_t x = (sigmatopdown_closure_81_t)closure;
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_81_t copy_sigmatopdown_closure_81(sigmatopdown_closure_81_t x){
+        sigmatopdown_closure_81_t y = new_sigmatopdown_closure_81();
+        y->ftbl = x->ftbl;
+
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_59_htbl_t new_htbl = (sigmatopdown_funtype_59_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_59_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_59_hashentry_t * new_data = (sigmatopdown_funtype_59_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_82(struct sigmatopdown_closure_82_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_82(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_82(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_82(struct sigmatopdown_closure_82_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_82(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_82(uint32_t ivar_29, sigmatopdown_funtype_66_t ivar_2){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_27;
+        uint32_t ivar_28;
+        //copying to uint32 from uint32;
+        ivar_28 = (uint32_t)ivar_29;
+        ivar_27 = (sigmatopdown_funtype_65_t)ivar_2->ftbl->fptr(ivar_2, ivar_28);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_27;
+        if (result != NULL) result->count++;
+        release_sigmatopdown_funtype_65(ivar_27);
+
+        return result;
+}
+
+sigmatopdown_closure_82_t new_sigmatopdown_closure_82(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_82, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_82, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_82, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_82};
+        sigmatopdown_closure_82_t tmp = (sigmatopdown_closure_82_t) safe_malloc(sizeof(struct sigmatopdown_closure_82_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_82(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_82_t x = (sigmatopdown_closure_82_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_82_t copy_sigmatopdown_closure_82(sigmatopdown_closure_82_t x){
+        sigmatopdown_closure_82_t y = new_sigmatopdown_closure_82();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+bool_t f_sigmatopdown_closure_83(struct sigmatopdown_closure_83_s * closure, sigmatopdown__ent_adt_t bvar){
+        bool_t result = h_sigmatopdown_closure_83(bvar); 
+        return result;}
+
+bool_t m_sigmatopdown_closure_83(struct sigmatopdown_closure_83_s * closure, sigmatopdown__ent_adt_t bvar){
+        return h_sigmatopdown_closure_83(bvar);}
+
+extern bool_t h_sigmatopdown_closure_83(sigmatopdown__ent_adt_t ivar_10){
+        bool_t result;
+        result = (bool_t)sigmatopdown__good_or_failp((sigmatopdown__ent_adt_t)ivar_10);
+
+        return result;
+}
+
+sigmatopdown_closure_83_t new_sigmatopdown_closure_83(void){
+        static struct sigmatopdown_funtype_59_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&f_sigmatopdown_closure_83, .mptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_83, .rptr =  (void (*)(sigmatopdown_funtype_59_t))&release_sigmatopdown_closure_83, .cptr = (sigmatopdown_funtype_59_t (*)(sigmatopdown_funtype_59_t))&copy_sigmatopdown_closure_83};
+        sigmatopdown_closure_83_t tmp = (sigmatopdown_closure_83_t) safe_malloc(sizeof(struct sigmatopdown_closure_83_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_83(sigmatopdown_funtype_59_t closure){
+        sigmatopdown_closure_83_t x = (sigmatopdown_closure_83_t)closure;
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_83_t copy_sigmatopdown_closure_83(sigmatopdown_closure_83_t x){
+        sigmatopdown_closure_83_t y = new_sigmatopdown_closure_83();
+        y->ftbl = x->ftbl;
+
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_59_htbl_t new_htbl = (sigmatopdown_funtype_59_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_59_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_59_hashentry_t * new_data = (sigmatopdown_funtype_59_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_sigmatopdown_funtype_84(sigmatopdown_funtype_84_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_84_t copy_sigmatopdown_funtype_84(sigmatopdown_funtype_84_t x){return x->ftbl->cptr(x);}
+
+uint32_t lookup_sigmatopdown_funtype_84(sigmatopdown_funtype_84_htbl_t htbl, uint64_t i, uint32_t ihash){
+        uint32_t mask = htbl->size - 1;
+        uint32_t hashindex = ihash & mask; sigmatopdown_funtype_84_hashentry_t data = htbl->data[hashindex];
+        bool_t keyzero;
+	printf("\nlookup: num_entries = %"PRIu32"", htbl->num_entries);	
+        keyzero = (data.key == 0);
+        bool_t keymatch;
+        keymatch = (data.key == i);
+        while ((!keyzero || data.keyhash != 0) &&
+                 (data.keyhash != ihash || !keymatch)){
+                hashindex++;
+                hashindex = hashindex & mask;
+                data = htbl->data[hashindex];
+
+        keyzero = (data.key == 0);
+
+        keymatch = (data.key == i);
+                }
+        return hashindex;
+        }
+
+sigmatopdown_funtype_84_t dupdate_sigmatopdown_funtype_84(sigmatopdown_funtype_84_t a, uint64_t i, bool_t v){
+        sigmatopdown_funtype_84_htbl_t htbl = a->htbl;
+        if (htbl == NULL){//construct new htbl
+                htbl = (sigmatopdown_funtype_84_htbl_t)safe_malloc(sizeof(struct sigmatopdown_funtype_84_htbl_s));
+                htbl->size = HTBL_DEFAULT_SIZE; htbl->num_entries = 0;
+                htbl->data = (sigmatopdown_funtype_84_hashentry_t *)safe_malloc(HTBL_DEFAULT_SIZE * sizeof(struct sigmatopdown_funtype_84_hashentry_s));
+                for (uint32_t j = 0; j < HTBL_DEFAULT_SIZE; j++){htbl->data[j].key = (uint64_t)0; htbl->data[j].keyhash = 0;
+                }
+                a->htbl = htbl;
+        }
+        uint32_t size = htbl->size;
+        uint32_t num_entries = htbl->num_entries;
+	printf("\ndupdating_funtype84: num_entries = %"PRIu32", a = %p, i = %"PRIu64"", num_entries, a, i);	
+        sigmatopdown_funtype_84_hashentry_t * data = htbl->data;
+        if (num_entries/3 >  size/5){//resize data
+	  printf("\nresizing: num_entries = %"PRIu32"", num_entries);
+                uint32_t new_size = 2*size; uint32_t new_mask = new_size - 1;
+                if (size >= HTBL_MAX_SIZE) out_of_memory();
+                sigmatopdown_funtype_84_hashentry_t * new_data = (sigmatopdown_funtype_84_hashentry_t *)safe_malloc(new_size * sizeof(struct sigmatopdown_funtype_84_hashentry_s));
+                for (uint32_t j = 0; j < size; j++){//transfer entries
+                        uint32_t keyhash = data[j].keyhash;
+                        bool_t keyzero;
+                        keyzero = (data[j].key == 0);
+                        if (!keyzero || keyhash != 0){
+                                uint32_t new_loc = keyhash ^ new_mask;
+                                keyzero = (new_data[new_loc].key == 0);
+                                while (keyzero && new_data[new_loc].keyhash == 0){
+                                        new_loc++;
+                                        new_loc = new_loc ^ new_mask;
+
+                                        keyzero = (new_data[new_loc].key == 0);
+                                }
+                                new_data[new_loc].key = (uint64_t)data[j].key;
+                                new_data[new_loc].keyhash = keyhash;
+                                new_data[new_loc].value = (bool_t)data[j].value;
+                                }}
+                htbl->size = new_size;
+                htbl->num_entries = num_entries;
+                htbl->data = new_data;
+                safe_free(data);}
+        uint32_t ihash = uint64_hash(i);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_84(htbl, i, ihash);
+        sigmatopdown_funtype_84_hashentry_t hentry = htbl->data[hashindex];
+        uint32_t hkeyhash = hentry.keyhash;
+        bool_t hentrykeyzero;
+        hentrykeyzero = (hentry.key == 0);
+
+        if (hentrykeyzero && (hkeyhash == 0))
+                {htbl->data[hashindex].key = (uint64_t)i; htbl->data[hashindex].keyhash = ihash; htbl->data[hashindex].value = (bool_t)v; htbl->num_entries++;}
+            else {bool_t tempvalue;tempvalue = (bool_t)htbl->data[hashindex].value;htbl->data[hashindex].value = (bool_t)v;};
+        return a;
+
+}
+
+sigmatopdown_funtype_84_t update_sigmatopdown_funtype_84(sigmatopdown_funtype_84_t a, uint64_t i, bool_t v){
+        if (a->count == 1){
+                return dupdate_sigmatopdown_funtype_84(a, i, v);
+            } else {
+                sigmatopdown_funtype_84_t x = copy_sigmatopdown_funtype_84(a);
+                a->count--;
+                return dupdate_sigmatopdown_funtype_84(x, i, v);
+            }}
+
+bool_t equal_sigmatopdown_funtype_84(sigmatopdown_funtype_84_t x, sigmatopdown_funtype_84_t y){
+        return false;}
+
+
+bool_t f_sigmatopdown_closure_85(struct sigmatopdown_closure_85_s * closure, uint64_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_84_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint64_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_84(htbl, bvar, hash);
+        sigmatopdown_funtype_84_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            bool_t result;
+            result = (bool_t)entry.value;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_85(bvar, closure->fvar_1, closure->fvar_2);};
+
+return h_sigmatopdown_closure_85(bvar, closure->fvar_1, closure->fvar_2);}
+
+bool_t m_sigmatopdown_closure_85(struct sigmatopdown_closure_85_s * closure, uint64_t bvar){
+        return h_sigmatopdown_closure_85(bvar, closure->fvar_1, closure->fvar_2);}
+
+extern bool_t h_sigmatopdown_closure_85(uint64_t ivar_6, sigmatopdown_funtype_66_t ivar_2, uint32_t ivar_1){
+        bool_t result;
+        uint64_t ivar_7;
+        sigmatopdown_funtype_66_t ivar_13;
+        sigmatopdown_closure_86_t cl21458;
+        cl21458 = new_sigmatopdown_closure_86();
+        cl21458->fvar_1 = (sigmatopdown_funtype_66_t)ivar_2;
+        cl21458->fvar_1->count++;
+        ivar_13 = (sigmatopdown_funtype_66_t)cl21458;
+        ivar_7 = (uint64_t)sigmatopdown__pushcount((uint32_t)ivar_1, (sigmatopdown_funtype_66_t)ivar_13);
+        result = (ivar_7 == ivar_6);
+
+        return result;
+}
+
+sigmatopdown_closure_85_t new_sigmatopdown_closure_85(void){
+        static struct sigmatopdown_funtype_84_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_84_t, uint64_t))&f_sigmatopdown_closure_85, .mptr = (bool_t (*)(sigmatopdown_funtype_84_t, uint64_t))&m_sigmatopdown_closure_85, .rptr =  (void (*)(sigmatopdown_funtype_84_t))&release_sigmatopdown_closure_85, .cptr = (sigmatopdown_funtype_84_t (*)(sigmatopdown_funtype_84_t))&copy_sigmatopdown_closure_85};
+        sigmatopdown_closure_85_t tmp = (sigmatopdown_closure_85_t) safe_malloc(sizeof(struct sigmatopdown_closure_85_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_85(sigmatopdown_funtype_84_t closure){
+        sigmatopdown_closure_85_t x = (sigmatopdown_closure_85_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_85_t copy_sigmatopdown_closure_85(sigmatopdown_closure_85_t x){
+        sigmatopdown_closure_85_t y = new_sigmatopdown_closure_85();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = (uint32_t)x->fvar_2;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_84_htbl_t new_htbl = (sigmatopdown_funtype_84_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_84_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_84_hashentry_t * new_data = (sigmatopdown_funtype_84_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_84_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_84_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_86(struct sigmatopdown_closure_86_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_86(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_86(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_86(struct sigmatopdown_closure_86_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_86(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_86(uint32_t ivar_24, sigmatopdown_funtype_66_t ivar_2){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_22;
+        uint32_t ivar_23;
+        //copying to uint32 from uint32;
+        ivar_23 = (uint32_t)ivar_24;
+        ivar_22 = (sigmatopdown_funtype_65_t)ivar_2->ftbl->fptr(ivar_2, ivar_23);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_22;
+        if (result != NULL) result->count++;
+        release_sigmatopdown_funtype_65(ivar_22);
+
+        return result;
+}
+
+sigmatopdown_closure_86_t new_sigmatopdown_closure_86(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_86, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_86, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_86, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_86};
+        sigmatopdown_closure_86_t tmp = (sigmatopdown_closure_86_t) safe_malloc(sizeof(struct sigmatopdown_closure_86_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_86(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_86_t x = (sigmatopdown_closure_86_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_86_t copy_sigmatopdown_closure_86(sigmatopdown_closure_86_t x){
+        sigmatopdown_closure_86_t y = new_sigmatopdown_closure_86();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+bool_t f_sigmatopdown_closure_87(struct sigmatopdown_closure_87_s * closure, sigmatopdown__ent_adt_t bvar){
+        bool_t result = h_sigmatopdown_closure_87(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4); 
+        return result;}
+
+bool_t m_sigmatopdown_closure_87(struct sigmatopdown_closure_87_s * closure, sigmatopdown__ent_adt_t bvar){
+        return h_sigmatopdown_closure_87(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4);}
+
+extern bool_t h_sigmatopdown_closure_87(sigmatopdown__ent_adt_t ivar_8, sigmatopdown__lang_spec_t ivar_2, uint32_t ivar_1, sigmatopdown_funtype_66_t ivar_4, uint64_t ivar_3){
+        bool_t result;
+        bool_t ivar_9;
+        uint8_t ivar_10;
+        ivar_8->count++;
+        ivar_10 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_8);
+        uint8_t ivar_11;
+        ivar_11 = (uint8_t)sigmatopdown__num_non_terminals();
+        ivar_9 = (ivar_10 >= ivar_11);
+        if (ivar_9){ 
+             release_sigmatopdown__ent_adt(ivar_8);
+             uint8_t ivar_17;
+             ivar_17 = (uint8_t)0;
+             result = (ivar_3 == ivar_17);
+} else {
+        
+             /* entry */ sigmatopdown__ent_adt_t ivar_19;
+             sigmatopdown_funtype_65_t ivar_26;
+             sigmatopdown_funtype_66_t ivar_35;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_35 = (sigmatopdown_funtype_66_t)ivar_4;
+             ivar_35->count++;
+             uint32_t ivar_37;
+             ivar_8->count++;
+             ivar_37 = (uint32_t)sigmatopdown__ent_adt_pos((sigmatopdown__ent_adt_t)ivar_8);
+             uint32_t ivar_36;
+             //copying to uint32 from uint32;
+             ivar_36 = (uint32_t)ivar_37;
+             sigmatopdown_funtype_65_t ivar_32;
+             ivar_32 = (sigmatopdown_funtype_65_t)ivar_35->ftbl->fptr(ivar_35, ivar_36);
+             ivar_35->ftbl->rptr(ivar_35);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_26 = (sigmatopdown_funtype_65_t)ivar_32;
+             ivar_26->count++;
+             release_sigmatopdown_funtype_65(ivar_32);
+             uint8_t ivar_38;
+             ivar_8->count++;
+             ivar_38 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_8);
+             sigmatopdown__ent_adt_t ivar_24;
+             ivar_24 = (sigmatopdown__ent_adt_t)ivar_26->ftbl->fptr(ivar_26, ivar_38);
+             ivar_26->ftbl->rptr(ivar_26);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_19 = (sigmatopdown__ent_adt_t)ivar_24;
+             ivar_19->count++;
+             release_sigmatopdown__ent_adt(ivar_24);
+             bool_t ivar_39;
+             sigmatopdown_funtype_59_t ivar_44;
+             sigmatopdown_funtype_59_t ivar_47;
+             ivar_47 = (sigmatopdown_funtype_59_t)sigmatopdown__good_push_entryp((uint32_t)ivar_1);
+             //copying to sigmatopdown_funtype_59 from sigmatopdown_funtype_59;
+             ivar_44 = (sigmatopdown_funtype_59_t)ivar_47;
+             ivar_44->count++;
+             release_sigmatopdown_funtype_59(ivar_47);
+             ivar_19->count++;
+             ivar_39 = (bool_t)ivar_44->ftbl->fptr(ivar_44, ivar_19);
+             ivar_44->ftbl->rptr(ivar_44);
+             bool_t ivar_40;
+             bool_t ivar_50;
+             bool_t ivar_52;
+             uint8_t ivar_54;
+             ivar_19->count++;
+             ivar_54 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_19);
+             uint8_t ivar_55;
+             ivar_55 = (uint8_t)sigmatopdown__num_non_terminals();
+             ivar_52 = (ivar_54 == ivar_55);
+             bool_t ivar_53;
+             sigmatopdown_funtype_69_t ivar_64;
+             sigmatopdown_funtype_66_t ivar_72;
+             sigmatopdown_closure_88_t cl21464;
+             cl21464 = new_sigmatopdown_closure_88();
+             cl21464->fvar_1 = (sigmatopdown_funtype_66_t)ivar_4;
+             cl21464->fvar_1->count++;
+             ivar_72 = (sigmatopdown_funtype_66_t)cl21464;
+             sigmatopdown_funtype_69_t ivar_69;
+             ivar_2->count++;
+             ivar_69 = (sigmatopdown_funtype_69_t)sigmatopdown__successor((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (sigmatopdown_funtype_66_t)ivar_72);
+             //copying to sigmatopdown_funtype_69 from sigmatopdown_funtype_69;
+             ivar_64 = (sigmatopdown_funtype_69_t)ivar_69;
+             ivar_64->count++;
+             release_sigmatopdown_funtype_69(ivar_69);
+             ivar_19->count++;
+             ivar_53 = (bool_t)ivar_64->ftbl->mptr(ivar_64, ivar_19, ivar_8);
+             ivar_64->ftbl->rptr(ivar_64);
+             ivar_50 = ivar_52 || ivar_53;
+             bool_t ivar_51;
+             bool_t ivar_88;
+             uint8_t ivar_91;
+             ivar_91 = (uint8_t)0;
+             ivar_88 = (ivar_3 > ivar_91);
+             bool_t ivar_89;
+             sigmatopdown_funtype_59_t ivar_96;
+             mpz_ptr_t ivar_123;
+             uint8_t ivar_103;
+             ivar_103 = (uint8_t)1;
+             mpz_mk_set_ui(ivar_123, (uint64_t)ivar_3);
+             mpz_sub_ui(ivar_123, ivar_123, (uint64_t)ivar_103);
+             uint64_t ivar_108;
+             //copying to uint64 from mpz;
+             ivar_108 = (uint64_t)mpz_get_ui(ivar_123);
+             mpz_clear(ivar_123);
+             sigmatopdown_funtype_66_t ivar_109;
+             sigmatopdown_closure_89_t cl21465;
+             cl21465 = new_sigmatopdown_closure_89();
+             cl21465->fvar_1 = (sigmatopdown_funtype_66_t)ivar_4;
+             cl21465->fvar_1->count++;
+             ivar_109 = (sigmatopdown_funtype_66_t)cl21465;
+             sigmatopdown_funtype_59_t ivar_105;
+             ivar_2->count++;
+             ivar_105 = (sigmatopdown_funtype_59_t)sigmatopdown__good_stackp((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (uint64_t)ivar_108, (sigmatopdown_funtype_66_t)ivar_109);
+             //copying to sigmatopdown_funtype_59 from sigmatopdown_funtype_59;
+             ivar_96 = (sigmatopdown_funtype_59_t)ivar_105;
+             ivar_96->count++;
+             release_sigmatopdown_funtype_59(ivar_105);
+             ivar_89 = (bool_t)ivar_96->ftbl->fptr(ivar_96, ivar_19);
+             ivar_96->ftbl->rptr(ivar_96);
+             ivar_51 = ivar_88 && ivar_89;
+             ivar_40 = ivar_50 && ivar_51;
+             result = ivar_39 && ivar_40;
+};
+
+        return result;
+}
+
+sigmatopdown_closure_87_t new_sigmatopdown_closure_87(void){
+        static struct sigmatopdown_funtype_59_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&f_sigmatopdown_closure_87, .mptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_87, .rptr =  (void (*)(sigmatopdown_funtype_59_t))&release_sigmatopdown_closure_87, .cptr = (sigmatopdown_funtype_59_t (*)(sigmatopdown_funtype_59_t))&copy_sigmatopdown_closure_87};
+        sigmatopdown_closure_87_t tmp = (sigmatopdown_closure_87_t) safe_malloc(sizeof(struct sigmatopdown_closure_87_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_87(sigmatopdown_funtype_59_t closure){
+        sigmatopdown_closure_87_t x = (sigmatopdown_closure_87_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown__lang_spec(x->fvar_1);
+         release_sigmatopdown_funtype_66(x->fvar_3);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_87_t copy_sigmatopdown_closure_87(sigmatopdown_closure_87_t x){
+        sigmatopdown_closure_87_t y = new_sigmatopdown_closure_87();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = (uint32_t)x->fvar_2;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        y->fvar_4 = (uint64_t)x->fvar_4;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_59_htbl_t new_htbl = (sigmatopdown_funtype_59_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_59_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_59_hashentry_t * new_data = (sigmatopdown_funtype_59_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_88(struct sigmatopdown_closure_88_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_88(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_88(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_88(struct sigmatopdown_closure_88_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_88(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_88(uint32_t ivar_83, sigmatopdown_funtype_66_t ivar_4){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_81;
+        uint32_t ivar_82;
+        //copying to uint32 from uint32;
+        ivar_82 = (uint32_t)ivar_83;
+        ivar_81 = (sigmatopdown_funtype_65_t)ivar_4->ftbl->fptr(ivar_4, ivar_82);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_81;
+        if (result != NULL) result->count++;
+        release_sigmatopdown_funtype_65(ivar_81);
+
+        return result;
+}
+
+sigmatopdown_closure_88_t new_sigmatopdown_closure_88(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_88, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_88, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_88, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_88};
+        sigmatopdown_closure_88_t tmp = (sigmatopdown_closure_88_t) safe_malloc(sizeof(struct sigmatopdown_closure_88_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_88(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_88_t x = (sigmatopdown_closure_88_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_88_t copy_sigmatopdown_closure_88(sigmatopdown_closure_88_t x){
+        sigmatopdown_closure_88_t y = new_sigmatopdown_closure_88();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_89(struct sigmatopdown_closure_89_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_89(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_89(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_89(struct sigmatopdown_closure_89_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_89(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_89(uint32_t ivar_121, sigmatopdown_funtype_66_t ivar_4){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_119;
+        uint32_t ivar_120;
+        //copying to uint32 from uint32;
+        ivar_120 = (uint32_t)ivar_121;
+        ivar_119 = (sigmatopdown_funtype_65_t)ivar_4->ftbl->fptr(ivar_4, ivar_120);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_119;
+        if (result != NULL) result->count++;
+        release_sigmatopdown_funtype_65(ivar_119);
+
+        return result;
+}
+
+sigmatopdown_closure_89_t new_sigmatopdown_closure_89(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_89, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_89, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_89, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_89};
+        sigmatopdown_closure_89_t tmp = (sigmatopdown_closure_89_t) safe_malloc(sizeof(struct sigmatopdown_closure_89_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_89(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_89_t x = (sigmatopdown_closure_89_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_89_t copy_sigmatopdown_closure_89(sigmatopdown_closure_89_t x){
+        sigmatopdown_closure_89_t y = new_sigmatopdown_closure_89();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+bool_t f_sigmatopdown_closure_90(struct sigmatopdown_closure_90_s * closure, sigmatopdown_record_68_t bvar){
+        sigmatopdown__ent_adt_t bvar_1;
+        bvar_1 = (sigmatopdown__ent_adt_t)bvar->project_1;
+        bvar->project_1->count++;
+        sigmatopdown__ent_adt_t bvar_2;
+        bvar_2 = (sigmatopdown__ent_adt_t)bvar->project_2;
+        bvar->project_2->count++;
+        release_sigmatopdown_record_68(bvar);
+        bool_t result = h_sigmatopdown_closure_90(bvar_1, bvar_2, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4); 
+        release_sigmatopdown__ent_adt(bvar_1);
+        release_sigmatopdown__ent_adt(bvar_2);
+        return result;}
+
+bool_t m_sigmatopdown_closure_90(struct sigmatopdown_closure_90_s * closure, sigmatopdown__ent_adt_t bvar_1, sigmatopdown__ent_adt_t bvar_2){
+        return h_sigmatopdown_closure_90(bvar_1, bvar_2, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4);}
+
+extern bool_t h_sigmatopdown_closure_90(sigmatopdown__ent_adt_t ivar_8, sigmatopdown__ent_adt_t ivar_9, sigmatopdown__lang_spec_t ivar_2, uint32_t ivar_1, sigmatopdown_funtype_66_t ivar_4, uint64_t ivar_3){
+        bool_t result;
+        bool_t ivar_10;
+        uint8_t ivar_11;
+        ivar_9->count++;
+        ivar_11 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_9);
+        uint8_t ivar_12;
+        ivar_12 = (uint8_t)sigmatopdown__num_non_terminals();
+        ivar_10 = (ivar_11 >= ivar_12);
+        if (ivar_10){ 
+             release_sigmatopdown__ent_adt(ivar_8);
+             release_sigmatopdown__ent_adt(ivar_9);
+             result = (bool_t) false;
+} else {
+        
+             bool_t ivar_17;
+             ivar_8->count++;
+             ivar_9->count++;
+             ivar_17 = (bool_t) equal_sigmatopdown__ent_adt(ivar_8, ivar_9);
+             bool_t ivar_18;
+             sigmatopdown_funtype_69_t ivar_45;
+             mpz_ptr_t ivar_72;
+             uint8_t ivar_52;
+             ivar_52 = (uint8_t)1;
+             mpz_mk_set_ui(ivar_72, (uint64_t)ivar_3);
+             mpz_sub_ui(ivar_72, ivar_72, (uint64_t)ivar_52);
+             uint64_t ivar_57;
+             //copying to uint64 from mpz;
+             ivar_57 = (uint64_t)mpz_get_ui(ivar_72);
+             mpz_clear(ivar_72);
+             sigmatopdown_funtype_66_t ivar_58;
+             sigmatopdown_closure_91_t cl21470;
+             cl21470 = new_sigmatopdown_closure_91();
+             cl21470->fvar_1 = (sigmatopdown_funtype_66_t)ivar_4;
+             cl21470->fvar_1->count++;
+             ivar_58 = (sigmatopdown_funtype_66_t)cl21470;
+             sigmatopdown_funtype_69_t ivar_54;
+             ivar_2->count++;
+             ivar_54 = (sigmatopdown_funtype_69_t)sigmatopdown__mem_stackp((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (uint64_t)ivar_57, (sigmatopdown_funtype_66_t)ivar_58);
+             //copying to sigmatopdown_funtype_69 from sigmatopdown_funtype_69;
+             ivar_45 = (sigmatopdown_funtype_69_t)ivar_54;
+             ivar_45->count++;
+             release_sigmatopdown_funtype_69(ivar_54);
+             sigmatopdown__ent_adt_t ivar_74;
+             sigmatopdown_funtype_65_t ivar_30;
+             sigmatopdown_funtype_66_t ivar_39;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_39 = (sigmatopdown_funtype_66_t)ivar_4;
+             ivar_39->count++;
+             uint32_t ivar_41;
+             ivar_9->count++;
+             ivar_41 = (uint32_t)sigmatopdown__ent_adt_pos((sigmatopdown__ent_adt_t)ivar_9);
+             uint32_t ivar_40;
+             //copying to uint32 from uint32;
+             ivar_40 = (uint32_t)ivar_41;
+             sigmatopdown_funtype_65_t ivar_36;
+             ivar_36 = (sigmatopdown_funtype_65_t)ivar_39->ftbl->fptr(ivar_39, ivar_40);
+             ivar_39->ftbl->rptr(ivar_39);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_30 = (sigmatopdown_funtype_65_t)ivar_36;
+             ivar_30->count++;
+             release_sigmatopdown_funtype_65(ivar_36);
+             uint8_t ivar_42;
+             ivar_42 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_9);
+             sigmatopdown__ent_adt_t ivar_28;
+             ivar_28 = (sigmatopdown__ent_adt_t)ivar_30->ftbl->fptr(ivar_30, ivar_42);
+             ivar_30->ftbl->rptr(ivar_30);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_74 = (sigmatopdown__ent_adt_t)ivar_28;
+             ivar_74->count++;
+             release_sigmatopdown__ent_adt(ivar_28);
+             ivar_18 = (bool_t)ivar_45->ftbl->mptr(ivar_45, ivar_8, ivar_74);
+             ivar_45->ftbl->rptr(ivar_45);
+             result = ivar_17 || ivar_18;
+};
+
+        return result;
+}
+
+sigmatopdown_closure_90_t new_sigmatopdown_closure_90(void){
+        static struct sigmatopdown_funtype_69_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_69_t, sigmatopdown_record_68_t))&f_sigmatopdown_closure_90, .mptr = (bool_t (*)(sigmatopdown_funtype_69_t, sigmatopdown__ent_adt_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_90, .rptr =  (void (*)(sigmatopdown_funtype_69_t))&release_sigmatopdown_closure_90, .cptr = (sigmatopdown_funtype_69_t (*)(sigmatopdown_funtype_69_t))&copy_sigmatopdown_closure_90};
+        sigmatopdown_closure_90_t tmp = (sigmatopdown_closure_90_t) safe_malloc(sizeof(struct sigmatopdown_closure_90_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_90(sigmatopdown_funtype_69_t closure){
+        sigmatopdown_closure_90_t x = (sigmatopdown_closure_90_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown__lang_spec(x->fvar_1);
+         release_sigmatopdown_funtype_66(x->fvar_3);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_90_t copy_sigmatopdown_closure_90(sigmatopdown_closure_90_t x){
+        sigmatopdown_closure_90_t y = new_sigmatopdown_closure_90();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = (uint32_t)x->fvar_2;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        y->fvar_4 = (uint64_t)x->fvar_4;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_69_htbl_t new_htbl = (sigmatopdown_funtype_69_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_69_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_69_hashentry_t * new_data = (sigmatopdown_funtype_69_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_69_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_69_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_91(struct sigmatopdown_closure_91_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_91(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_91(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_91(struct sigmatopdown_closure_91_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_91(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_91(uint32_t ivar_70, sigmatopdown_funtype_66_t ivar_4){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_68;
+        uint32_t ivar_69;
+        //copying to uint32 from uint32;
+        ivar_69 = (uint32_t)ivar_70;
+        ivar_68 = (sigmatopdown_funtype_65_t)ivar_4->ftbl->fptr(ivar_4, ivar_69);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_68;
+        result->count++;
+        release_sigmatopdown_funtype_65(ivar_68);
+
+        return result;
+}
+
+sigmatopdown_closure_91_t new_sigmatopdown_closure_91(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_91, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_91, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_91, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_91};
+        sigmatopdown_closure_91_t tmp = (sigmatopdown_closure_91_t) safe_malloc(sizeof(struct sigmatopdown_closure_91_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_91(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_91_t x = (sigmatopdown_closure_91_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_91_t copy_sigmatopdown_closure_91(sigmatopdown_closure_91_t x){
+        sigmatopdown_closure_91_t y = new_sigmatopdown_closure_91();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+bool_t f_sigmatopdown_closure_92(struct sigmatopdown_closure_92_s * closure, sigmatopdown__ent_adt_t bvar){
+        bool_t result = h_sigmatopdown_closure_92(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4); 
+        return result;}
+
+bool_t m_sigmatopdown_closure_92(struct sigmatopdown_closure_92_s * closure, sigmatopdown__ent_adt_t bvar){
+        return h_sigmatopdown_closure_92(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4);}
+
+extern bool_t h_sigmatopdown_closure_92(sigmatopdown__ent_adt_t ivar_8, sigmatopdown__lang_spec_t ivar_2, uint32_t ivar_1, sigmatopdown_funtype_66_t ivar_4, uint64_t ivar_3){
+        bool_t result;
+        bool_t ivar_9;
+        uint8_t ivar_10;
+        ivar_8->count++;
+        ivar_10 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_8);
+        uint8_t ivar_11;
+        ivar_11 = (uint8_t)sigmatopdown__num_non_terminals();
+        ivar_9 = (ivar_10 >= ivar_11);
+        if (ivar_9){ 
+             release_sigmatopdown__ent_adt(ivar_8);
+             result = (bool_t) true;
+} else {
+        
+             /* rest */ sigmatopdown__ent_adt_t ivar_16;
+             sigmatopdown_funtype_65_t ivar_23;
+             sigmatopdown_funtype_66_t ivar_32;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_32 = (sigmatopdown_funtype_66_t)ivar_4;
+             ivar_32->count++;
+             uint32_t ivar_34;
+             ivar_8->count++;
+             ivar_34 = (uint32_t)sigmatopdown__ent_adt_pos((sigmatopdown__ent_adt_t)ivar_8);
+             uint32_t ivar_33;
+             //copying to uint32 from uint32;
+             ivar_33 = (uint32_t)ivar_34;
+             sigmatopdown_funtype_65_t ivar_29;
+             ivar_29 = (sigmatopdown_funtype_65_t)ivar_32->ftbl->fptr(ivar_32, ivar_33);
+             ivar_32->ftbl->rptr(ivar_32);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_23 = (sigmatopdown_funtype_65_t)ivar_29;
+             ivar_23->count++;
+             release_sigmatopdown_funtype_65(ivar_29);
+             uint8_t ivar_35;
+             ivar_8->count++;
+             ivar_35 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_8);
+             sigmatopdown__ent_adt_t ivar_21;
+             ivar_21 = (sigmatopdown__ent_adt_t)ivar_23->ftbl->fptr(ivar_23, ivar_35);
+             ivar_23->ftbl->rptr(ivar_23);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_16 = (sigmatopdown__ent_adt_t)ivar_21;
+             ivar_16->count++;
+             release_sigmatopdown__ent_adt(ivar_21);
+             bool_t ivar_36;
+             bool_t ivar_38;
+             sigmatopdown_funtype_69_t ivar_43;
+             mpz_ptr_t ivar_70;
+             uint8_t ivar_50;
+             ivar_50 = (uint8_t)1;
+             mpz_mk_set_ui(ivar_70, (uint64_t)ivar_3);
+             mpz_sub_ui(ivar_70, ivar_70, (uint64_t)ivar_50);
+             uint64_t ivar_55;
+             //copying to uint64 from mpz;
+             ivar_55 = (uint64_t)mpz_get_ui(ivar_70);
+             mpz_clear(ivar_70);
+             sigmatopdown_funtype_66_t ivar_56;
+             sigmatopdown_closure_93_t cl21477;
+             cl21477 = new_sigmatopdown_closure_93();
+             cl21477->fvar_1 = (sigmatopdown_funtype_66_t)ivar_4;
+             cl21477->fvar_1->count++;
+             ivar_56 = (sigmatopdown_funtype_66_t)cl21477;
+             sigmatopdown_funtype_69_t ivar_52;
+             ivar_2->count++;
+             ivar_52 = (sigmatopdown_funtype_69_t)sigmatopdown__mem_stackp((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (uint64_t)ivar_55, (sigmatopdown_funtype_66_t)ivar_56);
+             //copying to sigmatopdown_funtype_69 from sigmatopdown_funtype_69;
+             ivar_43 = (sigmatopdown_funtype_69_t)ivar_52;
+             ivar_43->count++;
+             release_sigmatopdown_funtype_69(ivar_52);
+             ivar_8->count++;
+             ivar_38 = (bool_t)ivar_43->ftbl->mptr(ivar_43, ivar_8, ivar_16);
+             ivar_43->ftbl->rptr(ivar_43);
+             ivar_36 = !ivar_38;
+             bool_t ivar_37;
+             sigmatopdown_funtype_59_t ivar_96;
+             mpz_ptr_t ivar_123;
+             uint8_t ivar_103;
+             ivar_103 = (uint8_t)1;
+             mpz_mk_set_ui(ivar_123, (uint64_t)ivar_3);
+             mpz_sub_ui(ivar_123, ivar_123, (uint64_t)ivar_103);
+             uint64_t ivar_108;
+             //copying to uint64 from mpz;
+             ivar_108 = (uint64_t)mpz_get_ui(ivar_123);
+             mpz_clear(ivar_123);
+             sigmatopdown_funtype_66_t ivar_109;
+             sigmatopdown_closure_94_t cl21478;
+             cl21478 = new_sigmatopdown_closure_94();
+             cl21478->fvar_1 = (sigmatopdown_funtype_66_t)ivar_4;
+             cl21478->fvar_1->count++;
+             ivar_109 = (sigmatopdown_funtype_66_t)cl21478;
+             sigmatopdown_funtype_59_t ivar_105;
+             ivar_2->count++;
+             ivar_105 = (sigmatopdown_funtype_59_t)sigmatopdown__fine_stackp((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (uint64_t)ivar_108, (sigmatopdown_funtype_66_t)ivar_109);
+             //copying to sigmatopdown_funtype_59 from sigmatopdown_funtype_59;
+             ivar_96 = (sigmatopdown_funtype_59_t)ivar_105;
+             ivar_96->count++;
+             release_sigmatopdown_funtype_59(ivar_105);
+             sigmatopdown__ent_adt_t ivar_124;
+             sigmatopdown_funtype_65_t ivar_81;
+             sigmatopdown_funtype_66_t ivar_90;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_90 = (sigmatopdown_funtype_66_t)ivar_4;
+             ivar_90->count++;
+             uint32_t ivar_92;
+             ivar_8->count++;
+             ivar_92 = (uint32_t)sigmatopdown__ent_adt_pos((sigmatopdown__ent_adt_t)ivar_8);
+             uint32_t ivar_91;
+             //copying to uint32 from uint32;
+             ivar_91 = (uint32_t)ivar_92;
+             sigmatopdown_funtype_65_t ivar_87;
+             ivar_87 = (sigmatopdown_funtype_65_t)ivar_90->ftbl->fptr(ivar_90, ivar_91);
+             ivar_90->ftbl->rptr(ivar_90);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_81 = (sigmatopdown_funtype_65_t)ivar_87;
+             ivar_81->count++;
+             release_sigmatopdown_funtype_65(ivar_87);
+             uint8_t ivar_93;
+             ivar_93 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_8);
+             sigmatopdown__ent_adt_t ivar_79;
+             ivar_79 = (sigmatopdown__ent_adt_t)ivar_81->ftbl->fptr(ivar_81, ivar_93);
+             ivar_81->ftbl->rptr(ivar_81);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_124 = (sigmatopdown__ent_adt_t)ivar_79;
+             ivar_124->count++;
+             release_sigmatopdown__ent_adt(ivar_79);
+             ivar_37 = (bool_t)ivar_96->ftbl->fptr(ivar_96, ivar_124);
+             ivar_96->ftbl->rptr(ivar_96);
+             result = ivar_36 && ivar_37;
+};
+
+        return result;
+}
+
+sigmatopdown_closure_92_t new_sigmatopdown_closure_92(void){
+        static struct sigmatopdown_funtype_59_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&f_sigmatopdown_closure_92, .mptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_92, .rptr =  (void (*)(sigmatopdown_funtype_59_t))&release_sigmatopdown_closure_92, .cptr = (sigmatopdown_funtype_59_t (*)(sigmatopdown_funtype_59_t))&copy_sigmatopdown_closure_92};
+        sigmatopdown_closure_92_t tmp = (sigmatopdown_closure_92_t) safe_malloc(sizeof(struct sigmatopdown_closure_92_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_92(sigmatopdown_funtype_59_t closure){
+        sigmatopdown_closure_92_t x = (sigmatopdown_closure_92_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown__lang_spec(x->fvar_1);
+         release_sigmatopdown_funtype_66(x->fvar_3);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_92_t copy_sigmatopdown_closure_92(sigmatopdown_closure_92_t x){
+        sigmatopdown_closure_92_t y = new_sigmatopdown_closure_92();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = (uint32_t)x->fvar_2;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        y->fvar_4 = (uint64_t)x->fvar_4;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_59_htbl_t new_htbl = (sigmatopdown_funtype_59_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_59_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_59_hashentry_t * new_data = (sigmatopdown_funtype_59_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_93(struct sigmatopdown_closure_93_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_93(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_93(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_93(struct sigmatopdown_closure_93_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_93(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_93(uint32_t ivar_68, sigmatopdown_funtype_66_t ivar_4){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_66;
+        uint32_t ivar_67;
+        //copying to uint32 from uint32;
+        ivar_67 = (uint32_t)ivar_68;
+        ivar_66 = (sigmatopdown_funtype_65_t)ivar_4->ftbl->fptr(ivar_4, ivar_67);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_66;
+        result->count++;
+        release_sigmatopdown_funtype_65(ivar_66);
+
+        return result;
+}
+
+sigmatopdown_closure_93_t new_sigmatopdown_closure_93(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_93, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_93, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_93, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_93};
+        sigmatopdown_closure_93_t tmp = (sigmatopdown_closure_93_t) safe_malloc(sizeof(struct sigmatopdown_closure_93_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_93(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_93_t x = (sigmatopdown_closure_93_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_93_t copy_sigmatopdown_closure_93(sigmatopdown_closure_93_t x){
+        sigmatopdown_closure_93_t y = new_sigmatopdown_closure_93();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_94(struct sigmatopdown_closure_94_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_94(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_94(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_94(struct sigmatopdown_closure_94_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_94(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_94(uint32_t ivar_121, sigmatopdown_funtype_66_t ivar_4){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_119;
+        uint32_t ivar_120;
+        //copying to uint32 from uint32;
+        ivar_120 = (uint32_t)ivar_121;
+        ivar_119 = (sigmatopdown_funtype_65_t)ivar_4->ftbl->fptr(ivar_4, ivar_120);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_119;
+        result->count++;
+        release_sigmatopdown_funtype_65(ivar_119);
+
+        return result;
+}
+
+sigmatopdown_closure_94_t new_sigmatopdown_closure_94(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_94, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_94, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_94, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_94};
+        sigmatopdown_closure_94_t tmp = (sigmatopdown_closure_94_t) safe_malloc(sizeof(struct sigmatopdown_closure_94_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_94(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_94_t x = (sigmatopdown_closure_94_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_94_t copy_sigmatopdown_closure_94(sigmatopdown_closure_94_t x){
+        sigmatopdown_closure_94_t y = new_sigmatopdown_closure_94();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_record_95_t new_sigmatopdown_record_95(void){
+        sigmatopdown_record_95_t tmp = (sigmatopdown_record_95_t) safe_malloc(sizeof(struct sigmatopdown_record_95_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_95(sigmatopdown_record_95_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->project_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_95_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_95((sigmatopdown_record_95_t)x);
+}
+
+sigmatopdown_record_95_t copy_sigmatopdown_record_95(sigmatopdown_record_95_t x){
+        sigmatopdown_record_95_t y = new_sigmatopdown_record_95();
+        y->project_1 = x->project_1;
+        if (y->project_1 != NULL){y->project_1->count++;};
+        y->project_2 = (uint32_t)x->project_2;
+        y->project_3 = (uint8_t)x->project_3;
+        y->project_4 = (uint64_t)x->project_4;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_95(sigmatopdown_record_95_t x, sigmatopdown_record_95_t y){
+        bool_t tmp = true;
+        tmp = tmp && equal_sigmatopdown_funtype_66(x->project_1, y->project_1);
+        tmp = tmp && x->project_2 == y->project_2;
+        tmp = tmp && x->project_3 == y->project_3;
+        tmp = tmp && x->project_4 == y->project_4;
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_95_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_95_t T){
+        return equal_sigmatopdown_record_95((sigmatopdown_record_95_t)x, (sigmatopdown_record_95_t)y);
+}
+
+actual_sigmatopdown_record_95_t actual_sigmatopdown_record_95(){
+        actual_sigmatopdown_record_95_t new = (actual_sigmatopdown_record_95_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_95_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_95_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_95_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_95_t update_sigmatopdown_record_95_project_1(sigmatopdown_record_95_t x, sigmatopdown_funtype_66_t v){
+        sigmatopdown_record_95_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_1 != NULL){release_sigmatopdown_funtype_66(x->project_1);};}
+        else {y = copy_sigmatopdown_record_95(x); x->count--; y->project_1->count--;};
+        y->project_1 = (sigmatopdown_funtype_66_t)v;
+        return y;}
+
+sigmatopdown_record_95_t update_sigmatopdown_record_95_project_2(sigmatopdown_record_95_t x, uint32_t v){
+        sigmatopdown_record_95_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_95(x); x->count--;};
+        y->project_2 = (uint32_t)v;
+        return y;}
+
+sigmatopdown_record_95_t update_sigmatopdown_record_95_project_3(sigmatopdown_record_95_t x, uint8_t v){
+        sigmatopdown_record_95_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_95(x); x->count--;};
+        y->project_3 = (uint8_t)v;
+        return y;}
+
+sigmatopdown_record_95_t update_sigmatopdown_record_95_project_4(sigmatopdown_record_95_t x, uint64_t v){
+        sigmatopdown_record_95_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_95(x); x->count--;};
+        y->project_4 = (uint64_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_96(sigmatopdown_funtype_96_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_96_t copy_sigmatopdown_funtype_96(sigmatopdown_funtype_96_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_96(sigmatopdown_funtype_96_t x, sigmatopdown_funtype_96_t y){
+        return false;}
+
+
+bool_t f_sigmatopdown_closure_97(struct sigmatopdown_closure_97_s * closure, sigmatopdown_record_95_t bvar){
+        sigmatopdown_funtype_66_t bvar_1;
+        bvar_1 = (sigmatopdown_funtype_66_t)bvar->project_1;
+        bvar->project_1->count++;
+        uint32_t bvar_2;
+        bvar_2 = (uint32_t)bvar->project_2;
+        uint8_t bvar_3;
+        bvar_3 = (uint8_t)bvar->project_3;
+        uint64_t bvar_4;
+        bvar_4 = (uint64_t)bvar->project_4;
+        release_sigmatopdown_record_95(bvar);
+        bool_t result = h_sigmatopdown_closure_97(bvar_1, bvar_2, bvar_3, bvar_4, closure->fvar_1, closure->fvar_2, closure->fvar_3); 
+        release_sigmatopdown_funtype_66(bvar_1);
+        return result;}
+
+bool_t m_sigmatopdown_closure_97(struct sigmatopdown_closure_97_s * closure, sigmatopdown_funtype_66_t bvar_1, uint32_t bvar_2, uint8_t bvar_3, uint64_t bvar_4){
+        return h_sigmatopdown_closure_97(bvar_1, bvar_2, bvar_3, bvar_4, closure->fvar_1, closure->fvar_2, closure->fvar_3);}
+
+extern bool_t h_sigmatopdown_closure_97(sigmatopdown_funtype_66_t ivar_8, uint32_t ivar_11, uint8_t ivar_12, uint64_t ivar_13, sigmatopdown_funtype_75_t ivar_3, uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2){
+        bool_t result;
+        sigmatopdown__peg_adt_t ivar_14;
+        sigmatopdown__peg_adt_t ivar_16;
+        ivar_16 = (sigmatopdown__peg_adt_t)ivar_2->ftbl->fptr(ivar_2, ivar_12);
+        //copying to sigmatopdown__peg_adt from sigmatopdown__peg_adt;
+        ivar_14 = (sigmatopdown__peg_adt_t)ivar_16;
+        ivar_14->count++;
+        release_sigmatopdown__peg_adt(ivar_16);
+        bool_t ivar_49;
+        ivar_14->count++;
+        ivar_49 = (bool_t)r_sigmatopdown__anyp((sigmatopdown__peg_adt_t)ivar_14);
+        if (ivar_49){ 
+             release_sigmatopdown_funtype_66(ivar_8);
+             sigmatopdown_funtype_29_t ivar_19;
+             sigmatopdown_funtype_29_t ivar_23;
+             ivar_23 = (sigmatopdown_funtype_29_t)sigmatopdown__peg_adt_p((sigmatopdown__peg_adt_t)ivar_14);
+             //copying to sigmatopdown_funtype_29 from sigmatopdown_funtype_29;
+             ivar_19 = (sigmatopdown_funtype_29_t)ivar_23;
+             ivar_19->count++;
+             release_sigmatopdown_funtype_29(ivar_23);
+             bool_t ivar_25;
+             bool_t ivar_27;
+             ivar_27 = (ivar_11 == ivar_1);
+             bool_t ivar_28;
+             bool_t ivar_32;
+             uint8_t ivar_42;
+             ivar_42 = (uint8_t)ivar_3->ftbl->fptr(ivar_3, ivar_11);
+             ivar_32 = (bool_t)ivar_19->ftbl->fptr(ivar_19, ivar_42);
+             ivar_19->ftbl->rptr(ivar_19);
+             ivar_28 = !ivar_32;
+             ivar_25 = ivar_27 || ivar_28;
+             bool_t ivar_26;
+             uint8_t ivar_46;
+             ivar_46 = (uint8_t)0;
+             ivar_26 = (ivar_13 == ivar_46);
+             result = ivar_25 && ivar_26;
+} else {
+        
+             bool_t ivar_77;
+             ivar_14->count++;
+             ivar_77 = (bool_t)r_sigmatopdown__terminalp((sigmatopdown__peg_adt_t)ivar_14);
+             if (ivar_77){  
+           release_sigmatopdown_funtype_66(ivar_8);
+           uint8_t ivar_53;
+           ivar_53 = (uint8_t)sigmatopdown__peg_adt_a((sigmatopdown__peg_adt_t)ivar_14);
+           bool_t ivar_57;
+           bool_t ivar_59;
+           ivar_59 = (ivar_11 == ivar_1);
+           bool_t ivar_60;
+           uint8_t ivar_65;
+           ivar_65 = (uint8_t)ivar_3->ftbl->fptr(ivar_3, ivar_11);
+           ivar_60 = (ivar_53 != ivar_65);
+           ivar_57 = ivar_59 || ivar_60;
+           bool_t ivar_58;
+           uint8_t ivar_74;
+           ivar_74 = (uint8_t)0;
+           ivar_58 = (ivar_13 == ivar_74);
+           result = ivar_57 && ivar_58;
+} else {
+             
+           bool_t ivar_250;
+           ivar_14->count++;
+           ivar_250 = (bool_t)r_sigmatopdown__concatp((sigmatopdown__peg_adt_t)ivar_14);
+           if (ivar_250){   
+           uint8_t ivar_81;
+           ivar_14->count++;
+           ivar_81 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_14);
+           uint8_t ivar_82;
+           ivar_82 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_14);
+           bool_t ivar_89;
+           bool_t ivar_91;
+           sigmatopdown__ent_adt_t ivar_107;
+           sigmatopdown_funtype_65_t ivar_97;
+           sigmatopdown_funtype_66_t ivar_103;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_103 = (sigmatopdown_funtype_66_t)ivar_8;
+           ivar_103->count++;
+           uint32_t ivar_104;
+           //copying to uint32 from uint32;
+           ivar_104 = (uint32_t)ivar_11;
+           sigmatopdown_funtype_65_t ivar_100;
+           ivar_100 = (sigmatopdown_funtype_65_t)ivar_103->ftbl->fptr(ivar_103, ivar_104);
+           ivar_103->ftbl->rptr(ivar_103);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_97 = (sigmatopdown_funtype_65_t)ivar_100;
+           ivar_97->count++;
+           release_sigmatopdown_funtype_65(ivar_100);
+           sigmatopdown__ent_adt_t ivar_95;
+           ivar_95 = (sigmatopdown__ent_adt_t)ivar_97->ftbl->fptr(ivar_97, ivar_81);
+           ivar_97->ftbl->rptr(ivar_97);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_107 = (sigmatopdown__ent_adt_t)ivar_95;
+           ivar_107->count++;
+           release_sigmatopdown__ent_adt(ivar_95);
+           ivar_91 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_107);
+           bool_t ivar_92;
+           mpz_ptr_t ivar_109;
+           uint8_t ivar_110;
+           ivar_110 = (uint8_t)1;
+           uint64_t ivar_111;
+           sigmatopdown__ent_adt_t ivar_126;
+           sigmatopdown_funtype_65_t ivar_116;
+           sigmatopdown_funtype_66_t ivar_122;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_122 = (sigmatopdown_funtype_66_t)ivar_8;
+           ivar_122->count++;
+           uint32_t ivar_123;
+           //copying to uint32 from uint32;
+           ivar_123 = (uint32_t)ivar_11;
+           sigmatopdown_funtype_65_t ivar_119;
+           ivar_119 = (sigmatopdown_funtype_65_t)ivar_122->ftbl->fptr(ivar_122, ivar_123);
+           ivar_122->ftbl->rptr(ivar_122);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_116 = (sigmatopdown_funtype_65_t)ivar_119;
+           ivar_116->count++;
+           release_sigmatopdown_funtype_65(ivar_119);
+           sigmatopdown__ent_adt_t ivar_114;
+           ivar_114 = (sigmatopdown__ent_adt_t)ivar_116->ftbl->fptr(ivar_116, ivar_81);
+           ivar_116->ftbl->rptr(ivar_116);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_126 = (sigmatopdown__ent_adt_t)ivar_114;
+           ivar_126->count++;
+           release_sigmatopdown__ent_adt(ivar_114);
+           ivar_111 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_126);
+           mpz_mk_set_ui(ivar_109, (uint64_t)ivar_110);
+           mpz_add_ui(ivar_109, ivar_109, (uint64_t)ivar_111);
+           int64_t tmp21516 = mpz_cmp_ui(ivar_109, ivar_13);
+           ivar_92 = (tmp21516 == 0);
+           ivar_89 = ivar_91 && ivar_92;
+           bool_t ivar_90;
+           bool_t ivar_130;
+           sigmatopdown__ent_adt_t ivar_146;
+           sigmatopdown_funtype_65_t ivar_136;
+           sigmatopdown_funtype_66_t ivar_142;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_142 = (sigmatopdown_funtype_66_t)ivar_8;
+           ivar_142->count++;
+           uint32_t ivar_143;
+           //copying to uint32 from uint32;
+           ivar_143 = (uint32_t)ivar_11;
+           sigmatopdown_funtype_65_t ivar_139;
+           ivar_139 = (sigmatopdown_funtype_65_t)ivar_142->ftbl->fptr(ivar_142, ivar_143);
+           ivar_142->ftbl->rptr(ivar_142);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_136 = (sigmatopdown_funtype_65_t)ivar_139;
+           ivar_136->count++;
+           release_sigmatopdown_funtype_65(ivar_139);
+           sigmatopdown__ent_adt_t ivar_134;
+           ivar_134 = (sigmatopdown__ent_adt_t)ivar_136->ftbl->fptr(ivar_136, ivar_81);
+           ivar_136->ftbl->rptr(ivar_136);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_146 = (sigmatopdown__ent_adt_t)ivar_134;
+           ivar_146->count++;
+           release_sigmatopdown__ent_adt(ivar_134);
+           ivar_130 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_146);
+           bool_t ivar_131;
+           bool_t ivar_147;
+           sigmatopdown__ent_adt_t ivar_182;
+           sigmatopdown_funtype_65_t ivar_153;
+           sigmatopdown_funtype_66_t ivar_177;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_177 = (sigmatopdown_funtype_66_t)ivar_8;
+           ivar_177->count++;
+           uint64_t ivar_179;
+           uint32_t ivar_157;
+           sigmatopdown__ent_adt_t ivar_172;
+           sigmatopdown_funtype_65_t ivar_162;
+           sigmatopdown_funtype_66_t ivar_168;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_168 = (sigmatopdown_funtype_66_t)ivar_8;
+           ivar_168->count++;
+           uint32_t ivar_169;
+           //copying to uint32 from uint32;
+           ivar_169 = (uint32_t)ivar_11;
+           sigmatopdown_funtype_65_t ivar_165;
+           ivar_165 = (sigmatopdown_funtype_65_t)ivar_168->ftbl->fptr(ivar_168, ivar_169);
+           ivar_168->ftbl->rptr(ivar_168);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_162 = (sigmatopdown_funtype_65_t)ivar_165;
+           ivar_162->count++;
+           release_sigmatopdown_funtype_65(ivar_165);
+           sigmatopdown__ent_adt_t ivar_160;
+           ivar_160 = (sigmatopdown__ent_adt_t)ivar_162->ftbl->fptr(ivar_162, ivar_81);
+           ivar_162->ftbl->rptr(ivar_162);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_172 = (sigmatopdown__ent_adt_t)ivar_160;
+           ivar_172->count++;
+           release_sigmatopdown__ent_adt(ivar_160);
+           ivar_157 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_172);
+           ivar_179 = (uint64_t)(ivar_11 + ivar_157);
+           uint32_t ivar_178;
+           //copying to uint32 from uint64;
+           ivar_178 = (uint32_t)ivar_179;
+           sigmatopdown_funtype_65_t ivar_174;
+           ivar_174 = (sigmatopdown_funtype_65_t)ivar_177->ftbl->fptr(ivar_177, ivar_178);
+           ivar_177->ftbl->rptr(ivar_177);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_153 = (sigmatopdown_funtype_65_t)ivar_174;
+           ivar_153->count++;
+           release_sigmatopdown_funtype_65(ivar_174);
+           sigmatopdown__ent_adt_t ivar_151;
+           ivar_151 = (sigmatopdown__ent_adt_t)ivar_153->ftbl->fptr(ivar_153, ivar_82);
+           ivar_153->ftbl->rptr(ivar_153);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_182 = (sigmatopdown__ent_adt_t)ivar_151;
+           ivar_182->count++;
+           release_sigmatopdown__ent_adt(ivar_151);
+           ivar_147 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_182);
+           bool_t ivar_148;
+           mpz_ptr_t ivar_184;
+           uint8_t ivar_185;
+           ivar_185 = (uint8_t)1;
+           mpq_ptr_t ivar_186;
+           uint64_t ivar_244;
+           sigmatopdown__ent_adt_t ivar_203;
+           sigmatopdown_funtype_65_t ivar_193;
+           sigmatopdown_funtype_66_t ivar_199;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_199 = (sigmatopdown_funtype_66_t)ivar_8;
+           ivar_199->count++;
+           uint32_t ivar_200;
+           //copying to uint32 from uint32;
+           ivar_200 = (uint32_t)ivar_11;
+           sigmatopdown_funtype_65_t ivar_196;
+           ivar_196 = (sigmatopdown_funtype_65_t)ivar_199->ftbl->fptr(ivar_199, ivar_200);
+           ivar_199->ftbl->rptr(ivar_199);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_193 = (sigmatopdown_funtype_65_t)ivar_196;
+           ivar_193->count++;
+           release_sigmatopdown_funtype_65(ivar_196);
+           sigmatopdown__ent_adt_t ivar_191;
+           ivar_191 = (sigmatopdown__ent_adt_t)ivar_193->ftbl->fptr(ivar_193, ivar_81);
+           ivar_193->ftbl->rptr(ivar_193);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_203 = (sigmatopdown__ent_adt_t)ivar_191;
+           ivar_203->count++;
+           release_sigmatopdown__ent_adt(ivar_191);
+           ivar_244 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_203);
+           mpq_ptr_t ivar_239;
+           //copying to mpq from uint64;
+           mpq_mk_set_ui(ivar_239, ivar_244);
+           uint64_t ivar_243;
+           sigmatopdown__ent_adt_t ivar_237;
+           sigmatopdown_funtype_65_t ivar_208;
+           sigmatopdown_funtype_66_t ivar_232;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_232 = (sigmatopdown_funtype_66_t)ivar_8;
+           ivar_232->count++;
+           uint64_t ivar_234;
+           uint32_t ivar_212;
+           sigmatopdown__ent_adt_t ivar_227;
+           sigmatopdown_funtype_65_t ivar_217;
+           sigmatopdown_funtype_66_t ivar_223;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_223 = (sigmatopdown_funtype_66_t)ivar_8;
+           ivar_223->count++;
+           release_sigmatopdown_funtype_66(ivar_8);
+           uint32_t ivar_224;
+           //copying to uint32 from uint32;
+           ivar_224 = (uint32_t)ivar_11;
+           sigmatopdown_funtype_65_t ivar_220;
+           ivar_220 = (sigmatopdown_funtype_65_t)ivar_223->ftbl->fptr(ivar_223, ivar_224);
+           ivar_223->ftbl->rptr(ivar_223);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_217 = (sigmatopdown_funtype_65_t)ivar_220;
+           ivar_217->count++;
+           release_sigmatopdown_funtype_65(ivar_220);
+           sigmatopdown__ent_adt_t ivar_215;
+           ivar_215 = (sigmatopdown__ent_adt_t)ivar_217->ftbl->fptr(ivar_217, ivar_81);
+           ivar_217->ftbl->rptr(ivar_217);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_227 = (sigmatopdown__ent_adt_t)ivar_215;
+           ivar_227->count++;
+           release_sigmatopdown__ent_adt(ivar_215);
+           ivar_212 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_227);
+           ivar_234 = (uint64_t)(ivar_11 + ivar_212);
+           uint32_t ivar_233;
+           //copying to uint32 from uint64;
+           ivar_233 = (uint32_t)ivar_234;
+           sigmatopdown_funtype_65_t ivar_229;
+           ivar_229 = (sigmatopdown_funtype_65_t)ivar_232->ftbl->fptr(ivar_232, ivar_233);
+           ivar_232->ftbl->rptr(ivar_232);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_208 = (sigmatopdown_funtype_65_t)ivar_229;
+           ivar_208->count++;
+           release_sigmatopdown_funtype_65(ivar_229);
+           sigmatopdown__ent_adt_t ivar_206;
+           ivar_206 = (sigmatopdown__ent_adt_t)ivar_208->ftbl->fptr(ivar_208, ivar_82);
+           ivar_208->ftbl->rptr(ivar_208);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_237 = (sigmatopdown__ent_adt_t)ivar_206;
+           ivar_237->count++;
+           release_sigmatopdown__ent_adt(ivar_206);
+           ivar_243 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_237);
+           mpq_ptr_t ivar_240;
+           //copying to mpq from uint64;
+           mpq_mk_set_ui(ivar_240, ivar_243);
+           ivar_186 = (mpq_ptr_t)real_defs__max((mpq_ptr_t)ivar_239, (mpq_ptr_t)ivar_240);
+           mpz_mk_set_q(ivar_184, ivar_186);
+           mpz_add_ui(ivar_184, ivar_184, ivar_185);
+           int64_t tmp21517 = mpz_cmp_ui(ivar_184, ivar_13);
+           ivar_148 = (tmp21517 == 0);
+           ivar_131 = ivar_147 && ivar_148;
+           ivar_90 = ivar_130 && ivar_131;
+           result = ivar_89 || ivar_90;
+} else {
+           
+           bool_t ivar_343;
+           ivar_14->count++;
+           ivar_343 = (bool_t)r_sigmatopdown__orp((sigmatopdown__peg_adt_t)ivar_14);
+           if (ivar_343){    
+            uint8_t ivar_254;
+            ivar_14->count++;
+            ivar_254 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_14);
+            uint8_t ivar_255;
+            ivar_255 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_14);
+            bool_t ivar_262;
+            sigmatopdown__ent_adt_t ivar_278;
+            sigmatopdown_funtype_65_t ivar_268;
+            sigmatopdown_funtype_66_t ivar_274;
+            //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+            ivar_274 = (sigmatopdown_funtype_66_t)ivar_8;
+            ivar_274->count++;
+            uint32_t ivar_275;
+            //copying to uint32 from uint32;
+            ivar_275 = (uint32_t)ivar_11;
+            sigmatopdown_funtype_65_t ivar_271;
+            ivar_271 = (sigmatopdown_funtype_65_t)ivar_274->ftbl->fptr(ivar_274, ivar_275);
+            ivar_274->ftbl->rptr(ivar_274);
+            //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+            ivar_268 = (sigmatopdown_funtype_65_t)ivar_271;
+            ivar_268->count++;
+            release_sigmatopdown_funtype_65(ivar_271);
+            sigmatopdown__ent_adt_t ivar_266;
+            ivar_266 = (sigmatopdown__ent_adt_t)ivar_268->ftbl->fptr(ivar_268, ivar_254);
+            ivar_268->ftbl->rptr(ivar_268);
+            //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+            ivar_278 = (sigmatopdown__ent_adt_t)ivar_266;
+            ivar_278->count++;
+            release_sigmatopdown__ent_adt(ivar_266);
+            ivar_262 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_278);
+            bool_t ivar_263;
+            bool_t ivar_279;
+            sigmatopdown__ent_adt_t ivar_295;
+            sigmatopdown_funtype_65_t ivar_285;
+            sigmatopdown_funtype_66_t ivar_291;
+            //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+            ivar_291 = (sigmatopdown_funtype_66_t)ivar_8;
+            ivar_291->count++;
+            uint32_t ivar_292;
+            //copying to uint32 from uint32;
+            ivar_292 = (uint32_t)ivar_11;
+            sigmatopdown_funtype_65_t ivar_288;
+            ivar_288 = (sigmatopdown_funtype_65_t)ivar_291->ftbl->fptr(ivar_291, ivar_292);
+            ivar_291->ftbl->rptr(ivar_291);
+            //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+            ivar_285 = (sigmatopdown_funtype_65_t)ivar_288;
+            ivar_285->count++;
+            release_sigmatopdown_funtype_65(ivar_288);
+            sigmatopdown__ent_adt_t ivar_283;
+            ivar_283 = (sigmatopdown__ent_adt_t)ivar_285->ftbl->fptr(ivar_285, ivar_255);
+            ivar_285->ftbl->rptr(ivar_285);
+            //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+            ivar_295 = (sigmatopdown__ent_adt_t)ivar_283;
+            ivar_295->count++;
+            release_sigmatopdown__ent_adt(ivar_283);
+            ivar_279 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_295);
+            bool_t ivar_280;
+            mpz_ptr_t ivar_297;
+            uint8_t ivar_298;
+            ivar_298 = (uint8_t)1;
+            mpq_ptr_t ivar_299;
+            uint64_t ivar_338;
+            sigmatopdown__ent_adt_t ivar_316;
+            sigmatopdown_funtype_65_t ivar_306;
+            sigmatopdown_funtype_66_t ivar_312;
+            //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+            ivar_312 = (sigmatopdown_funtype_66_t)ivar_8;
+            ivar_312->count++;
+            uint32_t ivar_313;
+            //copying to uint32 from uint32;
+            ivar_313 = (uint32_t)ivar_11;
+            sigmatopdown_funtype_65_t ivar_309;
+            ivar_309 = (sigmatopdown_funtype_65_t)ivar_312->ftbl->fptr(ivar_312, ivar_313);
+            ivar_312->ftbl->rptr(ivar_312);
+            //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+            ivar_306 = (sigmatopdown_funtype_65_t)ivar_309;
+            ivar_306->count++;
+            release_sigmatopdown_funtype_65(ivar_309);
+            sigmatopdown__ent_adt_t ivar_304;
+            ivar_304 = (sigmatopdown__ent_adt_t)ivar_306->ftbl->fptr(ivar_306, ivar_254);
+            ivar_306->ftbl->rptr(ivar_306);
+            //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+            ivar_316 = (sigmatopdown__ent_adt_t)ivar_304;
+            ivar_316->count++;
+            release_sigmatopdown__ent_adt(ivar_304);
+            ivar_338 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_316);
+            mpq_ptr_t ivar_333;
+            //copying to mpq from uint64;
+            mpq_mk_set_ui(ivar_333, ivar_338);
+            uint64_t ivar_337;
+            sigmatopdown__ent_adt_t ivar_331;
+            sigmatopdown_funtype_65_t ivar_321;
+            sigmatopdown_funtype_66_t ivar_327;
+            //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+            ivar_327 = (sigmatopdown_funtype_66_t)ivar_8;
+            ivar_327->count++;
+            release_sigmatopdown_funtype_66(ivar_8);
+            uint32_t ivar_328;
+            //copying to uint32 from uint32;
+            ivar_328 = (uint32_t)ivar_11;
+            sigmatopdown_funtype_65_t ivar_324;
+            ivar_324 = (sigmatopdown_funtype_65_t)ivar_327->ftbl->fptr(ivar_327, ivar_328);
+            ivar_327->ftbl->rptr(ivar_327);
+            //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+            ivar_321 = (sigmatopdown_funtype_65_t)ivar_324;
+            ivar_321->count++;
+            release_sigmatopdown_funtype_65(ivar_324);
+            sigmatopdown__ent_adt_t ivar_319;
+            ivar_319 = (sigmatopdown__ent_adt_t)ivar_321->ftbl->fptr(ivar_321, ivar_255);
+            ivar_321->ftbl->rptr(ivar_321);
+            //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+            ivar_331 = (sigmatopdown__ent_adt_t)ivar_319;
+            ivar_331->count++;
+            release_sigmatopdown__ent_adt(ivar_319);
+            ivar_337 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_331);
+            mpq_ptr_t ivar_334;
+            //copying to mpq from uint64;
+            mpq_mk_set_ui(ivar_334, ivar_337);
+            ivar_299 = (mpq_ptr_t)real_defs__max((mpq_ptr_t)ivar_333, (mpq_ptr_t)ivar_334);
+            mpz_mk_set_q(ivar_297, ivar_299);
+            mpz_add_ui(ivar_297, ivar_297, ivar_298);
+            int64_t tmp21518 = mpz_cmp_ui(ivar_297, ivar_13);
+            ivar_280 = (tmp21518 == 0);
+            ivar_263 = ivar_279 && ivar_280;
+            result = ivar_262 && ivar_263;
+} else {
+           
+            bool_t ivar_390;
+            ivar_14->count++;
+            ivar_390 = (bool_t)r_sigmatopdown__andp((sigmatopdown__peg_adt_t)ivar_14);
+            if (ivar_390){     
+             uint8_t ivar_347;
+             ivar_347 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_14);
+             bool_t ivar_351;
+             sigmatopdown__ent_adt_t ivar_367;
+             sigmatopdown_funtype_65_t ivar_357;
+             sigmatopdown_funtype_66_t ivar_363;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_363 = (sigmatopdown_funtype_66_t)ivar_8;
+             ivar_363->count++;
+             uint32_t ivar_364;
+             //copying to uint32 from uint32;
+             ivar_364 = (uint32_t)ivar_11;
+             sigmatopdown_funtype_65_t ivar_360;
+             ivar_360 = (sigmatopdown_funtype_65_t)ivar_363->ftbl->fptr(ivar_363, ivar_364);
+             ivar_363->ftbl->rptr(ivar_363);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_357 = (sigmatopdown_funtype_65_t)ivar_360;
+             ivar_357->count++;
+             release_sigmatopdown_funtype_65(ivar_360);
+             sigmatopdown__ent_adt_t ivar_355;
+             ivar_355 = (sigmatopdown__ent_adt_t)ivar_357->ftbl->fptr(ivar_357, ivar_347);
+             ivar_357->ftbl->rptr(ivar_357);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_367 = (sigmatopdown__ent_adt_t)ivar_355;
+             ivar_367->count++;
+             release_sigmatopdown__ent_adt(ivar_355);
+             ivar_351 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_367);
+             bool_t ivar_352;
+             mpz_ptr_t ivar_369;
+             uint8_t ivar_370;
+             ivar_370 = (uint8_t)1;
+             uint64_t ivar_371;
+             sigmatopdown__ent_adt_t ivar_386;
+             sigmatopdown_funtype_65_t ivar_376;
+             sigmatopdown_funtype_66_t ivar_382;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_382 = (sigmatopdown_funtype_66_t)ivar_8;
+             ivar_382->count++;
+             release_sigmatopdown_funtype_66(ivar_8);
+             uint32_t ivar_383;
+             //copying to uint32 from uint32;
+             ivar_383 = (uint32_t)ivar_11;
+             sigmatopdown_funtype_65_t ivar_379;
+             ivar_379 = (sigmatopdown_funtype_65_t)ivar_382->ftbl->fptr(ivar_382, ivar_383);
+             ivar_382->ftbl->rptr(ivar_382);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_376 = (sigmatopdown_funtype_65_t)ivar_379;
+             ivar_376->count++;
+             release_sigmatopdown_funtype_65(ivar_379);
+             sigmatopdown__ent_adt_t ivar_374;
+             ivar_374 = (sigmatopdown__ent_adt_t)ivar_376->ftbl->fptr(ivar_376, ivar_347);
+             ivar_376->ftbl->rptr(ivar_376);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_386 = (sigmatopdown__ent_adt_t)ivar_374;
+             ivar_386->count++;
+             release_sigmatopdown__ent_adt(ivar_374);
+             ivar_371 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_386);
+             mpz_mk_set_ui(ivar_369, (uint64_t)ivar_370);
+             mpz_add_ui(ivar_369, ivar_369, (uint64_t)ivar_371);
+             int64_t tmp21519 = mpz_cmp_ui(ivar_369, ivar_13);
+             ivar_352 = (tmp21519 == 0);
+             result = ivar_351 && ivar_352;
+} else {
+            
+             bool_t ivar_437;
+             ivar_14->count++;
+             ivar_437 = (bool_t)r_sigmatopdown__notp((sigmatopdown__peg_adt_t)ivar_14);
+             if (ivar_437){      
+              uint8_t ivar_394;
+              ivar_394 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_14);
+              bool_t ivar_398;
+              sigmatopdown__ent_adt_t ivar_414;
+              sigmatopdown_funtype_65_t ivar_404;
+              sigmatopdown_funtype_66_t ivar_410;
+              //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+              ivar_410 = (sigmatopdown_funtype_66_t)ivar_8;
+              ivar_410->count++;
+              uint32_t ivar_411;
+              //copying to uint32 from uint32;
+              ivar_411 = (uint32_t)ivar_11;
+              sigmatopdown_funtype_65_t ivar_407;
+              ivar_407 = (sigmatopdown_funtype_65_t)ivar_410->ftbl->fptr(ivar_410, ivar_411);
+              ivar_410->ftbl->rptr(ivar_410);
+              //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+              ivar_404 = (sigmatopdown_funtype_65_t)ivar_407;
+              ivar_404->count++;
+              release_sigmatopdown_funtype_65(ivar_407);
+              sigmatopdown__ent_adt_t ivar_402;
+              ivar_402 = (sigmatopdown__ent_adt_t)ivar_404->ftbl->fptr(ivar_404, ivar_394);
+              ivar_404->ftbl->rptr(ivar_404);
+              //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+              ivar_414 = (sigmatopdown__ent_adt_t)ivar_402;
+              ivar_414->count++;
+              release_sigmatopdown__ent_adt(ivar_402);
+              ivar_398 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_414);
+              bool_t ivar_399;
+              mpz_ptr_t ivar_416;
+              uint8_t ivar_417;
+              ivar_417 = (uint8_t)1;
+              uint64_t ivar_418;
+              sigmatopdown__ent_adt_t ivar_433;
+              sigmatopdown_funtype_65_t ivar_423;
+              sigmatopdown_funtype_66_t ivar_429;
+              //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+              ivar_429 = (sigmatopdown_funtype_66_t)ivar_8;
+              ivar_429->count++;
+              release_sigmatopdown_funtype_66(ivar_8);
+              uint32_t ivar_430;
+              //copying to uint32 from uint32;
+              ivar_430 = (uint32_t)ivar_11;
+              sigmatopdown_funtype_65_t ivar_426;
+              ivar_426 = (sigmatopdown_funtype_65_t)ivar_429->ftbl->fptr(ivar_429, ivar_430);
+              ivar_429->ftbl->rptr(ivar_429);
+              //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+              ivar_423 = (sigmatopdown_funtype_65_t)ivar_426;
+              ivar_423->count++;
+              release_sigmatopdown_funtype_65(ivar_426);
+              sigmatopdown__ent_adt_t ivar_421;
+              ivar_421 = (sigmatopdown__ent_adt_t)ivar_423->ftbl->fptr(ivar_423, ivar_394);
+              ivar_423->ftbl->rptr(ivar_423);
+              //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+              ivar_433 = (sigmatopdown__ent_adt_t)ivar_421;
+              ivar_433->count++;
+              release_sigmatopdown__ent_adt(ivar_421);
+              ivar_418 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_433);
+              mpz_mk_set_ui(ivar_416, (uint64_t)ivar_417);
+              mpz_add_ui(ivar_416, ivar_416, (uint64_t)ivar_418);
+              int64_t tmp21520 = mpz_cmp_ui(ivar_416, ivar_13);
+              ivar_399 = (tmp21520 == 0);
+              result = ivar_398 && ivar_399;
+} else {
+             
+              release_sigmatopdown_funtype_66(ivar_8);
+              bool_t ivar_444;
+              ivar_444 = (bool_t)r_sigmatopdown__failurep((sigmatopdown__peg_adt_t)ivar_14);
+              if (ivar_444){       
+               uint8_t ivar_442;
+               ivar_442 = (uint8_t)0;
+               result = (ivar_13 == ivar_442);
+} else {
+              
+               result = (bool_t) false;
+};
+};
+};
+};
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_97_t new_sigmatopdown_closure_97(void){
+        static struct sigmatopdown_funtype_96_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_96_t, sigmatopdown_record_95_t))&f_sigmatopdown_closure_97, .mptr = (bool_t (*)(sigmatopdown_funtype_96_t, sigmatopdown_funtype_66_t, uint32_t, uint8_t, uint64_t))&m_sigmatopdown_closure_97, .rptr =  (void (*)(sigmatopdown_funtype_96_t))&release_sigmatopdown_closure_97, .cptr = (sigmatopdown_funtype_96_t (*)(sigmatopdown_funtype_96_t))&copy_sigmatopdown_closure_97};
+        sigmatopdown_closure_97_t tmp = (sigmatopdown_closure_97_t) safe_malloc(sizeof(struct sigmatopdown_closure_97_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_97(sigmatopdown_funtype_96_t closure){
+        sigmatopdown_closure_97_t x = (sigmatopdown_closure_97_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_75(x->fvar_1);
+         release_sigmatopdown__lang_spec(x->fvar_3);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_97_t copy_sigmatopdown_closure_97(sigmatopdown_closure_97_t x){
+        sigmatopdown_closure_97_t y = new_sigmatopdown_closure_97();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = (uint32_t)x->fvar_2;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_96_htbl_t new_htbl = (sigmatopdown_funtype_96_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_96_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_96_hashentry_t * new_data = (sigmatopdown_funtype_96_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_96_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_96_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_record_98_t new_sigmatopdown_record_98(void){
+        sigmatopdown_record_98_t tmp = (sigmatopdown_record_98_t) safe_malloc(sizeof(struct sigmatopdown_record_98_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_98(sigmatopdown_record_98_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->project_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_98_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_98((sigmatopdown_record_98_t)x);
+}
+
+sigmatopdown_record_98_t copy_sigmatopdown_record_98(sigmatopdown_record_98_t x){
+        sigmatopdown_record_98_t y = new_sigmatopdown_record_98();
+        y->project_1 = x->project_1;
+        if (y->project_1 != NULL){y->project_1->count++;};
+        y->project_2 = (uint32_t)x->project_2;
+        y->project_3 = (uint8_t)x->project_3;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_98(sigmatopdown_record_98_t x, sigmatopdown_record_98_t y){
+        bool_t tmp = true;
+        tmp = tmp && equal_sigmatopdown_funtype_66(x->project_1, y->project_1);
+        tmp = tmp && x->project_2 == y->project_2;
+        tmp = tmp && x->project_3 == y->project_3;
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_98_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_98_t T){
+        return equal_sigmatopdown_record_98((sigmatopdown_record_98_t)x, (sigmatopdown_record_98_t)y);
+}
+
+actual_sigmatopdown_record_98_t actual_sigmatopdown_record_98(){
+        actual_sigmatopdown_record_98_t new = (actual_sigmatopdown_record_98_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_98_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_98_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_98_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_98_t update_sigmatopdown_record_98_project_1(sigmatopdown_record_98_t x, sigmatopdown_funtype_66_t v){
+        sigmatopdown_record_98_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_1 != NULL){release_sigmatopdown_funtype_66(x->project_1);};}
+        else {y = copy_sigmatopdown_record_98(x); x->count--; y->project_1->count--;};
+        y->project_1 = (sigmatopdown_funtype_66_t)v;
+        return y;}
+
+sigmatopdown_record_98_t update_sigmatopdown_record_98_project_2(sigmatopdown_record_98_t x, uint32_t v){
+        sigmatopdown_record_98_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_98(x); x->count--;};
+        y->project_2 = (uint32_t)v;
+        return y;}
+
+sigmatopdown_record_98_t update_sigmatopdown_record_98_project_3(sigmatopdown_record_98_t x, uint8_t v){
+        sigmatopdown_record_98_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_98(x); x->count--;};
+        y->project_3 = (uint8_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_99(sigmatopdown_funtype_99_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_99_t copy_sigmatopdown_funtype_99(sigmatopdown_funtype_99_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_99(sigmatopdown_funtype_99_t x, sigmatopdown_funtype_99_t y){
+        return false;}
+
+
+bool_t f_sigmatopdown_closure_100(struct sigmatopdown_closure_100_s * closure, sigmatopdown_record_98_t bvar){
+        sigmatopdown_funtype_66_t bvar_1;
+        bvar_1 = (sigmatopdown_funtype_66_t)bvar->project_1;
+        bvar->project_1->count++;
+        uint32_t bvar_2;
+        bvar_2 = (uint32_t)bvar->project_2;
+        uint8_t bvar_3;
+        bvar_3 = (uint8_t)bvar->project_3;
+        release_sigmatopdown_record_98(bvar);
+        bool_t result = h_sigmatopdown_closure_100(bvar_1, bvar_2, bvar_3, closure->fvar_1); 
+        release_sigmatopdown_funtype_66(bvar_1);
+        return result;}
+
+bool_t m_sigmatopdown_closure_100(struct sigmatopdown_closure_100_s * closure, sigmatopdown_funtype_66_t bvar_1, uint32_t bvar_2, uint8_t bvar_3){
+        return h_sigmatopdown_closure_100(bvar_1, bvar_2, bvar_3, closure->fvar_1);}
+
+extern bool_t h_sigmatopdown_closure_100(sigmatopdown_funtype_66_t ivar_6, uint32_t ivar_9, uint8_t ivar_10, sigmatopdown__lang_spec_t ivar_2){
+        bool_t result;
+        sigmatopdown__peg_adt_t ivar_11;
+        sigmatopdown__peg_adt_t ivar_13;
+        ivar_13 = (sigmatopdown__peg_adt_t)ivar_2->ftbl->fptr(ivar_2, ivar_10);
+        //copying to sigmatopdown__peg_adt from sigmatopdown__peg_adt;
+        ivar_11 = (sigmatopdown__peg_adt_t)ivar_13;
+        ivar_11->count++;
+        release_sigmatopdown__peg_adt(ivar_13);
+        bool_t ivar_94;
+        ivar_11->count++;
+        ivar_94 = (bool_t)r_sigmatopdown__concatp((sigmatopdown__peg_adt_t)ivar_11);
+        if (ivar_94){ 
+             uint8_t ivar_16;
+             ivar_11->count++;
+             ivar_16 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_11);
+             uint8_t ivar_17;
+             ivar_17 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_11);
+             bool_t ivar_24;
+             sigmatopdown__ent_adt_t ivar_40;
+             sigmatopdown_funtype_65_t ivar_30;
+             sigmatopdown_funtype_66_t ivar_36;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_36 = (sigmatopdown_funtype_66_t)ivar_6;
+             ivar_36->count++;
+             uint32_t ivar_37;
+             //copying to uint32 from uint32;
+             ivar_37 = (uint32_t)ivar_9;
+             sigmatopdown_funtype_65_t ivar_33;
+             ivar_33 = (sigmatopdown_funtype_65_t)ivar_36->ftbl->fptr(ivar_36, ivar_37);
+             ivar_36->ftbl->rptr(ivar_36);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_30 = (sigmatopdown_funtype_65_t)ivar_33;
+             ivar_30->count++;
+             release_sigmatopdown_funtype_65(ivar_33);
+             sigmatopdown__ent_adt_t ivar_28;
+             ivar_28 = (sigmatopdown__ent_adt_t)ivar_30->ftbl->fptr(ivar_30, ivar_16);
+             ivar_30->ftbl->rptr(ivar_30);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_40 = (sigmatopdown__ent_adt_t)ivar_28;
+             ivar_40->count++;
+             release_sigmatopdown__ent_adt(ivar_28);
+             ivar_24 = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_40);
+             bool_t ivar_25;
+             bool_t ivar_41;
+             sigmatopdown__ent_adt_t ivar_57;
+             sigmatopdown_funtype_65_t ivar_47;
+             sigmatopdown_funtype_66_t ivar_53;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_53 = (sigmatopdown_funtype_66_t)ivar_6;
+             ivar_53->count++;
+             uint32_t ivar_54;
+             //copying to uint32 from uint32;
+             ivar_54 = (uint32_t)ivar_9;
+             sigmatopdown_funtype_65_t ivar_50;
+             ivar_50 = (sigmatopdown_funtype_65_t)ivar_53->ftbl->fptr(ivar_53, ivar_54);
+             ivar_53->ftbl->rptr(ivar_53);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_47 = (sigmatopdown_funtype_65_t)ivar_50;
+             ivar_47->count++;
+             release_sigmatopdown_funtype_65(ivar_50);
+             sigmatopdown__ent_adt_t ivar_45;
+             ivar_45 = (sigmatopdown__ent_adt_t)ivar_47->ftbl->fptr(ivar_47, ivar_16);
+             ivar_47->ftbl->rptr(ivar_47);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_57 = (sigmatopdown__ent_adt_t)ivar_45;
+             ivar_57->count++;
+             release_sigmatopdown__ent_adt(ivar_45);
+             ivar_41 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_57);
+             bool_t ivar_42;
+             sigmatopdown__ent_adt_t ivar_91;
+             sigmatopdown_funtype_65_t ivar_62;
+             sigmatopdown_funtype_66_t ivar_86;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_86 = (sigmatopdown_funtype_66_t)ivar_6;
+             ivar_86->count++;
+             uint64_t ivar_88;
+             uint32_t ivar_66;
+             sigmatopdown__ent_adt_t ivar_81;
+             sigmatopdown_funtype_65_t ivar_71;
+             sigmatopdown_funtype_66_t ivar_77;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_77 = (sigmatopdown_funtype_66_t)ivar_6;
+             ivar_77->count++;
+             release_sigmatopdown_funtype_66(ivar_6);
+             uint32_t ivar_78;
+             //copying to uint32 from uint32;
+             ivar_78 = (uint32_t)ivar_9;
+             sigmatopdown_funtype_65_t ivar_74;
+             ivar_74 = (sigmatopdown_funtype_65_t)ivar_77->ftbl->fptr(ivar_77, ivar_78);
+             ivar_77->ftbl->rptr(ivar_77);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_71 = (sigmatopdown_funtype_65_t)ivar_74;
+             ivar_71->count++;
+             release_sigmatopdown_funtype_65(ivar_74);
+             sigmatopdown__ent_adt_t ivar_69;
+             ivar_69 = (sigmatopdown__ent_adt_t)ivar_71->ftbl->fptr(ivar_71, ivar_16);
+             ivar_71->ftbl->rptr(ivar_71);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_81 = (sigmatopdown__ent_adt_t)ivar_69;
+             ivar_81->count++;
+             release_sigmatopdown__ent_adt(ivar_69);
+             ivar_66 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_81);
+             ivar_88 = (uint64_t)(ivar_9 + ivar_66);
+             uint32_t ivar_87;
+             //copying to uint32 from uint64;
+             ivar_87 = (uint32_t)ivar_88;
+             sigmatopdown_funtype_65_t ivar_83;
+             ivar_83 = (sigmatopdown_funtype_65_t)ivar_86->ftbl->fptr(ivar_86, ivar_87);
+             ivar_86->ftbl->rptr(ivar_86);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_62 = (sigmatopdown_funtype_65_t)ivar_83;
+             ivar_62->count++;
+             release_sigmatopdown_funtype_65(ivar_83);
+             sigmatopdown__ent_adt_t ivar_60;
+             ivar_60 = (sigmatopdown__ent_adt_t)ivar_62->ftbl->fptr(ivar_62, ivar_17);
+             ivar_62->ftbl->rptr(ivar_62);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_91 = (sigmatopdown__ent_adt_t)ivar_60;
+             ivar_91->count++;
+             release_sigmatopdown__ent_adt(ivar_60);
+             ivar_42 = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_91);
+             ivar_25 = ivar_41 && ivar_42;
+             result = ivar_24 || ivar_25;
+} else {
+        
+             bool_t ivar_157;
+             ivar_11->count++;
+             ivar_157 = (bool_t)r_sigmatopdown__orp((sigmatopdown__peg_adt_t)ivar_11);
+             if (ivar_157){  
+           uint8_t ivar_98;
+           ivar_11->count++;
+           ivar_98 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_11);
+           uint8_t ivar_99;
+           ivar_99 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_11);
+           bool_t ivar_106;
+           sigmatopdown__ent_adt_t ivar_122;
+           sigmatopdown_funtype_65_t ivar_112;
+           sigmatopdown_funtype_66_t ivar_118;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_118 = (sigmatopdown_funtype_66_t)ivar_6;
+           ivar_118->count++;
+           uint32_t ivar_119;
+           //copying to uint32 from uint32;
+           ivar_119 = (uint32_t)ivar_9;
+           sigmatopdown_funtype_65_t ivar_115;
+           ivar_115 = (sigmatopdown_funtype_65_t)ivar_118->ftbl->fptr(ivar_118, ivar_119);
+           ivar_118->ftbl->rptr(ivar_118);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_112 = (sigmatopdown_funtype_65_t)ivar_115;
+           ivar_112->count++;
+           release_sigmatopdown_funtype_65(ivar_115);
+           sigmatopdown__ent_adt_t ivar_110;
+           ivar_110 = (sigmatopdown__ent_adt_t)ivar_112->ftbl->fptr(ivar_112, ivar_98);
+           ivar_112->ftbl->rptr(ivar_112);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_122 = (sigmatopdown__ent_adt_t)ivar_110;
+           ivar_122->count++;
+           release_sigmatopdown__ent_adt(ivar_110);
+           ivar_106 = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_122);
+           bool_t ivar_107;
+           bool_t ivar_123;
+           sigmatopdown__ent_adt_t ivar_139;
+           sigmatopdown_funtype_65_t ivar_129;
+           sigmatopdown_funtype_66_t ivar_135;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_135 = (sigmatopdown_funtype_66_t)ivar_6;
+           ivar_135->count++;
+           uint32_t ivar_136;
+           //copying to uint32 from uint32;
+           ivar_136 = (uint32_t)ivar_9;
+           sigmatopdown_funtype_65_t ivar_132;
+           ivar_132 = (sigmatopdown_funtype_65_t)ivar_135->ftbl->fptr(ivar_135, ivar_136);
+           ivar_135->ftbl->rptr(ivar_135);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_129 = (sigmatopdown_funtype_65_t)ivar_132;
+           ivar_129->count++;
+           release_sigmatopdown_funtype_65(ivar_132);
+           sigmatopdown__ent_adt_t ivar_127;
+           ivar_127 = (sigmatopdown__ent_adt_t)ivar_129->ftbl->fptr(ivar_129, ivar_98);
+           ivar_129->ftbl->rptr(ivar_129);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_139 = (sigmatopdown__ent_adt_t)ivar_127;
+           ivar_139->count++;
+           release_sigmatopdown__ent_adt(ivar_127);
+           ivar_123 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_139);
+           bool_t ivar_124;
+           sigmatopdown__ent_adt_t ivar_154;
+           sigmatopdown_funtype_65_t ivar_144;
+           sigmatopdown_funtype_66_t ivar_150;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_150 = (sigmatopdown_funtype_66_t)ivar_6;
+           ivar_150->count++;
+           release_sigmatopdown_funtype_66(ivar_6);
+           uint32_t ivar_151;
+           //copying to uint32 from uint32;
+           ivar_151 = (uint32_t)ivar_9;
+           sigmatopdown_funtype_65_t ivar_147;
+           ivar_147 = (sigmatopdown_funtype_65_t)ivar_150->ftbl->fptr(ivar_150, ivar_151);
+           ivar_150->ftbl->rptr(ivar_150);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_144 = (sigmatopdown_funtype_65_t)ivar_147;
+           ivar_144->count++;
+           release_sigmatopdown_funtype_65(ivar_147);
+           sigmatopdown__ent_adt_t ivar_142;
+           ivar_142 = (sigmatopdown__ent_adt_t)ivar_144->ftbl->fptr(ivar_144, ivar_99);
+           ivar_144->ftbl->rptr(ivar_144);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_154 = (sigmatopdown__ent_adt_t)ivar_142;
+           ivar_154->count++;
+           release_sigmatopdown__ent_adt(ivar_142);
+           ivar_124 = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_154);
+           ivar_107 = ivar_123 && ivar_124;
+           result = ivar_106 || ivar_107;
+} else {
+             
+           bool_t ivar_180;
+           ivar_11->count++;
+           ivar_180 = (bool_t)r_sigmatopdown__andp((sigmatopdown__peg_adt_t)ivar_11);
+           if (ivar_180){   
+           uint8_t ivar_161;
+           ivar_161 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_11);
+           sigmatopdown__ent_adt_t ivar_179;
+           sigmatopdown_funtype_65_t ivar_169;
+           sigmatopdown_funtype_66_t ivar_175;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_175 = (sigmatopdown_funtype_66_t)ivar_6;
+           ivar_175->count++;
+           release_sigmatopdown_funtype_66(ivar_6);
+           uint32_t ivar_176;
+           //copying to uint32 from uint32;
+           ivar_176 = (uint32_t)ivar_9;
+           sigmatopdown_funtype_65_t ivar_172;
+           ivar_172 = (sigmatopdown_funtype_65_t)ivar_175->ftbl->fptr(ivar_175, ivar_176);
+           ivar_175->ftbl->rptr(ivar_175);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_169 = (sigmatopdown_funtype_65_t)ivar_172;
+           ivar_169->count++;
+           release_sigmatopdown_funtype_65(ivar_172);
+           sigmatopdown__ent_adt_t ivar_167;
+           ivar_167 = (sigmatopdown__ent_adt_t)ivar_169->ftbl->fptr(ivar_169, ivar_161);
+           ivar_169->ftbl->rptr(ivar_169);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_179 = (sigmatopdown__ent_adt_t)ivar_167;
+           ivar_179->count++;
+           release_sigmatopdown__ent_adt(ivar_167);
+           result = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_179);
+} else {
+           
+           bool_t ivar_203;
+           ivar_11->count++;
+           ivar_203 = (bool_t)r_sigmatopdown__notp((sigmatopdown__peg_adt_t)ivar_11);
+           if (ivar_203){    
+            uint8_t ivar_184;
+            ivar_184 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_11);
+            sigmatopdown__ent_adt_t ivar_202;
+            sigmatopdown_funtype_65_t ivar_192;
+            sigmatopdown_funtype_66_t ivar_198;
+            //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+            ivar_198 = (sigmatopdown_funtype_66_t)ivar_6;
+            ivar_198->count++;
+            release_sigmatopdown_funtype_66(ivar_6);
+            uint32_t ivar_199;
+            //copying to uint32 from uint32;
+            ivar_199 = (uint32_t)ivar_9;
+            sigmatopdown_funtype_65_t ivar_195;
+            ivar_195 = (sigmatopdown_funtype_65_t)ivar_198->ftbl->fptr(ivar_198, ivar_199);
+            ivar_198->ftbl->rptr(ivar_198);
+            //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+            ivar_192 = (sigmatopdown_funtype_65_t)ivar_195;
+            ivar_192->count++;
+            release_sigmatopdown_funtype_65(ivar_195);
+            sigmatopdown__ent_adt_t ivar_190;
+            ivar_190 = (sigmatopdown__ent_adt_t)ivar_192->ftbl->fptr(ivar_192, ivar_184);
+            ivar_192->ftbl->rptr(ivar_192);
+            //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+            ivar_202 = (sigmatopdown__ent_adt_t)ivar_190;
+            ivar_202->count++;
+            release_sigmatopdown__ent_adt(ivar_190);
+            result = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_202);
+} else {
+           
+            release_sigmatopdown__peg_adt(ivar_11);
+            release_sigmatopdown_funtype_66(ivar_6);
+            result = (bool_t) false;
+};
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_100_t new_sigmatopdown_closure_100(void){
+        static struct sigmatopdown_funtype_99_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_99_t, sigmatopdown_record_98_t))&f_sigmatopdown_closure_100, .mptr = (bool_t (*)(sigmatopdown_funtype_99_t, sigmatopdown_funtype_66_t, uint32_t, uint8_t))&m_sigmatopdown_closure_100, .rptr =  (void (*)(sigmatopdown_funtype_99_t))&release_sigmatopdown_closure_100, .cptr = (sigmatopdown_funtype_99_t (*)(sigmatopdown_funtype_99_t))&copy_sigmatopdown_closure_100};
+        sigmatopdown_closure_100_t tmp = (sigmatopdown_closure_100_t) safe_malloc(sizeof(struct sigmatopdown_closure_100_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_100(sigmatopdown_funtype_99_t closure){
+        sigmatopdown_closure_100_t x = (sigmatopdown_closure_100_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown__lang_spec(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_100_t copy_sigmatopdown_closure_100(sigmatopdown_closure_100_t x){
+        sigmatopdown_closure_100_t y = new_sigmatopdown_closure_100();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_99_htbl_t new_htbl = (sigmatopdown_funtype_99_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_99_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_99_hashentry_t * new_data = (sigmatopdown_funtype_99_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_99_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_99_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_record_101_t new_sigmatopdown_record_101(void){
+        sigmatopdown_record_101_t tmp = (sigmatopdown_record_101_t) safe_malloc(sizeof(struct sigmatopdown_record_101_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_101(sigmatopdown_record_101_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->project_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_101_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_101((sigmatopdown_record_101_t)x);
+}
+
+sigmatopdown_record_101_t copy_sigmatopdown_record_101(sigmatopdown_record_101_t x){
+        sigmatopdown_record_101_t y = new_sigmatopdown_record_101();
+        y->project_1 = x->project_1;
+        if (y->project_1 != NULL){y->project_1->count++;};
+        y->project_2 = (uint32_t)x->project_2;
+        y->project_3 = (uint8_t)x->project_3;
+        y->project_4 = (uint64_t)x->project_4;
+        mpz_set(y->project_5, x->project_5);
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_101(sigmatopdown_record_101_t x, sigmatopdown_record_101_t y){
+        bool_t tmp = true;
+        tmp = tmp && equal_sigmatopdown_funtype_66(x->project_1, y->project_1);
+        tmp = tmp && x->project_2 == y->project_2;
+        tmp = tmp && x->project_3 == y->project_3;
+        tmp = tmp && x->project_4 == y->project_4;
+        tmp = tmp && x->project_5 == y->project_5;
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_101_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_101_t T){
+        return equal_sigmatopdown_record_101((sigmatopdown_record_101_t)x, (sigmatopdown_record_101_t)y);
+}
+
+actual_sigmatopdown_record_101_t actual_sigmatopdown_record_101(){
+        actual_sigmatopdown_record_101_t new = (actual_sigmatopdown_record_101_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_101_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_101_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_101_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_101_t update_sigmatopdown_record_101_project_1(sigmatopdown_record_101_t x, sigmatopdown_funtype_66_t v){
+        sigmatopdown_record_101_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_1 != NULL){release_sigmatopdown_funtype_66(x->project_1);};}
+        else {y = copy_sigmatopdown_record_101(x); x->count--; y->project_1->count--;};
+        y->project_1 = (sigmatopdown_funtype_66_t)v;
+        return y;}
+
+sigmatopdown_record_101_t update_sigmatopdown_record_101_project_2(sigmatopdown_record_101_t x, uint32_t v){
+        sigmatopdown_record_101_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_101(x); x->count--;};
+        y->project_2 = (uint32_t)v;
+        return y;}
+
+sigmatopdown_record_101_t update_sigmatopdown_record_101_project_3(sigmatopdown_record_101_t x, uint8_t v){
+        sigmatopdown_record_101_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_101(x); x->count--;};
+        y->project_3 = (uint8_t)v;
+        return y;}
+
+sigmatopdown_record_101_t update_sigmatopdown_record_101_project_4(sigmatopdown_record_101_t x, uint64_t v){
+        sigmatopdown_record_101_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_101(x); x->count--;};
+        y->project_4 = (uint64_t)v;
+        return y;}
+
+sigmatopdown_record_101_t update_sigmatopdown_record_101_project_5(sigmatopdown_record_101_t x, mpz_ptr_t v){
+        sigmatopdown_record_101_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_101(x); x->count--;};
+        mpz_set(y->project_5, v);
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_102(sigmatopdown_funtype_102_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_102_t copy_sigmatopdown_funtype_102(sigmatopdown_funtype_102_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_102(sigmatopdown_funtype_102_t x, sigmatopdown_funtype_102_t y){
+        return false;}
+
+
+bool_t f_sigmatopdown_closure_103(struct sigmatopdown_closure_103_s * closure, sigmatopdown_record_101_t bvar){
+        sigmatopdown_funtype_66_t bvar_1;
+        bvar_1 = (sigmatopdown_funtype_66_t)bvar->project_1;
+        bvar->project_1->count++;
+        uint32_t bvar_2;
+        bvar_2 = (uint32_t)bvar->project_2;
+        uint8_t bvar_3;
+        bvar_3 = (uint8_t)bvar->project_3;
+        uint64_t bvar_4;
+        bvar_4 = (uint64_t)bvar->project_4;
+        mpz_t bvar_5;
+        mpz_init(bvar_5);
+        mpz_set(bvar_5, bvar->project_5);
+        release_sigmatopdown_record_101(bvar);
+        bool_t result = h_sigmatopdown_closure_103(bvar_1, bvar_2, bvar_3, bvar_4, bvar_5, closure->fvar_1, closure->fvar_2); 
+        release_sigmatopdown_funtype_66(bvar_1);
+        release_mpz(bvar_5);
+        return result;}
+
+bool_t m_sigmatopdown_closure_103(struct sigmatopdown_closure_103_s * closure, sigmatopdown_funtype_66_t bvar_1, uint32_t bvar_2, uint8_t bvar_3, uint64_t bvar_4, mpz_ptr_t bvar_5){
+        return h_sigmatopdown_closure_103(bvar_1, bvar_2, bvar_3, bvar_4, bvar_5, closure->fvar_1, closure->fvar_2);}
+
+extern bool_t h_sigmatopdown_closure_103(sigmatopdown_funtype_66_t ivar_9, uint32_t ivar_12, uint8_t ivar_13, uint64_t ivar_14, mpz_ptr_t ivar_15, sigmatopdown_funtype_75_t ivar_3, sigmatopdown__lang_spec_t ivar_2){
+        bool_t result;
+        sigmatopdown__peg_adt_t ivar_16;
+        sigmatopdown__peg_adt_t ivar_18;
+	printf("\n closure_103: cur = %"PRIu8"", ivar_13);
+        ivar_18 = (sigmatopdown__peg_adt_t)ivar_2->ftbl->fptr(ivar_2, ivar_13);
+        //copying to sigmatopdown__peg_adt from sigmatopdown__peg_adt;
+        ivar_16 = (sigmatopdown__peg_adt_t)ivar_18;
+        ivar_16->count++;
+        release_sigmatopdown__peg_adt(ivar_18);
+        bool_t ivar_30;
+        ivar_16->count++;
+        ivar_30 = (bool_t)r_sigmatopdown__epsilonp((sigmatopdown__peg_adt_t)ivar_16);
+        if (ivar_30){ printf("\n closure_103: G(cur) = epsilon");
+             release_sigmatopdown_funtype_66(ivar_9);
+             release_sigmatopdown__peg_adt(ivar_16);
+             bool_t ivar_21;
+             mpz_ptr_t ivar_23;
+             //copying to mpz from mpz;
+             mpz_mk_set(ivar_23, ivar_15);
+             mpz_clear(ivar_15);
+             uint8_t ivar_24;
+             ivar_24 = (uint8_t)0;
+             int64_t tmp21565 = mpz_cmp_ui(ivar_23, ivar_24);
+             ivar_21 = (tmp21565 == 0);
+             bool_t ivar_22;
+             uint8_t ivar_27;
+             ivar_27 = (uint8_t)0;
+             ivar_22 = (ivar_14 == ivar_27);
+             result = ivar_21 && ivar_22;
+} else {
+        
+             bool_t ivar_62;
+             ivar_16->count++;
+             ivar_62 = (bool_t)r_sigmatopdown__anyp((sigmatopdown__peg_adt_t)ivar_16);
+             if (ivar_62){  printf("\n closure_103: G(cur) = any");
+           release_sigmatopdown_funtype_66(ivar_9);
+           sigmatopdown_funtype_29_t ivar_34;
+           sigmatopdown_funtype_29_t ivar_38;
+           ivar_38 = (sigmatopdown_funtype_29_t)sigmatopdown__peg_adt_p((sigmatopdown__peg_adt_t)ivar_16);
+           //copying to sigmatopdown_funtype_29 from sigmatopdown_funtype_29;
+           ivar_34 = (sigmatopdown_funtype_29_t)ivar_38;
+           ivar_34->count++;
+           release_sigmatopdown_funtype_29(ivar_38);
+           bool_t ivar_40;
+           mpz_ptr_t ivar_42;
+           //copying to mpz from mpz;
+           mpz_mk_set(ivar_42, ivar_15);
+           mpz_clear(ivar_15);
+           uint8_t ivar_43;
+           ivar_43 = (uint8_t)1;
+           int64_t tmp21566 = mpz_cmp_ui(ivar_42, ivar_43);
+           ivar_40 = (tmp21566 == 0);
+           bool_t ivar_41;
+           bool_t ivar_45;
+           uint8_t ivar_56;
+           ivar_56 = (uint8_t)ivar_3->ftbl->fptr(ivar_3, ivar_12);
+           ivar_45 = (bool_t)ivar_34->ftbl->fptr(ivar_34, ivar_56);
+           ivar_34->ftbl->rptr(ivar_34);
+           bool_t ivar_46;
+           uint8_t ivar_58;
+           ivar_58 = (uint8_t)0;
+           ivar_46 = (ivar_14 == ivar_58);
+           ivar_41 = ivar_45 && ivar_46;
+           result = ivar_40 && ivar_41;
+} else {
+             
+           bool_t ivar_90;
+           ivar_16->count++;
+           ivar_90 = (bool_t)r_sigmatopdown__terminalp((sigmatopdown__peg_adt_t)ivar_16);
+           if (ivar_90){   printf("\n closure_103: G(cur) = terminal");
+           release_sigmatopdown_funtype_66(ivar_9);
+           uint8_t ivar_66;
+           ivar_66 = (uint8_t)sigmatopdown__peg_adt_a((sigmatopdown__peg_adt_t)ivar_16);
+           bool_t ivar_70;
+           mpz_ptr_t ivar_72;
+           //copying to mpz from mpz;
+           mpz_mk_set(ivar_72, ivar_15);
+           mpz_clear(ivar_15);
+           uint8_t ivar_73;
+           ivar_73 = (uint8_t)1;
+           int64_t tmp21567 = mpz_cmp_ui(ivar_72, ivar_73);
+           ivar_70 = (tmp21567 == 0);
+           bool_t ivar_71;
+           bool_t ivar_75;
+           uint8_t ivar_77;
+           ivar_77 = (uint8_t)ivar_3->ftbl->fptr(ivar_3, ivar_12);
+           ivar_75 = (ivar_77 == ivar_66);
+           bool_t ivar_76;
+           uint8_t ivar_86;
+           ivar_86 = (uint8_t)0;
+           ivar_76 = (ivar_14 == ivar_86);
+           ivar_71 = ivar_75 && ivar_76;
+           result = ivar_70 && ivar_71;
+} else {
+           
+           bool_t ivar_221;
+           ivar_16->count++;
+           ivar_221 = (bool_t)r_sigmatopdown__concatp((sigmatopdown__peg_adt_t)ivar_16);
+           if (ivar_221){    printf("\n closure_103: G(cur) = concat");
+            uint8_t ivar_94;
+            ivar_16->count++;
+            ivar_94 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_16);
+            uint8_t ivar_95;
+            ivar_95 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_16);
+            bool_t ivar_102;
+            sigmatopdown__ent_adt_t ivar_118;
+            sigmatopdown_funtype_65_t ivar_108;
+            sigmatopdown_funtype_66_t ivar_114;
+            //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+            ivar_114 = (sigmatopdown_funtype_66_t)ivar_9;
+            ivar_114->count++;
+            uint32_t ivar_115;
+            //copying to uint32 from uint32;
+            ivar_115 = (uint32_t)ivar_12;
+            sigmatopdown_funtype_65_t ivar_111;
+            ivar_111 = (sigmatopdown_funtype_65_t)ivar_114->ftbl->fptr(ivar_114, ivar_115);
+            ivar_114->ftbl->rptr(ivar_114);
+            //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+            ivar_108 = (sigmatopdown_funtype_65_t)ivar_111;
+            ivar_108->count++;
+            release_sigmatopdown_funtype_65(ivar_111);
+            sigmatopdown__ent_adt_t ivar_106;
+            ivar_106 = (sigmatopdown__ent_adt_t)ivar_108->ftbl->fptr(ivar_108, ivar_94);
+            ivar_108->ftbl->rptr(ivar_108);
+            //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+            ivar_118 = (sigmatopdown__ent_adt_t)ivar_106;
+            ivar_118->count++;
+            release_sigmatopdown__ent_adt(ivar_106);
+            ivar_102 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_118);
+            bool_t ivar_103;
+            bool_t ivar_119;
+            sigmatopdown__ent_adt_t ivar_154;
+            sigmatopdown_funtype_65_t ivar_125;
+            sigmatopdown_funtype_66_t ivar_149;
+            //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+            ivar_149 = (sigmatopdown_funtype_66_t)ivar_9;
+            ivar_149->count++;
+            uint64_t ivar_151;
+            uint32_t ivar_129;
+            sigmatopdown__ent_adt_t ivar_144;
+            sigmatopdown_funtype_65_t ivar_134;
+            sigmatopdown_funtype_66_t ivar_140;
+            //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+            ivar_140 = (sigmatopdown_funtype_66_t)ivar_9;
+            ivar_140->count++;
+            uint32_t ivar_141;
+            //copying to uint32 from uint32;
+            ivar_141 = (uint32_t)ivar_12;
+            sigmatopdown_funtype_65_t ivar_137;
+            ivar_137 = (sigmatopdown_funtype_65_t)ivar_140->ftbl->fptr(ivar_140, ivar_141);
+            ivar_140->ftbl->rptr(ivar_140);
+            //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+            ivar_134 = (sigmatopdown_funtype_65_t)ivar_137;
+            ivar_134->count++;
+            release_sigmatopdown_funtype_65(ivar_137);
+            sigmatopdown__ent_adt_t ivar_132;
+            ivar_132 = (sigmatopdown__ent_adt_t)ivar_134->ftbl->fptr(ivar_134, ivar_94);
+            ivar_134->ftbl->rptr(ivar_134);
+            //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+            ivar_144 = (sigmatopdown__ent_adt_t)ivar_132;
+            ivar_144->count++;
+            release_sigmatopdown__ent_adt(ivar_132);
+            ivar_129 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_144);
+            ivar_151 = (uint64_t)(ivar_12 + ivar_129);
+            uint32_t ivar_150;
+            //copying to uint32 from uint64;
+            ivar_150 = (uint32_t)ivar_151;
+            sigmatopdown_funtype_65_t ivar_146;
+            ivar_146 = (sigmatopdown_funtype_65_t)ivar_149->ftbl->fptr(ivar_149, ivar_150);
+            ivar_149->ftbl->rptr(ivar_149);
+            //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+            ivar_125 = (sigmatopdown_funtype_65_t)ivar_146;
+            ivar_125->count++;
+            release_sigmatopdown_funtype_65(ivar_146);
+            sigmatopdown__ent_adt_t ivar_123;
+            ivar_123 = (sigmatopdown__ent_adt_t)ivar_125->ftbl->fptr(ivar_125, ivar_95);
+            ivar_125->ftbl->rptr(ivar_125);
+            //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+            ivar_154 = (sigmatopdown__ent_adt_t)ivar_123;
+            ivar_154->count++;
+            release_sigmatopdown__ent_adt(ivar_123);
+            ivar_119 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_154);
+            bool_t ivar_120;
+            mpz_ptr_t ivar_156;
+            uint8_t ivar_157;
+            ivar_157 = (uint8_t)1;
+            mpq_ptr_t ivar_158;
+            uint64_t ivar_216;
+            sigmatopdown__ent_adt_t ivar_175;
+            sigmatopdown_funtype_65_t ivar_165;
+            sigmatopdown_funtype_66_t ivar_171;
+            //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+            ivar_171 = (sigmatopdown_funtype_66_t)ivar_9;
+            ivar_171->count++;
+            uint32_t ivar_172;
+            //copying to uint32 from uint32;
+            ivar_172 = (uint32_t)ivar_12;
+            sigmatopdown_funtype_65_t ivar_168;
+            ivar_168 = (sigmatopdown_funtype_65_t)ivar_171->ftbl->fptr(ivar_171, ivar_172);
+            ivar_171->ftbl->rptr(ivar_171);
+            //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+            ivar_165 = (sigmatopdown_funtype_65_t)ivar_168;
+            ivar_165->count++;
+            release_sigmatopdown_funtype_65(ivar_168);
+            sigmatopdown__ent_adt_t ivar_163;
+            ivar_163 = (sigmatopdown__ent_adt_t)ivar_165->ftbl->fptr(ivar_165, ivar_94);
+            ivar_165->ftbl->rptr(ivar_165);
+            //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+            ivar_175 = (sigmatopdown__ent_adt_t)ivar_163;
+            ivar_175->count++;
+            release_sigmatopdown__ent_adt(ivar_163);
+            ivar_216 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_175);
+            mpq_ptr_t ivar_211;
+            //copying to mpq from uint64;
+            mpq_mk_set_ui(ivar_211, ivar_216);
+            uint64_t ivar_215;
+            sigmatopdown__ent_adt_t ivar_209;
+            sigmatopdown_funtype_65_t ivar_180;
+            sigmatopdown_funtype_66_t ivar_204;
+            //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+            ivar_204 = (sigmatopdown_funtype_66_t)ivar_9;
+            ivar_204->count++;
+            uint64_t ivar_206;
+            uint32_t ivar_184;
+            sigmatopdown__ent_adt_t ivar_199;
+            sigmatopdown_funtype_65_t ivar_189;
+            sigmatopdown_funtype_66_t ivar_195;
+            //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+            ivar_195 = (sigmatopdown_funtype_66_t)ivar_9;
+            ivar_195->count++;
+            release_sigmatopdown_funtype_66(ivar_9);
+            uint32_t ivar_196;
+            //copying to uint32 from uint32;
+            ivar_196 = (uint32_t)ivar_12;
+            sigmatopdown_funtype_65_t ivar_192;
+            ivar_192 = (sigmatopdown_funtype_65_t)ivar_195->ftbl->fptr(ivar_195, ivar_196);
+            ivar_195->ftbl->rptr(ivar_195);
+            //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+            ivar_189 = (sigmatopdown_funtype_65_t)ivar_192;
+            ivar_189->count++;
+            release_sigmatopdown_funtype_65(ivar_192);
+            sigmatopdown__ent_adt_t ivar_187;
+            ivar_187 = (sigmatopdown__ent_adt_t)ivar_189->ftbl->fptr(ivar_189, ivar_94);
+            ivar_189->ftbl->rptr(ivar_189);
+            //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+            ivar_199 = (sigmatopdown__ent_adt_t)ivar_187;
+            ivar_199->count++;
+            release_sigmatopdown__ent_adt(ivar_187);
+            ivar_184 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_199);
+            ivar_206 = (uint64_t)(ivar_12 + ivar_184);
+            uint32_t ivar_205;
+            //copying to uint32 from uint64;
+            ivar_205 = (uint32_t)ivar_206;
+            sigmatopdown_funtype_65_t ivar_201;
+            ivar_201 = (sigmatopdown_funtype_65_t)ivar_204->ftbl->fptr(ivar_204, ivar_205);
+            ivar_204->ftbl->rptr(ivar_204);
+            //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+            ivar_180 = (sigmatopdown_funtype_65_t)ivar_201;
+            ivar_180->count++;
+            release_sigmatopdown_funtype_65(ivar_201);
+            sigmatopdown__ent_adt_t ivar_178;
+            ivar_178 = (sigmatopdown__ent_adt_t)ivar_180->ftbl->fptr(ivar_180, ivar_95);
+            ivar_180->ftbl->rptr(ivar_180);
+            //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+            ivar_209 = (sigmatopdown__ent_adt_t)ivar_178;
+            ivar_209->count++;
+            release_sigmatopdown__ent_adt(ivar_178);
+            ivar_215 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_209);
+            mpq_ptr_t ivar_212;
+            //copying to mpq from uint64;
+            mpq_mk_set_ui(ivar_212, ivar_215);
+            ivar_158 = (mpq_ptr_t)real_defs__max((mpq_ptr_t)ivar_211, (mpq_ptr_t)ivar_212);
+            mpz_mk_set_q(ivar_156, ivar_158);
+            mpz_add_ui(ivar_156, ivar_156, ivar_157);
+            int64_t tmp21568 = mpz_cmp_ui(ivar_156, ivar_14);
+            ivar_120 = (tmp21568 == 0);
+            ivar_103 = ivar_119 && ivar_120;
+            result = ivar_102 && ivar_103;
+} else {
+           
+            bool_t ivar_356;
+            ivar_16->count++;
+            ivar_356 = (bool_t)r_sigmatopdown__orp((sigmatopdown__peg_adt_t)ivar_16);
+            if (ivar_356){     printf("\n G(cur) = choice");
+             uint8_t ivar_225;
+             ivar_16->count++;
+             ivar_225 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_16);
+             uint8_t ivar_226;
+             ivar_226 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_16);
+             bool_t ivar_233;
+             bool_t ivar_235;
+             sigmatopdown__ent_adt_t ivar_251;
+             sigmatopdown_funtype_65_t ivar_241;
+             sigmatopdown_funtype_66_t ivar_247;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_247 = (sigmatopdown_funtype_66_t)ivar_9;
+             ivar_247->count++;
+             uint32_t ivar_248;
+             //copying to uint32 from uint32;
+             ivar_248 = (uint32_t)ivar_12;
+             sigmatopdown_funtype_65_t ivar_244;
+             ivar_244 = (sigmatopdown_funtype_65_t)ivar_247->ftbl->fptr(ivar_247, ivar_248);
+             ivar_247->ftbl->rptr(ivar_247);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_241 = (sigmatopdown_funtype_65_t)ivar_244;
+             ivar_241->count++;
+             release_sigmatopdown_funtype_65(ivar_244);
+             sigmatopdown__ent_adt_t ivar_239;
+             ivar_239 = (sigmatopdown__ent_adt_t)ivar_241->ftbl->fptr(ivar_241, ivar_225);
+             ivar_241->ftbl->rptr(ivar_241);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_251 = (sigmatopdown__ent_adt_t)ivar_239;
+             ivar_251->count++;
+             release_sigmatopdown__ent_adt(ivar_239);
+             ivar_235 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_251);
+             bool_t ivar_236;
+             mpz_ptr_t ivar_253;
+             uint8_t ivar_254;
+             ivar_254 = (uint8_t)1;
+             uint64_t ivar_255;
+             sigmatopdown__ent_adt_t ivar_270;
+             sigmatopdown_funtype_65_t ivar_260;
+             sigmatopdown_funtype_66_t ivar_266;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_266 = (sigmatopdown_funtype_66_t)ivar_9;
+             ivar_266->count++;
+             uint32_t ivar_267;
+             //copying to uint32 from uint32;
+             ivar_267 = (uint32_t)ivar_12;
+             sigmatopdown_funtype_65_t ivar_263;
+             ivar_263 = (sigmatopdown_funtype_65_t)ivar_266->ftbl->fptr(ivar_266, ivar_267);
+             ivar_266->ftbl->rptr(ivar_266);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_260 = (sigmatopdown_funtype_65_t)ivar_263;
+             ivar_260->count++;
+             release_sigmatopdown_funtype_65(ivar_263);
+             sigmatopdown__ent_adt_t ivar_258;
+             ivar_258 = (sigmatopdown__ent_adt_t)ivar_260->ftbl->fptr(ivar_260, ivar_225);
+             ivar_260->ftbl->rptr(ivar_260);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_270 = (sigmatopdown__ent_adt_t)ivar_258;
+             ivar_270->count++;
+             release_sigmatopdown__ent_adt(ivar_258);
+             ivar_255 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_270);
+             mpz_mk_set_ui(ivar_253, (uint64_t)ivar_254);
+             mpz_add_ui(ivar_253, ivar_253, (uint64_t)ivar_255);
+             int64_t tmp21569 = mpz_cmp_ui(ivar_253, ivar_14);
+             ivar_236 = (tmp21569 == 0);
+             ivar_233 = ivar_235 && ivar_236;
+             bool_t ivar_234;
+             bool_t ivar_274;
+             sigmatopdown__ent_adt_t ivar_290;
+             sigmatopdown_funtype_65_t ivar_280;
+             sigmatopdown_funtype_66_t ivar_286;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_286 = (sigmatopdown_funtype_66_t)ivar_9;
+             ivar_286->count++;
+             uint32_t ivar_287;
+             //copying to uint32 from uint32;
+             ivar_287 = (uint32_t)ivar_12;
+             sigmatopdown_funtype_65_t ivar_283;
+             ivar_283 = (sigmatopdown_funtype_65_t)ivar_286->ftbl->fptr(ivar_286, ivar_287);
+             ivar_286->ftbl->rptr(ivar_286);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_280 = (sigmatopdown_funtype_65_t)ivar_283;
+             ivar_280->count++;
+             release_sigmatopdown_funtype_65(ivar_283);
+             sigmatopdown__ent_adt_t ivar_278;
+             ivar_278 = (sigmatopdown__ent_adt_t)ivar_280->ftbl->fptr(ivar_280, ivar_225);
+             ivar_280->ftbl->rptr(ivar_280);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_290 = (sigmatopdown__ent_adt_t)ivar_278;
+             ivar_290->count++;
+             release_sigmatopdown__ent_adt(ivar_278);
+             ivar_274 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_290);
+             bool_t ivar_275;
+             bool_t ivar_291;
+             sigmatopdown__ent_adt_t ivar_307;
+             sigmatopdown_funtype_65_t ivar_297;
+             sigmatopdown_funtype_66_t ivar_303;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_303 = (sigmatopdown_funtype_66_t)ivar_9;
+             ivar_303->count++;
+             uint32_t ivar_304;
+             //copying to uint32 from uint32;
+             ivar_304 = (uint32_t)ivar_12;
+             sigmatopdown_funtype_65_t ivar_300;
+             ivar_300 = (sigmatopdown_funtype_65_t)ivar_303->ftbl->fptr(ivar_303, ivar_304);
+             ivar_303->ftbl->rptr(ivar_303);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_297 = (sigmatopdown_funtype_65_t)ivar_300;
+             ivar_297->count++;
+             release_sigmatopdown_funtype_65(ivar_300);
+             sigmatopdown__ent_adt_t ivar_295;
+             ivar_295 = (sigmatopdown__ent_adt_t)ivar_297->ftbl->fptr(ivar_297, ivar_226);
+             ivar_297->ftbl->rptr(ivar_297);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_307 = (sigmatopdown__ent_adt_t)ivar_295;
+             ivar_307->count++;
+             release_sigmatopdown__ent_adt(ivar_295);
+             ivar_291 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_307);
+             bool_t ivar_292;
+             mpz_ptr_t ivar_309;
+             uint8_t ivar_310;
+             ivar_310 = (uint8_t)1;
+             mpq_ptr_t ivar_311;
+             uint64_t ivar_350;
+             sigmatopdown__ent_adt_t ivar_328;
+             sigmatopdown_funtype_65_t ivar_318;
+             sigmatopdown_funtype_66_t ivar_324;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_324 = (sigmatopdown_funtype_66_t)ivar_9;
+             ivar_324->count++;
+             uint32_t ivar_325;
+             //copying to uint32 from uint32;
+             ivar_325 = (uint32_t)ivar_12;
+             sigmatopdown_funtype_65_t ivar_321;
+             ivar_321 = (sigmatopdown_funtype_65_t)ivar_324->ftbl->fptr(ivar_324, ivar_325);
+             ivar_324->ftbl->rptr(ivar_324);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_318 = (sigmatopdown_funtype_65_t)ivar_321;
+             ivar_318->count++;
+             release_sigmatopdown_funtype_65(ivar_321);
+             sigmatopdown__ent_adt_t ivar_316;
+             ivar_316 = (sigmatopdown__ent_adt_t)ivar_318->ftbl->fptr(ivar_318, ivar_225);
+             ivar_318->ftbl->rptr(ivar_318);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_328 = (sigmatopdown__ent_adt_t)ivar_316;
+             ivar_328->count++;
+             release_sigmatopdown__ent_adt(ivar_316);
+             ivar_350 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_328);
+             mpq_ptr_t ivar_345;
+             //copying to mpq from uint64;
+             mpq_mk_set_ui(ivar_345, ivar_350);
+             uint64_t ivar_349;
+             sigmatopdown__ent_adt_t ivar_343;
+             sigmatopdown_funtype_65_t ivar_333;
+             sigmatopdown_funtype_66_t ivar_339;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_339 = (sigmatopdown_funtype_66_t)ivar_9;
+             ivar_339->count++;
+             release_sigmatopdown_funtype_66(ivar_9);
+             uint32_t ivar_340;
+             //copying to uint32 from uint32;
+             ivar_340 = (uint32_t)ivar_12;
+             sigmatopdown_funtype_65_t ivar_336;
+             ivar_336 = (sigmatopdown_funtype_65_t)ivar_339->ftbl->fptr(ivar_339, ivar_340);
+             ivar_339->ftbl->rptr(ivar_339);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_333 = (sigmatopdown_funtype_65_t)ivar_336;
+             ivar_333->count++;
+             release_sigmatopdown_funtype_65(ivar_336);
+             sigmatopdown__ent_adt_t ivar_331;
+             ivar_331 = (sigmatopdown__ent_adt_t)ivar_333->ftbl->fptr(ivar_333, ivar_226);
+             ivar_333->ftbl->rptr(ivar_333);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_343 = (sigmatopdown__ent_adt_t)ivar_331;
+             ivar_343->count++;
+             release_sigmatopdown__ent_adt(ivar_331);
+             ivar_349 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_343);
+             mpq_ptr_t ivar_346;
+             //copying to mpq from uint64;
+             mpq_mk_set_ui(ivar_346, ivar_349);
+             ivar_311 = (mpq_ptr_t)real_defs__max((mpq_ptr_t)ivar_345, (mpq_ptr_t)ivar_346);
+             mpz_mk_set_q(ivar_309, ivar_311);
+             mpz_add_ui(ivar_309, ivar_309, ivar_310);
+             int64_t tmp21570 = mpz_cmp_ui(ivar_309, ivar_14);
+             ivar_292 = (tmp21570 == 0);
+             ivar_275 = ivar_291 && ivar_292;
+             ivar_234 = ivar_274 && ivar_275;
+             result = ivar_233 || ivar_234;
+} else {
+            
+             bool_t ivar_409;
+             ivar_16->count++;
+             ivar_409 = (bool_t)r_sigmatopdown__andp((sigmatopdown__peg_adt_t)ivar_16);
+             if (ivar_409){      printf("\n closure_103: G(cur) = and");
+              uint8_t ivar_360;
+              ivar_360 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_16);
+              bool_t ivar_364;
+              sigmatopdown__ent_adt_t ivar_380;
+              sigmatopdown_funtype_65_t ivar_370;
+              sigmatopdown_funtype_66_t ivar_376;
+              //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+              ivar_376 = (sigmatopdown_funtype_66_t)ivar_9;
+              ivar_376->count++;
+              uint32_t ivar_377;
+              //copying to uint32 from uint32;
+              ivar_377 = (uint32_t)ivar_12;
+              sigmatopdown_funtype_65_t ivar_373;
+              ivar_373 = (sigmatopdown_funtype_65_t)ivar_376->ftbl->fptr(ivar_376, ivar_377);
+              ivar_376->ftbl->rptr(ivar_376);
+              //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+              ivar_370 = (sigmatopdown_funtype_65_t)ivar_373;
+              ivar_370->count++;
+              release_sigmatopdown_funtype_65(ivar_373);
+              sigmatopdown__ent_adt_t ivar_368;
+              ivar_368 = (sigmatopdown__ent_adt_t)ivar_370->ftbl->fptr(ivar_370, ivar_360);
+              ivar_370->ftbl->rptr(ivar_370);
+              //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+              ivar_380 = (sigmatopdown__ent_adt_t)ivar_368;
+              ivar_380->count++;
+              release_sigmatopdown__ent_adt(ivar_368);
+              ivar_364 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_380);
+              bool_t ivar_365;
+              bool_t ivar_381;
+              mpz_ptr_t ivar_383;
+              //copying to mpz from mpz;
+              mpz_mk_set(ivar_383, ivar_15);
+              mpz_clear(ivar_15);
+              uint8_t ivar_384;
+              ivar_384 = (uint8_t)0;
+              int64_t tmp21571 = mpz_cmp_ui(ivar_383, ivar_384);
+              ivar_381 = (tmp21571 == 0);
+              bool_t ivar_382;
+              mpz_ptr_t ivar_387;
+              uint8_t ivar_388;
+              ivar_388 = (uint8_t)1;
+              uint64_t ivar_389;
+              sigmatopdown__ent_adt_t ivar_404;
+              sigmatopdown_funtype_65_t ivar_394;
+              sigmatopdown_funtype_66_t ivar_400;
+              //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+              ivar_400 = (sigmatopdown_funtype_66_t)ivar_9;
+              ivar_400->count++;
+              release_sigmatopdown_funtype_66(ivar_9);
+              uint32_t ivar_401;
+              //copying to uint32 from uint32;
+              ivar_401 = (uint32_t)ivar_12;
+              sigmatopdown_funtype_65_t ivar_397;
+              ivar_397 = (sigmatopdown_funtype_65_t)ivar_400->ftbl->fptr(ivar_400, ivar_401);
+              ivar_400->ftbl->rptr(ivar_400);
+              //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+              ivar_394 = (sigmatopdown_funtype_65_t)ivar_397;
+              ivar_394->count++;
+              release_sigmatopdown_funtype_65(ivar_397);
+              sigmatopdown__ent_adt_t ivar_392;
+              ivar_392 = (sigmatopdown__ent_adt_t)ivar_394->ftbl->fptr(ivar_394, ivar_360);
+              ivar_394->ftbl->rptr(ivar_394);
+              //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+              ivar_404 = (sigmatopdown__ent_adt_t)ivar_392;
+              ivar_404->count++;
+              release_sigmatopdown__ent_adt(ivar_392);
+              ivar_389 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_404);
+              mpz_mk_set_ui(ivar_387, (uint64_t)ivar_388);
+              mpz_add_ui(ivar_387, ivar_387, (uint64_t)ivar_389);
+              int64_t tmp21572 = mpz_cmp_ui(ivar_387, ivar_14);
+              ivar_382 = (tmp21572 == 0);
+              ivar_365 = ivar_381 && ivar_382;
+              result = ivar_364 && ivar_365;
+} else {
+             
+              bool_t ivar_462;
+              ivar_16->count++;
+              ivar_462 = (bool_t)r_sigmatopdown__notp((sigmatopdown__peg_adt_t)ivar_16);
+              if (ivar_462){       printf("\n closure_103: G(cur) = not");
+               uint8_t ivar_413;
+               ivar_413 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_16);
+               bool_t ivar_417;
+               sigmatopdown__ent_adt_t ivar_433;
+               sigmatopdown_funtype_65_t ivar_423;
+               sigmatopdown_funtype_66_t ivar_429;
+               //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+               ivar_429 = (sigmatopdown_funtype_66_t)ivar_9;
+               ivar_429->count++;
+               uint32_t ivar_430;
+               //copying to uint32 from uint32;
+               ivar_430 = (uint32_t)ivar_12;
+               sigmatopdown_funtype_65_t ivar_426;
+               ivar_426 = (sigmatopdown_funtype_65_t)ivar_429->ftbl->fptr(ivar_429, ivar_430);
+               ivar_429->ftbl->rptr(ivar_429);
+               //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+               ivar_423 = (sigmatopdown_funtype_65_t)ivar_426;
+               ivar_423->count++;
+               release_sigmatopdown_funtype_65(ivar_426);
+               sigmatopdown__ent_adt_t ivar_421;
+               ivar_421 = (sigmatopdown__ent_adt_t)ivar_423->ftbl->fptr(ivar_423, ivar_413);
+               ivar_423->ftbl->rptr(ivar_423);
+               //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+               ivar_433 = (sigmatopdown__ent_adt_t)ivar_421;
+               ivar_433->count++;
+               release_sigmatopdown__ent_adt(ivar_421);
+               ivar_417 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_433);
+               bool_t ivar_418;
+               bool_t ivar_434;
+               mpz_ptr_t ivar_436;
+               //copying to mpz from mpz;
+               mpz_mk_set(ivar_436, ivar_15);
+               mpz_clear(ivar_15);
+               uint8_t ivar_437;
+               ivar_437 = (uint8_t)0;
+               int64_t tmp21573 = mpz_cmp_ui(ivar_436, ivar_437);
+               ivar_434 = (tmp21573 == 0);
+               bool_t ivar_435;
+               mpz_ptr_t ivar_440;
+               uint8_t ivar_441;
+               ivar_441 = (uint8_t)1;
+               uint64_t ivar_442;
+               sigmatopdown__ent_adt_t ivar_457;
+               sigmatopdown_funtype_65_t ivar_447;
+               sigmatopdown_funtype_66_t ivar_453;
+               //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+               ivar_453 = (sigmatopdown_funtype_66_t)ivar_9;
+               ivar_453->count++;
+               release_sigmatopdown_funtype_66(ivar_9);
+               uint32_t ivar_454;
+               //copying to uint32 from uint32;
+               ivar_454 = (uint32_t)ivar_12;
+               sigmatopdown_funtype_65_t ivar_450;
+               ivar_450 = (sigmatopdown_funtype_65_t)ivar_453->ftbl->fptr(ivar_453, ivar_454);
+               ivar_453->ftbl->rptr(ivar_453);
+               //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+               ivar_447 = (sigmatopdown_funtype_65_t)ivar_450;
+               ivar_447->count++;
+               release_sigmatopdown_funtype_65(ivar_450);
+               sigmatopdown__ent_adt_t ivar_445;
+               ivar_445 = (sigmatopdown__ent_adt_t)ivar_447->ftbl->fptr(ivar_447, ivar_413);
+               ivar_447->ftbl->rptr(ivar_447);
+               //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+               ivar_457 = (sigmatopdown__ent_adt_t)ivar_445;
+               ivar_457->count++;
+               release_sigmatopdown__ent_adt(ivar_445);
+               ivar_442 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_457);
+               mpz_mk_set_ui(ivar_440, (uint64_t)ivar_441);
+               mpz_add_ui(ivar_440, ivar_440, (uint64_t)ivar_442);
+               int64_t tmp21574 = mpz_cmp_ui(ivar_440, ivar_14);
+               ivar_435 = (tmp21574 == 0);
+               ivar_418 = ivar_434 && ivar_435;
+               result = ivar_417 && ivar_418;
+} else {
+              
+               release_sigmatopdown__peg_adt(ivar_16);
+               release_sigmatopdown_funtype_66(ivar_9);
+               result = (bool_t) false;
+};
+};
+};
+};
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_103_t new_sigmatopdown_closure_103(void){
+        static struct sigmatopdown_funtype_102_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_102_t, sigmatopdown_record_101_t))&f_sigmatopdown_closure_103, .mptr = (bool_t (*)(sigmatopdown_funtype_102_t, sigmatopdown_funtype_66_t, uint32_t, uint8_t, uint64_t, mpz_ptr_t))&m_sigmatopdown_closure_103, .rptr =  (void (*)(sigmatopdown_funtype_102_t))&release_sigmatopdown_closure_103, .cptr = (sigmatopdown_funtype_102_t (*)(sigmatopdown_funtype_102_t))&copy_sigmatopdown_closure_103};
+        sigmatopdown_closure_103_t tmp = (sigmatopdown_closure_103_t) safe_malloc(sizeof(struct sigmatopdown_closure_103_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_103(sigmatopdown_funtype_102_t closure){
+        sigmatopdown_closure_103_t x = (sigmatopdown_closure_103_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_75(x->fvar_1);
+         release_sigmatopdown__lang_spec(x->fvar_2);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_103_t copy_sigmatopdown_closure_103(sigmatopdown_closure_103_t x){
+        sigmatopdown_closure_103_t y = new_sigmatopdown_closure_103();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_102_htbl_t new_htbl = (sigmatopdown_funtype_102_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_102_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_102_hashentry_t * new_data = (sigmatopdown_funtype_102_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_102_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_102_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_record_104_t new_sigmatopdown_record_104(void){
+        sigmatopdown_record_104_t tmp = (sigmatopdown_record_104_t) safe_malloc(sizeof(struct sigmatopdown_record_104_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_104(sigmatopdown_record_104_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->project_1);
+         release_sigmatopdown__ent_adt(x->project_4);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_104_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_104((sigmatopdown_record_104_t)x);
+}
+
+sigmatopdown_record_104_t copy_sigmatopdown_record_104(sigmatopdown_record_104_t x){
+        sigmatopdown_record_104_t y = new_sigmatopdown_record_104();
+        y->project_1 = x->project_1;
+        if (y->project_1 != NULL){y->project_1->count++;};
+        y->project_2 = (uint32_t)x->project_2;
+        y->project_3 = (uint8_t)x->project_3;
+        y->project_4 = x->project_4;
+        if (y->project_4 != NULL){y->project_4->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_104(sigmatopdown_record_104_t x, sigmatopdown_record_104_t y){
+        bool_t tmp = true;
+        tmp = tmp && equal_sigmatopdown_funtype_66(x->project_1, y->project_1);
+        tmp = tmp && x->project_2 == y->project_2;
+        tmp = tmp && x->project_3 == y->project_3;
+        tmp = tmp && equal_sigmatopdown__ent_adt(x->project_4, y->project_4);
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_104_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_104_t T){
+        return equal_sigmatopdown_record_104((sigmatopdown_record_104_t)x, (sigmatopdown_record_104_t)y);
+}
+
+actual_sigmatopdown_record_104_t actual_sigmatopdown_record_104(){
+        actual_sigmatopdown_record_104_t new = (actual_sigmatopdown_record_104_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_104_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_104_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_104_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_104_t update_sigmatopdown_record_104_project_1(sigmatopdown_record_104_t x, sigmatopdown_funtype_66_t v){
+        sigmatopdown_record_104_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_1 != NULL){release_sigmatopdown_funtype_66(x->project_1);};}
+        else {y = copy_sigmatopdown_record_104(x); x->count--; y->project_1->count--;};
+        y->project_1 = (sigmatopdown_funtype_66_t)v;
+        return y;}
+
+sigmatopdown_record_104_t update_sigmatopdown_record_104_project_2(sigmatopdown_record_104_t x, uint32_t v){
+        sigmatopdown_record_104_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_104(x); x->count--;};
+        y->project_2 = (uint32_t)v;
+        return y;}
+
+sigmatopdown_record_104_t update_sigmatopdown_record_104_project_3(sigmatopdown_record_104_t x, uint8_t v){
+        sigmatopdown_record_104_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_104(x); x->count--;};
+        y->project_3 = (uint8_t)v;
+        return y;}
+
+sigmatopdown_record_104_t update_sigmatopdown_record_104_project_4(sigmatopdown_record_104_t x, sigmatopdown__ent_adt_t v){
+        sigmatopdown_record_104_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->project_4 != NULL){release_sigmatopdown__ent_adt(x->project_4);};}
+        else {y = copy_sigmatopdown_record_104(x); x->count--; y->project_4->count--;};
+        y->project_4 = (sigmatopdown__ent_adt_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_105(sigmatopdown_funtype_105_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_105_t copy_sigmatopdown_funtype_105(sigmatopdown_funtype_105_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_105(sigmatopdown_funtype_105_t x, sigmatopdown_funtype_105_t y){
+        return false;}
+
+
+bool_t f_sigmatopdown_closure_106(struct sigmatopdown_closure_106_s * closure, sigmatopdown_record_104_t bvar){
+        sigmatopdown_funtype_66_t bvar_1;
+        bvar_1 = (sigmatopdown_funtype_66_t)bvar->project_1;
+        bvar->project_1->count++;
+        uint32_t bvar_2;
+        bvar_2 = (uint32_t)bvar->project_2;
+        uint8_t bvar_3;
+        bvar_3 = (uint8_t)bvar->project_3;
+        sigmatopdown__ent_adt_t bvar_4;
+        bvar_4 = (sigmatopdown__ent_adt_t)bvar->project_4;
+        bvar->project_4->count++;
+        release_sigmatopdown_record_104(bvar);
+        bool_t result = h_sigmatopdown_closure_106(bvar_1, bvar_2, bvar_3, bvar_4, closure->fvar_1, closure->fvar_2, closure->fvar_3); 
+        release_sigmatopdown_funtype_66(bvar_1);
+        release_sigmatopdown__ent_adt(bvar_4);
+        return result;}
+
+bool_t m_sigmatopdown_closure_106(struct sigmatopdown_closure_106_s * closure, sigmatopdown_funtype_66_t bvar_1, uint32_t bvar_2, uint8_t bvar_3, sigmatopdown__ent_adt_t bvar_4){
+        return h_sigmatopdown_closure_106(bvar_1, bvar_2, bvar_3, bvar_4, closure->fvar_1, closure->fvar_2, closure->fvar_3);}
+
+extern bool_t h_sigmatopdown_closure_106(sigmatopdown_funtype_66_t ivar_8, uint32_t ivar_11, uint8_t ivar_12, sigmatopdown__ent_adt_t ivar_13, uint32_t ivar_1, sigmatopdown_funtype_75_t ivar_3, sigmatopdown__lang_spec_t ivar_2){
+        bool_t result;
+        bool_t ivar_48;
+        ivar_13->count++;
+        ivar_48 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_13);
+        if (ivar_48){ 
+             uint64_t ivar_15;
+             ivar_15 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_13);
+             sigmatopdown_funtype_96_t ivar_27;
+             sigmatopdown_funtype_96_t ivar_34;
+             ivar_2->count++;
+             ivar_3->count++;
+             ivar_34 = (sigmatopdown_funtype_96_t)sigmatopdown__good_failp((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (sigmatopdown_funtype_75_t)ivar_3);
+             //copying to sigmatopdown_funtype_96 from sigmatopdown_funtype_96;
+             ivar_27 = (sigmatopdown_funtype_96_t)ivar_34;
+             ivar_27->count++;
+             release_sigmatopdown_funtype_96(ivar_34);
+             sigmatopdown_funtype_66_t ivar_39;
+             sigmatopdown_closure_107_t cl21598;
+             cl21598 = new_sigmatopdown_closure_107();
+             cl21598->fvar_1 = (sigmatopdown_funtype_66_t)ivar_8;
+             cl21598->fvar_1->count++;
+             release_sigmatopdown_funtype_66(ivar_8);
+             ivar_39 = (sigmatopdown_funtype_66_t)cl21598;
+             result = (bool_t)ivar_27->ftbl->mptr(ivar_27, ivar_39, ivar_11, ivar_12, ivar_15);
+             ivar_27->ftbl->rptr(ivar_27);
+} else {
+        
+             bool_t ivar_75;
+             ivar_13->count++;
+             ivar_75 = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_13);
+             if (ivar_75){  
+           release_sigmatopdown__ent_adt(ivar_13);
+           sigmatopdown_funtype_66_t ivar_60;
+           sigmatopdown_closure_108_t cl21599;
+           cl21599 = new_sigmatopdown_closure_108();
+           cl21599->fvar_1 = (sigmatopdown_funtype_66_t)ivar_8;
+           cl21599->fvar_1->count++;
+           release_sigmatopdown_funtype_66(ivar_8);
+           ivar_60 = (sigmatopdown_funtype_66_t)cl21599;
+           ivar_2->count++;
+           result = (bool_t)sigmatopdown__loop_readyp((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (sigmatopdown_funtype_66_t)ivar_60, (uint32_t)ivar_11, (uint8_t)ivar_12);
+} else {
+             
+           bool_t ivar_129;
+           ivar_13->count++;
+           ivar_129 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_13);
+           if (ivar_129){   
+           uint64_t ivar_79;
+           ivar_13->count++;
+           ivar_79 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_13);
+           uint32_t ivar_80;
+           ivar_80 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_13);
+           bool_t ivar_87;
+           int32_t ivar_90;
+           ivar_90 = (int32_t)((uint64_t)ivar_1 - (uint64_t)ivar_11);
+           if ((ivar_90 < 0)){    
+            ivar_87 = false;
+} else {
+           
+            ivar_87 = (ivar_80 <= (uint32_t)ivar_90);
+};
+           bool_t ivar_88;
+           sigmatopdown_funtype_102_t ivar_105;
+           sigmatopdown_funtype_102_t ivar_113;
+           ivar_2->count++;
+           ivar_3->count++;
+           ivar_113 = (sigmatopdown_funtype_102_t)sigmatopdown__good_goodp((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (sigmatopdown_funtype_75_t)ivar_3);
+           //copying to sigmatopdown_funtype_102 from sigmatopdown_funtype_102;
+           ivar_105 = (sigmatopdown_funtype_102_t)ivar_113;
+           ivar_105->count++;
+           release_sigmatopdown_funtype_102(ivar_113);
+           sigmatopdown_funtype_66_t ivar_118;
+           sigmatopdown_closure_109_t cl21600;
+           cl21600 = new_sigmatopdown_closure_109();
+           cl21600->fvar_1 = (sigmatopdown_funtype_66_t)ivar_8;
+           cl21600->fvar_1->count++;
+           release_sigmatopdown_funtype_66(ivar_8);
+           ivar_118 = (sigmatopdown_funtype_66_t)cl21600;
+           mpz_ptr_t ivar_122;
+           //copying to mpz from uint32;
+           mpz_mk_set_ui(ivar_122, ivar_80);
+           ivar_88 = (bool_t)ivar_105->ftbl->mptr(ivar_105, ivar_118, ivar_11, ivar_12, ivar_79, ivar_122);
+           ivar_105->ftbl->rptr(ivar_105);
+           result = ivar_87 && ivar_88;
+} else {
+           
+           release_sigmatopdown_funtype_66(ivar_8);
+           release_sigmatopdown__ent_adt(ivar_13);
+           result = (bool_t) true;
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_106_t new_sigmatopdown_closure_106(void){
+        static struct sigmatopdown_funtype_105_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_105_t, sigmatopdown_record_104_t))&f_sigmatopdown_closure_106, .mptr = (bool_t (*)(sigmatopdown_funtype_105_t, sigmatopdown_funtype_66_t, uint32_t, uint8_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_106, .rptr =  (void (*)(sigmatopdown_funtype_105_t))&release_sigmatopdown_closure_106, .cptr = (sigmatopdown_funtype_105_t (*)(sigmatopdown_funtype_105_t))&copy_sigmatopdown_closure_106};
+        sigmatopdown_closure_106_t tmp = (sigmatopdown_closure_106_t) safe_malloc(sizeof(struct sigmatopdown_closure_106_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_106(sigmatopdown_funtype_105_t closure){
+        sigmatopdown_closure_106_t x = (sigmatopdown_closure_106_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_75(x->fvar_2);
+         release_sigmatopdown__lang_spec(x->fvar_3);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_106_t copy_sigmatopdown_closure_106(sigmatopdown_closure_106_t x){
+        sigmatopdown_closure_106_t y = new_sigmatopdown_closure_106();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = (uint32_t)x->fvar_1;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_105_htbl_t new_htbl = (sigmatopdown_funtype_105_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_105_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_105_hashentry_t * new_data = (sigmatopdown_funtype_105_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_105_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_105_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_107(struct sigmatopdown_closure_107_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_107(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_107(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_107(struct sigmatopdown_closure_107_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_107(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_107(uint32_t ivar_46, sigmatopdown_funtype_66_t ivar_8){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_44;
+        uint32_t ivar_45;
+        //copying to uint32 from uint32;
+        ivar_45 = (uint32_t)ivar_46;
+        ivar_44 = (sigmatopdown_funtype_65_t)ivar_8->ftbl->fptr(ivar_8, ivar_45);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_44;
+        result->count++;
+        release_sigmatopdown_funtype_65(ivar_44);
+
+        return result;
+}
+
+sigmatopdown_closure_107_t new_sigmatopdown_closure_107(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_107, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_107, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_107, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_107};
+        sigmatopdown_closure_107_t tmp = (sigmatopdown_closure_107_t) safe_malloc(sizeof(struct sigmatopdown_closure_107_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_107(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_107_t x = (sigmatopdown_closure_107_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_107_t copy_sigmatopdown_closure_107(sigmatopdown_closure_107_t x){
+        sigmatopdown_closure_107_t y = new_sigmatopdown_closure_107();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_108(struct sigmatopdown_closure_108_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+	 if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_108(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_108(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_108(struct sigmatopdown_closure_108_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_108(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_108(uint32_t ivar_73, sigmatopdown_funtype_66_t ivar_8){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_71;
+        uint32_t ivar_72;
+        //copying to uint32 from uint32;
+        ivar_72 = (uint32_t)ivar_73;
+        ivar_71 = (sigmatopdown_funtype_65_t)ivar_8->ftbl->fptr(ivar_8, ivar_72);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_71;
+        result->count++;
+        release_sigmatopdown_funtype_65(ivar_71);
+
+        return result;
+}
+
+sigmatopdown_closure_108_t new_sigmatopdown_closure_108(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_108, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_108, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_108, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_108};
+        sigmatopdown_closure_108_t tmp = (sigmatopdown_closure_108_t) safe_malloc(sizeof(struct sigmatopdown_closure_108_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_108(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_108_t x = (sigmatopdown_closure_108_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_108_t copy_sigmatopdown_closure_108(sigmatopdown_closure_108_t x){
+        sigmatopdown_closure_108_t y = new_sigmatopdown_closure_108();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_109(struct sigmatopdown_closure_109_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_109(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_109(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_109(struct sigmatopdown_closure_109_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_109(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_109(uint32_t ivar_126, sigmatopdown_funtype_66_t ivar_8){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_124;
+        uint32_t ivar_125;
+        //copying to uint32 from uint32;
+        ivar_125 = (uint32_t)ivar_126;
+        ivar_124 = (sigmatopdown_funtype_65_t)ivar_8->ftbl->fptr(ivar_8, ivar_125);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_124;
+        result->count++;
+        release_sigmatopdown_funtype_65(ivar_124);
+
+        return result;
+}
+
+sigmatopdown_closure_109_t new_sigmatopdown_closure_109(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_109, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_109, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_109, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_109};
+        sigmatopdown_closure_109_t tmp = (sigmatopdown_closure_109_t) safe_malloc(sizeof(struct sigmatopdown_closure_109_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_109(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_109_t x = (sigmatopdown_closure_109_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_109_t copy_sigmatopdown_closure_109(sigmatopdown_closure_109_t x){
+        sigmatopdown_closure_109_t y = new_sigmatopdown_closure_109();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+bool_t f_sigmatopdown_closure_110(struct sigmatopdown_closure_110_s * closure, sigmatopdown_record_104_t bvar){
+        sigmatopdown_funtype_66_t bvar_1;
+        bvar_1 = (sigmatopdown_funtype_66_t)bvar->project_1;
+        bvar->project_1->count++;
+        uint32_t bvar_2;
+        bvar_2 = (uint32_t)bvar->project_2;
+        uint8_t bvar_3;
+        bvar_3 = (uint8_t)bvar->project_3;
+        sigmatopdown__ent_adt_t bvar_4;
+        bvar_4 = (sigmatopdown__ent_adt_t)bvar->project_4;
+        bvar->project_4->count++;
+        release_sigmatopdown_record_104(bvar);
+        bool_t result = h_sigmatopdown_closure_110(bvar_1, bvar_2, bvar_3, bvar_4, closure->fvar_1, closure->fvar_2, closure->fvar_3); 
+        release_sigmatopdown_funtype_66(bvar_1);
+        release_sigmatopdown__ent_adt(bvar_4);
+        return result;}
+
+bool_t m_sigmatopdown_closure_110(struct sigmatopdown_closure_110_s * closure, sigmatopdown_funtype_66_t bvar_1, uint32_t bvar_2, uint8_t bvar_3, sigmatopdown__ent_adt_t bvar_4){
+        return h_sigmatopdown_closure_110(bvar_1, bvar_2, bvar_3, bvar_4, closure->fvar_1, closure->fvar_2, closure->fvar_3);}
+
+extern bool_t h_sigmatopdown_closure_110(sigmatopdown_funtype_66_t ivar_8, uint32_t ivar_11, uint8_t ivar_12, sigmatopdown__ent_adt_t ivar_13, uint32_t ivar_1, sigmatopdown_funtype_75_t ivar_3, sigmatopdown__lang_spec_t ivar_2){
+        bool_t result;
+        bool_t ivar_48;
+        ivar_13->count++;
+        ivar_48 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_13);
+        if (ivar_48){ 
+             uint64_t ivar_15;
+             ivar_15 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_13);
+             sigmatopdown_funtype_96_t ivar_27;
+             sigmatopdown_funtype_96_t ivar_34;
+             ivar_2->count++;
+             ivar_3->count++;
+             ivar_34 = (sigmatopdown_funtype_96_t)sigmatopdown__good_failp((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (sigmatopdown_funtype_75_t)ivar_3);
+             //copying to sigmatopdown_funtype_96 from sigmatopdown_funtype_96;
+             ivar_27 = (sigmatopdown_funtype_96_t)ivar_34;
+             ivar_27->count++;
+             release_sigmatopdown_funtype_96(ivar_34);
+             sigmatopdown_funtype_66_t ivar_39;
+             sigmatopdown_closure_111_t cl21625;
+             cl21625 = new_sigmatopdown_closure_111();
+             cl21625->fvar_1 = (sigmatopdown_funtype_66_t)ivar_8;
+             cl21625->fvar_1->count++;
+             release_sigmatopdown_funtype_66(ivar_8);
+             ivar_39 = (sigmatopdown_funtype_66_t)cl21625;
+             result = (bool_t)ivar_27->ftbl->mptr(ivar_27, ivar_39, ivar_11, ivar_12, ivar_15);
+             ivar_27->ftbl->rptr(ivar_27);
+} else {
+        
+             bool_t ivar_75;
+             ivar_13->count++;
+             ivar_75 = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_13);
+             if (ivar_75){  
+           release_sigmatopdown__ent_adt(ivar_13);
+           release_sigmatopdown__ent_adt(ivar_13);
+           sigmatopdown_funtype_66_t ivar_60;
+           sigmatopdown_closure_112_t cl21626;
+           cl21626 = new_sigmatopdown_closure_112();
+           cl21626->fvar_1 = (sigmatopdown_funtype_66_t)ivar_8;
+           cl21626->fvar_1->count++;
+           release_sigmatopdown_funtype_66(ivar_8);
+           ivar_60 = (sigmatopdown_funtype_66_t)cl21626;
+           ivar_2->count++;
+           result = (bool_t)sigmatopdown__loop_readyp((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (sigmatopdown_funtype_66_t)ivar_60, (uint32_t)ivar_11, (uint8_t)ivar_12);
+} else {
+             
+           bool_t ivar_129;
+           ivar_13->count++;
+           ivar_129 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_13);
+           if (ivar_129){   
+           uint64_t ivar_79;
+           ivar_13->count++;
+           ivar_79 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_13);
+           uint32_t ivar_80;
+           ivar_80 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_13);
+           bool_t ivar_87;
+           int32_t ivar_90;
+           ivar_90 = (int32_t)((uint64_t)ivar_1 - (uint64_t)ivar_11);
+           if ((ivar_90 < 0)){    
+            ivar_87 = false;
+} else {
+           
+            ivar_87 = (ivar_80 <= (uint32_t)ivar_90);
+};
+           bool_t ivar_88;
+           sigmatopdown_funtype_102_t ivar_105;
+           sigmatopdown_funtype_102_t ivar_113;
+           ivar_2->count++;
+           ivar_3->count++;
+           ivar_113 = (sigmatopdown_funtype_102_t)sigmatopdown__good_goodp((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (sigmatopdown_funtype_75_t)ivar_3);
+           //copying to sigmatopdown_funtype_102 from sigmatopdown_funtype_102;
+           ivar_105 = (sigmatopdown_funtype_102_t)ivar_113;
+           ivar_105->count++;
+           release_sigmatopdown_funtype_102(ivar_113);
+           sigmatopdown_funtype_66_t ivar_118;
+           sigmatopdown_closure_113_t cl21627;
+           cl21627 = new_sigmatopdown_closure_113();
+           cl21627->fvar_1 = (sigmatopdown_funtype_66_t)ivar_8;
+           cl21627->fvar_1->count++;
+           release_sigmatopdown_funtype_66(ivar_8);
+           ivar_118 = (sigmatopdown_funtype_66_t)cl21627;
+           mpz_ptr_t ivar_122;
+           //copying to mpz from uint32;
+           mpz_mk_set_ui(ivar_122, ivar_80);
+           ivar_88 = (bool_t)ivar_105->ftbl->mptr(ivar_105, ivar_118, ivar_11, ivar_12, ivar_79, ivar_122);
+           ivar_105->ftbl->rptr(ivar_105);
+           result = ivar_87 && ivar_88;
+} else {
+           
+           bool_t ivar_133;
+           ivar_133 = (bool_t)r_sigmatopdown__pushp((sigmatopdown__ent_adt_t)ivar_13);
+           bool_t ivar_134;
+           sigmatopdown__ent_adt_t ivar_152;
+           sigmatopdown_funtype_65_t ivar_142;
+           sigmatopdown_funtype_66_t ivar_148;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_148 = (sigmatopdown_funtype_66_t)ivar_8;
+           ivar_148->count++;
+           release_sigmatopdown_funtype_66(ivar_8);
+           uint32_t ivar_149;
+           //copying to uint32 from uint32;
+           ivar_149 = (uint32_t)ivar_11;
+           sigmatopdown_funtype_65_t ivar_145;
+           ivar_145 = (sigmatopdown_funtype_65_t)ivar_148->ftbl->fptr(ivar_148, ivar_149);
+           ivar_148->ftbl->rptr(ivar_148);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_142 = (sigmatopdown_funtype_65_t)ivar_145;
+           ivar_142->count++;
+           release_sigmatopdown_funtype_65(ivar_145);
+           sigmatopdown__ent_adt_t ivar_140;
+           ivar_140 = (sigmatopdown__ent_adt_t)ivar_142->ftbl->fptr(ivar_142, ivar_12);
+           ivar_142->ftbl->rptr(ivar_142);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_152 = (sigmatopdown__ent_adt_t)ivar_140;
+           ivar_152->count++;
+           release_sigmatopdown__ent_adt(ivar_140);
+           ivar_134 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_152);
+           result = ivar_133 && ivar_134;
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_110_t new_sigmatopdown_closure_110(void){
+        static struct sigmatopdown_funtype_105_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_105_t, sigmatopdown_record_104_t))&f_sigmatopdown_closure_110, .mptr = (bool_t (*)(sigmatopdown_funtype_105_t, sigmatopdown_funtype_66_t, uint32_t, uint8_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_110, .rptr =  (void (*)(sigmatopdown_funtype_105_t))&release_sigmatopdown_closure_110, .cptr = (sigmatopdown_funtype_105_t (*)(sigmatopdown_funtype_105_t))&copy_sigmatopdown_closure_110};
+        sigmatopdown_closure_110_t tmp = (sigmatopdown_closure_110_t) safe_malloc(sizeof(struct sigmatopdown_closure_110_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_110(sigmatopdown_funtype_105_t closure){
+        sigmatopdown_closure_110_t x = (sigmatopdown_closure_110_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_75(x->fvar_2);
+         release_sigmatopdown__lang_spec(x->fvar_3);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_110_t copy_sigmatopdown_closure_110(sigmatopdown_closure_110_t x){
+        sigmatopdown_closure_110_t y = new_sigmatopdown_closure_110();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = (uint32_t)x->fvar_1;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_105_htbl_t new_htbl = (sigmatopdown_funtype_105_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_105_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_105_hashentry_t * new_data = (sigmatopdown_funtype_105_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_105_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_105_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_111(struct sigmatopdown_closure_111_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+	 if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_111(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_111(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_111(struct sigmatopdown_closure_111_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_111(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_111(uint32_t ivar_46, sigmatopdown_funtype_66_t ivar_8){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_44;
+        uint32_t ivar_45;
+        //copying to uint32 from uint32;
+        ivar_45 = (uint32_t)ivar_46;
+        ivar_44 = (sigmatopdown_funtype_65_t)ivar_8->ftbl->fptr(ivar_8, ivar_45);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_44;
+        result->count++;
+        release_sigmatopdown_funtype_65(ivar_44);
+
+        return result;
+}
+
+sigmatopdown_closure_111_t new_sigmatopdown_closure_111(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_111, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_111, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_111, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_111};
+        sigmatopdown_closure_111_t tmp = (sigmatopdown_closure_111_t) safe_malloc(sizeof(struct sigmatopdown_closure_111_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_111(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_111_t x = (sigmatopdown_closure_111_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_111_t copy_sigmatopdown_closure_111(sigmatopdown_closure_111_t x){
+        sigmatopdown_closure_111_t y = new_sigmatopdown_closure_111();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_112(struct sigmatopdown_closure_112_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+	 if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_112(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_112(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_112(struct sigmatopdown_closure_112_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_112(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_112(uint32_t ivar_73, sigmatopdown_funtype_66_t ivar_8){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_71;
+        uint32_t ivar_72;
+        //copying to uint32 from uint32;
+        ivar_72 = (uint32_t)ivar_73;
+        ivar_71 = (sigmatopdown_funtype_65_t)ivar_8->ftbl->fptr(ivar_8, ivar_72);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_71;
+        result->count++;
+        release_sigmatopdown_funtype_65(ivar_71);
+
+        return result;
+}
+
+sigmatopdown_closure_112_t new_sigmatopdown_closure_112(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_112, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_112, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_112, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_112};
+        sigmatopdown_closure_112_t tmp = (sigmatopdown_closure_112_t) safe_malloc(sizeof(struct sigmatopdown_closure_112_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_112(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_112_t x = (sigmatopdown_closure_112_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_112_t copy_sigmatopdown_closure_112(sigmatopdown_closure_112_t x){
+        sigmatopdown_closure_112_t y = new_sigmatopdown_closure_112();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_113(struct sigmatopdown_closure_113_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_113(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_113(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_113(struct sigmatopdown_closure_113_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_113(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_113(uint32_t ivar_126, sigmatopdown_funtype_66_t ivar_8){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_124;
+        uint32_t ivar_125;
+        //copying to uint32 from uint32;
+        ivar_125 = (uint32_t)ivar_126;
+        ivar_124 = (sigmatopdown_funtype_65_t)ivar_8->ftbl->fptr(ivar_8, ivar_125);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_124;
+        result->count++;
+        release_sigmatopdown_funtype_65(ivar_124);
+
+        return result;
+}
+
+sigmatopdown_closure_113_t new_sigmatopdown_closure_113(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_113, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_113, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_113, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_113};
+        sigmatopdown_closure_113_t tmp = (sigmatopdown_closure_113_t) safe_malloc(sizeof(struct sigmatopdown_closure_113_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_113(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_113_t x = (sigmatopdown_closure_113_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_113_t copy_sigmatopdown_closure_113(sigmatopdown_closure_113_t x){
+        sigmatopdown_closure_113_t y = new_sigmatopdown_closure_113();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_sigmatopdown_funtype_114(sigmatopdown_funtype_114_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_114_t copy_sigmatopdown_funtype_114(sigmatopdown_funtype_114_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_114(sigmatopdown_funtype_114_t x, sigmatopdown_funtype_114_t y){
+        return false;}
+
+
+bool_t f_sigmatopdown_closure_115(struct sigmatopdown_closure_115_s * closure, sigmatopdown_funtype_66_t bvar){
+        bool_t result = h_sigmatopdown_closure_115(bvar); 
+        return result;}
+
+bool_t m_sigmatopdown_closure_115(struct sigmatopdown_closure_115_s * closure, sigmatopdown_funtype_66_t bvar){
+        return h_sigmatopdown_closure_115(bvar);}
+
+extern bool_t h_sigmatopdown_closure_115(sigmatopdown_funtype_66_t ivar_8){
+        bool_t result;
+        result = (bool_t)u_undef_quant_expr();
+
+        return result;
+}
+
+sigmatopdown_closure_115_t new_sigmatopdown_closure_115(void){
+        static struct sigmatopdown_funtype_114_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_114_t, sigmatopdown_funtype_66_t))&f_sigmatopdown_closure_115, .mptr = (bool_t (*)(sigmatopdown_funtype_114_t, sigmatopdown_funtype_66_t))&m_sigmatopdown_closure_115, .rptr =  (void (*)(sigmatopdown_funtype_114_t))&release_sigmatopdown_closure_115, .cptr = (sigmatopdown_funtype_114_t (*)(sigmatopdown_funtype_114_t))&copy_sigmatopdown_closure_115};
+        sigmatopdown_closure_115_t tmp = (sigmatopdown_closure_115_t) safe_malloc(sizeof(struct sigmatopdown_closure_115_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_115(sigmatopdown_funtype_114_t closure){
+        sigmatopdown_closure_115_t x = (sigmatopdown_closure_115_t)closure;
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_115_t copy_sigmatopdown_closure_115(sigmatopdown_closure_115_t x){
+        sigmatopdown_closure_115_t y = new_sigmatopdown_closure_115();
+        y->ftbl = x->ftbl;
+
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_114_htbl_t new_htbl = (sigmatopdown_funtype_114_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_114_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_114_hashentry_t * new_data = (sigmatopdown_funtype_114_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_114_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_114_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+bool_t f_sigmatopdown_closure_116(struct sigmatopdown_closure_116_s * closure, sigmatopdown_record_9_t bvar){
+        uint32_t bvar_1;
+        bvar_1 = (uint32_t)bvar->project_1;
+        uint8_t bvar_2;
+        bvar_2 = (uint8_t)bvar->project_2;
+        release_sigmatopdown_record_9(bvar);
+        bool_t result = h_sigmatopdown_closure_116(bvar_1, bvar_2, closure->fvar_1); 
+        return result;}
+
+bool_t m_sigmatopdown_closure_116(struct sigmatopdown_closure_116_s * closure, uint32_t bvar_1, uint8_t bvar_2){
+        return h_sigmatopdown_closure_116(bvar_1, bvar_2, closure->fvar_1);}
+
+extern bool_t h_sigmatopdown_closure_116(uint32_t ivar_6, uint8_t ivar_7, sigmatopdown_funtype_66_t ivar_2){
+        bool_t result;
+        bool_t ivar_8;
+        sigmatopdown__ent_adt_t ivar_23;
+        sigmatopdown_funtype_65_t ivar_13;
+        sigmatopdown_funtype_66_t ivar_19;
+        //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+        ivar_19 = (sigmatopdown_funtype_66_t)ivar_2;
+        ivar_19->count++;
+        uint32_t ivar_20;
+        //copying to uint32 from uint32;
+        ivar_20 = (uint32_t)ivar_6;
+        sigmatopdown_funtype_65_t ivar_16;
+        ivar_16 = (sigmatopdown_funtype_65_t)ivar_19->ftbl->fptr(ivar_19, ivar_20);
+        ivar_19->ftbl->rptr(ivar_19);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        ivar_13 = (sigmatopdown_funtype_65_t)ivar_16;
+        ivar_13->count++;
+        release_sigmatopdown_funtype_65(ivar_16);
+        sigmatopdown__ent_adt_t ivar_11;
+        ivar_11 = (sigmatopdown__ent_adt_t)ivar_13->ftbl->fptr(ivar_13, ivar_7);
+        ivar_13->ftbl->rptr(ivar_13);
+        //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+        ivar_23 = (sigmatopdown__ent_adt_t)ivar_11;
+        ivar_23->count++;
+        release_sigmatopdown__ent_adt(ivar_11);
+        ivar_8 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_23);
+        result = !ivar_8;
+
+        return result;
+}
+
+sigmatopdown_closure_116_t new_sigmatopdown_closure_116(void){
+        static struct sigmatopdown_funtype_64_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_64_t, sigmatopdown_record_9_t))&f_sigmatopdown_closure_116, .mptr = (bool_t (*)(sigmatopdown_funtype_64_t, uint32_t, uint8_t))&m_sigmatopdown_closure_116, .rptr =  (void (*)(sigmatopdown_funtype_64_t))&release_sigmatopdown_closure_116, .cptr = (sigmatopdown_funtype_64_t (*)(sigmatopdown_funtype_64_t))&copy_sigmatopdown_closure_116};
+        sigmatopdown_closure_116_t tmp = (sigmatopdown_closure_116_t) safe_malloc(sizeof(struct sigmatopdown_closure_116_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_116(sigmatopdown_funtype_64_t closure){
+        sigmatopdown_closure_116_t x = (sigmatopdown_closure_116_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_116_t copy_sigmatopdown_closure_116(sigmatopdown_closure_116_t x){
+        sigmatopdown_closure_116_t y = new_sigmatopdown_closure_116();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_64_htbl_t new_htbl = (sigmatopdown_funtype_64_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_64_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_64_hashentry_t * new_data = (sigmatopdown_funtype_64_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_64_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_64_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_sigmatopdown_funtype_117(sigmatopdown_funtype_117_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_117_t copy_sigmatopdown_funtype_117(sigmatopdown_funtype_117_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_117(sigmatopdown_funtype_117_t x, sigmatopdown_funtype_117_t y){
+        return false;}
+
+
+sigmatopdown_funtype_114_t f_sigmatopdown_closure_118(struct sigmatopdown_closure_118_s * closure, sigmatopdown_record_9_t bvar){
+        uint32_t bvar_1;
+        bvar_1 = (uint32_t)bvar->project_1;
+        uint8_t bvar_2;
+        bvar_2 = (uint8_t)bvar->project_2;
+        release_sigmatopdown_record_9(bvar);
+        sigmatopdown_funtype_114_t result = h_sigmatopdown_closure_118(bvar_1, bvar_2, closure->fvar_1, closure->fvar_2, closure->fvar_3); 
+        return result;}
+
+sigmatopdown_funtype_114_t m_sigmatopdown_closure_118(struct sigmatopdown_closure_118_s * closure, uint32_t bvar_1, uint8_t bvar_2){
+        return h_sigmatopdown_closure_118(bvar_1, bvar_2, closure->fvar_1, closure->fvar_2, closure->fvar_3);}
+
+extern sigmatopdown_funtype_114_t h_sigmatopdown_closure_118(uint32_t ivar_9, uint8_t ivar_10, sigmatopdown__lang_spec_t ivar_2, sigmatopdown_funtype_75_t ivar_3, uint32_t ivar_1){
+        sigmatopdown_funtype_114_t result;
+        sigmatopdown_closure_119_t cl21652;
+        cl21652 = new_sigmatopdown_closure_119();
+        cl21652->fvar_1 = (uint32_t)ivar_1;
+        cl21652->fvar_2 = (uint8_t)ivar_10;
+        cl21652->fvar_3 = (uint32_t)ivar_9;
+        cl21652->fvar_4 = (sigmatopdown_funtype_75_t)ivar_3;
+        cl21652->fvar_4->count++;
+        cl21652->fvar_5 = (sigmatopdown__lang_spec_t)ivar_2;
+        cl21652->fvar_5->count++;
+        result = (sigmatopdown_funtype_114_t)cl21652;
+
+        return result;
+}
+
+sigmatopdown_closure_118_t new_sigmatopdown_closure_118(void){
+        static struct sigmatopdown_funtype_117_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_114_t (*)(sigmatopdown_funtype_117_t, sigmatopdown_record_9_t))&f_sigmatopdown_closure_118, .mptr = (sigmatopdown_funtype_114_t (*)(sigmatopdown_funtype_117_t, uint32_t, uint8_t))&m_sigmatopdown_closure_118, .rptr =  (void (*)(sigmatopdown_funtype_117_t))&release_sigmatopdown_closure_118, .cptr = (sigmatopdown_funtype_117_t (*)(sigmatopdown_funtype_117_t))&copy_sigmatopdown_closure_118};
+        sigmatopdown_closure_118_t tmp = (sigmatopdown_closure_118_t) safe_malloc(sizeof(struct sigmatopdown_closure_118_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_118(sigmatopdown_funtype_117_t closure){
+        sigmatopdown_closure_118_t x = (sigmatopdown_closure_118_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown__lang_spec(x->fvar_1);
+         release_sigmatopdown_funtype_75(x->fvar_2);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_118_t copy_sigmatopdown_closure_118(sigmatopdown_closure_118_t x){
+        sigmatopdown_closure_118_t y = new_sigmatopdown_closure_118();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        y->fvar_3 = (uint32_t)x->fvar_3;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_117_htbl_t new_htbl = (sigmatopdown_funtype_117_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_117_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_117_hashentry_t * new_data = (sigmatopdown_funtype_117_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_117_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_117_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+bool_t f_sigmatopdown_closure_119(struct sigmatopdown_closure_119_s * closure, sigmatopdown_funtype_66_t bvar){
+        bool_t result = h_sigmatopdown_closure_119(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5); 
+        return result;}
+
+bool_t m_sigmatopdown_closure_119(struct sigmatopdown_closure_119_s * closure, sigmatopdown_funtype_66_t bvar){
+        return h_sigmatopdown_closure_119(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5);}
+
+extern bool_t h_sigmatopdown_closure_119(sigmatopdown_funtype_66_t ivar_14, uint32_t ivar_1, uint8_t ivar_10, uint32_t ivar_9, sigmatopdown_funtype_75_t ivar_3, sigmatopdown__lang_spec_t ivar_2){
+        bool_t result;
+        bool_t ivar_17;
+        sigmatopdown_funtype_64_t ivar_23;
+        sigmatopdown_funtype_66_t ivar_29;
+        sigmatopdown_closure_120_t cl21650;
+        cl21650 = new_sigmatopdown_closure_120();
+        cl21650->fvar_1 = (sigmatopdown_funtype_66_t)ivar_14;
+        cl21650->fvar_1->count++;
+        ivar_29 = (sigmatopdown_funtype_66_t)cl21650;
+        sigmatopdown_funtype_64_t ivar_27;
+        ivar_27 = (sigmatopdown_funtype_64_t)sigmatopdown__good_rootp((uint32_t)ivar_1, (sigmatopdown_funtype_66_t)ivar_29);
+        //copying to sigmatopdown_funtype_64 from sigmatopdown_funtype_64;
+        ivar_23 = (sigmatopdown_funtype_64_t)ivar_27;
+        ivar_23->count++;
+        release_sigmatopdown_funtype_64(ivar_27);
+        ivar_17 = (bool_t)ivar_23->ftbl->mptr(ivar_23, ivar_9, ivar_10);
+        ivar_23->ftbl->rptr(ivar_23);
+        bool_t ivar_18;
+        sigmatopdown_funtype_114_t ivar_49;
+        sigmatopdown_funtype_114_t ivar_56;
+        ivar_2->count++;
+        ivar_3->count++;
+        ivar_56 = (sigmatopdown_funtype_114_t)sigmatopdown__good_tscaffoldp((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (sigmatopdown_funtype_75_t)ivar_3);
+        //copying to sigmatopdown_funtype_114 from sigmatopdown_funtype_114;
+        ivar_49 = (sigmatopdown_funtype_114_t)ivar_56;
+        ivar_49->count++;
+        release_sigmatopdown_funtype_114(ivar_56);
+        sigmatopdown_funtype_66_t ivar_61;
+        sigmatopdown_closure_121_t cl21651;
+        cl21651 = new_sigmatopdown_closure_121();
+        cl21651->fvar_1 = (sigmatopdown_funtype_66_t)ivar_14;
+        cl21651->fvar_1->count++;
+        release_sigmatopdown_funtype_66(ivar_14);
+        ivar_61 = (sigmatopdown_funtype_66_t)cl21651;
+        ivar_18 = (bool_t)ivar_49->ftbl->fptr(ivar_49, ivar_61);
+        ivar_49->ftbl->rptr(ivar_49);
+        result = ivar_17 && ivar_18;
+
+        return result;
+}
+
+sigmatopdown_closure_119_t new_sigmatopdown_closure_119(void){
+        static struct sigmatopdown_funtype_114_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_114_t, sigmatopdown_funtype_66_t))&f_sigmatopdown_closure_119, .mptr = (bool_t (*)(sigmatopdown_funtype_114_t, sigmatopdown_funtype_66_t))&m_sigmatopdown_closure_119, .rptr =  (void (*)(sigmatopdown_funtype_114_t))&release_sigmatopdown_closure_119, .cptr = (sigmatopdown_funtype_114_t (*)(sigmatopdown_funtype_114_t))&copy_sigmatopdown_closure_119};
+        sigmatopdown_closure_119_t tmp = (sigmatopdown_closure_119_t) safe_malloc(sizeof(struct sigmatopdown_closure_119_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_119(sigmatopdown_funtype_114_t closure){
+        sigmatopdown_closure_119_t x = (sigmatopdown_closure_119_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_75(x->fvar_4);
+         release_sigmatopdown__lang_spec(x->fvar_5);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_119_t copy_sigmatopdown_closure_119(sigmatopdown_closure_119_t x){
+        sigmatopdown_closure_119_t y = new_sigmatopdown_closure_119();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = (uint32_t)x->fvar_1;
+        y->fvar_2 = (uint8_t)x->fvar_2;
+        y->fvar_3 = (uint32_t)x->fvar_3;
+        y->fvar_4 = x->fvar_4; x->fvar_4->count++;
+        y->fvar_5 = x->fvar_5; x->fvar_5->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_114_htbl_t new_htbl = (sigmatopdown_funtype_114_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_114_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_114_hashentry_t * new_data = (sigmatopdown_funtype_114_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_114_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_114_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_120(struct sigmatopdown_closure_120_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_120(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_120(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_120(struct sigmatopdown_closure_120_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_120(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_120(uint32_t ivar_40, sigmatopdown_funtype_66_t ivar_14){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_38;
+        uint32_t ivar_39;
+        //copying to uint32 from uint32;
+        ivar_39 = (uint32_t)ivar_40;
+        ivar_38 = (sigmatopdown_funtype_65_t)ivar_14->ftbl->fptr(ivar_14, ivar_39);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_38;
+        result->count++;
+        release_sigmatopdown_funtype_65(ivar_38);
+
+        return result;
+}
+
+sigmatopdown_closure_120_t new_sigmatopdown_closure_120(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_120, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_120, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_120, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_120};
+        sigmatopdown_closure_120_t tmp = (sigmatopdown_closure_120_t) safe_malloc(sizeof(struct sigmatopdown_closure_120_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_120(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_120_t x = (sigmatopdown_closure_120_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_120_t copy_sigmatopdown_closure_120(sigmatopdown_closure_120_t x){
+        sigmatopdown_closure_120_t y = new_sigmatopdown_closure_120();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_121(struct sigmatopdown_closure_121_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_121(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_121(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_121(struct sigmatopdown_closure_121_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_121(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_121(uint32_t ivar_65, sigmatopdown_funtype_66_t ivar_14){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_63;
+        uint32_t ivar_64;
+        //copying to uint32 from uint32;
+        ivar_64 = (uint32_t)ivar_65;
+        ivar_63 = (sigmatopdown_funtype_65_t)ivar_14->ftbl->fptr(ivar_14, ivar_64);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_63;
+        result->count++;
+        release_sigmatopdown_funtype_65(ivar_63);
+
+        return result;
+}
+
+sigmatopdown_closure_121_t new_sigmatopdown_closure_121(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_121, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_121, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_121, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_121};
+        sigmatopdown_closure_121_t tmp = (sigmatopdown_closure_121_t) safe_malloc(sizeof(struct sigmatopdown_closure_121_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_121(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_121_t x = (sigmatopdown_closure_121_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_121_t copy_sigmatopdown_closure_121(sigmatopdown_closure_121_t x){
+        sigmatopdown_closure_121_t y = new_sigmatopdown_closure_121();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_record_122_t new_sigmatopdown_record_122(void){
+        sigmatopdown_record_122_t tmp = (sigmatopdown_record_122_t) safe_malloc(sizeof(struct sigmatopdown_record_122_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_122(sigmatopdown_record_122_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->scaf);
+         release_sigmatopdown__ent_adt(x->stack);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_122_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_122((sigmatopdown_record_122_t)x);
+}
+
+sigmatopdown_record_122_t copy_sigmatopdown_record_122(sigmatopdown_record_122_t x){
+        sigmatopdown_record_122_t y = new_sigmatopdown_record_122();
+        y->scaf = x->scaf;
+        if (y->scaf != NULL){y->scaf->count++;};
+        y->depth = (uint64_t)x->depth;
+        y->stack = x->stack;
+        if (y->stack != NULL){y->stack->count++;};
+        y->lflag = (bool_t)x->lflag;
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_122(sigmatopdown_record_122_t x, sigmatopdown_record_122_t y){
+        bool_t tmp = true;
+        tmp = tmp && equal_sigmatopdown_funtype_66(x->scaf, y->scaf);
+        tmp = tmp && x->depth == y->depth;
+        tmp = tmp && equal_sigmatopdown__ent_adt(x->stack, y->stack);
+        tmp = tmp && x->lflag == y->lflag;
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_122_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_122_t T){
+        return equal_sigmatopdown_record_122((sigmatopdown_record_122_t)x, (sigmatopdown_record_122_t)y);
+}
+
+actual_sigmatopdown_record_122_t actual_sigmatopdown_record_122(){
+        actual_sigmatopdown_record_122_t new = (actual_sigmatopdown_record_122_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_122_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_122_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_122_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_122_t update_sigmatopdown_record_122_scaf(sigmatopdown_record_122_t x, sigmatopdown_funtype_66_t v){
+        sigmatopdown_record_122_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->scaf != NULL){release_sigmatopdown_funtype_66(x->scaf);};}
+        else {y = copy_sigmatopdown_record_122(x); x->count--; y->scaf->count--;};
+        y->scaf = (sigmatopdown_funtype_66_t)v;
+        return y;}
+
+sigmatopdown_record_122_t update_sigmatopdown_record_122_depth(sigmatopdown_record_122_t x, uint64_t v){
+        sigmatopdown_record_122_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_122(x); x->count--;};
+        y->depth = (uint64_t)v;
+        return y;}
+
+sigmatopdown_record_122_t update_sigmatopdown_record_122_stack(sigmatopdown_record_122_t x, sigmatopdown__ent_adt_t v){
+        sigmatopdown_record_122_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->stack != NULL){release_sigmatopdown__ent_adt(x->stack);};}
+        else {y = copy_sigmatopdown_record_122(x); x->count--; y->stack->count--;};
+        y->stack = (sigmatopdown__ent_adt_t)v;
+        return y;}
+
+sigmatopdown_record_122_t update_sigmatopdown_record_122_lflag(sigmatopdown_record_122_t x, bool_t v){
+        sigmatopdown_record_122_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_122(x); x->count--;};
+        y->lflag = (bool_t)v;
+        return y;}
+
+
+
+void release_sigmatopdown_funtype_123(sigmatopdown_funtype_123_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_123_t copy_sigmatopdown_funtype_123(sigmatopdown_funtype_123_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_123(sigmatopdown_funtype_123_t x, sigmatopdown_funtype_123_t y){
+        return false;}
+
+
+sigmatopdown_record_122_t f_sigmatopdown_closure_124(struct sigmatopdown_closure_124_s * closure, sigmatopdown_record_122_t bvar){
+        sigmatopdown_record_122_t result = h_sigmatopdown_closure_124(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3); 
+        return result;}
+
+sigmatopdown_record_122_t m_sigmatopdown_closure_124(struct sigmatopdown_closure_124_s * closure, sigmatopdown_record_122_t bvar){
+        return h_sigmatopdown_closure_124(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3);}
+
+extern sigmatopdown_record_122_t h_sigmatopdown_closure_124(sigmatopdown_record_122_t ivar_20, uint32_t ivar_1, sigmatopdown_funtype_75_t ivar_3, sigmatopdown__lang_spec_t ivar_2){
+        sigmatopdown_record_122_t result;
+        sigmatopdown_funtype_66_t ivar_1616;
+        sigmatopdown_record_122_t ivar_38;
+        //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+        ivar_38 = (sigmatopdown_record_122_t)ivar_20;
+        ivar_38->count++;
+        ivar_1616 = (sigmatopdown_funtype_66_t)ivar_38->scaf;
+        ivar_1616->count++;
+        release_sigmatopdown_record_122(ivar_38);
+        sigmatopdown_funtype_66_t ivar_1617;
+        //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+        ivar_1617 = (sigmatopdown_funtype_66_t)ivar_1616;
+        ivar_1617->count++;
+        release_sigmatopdown_funtype_66(ivar_1616);
+        /* scaf */ sigmatopdown_funtype_66_t ivar_33;
+        sigmatopdown_closure_125_t cl21712;
+        cl21712 = new_sigmatopdown_closure_125();
+        cl21712->fvar_1 = (sigmatopdown_funtype_66_t)ivar_1617;
+        cl21712->fvar_1->count++;
+        ivar_33 = (sigmatopdown_funtype_66_t)cl21712;
+        /* stack */ sigmatopdown__ent_adt_t ivar_45;
+        sigmatopdown_record_122_t ivar_46;
+        //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+        ivar_46 = (sigmatopdown_record_122_t)ivar_20;
+        ivar_46->count++;
+        ivar_45 = (sigmatopdown__ent_adt_t)ivar_46->stack;
+        ivar_45->count++;
+        release_sigmatopdown_record_122(ivar_46);
+        /* depth */ uint64_t ivar_53;
+        sigmatopdown_record_122_t ivar_54;
+        //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+        ivar_54 = (sigmatopdown_record_122_t)ivar_20;
+        ivar_54->count++;
+        ivar_53 = (uint64_t)ivar_54->depth;
+	printf("\ndepth = %"PRIu64"", ivar_53);
+        release_sigmatopdown_record_122(ivar_54);
+        bool_t ivar_69;
+        ivar_45->count++;
+        ivar_69 = (bool_t)sigmatopdown__emptyp((sigmatopdown__ent_adt_t)ivar_45);
+        if (ivar_69){ printf("\nclosure_124: empty");
+             release_sigmatopdown__ent_adt(ivar_45);
+             release_sigmatopdown_funtype_66(ivar_33);
+             //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+             result = (sigmatopdown_record_122_t)ivar_20;
+             result->count++;
+             release_sigmatopdown_record_122(ivar_20);
+} else {
+        
+             /* pos */ uint32_t ivar_73;
+             ivar_45->count++;
+             ivar_73 = (uint32_t)sigmatopdown__ent_adt_pos((sigmatopdown__ent_adt_t)ivar_45);
+             /* cur */ uint8_t ivar_77;
+             ivar_45->count++;
+             ivar_77 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_45);
+	     printf("\n nonempty stack: pos = %"PRIu32", cur = %"PRIu8"", ivar_73, ivar_77);
+	     
+             /* rest */ sigmatopdown__ent_adt_t ivar_81;
+             sigmatopdown_funtype_65_t ivar_85;
+             sigmatopdown_funtype_66_t ivar_91;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_91 = (sigmatopdown_funtype_66_t)ivar_33;
+             ivar_91->count++;
+             uint32_t ivar_92;
+             //copying to uint32 from uint32;
+             ivar_92 = (uint32_t)ivar_73;
+             sigmatopdown_funtype_65_t ivar_88;
+             ivar_88 = (sigmatopdown_funtype_65_t)ivar_91->ftbl->fptr(ivar_91, ivar_92);
+             ivar_91->ftbl->rptr(ivar_91);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_85 = (sigmatopdown_funtype_65_t)ivar_88;
+             ivar_85->count++;
+             release_sigmatopdown_funtype_65(ivar_88);
+             sigmatopdown__ent_adt_t ivar_83;
+             ivar_83 = (sigmatopdown__ent_adt_t)ivar_85->ftbl->fptr(ivar_85, ivar_77);
+	     printf("\n rest index = %"PRIu8", pos = %"PRIu32" nt = %"PRIu8"",
+		    ivar_83->sigmatopdown__ent_adt_index,
+		    ((sigmatopdown__push_t)ivar_83)->pos,
+		    ((sigmatopdown__push_t)ivar_83)->nt);
+             ivar_85->ftbl->rptr(ivar_85);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_81 = (sigmatopdown__ent_adt_t)ivar_83;
+             ivar_81->count++;
+             release_sigmatopdown__ent_adt(ivar_83);
+             sigmatopdown__peg_adt_t ivar_94;
+             sigmatopdown__peg_adt_t ivar_96;
+             ivar_96 = (sigmatopdown__peg_adt_t)ivar_2->ftbl->fptr(ivar_2, ivar_77);
+             //copying to sigmatopdown__peg_adt from sigmatopdown__peg_adt;
+             ivar_94 = (sigmatopdown__peg_adt_t)ivar_96;
+             ivar_94->count++;
+             release_sigmatopdown__peg_adt(ivar_96);
+             bool_t ivar_141;
+             ivar_94->count++;
+             ivar_141 = (bool_t)r_sigmatopdown__epsilonp((sigmatopdown__peg_adt_t)ivar_94);
+             if (ivar_141){  printf("\nclosure_124: epsilon");
+           release_sigmatopdown__ent_adt(ivar_45);
+           release_sigmatopdown_funtype_66(ivar_33);
+           release_sigmatopdown__peg_adt(ivar_94);
+           sigmatopdown__ent_adt_t ivar_105;
+           uint64_t ivar_111;
+           ivar_111 = (uint64_t)0;
+           uint32_t ivar_112;
+           ivar_112 = (uint32_t)0;
+           sigmatopdown__ent_adt_t ivar_110;
+           ivar_110 = (sigmatopdown__ent_adt_t)sigmatopdown__good((uint64_t)ivar_111, (uint32_t)ivar_112);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_105 = (sigmatopdown__ent_adt_t)ivar_110;
+           ivar_105->count++;
+           release_sigmatopdown__ent_adt(ivar_110);
+           uint64_t ivar_107;
+           uint8_t ivar_114;
+           ivar_114 = (uint8_t)1;
+           ivar_107 = (uint64_t)(ivar_53 - ivar_114);
+           sigmatopdown_record_122_t ivar_116;
+           //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+           ivar_116 = (sigmatopdown_record_122_t)ivar_20;
+           ivar_116->count++;
+           release_sigmatopdown_record_122(ivar_20);
+           sigmatopdown_record_122_t ivar_131;
+           sigmatopdown_funtype_66_t ivar_117;
+           ivar_117 = (sigmatopdown_funtype_66_t)ivar_116->scaf;
+           ivar_117->count++;
+           sigmatopdown_record_122_t ivar_128;
+           sigmatopdown_funtype_66_t ivar_130;
+           ivar_130 = NULL;
+           ivar_128 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_116, ivar_130);
+           if (ivar_130 != NULL) ivar_130->count--;
+           sigmatopdown_funtype_66_t ivar_129;
+           uint32_t ivar_124;
+           //copying to uint32 from uint32;
+           ivar_124 = (uint32_t)ivar_73;
+           sigmatopdown_funtype_65_t ivar_118;
+           ivar_118 = (sigmatopdown_funtype_65_t)ivar_117->ftbl->fptr(ivar_117, ivar_124);
+           sigmatopdown_funtype_66_t ivar_125;
+           sigmatopdown_funtype_65_t ivar_127;
+           ivar_127 = NULL;
+           ivar_125 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_117, ivar_124, ivar_127);
+           if (ivar_127 != NULL) ivar_127->count--;
+           sigmatopdown_funtype_65_t ivar_126;
+           sigmatopdown_funtype_65_t ivar_121;
+           sigmatopdown__ent_adt_t ivar_123;
+           ivar_123 = NULL;
+           ivar_121 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_118, ivar_77, ivar_123);
+           if (ivar_123 != NULL) ivar_123->count--;
+           ivar_126 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_121, ivar_77, ivar_105);
+           if (ivar_105 != NULL) ivar_105->count--;
+           ivar_129 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_125, ivar_124, ivar_126);
+           if (ivar_126 != NULL) ivar_126->count--;
+           ivar_131 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_128, ivar_129);
+           if (ivar_129 != NULL) ivar_129->count--;
+           sigmatopdown_record_122_t ivar_136;
+           sigmatopdown_record_122_t ivar_133;
+           sigmatopdown__ent_adt_t ivar_135;
+           ivar_135 = NULL;
+           ivar_133 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_131, ivar_135);
+           if (ivar_135 != NULL) ivar_135->count--;
+           ivar_136 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_133, ivar_81);
+           if (ivar_81 != NULL) ivar_81->count--;
+           sigmatopdown_record_122_t ivar_140;
+           ivar_140 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_136, ivar_107);
+           //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+           result = (sigmatopdown_record_122_t)ivar_140;
+           result->count++;
+           release_sigmatopdown_record_122(ivar_140);
+} else {
+             
+           bool_t ivar_185;
+           ivar_94->count++;
+           ivar_185 = (bool_t)r_sigmatopdown__failurep((sigmatopdown__peg_adt_t)ivar_94);
+           if (ivar_185){   printf("\nclosure_124: failure");
+           release_sigmatopdown__ent_adt(ivar_45);
+           release_sigmatopdown_funtype_66(ivar_33);
+           release_sigmatopdown__peg_adt(ivar_94);
+           sigmatopdown__ent_adt_t ivar_151;
+           uint64_t ivar_156;
+           ivar_156 = (uint64_t)0;
+           sigmatopdown__ent_adt_t ivar_155;
+           ivar_155 = (sigmatopdown__ent_adt_t)sigmatopdown__fail((uint64_t)ivar_156);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_151 = (sigmatopdown__ent_adt_t)ivar_155;
+           ivar_151->count++;
+           release_sigmatopdown__ent_adt(ivar_155);
+           uint64_t ivar_153;
+           uint8_t ivar_158;
+           ivar_158 = (uint8_t)1;
+           ivar_153 = (uint64_t)(ivar_53 - ivar_158);
+           sigmatopdown_record_122_t ivar_160;
+           //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+           ivar_160 = (sigmatopdown_record_122_t)ivar_20;
+           ivar_160->count++;
+           release_sigmatopdown_record_122(ivar_20);
+           sigmatopdown_record_122_t ivar_175;
+           sigmatopdown_funtype_66_t ivar_161;
+           ivar_161 = (sigmatopdown_funtype_66_t)ivar_160->scaf;
+           ivar_161->count++;
+           sigmatopdown_record_122_t ivar_172;
+           sigmatopdown_funtype_66_t ivar_174;
+           ivar_174 = NULL;
+           ivar_172 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_160, ivar_174);
+           if (ivar_174 != NULL) ivar_174->count--;
+           sigmatopdown_funtype_66_t ivar_173;
+           uint32_t ivar_168;
+           //copying to uint32 from uint32;
+           ivar_168 = (uint32_t)ivar_73;
+           sigmatopdown_funtype_65_t ivar_162;
+           ivar_162 = (sigmatopdown_funtype_65_t)ivar_161->ftbl->fptr(ivar_161, ivar_168);
+           sigmatopdown_funtype_66_t ivar_169;
+           sigmatopdown_funtype_65_t ivar_171;
+           ivar_171 = NULL;
+           ivar_169 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_161, ivar_168, ivar_171);
+           if (ivar_171 != NULL) ivar_171->count--;
+           sigmatopdown_funtype_65_t ivar_170;
+           sigmatopdown_funtype_65_t ivar_165;
+           sigmatopdown__ent_adt_t ivar_167;
+           ivar_167 = NULL;
+           ivar_165 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_162, ivar_77, ivar_167);
+           if (ivar_167 != NULL) ivar_167->count--;
+           ivar_170 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_165, ivar_77, ivar_151);
+           if (ivar_151 != NULL) ivar_151->count--;
+           ivar_173 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_169, ivar_168, ivar_170);
+           if (ivar_170 != NULL) ivar_170->count--;
+           ivar_175 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_172, ivar_173);
+           if (ivar_173 != NULL) ivar_173->count--;
+           sigmatopdown_record_122_t ivar_180;
+           sigmatopdown_record_122_t ivar_177;
+           sigmatopdown__ent_adt_t ivar_179;
+           ivar_179 = NULL;
+           ivar_177 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_175, ivar_179);
+           if (ivar_179 != NULL) ivar_179->count--;
+           ivar_180 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_177, ivar_81);
+           if (ivar_81 != NULL) ivar_81->count--;
+           sigmatopdown_record_122_t ivar_184;
+           ivar_184 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_180, ivar_153);
+           //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+           result = (sigmatopdown_record_122_t)ivar_184;
+           result->count++;
+           release_sigmatopdown_record_122(ivar_184);
+} else {
+           
+           bool_t ivar_260;
+           ivar_94->count++;
+           ivar_260 = (bool_t)r_sigmatopdown__anyp((sigmatopdown__peg_adt_t)ivar_94);
+           if (ivar_260){    printf("\nclosure_124: any");
+            release_sigmatopdown__ent_adt(ivar_45);
+            release_sigmatopdown_funtype_66(ivar_33);
+            sigmatopdown_funtype_29_t ivar_189;
+            sigmatopdown_funtype_29_t ivar_193;
+            ivar_193 = (sigmatopdown_funtype_29_t)sigmatopdown__peg_adt_p((sigmatopdown__peg_adt_t)ivar_94);
+            //copying to sigmatopdown_funtype_29 from sigmatopdown_funtype_29;
+            ivar_189 = (sigmatopdown_funtype_29_t)ivar_193;
+            ivar_189->count++;
+            release_sigmatopdown_funtype_29(ivar_193);
+            /* v */ sigmatopdown__ent_adt_t ivar_195;
+            bool_t ivar_196;
+            bool_t ivar_197;
+            ivar_197 = (ivar_73 == ivar_1);
+            bool_t ivar_198;
+            bool_t ivar_202;
+            uint8_t ivar_212;
+            ivar_212 = (uint8_t)ivar_3->ftbl->fptr(ivar_3, ivar_73);
+            ivar_202 = (bool_t)ivar_189->ftbl->fptr(ivar_189, ivar_212);
+            ivar_189->ftbl->rptr(ivar_189);
+            ivar_198 = !ivar_202;
+            ivar_196 = ivar_197 || ivar_198;
+            if (ivar_196){     
+             uint64_t ivar_217;
+             ivar_217 = (uint64_t)0;
+             sigmatopdown__ent_adt_t ivar_216;
+             ivar_216 = (sigmatopdown__ent_adt_t)sigmatopdown__fail((uint64_t)ivar_217);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_195 = (sigmatopdown__ent_adt_t)ivar_216;
+             ivar_195->count++;
+             release_sigmatopdown__ent_adt(ivar_216);
+} else {
+            
+             uint64_t ivar_221;
+             ivar_221 = (uint64_t)0;
+             uint32_t ivar_222;
+             ivar_222 = (uint32_t)1;
+             sigmatopdown__ent_adt_t ivar_220;
+             ivar_220 = (sigmatopdown__ent_adt_t)sigmatopdown__good((uint64_t)ivar_221, (uint32_t)ivar_222);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_195 = (sigmatopdown__ent_adt_t)ivar_220;
+             ivar_195->count++;
+             release_sigmatopdown__ent_adt(ivar_220);
+};
+            uint64_t ivar_231;
+            uint8_t ivar_233;
+            ivar_233 = (uint8_t)1;
+            ivar_231 = (uint64_t)(ivar_53 - ivar_233);
+            sigmatopdown_record_122_t ivar_235;
+            //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+            ivar_235 = (sigmatopdown_record_122_t)ivar_20;
+            ivar_235->count++;
+            release_sigmatopdown_record_122(ivar_20);
+            sigmatopdown_record_122_t ivar_250;
+            sigmatopdown_funtype_66_t ivar_236;
+            ivar_236 = (sigmatopdown_funtype_66_t)ivar_235->scaf;
+            ivar_236->count++;
+            sigmatopdown_record_122_t ivar_247;
+            sigmatopdown_funtype_66_t ivar_249;
+            ivar_249 = NULL;
+            ivar_247 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_235, ivar_249);
+            if (ivar_249 != NULL) ivar_249->count--;
+            sigmatopdown_funtype_66_t ivar_248;
+            uint32_t ivar_243;
+            //copying to uint32 from uint32;
+            ivar_243 = (uint32_t)ivar_73;
+            sigmatopdown_funtype_65_t ivar_237;
+            ivar_237 = (sigmatopdown_funtype_65_t)ivar_236->ftbl->fptr(ivar_236, ivar_243);
+            sigmatopdown_funtype_66_t ivar_244;
+            sigmatopdown_funtype_65_t ivar_246;
+            ivar_246 = NULL;
+            ivar_244 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_236, ivar_243, ivar_246);
+            if (ivar_246 != NULL) ivar_246->count--;
+            sigmatopdown_funtype_65_t ivar_245;
+            sigmatopdown_funtype_65_t ivar_240;
+            sigmatopdown__ent_adt_t ivar_242;
+            ivar_242 = NULL;
+            ivar_240 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_237, ivar_77, ivar_242);
+            if (ivar_242 != NULL) ivar_242->count--;
+            ivar_245 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_240, ivar_77, ivar_195);
+            if (ivar_195 != NULL) ivar_195->count--;
+            ivar_248 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_244, ivar_243, ivar_245);
+            if (ivar_245 != NULL) ivar_245->count--;
+            ivar_250 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_247, ivar_248);
+            if (ivar_248 != NULL) ivar_248->count--;
+            sigmatopdown_record_122_t ivar_255;
+            sigmatopdown_record_122_t ivar_252;
+            sigmatopdown__ent_adt_t ivar_254;
+            ivar_254 = NULL;
+            ivar_252 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_250, ivar_254);
+            if (ivar_254 != NULL) ivar_254->count--;
+            ivar_255 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_252, ivar_81);
+            if (ivar_81 != NULL) ivar_81->count--;
+            sigmatopdown_record_122_t ivar_259;
+            ivar_259 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_255, ivar_231);
+            //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+            result = (sigmatopdown_record_122_t)ivar_259;
+            result->count++;
+            release_sigmatopdown_record_122(ivar_259);
+} else {
+           
+            bool_t ivar_329;
+            ivar_94->count++;
+            ivar_329 = (bool_t)r_sigmatopdown__terminalp((sigmatopdown__peg_adt_t)ivar_94);
+            if (ivar_329){     printf("\nclosure_124: terminal");
+             release_sigmatopdown__ent_adt(ivar_45);
+             release_sigmatopdown_funtype_66(ivar_33);
+             uint8_t ivar_264;
+             ivar_264 = (uint8_t)sigmatopdown__peg_adt_a((sigmatopdown__peg_adt_t)ivar_94);
+             /* v */ sigmatopdown__ent_adt_t ivar_268;
+             bool_t ivar_269;
+             bool_t ivar_270;
+             ivar_270 = (ivar_73 == ivar_1);
+             bool_t ivar_271;
+             uint8_t ivar_276;
+             ivar_276 = (uint8_t)ivar_3->ftbl->fptr(ivar_3, ivar_73);
+             ivar_271 = (ivar_264 != ivar_276);
+             ivar_269 = ivar_270 || ivar_271;
+             if (ivar_269){ printf("\nclosure_124: terminal->fail");     
+              uint64_t ivar_286;
+              ivar_286 = (uint64_t)0;
+              sigmatopdown__ent_adt_t ivar_285;
+              ivar_285 = (sigmatopdown__ent_adt_t)sigmatopdown__fail((uint64_t)ivar_286);
+              //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+              ivar_268 = (sigmatopdown__ent_adt_t)ivar_285;
+              ivar_268->count++;
+              release_sigmatopdown__ent_adt(ivar_285);
+	     } else {      printf("\n closure_124: terminal->good");
+             
+              uint64_t ivar_290;
+              ivar_290 = (uint64_t)0;
+              uint32_t ivar_291;
+              ivar_291 = (uint32_t)1;
+              sigmatopdown__ent_adt_t ivar_289;
+              ivar_289 = (sigmatopdown__ent_adt_t)sigmatopdown__good((uint64_t)ivar_290, (uint32_t)ivar_291);
+	      printf("\n terminal->good(%"PRIu64", %"PRIu32")", ivar_290, ivar_291);
+              //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+              ivar_268 = (sigmatopdown__ent_adt_t)ivar_289;
+              ivar_268->count++;
+              release_sigmatopdown__ent_adt(ivar_289);
+};
+             uint64_t ivar_300;
+             uint8_t ivar_302;
+             ivar_302 = (uint8_t)1;
+             ivar_300 = (uint64_t)(ivar_53 - ivar_302);
+             sigmatopdown_record_122_t ivar_304;
+             //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+             ivar_304 = (sigmatopdown_record_122_t)ivar_20;
+             ivar_304->count++;
+             release_sigmatopdown_record_122(ivar_20);
+             sigmatopdown_record_122_t ivar_319;
+             sigmatopdown_funtype_66_t ivar_305;
+             ivar_305 = (sigmatopdown_funtype_66_t)ivar_304->scaf;
+             ivar_305->count++;
+             sigmatopdown_record_122_t ivar_316;
+             sigmatopdown_funtype_66_t ivar_318;
+             ivar_318 = NULL;
+             ivar_316 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_304, ivar_318);
+             if (ivar_318 != NULL) ivar_318->count--;
+             sigmatopdown_funtype_66_t ivar_317;
+             uint32_t ivar_312;
+             //copying to uint32 from uint32;
+             ivar_312 = (uint32_t)ivar_73;
+             sigmatopdown_funtype_65_t ivar_306;
+             ivar_306 = (sigmatopdown_funtype_65_t)ivar_305->ftbl->fptr(ivar_305, ivar_312);
+             sigmatopdown_funtype_66_t ivar_313;
+             sigmatopdown_funtype_65_t ivar_315;
+             ivar_315 = NULL;
+             ivar_313 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_305, ivar_312, ivar_315);
+             if (ivar_315 != NULL) ivar_315->count--;
+             sigmatopdown_funtype_65_t ivar_314;
+             sigmatopdown_funtype_65_t ivar_309;
+             sigmatopdown__ent_adt_t ivar_311;
+             ivar_311 = NULL;
+             ivar_309 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_306, ivar_77, ivar_311);
+             if (ivar_311 != NULL) ivar_311->count--;
+             ivar_314 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_309, ivar_77, ivar_268);
+             if (ivar_268 != NULL) ivar_268->count--;
+             ivar_317 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_313, ivar_312, ivar_314);
+             if (ivar_314 != NULL) ivar_314->count--;
+             ivar_319 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_316, ivar_317);
+             if (ivar_317 != NULL) ivar_317->count--;
+             sigmatopdown_record_122_t ivar_324;
+             sigmatopdown_record_122_t ivar_321;
+             sigmatopdown__ent_adt_t ivar_323;
+             ivar_323 = NULL;
+             ivar_321 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_319, ivar_323);
+             if (ivar_323 != NULL) ivar_323->count--;
+             ivar_324 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_321, ivar_81);
+             if (ivar_81 != NULL) ivar_81->count--;
+             sigmatopdown_record_122_t ivar_328;
+             ivar_328 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_324, ivar_300);
+             //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+             result = (sigmatopdown_record_122_t)ivar_328;
+             result->count++;
+             release_sigmatopdown_record_122(ivar_328);
+} else {
+            
+             bool_t ivar_771;
+             ivar_94->count++;
+             ivar_771 = (bool_t)r_sigmatopdown__concatp((sigmatopdown__peg_adt_t)ivar_94);
+             if (ivar_771){      printf("\nclosure_124: concat");
+              release_sigmatopdown_funtype_66(ivar_33);
+              uint8_t ivar_333;
+              ivar_94->count++;
+              ivar_333 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_94);
+              uint8_t ivar_334;
+              ivar_334 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_94);
+              sigmatopdown__ent_adt_t ivar_341;
+              sigmatopdown_funtype_65_t ivar_345;
+              sigmatopdown_funtype_66_t ivar_351;
+              sigmatopdown_record_122_t ivar_352;
+              //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+              ivar_352 = (sigmatopdown_record_122_t)ivar_20;
+              ivar_352->count++;
+              ivar_351 = (sigmatopdown_funtype_66_t)ivar_352->scaf;
+              ivar_351->count++;
+              release_sigmatopdown_record_122(ivar_352);
+              uint32_t ivar_359;
+              //copying to uint32 from uint32;
+              ivar_359 = (uint32_t)ivar_73;
+              sigmatopdown_funtype_65_t ivar_348;
+              ivar_348 = (sigmatopdown_funtype_65_t)ivar_351->ftbl->fptr(ivar_351, ivar_359);
+              ivar_351->ftbl->rptr(ivar_351);
+              //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+              ivar_345 = (sigmatopdown_funtype_65_t)ivar_348;
+              ivar_345->count++;
+              release_sigmatopdown_funtype_65(ivar_348);
+              sigmatopdown__ent_adt_t ivar_343;
+              ivar_343 = (sigmatopdown__ent_adt_t)ivar_345->ftbl->fptr(ivar_345, ivar_333);
+              ivar_345->ftbl->rptr(ivar_345);
+              //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+              ivar_341 = (sigmatopdown__ent_adt_t)ivar_343;
+              ivar_341->count++;
+              release_sigmatopdown__ent_adt(ivar_343);
+              bool_t ivar_410;
+              ivar_341->count++;
+              ivar_410 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_341);
+              if (ivar_410){       
+               release_sigmatopdown__ent_adt(ivar_45);
+               uint64_t ivar_361;
+               ivar_361 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_341);
+               sigmatopdown__ent_adt_t ivar_371;
+               mpz_ptr_t ivar_381;
+               uint8_t ivar_376;
+               ivar_376 = (uint8_t)1;
+               mpz_mk_set_ui(ivar_381, (uint64_t)ivar_361);
+               mpz_add_ui(ivar_381, ivar_381, (uint64_t)ivar_376);
+               uint64_t ivar_379;
+               //copying to uint64 from mpz;
+               ivar_379 = (uint64_t)mpz_get_ui(ivar_381);
+               mpz_clear(ivar_381);
+               sigmatopdown__ent_adt_t ivar_378;
+               ivar_378 = (sigmatopdown__ent_adt_t)sigmatopdown__fail((uint64_t)ivar_379);
+               //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+               ivar_371 = (sigmatopdown__ent_adt_t)ivar_378;
+               ivar_371->count++;
+               release_sigmatopdown__ent_adt(ivar_378);
+               uint64_t ivar_373;
+               uint8_t ivar_383;
+               ivar_383 = (uint8_t)1;
+               ivar_373 = (uint64_t)(ivar_53 - ivar_383);
+               sigmatopdown_record_122_t ivar_385;
+               //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+               ivar_385 = (sigmatopdown_record_122_t)ivar_20;
+               ivar_385->count++;
+               release_sigmatopdown_record_122(ivar_20);
+               sigmatopdown_record_122_t ivar_400;
+               sigmatopdown_funtype_66_t ivar_386;
+               ivar_386 = (sigmatopdown_funtype_66_t)ivar_385->scaf;
+               ivar_386->count++;
+               sigmatopdown_record_122_t ivar_397;
+               sigmatopdown_funtype_66_t ivar_399;
+               ivar_399 = NULL;
+               ivar_397 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_385, ivar_399);
+               if (ivar_399 != NULL) ivar_399->count--;
+               sigmatopdown_funtype_66_t ivar_398;
+               uint32_t ivar_393;
+               //copying to uint32 from uint32;
+               ivar_393 = (uint32_t)ivar_73;
+               sigmatopdown_funtype_65_t ivar_387;
+               ivar_387 = (sigmatopdown_funtype_65_t)ivar_386->ftbl->fptr(ivar_386, ivar_393);
+               sigmatopdown_funtype_66_t ivar_394;
+               sigmatopdown_funtype_65_t ivar_396;
+               ivar_396 = NULL;
+               ivar_394 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_386, ivar_393, ivar_396);
+               if (ivar_396 != NULL) ivar_396->count--;
+               sigmatopdown_funtype_65_t ivar_395;
+               sigmatopdown_funtype_65_t ivar_390;
+               sigmatopdown__ent_adt_t ivar_392;
+               ivar_392 = NULL;
+               ivar_390 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_387, ivar_77, ivar_392);
+               if (ivar_392 != NULL) ivar_392->count--;
+               ivar_395 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_390, ivar_77, ivar_371);
+               if (ivar_371 != NULL) ivar_371->count--;
+               ivar_398 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_394, ivar_393, ivar_395);
+               if (ivar_395 != NULL) ivar_395->count--;
+               ivar_400 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_397, ivar_398);
+               if (ivar_398 != NULL) ivar_398->count--;
+               sigmatopdown_record_122_t ivar_405;
+               sigmatopdown_record_122_t ivar_402;
+               sigmatopdown__ent_adt_t ivar_404;
+               ivar_404 = NULL;
+               ivar_402 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_400, ivar_404);
+               if (ivar_404 != NULL) ivar_404->count--;
+               ivar_405 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_402, ivar_81);
+               if (ivar_81 != NULL) ivar_81->count--;
+               sigmatopdown_record_122_t ivar_409;
+               ivar_409 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_405, ivar_373);
+               //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+               result = (sigmatopdown_record_122_t)ivar_409;
+               result->count++;
+               release_sigmatopdown_record_122(ivar_409);
+} else {
+              
+               bool_t ivar_679;
+               ivar_341->count++;
+               ivar_679 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_341);
+               if (ivar_679){        printf("\nclosure_124: good");
+                release_sigmatopdown__ent_adt(ivar_45);
+                uint64_t ivar_414;
+                ivar_341->count++;
+                ivar_414 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_341);
+                uint32_t ivar_415;
+                ivar_415 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_341);
+                sigmatopdown__ent_adt_t ivar_422;
+                sigmatopdown_funtype_65_t ivar_426;
+                sigmatopdown_funtype_66_t ivar_435;
+                sigmatopdown_record_122_t ivar_436;
+                //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                ivar_436 = (sigmatopdown_record_122_t)ivar_20;
+                ivar_436->count++;
+                ivar_435 = (sigmatopdown_funtype_66_t)ivar_436->scaf;
+                ivar_435->count++;
+                release_sigmatopdown_record_122(ivar_436);
+                uint64_t ivar_444;
+                ivar_444 = (uint64_t)(ivar_73 + ivar_415);
+                uint32_t ivar_443;
+                //copying to uint32 from uint64;
+                ivar_443 = (uint32_t)ivar_444;
+                sigmatopdown_funtype_65_t ivar_432;
+                ivar_432 = (sigmatopdown_funtype_65_t)ivar_435->ftbl->fptr(ivar_435, ivar_443);
+                ivar_435->ftbl->rptr(ivar_435);
+                //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+                ivar_426 = (sigmatopdown_funtype_65_t)ivar_432;
+                ivar_426->count++;
+                release_sigmatopdown_funtype_65(ivar_432);
+                sigmatopdown__ent_adt_t ivar_424;
+                ivar_424 = (sigmatopdown__ent_adt_t)ivar_426->ftbl->fptr(ivar_426, ivar_334);
+                ivar_426->ftbl->rptr(ivar_426);
+                //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                ivar_422 = (sigmatopdown__ent_adt_t)ivar_424;
+                ivar_422->count++;
+                release_sigmatopdown__ent_adt(ivar_424);
+                bool_t ivar_500;
+                ivar_422->count++;
+                ivar_500 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_422);
+                if (ivar_500){         printf("\nclosure_124: fail");
+                 uint64_t ivar_446;
+                 ivar_446 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_422);
+                 sigmatopdown__ent_adt_t ivar_456;
+                 mpz_ptr_t ivar_471;
+                 uint8_t ivar_460;
+                 ivar_460 = (uint8_t)1;
+                 mpq_ptr_t ivar_461;
+                 mpq_ptr_t ivar_465;
+                 //copying to mpq from uint64;
+                 mpq_mk_set_ui(ivar_465, ivar_414);
+                 mpq_ptr_t ivar_466;
+                 //copying to mpq from uint64;
+                 mpq_mk_set_ui(ivar_466, ivar_446);
+                 ivar_461 = (mpq_ptr_t)real_defs__max((mpq_ptr_t)ivar_465, (mpq_ptr_t)ivar_466);
+                 mpz_mk_set_q(ivar_471, ivar_461);
+                 mpz_add_ui(ivar_471, ivar_471, ivar_460);
+                 uint64_t ivar_469;
+                 //copying to uint64 from mpz;
+                 ivar_469 = (uint64_t)mpz_get_ui(ivar_471);
+                 mpz_clear(ivar_471);
+                 sigmatopdown__ent_adt_t ivar_468;
+                 ivar_468 = (sigmatopdown__ent_adt_t)sigmatopdown__fail((uint64_t)ivar_469);
+                 //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                 ivar_456 = (sigmatopdown__ent_adt_t)ivar_468;
+                 ivar_456->count++;
+                 release_sigmatopdown__ent_adt(ivar_468);
+                 uint64_t ivar_458;
+                 uint8_t ivar_473;
+                 ivar_473 = (uint8_t)1;
+                 ivar_458 = (uint64_t)(ivar_53 - ivar_473);
+                 sigmatopdown_record_122_t ivar_475;
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 ivar_475 = (sigmatopdown_record_122_t)ivar_20;
+                 ivar_475->count++;
+                 release_sigmatopdown_record_122(ivar_20);
+                 sigmatopdown_record_122_t ivar_490;
+                 sigmatopdown_funtype_66_t ivar_476;
+                 ivar_476 = (sigmatopdown_funtype_66_t)ivar_475->scaf;
+                 ivar_476->count++;
+                 sigmatopdown_record_122_t ivar_487;
+                 sigmatopdown_funtype_66_t ivar_489;
+                 ivar_489 = NULL;
+                 ivar_487 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_475, ivar_489);
+                 if (ivar_489 != NULL) ivar_489->count--;
+                 sigmatopdown_funtype_66_t ivar_488;
+                 uint32_t ivar_483;
+                 //copying to uint32 from uint32;
+                 ivar_483 = (uint32_t)ivar_73;
+                 sigmatopdown_funtype_65_t ivar_477;
+                 ivar_477 = (sigmatopdown_funtype_65_t)ivar_476->ftbl->fptr(ivar_476, ivar_483);
+                 sigmatopdown_funtype_66_t ivar_484;
+                 sigmatopdown_funtype_65_t ivar_486;
+                 ivar_486 = NULL;
+                 ivar_484 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_476, ivar_483, ivar_486);
+                 if (ivar_486 != NULL) ivar_486->count--;
+                 sigmatopdown_funtype_65_t ivar_485;
+                 sigmatopdown_funtype_65_t ivar_480;
+                 sigmatopdown__ent_adt_t ivar_482;
+                 ivar_482 = NULL;
+                 ivar_480 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_477, ivar_77, ivar_482);
+                 if (ivar_482 != NULL) ivar_482->count--;
+                 ivar_485 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_480, ivar_77, ivar_456);
+                 if (ivar_456 != NULL) ivar_456->count--;
+                 ivar_488 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_484, ivar_483, ivar_485);
+                 if (ivar_485 != NULL) ivar_485->count--;
+                 ivar_490 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_487, ivar_488);
+                 if (ivar_488 != NULL) ivar_488->count--;
+                 sigmatopdown_record_122_t ivar_495;
+                 sigmatopdown_record_122_t ivar_492;
+                 sigmatopdown__ent_adt_t ivar_494;
+                 ivar_494 = NULL;
+                 ivar_492 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_490, ivar_494);
+                 if (ivar_494 != NULL) ivar_494->count--;
+                 ivar_495 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_492, ivar_81);
+                 if (ivar_81 != NULL) ivar_81->count--;
+                 sigmatopdown_record_122_t ivar_499;
+                 ivar_499 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_495, ivar_458);
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 result = (sigmatopdown_record_122_t)ivar_499;
+                 result->count++;
+                 release_sigmatopdown_record_122(ivar_499);
+} else {
+                
+                 bool_t ivar_567;
+                 ivar_422->count++;
+                 ivar_567 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_422);
+                 if (ivar_567){          printf("\nclosure_124: good");
+                  uint64_t ivar_504;
+                  ivar_422->count++;
+                  ivar_504 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_422);
+                  uint32_t ivar_505;
+                  ivar_505 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_422);
+                  sigmatopdown__ent_adt_t ivar_518;
+                  mpz_ptr_t ivar_538;
+                  uint8_t ivar_523;
+                  ivar_523 = (uint8_t)1;
+                  mpq_ptr_t ivar_524;
+                  mpq_ptr_t ivar_528;
+                  //copying to mpq from uint64;
+                  mpq_mk_set_ui(ivar_528, ivar_414);
+                  mpq_ptr_t ivar_529;
+                  //copying to mpq from uint64;
+                  mpq_mk_set_ui(ivar_529, ivar_504);
+                  ivar_524 = (mpq_ptr_t)real_defs__max((mpq_ptr_t)ivar_528, (mpq_ptr_t)ivar_529);
+                  mpz_mk_set_q(ivar_538, ivar_524);
+                  mpz_add_ui(ivar_538, ivar_538, ivar_523);
+                  uint64_t ivar_535;
+                  //copying to uint64 from mpz;
+                  ivar_535 = (uint64_t)mpz_get_ui(ivar_538);
+                  mpz_clear(ivar_538);
+                  uint32_t ivar_536;
+                  ivar_536 = (uint32_t)(ivar_415 + ivar_505);
+                  sigmatopdown__ent_adt_t ivar_534;
+                  ivar_534 = (sigmatopdown__ent_adt_t)sigmatopdown__good((uint64_t)ivar_535, (uint32_t)ivar_536);
+                  //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                  ivar_518 = (sigmatopdown__ent_adt_t)ivar_534;
+                  ivar_518->count++;
+                  release_sigmatopdown__ent_adt(ivar_534);
+                  uint64_t ivar_520;
+                  uint8_t ivar_540;
+                  ivar_540 = (uint8_t)1;
+                  ivar_520 = (uint64_t)(ivar_53 - ivar_540);
+                  sigmatopdown_record_122_t ivar_542;
+                  //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                  ivar_542 = (sigmatopdown_record_122_t)ivar_20;
+                  ivar_542->count++;
+                  release_sigmatopdown_record_122(ivar_20);
+                  sigmatopdown_record_122_t ivar_557;
+                  sigmatopdown_funtype_66_t ivar_543;
+                  ivar_543 = (sigmatopdown_funtype_66_t)ivar_542->scaf;
+                  ivar_543->count++;
+                  sigmatopdown_record_122_t ivar_554;
+                  sigmatopdown_funtype_66_t ivar_556;
+                  ivar_556 = NULL;
+                  ivar_554 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_542, ivar_556);
+                  if (ivar_556 != NULL) ivar_556->count--;
+                  sigmatopdown_funtype_66_t ivar_555;
+                  uint32_t ivar_550;
+                  //copying to uint32 from uint32;
+                  ivar_550 = (uint32_t)ivar_73;
+                  sigmatopdown_funtype_65_t ivar_544;
+                  ivar_544 = (sigmatopdown_funtype_65_t)ivar_543->ftbl->fptr(ivar_543, ivar_550);
+                  sigmatopdown_funtype_66_t ivar_551;
+                  sigmatopdown_funtype_65_t ivar_553;
+                  ivar_553 = NULL;
+                  ivar_551 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_543, ivar_550, ivar_553);
+                  if (ivar_553 != NULL) ivar_553->count--;
+                  sigmatopdown_funtype_65_t ivar_552;
+                  sigmatopdown_funtype_65_t ivar_547;
+                  sigmatopdown__ent_adt_t ivar_549;
+                  ivar_549 = NULL;
+                  ivar_547 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_544, ivar_77, ivar_549);
+                  if (ivar_549 != NULL) ivar_549->count--;
+                  ivar_552 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_547, ivar_77, ivar_518);
+                  if (ivar_518 != NULL) ivar_518->count--;
+                  ivar_555 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_551, ivar_550, ivar_552);
+                  if (ivar_552 != NULL) ivar_552->count--;
+                  ivar_557 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_554, ivar_555);
+                  if (ivar_555 != NULL) ivar_555->count--;
+                  sigmatopdown_record_122_t ivar_562;
+                  sigmatopdown_record_122_t ivar_559;
+                  sigmatopdown__ent_adt_t ivar_561;
+                  ivar_561 = NULL;
+                  ivar_559 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_557, ivar_561);
+                  if (ivar_561 != NULL) ivar_561->count--;
+                  ivar_562 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_559, ivar_81);
+                  if (ivar_81 != NULL) ivar_81->count--;
+                  sigmatopdown_record_122_t ivar_566;
+                  ivar_566 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_562, ivar_520);
+                  //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                  result = (sigmatopdown_record_122_t)ivar_566;
+                  result->count++;
+                  release_sigmatopdown_record_122(ivar_566);
+} else {
+                 
+                  bool_t ivar_633;
+                  ivar_633 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_422);
+                  if (ivar_633){           printf("\nclosure_124: pending");
+                   release_sigmatopdown__ent_adt(ivar_81);
+                   sigmatopdown__ent_adt_t ivar_577;
+                   uint32_t ivar_586;
+                   ivar_586 = (uint32_t)(ivar_73 + ivar_415);
+                   sigmatopdown__ent_adt_t ivar_585;
+                   ivar_585 = (sigmatopdown__ent_adt_t)sigmatopdown__push((uint32_t)ivar_586, (uint8_t)ivar_334);
+                   //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                   ivar_577 = (sigmatopdown__ent_adt_t)ivar_585;
+                   ivar_577->count++;
+                   release_sigmatopdown__ent_adt(ivar_585);
+                   uint64_t ivar_578;
+                   uint64_t ivar_588;
+                   sigmatopdown_record_122_t ivar_590;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   ivar_590 = (sigmatopdown_record_122_t)ivar_20;
+                   ivar_590->count++;
+                   ivar_588 = (uint64_t)ivar_590->depth;
+                   release_sigmatopdown_record_122(ivar_590);
+                   uint8_t ivar_589;
+                   ivar_589 = (uint8_t)1;
+                   ivar_578 = (uint64_t)(ivar_588 + ivar_589);
+                   sigmatopdown__ent_adt_t ivar_579;
+                   sigmatopdown_record_122_t ivar_598;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   ivar_598 = (sigmatopdown_record_122_t)ivar_20;
+                   ivar_598->count++;
+                   ivar_579 = (sigmatopdown__ent_adt_t)ivar_598->stack;
+                   ivar_579->count++;
+                   release_sigmatopdown_record_122(ivar_598);
+                   sigmatopdown_record_122_t ivar_605;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   ivar_605 = (sigmatopdown_record_122_t)ivar_20;
+                   ivar_605->count++;
+                   release_sigmatopdown_record_122(ivar_20);
+                   sigmatopdown_record_122_t ivar_610;
+                   sigmatopdown_record_122_t ivar_607;
+                   sigmatopdown__ent_adt_t ivar_609;
+                   ivar_609 = NULL;
+                   ivar_607 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_605, ivar_609);
+                   if (ivar_609 != NULL) ivar_609->count--;
+                   ivar_610 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_607, ivar_577);
+		   printf("\n concat->pending: stack-index = %"PRIu8"", ivar_607->stack->sigmatopdown__ent_adt_index);
+                   if (ivar_577 != NULL) ivar_577->count--;
+                   sigmatopdown_record_122_t ivar_614;
+                   ivar_614 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_610, ivar_578);
+                   sigmatopdown_record_122_t ivar_632;
+                   sigmatopdown_funtype_66_t ivar_615;
+                   ivar_615 = (sigmatopdown_funtype_66_t)ivar_614->scaf;
+                   ivar_615->count++;
+                   sigmatopdown_record_122_t ivar_629;
+                   sigmatopdown_funtype_66_t ivar_631;
+                   ivar_631 = NULL;
+                   ivar_629 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_614, ivar_631);
+                   if (ivar_631 != NULL) ivar_631->count--;
+                   sigmatopdown_funtype_66_t ivar_630;
+                   uint32_t ivar_622;
+                   ivar_622 = (uint32_t)(ivar_73 + ivar_415);
+                   sigmatopdown_funtype_65_t ivar_616;
+                   ivar_616 = (sigmatopdown_funtype_65_t)ivar_615->ftbl->fptr(ivar_615, ivar_622);
+                   sigmatopdown_funtype_66_t ivar_626;
+                   sigmatopdown_funtype_65_t ivar_628;
+                   ivar_628 = NULL;
+                   ivar_626 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_615, ivar_622, ivar_628);
+                   if (ivar_628 != NULL) ivar_628->count--;
+                   sigmatopdown_funtype_65_t ivar_627;
+                   sigmatopdown_funtype_65_t ivar_619;
+                   sigmatopdown__ent_adt_t ivar_621;
+                   ivar_621 = NULL;
+                   ivar_619 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_616, ivar_334, ivar_621);
+                   if (ivar_621 != NULL) ivar_621->count--;
+                   ivar_627 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_619, ivar_334, ivar_579);
+                   if (ivar_579 != NULL) ivar_579->count--;
+                   ivar_630 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_626, ivar_622, ivar_627);
+                   if (ivar_627 != NULL) ivar_627->count--;
+                   ivar_632 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_629, ivar_630);
+                   if (ivar_630 != NULL) ivar_630->count--;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   result = (sigmatopdown_record_122_t)ivar_632;
+                   result->count++;
+                   release_sigmatopdown_record_122(ivar_632);
+} else {
+                  
+                   sigmatopdown__ent_adt_t ivar_643;
+                   ivar_643 = (sigmatopdown__ent_adt_t)sigmatopdown__loop();
+                   ivar_643->count++;
+                   uint64_t ivar_644;
+                   uint8_t ivar_648;
+                   ivar_648 = (uint8_t)1;
+                   ivar_644 = (uint64_t)(ivar_53 - ivar_648);
+                   bool_t ivar_646;
+                   ivar_646 = (bool_t) true;
+                   sigmatopdown_record_122_t ivar_650;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   ivar_650 = (sigmatopdown_record_122_t)ivar_20;
+                   ivar_650->count++;
+                   release_sigmatopdown_record_122(ivar_20);
+                   sigmatopdown_record_122_t ivar_665;
+                   sigmatopdown_funtype_66_t ivar_651;
+                   ivar_651 = (sigmatopdown_funtype_66_t)ivar_650->scaf;
+                   ivar_651->count++;
+                   sigmatopdown_record_122_t ivar_662;
+                   sigmatopdown_funtype_66_t ivar_664;
+                   ivar_664 = NULL;
+                   ivar_662 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_650, ivar_664);
+                   if (ivar_664 != NULL) ivar_664->count--;
+                   sigmatopdown_funtype_66_t ivar_663;
+                   uint32_t ivar_658;
+                   //copying to uint32 from uint32;
+                   ivar_658 = (uint32_t)ivar_73;
+                   sigmatopdown_funtype_65_t ivar_652;
+                   ivar_652 = (sigmatopdown_funtype_65_t)ivar_651->ftbl->fptr(ivar_651, ivar_658);
+                   sigmatopdown_funtype_66_t ivar_659;
+                   sigmatopdown_funtype_65_t ivar_661;
+                   ivar_661 = NULL;
+                   ivar_659 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_651, ivar_658, ivar_661);
+                   if (ivar_661 != NULL) ivar_661->count--;
+                   sigmatopdown_funtype_65_t ivar_660;
+                   sigmatopdown_funtype_65_t ivar_655;
+                   sigmatopdown__ent_adt_t ivar_657;
+                   ivar_657 = NULL;
+                   ivar_655 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_652, ivar_77, ivar_657);
+                   if (ivar_657 != NULL) ivar_657->count--;
+                   ivar_660 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_655, ivar_77, ivar_643);
+                   if (ivar_643 != NULL) ivar_643->count--;
+                   ivar_663 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_659, ivar_658, ivar_660);
+                   if (ivar_660 != NULL) ivar_660->count--;
+                   ivar_665 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_662, ivar_663);
+                   if (ivar_663 != NULL) ivar_663->count--;
+                   sigmatopdown_record_122_t ivar_669;
+                   ivar_669 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_665, ivar_644);
+                   sigmatopdown_record_122_t ivar_674;
+                   sigmatopdown_record_122_t ivar_671;
+                   sigmatopdown__ent_adt_t ivar_673;
+                   ivar_673 = NULL;
+                   ivar_671 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_669, ivar_673);
+                   if (ivar_673 != NULL) ivar_673->count--;
+                   ivar_674 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_671, ivar_81);
+                   if (ivar_81 != NULL) ivar_81->count--;
+                   sigmatopdown_record_122_t ivar_678;
+                   ivar_678 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_lflag(ivar_674, ivar_646);
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   result = (sigmatopdown_record_122_t)ivar_678;
+                   result->count++;
+                   release_sigmatopdown_record_122(ivar_678);
+};
+};
+};
+} else {
+               
+                bool_t ivar_725;
+                ivar_725 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_341);
+                if (ivar_725){         
+                 release_sigmatopdown__ent_adt(ivar_81);
+                 sigmatopdown__ent_adt_t ivar_689;
+                 sigmatopdown__ent_adt_t ivar_694;
+                 ivar_694 = (sigmatopdown__ent_adt_t)sigmatopdown__push((uint32_t)ivar_73, (uint8_t)ivar_333);
+                 //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                 ivar_689 = (sigmatopdown__ent_adt_t)ivar_694;
+                 ivar_689->count++;
+                 release_sigmatopdown__ent_adt(ivar_694);
+                 uint64_t ivar_690;
+                 uint8_t ivar_698;
+                 ivar_698 = (uint8_t)1;
+                 ivar_690 = (uint64_t)(ivar_53 + ivar_698);
+                 sigmatopdown_record_122_t ivar_700;
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 ivar_700 = (sigmatopdown_record_122_t)ivar_20;
+                 ivar_700->count++;
+                 release_sigmatopdown_record_122(ivar_20);
+                 sigmatopdown_record_122_t ivar_705;
+                 sigmatopdown_record_122_t ivar_702;
+                 sigmatopdown__ent_adt_t ivar_704;
+                 ivar_704 = NULL;
+                 ivar_702 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_700, ivar_704);
+                 if (ivar_704 != NULL) ivar_704->count--;
+                 ivar_705 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_702, ivar_689);
+                 if (ivar_689 != NULL) ivar_689->count--;
+                 sigmatopdown_record_122_t ivar_709;
+                 ivar_709 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_705, ivar_690);
+                 sigmatopdown_record_122_t ivar_724;
+                 sigmatopdown_funtype_66_t ivar_710;
+                 ivar_710 = (sigmatopdown_funtype_66_t)ivar_709->scaf;
+                 ivar_710->count++;
+                 sigmatopdown_record_122_t ivar_721;
+                 sigmatopdown_funtype_66_t ivar_723;
+                 ivar_723 = NULL;
+                 ivar_721 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_709, ivar_723);
+                 if (ivar_723 != NULL) ivar_723->count--;
+                 sigmatopdown_funtype_66_t ivar_722;
+                 uint32_t ivar_717;
+                 //copying to uint32 from uint32;
+                 ivar_717 = (uint32_t)ivar_73;
+                 sigmatopdown_funtype_65_t ivar_711;
+                 ivar_711 = (sigmatopdown_funtype_65_t)ivar_710->ftbl->fptr(ivar_710, ivar_717);
+                 sigmatopdown_funtype_66_t ivar_718;
+                 sigmatopdown_funtype_65_t ivar_720;
+                 ivar_720 = NULL;
+                 ivar_718 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_710, ivar_717, ivar_720);
+                 if (ivar_720 != NULL) ivar_720->count--;
+                 sigmatopdown_funtype_65_t ivar_719;
+                 sigmatopdown_funtype_65_t ivar_714;
+                 sigmatopdown__ent_adt_t ivar_716;
+                 ivar_716 = NULL;
+                 ivar_714 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_711, ivar_333, ivar_716);
+                 if (ivar_716 != NULL) ivar_716->count--;
+                 ivar_719 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_714, ivar_333, ivar_45);
+                 if (ivar_45 != NULL) ivar_45->count--;
+                 ivar_722 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_718, ivar_717, ivar_719);
+                 if (ivar_719 != NULL) ivar_719->count--;
+                 ivar_724 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_721, ivar_722);
+                 if (ivar_722 != NULL) ivar_722->count--;
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 result = (sigmatopdown_record_122_t)ivar_724;
+                 result->count++;
+                 release_sigmatopdown_record_122(ivar_724);
+} else {
+                
+                 release_sigmatopdown__ent_adt(ivar_45);
+                 sigmatopdown__ent_adt_t ivar_735;
+                 ivar_735 = (sigmatopdown__ent_adt_t)sigmatopdown__loop();
+                 ivar_735->count++;
+                 uint64_t ivar_736;
+                 uint8_t ivar_740;
+                 ivar_740 = (uint8_t)1;
+                 ivar_736 = (uint64_t)(ivar_53 - ivar_740);
+                 bool_t ivar_738;
+                 ivar_738 = (bool_t) true;
+                 sigmatopdown_record_122_t ivar_742;
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 ivar_742 = (sigmatopdown_record_122_t)ivar_20;
+                 ivar_742->count++;
+                 release_sigmatopdown_record_122(ivar_20);
+                 sigmatopdown_record_122_t ivar_757;
+                 sigmatopdown_funtype_66_t ivar_743;
+                 ivar_743 = (sigmatopdown_funtype_66_t)ivar_742->scaf;
+                 ivar_743->count++;
+                 sigmatopdown_record_122_t ivar_754;
+                 sigmatopdown_funtype_66_t ivar_756;
+                 ivar_756 = NULL;
+                 ivar_754 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_742, ivar_756);
+                 if (ivar_756 != NULL) ivar_756->count--;
+                 sigmatopdown_funtype_66_t ivar_755;
+                 uint32_t ivar_750;
+                 //copying to uint32 from uint32;
+                 ivar_750 = (uint32_t)ivar_73;
+                 sigmatopdown_funtype_65_t ivar_744;
+                 ivar_744 = (sigmatopdown_funtype_65_t)ivar_743->ftbl->fptr(ivar_743, ivar_750);
+                 sigmatopdown_funtype_66_t ivar_751;
+                 sigmatopdown_funtype_65_t ivar_753;
+                 ivar_753 = NULL;
+                 ivar_751 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_743, ivar_750, ivar_753);
+                 if (ivar_753 != NULL) ivar_753->count--;
+                 sigmatopdown_funtype_65_t ivar_752;
+                 sigmatopdown_funtype_65_t ivar_747;
+                 sigmatopdown__ent_adt_t ivar_749;
+                 ivar_749 = NULL;
+                 ivar_747 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_744, ivar_77, ivar_749);
+                 if (ivar_749 != NULL) ivar_749->count--;
+                 ivar_752 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_747, ivar_77, ivar_735);
+                 if (ivar_735 != NULL) ivar_735->count--;
+                 ivar_755 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_751, ivar_750, ivar_752);
+                 if (ivar_752 != NULL) ivar_752->count--;
+                 ivar_757 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_754, ivar_755);
+                 if (ivar_755 != NULL) ivar_755->count--;
+                 sigmatopdown_record_122_t ivar_761;
+                 ivar_761 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_757, ivar_736);
+                 sigmatopdown_record_122_t ivar_766;
+                 sigmatopdown_record_122_t ivar_763;
+                 sigmatopdown__ent_adt_t ivar_765;
+                 ivar_765 = NULL;
+                 ivar_763 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_761, ivar_765);
+                 if (ivar_765 != NULL) ivar_765->count--;
+                 ivar_766 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_763, ivar_81);
+                 if (ivar_81 != NULL) ivar_81->count--;
+                 sigmatopdown_record_122_t ivar_770;
+                 ivar_770 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_lflag(ivar_766, ivar_738);
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 result = (sigmatopdown_record_122_t)ivar_770;
+                 result->count++;
+                 release_sigmatopdown_record_122(ivar_770);
+};
+};
+};
+} else {
+             
+              bool_t ivar_1174;
+              ivar_94->count++;
+              ivar_1174 = (bool_t)r_sigmatopdown__orp((sigmatopdown__peg_adt_t)ivar_94);
+              if (ivar_1174){       printf("\nclosure_124: or");
+               uint8_t ivar_775;
+               ivar_94->count++;
+               ivar_775 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_94);
+               uint8_t ivar_776;
+               ivar_776 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_94);
+               sigmatopdown__ent_adt_t ivar_783;
+               sigmatopdown_funtype_65_t ivar_787;
+               sigmatopdown_funtype_66_t ivar_793;
+               //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+               ivar_793 = (sigmatopdown_funtype_66_t)ivar_33;
+               ivar_793->count++;
+               uint32_t ivar_794;
+               //copying to uint32 from uint32;
+               ivar_794 = (uint32_t)ivar_73;
+               sigmatopdown_funtype_65_t ivar_790;
+               ivar_790 = (sigmatopdown_funtype_65_t)ivar_793->ftbl->fptr(ivar_793, ivar_794);
+               ivar_793->ftbl->rptr(ivar_793);
+               //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+               ivar_787 = (sigmatopdown_funtype_65_t)ivar_790;
+               ivar_787->count++;
+               release_sigmatopdown_funtype_65(ivar_790);
+               sigmatopdown__ent_adt_t ivar_785;
+               ivar_785 = (sigmatopdown__ent_adt_t)ivar_787->ftbl->fptr(ivar_787, ivar_775);
+               ivar_787->ftbl->rptr(ivar_787);
+               //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+               ivar_783 = (sigmatopdown__ent_adt_t)ivar_785;
+               ivar_783->count++;
+               release_sigmatopdown__ent_adt(ivar_785);
+               bool_t ivar_1023;
+               ivar_783->count++;
+               ivar_1023 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_783);
+               if (ivar_1023){        printf("\nclosure_124: fail");
+                uint64_t ivar_796;
+                ivar_796 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_783);
+                sigmatopdown__ent_adt_t ivar_800;
+                sigmatopdown_funtype_65_t ivar_804;
+                sigmatopdown_funtype_66_t ivar_810;
+                //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+                ivar_810 = (sigmatopdown_funtype_66_t)ivar_33;
+                ivar_810->count++;
+                release_sigmatopdown_funtype_66(ivar_33);
+                uint32_t ivar_811;
+                //copying to uint32 from uint32;
+                ivar_811 = (uint32_t)ivar_73;
+                sigmatopdown_funtype_65_t ivar_807;
+                ivar_807 = (sigmatopdown_funtype_65_t)ivar_810->ftbl->fptr(ivar_810, ivar_811);
+                ivar_810->ftbl->rptr(ivar_810);
+                //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+                ivar_804 = (sigmatopdown_funtype_65_t)ivar_807;
+                ivar_804->count++;
+                release_sigmatopdown_funtype_65(ivar_807);
+                sigmatopdown__ent_adt_t ivar_802;
+                ivar_802 = (sigmatopdown__ent_adt_t)ivar_804->ftbl->fptr(ivar_804, ivar_776);
+                ivar_804->ftbl->rptr(ivar_804);
+                //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                ivar_800 = (sigmatopdown__ent_adt_t)ivar_802;
+                ivar_800->count++;
+                release_sigmatopdown__ent_adt(ivar_802);
+                bool_t ivar_867;
+                ivar_800->count++;
+                ivar_867 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_800);
+                if (ivar_867){         printf("\nclosure_124: n2 fail");
+                 release_sigmatopdown__ent_adt(ivar_45);
+                 uint64_t ivar_813;
+                 ivar_813 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_800);
+                 sigmatopdown__ent_adt_t ivar_823;
+                 mpz_ptr_t ivar_838;
+                 mpq_ptr_t ivar_827;
+                 mpq_ptr_t ivar_832;
+                 //copying to mpq from uint64;
+                 mpq_mk_set_ui(ivar_832, ivar_796);
+                 mpq_ptr_t ivar_833;
+                 //copying to mpq from uint64;
+                 mpq_mk_set_ui(ivar_833, ivar_813);
+                 ivar_827 = (mpq_ptr_t)real_defs__max((mpq_ptr_t)ivar_832, (mpq_ptr_t)ivar_833);
+                 uint8_t ivar_828;
+                 ivar_828 = (uint8_t)1;
+                 mpz_mk_set_q(ivar_838, ivar_827);
+                 mpz_add_ui(ivar_838, ivar_838, (uint64_t)ivar_828);
+                 uint64_t ivar_836;
+                 //copying to uint64 from mpz;
+                 ivar_836 = (uint64_t)mpz_get_ui(ivar_838);
+                 mpz_clear(ivar_838);
+                 sigmatopdown__ent_adt_t ivar_835;
+                 ivar_835 = (sigmatopdown__ent_adt_t)sigmatopdown__fail((uint64_t)ivar_836);
+                 //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                 ivar_823 = (sigmatopdown__ent_adt_t)ivar_835;
+                 ivar_823->count++;
+                 release_sigmatopdown__ent_adt(ivar_835);
+                 uint64_t ivar_825;
+                 uint8_t ivar_840;
+                 ivar_840 = (uint8_t)1;
+                 ivar_825 = (uint64_t)(ivar_53 - ivar_840);
+                 sigmatopdown_record_122_t ivar_842;
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 ivar_842 = (sigmatopdown_record_122_t)ivar_20;
+                 ivar_842->count++;
+                 release_sigmatopdown_record_122(ivar_20);
+                 sigmatopdown_record_122_t ivar_857;
+                 sigmatopdown_funtype_66_t ivar_843;
+                 ivar_843 = (sigmatopdown_funtype_66_t)ivar_842->scaf;
+                 ivar_843->count++;
+                 sigmatopdown_record_122_t ivar_854;
+                 sigmatopdown_funtype_66_t ivar_856;
+                 ivar_856 = NULL;
+                 ivar_854 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_842, ivar_856);
+                 if (ivar_856 != NULL) ivar_856->count--;
+                 sigmatopdown_funtype_66_t ivar_855;
+                 uint32_t ivar_850;
+                 //copying to uint32 from uint32;
+                 ivar_850 = (uint32_t)ivar_73;
+                 sigmatopdown_funtype_65_t ivar_844;
+                 ivar_844 = (sigmatopdown_funtype_65_t)ivar_843->ftbl->fptr(ivar_843, ivar_850);
+                 sigmatopdown_funtype_66_t ivar_851;
+                 sigmatopdown_funtype_65_t ivar_853;
+                 ivar_853 = NULL;
+                 ivar_851 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_843, ivar_850, ivar_853);
+                 if (ivar_853 != NULL) ivar_853->count--;
+                 sigmatopdown_funtype_65_t ivar_852;
+                 sigmatopdown_funtype_65_t ivar_847;
+                 sigmatopdown__ent_adt_t ivar_849;
+                 ivar_849 = NULL;
+                 ivar_847 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_844, ivar_77, ivar_849);
+                 if (ivar_849 != NULL) ivar_849->count--;
+                 ivar_852 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_847, ivar_77, ivar_823);
+                 if (ivar_823 != NULL) ivar_823->count--;
+                 ivar_855 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_851, ivar_850, ivar_852);
+                 if (ivar_852 != NULL) ivar_852->count--;
+                 ivar_857 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_854, ivar_855);
+                 if (ivar_855 != NULL) ivar_855->count--;
+                 sigmatopdown_record_122_t ivar_862;
+                 sigmatopdown_record_122_t ivar_859;
+                 sigmatopdown__ent_adt_t ivar_861;
+                 ivar_861 = NULL;
+                 ivar_859 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_857, ivar_861);
+                 if (ivar_861 != NULL) ivar_861->count--;
+                 ivar_862 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_859, ivar_81);
+                 if (ivar_81 != NULL) ivar_81->count--;
+                 sigmatopdown_record_122_t ivar_866;
+                 ivar_866 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_862, ivar_825);
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 result = (sigmatopdown_record_122_t)ivar_866;
+                 result->count++;
+                 release_sigmatopdown_record_122(ivar_866);
+} else {
+                
+                 bool_t ivar_931;
+                 ivar_800->count++;
+                 ivar_931 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_800);
+                 if (ivar_931){          printf("\nclosure_124: n2 good");
+                  release_sigmatopdown__ent_adt(ivar_45);
+                  uint64_t ivar_871;
+                  ivar_800->count++;
+                  ivar_871 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_800);
+                  uint32_t ivar_872;
+                  ivar_872 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_800);
+                  sigmatopdown__ent_adt_t ivar_885;
+                  mpz_ptr_t ivar_902;
+                  mpq_ptr_t ivar_890;
+                  mpq_ptr_t ivar_895;
+                  //copying to mpq from uint64;
+                  mpq_mk_set_ui(ivar_895, ivar_796);
+                  mpq_ptr_t ivar_896;
+                  //copying to mpq from uint64;
+                  mpq_mk_set_ui(ivar_896, ivar_871);
+                  ivar_890 = (mpq_ptr_t)real_defs__max((mpq_ptr_t)ivar_895, (mpq_ptr_t)ivar_896);
+                  uint8_t ivar_891;
+                  ivar_891 = (uint8_t)1;
+                  mpz_mk_set_q(ivar_902, ivar_890);
+                  mpz_add_ui(ivar_902, ivar_902, (uint64_t)ivar_891);
+                  uint64_t ivar_899;
+                  //copying to uint64 from mpz;
+                  ivar_899 = (uint64_t)mpz_get_ui(ivar_902);
+                  mpz_clear(ivar_902);
+                  sigmatopdown__ent_adt_t ivar_898;
+                  ivar_898 = (sigmatopdown__ent_adt_t)sigmatopdown__good((uint64_t)ivar_899, (uint32_t)ivar_872);
+                  //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                  ivar_885 = (sigmatopdown__ent_adt_t)ivar_898;
+                  ivar_885->count++;
+                  release_sigmatopdown__ent_adt(ivar_898);
+                  uint64_t ivar_887;
+                  uint8_t ivar_904;
+                  ivar_904 = (uint8_t)1;
+                  ivar_887 = (uint64_t)(ivar_53 - ivar_904);
+                  sigmatopdown_record_122_t ivar_906;
+                  //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                  ivar_906 = (sigmatopdown_record_122_t)ivar_20;
+                  ivar_906->count++;
+                  release_sigmatopdown_record_122(ivar_20);
+                  sigmatopdown_record_122_t ivar_921;
+                  sigmatopdown_funtype_66_t ivar_907;
+                  ivar_907 = (sigmatopdown_funtype_66_t)ivar_906->scaf;
+                  ivar_907->count++;
+                  sigmatopdown_record_122_t ivar_918;
+                  sigmatopdown_funtype_66_t ivar_920;
+                  ivar_920 = NULL;
+                  ivar_918 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_906, ivar_920);
+                  if (ivar_920 != NULL) ivar_920->count--;
+                  sigmatopdown_funtype_66_t ivar_919;
+                  uint32_t ivar_914;
+                  //copying to uint32 from uint32;
+                  ivar_914 = (uint32_t)ivar_73;
+                  sigmatopdown_funtype_65_t ivar_908;
+                  ivar_908 = (sigmatopdown_funtype_65_t)ivar_907->ftbl->fptr(ivar_907, ivar_914);
+                  sigmatopdown_funtype_66_t ivar_915;
+                  sigmatopdown_funtype_65_t ivar_917;
+                  ivar_917 = NULL;
+                  ivar_915 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_907, ivar_914, ivar_917);
+                  if (ivar_917 != NULL) ivar_917->count--;
+                  sigmatopdown_funtype_65_t ivar_916;
+                  sigmatopdown_funtype_65_t ivar_911;
+                  sigmatopdown__ent_adt_t ivar_913;
+                  ivar_913 = NULL;
+                  ivar_911 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_908, ivar_77, ivar_913);
+                  if (ivar_913 != NULL) ivar_913->count--;
+                  ivar_916 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_911, ivar_77, ivar_885);
+                  if (ivar_885 != NULL) ivar_885->count--;
+                  ivar_919 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_915, ivar_914, ivar_916);
+                  if (ivar_916 != NULL) ivar_916->count--;
+                  ivar_921 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_918, ivar_919);
+                  if (ivar_919 != NULL) ivar_919->count--;
+                  sigmatopdown_record_122_t ivar_926;
+                  sigmatopdown_record_122_t ivar_923;
+                  sigmatopdown__ent_adt_t ivar_925;
+                  ivar_925 = NULL;
+                  ivar_923 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_921, ivar_925);
+                  if (ivar_925 != NULL) ivar_925->count--;
+                  ivar_926 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_923, ivar_81);
+                  if (ivar_81 != NULL) ivar_81->count--;
+                  sigmatopdown_record_122_t ivar_930;
+                  ivar_930 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_926, ivar_887);
+                  //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                  result = (sigmatopdown_record_122_t)ivar_930;
+                  result->count++;
+                  release_sigmatopdown_record_122(ivar_930);
+} else {
+                 
+                  bool_t ivar_977;
+                  ivar_977 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_800);
+                  if (ivar_977){           printf("\nclosure_124: n2 pending");
+                   release_sigmatopdown__ent_adt(ivar_81);
+                   sigmatopdown__ent_adt_t ivar_941;
+                   sigmatopdown__ent_adt_t ivar_946;
+                   ivar_946 = (sigmatopdown__ent_adt_t)sigmatopdown__push((uint32_t)ivar_73, (uint8_t)ivar_776);
+                   //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                   ivar_941 = (sigmatopdown__ent_adt_t)ivar_946;
+                   ivar_941->count++;
+                   release_sigmatopdown__ent_adt(ivar_946);
+                   uint64_t ivar_942;
+                   uint8_t ivar_950;
+                   ivar_950 = (uint8_t)1;
+                   ivar_942 = (uint64_t)(ivar_53 + ivar_950);
+                   sigmatopdown_record_122_t ivar_952;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   ivar_952 = (sigmatopdown_record_122_t)ivar_20;
+                   ivar_952->count++;
+                   release_sigmatopdown_record_122(ivar_20);
+                   sigmatopdown_record_122_t ivar_957;
+                   sigmatopdown_record_122_t ivar_954;
+                   sigmatopdown__ent_adt_t ivar_956;
+                   ivar_956 = NULL;
+                   ivar_954 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_952, ivar_956);
+                   if (ivar_956 != NULL) ivar_956->count--;
+                   ivar_957 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_954, ivar_941);
+                   if (ivar_941 != NULL) ivar_941->count--;
+                   sigmatopdown_record_122_t ivar_961;
+                   ivar_961 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_957, ivar_942);
+                   sigmatopdown_record_122_t ivar_976;
+                   sigmatopdown_funtype_66_t ivar_962;
+                   ivar_962 = (sigmatopdown_funtype_66_t)ivar_961->scaf;
+                   ivar_962->count++;
+                   sigmatopdown_record_122_t ivar_973;
+                   sigmatopdown_funtype_66_t ivar_975;
+                   ivar_975 = NULL;
+                   ivar_973 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_961, ivar_975);
+                   if (ivar_975 != NULL) ivar_975->count--;
+                   sigmatopdown_funtype_66_t ivar_974;
+                   uint32_t ivar_969;
+                   //copying to uint32 from uint32;
+                   ivar_969 = (uint32_t)ivar_73;
+                   sigmatopdown_funtype_65_t ivar_963;
+                   ivar_963 = (sigmatopdown_funtype_65_t)ivar_962->ftbl->fptr(ivar_962, ivar_969);
+                   sigmatopdown_funtype_66_t ivar_970;
+                   sigmatopdown_funtype_65_t ivar_972;
+                   ivar_972 = NULL;
+                   ivar_970 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_962, ivar_969, ivar_972);
+                   if (ivar_972 != NULL) ivar_972->count--;
+                   sigmatopdown_funtype_65_t ivar_971;
+                   sigmatopdown_funtype_65_t ivar_966;
+                   sigmatopdown__ent_adt_t ivar_968;
+                   ivar_968 = NULL;
+                   ivar_966 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_963, ivar_776, ivar_968);
+                   if (ivar_968 != NULL) ivar_968->count--;
+                   ivar_971 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_966, ivar_776, ivar_45);
+                   if (ivar_45 != NULL) ivar_45->count--;
+                   ivar_974 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_970, ivar_969, ivar_971);
+                   if (ivar_971 != NULL) ivar_971->count--;
+                   ivar_976 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_973, ivar_974);
+                   if (ivar_974 != NULL) ivar_974->count--;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   result = (sigmatopdown_record_122_t)ivar_976;
+                   result->count++;
+                   release_sigmatopdown_record_122(ivar_976);
+} else {
+                  
+                   release_sigmatopdown__ent_adt(ivar_45);
+                   sigmatopdown__ent_adt_t ivar_987;
+                   ivar_987 = (sigmatopdown__ent_adt_t)sigmatopdown__loop();
+                   ivar_987->count++;
+                   uint64_t ivar_988;
+                   uint8_t ivar_992;
+                   ivar_992 = (uint8_t)1;
+                   ivar_988 = (uint64_t)(ivar_53 - ivar_992);
+                   bool_t ivar_990;
+                   ivar_990 = (bool_t) true;
+                   sigmatopdown_record_122_t ivar_994;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   ivar_994 = (sigmatopdown_record_122_t)ivar_20;
+                   ivar_994->count++;
+                   release_sigmatopdown_record_122(ivar_20);
+                   sigmatopdown_record_122_t ivar_1009;
+                   sigmatopdown_funtype_66_t ivar_995;
+                   ivar_995 = (sigmatopdown_funtype_66_t)ivar_994->scaf;
+                   ivar_995->count++;
+                   sigmatopdown_record_122_t ivar_1006;
+                   sigmatopdown_funtype_66_t ivar_1008;
+                   ivar_1008 = NULL;
+                   ivar_1006 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_994, ivar_1008);
+                   if (ivar_1008 != NULL) ivar_1008->count--;
+                   sigmatopdown_funtype_66_t ivar_1007;
+                   uint32_t ivar_1002;
+                   //copying to uint32 from uint32;
+                   ivar_1002 = (uint32_t)ivar_73;
+                   sigmatopdown_funtype_65_t ivar_996;
+                   ivar_996 = (sigmatopdown_funtype_65_t)ivar_995->ftbl->fptr(ivar_995, ivar_1002);
+                   sigmatopdown_funtype_66_t ivar_1003;
+                   sigmatopdown_funtype_65_t ivar_1005;
+                   ivar_1005 = NULL;
+                   ivar_1003 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_995, ivar_1002, ivar_1005);
+                   if (ivar_1005 != NULL) ivar_1005->count--;
+                   sigmatopdown_funtype_65_t ivar_1004;
+                   sigmatopdown_funtype_65_t ivar_999;
+                   sigmatopdown__ent_adt_t ivar_1001;
+                   ivar_1001 = NULL;
+                   ivar_999 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_996, ivar_77, ivar_1001);
+                   if (ivar_1001 != NULL) ivar_1001->count--;
+                   ivar_1004 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_999, ivar_77, ivar_987);
+                   if (ivar_987 != NULL) ivar_987->count--;
+                   ivar_1007 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1003, ivar_1002, ivar_1004);
+                   if (ivar_1004 != NULL) ivar_1004->count--;
+                   ivar_1009 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1006, ivar_1007);
+                   if (ivar_1007 != NULL) ivar_1007->count--;
+                   sigmatopdown_record_122_t ivar_1013;
+                   ivar_1013 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_1009, ivar_988);
+                   sigmatopdown_record_122_t ivar_1018;
+                   sigmatopdown_record_122_t ivar_1015;
+                   sigmatopdown__ent_adt_t ivar_1017;
+                   ivar_1017 = NULL;
+                   ivar_1015 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1013, ivar_1017);
+                   if (ivar_1017 != NULL) ivar_1017->count--;
+                   ivar_1018 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1015, ivar_81);
+                   if (ivar_81 != NULL) ivar_81->count--;
+                   sigmatopdown_record_122_t ivar_1022;
+                   ivar_1022 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_lflag(ivar_1018, ivar_990);
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   result = (sigmatopdown_record_122_t)ivar_1022;
+                   result->count++;
+                   release_sigmatopdown_record_122(ivar_1022);
+};
+};
+};
+} else {
+               
+                release_sigmatopdown_funtype_66(ivar_33);
+                bool_t ivar_1082;
+                ivar_783->count++;
+                ivar_1082 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_783);
+                if (ivar_1082){   printf("\nclosure_124: or1: good");      
+                 release_sigmatopdown__ent_adt(ivar_45);
+                 uint64_t ivar_1027;
+                 ivar_783->count++;
+                 ivar_1027 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_783);
+                 uint32_t ivar_1028;
+                 ivar_1028 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_783);
+                 sigmatopdown__ent_adt_t ivar_1041;
+                 mpz_ptr_t ivar_1053;
+                 uint8_t ivar_1047;
+                 ivar_1047 = (uint8_t)1;
+                 mpz_mk_set_ui(ivar_1053, (uint64_t)ivar_1027);
+                 mpz_add_ui(ivar_1053, ivar_1053, (uint64_t)ivar_1047);
+                 uint64_t ivar_1050;
+                 //copying to uint64 from mpz;
+                 ivar_1050 = (uint64_t)mpz_get_ui(ivar_1053);
+                 mpz_clear(ivar_1053);
+                 sigmatopdown__ent_adt_t ivar_1049;
+                 ivar_1049 = (sigmatopdown__ent_adt_t)sigmatopdown__good((uint64_t)ivar_1050, (uint32_t)ivar_1028);
+                 //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                 ivar_1041 = (sigmatopdown__ent_adt_t)ivar_1049;
+                 ivar_1041->count++;
+                 release_sigmatopdown__ent_adt(ivar_1049);
+                 uint64_t ivar_1043;
+                 uint8_t ivar_1055;
+                 ivar_1055 = (uint8_t)1;
+                 ivar_1043 = (uint64_t)(ivar_53 - ivar_1055);
+                 sigmatopdown_record_122_t ivar_1057;
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 ivar_1057 = (sigmatopdown_record_122_t)ivar_20;
+                 ivar_1057->count++;
+                 release_sigmatopdown_record_122(ivar_20);
+                 sigmatopdown_record_122_t ivar_1072;
+                 sigmatopdown_funtype_66_t ivar_1058;
+                 ivar_1058 = (sigmatopdown_funtype_66_t)ivar_1057->scaf;
+                 ivar_1058->count++;
+                 sigmatopdown_record_122_t ivar_1069;
+                 sigmatopdown_funtype_66_t ivar_1071;
+                 ivar_1071 = NULL;
+                 ivar_1069 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1057, ivar_1071);
+                 if (ivar_1071 != NULL) ivar_1071->count--;
+                 sigmatopdown_funtype_66_t ivar_1070;
+                 uint32_t ivar_1065;
+                 //copying to uint32 from uint32;
+                 ivar_1065 = (uint32_t)ivar_73;
+                 sigmatopdown_funtype_65_t ivar_1059;
+                 ivar_1059 = (sigmatopdown_funtype_65_t)ivar_1058->ftbl->fptr(ivar_1058, ivar_1065);
+                 sigmatopdown_funtype_66_t ivar_1066;
+                 sigmatopdown_funtype_65_t ivar_1068;
+                 ivar_1068 = NULL;
+                 ivar_1066 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1058, ivar_1065, ivar_1068);
+                 if (ivar_1068 != NULL) ivar_1068->count--;
+                 sigmatopdown_funtype_65_t ivar_1067;
+                 sigmatopdown_funtype_65_t ivar_1062;
+                 sigmatopdown__ent_adt_t ivar_1064;
+                 ivar_1064 = NULL;
+                 ivar_1062 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1059, ivar_77, ivar_1064);
+                 if (ivar_1064 != NULL) ivar_1064->count--;
+                 ivar_1067 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1062, ivar_77, ivar_1041);
+                 if (ivar_1041 != NULL) ivar_1041->count--;
+                 ivar_1070 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1066, ivar_1065, ivar_1067);
+                 if (ivar_1067 != NULL) ivar_1067->count--;
+                 ivar_1072 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1069, ivar_1070);
+                 if (ivar_1070 != NULL) ivar_1070->count--;
+                 sigmatopdown_record_122_t ivar_1077;
+                 sigmatopdown_record_122_t ivar_1074;
+                 sigmatopdown__ent_adt_t ivar_1076;
+                 ivar_1076 = NULL;
+                 ivar_1074 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1072, ivar_1076);
+                 if (ivar_1076 != NULL) ivar_1076->count--;
+                 ivar_1077 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1074, ivar_81);
+                 if (ivar_81 != NULL) ivar_81->count--;
+                 sigmatopdown_record_122_t ivar_1081;
+                 ivar_1081 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_1077, ivar_1043);
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 result = (sigmatopdown_record_122_t)ivar_1081;
+                 result->count++;
+                 release_sigmatopdown_record_122(ivar_1081);
+} else {
+                
+                 bool_t ivar_1128;
+                 ivar_1128 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_783);
+                 if (ivar_1128){          printf("\nclosure_124: pending");
+                  release_sigmatopdown__ent_adt(ivar_81);
+                  sigmatopdown__ent_adt_t ivar_1092;
+                  sigmatopdown__ent_adt_t ivar_1097;
+		  printf("\n or n1: pending: push(%"PRIu32", %"PRIu8")", ivar_73, ivar_775);
+                  ivar_1097 = (sigmatopdown__ent_adt_t)sigmatopdown__push((uint32_t)ivar_73, (uint8_t)ivar_775);
+                  //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                  ivar_1092 = (sigmatopdown__ent_adt_t)ivar_1097;
+                  ivar_1092->count++;
+                  release_sigmatopdown__ent_adt(ivar_1097);
+                  uint64_t ivar_1093;
+                  uint8_t ivar_1101;
+                  ivar_1101 = (uint8_t)1;
+                  ivar_1093 = (uint64_t)(ivar_53 + ivar_1101);
+                  sigmatopdown_record_122_t ivar_1103;
+                  //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                  ivar_1103 = (sigmatopdown_record_122_t)ivar_20;
+                  ivar_1103->count++;
+                  release_sigmatopdown_record_122(ivar_20);
+                  sigmatopdown_record_122_t ivar_1108;
+                  sigmatopdown_record_122_t ivar_1105;
+                  sigmatopdown__ent_adt_t ivar_1107;
+                  ivar_1107 = NULL;
+                  ivar_1105 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1103, ivar_1107);
+                  if (ivar_1107 != NULL) ivar_1107->count--;
+                  ivar_1108 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1105, ivar_1092);
+                  if (ivar_1092 != NULL) ivar_1092->count--;
+                  sigmatopdown_record_122_t ivar_1112;
+                  ivar_1112 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_1108, ivar_1093);
+                  sigmatopdown_record_122_t ivar_1127;
+                  sigmatopdown_funtype_66_t ivar_1113;
+                  ivar_1113 = (sigmatopdown_funtype_66_t)ivar_1112->scaf;
+                  ivar_1113->count++;
+                  sigmatopdown_record_122_t ivar_1124;
+                  sigmatopdown_funtype_66_t ivar_1126;
+                  ivar_1126 = NULL;
+                  ivar_1124 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1112, ivar_1126);
+                  if (ivar_1126 != NULL) ivar_1126->count--;
+                  sigmatopdown_funtype_66_t ivar_1125;
+                  uint32_t ivar_1120;
+                  //copying to uint32 from uint32;
+                  ivar_1120 = (uint32_t)ivar_73;
+                  sigmatopdown_funtype_65_t ivar_1114;
+                  ivar_1114 = (sigmatopdown_funtype_65_t)ivar_1113->ftbl->fptr(ivar_1113, ivar_1120);
+                  sigmatopdown_funtype_66_t ivar_1121;
+                  sigmatopdown_funtype_65_t ivar_1123;
+                  ivar_1123 = NULL;
+                  ivar_1121 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1113, ivar_1120, ivar_1123);
+                  if (ivar_1123 != NULL) ivar_1123->count--;
+                  sigmatopdown_funtype_65_t ivar_1122;
+                  sigmatopdown_funtype_65_t ivar_1117;
+                  sigmatopdown__ent_adt_t ivar_1119;
+                  ivar_1119 = NULL;
+                  ivar_1117 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1114, ivar_775, ivar_1119);
+                  if (ivar_1119 != NULL) ivar_1119->count--;
+                  ivar_1122 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1117, ivar_775, ivar_45);
+                  if (ivar_45 != NULL) ivar_45->count--;
+                  ivar_1125 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1121, ivar_1120, ivar_1122);
+                  if (ivar_1122 != NULL) ivar_1122->count--;
+                  ivar_1127 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1124, ivar_1125);
+                  if (ivar_1125 != NULL) ivar_1125->count--;
+                  //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                  result = (sigmatopdown_record_122_t)ivar_1127;
+                  result->count++;
+                  release_sigmatopdown_record_122(ivar_1127);
+} else {
+                 
+                  release_sigmatopdown__ent_adt(ivar_45);
+                  sigmatopdown__ent_adt_t ivar_1138;
+                  ivar_1138 = (sigmatopdown__ent_adt_t)sigmatopdown__loop();
+                  ivar_1138->count++;
+                  uint64_t ivar_1139;
+                  uint8_t ivar_1143;
+                  ivar_1143 = (uint8_t)1;
+                  ivar_1139 = (uint64_t)(ivar_53 - ivar_1143);
+                  bool_t ivar_1141;
+                  ivar_1141 = (bool_t) true;
+                  sigmatopdown_record_122_t ivar_1145;
+                  //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                  ivar_1145 = (sigmatopdown_record_122_t)ivar_20;
+                  ivar_1145->count++;
+                  release_sigmatopdown_record_122(ivar_20);
+                  sigmatopdown_record_122_t ivar_1160;
+                  sigmatopdown_funtype_66_t ivar_1146;
+                  ivar_1146 = (sigmatopdown_funtype_66_t)ivar_1145->scaf;
+                  ivar_1146->count++;
+                  sigmatopdown_record_122_t ivar_1157;
+                  sigmatopdown_funtype_66_t ivar_1159;
+                  ivar_1159 = NULL;
+                  ivar_1157 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1145, ivar_1159);
+                  if (ivar_1159 != NULL) ivar_1159->count--;
+                  sigmatopdown_funtype_66_t ivar_1158;
+                  uint32_t ivar_1153;
+                  //copying to uint32 from uint32;
+                  ivar_1153 = (uint32_t)ivar_73;
+                  sigmatopdown_funtype_65_t ivar_1147;
+                  ivar_1147 = (sigmatopdown_funtype_65_t)ivar_1146->ftbl->fptr(ivar_1146, ivar_1153);
+                  sigmatopdown_funtype_66_t ivar_1154;
+                  sigmatopdown_funtype_65_t ivar_1156;
+                  ivar_1156 = NULL;
+                  ivar_1154 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1146, ivar_1153, ivar_1156);
+                  if (ivar_1156 != NULL) ivar_1156->count--;
+                  sigmatopdown_funtype_65_t ivar_1155;
+                  sigmatopdown_funtype_65_t ivar_1150;
+                  sigmatopdown__ent_adt_t ivar_1152;
+                  ivar_1152 = NULL;
+                  ivar_1150 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1147, ivar_77, ivar_1152);
+                  if (ivar_1152 != NULL) ivar_1152->count--;
+                  ivar_1155 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1150, ivar_77, ivar_1138);
+                  if (ivar_1138 != NULL) ivar_1138->count--;
+                  ivar_1158 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1154, ivar_1153, ivar_1155);
+                  if (ivar_1155 != NULL) ivar_1155->count--;
+                  ivar_1160 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1157, ivar_1158);
+                  if (ivar_1158 != NULL) ivar_1158->count--;
+                  sigmatopdown_record_122_t ivar_1164;
+                  ivar_1164 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_1160, ivar_1139);
+                  sigmatopdown_record_122_t ivar_1169;
+                  sigmatopdown_record_122_t ivar_1166;
+                  sigmatopdown__ent_adt_t ivar_1168;
+                  ivar_1168 = NULL;
+                  ivar_1166 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1164, ivar_1168);
+                  if (ivar_1168 != NULL) ivar_1168->count--;
+                  ivar_1169 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1166, ivar_81);
+                  if (ivar_81 != NULL) ivar_81->count--;
+                  sigmatopdown_record_122_t ivar_1173;
+                  ivar_1173 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_lflag(ivar_1169, ivar_1141);
+                  //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                  result = (sigmatopdown_record_122_t)ivar_1173;
+                  result->count++;
+                  release_sigmatopdown_record_122(ivar_1173);
+};
+};
+};
+} else {
+              
+               bool_t ivar_1395;
+               ivar_94->count++;
+               ivar_1395 = (bool_t)r_sigmatopdown__andp((sigmatopdown__peg_adt_t)ivar_94);
+               if (ivar_1395){        
+                uint8_t ivar_1178;
+                ivar_1178 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_94);
+                sigmatopdown__ent_adt_t ivar_1182;
+                sigmatopdown_funtype_65_t ivar_1186;
+                sigmatopdown_funtype_66_t ivar_1192;
+                //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+                ivar_1192 = (sigmatopdown_funtype_66_t)ivar_33;
+                ivar_1192->count++;
+                release_sigmatopdown_funtype_66(ivar_33);
+                uint32_t ivar_1193;
+                //copying to uint32 from uint32;
+                ivar_1193 = (uint32_t)ivar_73;
+                sigmatopdown_funtype_65_t ivar_1189;
+                ivar_1189 = (sigmatopdown_funtype_65_t)ivar_1192->ftbl->fptr(ivar_1192, ivar_1193);
+                ivar_1192->ftbl->rptr(ivar_1192);
+                //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+                ivar_1186 = (sigmatopdown_funtype_65_t)ivar_1189;
+                ivar_1186->count++;
+                release_sigmatopdown_funtype_65(ivar_1189);
+                sigmatopdown__ent_adt_t ivar_1184;
+                ivar_1184 = (sigmatopdown__ent_adt_t)ivar_1186->ftbl->fptr(ivar_1186, ivar_1178);
+                ivar_1186->ftbl->rptr(ivar_1186);
+                //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                ivar_1182 = (sigmatopdown__ent_adt_t)ivar_1184;
+                ivar_1182->count++;
+                release_sigmatopdown__ent_adt(ivar_1184);
+                bool_t ivar_1244;
+                ivar_1182->count++;
+                ivar_1244 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_1182);
+                if (ivar_1244){         
+                 release_sigmatopdown__ent_adt(ivar_45);
+                 uint64_t ivar_1195;
+                 ivar_1195 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_1182);
+                 sigmatopdown__ent_adt_t ivar_1205;
+                 mpz_ptr_t ivar_1215;
+                 uint8_t ivar_1210;
+                 ivar_1210 = (uint8_t)1;
+                 mpz_mk_set_ui(ivar_1215, (uint64_t)ivar_1195);
+                 mpz_add_ui(ivar_1215, ivar_1215, (uint64_t)ivar_1210);
+                 uint64_t ivar_1213;
+                 //copying to uint64 from mpz;
+                 ivar_1213 = (uint64_t)mpz_get_ui(ivar_1215);
+                 mpz_clear(ivar_1215);
+                 sigmatopdown__ent_adt_t ivar_1212;
+                 ivar_1212 = (sigmatopdown__ent_adt_t)sigmatopdown__fail((uint64_t)ivar_1213);
+                 //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                 ivar_1205 = (sigmatopdown__ent_adt_t)ivar_1212;
+                 ivar_1205->count++;
+                 release_sigmatopdown__ent_adt(ivar_1212);
+                 uint64_t ivar_1207;
+                 uint8_t ivar_1217;
+                 ivar_1217 = (uint8_t)1;
+                 ivar_1207 = (uint64_t)(ivar_53 - ivar_1217);
+                 sigmatopdown_record_122_t ivar_1219;
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 ivar_1219 = (sigmatopdown_record_122_t)ivar_20;
+                 ivar_1219->count++;
+                 release_sigmatopdown_record_122(ivar_20);
+                 sigmatopdown_record_122_t ivar_1234;
+                 sigmatopdown_funtype_66_t ivar_1220;
+                 ivar_1220 = (sigmatopdown_funtype_66_t)ivar_1219->scaf;
+                 ivar_1220->count++;
+                 sigmatopdown_record_122_t ivar_1231;
+                 sigmatopdown_funtype_66_t ivar_1233;
+                 ivar_1233 = NULL;
+                 ivar_1231 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1219, ivar_1233);
+                 if (ivar_1233 != NULL) ivar_1233->count--;
+                 sigmatopdown_funtype_66_t ivar_1232;
+                 uint32_t ivar_1227;
+                 //copying to uint32 from uint32;
+                 ivar_1227 = (uint32_t)ivar_73;
+                 sigmatopdown_funtype_65_t ivar_1221;
+                 ivar_1221 = (sigmatopdown_funtype_65_t)ivar_1220->ftbl->fptr(ivar_1220, ivar_1227);
+                 sigmatopdown_funtype_66_t ivar_1228;
+                 sigmatopdown_funtype_65_t ivar_1230;
+                 ivar_1230 = NULL;
+                 ivar_1228 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1220, ivar_1227, ivar_1230);
+                 if (ivar_1230 != NULL) ivar_1230->count--;
+                 sigmatopdown_funtype_65_t ivar_1229;
+                 sigmatopdown_funtype_65_t ivar_1224;
+                 sigmatopdown__ent_adt_t ivar_1226;
+                 ivar_1226 = NULL;
+                 ivar_1224 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1221, ivar_77, ivar_1226);
+                 if (ivar_1226 != NULL) ivar_1226->count--;
+                 ivar_1229 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1224, ivar_77, ivar_1205);
+                 if (ivar_1205 != NULL) ivar_1205->count--;
+                 ivar_1232 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1228, ivar_1227, ivar_1229);
+                 if (ivar_1229 != NULL) ivar_1229->count--;
+                 ivar_1234 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1231, ivar_1232);
+                 if (ivar_1232 != NULL) ivar_1232->count--;
+                 sigmatopdown_record_122_t ivar_1239;
+                 sigmatopdown_record_122_t ivar_1236;
+                 sigmatopdown__ent_adt_t ivar_1238;
+                 ivar_1238 = NULL;
+                 ivar_1236 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1234, ivar_1238);
+                 if (ivar_1238 != NULL) ivar_1238->count--;
+                 ivar_1239 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1236, ivar_81);
+                 if (ivar_81 != NULL) ivar_81->count--;
+                 sigmatopdown_record_122_t ivar_1243;
+                 ivar_1243 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_1239, ivar_1207);
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 result = (sigmatopdown_record_122_t)ivar_1243;
+                 result->count++;
+                 release_sigmatopdown_record_122(ivar_1243);
+} else {
+                
+                 bool_t ivar_1303;
+                 ivar_1182->count++;
+                 ivar_1303 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_1182);
+                 if (ivar_1303){          
+                  release_sigmatopdown__ent_adt(ivar_45);
+                  uint64_t ivar_1248;
+                  ivar_1182->count++;
+                  ivar_1248 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_1182);
+                  sigmatopdown__ent_adt_t ivar_1262;
+                  mpz_ptr_t ivar_1274;
+                  uint8_t ivar_1268;
+                  ivar_1268 = (uint8_t)1;
+                  mpz_mk_set_ui(ivar_1274, (uint64_t)ivar_1248);
+                  mpz_add_ui(ivar_1274, ivar_1274, (uint64_t)ivar_1268);
+                  uint64_t ivar_1271;
+                  //copying to uint64 from mpz;
+                  ivar_1271 = (uint64_t)mpz_get_ui(ivar_1274);
+                  mpz_clear(ivar_1274);
+                  uint32_t ivar_1272;
+                  ivar_1272 = (uint32_t)0;
+                  sigmatopdown__ent_adt_t ivar_1270;
+                  ivar_1270 = (sigmatopdown__ent_adt_t)sigmatopdown__good((uint64_t)ivar_1271, (uint32_t)ivar_1272);
+                  //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                  ivar_1262 = (sigmatopdown__ent_adt_t)ivar_1270;
+                  ivar_1262->count++;
+                  release_sigmatopdown__ent_adt(ivar_1270);
+                  uint64_t ivar_1264;
+                  uint8_t ivar_1276;
+                  ivar_1276 = (uint8_t)1;
+                  ivar_1264 = (uint64_t)(ivar_53 - ivar_1276);
+                  sigmatopdown_record_122_t ivar_1278;
+                  //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                  ivar_1278 = (sigmatopdown_record_122_t)ivar_20;
+                  ivar_1278->count++;
+                  release_sigmatopdown_record_122(ivar_20);
+                  sigmatopdown_record_122_t ivar_1293;
+                  sigmatopdown_funtype_66_t ivar_1279;
+                  ivar_1279 = (sigmatopdown_funtype_66_t)ivar_1278->scaf;
+                  ivar_1279->count++;
+                  sigmatopdown_record_122_t ivar_1290;
+                  sigmatopdown_funtype_66_t ivar_1292;
+                  ivar_1292 = NULL;
+                  ivar_1290 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1278, ivar_1292);
+                  if (ivar_1292 != NULL) ivar_1292->count--;
+                  sigmatopdown_funtype_66_t ivar_1291;
+                  uint32_t ivar_1286;
+                  //copying to uint32 from uint32;
+                  ivar_1286 = (uint32_t)ivar_73;
+                  sigmatopdown_funtype_65_t ivar_1280;
+                  ivar_1280 = (sigmatopdown_funtype_65_t)ivar_1279->ftbl->fptr(ivar_1279, ivar_1286);
+                  sigmatopdown_funtype_66_t ivar_1287;
+                  sigmatopdown_funtype_65_t ivar_1289;
+                  ivar_1289 = NULL;
+                  ivar_1287 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1279, ivar_1286, ivar_1289);
+                  if (ivar_1289 != NULL) ivar_1289->count--;
+                  sigmatopdown_funtype_65_t ivar_1288;
+                  sigmatopdown_funtype_65_t ivar_1283;
+                  sigmatopdown__ent_adt_t ivar_1285;
+                  ivar_1285 = NULL;
+                  ivar_1283 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1280, ivar_77, ivar_1285);
+                  if (ivar_1285 != NULL) ivar_1285->count--;
+                  ivar_1288 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1283, ivar_77, ivar_1262);
+                  if (ivar_1262 != NULL) ivar_1262->count--;
+                  ivar_1291 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1287, ivar_1286, ivar_1288);
+                  if (ivar_1288 != NULL) ivar_1288->count--;
+                  ivar_1293 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1290, ivar_1291);
+                  if (ivar_1291 != NULL) ivar_1291->count--;
+                  sigmatopdown_record_122_t ivar_1298;
+                  sigmatopdown_record_122_t ivar_1295;
+                  sigmatopdown__ent_adt_t ivar_1297;
+                  ivar_1297 = NULL;
+                  ivar_1295 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1293, ivar_1297);
+                  if (ivar_1297 != NULL) ivar_1297->count--;
+                  ivar_1298 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1295, ivar_81);
+                  if (ivar_81 != NULL) ivar_81->count--;
+                  sigmatopdown_record_122_t ivar_1302;
+                  ivar_1302 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_1298, ivar_1264);
+                  //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                  result = (sigmatopdown_record_122_t)ivar_1302;
+                  result->count++;
+                  release_sigmatopdown_record_122(ivar_1302);
+} else {
+                 
+                  bool_t ivar_1349;
+                  ivar_1349 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_1182);
+                  if (ivar_1349){           
+                   release_sigmatopdown__ent_adt(ivar_81);
+                   sigmatopdown__ent_adt_t ivar_1313;
+                   sigmatopdown__ent_adt_t ivar_1318;
+                   ivar_1318 = (sigmatopdown__ent_adt_t)sigmatopdown__push((uint32_t)ivar_73, (uint8_t)ivar_1178);
+                   //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                   ivar_1313 = (sigmatopdown__ent_adt_t)ivar_1318;
+                   ivar_1313->count++;
+                   release_sigmatopdown__ent_adt(ivar_1318);
+                   uint64_t ivar_1314;
+                   uint8_t ivar_1322;
+                   ivar_1322 = (uint8_t)1;
+                   ivar_1314 = (uint64_t)(ivar_53 + ivar_1322);
+                   sigmatopdown_record_122_t ivar_1324;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   ivar_1324 = (sigmatopdown_record_122_t)ivar_20;
+                   ivar_1324->count++;
+                   release_sigmatopdown_record_122(ivar_20);
+                   sigmatopdown_record_122_t ivar_1329;
+                   sigmatopdown_record_122_t ivar_1326;
+                   sigmatopdown__ent_adt_t ivar_1328;
+                   ivar_1328 = NULL;
+                   ivar_1326 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1324, ivar_1328);
+                   if (ivar_1328 != NULL) ivar_1328->count--;
+                   ivar_1329 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1326, ivar_1313);
+                   if (ivar_1313 != NULL) ivar_1313->count--;
+                   sigmatopdown_record_122_t ivar_1333;
+                   ivar_1333 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_1329, ivar_1314);
+                   sigmatopdown_record_122_t ivar_1348;
+                   sigmatopdown_funtype_66_t ivar_1334;
+                   ivar_1334 = (sigmatopdown_funtype_66_t)ivar_1333->scaf;
+                   ivar_1334->count++;
+                   sigmatopdown_record_122_t ivar_1345;
+                   sigmatopdown_funtype_66_t ivar_1347;
+                   ivar_1347 = NULL;
+                   ivar_1345 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1333, ivar_1347);
+                   if (ivar_1347 != NULL) ivar_1347->count--;
+                   sigmatopdown_funtype_66_t ivar_1346;
+                   uint32_t ivar_1341;
+                   //copying to uint32 from uint32;
+                   ivar_1341 = (uint32_t)ivar_73;
+                   sigmatopdown_funtype_65_t ivar_1335;
+                   ivar_1335 = (sigmatopdown_funtype_65_t)ivar_1334->ftbl->fptr(ivar_1334, ivar_1341);
+                   sigmatopdown_funtype_66_t ivar_1342;
+                   sigmatopdown_funtype_65_t ivar_1344;
+                   ivar_1344 = NULL;
+                   ivar_1342 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1334, ivar_1341, ivar_1344);
+                   if (ivar_1344 != NULL) ivar_1344->count--;
+                   sigmatopdown_funtype_65_t ivar_1343;
+                   sigmatopdown_funtype_65_t ivar_1338;
+                   sigmatopdown__ent_adt_t ivar_1340;
+                   ivar_1340 = NULL;
+                   ivar_1338 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1335, ivar_1178, ivar_1340);
+                   if (ivar_1340 != NULL) ivar_1340->count--;
+                   ivar_1343 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1338, ivar_1178, ivar_45);
+                   if (ivar_45 != NULL) ivar_45->count--;
+                   ivar_1346 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1342, ivar_1341, ivar_1343);
+                   if (ivar_1343 != NULL) ivar_1343->count--;
+                   ivar_1348 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1345, ivar_1346);
+                   if (ivar_1346 != NULL) ivar_1346->count--;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   result = (sigmatopdown_record_122_t)ivar_1348;
+                   result->count++;
+                   release_sigmatopdown_record_122(ivar_1348);
+} else {
+                  
+                   release_sigmatopdown__ent_adt(ivar_45);
+                   sigmatopdown__ent_adt_t ivar_1359;
+                   ivar_1359 = (sigmatopdown__ent_adt_t)sigmatopdown__loop();
+                   ivar_1359->count++;
+                   uint64_t ivar_1360;
+                   uint8_t ivar_1364;
+                   ivar_1364 = (uint8_t)1;
+                   ivar_1360 = (uint64_t)(ivar_53 - ivar_1364);
+                   bool_t ivar_1362;
+                   ivar_1362 = (bool_t) true;
+                   sigmatopdown_record_122_t ivar_1366;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   ivar_1366 = (sigmatopdown_record_122_t)ivar_20;
+                   ivar_1366->count++;
+                   release_sigmatopdown_record_122(ivar_20);
+                   sigmatopdown_record_122_t ivar_1381;
+                   sigmatopdown_funtype_66_t ivar_1367;
+                   ivar_1367 = (sigmatopdown_funtype_66_t)ivar_1366->scaf;
+                   ivar_1367->count++;
+                   sigmatopdown_record_122_t ivar_1378;
+                   sigmatopdown_funtype_66_t ivar_1380;
+                   ivar_1380 = NULL;
+                   ivar_1378 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1366, ivar_1380);
+                   if (ivar_1380 != NULL) ivar_1380->count--;
+                   sigmatopdown_funtype_66_t ivar_1379;
+                   uint32_t ivar_1374;
+                   //copying to uint32 from uint32;
+                   ivar_1374 = (uint32_t)ivar_73;
+                   sigmatopdown_funtype_65_t ivar_1368;
+                   ivar_1368 = (sigmatopdown_funtype_65_t)ivar_1367->ftbl->fptr(ivar_1367, ivar_1374);
+                   sigmatopdown_funtype_66_t ivar_1375;
+                   sigmatopdown_funtype_65_t ivar_1377;
+                   ivar_1377 = NULL;
+                   ivar_1375 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1367, ivar_1374, ivar_1377);
+                   if (ivar_1377 != NULL) ivar_1377->count--;
+                   sigmatopdown_funtype_65_t ivar_1376;
+                   sigmatopdown_funtype_65_t ivar_1371;
+                   sigmatopdown__ent_adt_t ivar_1373;
+                   ivar_1373 = NULL;
+                   ivar_1371 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1368, ivar_77, ivar_1373);
+                   if (ivar_1373 != NULL) ivar_1373->count--;
+                   ivar_1376 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1371, ivar_77, ivar_1359);
+                   if (ivar_1359 != NULL) ivar_1359->count--;
+                   ivar_1379 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1375, ivar_1374, ivar_1376);
+                   if (ivar_1376 != NULL) ivar_1376->count--;
+                   ivar_1381 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1378, ivar_1379);
+                   if (ivar_1379 != NULL) ivar_1379->count--;
+                   sigmatopdown_record_122_t ivar_1385;
+                   ivar_1385 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_1381, ivar_1360);
+                   sigmatopdown_record_122_t ivar_1390;
+                   sigmatopdown_record_122_t ivar_1387;
+                   sigmatopdown__ent_adt_t ivar_1389;
+                   ivar_1389 = NULL;
+                   ivar_1387 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1385, ivar_1389);
+                   if (ivar_1389 != NULL) ivar_1389->count--;
+                   ivar_1390 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1387, ivar_81);
+                   if (ivar_81 != NULL) ivar_81->count--;
+                   sigmatopdown_record_122_t ivar_1394;
+                   ivar_1394 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_lflag(ivar_1390, ivar_1362);
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   result = (sigmatopdown_record_122_t)ivar_1394;
+                   result->count++;
+                   release_sigmatopdown_record_122(ivar_1394);
+};
+};
+};
+} else {
+               
+                uint8_t ivar_1399;
+                ivar_1399 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_94);
+                sigmatopdown__ent_adt_t ivar_1403;
+                sigmatopdown_funtype_65_t ivar_1407;
+                sigmatopdown_funtype_66_t ivar_1413;
+                //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+                ivar_1413 = (sigmatopdown_funtype_66_t)ivar_33;
+                ivar_1413->count++;
+                release_sigmatopdown_funtype_66(ivar_33);
+                uint32_t ivar_1414;
+                //copying to uint32 from uint32;
+                ivar_1414 = (uint32_t)ivar_73;
+                sigmatopdown_funtype_65_t ivar_1410;
+                ivar_1410 = (sigmatopdown_funtype_65_t)ivar_1413->ftbl->fptr(ivar_1413, ivar_1414);
+                ivar_1413->ftbl->rptr(ivar_1413);
+                //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+                ivar_1407 = (sigmatopdown_funtype_65_t)ivar_1410;
+                ivar_1407->count++;
+                release_sigmatopdown_funtype_65(ivar_1410);
+                sigmatopdown__ent_adt_t ivar_1405;
+                ivar_1405 = (sigmatopdown__ent_adt_t)ivar_1407->ftbl->fptr(ivar_1407, ivar_1399);
+                ivar_1407->ftbl->rptr(ivar_1407);
+                //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                ivar_1403 = (sigmatopdown__ent_adt_t)ivar_1405;
+                ivar_1403->count++;
+                release_sigmatopdown__ent_adt(ivar_1405);
+                bool_t ivar_1467;
+                ivar_1403->count++;
+                ivar_1467 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_1403);
+                if (ivar_1467){         
+                 release_sigmatopdown__ent_adt(ivar_45);
+                 uint64_t ivar_1416;
+                 ivar_1416 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_1403);
+                 sigmatopdown__ent_adt_t ivar_1426;
+                 mpz_ptr_t ivar_1438;
+                 uint8_t ivar_1432;
+                 ivar_1432 = (uint8_t)1;
+                 mpz_mk_set_ui(ivar_1438, (uint64_t)ivar_1416);
+                 mpz_add_ui(ivar_1438, ivar_1438, (uint64_t)ivar_1432);
+                 uint64_t ivar_1435;
+                 //copying to uint64 from mpz;
+                 ivar_1435 = (uint64_t)mpz_get_ui(ivar_1438);
+                 mpz_clear(ivar_1438);
+                 uint32_t ivar_1436;
+                 ivar_1436 = (uint32_t)0;
+                 sigmatopdown__ent_adt_t ivar_1434;
+                 ivar_1434 = (sigmatopdown__ent_adt_t)sigmatopdown__good((uint64_t)ivar_1435, (uint32_t)ivar_1436);
+                 //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                 ivar_1426 = (sigmatopdown__ent_adt_t)ivar_1434;
+                 ivar_1426->count++;
+                 release_sigmatopdown__ent_adt(ivar_1434);
+                 uint64_t ivar_1428;
+                 uint8_t ivar_1440;
+                 ivar_1440 = (uint8_t)1;
+                 ivar_1428 = (uint64_t)(ivar_53 - ivar_1440);
+                 sigmatopdown_record_122_t ivar_1442;
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 ivar_1442 = (sigmatopdown_record_122_t)ivar_20;
+                 ivar_1442->count++;
+                 release_sigmatopdown_record_122(ivar_20);
+                 sigmatopdown_record_122_t ivar_1457;
+                 sigmatopdown_funtype_66_t ivar_1443;
+                 ivar_1443 = (sigmatopdown_funtype_66_t)ivar_1442->scaf;
+                 ivar_1443->count++;
+                 sigmatopdown_record_122_t ivar_1454;
+                 sigmatopdown_funtype_66_t ivar_1456;
+                 ivar_1456 = NULL;
+                 ivar_1454 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1442, ivar_1456);
+                 if (ivar_1456 != NULL) ivar_1456->count--;
+                 sigmatopdown_funtype_66_t ivar_1455;
+                 uint32_t ivar_1450;
+                 //copying to uint32 from uint32;
+                 ivar_1450 = (uint32_t)ivar_73;
+                 sigmatopdown_funtype_65_t ivar_1444;
+                 ivar_1444 = (sigmatopdown_funtype_65_t)ivar_1443->ftbl->fptr(ivar_1443, ivar_1450);
+                 sigmatopdown_funtype_66_t ivar_1451;
+                 sigmatopdown_funtype_65_t ivar_1453;
+                 ivar_1453 = NULL;
+                 ivar_1451 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1443, ivar_1450, ivar_1453);
+                 if (ivar_1453 != NULL) ivar_1453->count--;
+                 sigmatopdown_funtype_65_t ivar_1452;
+                 sigmatopdown_funtype_65_t ivar_1447;
+                 sigmatopdown__ent_adt_t ivar_1449;
+                 ivar_1449 = NULL;
+                 ivar_1447 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1444, ivar_77, ivar_1449);
+                 if (ivar_1449 != NULL) ivar_1449->count--;
+                 ivar_1452 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1447, ivar_77, ivar_1426);
+                 if (ivar_1426 != NULL) ivar_1426->count--;
+                 ivar_1455 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1451, ivar_1450, ivar_1452);
+                 if (ivar_1452 != NULL) ivar_1452->count--;
+                 ivar_1457 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1454, ivar_1455);
+                 if (ivar_1455 != NULL) ivar_1455->count--;
+                 sigmatopdown_record_122_t ivar_1462;
+                 sigmatopdown_record_122_t ivar_1459;
+                 sigmatopdown__ent_adt_t ivar_1461;
+                 ivar_1461 = NULL;
+                 ivar_1459 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1457, ivar_1461);
+                 if (ivar_1461 != NULL) ivar_1461->count--;
+                 ivar_1462 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1459, ivar_81);
+                 if (ivar_81 != NULL) ivar_81->count--;
+                 sigmatopdown_record_122_t ivar_1466;
+                 ivar_1466 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_1462, ivar_1428);
+                 //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                 result = (sigmatopdown_record_122_t)ivar_1466;
+                 result->count++;
+                 release_sigmatopdown_record_122(ivar_1466);
+} else {
+                
+                 bool_t ivar_1524;
+                 ivar_1403->count++;
+                 ivar_1524 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_1403);
+                 if (ivar_1524){          
+                  release_sigmatopdown__ent_adt(ivar_45);
+                  uint64_t ivar_1471;
+                  ivar_1403->count++;
+                  ivar_1471 = (uint64_t)sigmatopdown__ent_adt_dep((sigmatopdown__ent_adt_t)ivar_1403);
+                  sigmatopdown__ent_adt_t ivar_1485;
+                  mpz_ptr_t ivar_1495;
+                  uint8_t ivar_1490;
+                  ivar_1490 = (uint8_t)1;
+                  mpz_mk_set_ui(ivar_1495, (uint64_t)ivar_1471);
+                  mpz_add_ui(ivar_1495, ivar_1495, (uint64_t)ivar_1490);
+                  uint64_t ivar_1493;
+                  //copying to uint64 from mpz;
+                  ivar_1493 = (uint64_t)mpz_get_ui(ivar_1495);
+                  mpz_clear(ivar_1495);
+                  sigmatopdown__ent_adt_t ivar_1492;
+                  ivar_1492 = (sigmatopdown__ent_adt_t)sigmatopdown__fail((uint64_t)ivar_1493);
+                  //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                  ivar_1485 = (sigmatopdown__ent_adt_t)ivar_1492;
+                  ivar_1485->count++;
+                  release_sigmatopdown__ent_adt(ivar_1492);
+                  uint64_t ivar_1487;
+                  uint8_t ivar_1497;
+                  ivar_1497 = (uint8_t)1;
+                  ivar_1487 = (uint64_t)(ivar_53 - ivar_1497);
+                  sigmatopdown_record_122_t ivar_1499;
+                  //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                  ivar_1499 = (sigmatopdown_record_122_t)ivar_20;
+                  ivar_1499->count++;
+                  release_sigmatopdown_record_122(ivar_20);
+                  sigmatopdown_record_122_t ivar_1514;
+                  sigmatopdown_funtype_66_t ivar_1500;
+                  ivar_1500 = (sigmatopdown_funtype_66_t)ivar_1499->scaf;
+                  ivar_1500->count++;
+                  sigmatopdown_record_122_t ivar_1511;
+                  sigmatopdown_funtype_66_t ivar_1513;
+                  ivar_1513 = NULL;
+                  ivar_1511 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1499, ivar_1513);
+                  if (ivar_1513 != NULL) ivar_1513->count--;
+                  sigmatopdown_funtype_66_t ivar_1512;
+                  uint32_t ivar_1507;
+                  //copying to uint32 from uint32;
+                  ivar_1507 = (uint32_t)ivar_73;
+                  sigmatopdown_funtype_65_t ivar_1501;
+                  ivar_1501 = (sigmatopdown_funtype_65_t)ivar_1500->ftbl->fptr(ivar_1500, ivar_1507);
+                  sigmatopdown_funtype_66_t ivar_1508;
+                  sigmatopdown_funtype_65_t ivar_1510;
+                  ivar_1510 = NULL;
+                  ivar_1508 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1500, ivar_1507, ivar_1510);
+                  if (ivar_1510 != NULL) ivar_1510->count--;
+                  sigmatopdown_funtype_65_t ivar_1509;
+                  sigmatopdown_funtype_65_t ivar_1504;
+                  sigmatopdown__ent_adt_t ivar_1506;
+                  ivar_1506 = NULL;
+                  ivar_1504 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1501, ivar_77, ivar_1506);
+                  if (ivar_1506 != NULL) ivar_1506->count--;
+                  ivar_1509 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1504, ivar_77, ivar_1485);
+                  if (ivar_1485 != NULL) ivar_1485->count--;
+                  ivar_1512 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1508, ivar_1507, ivar_1509);
+                  if (ivar_1509 != NULL) ivar_1509->count--;
+                  ivar_1514 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1511, ivar_1512);
+                  if (ivar_1512 != NULL) ivar_1512->count--;
+                  sigmatopdown_record_122_t ivar_1519;
+                  sigmatopdown_record_122_t ivar_1516;
+                  sigmatopdown__ent_adt_t ivar_1518;
+                  ivar_1518 = NULL;
+                  ivar_1516 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1514, ivar_1518);
+                  if (ivar_1518 != NULL) ivar_1518->count--;
+                  ivar_1519 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1516, ivar_81);
+                  if (ivar_81 != NULL) ivar_81->count--;
+                  sigmatopdown_record_122_t ivar_1523;
+                  ivar_1523 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_1519, ivar_1487);
+                  //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                  result = (sigmatopdown_record_122_t)ivar_1523;
+                  result->count++;
+                  release_sigmatopdown_record_122(ivar_1523);
+} else {
+                 
+                  bool_t ivar_1570;
+                  ivar_1570 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_1403);
+                  if (ivar_1570){           
+                   release_sigmatopdown__ent_adt(ivar_81);
+                   sigmatopdown__ent_adt_t ivar_1534;
+                   sigmatopdown__ent_adt_t ivar_1539;
+                   ivar_1539 = (sigmatopdown__ent_adt_t)sigmatopdown__push((uint32_t)ivar_73, (uint8_t)ivar_1399);
+                   //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+                   ivar_1534 = (sigmatopdown__ent_adt_t)ivar_1539;
+                   ivar_1534->count++;
+                   release_sigmatopdown__ent_adt(ivar_1539);
+                   uint64_t ivar_1535;
+                   uint8_t ivar_1543;
+                   ivar_1543 = (uint8_t)1;
+                   ivar_1535 = (uint64_t)(ivar_53 + ivar_1543);
+                   sigmatopdown_record_122_t ivar_1545;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   ivar_1545 = (sigmatopdown_record_122_t)ivar_20;
+                   ivar_1545->count++;
+                   release_sigmatopdown_record_122(ivar_20);
+                   sigmatopdown_record_122_t ivar_1550;
+                   sigmatopdown_record_122_t ivar_1547;
+                   sigmatopdown__ent_adt_t ivar_1549;
+                   ivar_1549 = NULL;
+                   ivar_1547 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1545, ivar_1549);
+                   if (ivar_1549 != NULL) ivar_1549->count--;
+                   ivar_1550 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1547, ivar_1534);
+                   if (ivar_1534 != NULL) ivar_1534->count--;
+                   sigmatopdown_record_122_t ivar_1554;
+                   ivar_1554 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_1550, ivar_1535);
+                   sigmatopdown_record_122_t ivar_1569;
+                   sigmatopdown_funtype_66_t ivar_1555;
+                   ivar_1555 = (sigmatopdown_funtype_66_t)ivar_1554->scaf;
+                   ivar_1555->count++;
+                   sigmatopdown_record_122_t ivar_1566;
+                   sigmatopdown_funtype_66_t ivar_1568;
+                   ivar_1568 = NULL;
+                   ivar_1566 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1554, ivar_1568);
+                   if (ivar_1568 != NULL) ivar_1568->count--;
+                   sigmatopdown_funtype_66_t ivar_1567;
+                   uint32_t ivar_1562;
+                   //copying to uint32 from uint32;
+                   ivar_1562 = (uint32_t)ivar_73;
+                   sigmatopdown_funtype_65_t ivar_1556;
+                   ivar_1556 = (sigmatopdown_funtype_65_t)ivar_1555->ftbl->fptr(ivar_1555, ivar_1562);
+                   sigmatopdown_funtype_66_t ivar_1563;
+                   sigmatopdown_funtype_65_t ivar_1565;
+                   ivar_1565 = NULL;
+                   ivar_1563 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1555, ivar_1562, ivar_1565);
+                   if (ivar_1565 != NULL) ivar_1565->count--;
+                   sigmatopdown_funtype_65_t ivar_1564;
+                   sigmatopdown_funtype_65_t ivar_1559;
+                   sigmatopdown__ent_adt_t ivar_1561;
+                   ivar_1561 = NULL;
+                   ivar_1559 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1556, ivar_1399, ivar_1561);
+                   if (ivar_1561 != NULL) ivar_1561->count--;
+                   ivar_1564 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1559, ivar_1399, ivar_45);
+                   if (ivar_45 != NULL) ivar_45->count--;
+                   ivar_1567 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1563, ivar_1562, ivar_1564);
+                   if (ivar_1564 != NULL) ivar_1564->count--;
+                   ivar_1569 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1566, ivar_1567);
+                   if (ivar_1567 != NULL) ivar_1567->count--;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   result = (sigmatopdown_record_122_t)ivar_1569;
+                   result->count++;
+                   release_sigmatopdown_record_122(ivar_1569);
+} else {
+                  
+                   release_sigmatopdown__ent_adt(ivar_45);
+                   sigmatopdown__ent_adt_t ivar_1580;
+                   ivar_1580 = (sigmatopdown__ent_adt_t)sigmatopdown__loop();
+                   ivar_1580->count++;
+                   uint64_t ivar_1581;
+                   uint8_t ivar_1585;
+                   ivar_1585 = (uint8_t)1;
+                   ivar_1581 = (uint64_t)(ivar_53 - ivar_1585);
+                   bool_t ivar_1583;
+                   ivar_1583 = (bool_t) true;
+                   sigmatopdown_record_122_t ivar_1587;
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   ivar_1587 = (sigmatopdown_record_122_t)ivar_20;
+                   ivar_1587->count++;
+                   release_sigmatopdown_record_122(ivar_20);
+                   sigmatopdown_record_122_t ivar_1602;
+                   sigmatopdown_funtype_66_t ivar_1588;
+                   ivar_1588 = (sigmatopdown_funtype_66_t)ivar_1587->scaf;
+                   ivar_1588->count++;
+                   sigmatopdown_record_122_t ivar_1599;
+                   sigmatopdown_funtype_66_t ivar_1601;
+                   ivar_1601 = NULL;
+                   ivar_1599 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1587, ivar_1601);
+                   if (ivar_1601 != NULL) ivar_1601->count--;
+                   sigmatopdown_funtype_66_t ivar_1600;
+                   uint32_t ivar_1595;
+                   //copying to uint32 from uint32;
+                   ivar_1595 = (uint32_t)ivar_73;
+                   sigmatopdown_funtype_65_t ivar_1589;
+                   ivar_1589 = (sigmatopdown_funtype_65_t)ivar_1588->ftbl->fptr(ivar_1588, ivar_1595);
+                   sigmatopdown_funtype_66_t ivar_1596;
+                   sigmatopdown_funtype_65_t ivar_1598;
+                   ivar_1598 = NULL;
+                   ivar_1596 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1588, ivar_1595, ivar_1598);
+                   if (ivar_1598 != NULL) ivar_1598->count--;
+                   sigmatopdown_funtype_65_t ivar_1597;
+                   sigmatopdown_funtype_65_t ivar_1592;
+                   sigmatopdown__ent_adt_t ivar_1594;
+                   ivar_1594 = NULL;
+                   ivar_1592 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1589, ivar_77, ivar_1594);
+                   if (ivar_1594 != NULL) ivar_1594->count--;
+                   ivar_1597 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_1592, ivar_77, ivar_1580);
+                   if (ivar_1580 != NULL) ivar_1580->count--;
+                   ivar_1600 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_1596, ivar_1595, ivar_1597);
+                   if (ivar_1597 != NULL) ivar_1597->count--;
+                   ivar_1602 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_scaf(ivar_1599, ivar_1600);
+                   if (ivar_1600 != NULL) ivar_1600->count--;
+                   sigmatopdown_record_122_t ivar_1606;
+                   ivar_1606 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_depth(ivar_1602, ivar_1581);
+                   sigmatopdown_record_122_t ivar_1611;
+                   sigmatopdown_record_122_t ivar_1608;
+                   sigmatopdown__ent_adt_t ivar_1610;
+                   ivar_1610 = NULL;
+                   ivar_1608 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1606, ivar_1610);
+                   if (ivar_1610 != NULL) ivar_1610->count--;
+                   ivar_1611 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_stack(ivar_1608, ivar_81);
+                   if (ivar_81 != NULL) ivar_81->count--;
+                   sigmatopdown_record_122_t ivar_1615;
+                   ivar_1615 = (sigmatopdown_record_122_t)update_sigmatopdown_record_122_lflag(ivar_1611, ivar_1583);
+                   //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+                   result = (sigmatopdown_record_122_t)ivar_1615;
+                   result->count++;
+                   release_sigmatopdown_record_122(ivar_1615);
+};
+};
+};
+};
+};
+};
+};
+};
+};
+};
+};
+
+        return result;
+}
+
+sigmatopdown_closure_124_t new_sigmatopdown_closure_124(void){
+        static struct sigmatopdown_funtype_123_ftbl_s ftbl = {.fptr = (sigmatopdown_record_122_t (*)(sigmatopdown_funtype_123_t, sigmatopdown_record_122_t))&f_sigmatopdown_closure_124, .mptr = (sigmatopdown_record_122_t (*)(sigmatopdown_funtype_123_t, sigmatopdown_record_122_t))&m_sigmatopdown_closure_124, .rptr =  (void (*)(sigmatopdown_funtype_123_t))&release_sigmatopdown_closure_124, .cptr = (sigmatopdown_funtype_123_t (*)(sigmatopdown_funtype_123_t))&copy_sigmatopdown_closure_124};
+        sigmatopdown_closure_124_t tmp = (sigmatopdown_closure_124_t) safe_malloc(sizeof(struct sigmatopdown_closure_124_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_124(sigmatopdown_funtype_123_t closure){
+        sigmatopdown_closure_124_t x = (sigmatopdown_closure_124_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_75(x->fvar_2);
+         release_sigmatopdown__lang_spec(x->fvar_3);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_124_t copy_sigmatopdown_closure_124(sigmatopdown_closure_124_t x){
+        sigmatopdown_closure_124_t y = new_sigmatopdown_closure_124();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = (uint32_t)x->fvar_1;
+        y->fvar_2 = x->fvar_2; x->fvar_2->count++;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_123_htbl_t new_htbl = (sigmatopdown_funtype_123_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_123_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_123_hashentry_t * new_data = (sigmatopdown_funtype_123_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_123_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_123_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_125(struct sigmatopdown_closure_125_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_125(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_125(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_125(struct sigmatopdown_closure_125_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_125(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_125(uint32_t ivar_1620, sigmatopdown_funtype_66_t ivar_1617){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_1618;
+        uint32_t ivar_1619;
+        //copying to uint32 from uint32;
+        ivar_1619 = (uint32_t)ivar_1620;
+        ivar_1618 = (sigmatopdown_funtype_65_t)ivar_1617->ftbl->fptr(ivar_1617, ivar_1619);
+        sigmatopdown_funtype_65_t ivar_1621;
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        ivar_1621 = (sigmatopdown_funtype_65_t)ivar_1618;
+        ivar_1621->count++;
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_1621;
+        result->count++;
+
+        return result;
+}
+
+sigmatopdown_closure_125_t new_sigmatopdown_closure_125(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_125, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_125, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_125, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_125};
+        sigmatopdown_closure_125_t tmp = (sigmatopdown_closure_125_t) safe_malloc(sizeof(struct sigmatopdown_closure_125_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_125(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_125_t x = (sigmatopdown_closure_125_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_125_t copy_sigmatopdown_closure_125(sigmatopdown_closure_125_t x){
+        sigmatopdown_closure_125_t y = new_sigmatopdown_closure_125();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+void release_sigmatopdown_funtype_126(sigmatopdown_funtype_126_t x){
+        x->count--;
+            if (x->count <= 0)
+
+                x->ftbl->rptr(x);}
+
+sigmatopdown_funtype_126_t copy_sigmatopdown_funtype_126(sigmatopdown_funtype_126_t x){return x->ftbl->cptr(x);}
+
+bool_t equal_sigmatopdown_funtype_126(sigmatopdown_funtype_126_t x, sigmatopdown_funtype_126_t y){
+        return false;}
+
+
+ordstruct_adt__ordstruct_adt_t f_sigmatopdown_closure_127(struct sigmatopdown_closure_127_s * closure, sigmatopdown_record_122_t bvar){
+        ordstruct_adt__ordstruct_adt_t result = h_sigmatopdown_closure_127(bvar, closure->fvar_1); 
+        return result;}
+
+ordstruct_adt__ordstruct_adt_t m_sigmatopdown_closure_127(struct sigmatopdown_closure_127_s * closure, sigmatopdown_record_122_t bvar){
+        return h_sigmatopdown_closure_127(bvar, closure->fvar_1);}
+
+extern ordstruct_adt__ordstruct_adt_t h_sigmatopdown_closure_127(sigmatopdown_record_122_t ivar_14, uint32_t ivar_1){
+        ordstruct_adt__ordstruct_adt_t result;
+        uint64_t ivar_80;
+        sigmatopdown_funtype_66_t ivar_53;
+        sigmatopdown_record_122_t ivar_27;
+        //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+        ivar_27 = (sigmatopdown_record_122_t)ivar_14;
+        ivar_27->count++;
+        ivar_53 = (sigmatopdown_funtype_66_t)ivar_27->scaf;
+        ivar_53->count++;
+        release_sigmatopdown_record_122(ivar_27);
+        sigmatopdown_funtype_66_t ivar_42;
+        sigmatopdown_closure_128_t cl21723;
+        cl21723 = new_sigmatopdown_closure_128();
+        cl21723->fvar_1 = (sigmatopdown_funtype_66_t)ivar_53;
+        cl21723->fvar_1->count++;
+        release_sigmatopdown_funtype_66(ivar_53);
+        ivar_42 = (sigmatopdown_funtype_66_t)cl21723;
+        sigmatopdown_funtype_59_t ivar_45;
+        sigmatopdown_closure_129_t cl21724;
+        cl21724 = new_sigmatopdown_closure_129();
+        ivar_45 = (sigmatopdown_funtype_59_t)cl21724;
+        ivar_80 = (uint64_t)sigmatopdown__scafcount((uint32_t)ivar_1, (sigmatopdown_funtype_66_t)ivar_42, (sigmatopdown_funtype_59_t)ivar_45, (uint32_t)ivar_1);
+        mpz_ptr_t ivar_75;
+        //copying to mpz from uint64;
+        mpz_mk_set_ui(ivar_75, ivar_80);
+        mpz_ptr_t ivar_79;
+        uint64_t ivar_58;
+        uint32_t ivar_60;
+        uint8_t ivar_63;
+        ivar_63 = (uint8_t)1;
+        ivar_60 = (uint32_t)(ivar_1 + ivar_63);
+        uint8_t ivar_61;
+        ivar_61 = (uint8_t)sigmatopdown__num_non_terminals();
+        ivar_58 = (uint64_t)((uint64_t)ivar_60 * (uint64_t)ivar_61);
+        uint64_t ivar_59;
+        sigmatopdown_record_122_t ivar_66;
+        //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+        ivar_66 = (sigmatopdown_record_122_t)ivar_14;
+        ivar_66->count++;
+        release_sigmatopdown_record_122(ivar_14);
+        ivar_59 = (uint64_t)ivar_66->depth;
+        release_sigmatopdown_record_122(ivar_66);
+        mpz_mk_set_ui(ivar_79, (uint64_t)ivar_58);
+        mpz_sub_ui(ivar_79, ivar_79, (uint64_t)ivar_59);
+        mpz_ptr_t ivar_76;
+        //copying to mpz from mpz;
+        mpz_mk_set(ivar_76, ivar_79);
+        mpz_clear(ivar_79);
+        ordstruct_adt__ordstruct_adt_t ivar_74;
+        ivar_74 = (ordstruct_adt__ordstruct_adt_t)lex2__lex2((mpz_ptr_t)ivar_75, (mpz_ptr_t)ivar_76);
+        //copying to ordstruct_adt__ordstruct_adt from ordstruct_adt__ordstruct_adt;
+        result = (ordstruct_adt__ordstruct_adt_t)ivar_74;
+        result->count++;
+        release_ordstruct_adt__ordstruct_adt(ivar_74);
+
+        return result;
+}
+
+sigmatopdown_closure_127_t new_sigmatopdown_closure_127(void){
+        static struct sigmatopdown_funtype_126_ftbl_s ftbl = {.fptr = (ordstruct_adt__ordstruct_adt_t (*)(sigmatopdown_funtype_126_t, sigmatopdown_record_122_t))&f_sigmatopdown_closure_127, .mptr = (ordstruct_adt__ordstruct_adt_t (*)(sigmatopdown_funtype_126_t, sigmatopdown_record_122_t))&m_sigmatopdown_closure_127, .rptr =  (void (*)(sigmatopdown_funtype_126_t))&release_sigmatopdown_closure_127, .cptr = (sigmatopdown_funtype_126_t (*)(sigmatopdown_funtype_126_t))&copy_sigmatopdown_closure_127};
+        sigmatopdown_closure_127_t tmp = (sigmatopdown_closure_127_t) safe_malloc(sizeof(struct sigmatopdown_closure_127_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_127(sigmatopdown_funtype_126_t closure){
+        sigmatopdown_closure_127_t x = (sigmatopdown_closure_127_t)closure;
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_127_t copy_sigmatopdown_closure_127(sigmatopdown_closure_127_t x){
+        sigmatopdown_closure_127_t y = new_sigmatopdown_closure_127();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = (uint32_t)x->fvar_1;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_126_htbl_t new_htbl = (sigmatopdown_funtype_126_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_126_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_126_hashentry_t * new_data = (sigmatopdown_funtype_126_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_126_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_126_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_128(struct sigmatopdown_closure_128_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_128(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_128(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_128(struct sigmatopdown_closure_128_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_128(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_128(uint32_t ivar_56, sigmatopdown_funtype_66_t ivar_53){
+        sigmatopdown_funtype_65_t result;
+        sigmatopdown_funtype_65_t ivar_54;
+        uint32_t ivar_55;
+        //copying to uint32 from uint32;
+        ivar_55 = (uint32_t)ivar_56;
+        ivar_54 = (sigmatopdown_funtype_65_t)ivar_53->ftbl->fptr(ivar_53, ivar_55);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_54;
+        result->count++;
+        release_sigmatopdown_funtype_65(ivar_54);
+
+        return result;
+}
+
+sigmatopdown_closure_128_t new_sigmatopdown_closure_128(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_128, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_128, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_128, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_128};
+        sigmatopdown_closure_128_t tmp = (sigmatopdown_closure_128_t) safe_malloc(sizeof(struct sigmatopdown_closure_128_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_128(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_128_t x = (sigmatopdown_closure_128_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_128_t copy_sigmatopdown_closure_128(sigmatopdown_closure_128_t x){
+        sigmatopdown_closure_128_t y = new_sigmatopdown_closure_128();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+bool_t f_sigmatopdown_closure_129(struct sigmatopdown_closure_129_s * closure, sigmatopdown__ent_adt_t bvar){
+        bool_t result = h_sigmatopdown_closure_129(bvar); 
+        return result;}
+
+bool_t m_sigmatopdown_closure_129(struct sigmatopdown_closure_129_s * closure, sigmatopdown__ent_adt_t bvar){
+        return h_sigmatopdown_closure_129(bvar);}
+
+extern bool_t h_sigmatopdown_closure_129(sigmatopdown__ent_adt_t ivar_35){
+        bool_t result;
+        result = (bool_t)sigmatopdown__push_or_pendingp((sigmatopdown__ent_adt_t)ivar_35);
+
+        return result;
+}
+
+sigmatopdown_closure_129_t new_sigmatopdown_closure_129(void){
+        static struct sigmatopdown_funtype_59_ftbl_s ftbl = {.fptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&f_sigmatopdown_closure_129, .mptr = (bool_t (*)(sigmatopdown_funtype_59_t, sigmatopdown__ent_adt_t))&m_sigmatopdown_closure_129, .rptr =  (void (*)(sigmatopdown_funtype_59_t))&release_sigmatopdown_closure_129, .cptr = (sigmatopdown_funtype_59_t (*)(sigmatopdown_funtype_59_t))&copy_sigmatopdown_closure_129};
+        sigmatopdown_closure_129_t tmp = (sigmatopdown_closure_129_t) safe_malloc(sizeof(struct sigmatopdown_closure_129_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_129(sigmatopdown_funtype_59_t closure){
+        sigmatopdown_closure_129_t x = (sigmatopdown_closure_129_t)closure;
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_129_t copy_sigmatopdown_closure_129(sigmatopdown_closure_129_t x){
+        sigmatopdown_closure_129_t y = new_sigmatopdown_closure_129();
+        y->ftbl = x->ftbl;
+
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_59_htbl_t new_htbl = (sigmatopdown_funtype_59_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_59_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_59_hashentry_t * new_data = (sigmatopdown_funtype_59_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_59_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_record_122_t f_sigmatopdown_closure_130(struct sigmatopdown_closure_130_s * closure, sigmatopdown_record_122_t bvar){
+        sigmatopdown_record_122_t result = h_sigmatopdown_closure_130(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5); 
+        return result;}
+
+sigmatopdown_record_122_t m_sigmatopdown_closure_130(struct sigmatopdown_closure_130_s * closure, sigmatopdown_record_122_t bvar){
+        return h_sigmatopdown_closure_130(bvar, closure->fvar_1, closure->fvar_2, closure->fvar_3, closure->fvar_4, closure->fvar_5);}
+
+extern sigmatopdown_record_122_t h_sigmatopdown_closure_130(sigmatopdown_record_122_t ivar_20, uint32_t ivar_5, uint8_t ivar_6, sigmatopdown_funtype_75_t ivar_3, sigmatopdown__lang_spec_t ivar_2, uint32_t ivar_1){
+        sigmatopdown_record_122_t result;
+        bool_t ivar_33;
+        uint64_t ivar_34;
+        sigmatopdown_record_122_t ivar_36;
+        //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+        ivar_36 = (sigmatopdown_record_122_t)ivar_20;
+        ivar_36->count++;
+        ivar_34 = (uint64_t)ivar_36->depth;
+        release_sigmatopdown_record_122(ivar_36);
+        uint8_t ivar_35;
+        ivar_35 = (uint8_t)0;
+        ivar_33 = (ivar_34 == ivar_35);
+        if (ivar_33){ 
+             //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+             result = (sigmatopdown_record_122_t)ivar_20;
+             result->count++;
+             release_sigmatopdown_record_122(ivar_20);
+} else {
+        
+             sigmatopdown_funtype_123_t ivar_119;
+             sigmatopdown_funtype_123_t ivar_138;
+             ivar_2->count++;
+             ivar_3->count++;
+             ivar_138 = (sigmatopdown_funtype_123_t)sigmatopdown__parse((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (sigmatopdown_funtype_75_t)ivar_3, (uint32_t)ivar_5, (uint8_t)ivar_6);
+             //copying to sigmatopdown_funtype_123 from sigmatopdown_funtype_123;
+             ivar_119 = (sigmatopdown_funtype_123_t)ivar_138;
+             ivar_119->count++;
+             release_sigmatopdown_funtype_123(ivar_138);
+             sigmatopdown_record_122_t ivar_146;
+             sigmatopdown_funtype_123_t ivar_72;
+             sigmatopdown_funtype_123_t ivar_91;
+             ivar_2->count++;
+             ivar_3->count++;
+             ivar_91 = (sigmatopdown_funtype_123_t)sigmatopdown__step((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (sigmatopdown_funtype_75_t)ivar_3, (uint32_t)ivar_5, (uint8_t)ivar_6);
+             //copying to sigmatopdown_funtype_123 from sigmatopdown_funtype_123;
+             ivar_72 = (sigmatopdown_funtype_123_t)ivar_91;
+             ivar_72->count++;
+             release_sigmatopdown_funtype_123(ivar_91);
+             sigmatopdown_record_122_t ivar_98;
+             //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+             ivar_98 = (sigmatopdown_record_122_t)ivar_20;
+             ivar_98->count++;
+             release_sigmatopdown_record_122(ivar_20);
+             sigmatopdown_record_122_t ivar_58;
+             ivar_58 = (sigmatopdown_record_122_t)ivar_72->ftbl->fptr(ivar_72, ivar_98);
+             ivar_72->ftbl->rptr(ivar_72);
+             //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+             ivar_146 = (sigmatopdown_record_122_t)ivar_58;
+             ivar_146->count++;
+             release_sigmatopdown_record_122(ivar_58);
+             sigmatopdown_record_122_t ivar_145;
+             //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+             ivar_145 = (sigmatopdown_record_122_t)ivar_146;
+             ivar_145->count++;
+             release_sigmatopdown_record_122(ivar_146);
+             sigmatopdown_record_122_t ivar_105;
+             ivar_105 = (sigmatopdown_record_122_t)ivar_119->ftbl->fptr(ivar_119, ivar_145);
+             ivar_119->ftbl->rptr(ivar_119);
+             //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+             result = (sigmatopdown_record_122_t)ivar_105;
+             result->count++;
+             release_sigmatopdown_record_122(ivar_105);
+};
+
+        return result;
+}
+
+sigmatopdown_closure_130_t new_sigmatopdown_closure_130(void){
+        static struct sigmatopdown_funtype_123_ftbl_s ftbl = {.fptr = (sigmatopdown_record_122_t (*)(sigmatopdown_funtype_123_t, sigmatopdown_record_122_t))&f_sigmatopdown_closure_130, .mptr = (sigmatopdown_record_122_t (*)(sigmatopdown_funtype_123_t, sigmatopdown_record_122_t))&m_sigmatopdown_closure_130, .rptr =  (void (*)(sigmatopdown_funtype_123_t))&release_sigmatopdown_closure_130, .cptr = (sigmatopdown_funtype_123_t (*)(sigmatopdown_funtype_123_t))&copy_sigmatopdown_closure_130};
+        sigmatopdown_closure_130_t tmp = (sigmatopdown_closure_130_t) safe_malloc(sizeof(struct sigmatopdown_closure_130_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_130(sigmatopdown_funtype_123_t closure){
+        sigmatopdown_closure_130_t x = (sigmatopdown_closure_130_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_75(x->fvar_3);
+         release_sigmatopdown__lang_spec(x->fvar_4);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_130_t copy_sigmatopdown_closure_130(sigmatopdown_closure_130_t x){
+        sigmatopdown_closure_130_t y = new_sigmatopdown_closure_130();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = (uint32_t)x->fvar_1;
+        y->fvar_2 = (uint8_t)x->fvar_2;
+        y->fvar_3 = x->fvar_3; x->fvar_3->count++;
+        y->fvar_4 = x->fvar_4; x->fvar_4->count++;
+        y->fvar_5 = (uint32_t)x->fvar_5;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_123_htbl_t new_htbl = (sigmatopdown_funtype_123_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_123_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_123_hashentry_t * new_data = (sigmatopdown_funtype_123_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_123_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_123_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown__ent_adt_t f_sigmatopdown_closure_131(struct sigmatopdown_closure_131_s * closure, uint8_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_65_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_65(htbl, bvar, hash);
+        sigmatopdown_funtype_65_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown__ent_adt_t result;
+            result = (sigmatopdown__ent_adt_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_131(bvar);};
+
+return h_sigmatopdown_closure_131(bvar);}
+
+sigmatopdown__ent_adt_t m_sigmatopdown_closure_131(struct sigmatopdown_closure_131_s * closure, uint8_t bvar){
+        return h_sigmatopdown_closure_131(bvar);}
+
+extern sigmatopdown__ent_adt_t h_sigmatopdown_closure_131(uint8_t ivar_9){
+        sigmatopdown__ent_adt_t result;
+        result = (sigmatopdown__ent_adt_t)sigmatopdown__pending();
+        result->count++;
+
+        return result;
+}
+
+sigmatopdown_closure_131_t new_sigmatopdown_closure_131(void){
+        static struct sigmatopdown_funtype_65_ftbl_s ftbl = {.fptr = (sigmatopdown__ent_adt_t (*)(sigmatopdown_funtype_65_t, uint8_t))&f_sigmatopdown_closure_131, .mptr = (sigmatopdown__ent_adt_t (*)(sigmatopdown_funtype_65_t, uint8_t))&m_sigmatopdown_closure_131, .rptr =  (void (*)(sigmatopdown_funtype_65_t))&release_sigmatopdown_closure_131, .cptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_65_t))&copy_sigmatopdown_closure_131};
+        sigmatopdown_closure_131_t tmp = (sigmatopdown_closure_131_t) safe_malloc(sizeof(struct sigmatopdown_closure_131_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_131(sigmatopdown_funtype_65_t closure){
+        sigmatopdown_closure_131_t x = (sigmatopdown_closure_131_t)closure;
+        x->count--;
+        if (x->count <= 0){
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_131_t copy_sigmatopdown_closure_131(sigmatopdown_closure_131_t x){
+        sigmatopdown_closure_131_t y = new_sigmatopdown_closure_131();
+        y->ftbl = x->ftbl;
+
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_65_htbl_t new_htbl = (sigmatopdown_funtype_65_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_65_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_65_hashentry_t * new_data = (sigmatopdown_funtype_65_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_65_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_65_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+
+sigmatopdown_record_132_t new_sigmatopdown_record_132(void){
+        sigmatopdown_record_132_t tmp = (sigmatopdown_record_132_t) safe_malloc(sizeof(struct sigmatopdown_record_132_s));
+        tmp->count = 1;
+        return tmp;}
+
+void release_sigmatopdown_record_132(sigmatopdown_record_132_t x){
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_66(x->scaf);
+         release_sigmatopdown__ent_adt(x->stack);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+void release_sigmatopdown_record_132_ptr(pointer_t x, type_actual_t T){
+        release_sigmatopdown_record_132((sigmatopdown_record_132_t)x);
+}
+
+sigmatopdown_record_132_t copy_sigmatopdown_record_132(sigmatopdown_record_132_t x){
+        sigmatopdown_record_132_t y = new_sigmatopdown_record_132();
+        y->depth = (uint8_t)x->depth;
+        y->lflag = (bool_t)x->lflag;
+        y->scaf = x->scaf;
+        if (y->scaf != NULL){y->scaf->count++;};
+        y->stack = x->stack;
+        if (y->stack != NULL){y->stack->count++;};
+        y->count = 1;
+        return y;}
+
+bool_t equal_sigmatopdown_record_132(sigmatopdown_record_132_t x, sigmatopdown_record_132_t y){
+        bool_t tmp = true;
+        tmp = tmp && x->depth == y->depth;
+        tmp = tmp && x->lflag == y->lflag;
+        tmp = tmp && equal_sigmatopdown_funtype_66(x->scaf, y->scaf);
+        tmp = tmp && equal_sigmatopdown__ent_adt(x->stack, y->stack);
+        return tmp;}
+
+bool_t equal_sigmatopdown_record_132_ptr(pointer_t x, pointer_t y, actual_sigmatopdown_record_132_t T){
+        return equal_sigmatopdown_record_132((sigmatopdown_record_132_t)x, (sigmatopdown_record_132_t)y);
+}
+
+actual_sigmatopdown_record_132_t actual_sigmatopdown_record_132(){
+        actual_sigmatopdown_record_132_t new = (actual_sigmatopdown_record_132_t)safe_malloc(sizeof(struct actual_sigmatopdown_record_132_s));
+        new->equal_ptr = (equal_ptr_t)(*equal_sigmatopdown_record_132_ptr);
+ 
+        new->release_ptr = (release_ptr_t)(*release_sigmatopdown_record_132_ptr);
+ 
+
+ 
+        return new;
+ };
+
+sigmatopdown_record_132_t update_sigmatopdown_record_132_depth(sigmatopdown_record_132_t x, uint8_t v){
+        sigmatopdown_record_132_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_132(x); x->count--;};
+        y->depth = (uint8_t)v;
+        return y;}
+
+sigmatopdown_record_132_t update_sigmatopdown_record_132_lflag(sigmatopdown_record_132_t x, bool_t v){
+        sigmatopdown_record_132_t y;
+        if (x->count == 1){y = x;}
+        else {y = copy_sigmatopdown_record_132(x); x->count--;};
+        y->lflag = (bool_t)v;
+        return y;}
+
+sigmatopdown_record_132_t update_sigmatopdown_record_132_scaf(sigmatopdown_record_132_t x, sigmatopdown_funtype_66_t v){
+        sigmatopdown_record_132_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->scaf != NULL){release_sigmatopdown_funtype_66(x->scaf);};}
+        else {y = copy_sigmatopdown_record_132(x); x->count--; y->scaf->count--;};
+        y->scaf = (sigmatopdown_funtype_66_t)v;
+        return y;}
+
+sigmatopdown_record_132_t update_sigmatopdown_record_132_stack(sigmatopdown_record_132_t x, sigmatopdown__ent_adt_t v){
+        sigmatopdown_record_132_t y;
+        if (v != NULL){v->count++;};
+        if (x->count == 1){y = x; if (x->stack != NULL){release_sigmatopdown__ent_adt(x->stack);};}
+        else {y = copy_sigmatopdown_record_132(x); x->count--; y->stack->count--;};
+        y->stack = (sigmatopdown__ent_adt_t)v;
+        return y;}
+
+
+
+
+sigmatopdown_funtype_65_t f_sigmatopdown_closure_133(struct sigmatopdown_closure_133_s * closure, uint32_t bvar){
+if (closure->htbl != NULL){
+        sigmatopdown_funtype_66_htbl_t htbl = closure->htbl;
+        uint32_t hash = uint32_hash(bvar);
+        uint32_t hashindex = lookup_sigmatopdown_funtype_66(htbl, bvar, hash);
+        sigmatopdown_funtype_66_hashentry_t entry = htbl->data[hashindex];
+        bool_t keyzero;
+         keyzero = (entry.key == 0);
+        if (!keyzero || entry.keyhash != 0){
+            sigmatopdown_funtype_65_t result;
+            result = (sigmatopdown_funtype_65_t)entry.value;
+            if (result != NULL) result->count++;
+            return result;}
+        
+
+        return h_sigmatopdown_closure_133(bvar, closure->fvar_1);};
+
+return h_sigmatopdown_closure_133(bvar, closure->fvar_1);}
+
+sigmatopdown_funtype_65_t m_sigmatopdown_closure_133(struct sigmatopdown_closure_133_s * closure, uint32_t bvar){
+        return h_sigmatopdown_closure_133(bvar, closure->fvar_1);}
+
+extern sigmatopdown_funtype_65_t h_sigmatopdown_closure_133(uint32_t ivar_29, sigmatopdown_funtype_65_t ivar_6){
+        sigmatopdown_funtype_65_t result;
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        result = (sigmatopdown_funtype_65_t)ivar_6;
+        if (result != NULL) result->count++;
+
+        return result;
+}
+
+sigmatopdown_closure_133_t new_sigmatopdown_closure_133(void){
+        static struct sigmatopdown_funtype_66_ftbl_s ftbl = {.fptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&f_sigmatopdown_closure_133, .mptr = (sigmatopdown_funtype_65_t (*)(sigmatopdown_funtype_66_t, uint32_t))&m_sigmatopdown_closure_133, .rptr =  (void (*)(sigmatopdown_funtype_66_t))&release_sigmatopdown_closure_133, .cptr = (sigmatopdown_funtype_66_t (*)(sigmatopdown_funtype_66_t))&copy_sigmatopdown_closure_133};
+        sigmatopdown_closure_133_t tmp = (sigmatopdown_closure_133_t) safe_malloc(sizeof(struct sigmatopdown_closure_133_s));
+        tmp->count = 1;
+        tmp->ftbl = &ftbl;
+        tmp->htbl = NULL;
+        return tmp;}
+
+void release_sigmatopdown_closure_133(sigmatopdown_funtype_66_t closure){
+        sigmatopdown_closure_133_t x = (sigmatopdown_closure_133_t)closure;
+        x->count--;
+        if (x->count <= 0){
+         release_sigmatopdown_funtype_65(x->fvar_1);
+        //printf("\nFreeing\n");
+        safe_free(x);}}
+
+sigmatopdown_closure_133_t copy_sigmatopdown_closure_133(sigmatopdown_closure_133_t x){
+        sigmatopdown_closure_133_t y = new_sigmatopdown_closure_133();
+        y->ftbl = x->ftbl;
+
+        y->fvar_1 = x->fvar_1; x->fvar_1->count++;
+        if (x->htbl != NULL){
+            sigmatopdown_funtype_66_htbl_t new_htbl = (sigmatopdown_funtype_66_htbl_t) safe_malloc(sizeof(sigmatopdown_funtype_66_htbl_t));
+            new_htbl->size = x->htbl->size;
+            new_htbl->num_entries = x->htbl->num_entries;
+            sigmatopdown_funtype_66_hashentry_t * new_data = (sigmatopdown_funtype_66_hashentry_t *) safe_malloc(new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t));
+            memcpy(new_data, x->htbl->data, (new_htbl->size * sizeof(sigmatopdown_funtype_66_hashentry_t)));
+            new_htbl->data = new_data;
+            y->htbl = new_htbl;
+        } else
+            {y->htbl = NULL;};
+        return y;
+}
+
+extern uint8_t sigmatopdown__num_non_terminals(void){
+        uint8_t result;
+        result = (uint8_t)255;
+
+        return result;
+}
+
+extern bool_t r_sigmatopdown__failp(sigmatopdown__ent_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)0;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)ivar_1->sigmatopdown__ent_adt_index;
+        release_sigmatopdown__ent_adt(ivar_1);
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern bool_t r_sigmatopdown__pendingp(sigmatopdown__ent_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)1;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)ivar_1->sigmatopdown__ent_adt_index;
+        release_sigmatopdown__ent_adt(ivar_1);
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern bool_t r_sigmatopdown__loopp(sigmatopdown__ent_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)2;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)ivar_1->sigmatopdown__ent_adt_index;
+        release_sigmatopdown__ent_adt(ivar_1);
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern bool_t r_sigmatopdown__goodp(sigmatopdown__ent_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)3;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)ivar_1->sigmatopdown__ent_adt_index;
+        release_sigmatopdown__ent_adt(ivar_1);
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern bool_t r_sigmatopdown__pushp(sigmatopdown__ent_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)4;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)ivar_1->sigmatopdown__ent_adt_index;
+        release_sigmatopdown__ent_adt(ivar_1);
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern sigmatopdown__ent_adt_t update_sigmatopdown__ent_adt_dep(sigmatopdown__ent_adt_t ivar_1, uint64_t ivar_7){
+        sigmatopdown__ent_adt_t result;
+        bool_t ivar_9;
+        uint32_t ivar_10;
+        ivar_10 = (uint32_t)ivar_1->sigmatopdown__ent_adt_index;
+        uint32_t ivar_11;
+        ivar_11 = (uint32_t)0;
+        ivar_9 = (ivar_10 == ivar_11);
+        if (ivar_9){ 
+             sigmatopdown__fail_t ivar_8;
+             //copying to sigmatopdown__fail from sigmatopdown__ent_adt;
+             ivar_8 = (sigmatopdown__fail_t)ivar_1;
+             ivar_8->count++;
+             release_sigmatopdown__ent_adt(ivar_1);
+             result = (sigmatopdown__ent_adt_t)update_sigmatopdown__fail_dep(ivar_8, ivar_7);
+} else {
+        
+             sigmatopdown__good_t ivar_12;
+             //copying to sigmatopdown__good from sigmatopdown__ent_adt;
+             ivar_12 = (sigmatopdown__good_t)ivar_1;
+             ivar_12->count++;
+             release_sigmatopdown__ent_adt(ivar_1);
+             result = (sigmatopdown__ent_adt_t)update_sigmatopdown__good_dep(ivar_12, ivar_7);
+};
+
+        return result;
+}
+
+extern uint64_t sigmatopdown__ent_adt_dep(sigmatopdown__ent_adt_t ivar_1){
+        uint64_t result;
+        bool_t ivar_3;
+        uint32_t ivar_4;
+        ivar_4 = (uint32_t)ivar_1->sigmatopdown__ent_adt_index;
+        uint32_t ivar_5;
+        ivar_5 = (uint32_t)0;
+        ivar_3 = (ivar_4 == ivar_5);
+        if (ivar_3){ 
+             sigmatopdown__fail_t ivar_2;
+             //copying to sigmatopdown__fail from sigmatopdown__ent_adt;
+             ivar_2 = (sigmatopdown__fail_t)ivar_1;
+             ivar_2->count++;
+             release_sigmatopdown__ent_adt(ivar_1);
+             result = (uint64_t)ivar_2->dep;
+             release_sigmatopdown__fail(ivar_2);
+} else {
+        
+             sigmatopdown__good_t ivar_6;
+             //copying to sigmatopdown__good from sigmatopdown__ent_adt;
+             ivar_6 = (sigmatopdown__good_t)ivar_1;
+             ivar_6->count++;
+             release_sigmatopdown__ent_adt(ivar_1);
+             result = (uint64_t)ivar_6->dep;
+             release_sigmatopdown__good(ivar_6);
+};
+
+        return result;
+}
+
+extern sigmatopdown__good_t update_sigmatopdown__ent_adt_span(sigmatopdown__ent_adt_t ivar_1, uint32_t ivar_3){
+        sigmatopdown__good_t result;
+        sigmatopdown__good_t ivar_2;
+        //copying to sigmatopdown__good from sigmatopdown__ent_adt;
+        ivar_2 = (sigmatopdown__good_t)ivar_1;
+        ivar_2->count++;
+        release_sigmatopdown__ent_adt(ivar_1);
+        result = (sigmatopdown__good_t)update_sigmatopdown__good_span(ivar_2, ivar_3);
+
+        return result;
+}
+
+extern uint32_t sigmatopdown__ent_adt_span(sigmatopdown__ent_adt_t ivar_1){
+        uint32_t result;
+        sigmatopdown__good_t ivar_2;
+        //copying to sigmatopdown__good from sigmatopdown__ent_adt;
+        ivar_2 = (sigmatopdown__good_t)ivar_1;
+        ivar_2->count++;
+        release_sigmatopdown__ent_adt(ivar_1);
+        result = (uint32_t)ivar_2->span;
+        release_sigmatopdown__good(ivar_2);
+
+        return result;
+}
+
+extern sigmatopdown__push_t update_sigmatopdown__ent_adt_pos(sigmatopdown__ent_adt_t ivar_1, uint32_t ivar_3){
+        sigmatopdown__push_t result;
+        sigmatopdown__push_t ivar_2;
+        //copying to sigmatopdown__push from sigmatopdown__ent_adt;
+        ivar_2 = (sigmatopdown__push_t)ivar_1;
+        ivar_2->count++;
+        release_sigmatopdown__ent_adt(ivar_1);
+        result = (sigmatopdown__push_t)update_sigmatopdown__push_pos(ivar_2, ivar_3);
+
+        return result;
+}
+
+extern uint32_t sigmatopdown__ent_adt_pos(sigmatopdown__ent_adt_t ivar_1){
+        uint32_t result;
+        sigmatopdown__push_t ivar_2;
+        //copying to sigmatopdown__push from sigmatopdown__ent_adt;
+        ivar_2 = (sigmatopdown__push_t)ivar_1;
+        ivar_2->count++;
+        release_sigmatopdown__ent_adt(ivar_1);
+        result = (uint32_t)ivar_2->pos;
+        release_sigmatopdown__push(ivar_2);
+
+        return result;
+}
+
+extern sigmatopdown__push_t update_sigmatopdown__ent_adt_nt(sigmatopdown__ent_adt_t ivar_1, uint8_t ivar_3){
+        sigmatopdown__push_t result;
+        sigmatopdown__push_t ivar_2;
+        //copying to sigmatopdown__push from sigmatopdown__ent_adt;
+        ivar_2 = (sigmatopdown__push_t)ivar_1;
+        ivar_2->count++;
+        release_sigmatopdown__ent_adt(ivar_1);
+        result = (sigmatopdown__push_t)update_sigmatopdown__push_nt(ivar_2, ivar_3);
+
+        return result;
+}
+
+extern uint8_t sigmatopdown__ent_adt_nt(sigmatopdown__ent_adt_t ivar_1){
+        uint8_t result;
+        sigmatopdown__push_t ivar_2;
+        //copying to sigmatopdown__push from sigmatopdown__ent_adt;
+        ivar_2 = (sigmatopdown__push_t)ivar_1;
+        ivar_2->count++;
+        release_sigmatopdown__ent_adt(ivar_1);
+        result = (uint8_t)ivar_2->nt;
+        release_sigmatopdown__push(ivar_2);
+        printf("\nout adt_nt = %"PRIu8"", result);
+        return result;
+}
+
+extern sigmatopdown__ent_adt_t sigmatopdown__fail(uint64_t ivar_2){
+        sigmatopdown__ent_adt_t result;
+        uint8_t ivar_1;
+        ivar_1 = (uint8_t)0;
+        sigmatopdown__fail_t ivar_3;
+        ivar_3 = (sigmatopdown__fail_t)new_sigmatopdown__fail();;
+        ivar_3->sigmatopdown__ent_adt_index = (uint8_t)ivar_1;
+        ivar_3->dep = (uint64_t)ivar_2;
+        //copying to sigmatopdown__ent_adt from sigmatopdown__fail;
+        result = (sigmatopdown__ent_adt_t)ivar_3;
+        result->count++;
+        release_sigmatopdown__fail(ivar_3);
+
+        return result;
+}
+
+extern sigmatopdown__ent_adt_t sigmatopdown__pending(void){
+        sigmatopdown__ent_adt_t result;
+        uint8_t ivar_1;
+        ivar_1 = (uint8_t)1;
+        sigmatopdown__ent_adt_t ivar_2;
+        ivar_2 = (sigmatopdown__ent_adt_t)new_sigmatopdown__ent_adt();;
+        ivar_2->sigmatopdown__ent_adt_index = (uint8_t)ivar_1;
+        //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+        result = (sigmatopdown__ent_adt_t)ivar_2;
+        result->count++;
+        release_sigmatopdown__ent_adt(ivar_2);
+
+        return result;
+}
+
+extern sigmatopdown__ent_adt_t sigmatopdown__loop(void){
+        sigmatopdown__ent_adt_t result;
+        uint8_t ivar_1;
+        ivar_1 = (uint8_t)2;
+        sigmatopdown__ent_adt_t ivar_2;
+        ivar_2 = (sigmatopdown__ent_adt_t)new_sigmatopdown__ent_adt();;
+        ivar_2->sigmatopdown__ent_adt_index = (uint8_t)ivar_1;
+        //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+        result = (sigmatopdown__ent_adt_t)ivar_2;
+        result->count++;
+        release_sigmatopdown__ent_adt(ivar_2);
+
+        return result;
+}
+
+extern sigmatopdown__ent_adt_t sigmatopdown__good(uint64_t ivar_2, uint32_t ivar_3){
+        sigmatopdown__ent_adt_t result;
+        uint8_t ivar_1;
+        ivar_1 = (uint8_t)3;
+        sigmatopdown__good_t ivar_4;
+        ivar_4 = (sigmatopdown__good_t)new_sigmatopdown__good();;
+        ivar_4->sigmatopdown__ent_adt_index = (uint8_t)ivar_1;
+        ivar_4->dep = (uint64_t)ivar_2;
+        ivar_4->span = (uint32_t)ivar_3;
+        //copying to sigmatopdown__ent_adt from sigmatopdown__good;
+        result = (sigmatopdown__ent_adt_t)ivar_4;
+        result->count++;
+        release_sigmatopdown__good(ivar_4);
+
+        return result;
+}
+
+extern sigmatopdown__ent_adt_t sigmatopdown__push(uint32_t ivar_2, uint8_t ivar_3){
+  printf("\n in push(%"PRIu32", %"PRIu8")", ivar_2, ivar_3);
+        sigmatopdown__ent_adt_t result;
+        uint8_t ivar_1;
+        ivar_1 = (uint8_t)4;
+        sigmatopdown__push_t ivar_4;
+        ivar_4 = (sigmatopdown__push_t)new_sigmatopdown__push();;
+        ivar_4->sigmatopdown__ent_adt_index = (uint8_t)ivar_1;
+        ivar_4->pos = (uint32_t)ivar_2;
+        ivar_4->nt = (uint8_t)ivar_3;
+        //copying to sigmatopdown__ent_adt from sigmatopdown__push;
+        result = (sigmatopdown__ent_adt_t)ivar_4;
+        result->count++;
+        release_sigmatopdown__push(ivar_4);
+        printf("\n out push: index = %"PRIu8"", ivar_4->sigmatopdown__ent_adt_index);
+        return result;
+}
+
+extern sigmatopdown_funtype_4_t sigmatopdown__ent_ord(void){
+        sigmatopdown_funtype_4_t result;
+        pvs2cerror("Missing definition", PVS2C_EXIT_ERROR);
+
+        return result;
+}
+
+extern uint8_t sigmatopdown__ord__1(sigmatopdown__ent_adt_t ivar_1){
+        uint8_t result;
+        bool_t ivar_7;
+        ivar_1->count++;
+        ivar_7 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_1);
+        if (ivar_7){ 
+             result = (uint8_t)0;
+} else {
+        
+             bool_t ivar_11;
+             ivar_1->count++;
+             ivar_11 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_1);
+             if (ivar_11){  
+           release_sigmatopdown__ent_adt(ivar_1);
+           result = (uint8_t)1;
+} else {
+             
+           bool_t ivar_15;
+           ivar_1->count++;
+           ivar_15 = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_1);
+           if (ivar_15){   
+           release_sigmatopdown__ent_adt(ivar_1);
+           result = (uint8_t)2;
+} else {
+           
+           bool_t ivar_27;
+           ivar_1->count++;
+           ivar_27 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_1);
+           if (ivar_27){    
+            result = (uint8_t)3;
+} else {
+           
+            result = (uint8_t)4;
+};
+};
+};
+};
+
+        return result;
+}
+
+extern bool_t sigmatopdown__subterm__1(sigmatopdown__ent_adt_t ivar_1, sigmatopdown__ent_adt_t ivar_2){
+        bool_t result;
+        result = (bool_t) equal_sigmatopdown__ent_adt(ivar_1, ivar_2);
+
+        return result;
+}
+
+extern bool_t sigmatopdown__doublelessp__1(sigmatopdown__ent_adt_t ivar_1, sigmatopdown__ent_adt_t ivar_2){
+        bool_t result;
+        result = (bool_t) false;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_5_t sigmatopdown__reduce_nat__1(sigmatopdown_funtype_6_t ivar_1, mpz_ptr_t ivar_3, mpz_ptr_t ivar_4, sigmatopdown_funtype_8_t ivar_5, sigmatopdown_funtype_10_t ivar_7){
+        sigmatopdown_funtype_5_t result;
+        sigmatopdown_closure_11_t cl21392;
+        cl21392 = new_sigmatopdown_closure_11();
+        cl21392->fvar_1 = (sigmatopdown_funtype_8_t)ivar_5;
+        cl21392->fvar_1->count++;
+        cl21392->fvar_2 = (sigmatopdown_funtype_10_t)ivar_7;
+        cl21392->fvar_2->count++;
+        mpz_set(cl21392->fvar_3, ivar_4);
+        mpz_set(cl21392->fvar_4, ivar_3);
+        cl21392->fvar_5 = (sigmatopdown_funtype_6_t)ivar_1;
+        cl21392->fvar_5->count++;
+        release_sigmatopdown_funtype_8(ivar_5);
+        release_sigmatopdown_funtype_10(ivar_7);
+        release_sigmatopdown_funtype_6(ivar_1);
+        result = (sigmatopdown_funtype_5_t)cl21392;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_5_t sigmatopdown__REDUCE_nat__1(sigmatopdown_funtype_13_t ivar_1, sigmatopdown_funtype_5_t ivar_3, sigmatopdown_funtype_5_t ivar_5, sigmatopdown_funtype_15_t ivar_7, sigmatopdown_funtype_17_t ivar_9){
+        sigmatopdown_funtype_5_t result;
+        sigmatopdown_closure_18_t cl21394;
+        cl21394 = new_sigmatopdown_closure_18();
+        cl21394->fvar_1 = (sigmatopdown_funtype_15_t)ivar_7;
+        cl21394->fvar_1->count++;
+        cl21394->fvar_2 = (sigmatopdown_funtype_17_t)ivar_9;
+        cl21394->fvar_2->count++;
+        cl21394->fvar_3 = (sigmatopdown_funtype_5_t)ivar_5;
+        cl21394->fvar_3->count++;
+        cl21394->fvar_4 = (sigmatopdown_funtype_5_t)ivar_3;
+        cl21394->fvar_4->count++;
+        cl21394->fvar_5 = (sigmatopdown_funtype_13_t)ivar_1;
+        cl21394->fvar_5->count++;
+        release_sigmatopdown_funtype_15(ivar_7);
+        release_sigmatopdown_funtype_17(ivar_9);
+        release_sigmatopdown_funtype_5(ivar_5);
+        release_sigmatopdown_funtype_5(ivar_3);
+        release_sigmatopdown_funtype_13(ivar_1);
+        result = (sigmatopdown_funtype_5_t)cl21394;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_19_t sigmatopdown__reduce_ordinal__1(sigmatopdown_funtype_20_t ivar_1, ordstruct_adt__ordstruct_adt_t ivar_3, ordstruct_adt__ordstruct_adt_t ivar_4, sigmatopdown_funtype_21_t ivar_5, sigmatopdown_funtype_22_t ivar_7){
+        sigmatopdown_funtype_19_t result;
+        sigmatopdown_closure_23_t cl21396;
+        cl21396 = new_sigmatopdown_closure_23();
+        cl21396->fvar_1 = (sigmatopdown_funtype_21_t)ivar_5;
+        cl21396->fvar_1->count++;
+        cl21396->fvar_2 = (sigmatopdown_funtype_22_t)ivar_7;
+        cl21396->fvar_2->count++;
+        cl21396->fvar_3 = (ordstruct_adt__ordstruct_adt_t)ivar_4;
+        cl21396->fvar_3->count++;
+        cl21396->fvar_4 = (ordstruct_adt__ordstruct_adt_t)ivar_3;
+        cl21396->fvar_4->count++;
+        cl21396->fvar_5 = (sigmatopdown_funtype_20_t)ivar_1;
+        cl21396->fvar_5->count++;
+        release_sigmatopdown_funtype_21(ivar_5);
+        release_sigmatopdown_funtype_22(ivar_7);
+        release_ordstruct_adt__ordstruct_adt(ivar_4);
+        release_ordstruct_adt__ordstruct_adt(ivar_3);
+        release_sigmatopdown_funtype_20(ivar_1);
+        result = (sigmatopdown_funtype_19_t)cl21396;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_19_t sigmatopdown__REDUCE_ordinal__1(sigmatopdown_funtype_24_t ivar_1, sigmatopdown_funtype_19_t ivar_3, sigmatopdown_funtype_19_t ivar_5, sigmatopdown_funtype_25_t ivar_7, sigmatopdown_funtype_26_t ivar_9){
+        sigmatopdown_funtype_19_t result;
+        sigmatopdown_closure_27_t cl21398;
+        cl21398 = new_sigmatopdown_closure_27();
+        cl21398->fvar_1 = (sigmatopdown_funtype_25_t)ivar_7;
+        cl21398->fvar_1->count++;
+        cl21398->fvar_2 = (sigmatopdown_funtype_26_t)ivar_9;
+        cl21398->fvar_2->count++;
+        cl21398->fvar_3 = (sigmatopdown_funtype_19_t)ivar_5;
+        cl21398->fvar_3->count++;
+        cl21398->fvar_4 = (sigmatopdown_funtype_19_t)ivar_3;
+        cl21398->fvar_4->count++;
+        cl21398->fvar_5 = (sigmatopdown_funtype_24_t)ivar_1;
+        cl21398->fvar_5->count++;
+        release_sigmatopdown_funtype_25(ivar_7);
+        release_sigmatopdown_funtype_26(ivar_9);
+        release_sigmatopdown_funtype_19(ivar_5);
+        release_sigmatopdown_funtype_19(ivar_3);
+        release_sigmatopdown_funtype_24(ivar_1);
+        result = (sigmatopdown_funtype_19_t)cl21398;
+
+        return result;
+}
+
+extern bool_t r_sigmatopdown__epsilonp(sigmatopdown__peg_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)0;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)ivar_1->sigmatopdown__peg_adt_index;
+        release_sigmatopdown__peg_adt(ivar_1);
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern bool_t r_sigmatopdown__failurep(sigmatopdown__peg_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)1;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)ivar_1->sigmatopdown__peg_adt_index;
+        release_sigmatopdown__peg_adt(ivar_1);
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern bool_t r_sigmatopdown__anyp(sigmatopdown__peg_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)2;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)ivar_1->sigmatopdown__peg_adt_index;
+        release_sigmatopdown__peg_adt(ivar_1);
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern bool_t r_sigmatopdown__terminalp(sigmatopdown__peg_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)3;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)ivar_1->sigmatopdown__peg_adt_index;
+        release_sigmatopdown__peg_adt(ivar_1);
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern bool_t r_sigmatopdown__concatp(sigmatopdown__peg_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)4;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)ivar_1->sigmatopdown__peg_adt_index;
+        release_sigmatopdown__peg_adt(ivar_1);
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern bool_t r_sigmatopdown__orp(sigmatopdown__peg_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)5;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)ivar_1->sigmatopdown__peg_adt_index;
+        release_sigmatopdown__peg_adt(ivar_1);
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern bool_t r_sigmatopdown__andp(sigmatopdown__peg_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)6;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)ivar_1->sigmatopdown__peg_adt_index;
+        release_sigmatopdown__peg_adt(ivar_1);
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern bool_t r_sigmatopdown__notp(sigmatopdown__peg_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)7;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)ivar_1->sigmatopdown__peg_adt_index;
+        release_sigmatopdown__peg_adt(ivar_1);
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern sigmatopdown__any_t update_sigmatopdown__peg_adt_p(sigmatopdown__peg_adt_t ivar_1, sigmatopdown_funtype_29_t ivar_4){
+        sigmatopdown__any_t result;
+        sigmatopdown__any_t ivar_3;
+        //copying to sigmatopdown__any from sigmatopdown__peg_adt;
+        ivar_3 = (sigmatopdown__any_t)ivar_1;
+        ivar_3->count++;
+        release_sigmatopdown__peg_adt(ivar_1);
+        result = (sigmatopdown__any_t)update_sigmatopdown__any_p(ivar_3, ivar_4);
+
+        return result;
+}
+
+extern sigmatopdown_funtype_29_t sigmatopdown__peg_adt_p(sigmatopdown__peg_adt_t ivar_1){
+        sigmatopdown_funtype_29_t result;
+        sigmatopdown__any_t ivar_3;
+        //copying to sigmatopdown__any from sigmatopdown__peg_adt;
+        ivar_3 = (sigmatopdown__any_t)ivar_1;
+        ivar_3->count++;
+        release_sigmatopdown__peg_adt(ivar_1);
+        result = (sigmatopdown_funtype_29_t)ivar_3->p;
+        result->count++;
+        release_sigmatopdown__any(ivar_3);
+
+        return result;
+}
+
+extern sigmatopdown__terminal_t update_sigmatopdown__peg_adt_a(sigmatopdown__peg_adt_t ivar_1, uint8_t ivar_3){
+        sigmatopdown__terminal_t result;
+        sigmatopdown__terminal_t ivar_2;
+        //copying to sigmatopdown__terminal from sigmatopdown__peg_adt;
+        ivar_2 = (sigmatopdown__terminal_t)ivar_1;
+        ivar_2->count++;
+        release_sigmatopdown__peg_adt(ivar_1);
+        result = (sigmatopdown__terminal_t)update_sigmatopdown__terminal_a(ivar_2, ivar_3);
+
+        return result;
+}
+
+extern uint8_t sigmatopdown__peg_adt_a(sigmatopdown__peg_adt_t ivar_1){
+        uint8_t result;
+        sigmatopdown__terminal_t ivar_2;
+        //copying to sigmatopdown__terminal from sigmatopdown__peg_adt;
+        ivar_2 = (sigmatopdown__terminal_t)ivar_1;
+        ivar_2->count++;
+        release_sigmatopdown__peg_adt(ivar_1);
+        result = (uint8_t)ivar_2->a;
+        release_sigmatopdown__terminal(ivar_2);
+
+        return result;
+}
+
+extern sigmatopdown__peg_adt_t update_sigmatopdown__peg_adt_e1(sigmatopdown__peg_adt_t ivar_1, uint8_t ivar_7){
+        sigmatopdown__peg_adt_t result;
+        bool_t ivar_9;
+        uint32_t ivar_10;
+        ivar_10 = (uint32_t)ivar_1->sigmatopdown__peg_adt_index;
+        uint32_t ivar_11;
+        ivar_11 = (uint32_t)4;
+        ivar_9 = (ivar_10 == ivar_11);
+        if (ivar_9){ 
+             sigmatopdown__concat_t ivar_8;
+             //copying to sigmatopdown__concat from sigmatopdown__peg_adt;
+             ivar_8 = (sigmatopdown__concat_t)ivar_1;
+             ivar_8->count++;
+             release_sigmatopdown__peg_adt(ivar_1);
+             result = (sigmatopdown__peg_adt_t)update_sigmatopdown__concat_e1(ivar_8, ivar_7);
+} else {
+        
+             sigmatopdown__choice_t ivar_12;
+             //copying to sigmatopdown__choice from sigmatopdown__peg_adt;
+             ivar_12 = (sigmatopdown__choice_t)ivar_1;
+             ivar_12->count++;
+             release_sigmatopdown__peg_adt(ivar_1);
+             result = (sigmatopdown__peg_adt_t)update_sigmatopdown__choice_e1(ivar_12, ivar_7);
+};
+
+        return result;
+}
+
+extern uint8_t sigmatopdown__peg_adt_e1(sigmatopdown__peg_adt_t ivar_1){
+        uint8_t result;
+        bool_t ivar_3;
+        uint32_t ivar_4;
+        ivar_4 = (uint32_t)ivar_1->sigmatopdown__peg_adt_index;
+        uint32_t ivar_5;
+        ivar_5 = (uint32_t)4;
+        ivar_3 = (ivar_4 == ivar_5);
+        if (ivar_3){ 
+             sigmatopdown__concat_t ivar_2;
+             //copying to sigmatopdown__concat from sigmatopdown__peg_adt;
+             ivar_2 = (sigmatopdown__concat_t)ivar_1;
+             ivar_2->count++;
+             release_sigmatopdown__peg_adt(ivar_1);
+             result = (uint8_t)ivar_2->e1;
+             release_sigmatopdown__concat(ivar_2);
+} else {
+        
+             sigmatopdown__choice_t ivar_6;
+             //copying to sigmatopdown__choice from sigmatopdown__peg_adt;
+             ivar_6 = (sigmatopdown__choice_t)ivar_1;
+             ivar_6->count++;
+             release_sigmatopdown__peg_adt(ivar_1);
+             result = (uint8_t)ivar_6->e1;
+             release_sigmatopdown__choice(ivar_6);
+};
+
+        return result;
+}
+
+extern sigmatopdown__peg_adt_t update_sigmatopdown__peg_adt_e2(sigmatopdown__peg_adt_t ivar_1, uint8_t ivar_7){
+        sigmatopdown__peg_adt_t result;
+        bool_t ivar_9;
+        uint32_t ivar_10;
+        ivar_10 = (uint32_t)ivar_1->sigmatopdown__peg_adt_index;
+        uint32_t ivar_11;
+        ivar_11 = (uint32_t)4;
+        ivar_9 = (ivar_10 == ivar_11);
+        if (ivar_9){ 
+             sigmatopdown__concat_t ivar_8;
+             //copying to sigmatopdown__concat from sigmatopdown__peg_adt;
+             ivar_8 = (sigmatopdown__concat_t)ivar_1;
+             ivar_8->count++;
+             release_sigmatopdown__peg_adt(ivar_1);
+             result = (sigmatopdown__peg_adt_t)update_sigmatopdown__concat_e2(ivar_8, ivar_7);
+} else {
+        
+             sigmatopdown__choice_t ivar_12;
+             //copying to sigmatopdown__choice from sigmatopdown__peg_adt;
+             ivar_12 = (sigmatopdown__choice_t)ivar_1;
+             ivar_12->count++;
+             release_sigmatopdown__peg_adt(ivar_1);
+             result = (sigmatopdown__peg_adt_t)update_sigmatopdown__choice_e2(ivar_12, ivar_7);
+};
+
+        return result;
+}
+
+extern uint8_t sigmatopdown__peg_adt_e2(sigmatopdown__peg_adt_t ivar_1){
+        uint8_t result;
+        bool_t ivar_3;
+        uint32_t ivar_4;
+        ivar_4 = (uint32_t)ivar_1->sigmatopdown__peg_adt_index;
+        uint32_t ivar_5;
+        ivar_5 = (uint32_t)4;
+        ivar_3 = (ivar_4 == ivar_5);
+        if (ivar_3){ 
+             sigmatopdown__concat_t ivar_2;
+             //copying to sigmatopdown__concat from sigmatopdown__peg_adt;
+             ivar_2 = (sigmatopdown__concat_t)ivar_1;
+             ivar_2->count++;
+             release_sigmatopdown__peg_adt(ivar_1);
+             result = (uint8_t)ivar_2->e2;
+             release_sigmatopdown__concat(ivar_2);
+} else {
+        
+             sigmatopdown__choice_t ivar_6;
+             //copying to sigmatopdown__choice from sigmatopdown__peg_adt;
+             ivar_6 = (sigmatopdown__choice_t)ivar_1;
+             ivar_6->count++;
+             release_sigmatopdown__peg_adt(ivar_1);
+             result = (uint8_t)ivar_6->e2;
+             release_sigmatopdown__choice(ivar_6);
+};
+
+        return result;
+}
+
+extern sigmatopdown__peg_adt_t update_sigmatopdown__peg_adt_e(sigmatopdown__peg_adt_t ivar_1, uint8_t ivar_7){
+        sigmatopdown__peg_adt_t result;
+        bool_t ivar_9;
+        uint32_t ivar_10;
+        ivar_10 = (uint32_t)ivar_1->sigmatopdown__peg_adt_index;
+        uint32_t ivar_11;
+        ivar_11 = (uint32_t)6;
+        ivar_9 = (ivar_10 == ivar_11);
+        if (ivar_9){ 
+             sigmatopdown__check_t ivar_8;
+             //copying to sigmatopdown__check from sigmatopdown__peg_adt;
+             ivar_8 = (sigmatopdown__check_t)ivar_1;
+             ivar_8->count++;
+             release_sigmatopdown__peg_adt(ivar_1);
+             result = (sigmatopdown__peg_adt_t)update_sigmatopdown__check_e(ivar_8, ivar_7);
+} else {
+        
+             sigmatopdown__neg_t ivar_12;
+             //copying to sigmatopdown__neg from sigmatopdown__peg_adt;
+             ivar_12 = (sigmatopdown__neg_t)ivar_1;
+             ivar_12->count++;
+             release_sigmatopdown__peg_adt(ivar_1);
+             result = (sigmatopdown__peg_adt_t)update_sigmatopdown__neg_e(ivar_12, ivar_7);
+};
+
+        return result;
+}
+
+extern uint8_t sigmatopdown__peg_adt_e(sigmatopdown__peg_adt_t ivar_1){
+        uint8_t result;
+        bool_t ivar_3;
+        uint32_t ivar_4;
+        ivar_4 = (uint32_t)ivar_1->sigmatopdown__peg_adt_index;
+        uint32_t ivar_5;
+        ivar_5 = (uint32_t)6;
+        ivar_3 = (ivar_4 == ivar_5);
+        if (ivar_3){ 
+             sigmatopdown__check_t ivar_2;
+             //copying to sigmatopdown__check from sigmatopdown__peg_adt;
+             ivar_2 = (sigmatopdown__check_t)ivar_1;
+             ivar_2->count++;
+             release_sigmatopdown__peg_adt(ivar_1);
+             result = (uint8_t)ivar_2->e;
+             release_sigmatopdown__check(ivar_2);
+} else {
+        
+             sigmatopdown__neg_t ivar_6;
+             //copying to sigmatopdown__neg from sigmatopdown__peg_adt;
+             ivar_6 = (sigmatopdown__neg_t)ivar_1;
+             ivar_6->count++;
+             release_sigmatopdown__peg_adt(ivar_1);
+             result = (uint8_t)ivar_6->e;
+             release_sigmatopdown__neg(ivar_6);
+};
+
+        return result;
+}
+
+extern sigmatopdown__peg_adt_t sigmatopdown__epsilon(void){
+        sigmatopdown__peg_adt_t result;
+        uint8_t ivar_1;
+        ivar_1 = (uint8_t)0;
+        sigmatopdown__peg_adt_t ivar_2;
+        ivar_2 = (sigmatopdown__peg_adt_t)new_sigmatopdown__peg_adt();;
+        ivar_2->sigmatopdown__peg_adt_index = (uint8_t)ivar_1;
+        //copying to sigmatopdown__peg_adt from sigmatopdown__peg_adt;
+        result = (sigmatopdown__peg_adt_t)ivar_2;
+        result->count++;
+        release_sigmatopdown__peg_adt(ivar_2);
+
+        return result;
+}
+
+extern sigmatopdown__peg_adt_t sigmatopdown__failure(void){
+        sigmatopdown__peg_adt_t result;
+        uint8_t ivar_1;
+        ivar_1 = (uint8_t)1;
+        sigmatopdown__peg_adt_t ivar_2;
+        ivar_2 = (sigmatopdown__peg_adt_t)new_sigmatopdown__peg_adt();;
+        ivar_2->sigmatopdown__peg_adt_index = (uint8_t)ivar_1;
+        //copying to sigmatopdown__peg_adt from sigmatopdown__peg_adt;
+        result = (sigmatopdown__peg_adt_t)ivar_2;
+        result->count++;
+        release_sigmatopdown__peg_adt(ivar_2);
+
+        return result;
+}
+
+extern sigmatopdown__peg_adt_t sigmatopdown__any(sigmatopdown_funtype_29_t ivar_2){
+        sigmatopdown__peg_adt_t result;
+        uint8_t ivar_1;
+        ivar_1 = (uint8_t)2;
+        sigmatopdown__any_t ivar_4;
+        ivar_4 = (sigmatopdown__any_t)new_sigmatopdown__any();;
+        ivar_4->sigmatopdown__peg_adt_index = (uint8_t)ivar_1;
+        ivar_4->p = (sigmatopdown_funtype_29_t)ivar_2;
+        //copying to sigmatopdown__peg_adt from sigmatopdown__any;
+        result = (sigmatopdown__peg_adt_t)ivar_4;
+        result->count++;
+        release_sigmatopdown__any(ivar_4);
+
+        return result;
+}
+
+extern sigmatopdown__peg_adt_t sigmatopdown__terminal(uint8_t ivar_2){
+        sigmatopdown__peg_adt_t result;
+        uint8_t ivar_1;
+        ivar_1 = (uint8_t)3;
+        sigmatopdown__terminal_t ivar_3;
+        ivar_3 = (sigmatopdown__terminal_t)new_sigmatopdown__terminal();;
+        ivar_3->sigmatopdown__peg_adt_index = (uint8_t)ivar_1;
+        ivar_3->a = (uint8_t)ivar_2;
+        //copying to sigmatopdown__peg_adt from sigmatopdown__terminal;
+        result = (sigmatopdown__peg_adt_t)ivar_3;
+        result->count++;
+        release_sigmatopdown__terminal(ivar_3);
+
+        return result;
+}
+
+extern sigmatopdown__peg_adt_t sigmatopdown__concat(uint8_t ivar_2, uint8_t ivar_3){
+        sigmatopdown__peg_adt_t result;
+        uint8_t ivar_1;
+        ivar_1 = (uint8_t)4;
+        sigmatopdown__concat_t ivar_4;
+        ivar_4 = (sigmatopdown__concat_t)new_sigmatopdown__concat();;
+        ivar_4->sigmatopdown__peg_adt_index = (uint8_t)ivar_1;
+        ivar_4->e1 = (uint8_t)ivar_2;
+        ivar_4->e2 = (uint8_t)ivar_3;
+        //copying to sigmatopdown__peg_adt from sigmatopdown__concat;
+        result = (sigmatopdown__peg_adt_t)ivar_4;
+        result->count++;
+        release_sigmatopdown__concat(ivar_4);
+
+        return result;
+}
+
+extern sigmatopdown__peg_adt_t sigmatopdown__choice(uint8_t ivar_2, uint8_t ivar_3){
+        sigmatopdown__peg_adt_t result;
+        uint8_t ivar_1;
+        ivar_1 = (uint8_t)5;
+        sigmatopdown__choice_t ivar_4;
+        ivar_4 = (sigmatopdown__choice_t)new_sigmatopdown__choice();;
+        ivar_4->sigmatopdown__peg_adt_index = (uint8_t)ivar_1;
+        ivar_4->e1 = (uint8_t)ivar_2;
+        ivar_4->e2 = (uint8_t)ivar_3;
+        //copying to sigmatopdown__peg_adt from sigmatopdown__choice;
+        result = (sigmatopdown__peg_adt_t)ivar_4;
+        result->count++;
+        release_sigmatopdown__choice(ivar_4);
+
+        return result;
+}
+
+extern sigmatopdown__peg_adt_t sigmatopdown__check(uint8_t ivar_2){
+        sigmatopdown__peg_adt_t result;
+        uint8_t ivar_1;
+        ivar_1 = (uint8_t)6;
+        sigmatopdown__check_t ivar_3;
+        ivar_3 = (sigmatopdown__check_t)new_sigmatopdown__check();;
+        ivar_3->sigmatopdown__peg_adt_index = (uint8_t)ivar_1;
+        ivar_3->e = (uint8_t)ivar_2;
+        //copying to sigmatopdown__peg_adt from sigmatopdown__check;
+        result = (sigmatopdown__peg_adt_t)ivar_3;
+        result->count++;
+        release_sigmatopdown__check(ivar_3);
+
+        return result;
+}
+
+extern sigmatopdown__peg_adt_t sigmatopdown__neg(uint8_t ivar_2){
+        sigmatopdown__peg_adt_t result;
+        uint8_t ivar_1;
+        ivar_1 = (uint8_t)7;
+        sigmatopdown__neg_t ivar_3;
+        ivar_3 = (sigmatopdown__neg_t)new_sigmatopdown__neg();;
+        ivar_3->sigmatopdown__peg_adt_index = (uint8_t)ivar_1;
+        ivar_3->e = (uint8_t)ivar_2;
+        //copying to sigmatopdown__peg_adt from sigmatopdown__neg;
+        result = (sigmatopdown__peg_adt_t)ivar_3;
+        result->count++;
+        release_sigmatopdown__neg(ivar_3);
+
+        return result;
+}
+
+extern sigmatopdown_funtype_36_t sigmatopdown__peg_ord(void){
+        sigmatopdown_funtype_36_t result;
+        pvs2cerror("Missing definition", PVS2C_EXIT_ERROR);
+
+        return result;
+}
+
+extern uint8_t sigmatopdown__ord__2(sigmatopdown__peg_adt_t ivar_1){
+        uint8_t result;
+        bool_t ivar_3;
+        ivar_1->count++;
+        ivar_3 = (bool_t)r_sigmatopdown__epsilonp((sigmatopdown__peg_adt_t)ivar_1);
+        if (ivar_3){ 
+             release_sigmatopdown__peg_adt(ivar_1);
+             result = (uint8_t)0;
+} else {
+        
+             bool_t ivar_7;
+             ivar_1->count++;
+             ivar_7 = (bool_t)r_sigmatopdown__failurep((sigmatopdown__peg_adt_t)ivar_1);
+             if (ivar_7){  
+           release_sigmatopdown__peg_adt(ivar_1);
+           result = (uint8_t)1;
+} else {
+             
+           bool_t ivar_17;
+           ivar_1->count++;
+           ivar_17 = (bool_t)r_sigmatopdown__anyp((sigmatopdown__peg_adt_t)ivar_1);
+           if (ivar_17){   
+           result = (uint8_t)2;
+} else {
+           
+           bool_t ivar_25;
+           ivar_1->count++;
+           ivar_25 = (bool_t)r_sigmatopdown__terminalp((sigmatopdown__peg_adt_t)ivar_1);
+           if (ivar_25){    
+            result = (uint8_t)3;
+} else {
+           
+            bool_t ivar_37;
+            ivar_1->count++;
+            ivar_37 = (bool_t)r_sigmatopdown__concatp((sigmatopdown__peg_adt_t)ivar_1);
+            if (ivar_37){     
+             result = (uint8_t)4;
+} else {
+            
+             bool_t ivar_49;
+             ivar_1->count++;
+             ivar_49 = (bool_t)r_sigmatopdown__orp((sigmatopdown__peg_adt_t)ivar_1);
+             if (ivar_49){      
+              result = (uint8_t)5;
+} else {
+             
+              bool_t ivar_57;
+              ivar_1->count++;
+              ivar_57 = (bool_t)r_sigmatopdown__andp((sigmatopdown__peg_adt_t)ivar_1);
+              if (ivar_57){       
+               result = (uint8_t)6;
+} else {
+              
+               result = (uint8_t)7;
+};
+};
+};
+};
+};
+};
+};
+
+        return result;
+}
+
+extern bool_t sigmatopdown__subterm__2(sigmatopdown__peg_adt_t ivar_1, sigmatopdown__peg_adt_t ivar_2){
+        bool_t result;
+        result = (bool_t) equal_sigmatopdown__peg_adt(ivar_1, ivar_2);
+
+        return result;
+}
+
+extern bool_t sigmatopdown__doublelessp__2(sigmatopdown__peg_adt_t ivar_1, sigmatopdown__peg_adt_t ivar_2){
+        bool_t result;
+        result = (bool_t) false;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_37_t sigmatopdown__reduce_nat__2(mpz_ptr_t ivar_1, mpz_ptr_t ivar_2, sigmatopdown_funtype_38_t ivar_3, sigmatopdown_funtype_39_t ivar_6, sigmatopdown_funtype_41_t ivar_8, sigmatopdown_funtype_41_t ivar_10, sigmatopdown_funtype_39_t ivar_12, sigmatopdown_funtype_39_t ivar_14){
+        sigmatopdown_funtype_37_t result;
+        sigmatopdown_closure_42_t cl21401;
+        cl21401 = new_sigmatopdown_closure_42();
+        cl21401->fvar_1 = (sigmatopdown_funtype_39_t)ivar_12;
+        cl21401->fvar_1->count++;
+        cl21401->fvar_2 = (sigmatopdown_funtype_39_t)ivar_14;
+        cl21401->fvar_2->count++;
+        cl21401->fvar_3 = (sigmatopdown_funtype_41_t)ivar_10;
+        cl21401->fvar_3->count++;
+        cl21401->fvar_4 = (sigmatopdown_funtype_41_t)ivar_8;
+        cl21401->fvar_4->count++;
+        cl21401->fvar_5 = (sigmatopdown_funtype_39_t)ivar_6;
+        cl21401->fvar_5->count++;
+        cl21401->fvar_6 = (sigmatopdown_funtype_38_t)ivar_3;
+        cl21401->fvar_6->count++;
+        mpz_set(cl21401->fvar_7, ivar_2);
+        mpz_set(cl21401->fvar_8, ivar_1);
+        release_sigmatopdown_funtype_39(ivar_12);
+        release_sigmatopdown_funtype_39(ivar_14);
+        release_sigmatopdown_funtype_41(ivar_10);
+        release_sigmatopdown_funtype_41(ivar_8);
+        release_sigmatopdown_funtype_39(ivar_6);
+        release_sigmatopdown_funtype_38(ivar_3);
+        result = (sigmatopdown_funtype_37_t)cl21401;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_37_t sigmatopdown__REDUCE_nat__2(sigmatopdown_funtype_37_t ivar_1, sigmatopdown_funtype_37_t ivar_3, sigmatopdown_funtype_44_t ivar_5, sigmatopdown_funtype_46_t ivar_8, sigmatopdown_funtype_48_t ivar_10, sigmatopdown_funtype_48_t ivar_12, sigmatopdown_funtype_46_t ivar_14, sigmatopdown_funtype_46_t ivar_16){
+        sigmatopdown_funtype_37_t result;
+        sigmatopdown_closure_49_t cl21403;
+        cl21403 = new_sigmatopdown_closure_49();
+        cl21403->fvar_1 = (sigmatopdown_funtype_46_t)ivar_14;
+        cl21403->fvar_1->count++;
+        cl21403->fvar_2 = (sigmatopdown_funtype_46_t)ivar_16;
+        cl21403->fvar_2->count++;
+        cl21403->fvar_3 = (sigmatopdown_funtype_48_t)ivar_12;
+        cl21403->fvar_3->count++;
+        cl21403->fvar_4 = (sigmatopdown_funtype_48_t)ivar_10;
+        cl21403->fvar_4->count++;
+        cl21403->fvar_5 = (sigmatopdown_funtype_46_t)ivar_8;
+        cl21403->fvar_5->count++;
+        cl21403->fvar_6 = (sigmatopdown_funtype_44_t)ivar_5;
+        cl21403->fvar_6->count++;
+        cl21403->fvar_7 = (sigmatopdown_funtype_37_t)ivar_3;
+        cl21403->fvar_7->count++;
+        cl21403->fvar_8 = (sigmatopdown_funtype_37_t)ivar_1;
+        cl21403->fvar_8->count++;
+        release_sigmatopdown_funtype_46(ivar_14);
+        release_sigmatopdown_funtype_46(ivar_16);
+        release_sigmatopdown_funtype_48(ivar_12);
+        release_sigmatopdown_funtype_48(ivar_10);
+        release_sigmatopdown_funtype_46(ivar_8);
+        release_sigmatopdown_funtype_44(ivar_5);
+        release_sigmatopdown_funtype_37(ivar_3);
+        release_sigmatopdown_funtype_37(ivar_1);
+        result = (sigmatopdown_funtype_37_t)cl21403;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_50_t sigmatopdown__reduce_ordinal__2(ordstruct_adt__ordstruct_adt_t ivar_1, ordstruct_adt__ordstruct_adt_t ivar_2, sigmatopdown_funtype_51_t ivar_3, sigmatopdown_funtype_52_t ivar_6, sigmatopdown_funtype_53_t ivar_8, sigmatopdown_funtype_53_t ivar_10, sigmatopdown_funtype_52_t ivar_12, sigmatopdown_funtype_52_t ivar_14){
+        sigmatopdown_funtype_50_t result;
+        sigmatopdown_closure_54_t cl21405;
+        cl21405 = new_sigmatopdown_closure_54();
+        cl21405->fvar_1 = (sigmatopdown_funtype_52_t)ivar_12;
+        cl21405->fvar_1->count++;
+        cl21405->fvar_2 = (sigmatopdown_funtype_52_t)ivar_14;
+        cl21405->fvar_2->count++;
+        cl21405->fvar_3 = (sigmatopdown_funtype_53_t)ivar_10;
+        cl21405->fvar_3->count++;
+        cl21405->fvar_4 = (sigmatopdown_funtype_53_t)ivar_8;
+        cl21405->fvar_4->count++;
+        cl21405->fvar_5 = (sigmatopdown_funtype_52_t)ivar_6;
+        cl21405->fvar_5->count++;
+        cl21405->fvar_6 = (sigmatopdown_funtype_51_t)ivar_3;
+        cl21405->fvar_6->count++;
+        cl21405->fvar_7 = (ordstruct_adt__ordstruct_adt_t)ivar_2;
+        cl21405->fvar_7->count++;
+        cl21405->fvar_8 = (ordstruct_adt__ordstruct_adt_t)ivar_1;
+        cl21405->fvar_8->count++;
+        release_sigmatopdown_funtype_52(ivar_12);
+        release_sigmatopdown_funtype_52(ivar_14);
+        release_sigmatopdown_funtype_53(ivar_10);
+        release_sigmatopdown_funtype_53(ivar_8);
+        release_sigmatopdown_funtype_52(ivar_6);
+        release_sigmatopdown_funtype_51(ivar_3);
+        release_ordstruct_adt__ordstruct_adt(ivar_2);
+        release_ordstruct_adt__ordstruct_adt(ivar_1);
+        result = (sigmatopdown_funtype_50_t)cl21405;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_50_t sigmatopdown__REDUCE_ordinal__2(sigmatopdown_funtype_50_t ivar_1, sigmatopdown_funtype_50_t ivar_3, sigmatopdown_funtype_55_t ivar_5, sigmatopdown_funtype_56_t ivar_8, sigmatopdown_funtype_57_t ivar_10, sigmatopdown_funtype_57_t ivar_12, sigmatopdown_funtype_56_t ivar_14, sigmatopdown_funtype_56_t ivar_16){
+        sigmatopdown_funtype_50_t result;
+        sigmatopdown_closure_58_t cl21407;
+        cl21407 = new_sigmatopdown_closure_58();
+        cl21407->fvar_1 = (sigmatopdown_funtype_56_t)ivar_14;
+        cl21407->fvar_1->count++;
+        cl21407->fvar_2 = (sigmatopdown_funtype_56_t)ivar_16;
+        cl21407->fvar_2->count++;
+        cl21407->fvar_3 = (sigmatopdown_funtype_57_t)ivar_12;
+        cl21407->fvar_3->count++;
+        cl21407->fvar_4 = (sigmatopdown_funtype_57_t)ivar_10;
+        cl21407->fvar_4->count++;
+        cl21407->fvar_5 = (sigmatopdown_funtype_56_t)ivar_8;
+        cl21407->fvar_5->count++;
+        cl21407->fvar_6 = (sigmatopdown_funtype_55_t)ivar_5;
+        cl21407->fvar_6->count++;
+        cl21407->fvar_7 = (sigmatopdown_funtype_50_t)ivar_3;
+        cl21407->fvar_7->count++;
+        cl21407->fvar_8 = (sigmatopdown_funtype_50_t)ivar_1;
+        cl21407->fvar_8->count++;
+        release_sigmatopdown_funtype_56(ivar_14);
+        release_sigmatopdown_funtype_56(ivar_16);
+        release_sigmatopdown_funtype_57(ivar_12);
+        release_sigmatopdown_funtype_57(ivar_10);
+        release_sigmatopdown_funtype_56(ivar_8);
+        release_sigmatopdown_funtype_55(ivar_5);
+        release_sigmatopdown_funtype_50(ivar_3);
+        release_sigmatopdown_funtype_50(ivar_1);
+        result = (sigmatopdown_funtype_50_t)cl21407;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_59_t sigmatopdown__good_good_entryp(uint32_t ivar_1, uint32_t ivar_2){
+        sigmatopdown_funtype_59_t result;
+        sigmatopdown_closure_60_t cl21409;
+        cl21409 = new_sigmatopdown_closure_60();
+        cl21409->fvar_1 = (uint32_t)ivar_2;
+        cl21409->fvar_2 = (uint32_t)ivar_1;
+        result = (sigmatopdown_funtype_59_t)cl21409;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_59_t sigmatopdown__good_push_entryp(uint32_t ivar_1){
+        sigmatopdown_funtype_59_t result;
+        sigmatopdown_closure_61_t cl21410;
+        cl21410 = new_sigmatopdown_closure_61();
+        cl21410->fvar_1 = (uint32_t)ivar_1;
+        result = (sigmatopdown_funtype_59_t)cl21410;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_59_t sigmatopdown__fine_push_entryp(uint32_t ivar_1){
+        sigmatopdown_funtype_59_t result;
+        sigmatopdown_closure_62_t cl21411;
+        cl21411 = new_sigmatopdown_closure_62();
+        cl21411->fvar_1 = (uint32_t)ivar_1;
+        result = (sigmatopdown_funtype_59_t)cl21411;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_59_t sigmatopdown__nice_entryp(uint32_t ivar_1, uint32_t ivar_2){
+        sigmatopdown_funtype_59_t result;
+        sigmatopdown_closure_63_t cl21414;
+        cl21414 = new_sigmatopdown_closure_63();
+        cl21414->fvar_1 = (uint32_t)ivar_1;
+        cl21414->fvar_2 = (uint32_t)ivar_2;
+        result = (sigmatopdown_funtype_59_t)cl21414;
+
+        return result;
+}
+
+extern bool_t sigmatopdown__loop_or_pushp(sigmatopdown__ent_adt_t ivar_1){
+        bool_t result;
+        bool_t ivar_2;
+        ivar_1->count++;
+        ivar_2 = (bool_t)r_sigmatopdown__loopp((sigmatopdown__ent_adt_t)ivar_1);
+        bool_t ivar_3;
+        ivar_3 = (bool_t)r_sigmatopdown__pushp((sigmatopdown__ent_adt_t)ivar_1);
+        result = ivar_2 || ivar_3;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_64_t sigmatopdown__instack(uint32_t ivar_1, sigmatopdown_funtype_66_t ivar_2){
+        sigmatopdown_funtype_64_t result;
+        sigmatopdown_closure_67_t cl21419;
+        cl21419 = new_sigmatopdown_closure_67();
+        cl21419->fvar_1 = (sigmatopdown_funtype_66_t)ivar_2;
+        cl21419->fvar_1->count++;
+        release_sigmatopdown_funtype_66(ivar_2);
+        result = (sigmatopdown_funtype_64_t)cl21419;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_69_t sigmatopdown__successor(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, sigmatopdown_funtype_66_t ivar_3){
+        sigmatopdown_funtype_69_t result;
+        sigmatopdown_closure_71_t cl21425;
+        cl21425 = new_sigmatopdown_closure_71();
+        cl21425->fvar_1 = (sigmatopdown_funtype_66_t)ivar_3;
+        cl21425->fvar_1->count++;
+        cl21425->fvar_2 = (sigmatopdown__lang_spec_t)ivar_2;
+        cl21425->fvar_2->count++;
+        release_sigmatopdown_funtype_66(ivar_3);
+        release_sigmatopdown__lang_spec(ivar_2);
+        result = (sigmatopdown_funtype_69_t)cl21425;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_72_t sigmatopdown__sigma(uint32_t ivar_1, sigmatopdown_funtype_72_t ivar_2){
+        sigmatopdown_funtype_72_t result;
+        sigmatopdown_closure_73_t cl21434;
+        cl21434 = new_sigmatopdown_closure_73();
+        cl21434->fvar_1 = (sigmatopdown_funtype_72_t)ivar_2;
+        cl21434->fvar_1->count++;
+        cl21434->fvar_2 = (uint32_t)ivar_1;
+        release_sigmatopdown_funtype_72(ivar_2);
+        result = (sigmatopdown_funtype_72_t)cl21434;
+
+        return result;
+}
+
+extern uint64_t sigmatopdown__scafcount(uint32_t ivar_1, sigmatopdown_funtype_66_t ivar_2, sigmatopdown_funtype_59_t ivar_5, uint32_t ivar_7){
+        uint64_t result;
+        type_actual_t ivar_45;
+        ivar_45 = (type_actual_t)actual_sigmatopdown__ent_adt();
+        sigmatopdown_funtype_72_t ivar_11;
+        sigmatopdown_funtype_75_t ivar_62;
+        sigmatopdown_closure_76_t cl21444;
+        cl21444 = new_sigmatopdown_closure_76();
+        cl21444->fvar_1 = (type_actual_t)ivar_45;
+        cl21444->fvar_2 = (sigmatopdown_funtype_59_t)ivar_5;
+        cl21444->fvar_2->count++;
+        cl21444->fvar_3 = (sigmatopdown_funtype_66_t)ivar_2;
+        cl21444->fvar_3->count++;
+        release_sigmatopdown_funtype_59(ivar_5);
+        release_sigmatopdown_funtype_66(ivar_2);
+        ivar_62 = (sigmatopdown_funtype_75_t)cl21444;
+        sigmatopdown_funtype_72_t ivar_55;
+        sigmatopdown_closure_79_t cl21445;
+        cl21445 = new_sigmatopdown_closure_79();
+        cl21445->fvar_1 = (sigmatopdown_funtype_75_t)ivar_62;
+        cl21445->fvar_1->count++;
+        release_sigmatopdown_funtype_75(ivar_62);
+        ivar_55 = (sigmatopdown_funtype_72_t)cl21445;
+        sigmatopdown_funtype_72_t ivar_53;
+        ivar_53 = (sigmatopdown_funtype_72_t)sigmatopdown__sigma((uint32_t)ivar_1, (sigmatopdown_funtype_72_t)ivar_55);
+        //copying to sigmatopdown_funtype_72 from sigmatopdown_funtype_72;
+        ivar_11 = (sigmatopdown_funtype_72_t)ivar_53;
+        ivar_11->count++;
+        release_sigmatopdown_funtype_72(ivar_53);
+        mpz_ptr_t ivar_9;
+        ivar_9 = (mpz_ptr_t)ivar_11->ftbl->fptr(ivar_11, ivar_7);
+        ivar_11->ftbl->rptr(ivar_11);
+        //copying to uint64 from mpz;
+        result = (uint64_t)mpz_get_ui(ivar_9);
+        mpz_clear(ivar_9);
+        safe_free(ivar_45);
+
+        return result;
+}
+
+extern uint64_t sigmatopdown__pushcount(uint32_t ivar_1, sigmatopdown_funtype_66_t ivar_2){
+        uint64_t result;
+        sigmatopdown_funtype_66_t ivar_14;
+        sigmatopdown_closure_80_t cl21449;
+        cl21449 = new_sigmatopdown_closure_80();
+        cl21449->fvar_1 = (sigmatopdown_funtype_66_t)ivar_2;
+        cl21449->fvar_1->count++;
+        release_sigmatopdown_funtype_66(ivar_2);
+        ivar_14 = (sigmatopdown_funtype_66_t)cl21449;
+        sigmatopdown_funtype_59_t ivar_17;
+        sigmatopdown_closure_81_t cl21450;
+        cl21450 = new_sigmatopdown_closure_81();
+        ivar_17 = (sigmatopdown_funtype_59_t)cl21450;
+        result = (uint64_t)sigmatopdown__scafcount((uint32_t)ivar_1, (sigmatopdown_funtype_66_t)ivar_14, (sigmatopdown_funtype_59_t)ivar_17, (uint32_t)ivar_1);
+
+        return result;
+}
+
+extern bool_t sigmatopdown__good_or_failp(sigmatopdown__ent_adt_t ivar_1){
+        bool_t result;
+        bool_t ivar_2;
+        ivar_1->count++;
+        ivar_2 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_1);
+        bool_t ivar_3;
+        ivar_3 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_1);
+        result = ivar_2 || ivar_3;
+
+        return result;
+}
+
+extern uint64_t sigmatopdown__gfcount(uint32_t ivar_1, sigmatopdown_funtype_66_t ivar_2){
+        uint64_t result;
+        sigmatopdown_funtype_66_t ivar_15;
+        sigmatopdown_closure_82_t cl21454;
+        cl21454 = new_sigmatopdown_closure_82();
+        cl21454->fvar_1 = (sigmatopdown_funtype_66_t)ivar_2;
+        cl21454->fvar_1->count++;
+        release_sigmatopdown_funtype_66(ivar_2);
+        ivar_15 = (sigmatopdown_funtype_66_t)cl21454;
+        sigmatopdown_funtype_59_t ivar_18;
+        sigmatopdown_closure_83_t cl21455;
+        cl21455 = new_sigmatopdown_closure_83();
+        ivar_18 = (sigmatopdown_funtype_59_t)cl21455;
+        result = (uint64_t)sigmatopdown__scafcount((uint32_t)ivar_1, (sigmatopdown_funtype_66_t)ivar_15, (sigmatopdown_funtype_59_t)ivar_18, (uint32_t)ivar_1);
+
+        return result;
+}
+
+extern sigmatopdown_funtype_84_t sigmatopdown__good_depthp(uint32_t ivar_1, sigmatopdown_funtype_66_t ivar_2){
+        sigmatopdown_funtype_84_t result;
+        sigmatopdown_closure_85_t cl21459;
+        cl21459 = new_sigmatopdown_closure_85();
+        cl21459->fvar_1 = (sigmatopdown_funtype_66_t)ivar_2;
+        cl21459->fvar_1->count++;
+        cl21459->fvar_2 = (uint32_t)ivar_1;
+        release_sigmatopdown_funtype_66(ivar_2);
+        result = (sigmatopdown_funtype_84_t)cl21459;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_59_t sigmatopdown__good_stackp(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, uint64_t ivar_3, sigmatopdown_funtype_66_t ivar_4){
+        sigmatopdown_funtype_59_t result;
+        sigmatopdown_closure_87_t cl21466;
+        cl21466 = new_sigmatopdown_closure_87();
+        cl21466->fvar_1 = (sigmatopdown__lang_spec_t)ivar_2;
+        cl21466->fvar_1->count++;
+        cl21466->fvar_2 = (uint32_t)ivar_1;
+        cl21466->fvar_3 = (sigmatopdown_funtype_66_t)ivar_4;
+        cl21466->fvar_3->count++;
+        cl21466->fvar_4 = (uint64_t)ivar_3;
+        release_sigmatopdown_funtype_66(ivar_4);
+        release_sigmatopdown__lang_spec(ivar_2);
+        result = (sigmatopdown_funtype_59_t)cl21466;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_69_t sigmatopdown__mem_stackp(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, uint64_t ivar_3, sigmatopdown_funtype_66_t ivar_4){
+        sigmatopdown_funtype_69_t result;
+        sigmatopdown_closure_90_t cl21471;
+        cl21471 = new_sigmatopdown_closure_90();
+        cl21471->fvar_1 = (sigmatopdown__lang_spec_t)ivar_2;
+        cl21471->fvar_1->count++;
+        cl21471->fvar_2 = (uint32_t)ivar_1;
+        cl21471->fvar_3 = (sigmatopdown_funtype_66_t)ivar_4;
+        cl21471->fvar_3->count++;
+        cl21471->fvar_4 = (uint64_t)ivar_3;
+        release_sigmatopdown_funtype_66(ivar_4);
+        release_sigmatopdown__lang_spec(ivar_2);
+        result = (sigmatopdown_funtype_69_t)cl21471;
+
+        return result;
+}
+
+extern bool_t sigmatopdown__push_or_pendingp(sigmatopdown__ent_adt_t ivar_1){
+        bool_t result;
+        bool_t ivar_2;
+        ivar_1->count++;
+        ivar_2 = (bool_t)r_sigmatopdown__pushp((sigmatopdown__ent_adt_t)ivar_1);
+        bool_t ivar_3;
+        ivar_3 = (bool_t)r_sigmatopdown__pendingp((sigmatopdown__ent_adt_t)ivar_1);
+        result = ivar_2 || ivar_3;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_59_t sigmatopdown__fine_stackp(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, uint64_t ivar_3, sigmatopdown_funtype_66_t ivar_4){
+        sigmatopdown_funtype_59_t result;
+        sigmatopdown_closure_92_t cl21479;
+        cl21479 = new_sigmatopdown_closure_92();
+        cl21479->fvar_1 = (sigmatopdown__lang_spec_t)ivar_2;
+        cl21479->fvar_1->count++;
+        cl21479->fvar_2 = (uint32_t)ivar_1;
+        cl21479->fvar_3 = (sigmatopdown_funtype_66_t)ivar_4;
+        cl21479->fvar_3->count++;
+        cl21479->fvar_4 = (uint64_t)ivar_3;
+        release_sigmatopdown_funtype_66(ivar_4);
+        release_sigmatopdown__lang_spec(ivar_2);
+        result = (sigmatopdown_funtype_59_t)cl21479;
+
+        return result;
+}
+
+extern bool_t sigmatopdown__loop_readyp(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, sigmatopdown_funtype_66_t ivar_3, uint32_t ivar_6, uint8_t ivar_7){
+        bool_t result;
+        sigmatopdown__peg_adt_t ivar_8;
+        sigmatopdown__peg_adt_t ivar_10;
+        ivar_10 = (sigmatopdown__peg_adt_t)ivar_2->ftbl->fptr(ivar_2, ivar_7);
+        ivar_2->ftbl->rptr(ivar_2);
+        //copying to sigmatopdown__peg_adt from sigmatopdown__peg_adt;
+        ivar_8 = (sigmatopdown__peg_adt_t)ivar_10;
+        ivar_8->count++;
+        release_sigmatopdown__peg_adt(ivar_10);
+        bool_t ivar_91;
+        ivar_8->count++;
+        ivar_91 = (bool_t)r_sigmatopdown__concatp((sigmatopdown__peg_adt_t)ivar_8);
+        if (ivar_91){ 
+             uint8_t ivar_13;
+             ivar_8->count++;
+             ivar_13 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_8);
+             uint8_t ivar_14;
+             ivar_14 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_8);
+             bool_t ivar_21;
+             sigmatopdown__ent_adt_t ivar_37;
+             sigmatopdown_funtype_65_t ivar_27;
+             sigmatopdown_funtype_66_t ivar_33;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_33 = (sigmatopdown_funtype_66_t)ivar_3;
+             ivar_33->count++;
+             uint32_t ivar_34;
+             //copying to uint32 from uint32;
+             ivar_34 = (uint32_t)ivar_6;
+             sigmatopdown_funtype_65_t ivar_30;
+             ivar_30 = (sigmatopdown_funtype_65_t)ivar_33->ftbl->fptr(ivar_33, ivar_34);
+             ivar_33->ftbl->rptr(ivar_33);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_27 = (sigmatopdown_funtype_65_t)ivar_30;
+             ivar_27->count++;
+             release_sigmatopdown_funtype_65(ivar_30);
+             sigmatopdown__ent_adt_t ivar_25;
+             ivar_25 = (sigmatopdown__ent_adt_t)ivar_27->ftbl->fptr(ivar_27, ivar_13);
+             ivar_27->ftbl->rptr(ivar_27);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_37 = (sigmatopdown__ent_adt_t)ivar_25;
+             ivar_37->count++;
+             release_sigmatopdown__ent_adt(ivar_25);
+             ivar_21 = (bool_t)sigmatopdown__loop_or_pushp((sigmatopdown__ent_adt_t)ivar_37);
+             bool_t ivar_22;
+             bool_t ivar_38;
+             sigmatopdown__ent_adt_t ivar_54;
+             sigmatopdown_funtype_65_t ivar_44;
+             sigmatopdown_funtype_66_t ivar_50;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_50 = (sigmatopdown_funtype_66_t)ivar_3;
+             ivar_50->count++;
+             uint32_t ivar_51;
+             //copying to uint32 from uint32;
+             ivar_51 = (uint32_t)ivar_6;
+             sigmatopdown_funtype_65_t ivar_47;
+             ivar_47 = (sigmatopdown_funtype_65_t)ivar_50->ftbl->fptr(ivar_50, ivar_51);
+             ivar_50->ftbl->rptr(ivar_50);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_44 = (sigmatopdown_funtype_65_t)ivar_47;
+             ivar_44->count++;
+             release_sigmatopdown_funtype_65(ivar_47);
+             sigmatopdown__ent_adt_t ivar_42;
+             ivar_42 = (sigmatopdown__ent_adt_t)ivar_44->ftbl->fptr(ivar_44, ivar_13);
+             ivar_44->ftbl->rptr(ivar_44);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_54 = (sigmatopdown__ent_adt_t)ivar_42;
+             ivar_54->count++;
+             release_sigmatopdown__ent_adt(ivar_42);
+             ivar_38 = (bool_t)r_sigmatopdown__goodp((sigmatopdown__ent_adt_t)ivar_54);
+             bool_t ivar_39;
+             sigmatopdown__ent_adt_t ivar_88;
+             sigmatopdown_funtype_65_t ivar_59;
+             sigmatopdown_funtype_66_t ivar_83;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_83 = (sigmatopdown_funtype_66_t)ivar_3;
+             ivar_83->count++;
+             uint64_t ivar_85;
+             uint32_t ivar_63;
+             sigmatopdown__ent_adt_t ivar_78;
+             sigmatopdown_funtype_65_t ivar_68;
+             sigmatopdown_funtype_66_t ivar_74;
+             //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+             ivar_74 = (sigmatopdown_funtype_66_t)ivar_3;
+             ivar_74->count++;
+             release_sigmatopdown_funtype_66(ivar_3);
+             uint32_t ivar_75;
+             //copying to uint32 from uint32;
+             ivar_75 = (uint32_t)ivar_6;
+             sigmatopdown_funtype_65_t ivar_71;
+             ivar_71 = (sigmatopdown_funtype_65_t)ivar_74->ftbl->fptr(ivar_74, ivar_75);
+             ivar_74->ftbl->rptr(ivar_74);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_68 = (sigmatopdown_funtype_65_t)ivar_71;
+             ivar_68->count++;
+             release_sigmatopdown_funtype_65(ivar_71);
+             sigmatopdown__ent_adt_t ivar_66;
+             ivar_66 = (sigmatopdown__ent_adt_t)ivar_68->ftbl->fptr(ivar_68, ivar_13);
+             ivar_68->ftbl->rptr(ivar_68);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_78 = (sigmatopdown__ent_adt_t)ivar_66;
+             ivar_78->count++;
+             release_sigmatopdown__ent_adt(ivar_66);
+             ivar_63 = (uint32_t)sigmatopdown__ent_adt_span((sigmatopdown__ent_adt_t)ivar_78);
+             ivar_85 = (uint64_t)(ivar_6 + ivar_63);
+             uint32_t ivar_84;
+             //copying to uint32 from uint64;
+             ivar_84 = (uint32_t)ivar_85;
+             sigmatopdown_funtype_65_t ivar_80;
+             ivar_80 = (sigmatopdown_funtype_65_t)ivar_83->ftbl->fptr(ivar_83, ivar_84);
+             ivar_83->ftbl->rptr(ivar_83);
+             //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+             ivar_59 = (sigmatopdown_funtype_65_t)ivar_80;
+             ivar_59->count++;
+             release_sigmatopdown_funtype_65(ivar_80);
+             sigmatopdown__ent_adt_t ivar_57;
+             ivar_57 = (sigmatopdown__ent_adt_t)ivar_59->ftbl->fptr(ivar_59, ivar_14);
+             ivar_59->ftbl->rptr(ivar_59);
+             //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+             ivar_88 = (sigmatopdown__ent_adt_t)ivar_57;
+             ivar_88->count++;
+             release_sigmatopdown__ent_adt(ivar_57);
+             ivar_39 = (bool_t)sigmatopdown__loop_or_pushp((sigmatopdown__ent_adt_t)ivar_88);
+             ivar_22 = ivar_38 && ivar_39;
+             result = ivar_21 || ivar_22;
+} else {
+        
+             bool_t ivar_154;
+             ivar_8->count++;
+             ivar_154 = (bool_t)r_sigmatopdown__orp((sigmatopdown__peg_adt_t)ivar_8);
+             if (ivar_154){  
+           uint8_t ivar_95;
+           ivar_8->count++;
+           ivar_95 = (uint8_t)sigmatopdown__peg_adt_e1((sigmatopdown__peg_adt_t)ivar_8);
+           uint8_t ivar_96;
+           ivar_96 = (uint8_t)sigmatopdown__peg_adt_e2((sigmatopdown__peg_adt_t)ivar_8);
+           bool_t ivar_103;
+           sigmatopdown__ent_adt_t ivar_119;
+           sigmatopdown_funtype_65_t ivar_109;
+           sigmatopdown_funtype_66_t ivar_115;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_115 = (sigmatopdown_funtype_66_t)ivar_3;
+           ivar_115->count++;
+           uint32_t ivar_116;
+           //copying to uint32 from uint32;
+           ivar_116 = (uint32_t)ivar_6;
+           sigmatopdown_funtype_65_t ivar_112;
+           ivar_112 = (sigmatopdown_funtype_65_t)ivar_115->ftbl->fptr(ivar_115, ivar_116);
+           ivar_115->ftbl->rptr(ivar_115);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_109 = (sigmatopdown_funtype_65_t)ivar_112;
+           ivar_109->count++;
+           release_sigmatopdown_funtype_65(ivar_112);
+           sigmatopdown__ent_adt_t ivar_107;
+           ivar_107 = (sigmatopdown__ent_adt_t)ivar_109->ftbl->fptr(ivar_109, ivar_95);
+           ivar_109->ftbl->rptr(ivar_109);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_119 = (sigmatopdown__ent_adt_t)ivar_107;
+           ivar_119->count++;
+           release_sigmatopdown__ent_adt(ivar_107);
+           ivar_103 = (bool_t)sigmatopdown__loop_or_pushp((sigmatopdown__ent_adt_t)ivar_119);
+           bool_t ivar_104;
+           bool_t ivar_120;
+           sigmatopdown__ent_adt_t ivar_136;
+           sigmatopdown_funtype_65_t ivar_126;
+           sigmatopdown_funtype_66_t ivar_132;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_132 = (sigmatopdown_funtype_66_t)ivar_3;
+           ivar_132->count++;
+           uint32_t ivar_133;
+           //copying to uint32 from uint32;
+           ivar_133 = (uint32_t)ivar_6;
+           sigmatopdown_funtype_65_t ivar_129;
+           ivar_129 = (sigmatopdown_funtype_65_t)ivar_132->ftbl->fptr(ivar_132, ivar_133);
+           ivar_132->ftbl->rptr(ivar_132);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_126 = (sigmatopdown_funtype_65_t)ivar_129;
+           ivar_126->count++;
+           release_sigmatopdown_funtype_65(ivar_129);
+           sigmatopdown__ent_adt_t ivar_124;
+           ivar_124 = (sigmatopdown__ent_adt_t)ivar_126->ftbl->fptr(ivar_126, ivar_95);
+           ivar_126->ftbl->rptr(ivar_126);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_136 = (sigmatopdown__ent_adt_t)ivar_124;
+           ivar_136->count++;
+           release_sigmatopdown__ent_adt(ivar_124);
+           ivar_120 = (bool_t)r_sigmatopdown__failp((sigmatopdown__ent_adt_t)ivar_136);
+           bool_t ivar_121;
+           sigmatopdown__ent_adt_t ivar_151;
+           sigmatopdown_funtype_65_t ivar_141;
+           sigmatopdown_funtype_66_t ivar_147;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_147 = (sigmatopdown_funtype_66_t)ivar_3;
+           ivar_147->count++;
+           release_sigmatopdown_funtype_66(ivar_3);
+           uint32_t ivar_148;
+           //copying to uint32 from uint32;
+           ivar_148 = (uint32_t)ivar_6;
+           sigmatopdown_funtype_65_t ivar_144;
+           ivar_144 = (sigmatopdown_funtype_65_t)ivar_147->ftbl->fptr(ivar_147, ivar_148);
+           ivar_147->ftbl->rptr(ivar_147);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_141 = (sigmatopdown_funtype_65_t)ivar_144;
+           ivar_141->count++;
+           release_sigmatopdown_funtype_65(ivar_144);
+           sigmatopdown__ent_adt_t ivar_139;
+           ivar_139 = (sigmatopdown__ent_adt_t)ivar_141->ftbl->fptr(ivar_141, ivar_96);
+           ivar_141->ftbl->rptr(ivar_141);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_151 = (sigmatopdown__ent_adt_t)ivar_139;
+           ivar_151->count++;
+           release_sigmatopdown__ent_adt(ivar_139);
+           ivar_121 = (bool_t)sigmatopdown__loop_or_pushp((sigmatopdown__ent_adt_t)ivar_151);
+           ivar_104 = ivar_120 && ivar_121;
+           result = ivar_103 || ivar_104;
+} else {
+             
+           bool_t ivar_177;
+           ivar_8->count++;
+           ivar_177 = (bool_t)r_sigmatopdown__andp((sigmatopdown__peg_adt_t)ivar_8);
+           if (ivar_177){   
+           uint8_t ivar_158;
+           ivar_158 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_8);
+           sigmatopdown__ent_adt_t ivar_176;
+           sigmatopdown_funtype_65_t ivar_166;
+           sigmatopdown_funtype_66_t ivar_172;
+           //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+           ivar_172 = (sigmatopdown_funtype_66_t)ivar_3;
+           ivar_172->count++;
+           release_sigmatopdown_funtype_66(ivar_3);
+           uint32_t ivar_173;
+           //copying to uint32 from uint32;
+           ivar_173 = (uint32_t)ivar_6;
+           sigmatopdown_funtype_65_t ivar_169;
+           ivar_169 = (sigmatopdown_funtype_65_t)ivar_172->ftbl->fptr(ivar_172, ivar_173);
+           ivar_172->ftbl->rptr(ivar_172);
+           //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+           ivar_166 = (sigmatopdown_funtype_65_t)ivar_169;
+           ivar_166->count++;
+           release_sigmatopdown_funtype_65(ivar_169);
+           sigmatopdown__ent_adt_t ivar_164;
+           ivar_164 = (sigmatopdown__ent_adt_t)ivar_166->ftbl->fptr(ivar_166, ivar_158);
+           ivar_166->ftbl->rptr(ivar_166);
+           //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+           ivar_176 = (sigmatopdown__ent_adt_t)ivar_164;
+           ivar_176->count++;
+           release_sigmatopdown__ent_adt(ivar_164);
+           result = (bool_t)sigmatopdown__loop_or_pushp((sigmatopdown__ent_adt_t)ivar_176);
+} else {
+           
+           bool_t ivar_200;
+           ivar_8->count++;
+           ivar_200 = (bool_t)r_sigmatopdown__notp((sigmatopdown__peg_adt_t)ivar_8);
+           if (ivar_200){    
+            uint8_t ivar_181;
+            ivar_181 = (uint8_t)sigmatopdown__peg_adt_e((sigmatopdown__peg_adt_t)ivar_8);
+            sigmatopdown__ent_adt_t ivar_199;
+            sigmatopdown_funtype_65_t ivar_189;
+            sigmatopdown_funtype_66_t ivar_195;
+            //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+            ivar_195 = (sigmatopdown_funtype_66_t)ivar_3;
+            ivar_195->count++;
+            release_sigmatopdown_funtype_66(ivar_3);
+            uint32_t ivar_196;
+            //copying to uint32 from uint32;
+            ivar_196 = (uint32_t)ivar_6;
+            sigmatopdown_funtype_65_t ivar_192;
+            ivar_192 = (sigmatopdown_funtype_65_t)ivar_195->ftbl->fptr(ivar_195, ivar_196);
+            ivar_195->ftbl->rptr(ivar_195);
+            //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+            ivar_189 = (sigmatopdown_funtype_65_t)ivar_192;
+            ivar_189->count++;
+            release_sigmatopdown_funtype_65(ivar_192);
+            sigmatopdown__ent_adt_t ivar_187;
+            ivar_187 = (sigmatopdown__ent_adt_t)ivar_189->ftbl->fptr(ivar_189, ivar_181);
+            ivar_189->ftbl->rptr(ivar_189);
+            //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+            ivar_199 = (sigmatopdown__ent_adt_t)ivar_187;
+            ivar_199->count++;
+            release_sigmatopdown__ent_adt(ivar_187);
+            result = (bool_t)sigmatopdown__loop_or_pushp((sigmatopdown__ent_adt_t)ivar_199);
+} else {
+           
+            release_sigmatopdown__peg_adt(ivar_8);
+            release_sigmatopdown_funtype_66(ivar_3);
+            result = (bool_t) false;
+};
+};
+};
+};
+
+        return result;
+}
+
+extern sigmatopdown_funtype_96_t sigmatopdown__good_failp(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, sigmatopdown_funtype_75_t ivar_3){
+        sigmatopdown_funtype_96_t result;
+        sigmatopdown_closure_97_t cl21521;
+        cl21521 = new_sigmatopdown_closure_97();
+        cl21521->fvar_1 = (sigmatopdown_funtype_75_t)ivar_3;
+        cl21521->fvar_1->count++;
+        cl21521->fvar_2 = (uint32_t)ivar_1;
+        cl21521->fvar_3 = (sigmatopdown__lang_spec_t)ivar_2;
+        cl21521->fvar_3->count++;
+        release_sigmatopdown_funtype_75(ivar_3);
+        release_sigmatopdown__lang_spec(ivar_2);
+        result = (sigmatopdown_funtype_96_t)cl21521;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_99_t sigmatopdown__good_loopp(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2){
+        sigmatopdown_funtype_99_t result;
+        sigmatopdown_closure_100_t cl21536;
+        cl21536 = new_sigmatopdown_closure_100();
+        cl21536->fvar_1 = (sigmatopdown__lang_spec_t)ivar_2;
+        cl21536->fvar_1->count++;
+        release_sigmatopdown__lang_spec(ivar_2);
+        result = (sigmatopdown_funtype_99_t)cl21536;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_102_t sigmatopdown__good_goodp(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, sigmatopdown_funtype_75_t ivar_3){
+        sigmatopdown_funtype_102_t result;
+        sigmatopdown_closure_103_t cl21575;
+        cl21575 = new_sigmatopdown_closure_103();
+        cl21575->fvar_1 = (sigmatopdown_funtype_75_t)ivar_3;
+        cl21575->fvar_1->count++;
+        cl21575->fvar_2 = (sigmatopdown__lang_spec_t)ivar_2;
+        cl21575->fvar_2->count++;
+        release_sigmatopdown_funtype_75(ivar_3);
+        release_sigmatopdown__lang_spec(ivar_2);
+        result = (sigmatopdown_funtype_102_t)cl21575;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_105_t sigmatopdown__good_entryp(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, sigmatopdown_funtype_75_t ivar_3){
+        sigmatopdown_funtype_105_t result;
+        sigmatopdown_closure_106_t cl21601;
+        cl21601 = new_sigmatopdown_closure_106();
+        cl21601->fvar_1 = (uint32_t)ivar_1;
+        cl21601->fvar_2 = (sigmatopdown_funtype_75_t)ivar_3;
+        cl21601->fvar_2->count++;
+        cl21601->fvar_3 = (sigmatopdown__lang_spec_t)ivar_2;
+        cl21601->fvar_3->count++;
+        release_sigmatopdown__lang_spec(ivar_2);
+        release_sigmatopdown_funtype_75(ivar_3);
+        result = (sigmatopdown_funtype_105_t)cl21601;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_105_t sigmatopdown__fine_entryp(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, sigmatopdown_funtype_75_t ivar_3){
+        sigmatopdown_funtype_105_t result;
+        sigmatopdown_closure_110_t cl21628;
+        cl21628 = new_sigmatopdown_closure_110();
+        cl21628->fvar_1 = (uint32_t)ivar_1;
+        cl21628->fvar_2 = (sigmatopdown_funtype_75_t)ivar_3;
+        cl21628->fvar_2->count++;
+        cl21628->fvar_3 = (sigmatopdown__lang_spec_t)ivar_2;
+        cl21628->fvar_3->count++;
+        release_sigmatopdown__lang_spec(ivar_2);
+        release_sigmatopdown_funtype_75(ivar_3);
+        result = (sigmatopdown_funtype_105_t)cl21628;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_114_t sigmatopdown__good_tscaffoldp(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, sigmatopdown_funtype_75_t ivar_3){
+        sigmatopdown_funtype_114_t result;
+        sigmatopdown_closure_115_t cl21632;
+        cl21632 = new_sigmatopdown_closure_115();
+        result = (sigmatopdown_funtype_114_t)cl21632;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_64_t sigmatopdown__good_rootp(uint32_t ivar_1, sigmatopdown_funtype_66_t ivar_2){
+        sigmatopdown_funtype_64_t result;
+        sigmatopdown_closure_116_t cl21637;
+        cl21637 = new_sigmatopdown_closure_116();
+        cl21637->fvar_1 = (sigmatopdown_funtype_66_t)ivar_2;
+        cl21637->fvar_1->count++;
+        release_sigmatopdown_funtype_66(ivar_2);
+        result = (sigmatopdown_funtype_64_t)cl21637;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_117_t sigmatopdown__fine_scaffoldp(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, sigmatopdown_funtype_75_t ivar_3){
+        sigmatopdown_funtype_117_t result;
+        sigmatopdown_closure_118_t cl21653;
+        cl21653 = new_sigmatopdown_closure_118();
+        cl21653->fvar_1 = (sigmatopdown__lang_spec_t)ivar_2;
+        cl21653->fvar_1->count++;
+        cl21653->fvar_2 = (sigmatopdown_funtype_75_t)ivar_3;
+        cl21653->fvar_2->count++;
+        cl21653->fvar_3 = (uint32_t)ivar_1;
+        release_sigmatopdown_funtype_75(ivar_3);
+        release_sigmatopdown__lang_spec(ivar_2);
+        result = (sigmatopdown_funtype_117_t)cl21653;
+
+        return result;
+}
+
+extern bool_t sigmatopdown__emptyp(sigmatopdown__ent_adt_t ivar_1){
+        bool_t result;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)sigmatopdown__ent_adt_nt((sigmatopdown__ent_adt_t)ivar_1);
+        uint8_t ivar_3;
+        ivar_3 = (uint8_t)sigmatopdown__num_non_terminals();
+        result = (ivar_2 == ivar_3);
+
+        return result;
+}
+
+extern sigmatopdown_funtype_123_t sigmatopdown__step(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, sigmatopdown_funtype_75_t ivar_3, uint32_t ivar_5, uint8_t ivar_6){
+        sigmatopdown_funtype_123_t result;
+        sigmatopdown_closure_124_t cl21713;
+        cl21713 = new_sigmatopdown_closure_124();
+        cl21713->fvar_1 = (uint32_t)ivar_1;
+        cl21713->fvar_2 = (sigmatopdown_funtype_75_t)ivar_3;
+        cl21713->fvar_2->count++;
+        cl21713->fvar_3 = (sigmatopdown__lang_spec_t)ivar_2;
+        cl21713->fvar_3->count++;
+        release_sigmatopdown_funtype_75(ivar_3);
+        release_sigmatopdown__lang_spec(ivar_2);
+        result = (sigmatopdown_funtype_123_t)cl21713;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_126_t sigmatopdown__size(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, sigmatopdown_funtype_75_t ivar_3, uint32_t ivar_5, uint8_t ivar_6){
+        sigmatopdown_funtype_126_t result;
+        sigmatopdown_closure_127_t cl21725;
+        cl21725 = new_sigmatopdown_closure_127();
+        cl21725->fvar_1 = (uint32_t)ivar_1;
+        result = (sigmatopdown_funtype_126_t)cl21725;
+
+        return result;
+}
+
+extern sigmatopdown_funtype_123_t sigmatopdown__parse(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, sigmatopdown_funtype_75_t ivar_3, uint32_t ivar_5, uint8_t ivar_6){
+        sigmatopdown_funtype_123_t result;
+        sigmatopdown_closure_130_t cl21748;
+        cl21748 = new_sigmatopdown_closure_130();
+        cl21748->fvar_1 = (uint32_t)ivar_5;
+        cl21748->fvar_2 = (uint8_t)ivar_6;
+        cl21748->fvar_3 = (sigmatopdown_funtype_75_t)ivar_3;
+        cl21748->fvar_3->count++;
+        cl21748->fvar_4 = (sigmatopdown__lang_spec_t)ivar_2;
+        cl21748->fvar_4->count++;
+        cl21748->fvar_5 = (uint32_t)ivar_1;
+        release_sigmatopdown_funtype_75(ivar_3);
+        release_sigmatopdown__lang_spec(ivar_2);
+        result = (sigmatopdown_funtype_123_t)cl21748;
+
+        return result;
+}
+
+extern sigmatopdown__ent_adt_t sigmatopdown__doparse(uint32_t ivar_1, sigmatopdown__lang_spec_t ivar_2, sigmatopdown_funtype_75_t ivar_3, uint8_t ivar_5){
+        sigmatopdown__ent_adt_t result;
+        /* pend */ sigmatopdown_funtype_65_t ivar_6;
+        sigmatopdown_closure_131_t cl21765;
+        cl21765 = new_sigmatopdown_closure_131();
+        ivar_6 = (sigmatopdown_funtype_65_t)cl21765;
+        sigmatopdown_record_132_t ivar_125;
+        uint8_t ivar_23;
+        ivar_23 = (uint8_t)1;
+        bool_t ivar_24;
+        ivar_24 = (bool_t) false;
+        sigmatopdown_funtype_66_t ivar_50;
+        sigmatopdown__ent_adt_t ivar_32;
+        uint32_t ivar_36;
+        ivar_36 = (uint32_t)0;
+        uint8_t ivar_37;
+        ivar_37 = (uint8_t)sigmatopdown__num_non_terminals();
+        sigmatopdown__ent_adt_t ivar_35;
+        ivar_35 = (sigmatopdown__ent_adt_t)sigmatopdown__push((uint32_t)ivar_36, (uint8_t)ivar_37);
+        //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+        ivar_32 = (sigmatopdown__ent_adt_t)ivar_35;
+        ivar_32->count++;
+        release_sigmatopdown__ent_adt(ivar_35);
+        sigmatopdown_funtype_66_t ivar_38;
+        sigmatopdown_closure_133_t cl21766;
+        cl21766 = new_sigmatopdown_closure_133();
+        cl21766->fvar_1 = (sigmatopdown_funtype_65_t)ivar_6;
+        cl21766->fvar_1->count++;
+        release_sigmatopdown_funtype_65(ivar_6);
+        ivar_38 = (sigmatopdown_funtype_66_t)cl21766;
+        sigmatopdown_funtype_66_t ivar_49;
+        uint32_t ivar_45;
+        ivar_45 = (uint32_t)0;
+        sigmatopdown_funtype_65_t ivar_39;
+        ivar_39 = (sigmatopdown_funtype_65_t)ivar_38->ftbl->fptr(ivar_38, ivar_45);
+        sigmatopdown_funtype_66_t ivar_46;
+        sigmatopdown_funtype_65_t ivar_48;
+        ivar_48 = NULL;
+        ivar_46 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_38, ivar_45, ivar_48);
+        if (ivar_48 != NULL) ivar_48->count--;
+        sigmatopdown_funtype_65_t ivar_47;
+        sigmatopdown_funtype_65_t ivar_42;
+        sigmatopdown__ent_adt_t ivar_44;
+        ivar_44 = NULL;
+        ivar_42 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_39, ivar_5, ivar_44);
+        if (ivar_44 != NULL) ivar_44->count--;
+        ivar_47 = (sigmatopdown_funtype_65_t)update_sigmatopdown_funtype_65(ivar_42, ivar_5, ivar_32);
+        if (ivar_32 != NULL) ivar_32->count--;
+        ivar_49 = (sigmatopdown_funtype_66_t)update_sigmatopdown_funtype_66(ivar_46, ivar_45, ivar_47);
+        if (ivar_47 != NULL) ivar_47->count--;
+        //copying to sigmatopdown_funtype_66 from sigmatopdown_funtype_66;
+        ivar_50 = (sigmatopdown_funtype_66_t)ivar_49;
+        ivar_50->count++;
+        release_sigmatopdown_funtype_66(ivar_49);
+        sigmatopdown__ent_adt_t ivar_56;
+        uint32_t ivar_54;
+        ivar_54 = (uint32_t)0;
+        sigmatopdown__ent_adt_t ivar_53;
+        ivar_53 = (sigmatopdown__ent_adt_t)sigmatopdown__push((uint32_t)ivar_54, (uint8_t)ivar_5);
+        //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+        ivar_56 = (sigmatopdown__ent_adt_t)ivar_53;
+        ivar_56->count++;
+        release_sigmatopdown__ent_adt(ivar_53);
+        ivar_125 = (sigmatopdown_record_132_t)new_sigmatopdown_record_132();;
+        ivar_125->depth = (uint8_t)ivar_23;
+        ivar_125->lflag = (bool_t)ivar_24;
+        ivar_125->scaf = (sigmatopdown_funtype_66_t)ivar_50;
+        ivar_125->stack = (sigmatopdown__ent_adt_t)ivar_56;
+        /* St */ sigmatopdown_record_122_t ivar_10;
+        //copying to sigmatopdown_record_122 from sigmatopdown_record_132;
+        ivar_10 = new_sigmatopdown_record_122();
+        ivar_10->scaf = (sigmatopdown_funtype_66_t)ivar_125->scaf;
+        ivar_10->scaf->count++;
+        ivar_10->depth = (uint64_t)ivar_125->depth;
+        ivar_10->stack = (sigmatopdown__ent_adt_t)ivar_125->stack;
+        ivar_10->stack->count++;
+        ivar_10->lflag = (bool_t)ivar_125->lflag;
+        release_sigmatopdown_record_132(ivar_125);
+        sigmatopdown_funtype_65_t ivar_60;
+        sigmatopdown_funtype_66_t ivar_66;
+        sigmatopdown_record_122_t ivar_115;
+        sigmatopdown_funtype_123_t ivar_88;
+        uint32_t ivar_112;
+        ivar_112 = (uint32_t)0;
+        sigmatopdown_funtype_123_t ivar_107;
+        ivar_107 = (sigmatopdown_funtype_123_t)sigmatopdown__parse((uint32_t)ivar_1, (sigmatopdown__lang_spec_t)ivar_2, (sigmatopdown_funtype_75_t)ivar_3, (uint32_t)ivar_112, (uint8_t)ivar_5);
+        //copying to sigmatopdown_funtype_123 from sigmatopdown_funtype_123;
+        ivar_88 = (sigmatopdown_funtype_123_t)ivar_107;
+        ivar_88->count++;
+        release_sigmatopdown_funtype_123(ivar_107);
+        sigmatopdown_record_122_t ivar_114;
+        //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+        ivar_114 = (sigmatopdown_record_122_t)ivar_10;
+        ivar_114->count++;
+        release_sigmatopdown_record_122(ivar_10);
+        sigmatopdown_record_122_t ivar_74;
+        ivar_74 = (sigmatopdown_record_122_t)ivar_88->ftbl->fptr(ivar_88, ivar_114);
+        ivar_88->ftbl->rptr(ivar_88);
+        //copying to sigmatopdown_record_122 from sigmatopdown_record_122;
+        ivar_115 = (sigmatopdown_record_122_t)ivar_74;
+        ivar_115->count++;
+        release_sigmatopdown_record_122(ivar_74);
+        ivar_66 = (sigmatopdown_funtype_66_t)ivar_115->scaf;
+        ivar_66->count++;
+        release_sigmatopdown_record_122(ivar_115);
+        uint8_t ivar_123;
+        ivar_123 = (uint8_t)0;
+        uint32_t ivar_122;
+        //copying to uint32 from uint8;
+        ivar_122 = (uint32_t)ivar_123;
+        sigmatopdown_funtype_65_t ivar_63;
+        ivar_63 = (sigmatopdown_funtype_65_t)ivar_66->ftbl->fptr(ivar_66, ivar_122);
+        ivar_66->ftbl->rptr(ivar_66);
+        //copying to sigmatopdown_funtype_65 from sigmatopdown_funtype_65;
+        ivar_60 = (sigmatopdown_funtype_65_t)ivar_63;
+        ivar_60->count++;
+        release_sigmatopdown_funtype_65(ivar_63);
+        sigmatopdown__ent_adt_t ivar_58;
+        ivar_58 = (sigmatopdown__ent_adt_t)ivar_60->ftbl->fptr(ivar_60, ivar_5);
+        ivar_60->ftbl->rptr(ivar_60);
+        //copying to sigmatopdown__ent_adt from sigmatopdown__ent_adt;
+        result = (sigmatopdown__ent_adt_t)ivar_58;
+        result->count++;
+        release_sigmatopdown__ent_adt(ivar_58);
+
+        return result;
+}

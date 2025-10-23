@@ -1,0 +1,32 @@
+; While compiling #'_equalUpto at top level:
+Warning: Variable j is never used.
+Warning: Variable Y is never used.
+; While compiling #'equalUpto! at top level:
+Warning: Variable j is never used.
+Warning: Variable Y is never used.
+; While compiling #'(:internal equalUpto 0) at top level:
+Warning: Variable Y is never used.
+; While compiling #'_padMessage at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable l is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'padMessage! at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable l is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.
+; While compiling #'(:internal padMessage 0) at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable l is never used.
+Warning: While compiling these undefined functions were referenced:
+         make-pvslist-string.

@@ -1,0 +1,451 @@
+pypvs.c: In function ‘py_KDF__KDF1’:
+pypvs.c:47:14: warning: implicit declaration of function ‘PyArgs_ParseTuple’; did you mean ‘PyArg_ParseTuple’? [-Wimplicit-function-declaration]
+         if (!PyArgs_ParseTuple(args, "y#y#y#", &args1, &args2, &args3, &args1_len, &args2_len, &args3_len)){
+              ^~~~~~~~~~~~~~~~~
+              PyArg_ParseTuple
+pypvs.c:54:83: error: ‘bs_args1’ undeclared (first use in this function); did you mean ‘bsargs1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF1(bs_args1, bs_args2, bs_args3)
+                                                                                   ^~~~~~~~
+                                                                                   bsargs1
+pypvs.c:54:83: note: each undeclared identifier is reported only once for each function it appears in
+pypvs.c:54:93: error: ‘bs_args2’ undeclared (first use in this function); did you mean ‘bs_args1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF1(bs_args1, bs_args2, bs_args3)
+                                                                                             ^~~~~~~~
+                                                                                             bs_args1
+pypvs.c:54:103: error: ‘bs_args3’ undeclared (first use in this function); did you mean ‘bs_args2’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF1(bs_args1, bs_args2, bs_args3)
+                                                                                                       ^~~~~~~~
+                                                                                                       bs_args2
+pypvs.c:56:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:53:35: warning: unused variable ‘bsargs3’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs3 = make_bytestring(args3, args3_len);
+                                   ^~~~~~~
+pypvs.c:52:35: warning: unused variable ‘bsargs2’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs2 = make_bytestring(args2, args2_len);
+                                   ^~~~~~~
+pypvs.c:51:35: warning: unused variable ‘bsargs1’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs1 = make_bytestring(args1, args1_len);
+                                   ^~~~~~~
+pypvs.c: In function ‘py_KDF__KDF2’:
+pypvs.c:75:83: error: ‘bs_args1’ undeclared (first use in this function); did you mean ‘bsargs1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF2(bs_args1, bs_args2, bs_args3, bs_args4)
+                                                                                   ^~~~~~~~
+                                                                                   bsargs1
+pypvs.c:75:93: error: ‘bs_args2’ undeclared (first use in this function); did you mean ‘bs_args1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF2(bs_args1, bs_args2, bs_args3, bs_args4)
+                                                                                             ^~~~~~~~
+                                                                                             bs_args1
+pypvs.c:75:103: error: ‘bs_args3’ undeclared (first use in this function); did you mean ‘bs_args2’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF2(bs_args1, bs_args2, bs_args3, bs_args4)
+                                                                                                       ^~~~~~~~
+                                                                                                       bs_args2
+pypvs.c:75:113: error: ‘bs_args4’ undeclared (first use in this function); did you mean ‘bs_args3’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF2(bs_args1, bs_args2, bs_args3, bs_args4)
+                                                                                                                 ^~~~~~~~
+                                                                                                                 bs_args3
+pypvs.c:77:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:74:35: warning: unused variable ‘bsargs4’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs4 = make_bytestring(args4, args4_len);
+                                   ^~~~~~~
+pypvs.c:73:35: warning: unused variable ‘bsargs3’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs3 = make_bytestring(args3, args3_len);
+                                   ^~~~~~~
+pypvs.c:72:35: warning: unused variable ‘bsargs2’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs2 = make_bytestring(args2, args2_len);
+                                   ^~~~~~~
+pypvs.c:71:35: warning: unused variable ‘bsargs1’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs1 = make_bytestring(args1, args1_len);
+                                   ^~~~~~~
+pypvs.c: In function ‘py_KDF__KDF3’:
+pypvs.c:97:83: error: ‘bs_args1’ undeclared (first use in this function); did you mean ‘bsargs1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF3(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                   ^~~~~~~~
+                                                                                   bsargs1
+pypvs.c:97:93: error: ‘bs_args2’ undeclared (first use in this function); did you mean ‘bs_args1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF3(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                             ^~~~~~~~
+                                                                                             bs_args1
+pypvs.c:97:103: error: ‘bs_args3’ undeclared (first use in this function); did you mean ‘bs_args2’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF3(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                       ^~~~~~~~
+                                                                                                       bs_args2
+pypvs.c:97:113: error: ‘bs_args4’ undeclared (first use in this function); did you mean ‘bs_args3’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF3(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                                 ^~~~~~~~
+                                                                                                                 bs_args3
+pypvs.c:97:123: error: ‘bs_args5’ undeclared (first use in this function); did you mean ‘bs_args4’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF3(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                                           ^~~~~~~~
+                                                                                                                           bs_args4
+pypvs.c:99:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:96:35: warning: unused variable ‘bsargs5’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs5 = make_bytestring(args5, args5_len);
+                                   ^~~~~~~
+pypvs.c:95:35: warning: unused variable ‘bsargs4’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs4 = make_bytestring(args4, args4_len);
+                                   ^~~~~~~
+pypvs.c:94:35: warning: unused variable ‘bsargs3’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs3 = make_bytestring(args3, args3_len);
+                                   ^~~~~~~
+pypvs.c:93:35: warning: unused variable ‘bsargs2’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs2 = make_bytestring(args2, args2_len);
+                                   ^~~~~~~
+pypvs.c:92:35: warning: unused variable ‘bsargs1’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs1 = make_bytestring(args1, args1_len);
+                                   ^~~~~~~
+pypvs.c: In function ‘py_KDF__KDF’:
+pypvs.c:116:73: warning: implicit declaration of function ‘KDF__KDF’; did you mean ‘KDF__KDF3’? [-Wimplicit-function-declaration]
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF(bs_args1, bs_args2)
+                                                                         ^~~~~~~~
+                                                                         KDF__KDF3
+pypvs.c:116:82: error: ‘bs_args1’ undeclared (first use in this function); did you mean ‘bsargs1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF(bs_args1, bs_args2)
+                                                                                  ^~~~~~~~
+                                                                                  bsargs1
+pypvs.c:116:92: error: ‘bs_args2’ undeclared (first use in this function); did you mean ‘bs_args1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KDF(bs_args1, bs_args2)
+                                                                                            ^~~~~~~~
+                                                                                            bs_args1
+pypvs.c:118:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:115:35: warning: unused variable ‘bsargs2’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs2 = make_bytestring(args2, args2_len);
+                                   ^~~~~~~
+pypvs.c:114:35: warning: unused variable ‘bsargs1’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs1 = make_bytestring(args1, args1_len);
+                                   ^~~~~~~
+pypvs.c: In function ‘py_KDF__KAUSF’:
+pypvs.c:138:84: error: ‘bs_args1’ undeclared (first use in this function); did you mean ‘bsargs1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KAUSF(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                    ^~~~~~~~
+                                                                                    bsargs1
+pypvs.c:138:94: error: ‘bs_args2’ undeclared (first use in this function); did you mean ‘bs_args1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KAUSF(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                              ^~~~~~~~
+                                                                                              bs_args1
+pypvs.c:138:104: error: ‘bs_args3’ undeclared (first use in this function); did you mean ‘bs_args2’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KAUSF(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                        ^~~~~~~~
+                                                                                                        bs_args2
+pypvs.c:138:114: error: ‘bs_args4’ undeclared (first use in this function); did you mean ‘bs_args3’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KAUSF(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                                  ^~~~~~~~
+                                                                                                                  bs_args3
+pypvs.c:138:124: error: ‘bs_args5’ undeclared (first use in this function); did you mean ‘bs_args4’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KAUSF(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                                            ^~~~~~~~
+                                                                                                                            bs_args4
+pypvs.c:140:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:137:35: warning: unused variable ‘bsargs5’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs5 = make_bytestring(args5, args5_len);
+                                   ^~~~~~~
+pypvs.c:136:35: warning: unused variable ‘bsargs4’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs4 = make_bytestring(args4, args4_len);
+                                   ^~~~~~~
+pypvs.c:135:35: warning: unused variable ‘bsargs3’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs3 = make_bytestring(args3, args3_len);
+                                   ^~~~~~~
+pypvs.c:134:35: warning: unused variable ‘bsargs2’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs2 = make_bytestring(args2, args2_len);
+                                   ^~~~~~~
+pypvs.c:133:35: warning: unused variable ‘bsargs1’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs1 = make_bytestring(args1, args1_len);
+                                   ^~~~~~~
+pypvs.c: In function ‘py_KDF__KSEAF’:
+pypvs.c:157:84: error: ‘bs_args1’ undeclared (first use in this function); did you mean ‘bsargs1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KSEAF(bs_args1, bs_args2)
+                                                                                    ^~~~~~~~
+                                                                                    bsargs1
+pypvs.c:157:94: error: ‘bs_args2’ undeclared (first use in this function); did you mean ‘bs_args1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KSEAF(bs_args1, bs_args2)
+                                                                                              ^~~~~~~~
+                                                                                              bs_args1
+pypvs.c:159:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:156:35: warning: unused variable ‘bsargs2’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs2 = make_bytestring(args2, args2_len);
+                                   ^~~~~~~
+pypvs.c:155:35: warning: unused variable ‘bsargs1’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs1 = make_bytestring(args1, args1_len);
+                                   ^~~~~~~
+pypvs.c: In function ‘py_KDF__KAMF’:
+pypvs.c:177:83: error: ‘bs_args1’ undeclared (first use in this function); did you mean ‘bsargs1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KAMF(bs_args1, bs_args2, bs_args3)
+                                                                                   ^~~~~~~~
+                                                                                   bsargs1
+pypvs.c:177:93: error: ‘bs_args2’ undeclared (first use in this function); did you mean ‘bs_args1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KAMF(bs_args1, bs_args2, bs_args3)
+                                                                                             ^~~~~~~~
+                                                                                             bs_args1
+pypvs.c:177:103: error: ‘bs_args3’ undeclared (first use in this function); did you mean ‘bs_args2’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__KAMF(bs_args1, bs_args2, bs_args3)
+                                                                                                       ^~~~~~~~
+                                                                                                       bs_args2
+pypvs.c:179:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:176:35: warning: unused variable ‘bsargs3’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs3 = make_bytestring(args3, args3_len);
+                                   ^~~~~~~
+pypvs.c:175:35: warning: unused variable ‘bsargs2’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs2 = make_bytestring(args2, args2_len);
+                                   ^~~~~~~
+pypvs.c:174:35: warning: unused variable ‘bsargs1’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs1 = make_bytestring(args1, args1_len);
+                                   ^~~~~~~
+pypvs.c: In function ‘py_KDF__RESstar’:
+pypvs.c:199:73: warning: implicit declaration of function ‘KDF__RESstar’; did you mean ‘py_KDF__RESstar’? [-Wimplicit-function-declaration]
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__RESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                         ^~~~~~~~~~~~
+                                                                         py_KDF__RESstar
+pypvs.c:199:86: error: ‘bs_args1’ undeclared (first use in this function); did you mean ‘bsargs1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__RESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                      ^~~~~~~~
+                                                                                      bsargs1
+pypvs.c:199:96: error: ‘bs_args2’ undeclared (first use in this function); did you mean ‘bs_args1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__RESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                ^~~~~~~~
+                                                                                                bs_args1
+pypvs.c:199:106: error: ‘bs_args3’ undeclared (first use in this function); did you mean ‘bs_args2’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__RESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                          ^~~~~~~~
+                                                                                                          bs_args2
+pypvs.c:199:116: error: ‘bs_args4’ undeclared (first use in this function); did you mean ‘bs_args3’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__RESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                                    ^~~~~~~~
+                                                                                                                    bs_args3
+pypvs.c:199:126: error: ‘bs_args5’ undeclared (first use in this function); did you mean ‘bs_args4’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__RESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                                              ^~~~~~~~
+                                                                                                                              bs_args4
+pypvs.c:201:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:198:35: warning: unused variable ‘bsargs5’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs5 = make_bytestring(args5, args5_len);
+                                   ^~~~~~~
+pypvs.c:197:35: warning: unused variable ‘bsargs4’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs4 = make_bytestring(args4, args4_len);
+                                   ^~~~~~~
+pypvs.c:196:35: warning: unused variable ‘bsargs3’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs3 = make_bytestring(args3, args3_len);
+                                   ^~~~~~~
+pypvs.c:195:35: warning: unused variable ‘bsargs2’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs2 = make_bytestring(args2, args2_len);
+                                   ^~~~~~~
+pypvs.c:194:35: warning: unused variable ‘bsargs1’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs1 = make_bytestring(args1, args1_len);
+                                   ^~~~~~~
+pypvs.c: In function ‘py_KDF__XRESstar’:
+pypvs.c:221:73: warning: implicit declaration of function ‘KDF__XRESstar’; did you mean ‘py_KDF__XRESstar’? [-Wimplicit-function-declaration]
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__XRESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                         ^~~~~~~~~~~~~
+                                                                         py_KDF__XRESstar
+pypvs.c:221:87: error: ‘bs_args1’ undeclared (first use in this function); did you mean ‘bsargs1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__XRESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                       ^~~~~~~~
+                                                                                       bsargs1
+pypvs.c:221:97: error: ‘bs_args2’ undeclared (first use in this function); did you mean ‘bs_args1’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__XRESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                 ^~~~~~~~
+                                                                                                 bs_args1
+pypvs.c:221:107: error: ‘bs_args3’ undeclared (first use in this function); did you mean ‘bs_args2’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__XRESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                           ^~~~~~~~
+                                                                                                           bs_args2
+pypvs.c:221:117: error: ‘bs_args4’ undeclared (first use in this function); did you mean ‘bs_args3’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__XRESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                                     ^~~~~~~~
+                                                                                                                     bs_args3
+pypvs.c:221:127: error: ‘bs_args5’ undeclared (first use in this function); did you mean ‘bs_args4’?
+         bytestrings__bytestring_t bsvalue = (bytestrings__bytestring_t) KDF__XRESstar(bs_args1, bs_args2, bs_args3, bs_args4, bs_args5)
+                                                                                                                               ^~~~~~~~
+                                                                                                                               bs_args4
+pypvs.c:223:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:220:35: warning: unused variable ‘bsargs5’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs5 = make_bytestring(args5, args5_len);
+                                   ^~~~~~~
+pypvs.c:219:35: warning: unused variable ‘bsargs4’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs4 = make_bytestring(args4, args4_len);
+                                   ^~~~~~~
+pypvs.c:218:35: warning: unused variable ‘bsargs3’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs3 = make_bytestring(args3, args3_len);
+                                   ^~~~~~~
+pypvs.c:217:35: warning: unused variable ‘bsargs2’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs2 = make_bytestring(args2, args2_len);
+                                   ^~~~~~~
+pypvs.c:216:35: warning: unused variable ‘bsargs1’ [-Wunused-variable]
+         bytestrings__bytestring_t bsargs1 = make_bytestring(args1, args1_len);
+                                   ^~~~~~~
+pypvs.c: In function ‘py_KDF__test_KDF1’:
+pypvs.c:234:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:237:16: error: ‘value’ undeclared (first use in this function); did you mean ‘bsvalue’?
+         return value;
+                ^~~~~
+                bsvalue
+pypvs.c: In function ‘py_KDF__test_KDF2’:
+pypvs.c:245:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:248:16: error: ‘value’ undeclared (first use in this function); did you mean ‘bsvalue’?
+         return value;
+                ^~~~~
+                bsvalue
+pypvs.c: In function ‘py_KDF__test_KDF3’:
+pypvs.c:256:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:259:16: error: ‘value’ undeclared (first use in this function); did you mean ‘bsvalue’?
+         return value;
+                ^~~~~
+                bsvalue
+pypvs.c: In function ‘py_KDF__test_KAUSF’:
+pypvs.c:267:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:270:16: error: ‘value’ undeclared (first use in this function); did you mean ‘bsvalue’?
+         return value;
+                ^~~~~
+                bsvalue
+pypvs.c: In function ‘py_KDF__test_KSEAF’:
+pypvs.c:278:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:281:16: error: ‘value’ undeclared (first use in this function); did you mean ‘bsvalue’?
+         return value;
+                ^~~~~
+                bsvalue
+pypvs.c: In function ‘py_KDF__test_KAMF’:
+pypvs.c:289:9: error: expected ‘,’ or ‘;’ before ‘value’
+         value = Py_BuildValue("y#", bsvalue->seq->elems, bsvalue->length);
+         ^~~~~
+pypvs.c:292:16: error: ‘value’ undeclared (first use in this function); did you mean ‘bsvalue’?
+         return value;
+                ^~~~~
+                bsvalue
+pypvs.c: At top level:
+pypvs.c:296:54: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__KDF1", py_KDF__KDF1, METH_VARARGS, KDF__KDF1},
+                                                      ^~~~~~~~~
+pypvs.c:296:54: note: (near initialization for ‘PyPVSMethods[0].ml_doc’)
+pypvs.c:297:54: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__KDF2", py_KDF__KDF2, METH_VARARGS, KDF__KDF2},
+                                                      ^~~~~~~~~
+pypvs.c:297:54: note: (near initialization for ‘PyPVSMethods[1].ml_doc’)
+pypvs.c:298:54: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__KDF3", py_KDF__KDF3, METH_VARARGS, KDF__KDF3},
+                                                      ^~~~~~~~~
+pypvs.c:298:54: note: (near initialization for ‘PyPVSMethods[2].ml_doc’)
+pypvs.c:299:52: error: ‘KDF__KDF’ undeclared here (not in a function); did you mean ‘KDF__KDF3’?
+         {"py_KDF__KDF", py_KDF__KDF, METH_VARARGS, KDF__KDF},
+                                                    ^~~~~~~~
+                                                    KDF__KDF3
+pypvs.c:300:56: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__KAUSF", py_KDF__KAUSF, METH_VARARGS, KDF__KAUSF},
+                                                        ^~~~~~~~~~
+pypvs.c:300:56: note: (near initialization for ‘PyPVSMethods[4].ml_doc’)
+pypvs.c:301:56: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__KSEAF", py_KDF__KSEAF, METH_VARARGS, KDF__KSEAF},
+                                                        ^~~~~~~~~~
+pypvs.c:301:56: note: (near initialization for ‘PyPVSMethods[5].ml_doc’)
+pypvs.c:302:54: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__KAMF", py_KDF__KAMF, METH_VARARGS, KDF__KAMF},
+                                                      ^~~~~~~~~
+pypvs.c:302:54: note: (near initialization for ‘PyPVSMethods[6].ml_doc’)
+pypvs.c:303:60: error: ‘KDF__RESstar’ undeclared here (not in a function); did you mean ‘py_KDF__RESstar’?
+         {"py_KDF__RESstar", py_KDF__RESstar, METH_VARARGS, KDF__RESstar},
+                                                            ^~~~~~~~~~~~
+                                                            py_KDF__RESstar
+pypvs.c:304:62: error: ‘KDF__XRESstar’ undeclared here (not in a function); did you mean ‘KDF__RESstar’?
+         {"py_KDF__XRESstar", py_KDF__XRESstar, METH_VARARGS, KDF__XRESstar},
+                                                              ^~~~~~~~~~~~~
+                                                              KDF__RESstar
+pypvs.c:305:31: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__test_KDF1", py_KDF__test_KDF1, METH_VARARGS, KDF__test_KDF1},
+                               ^~~~~~~~~~~~~~~~~
+pypvs.c:305:31: note: (near initialization for ‘PyPVSMethods[9].ml_meth’)
+pypvs.c:305:64: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__test_KDF1", py_KDF__test_KDF1, METH_VARARGS, KDF__test_KDF1},
+                                                                ^~~~~~~~~~~~~~
+pypvs.c:305:64: note: (near initialization for ‘PyPVSMethods[9].ml_doc’)
+pypvs.c:306:31: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__test_KDF2", py_KDF__test_KDF2, METH_VARARGS, KDF__test_KDF2},
+                               ^~~~~~~~~~~~~~~~~
+pypvs.c:306:31: note: (near initialization for ‘PyPVSMethods[10].ml_meth’)
+pypvs.c:306:64: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__test_KDF2", py_KDF__test_KDF2, METH_VARARGS, KDF__test_KDF2},
+                                                                ^~~~~~~~~~~~~~
+pypvs.c:306:64: note: (near initialization for ‘PyPVSMethods[10].ml_doc’)
+pypvs.c:307:31: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__test_KDF3", py_KDF__test_KDF3, METH_VARARGS, KDF__test_KDF3},
+                               ^~~~~~~~~~~~~~~~~
+pypvs.c:307:31: note: (near initialization for ‘PyPVSMethods[11].ml_meth’)
+pypvs.c:307:64: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__test_KDF3", py_KDF__test_KDF3, METH_VARARGS, KDF__test_KDF3},
+                                                                ^~~~~~~~~~~~~~
+pypvs.c:307:64: note: (near initialization for ‘PyPVSMethods[11].ml_doc’)
+pypvs.c:308:32: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__test_KAUSF", py_KDF__test_KAUSF, METH_VARARGS, KDF__test_KAUSF},
+                                ^~~~~~~~~~~~~~~~~~
+pypvs.c:308:32: note: (near initialization for ‘PyPVSMethods[12].ml_meth’)
+pypvs.c:308:66: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__test_KAUSF", py_KDF__test_KAUSF, METH_VARARGS, KDF__test_KAUSF},
+                                                                  ^~~~~~~~~~~~~~~
+pypvs.c:308:66: note: (near initialization for ‘PyPVSMethods[12].ml_doc’)
+pypvs.c:309:32: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__test_KSEAF", py_KDF__test_KSEAF, METH_VARARGS, KDF__test_KSEAF},
+                                ^~~~~~~~~~~~~~~~~~
+pypvs.c:309:32: note: (near initialization for ‘PyPVSMethods[13].ml_meth’)
+pypvs.c:309:66: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__test_KSEAF", py_KDF__test_KSEAF, METH_VARARGS, KDF__test_KSEAF},
+                                                                  ^~~~~~~~~~~~~~~
+pypvs.c:309:66: note: (near initialization for ‘PyPVSMethods[13].ml_doc’)
+pypvs.c:310:31: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__test_KAMF", py_KDF__test_KAMF, METH_VARARGS, KDF__test_KAMF}
+                               ^~~~~~~~~~~~~~~~~
+pypvs.c:310:31: note: (near initialization for ‘PyPVSMethods[14].ml_meth’)
+pypvs.c:310:64: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+         {"py_KDF__test_KAMF", py_KDF__test_KAMF, METH_VARARGS, KDF__test_KAMF}
+                                                                ^~~~~~~~~~~~~~
+pypvs.c:310:64: note: (near initialization for ‘PyPVSMethods[14].ml_doc’)
+pypvs.c:311:9: error: expected ‘}’ before ‘{’ token
+         {NULL, NULL, 0, NULL}        /* Sentinel */
+         ^
+pypvs.c: In function ‘py_KDF__test_KDF1’:
+pypvs.c:238:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+pypvs.c: In function ‘py_KDF__test_KDF2’:
+pypvs.c:249:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+pypvs.c: In function ‘py_KDF__test_KDF3’:
+pypvs.c:260:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+pypvs.c: In function ‘py_KDF__test_KAUSF’:
+pypvs.c:271:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+pypvs.c: In function ‘py_KDF__test_KSEAF’:
+pypvs.c:282:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+pypvs.c: In function ‘py_KDF__test_KAMF’:
+pypvs.c:293:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^

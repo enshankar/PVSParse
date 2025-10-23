@@ -1,0 +1,61 @@
+#include "ltedfapegtest_c.h"
+
+static bytestrings__bytestring_t
+make_bytestring(const char *arg)
+{   size_t len = strlen(arg);
+    uint32_t *array = malloc(len * sizeof(uint32_t));
+    
+    for (uint32_t i = 0; i < len; ++i) {
+        array[i] = arg[i] & 0xff;
+    }
+    stringliteral_t sl = mk_string(len, array);
+    strings__string_t st = strings__make_string(len, (strings_array_2_t)sl);
+    bytestrings__bytestring_t bs = bytestrings__mk_bytestring(st);
+    free(array); //sl and st are freed in strings__make_string and bytestrings_mk_bytestring
+    return bs;
+}
+
+static inline uint64_t cpucycles(void) {
+  uint64_t result;
+
+  __asm__ volatile ("rdtsc; shlq $32,%%rdx; orq %%rdx,%%rax"
+    : "=a" (result) : : "%rdx");
+
+  return result;
+}
+
+int main(){
+  double start = get_cpu_time();
+  uint64_t startcyc = cpucycles();
+  /* sigmatopdown__ent_adt_t test0 = ltepegtest__test0(); */
+  /* sigmatopdown__ent_adt_t test1 = ltepegtest__test1(); */
+  /* sigmatopdown__ent_adt_t test11 = ltepegtest__test11(); */
+  /* sigmatopdown__ent_adt_t test2 = ltepegtest__test2(); */
+  /* ltedfapegproof__parsetree_adt_t test3 = ltedfapegtest__jsonparsefile(make_bytestring("irModel.json")); */
+ /*  bool_t test1 = ltedfapegtest__jsonreadfileinit(make_bytestring("irModel.json")); */
+ /*  double end1 = get_cpu_time(); */
+ /*  uint64_t endcyc1 = cpucycles(); */
+ /*  printf("\n readfileinit = %u, CPU Time = %f seconds\n; CPU Cycles = %llu\n", test1, end1 - start, endcyc1 - startcyc); */
+ /*  bool_t test0 = ltedfapegtest__jsonreadfile(make_bytestring("irModel.json")); */
+ /*  double end0 = get_cpu_time(); */
+ /*  uint64_t endcyc0 = cpucycles(); */
+ /*  printf("\n readfile = %u, CPU Time = %f seconds\n; CPU Cycles = %llu\n", test0, end0 - end1, endcyc0 - endcyc1); */
+ 
+  ltedfapeg__ent_adt_t test3 = ltedfapegtest__jsonpureparsefile(make_bytestring("irModel.json"));
+  printf("\nParsed file");
+  double end = get_cpu_time();
+  uint64_t endcyc = cpucycles();
+  printf("\n CPU Time = %f seconds\n; CPU Cycles = %llu\n", end - start, endcyc - startcyc);
+ /* ltedfapegproof__parsetree_adt_t test4 = ltedfapegtest__jsonparsefile(make_bytestring("irModel.json")); */
+ /*  double end2 = get_cpu_time(); */
+ /*  uint64_t end2cyc = cpucycles(); */
+ /*  printf("\n CPU Time = %f seconds\n; CPU Cycles = %llu\n", end2 - start, end2cyc - startcyc); */
+ /* bool_t test5 = ltedfapegtest__jsonparsecheckfile(make_bytestring("irModel.json")); */
+ /*  double end3 = get_cpu_time(); */
+ /*  uint64_t end3cyc = cpucycles(); */
+ /*  printf("\n result = %u, CPU Time = %f seconds\n; CPU Cycles = %llu\n", test5, end3 - start, end3cyc - startcyc); */
+ 
+  //  printf("\ntest4 = %s", json_ltedfapegproof__parsetree_adt(test4)); 
+  
+  return 0;
+}

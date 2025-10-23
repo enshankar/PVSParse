@@ -1,0 +1,9 @@
+(iccMax
+ (calcElem_TCC1 0
+  (calcElem_TCC1-1 nil 3801240084 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil))
+   nil
+   (calcElem subtype "iccMax.string2seq(\"func\")"
+    "[naturalnumbers.below(4) -> char]"))))
+

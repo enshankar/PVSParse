@@ -1,0 +1,390 @@
+//Code generated using pvs2ir
+#ifndef _KDF_h 
+#define _KDF_h
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <inttypes.h>
+
+#include <stdbool.h>
+
+#include <stdarg.h>
+
+#include <string.h>
+
+#include <math.h>
+
+#include <gmp.h>
+
+#include "pvslib.h"
+
+#include "HMAC_c.h"
+
+#include "SHA256_c.h"
+
+#include "integer_bv_ops_c.h"
+
+#include "bv_nat_c.h"
+
+#include "bv_c.h"
+
+#include "bit_c.h"
+
+#include "rotate_c.h"
+
+#include "bytestrings_c.h"
+
+#include "gen_strings_c.h"
+
+#include "strings_c.h"
+
+#include "integertypes_c.h"
+
+#include "exp2_c.h"
+
+#include "modulo_arithmetic_c.h"
+
+#include "euclidean_division_c.h"
+
+#include "real_defs_c.h"
+
+#include "ordinals_c.h"
+
+#include "ordstruct_adt_c.h"
+
+//cc -O3 -Wall -o KDF -I /Users/e21660/shankar/pvs.git/src/groundeval/ pvslib.c  KDF_c.c HMAC_c.c SHA256_c.c integer_bv_ops_c.c bv_nat_c.c bv_c.c bit_c.c rotate_c.c bytestrings_c.c gen_strings_c.c strings_c.c integertypes_c.c exp2_c.c modulo_arithmetic_c.c euclidean_division_c.c real_defs_c.c ordinals_c.c ordstruct_adt_c.c -lgmp 
+
+struct KDF_funtype_0_s;
+        typedef struct KDF_funtype_0_s * KDF_funtype_0_t;
+
+struct KDF_funtype_0_ftbl_s {uint8_t (* fptr)(struct KDF_funtype_0_s *, uint8_t);
+        uint8_t (* mptr)(struct KDF_funtype_0_s *, uint8_t);
+        void (* rptr)(struct KDF_funtype_0_s *);
+        struct KDF_funtype_0_s * (* cptr)(struct KDF_funtype_0_s *);};
+typedef struct KDF_funtype_0_ftbl_s * KDF_funtype_0_ftbl_t;
+
+struct KDF_funtype_0_hashentry_s {uint32_t keyhash; uint8_t key; uint8_t value;}; 
+typedef struct KDF_funtype_0_hashentry_s KDF_funtype_0_hashentry_t;
+
+struct KDF_funtype_0_htbl_s {uint32_t size; uint32_t num_entries; KDF_funtype_0_hashentry_t * data;}; 
+typedef struct KDF_funtype_0_htbl_s * KDF_funtype_0_htbl_t;
+
+struct KDF_funtype_0_s {uint32_t count;
+        KDF_funtype_0_ftbl_t ftbl;
+        KDF_funtype_0_htbl_t htbl;};
+typedef struct KDF_funtype_0_s * KDF_funtype_0_t;
+
+extern void release_KDF_funtype_0(KDF_funtype_0_t x);
+
+extern KDF_funtype_0_t copy_KDF_funtype_0(KDF_funtype_0_t x);
+
+uint32_t lookup_KDF_funtype_0(KDF_funtype_0_htbl_t htbl, uint8_t i, uint32_t ihash);
+
+KDF_funtype_0_t dupdate_KDF_funtype_0(KDF_funtype_0_t a, uint8_t i, uint8_t v);
+
+extern KDF_funtype_0_t update_KDF_funtype_0(KDF_funtype_0_t a, uint8_t i, uint8_t v);
+
+extern KDF_funtype_0_t equal_KDF_funtype_0(KDF_funtype_0_t x, KDF_funtype_0_t y);
+
+
+
+
+struct KDF_closure_1_s;
+        typedef struct KDF_closure_1_s * KDF_closure_1_t;
+
+struct KDF_closure_1_s {uint32_t count;
+         KDF_funtype_0_ftbl_t ftbl;
+         KDF_funtype_0_htbl_t htbl;
+        uint8_t fvar_1;};
+
+uint8_t f_KDF_closure_1(struct KDF_closure_1_s * closure, uint8_t bvar);
+
+uint8_t m_KDF_closure_1(struct KDF_closure_1_s * closure, uint8_t bvar);
+
+extern uint8_t h_KDF_closure_1(uint8_t ivar_5, uint8_t ivar_1);
+
+extern KDF_closure_1_t new_KDF_closure_1(void);
+
+extern void release_KDF_closure_1(KDF_funtype_0_t closure);
+
+extern KDF_closure_1_t copy_KDF_closure_1(KDF_closure_1_t x);
+
+
+
+struct KDF_array_2_s { uint32_t count;
+        uint32_t size;
+         uint32_t max;
+         uint8_t elems[]; };
+typedef struct KDF_array_2_s * KDF_array_2_t;
+
+extern KDF_array_2_t new_KDF_array_2(uint32_t size);
+
+extern void release_KDF_array_2(KDF_array_2_t x);
+
+void release_KDF_array_2_ptr(pointer_t x, type_actual_t KDF_array_2);
+
+extern KDF_array_2_t copy_KDF_array_2(KDF_array_2_t x);
+extern bool_t equal_KDF_array_2(KDF_array_2_t x, KDF_array_2_t y);
+
+extern bool_t equal_KDF_array_2_ptr(pointer_t x, pointer_t y, type_actual_t T);
+typedef struct actual_KDF_array_2_s {equal_ptr_t equal_ptr; release_ptr_t release_ptr;} * actual_KDF_array_2_t;
+
+actual_KDF_array_2_t actual_KDF_array_2(void);
+
+extern KDF_array_2_t update_KDF_array_2(KDF_array_2_t x, uint32_t i, uint8_t v);
+
+extern KDF_array_2_t upgrade_KDF_array_2(KDF_array_2_t x, uint32_t i, uint8_t v);
+
+
+
+struct KDF_record_3_s {
+        uint32_t count; 
+        uint32_t length;
+        KDF_array_2_t seq;};
+typedef struct KDF_record_3_s * KDF_record_3_t;
+
+extern KDF_record_3_t new_KDF_record_3(void);
+
+extern void release_KDF_record_3(KDF_record_3_t x);
+
+void release_KDF_record_3_ptr(pointer_t x, type_actual_t KDF_record_3);
+
+extern KDF_record_3_t copy_KDF_record_3(KDF_record_3_t x);
+extern bool_t equal_KDF_record_3(KDF_record_3_t x, KDF_record_3_t y);
+
+extern bool_t equal_KDF_record_3_ptr(pointer_t x, pointer_t y, type_actual_t T);
+typedef struct actual_KDF_record_3_s {equal_ptr_t equal_ptr; release_ptr_t release_ptr;} * actual_KDF_record_3_t;
+
+actual_KDF_record_3_t actual_KDF_record_3(void);
+
+extern KDF_record_3_t update_KDF_record_3_length(KDF_record_3_t x, uint32_t v);
+
+extern KDF_record_3_t update_KDF_record_3_seq(KDF_record_3_t x, KDF_array_2_t v);
+
+
+
+struct KDF_funtype_4_s;
+        typedef struct KDF_funtype_4_s * KDF_funtype_4_t;
+
+struct KDF_funtype_4_ftbl_s {uint16_t (* fptr)(struct KDF_funtype_4_s *, uint8_t);
+        uint16_t (* mptr)(struct KDF_funtype_4_s *, uint8_t);
+        void (* rptr)(struct KDF_funtype_4_s *);
+        struct KDF_funtype_4_s * (* cptr)(struct KDF_funtype_4_s *);};
+typedef struct KDF_funtype_4_ftbl_s * KDF_funtype_4_ftbl_t;
+
+struct KDF_funtype_4_hashentry_s {uint32_t keyhash; uint8_t key; uint16_t value;}; 
+typedef struct KDF_funtype_4_hashentry_s KDF_funtype_4_hashentry_t;
+
+struct KDF_funtype_4_htbl_s {uint32_t size; uint32_t num_entries; KDF_funtype_4_hashentry_t * data;}; 
+typedef struct KDF_funtype_4_htbl_s * KDF_funtype_4_htbl_t;
+
+struct KDF_funtype_4_s {uint32_t count;
+        KDF_funtype_4_ftbl_t ftbl;
+        KDF_funtype_4_htbl_t htbl;};
+typedef struct KDF_funtype_4_s * KDF_funtype_4_t;
+
+extern void release_KDF_funtype_4(KDF_funtype_4_t x);
+
+extern KDF_funtype_4_t copy_KDF_funtype_4(KDF_funtype_4_t x);
+
+uint32_t lookup_KDF_funtype_4(KDF_funtype_4_htbl_t htbl, uint8_t i, uint32_t ihash);
+
+KDF_funtype_4_t dupdate_KDF_funtype_4(KDF_funtype_4_t a, uint8_t i, uint16_t v);
+
+extern KDF_funtype_4_t update_KDF_funtype_4(KDF_funtype_4_t a, uint8_t i, uint16_t v);
+
+extern KDF_funtype_4_t equal_KDF_funtype_4(KDF_funtype_4_t x, KDF_funtype_4_t y);
+
+
+
+
+struct KDF_closure_5_s;
+        typedef struct KDF_closure_5_s * KDF_closure_5_t;
+
+struct KDF_closure_5_s {uint32_t count;
+         KDF_funtype_4_ftbl_t ftbl;
+         KDF_funtype_4_htbl_t htbl;
+        uint16_t fvar_1;};
+
+uint8_t f_KDF_closure_5(struct KDF_closure_5_s * closure, uint8_t bvar);
+
+uint8_t m_KDF_closure_5(struct KDF_closure_5_s * closure, uint8_t bvar);
+
+extern uint8_t h_KDF_closure_5(uint8_t ivar_5, uint16_t ivar_1);
+
+extern KDF_closure_5_t new_KDF_closure_5(void);
+
+extern void release_KDF_closure_5(KDF_funtype_4_t closure);
+
+extern KDF_closure_5_t copy_KDF_closure_5(KDF_closure_5_t x);
+
+
+
+struct KDF_funtype_6_s;
+        typedef struct KDF_funtype_6_s * KDF_funtype_6_t;
+
+struct KDF_funtype_6_ftbl_s {uint32_t (* fptr)(struct KDF_funtype_6_s *, uint8_t);
+        uint32_t (* mptr)(struct KDF_funtype_6_s *, uint8_t);
+        void (* rptr)(struct KDF_funtype_6_s *);
+        struct KDF_funtype_6_s * (* cptr)(struct KDF_funtype_6_s *);};
+typedef struct KDF_funtype_6_ftbl_s * KDF_funtype_6_ftbl_t;
+
+struct KDF_funtype_6_hashentry_s {uint32_t keyhash; uint8_t key; uint32_t value;}; 
+typedef struct KDF_funtype_6_hashentry_s KDF_funtype_6_hashentry_t;
+
+struct KDF_funtype_6_htbl_s {uint32_t size; uint32_t num_entries; KDF_funtype_6_hashentry_t * data;}; 
+typedef struct KDF_funtype_6_htbl_s * KDF_funtype_6_htbl_t;
+
+struct KDF_funtype_6_s {uint32_t count;
+        KDF_funtype_6_ftbl_t ftbl;
+        KDF_funtype_6_htbl_t htbl;};
+typedef struct KDF_funtype_6_s * KDF_funtype_6_t;
+
+extern void release_KDF_funtype_6(KDF_funtype_6_t x);
+
+extern KDF_funtype_6_t copy_KDF_funtype_6(KDF_funtype_6_t x);
+
+uint32_t lookup_KDF_funtype_6(KDF_funtype_6_htbl_t htbl, uint8_t i, uint32_t ihash);
+
+KDF_funtype_6_t dupdate_KDF_funtype_6(KDF_funtype_6_t a, uint8_t i, uint32_t v);
+
+extern KDF_funtype_6_t update_KDF_funtype_6(KDF_funtype_6_t a, uint8_t i, uint32_t v);
+
+extern KDF_funtype_6_t equal_KDF_funtype_6(KDF_funtype_6_t x, KDF_funtype_6_t y);
+
+
+
+
+struct KDF_closure_7_s;
+        typedef struct KDF_closure_7_s * KDF_closure_7_t;
+
+struct KDF_closure_7_s {uint32_t count;
+         KDF_funtype_6_ftbl_t ftbl;
+         KDF_funtype_6_htbl_t htbl;
+        uint32_t fvar_1;};
+
+uint8_t f_KDF_closure_7(struct KDF_closure_7_s * closure, uint8_t bvar);
+
+uint8_t m_KDF_closure_7(struct KDF_closure_7_s * closure, uint8_t bvar);
+
+extern uint8_t h_KDF_closure_7(uint8_t ivar_5, uint32_t ivar_1);
+
+extern KDF_closure_7_t new_KDF_closure_7(void);
+
+extern void release_KDF_closure_7(KDF_funtype_6_t closure);
+
+extern KDF_closure_7_t copy_KDF_closure_7(KDF_closure_7_t x);
+
+
+
+
+struct KDF_closure_8_s;
+        typedef struct KDF_closure_8_s * KDF_closure_8_t;
+
+struct KDF_closure_8_s {uint32_t count;
+         KDF_funtype_6_ftbl_t ftbl;
+         KDF_funtype_6_htbl_t htbl;
+        uint32_t fvar_1;};
+
+uint8_t f_KDF_closure_8(struct KDF_closure_8_s * closure, uint8_t bvar);
+
+uint8_t m_KDF_closure_8(struct KDF_closure_8_s * closure, uint8_t bvar);
+
+extern uint8_t h_KDF_closure_8(uint8_t ivar_5, uint32_t ivar_1);
+
+extern KDF_closure_8_t new_KDF_closure_8(void);
+
+extern void release_KDF_closure_8(KDF_funtype_6_t closure);
+
+extern KDF_closure_8_t copy_KDF_closure_8(KDF_closure_8_t x);
+
+
+
+struct KDF_record_9_s {
+        uint32_t count; 
+        KDF_record_3_t project_1;
+        KDF_record_3_t project_2;};
+typedef struct KDF_record_9_s * KDF_record_9_t;
+
+extern KDF_record_9_t new_KDF_record_9(void);
+
+extern void release_KDF_record_9(KDF_record_9_t x);
+
+void release_KDF_record_9_ptr(pointer_t x, type_actual_t KDF_record_9);
+
+extern KDF_record_9_t copy_KDF_record_9(KDF_record_9_t x);
+extern bool_t equal_KDF_record_9(KDF_record_9_t x, KDF_record_9_t y);
+
+extern bool_t equal_KDF_record_9_ptr(pointer_t x, pointer_t y, type_actual_t T);
+typedef struct actual_KDF_record_9_s {equal_ptr_t equal_ptr; release_ptr_t release_ptr;} * actual_KDF_record_9_t;
+
+actual_KDF_record_9_t actual_KDF_record_9(void);
+
+extern KDF_record_9_t update_KDF_record_9_project_1(KDF_record_9_t x, KDF_record_3_t v);
+
+extern KDF_record_9_t update_KDF_record_9_project_2(KDF_record_9_t x, KDF_record_3_t v);
+
+
+
+struct KDF_funtype_10_s;
+        typedef struct KDF_funtype_10_s * KDF_funtype_10_t;
+
+struct KDF_funtype_10_ftbl_s {KDF_record_3_t (* fptr)(struct KDF_funtype_10_s *, KDF_record_9_t);
+        KDF_record_3_t (* mptr)(struct KDF_funtype_10_s *, KDF_record_3_t, KDF_record_3_t);
+        void (* rptr)(struct KDF_funtype_10_s *);
+        struct KDF_funtype_10_s * (* cptr)(struct KDF_funtype_10_s *);};
+typedef struct KDF_funtype_10_ftbl_s * KDF_funtype_10_ftbl_t;
+
+struct KDF_funtype_10_hashentry_s {uint32_t keyhash; KDF_record_9_t key; KDF_record_3_t value;}; 
+typedef struct KDF_funtype_10_hashentry_s KDF_funtype_10_hashentry_t;
+
+struct KDF_funtype_10_htbl_s {uint32_t size; uint32_t num_entries; KDF_funtype_10_hashentry_t * data;}; 
+typedef struct KDF_funtype_10_htbl_s * KDF_funtype_10_htbl_t;
+
+struct KDF_funtype_10_s {uint32_t count;
+        KDF_funtype_10_ftbl_t ftbl;
+        KDF_funtype_10_htbl_t htbl;};
+typedef struct KDF_funtype_10_s * KDF_funtype_10_t;
+
+extern void release_KDF_funtype_10(KDF_funtype_10_t x);
+
+extern KDF_funtype_10_t copy_KDF_funtype_10(KDF_funtype_10_t x);
+
+extern KDF_funtype_10_t equal_KDF_funtype_10(KDF_funtype_10_t x, KDF_funtype_10_t y);
+
+
+
+extern bytestrings__bytestring_t KDF__u8to_bstring(uint8_t ivar_1);
+
+extern KDF_record_3_t KDF__u16to_bstring(uint16_t ivar_1);
+
+extern KDF_record_3_t KDF__u32to_bstring(uint32_t ivar_1);
+
+extern KDF_record_3_t KDF__u64to_bstring(uint32_t ivar_1);
+
+extern KDF_record_3_t KDF__KDF1(KDF_record_3_t ivar_1, KDF_record_3_t ivar_2, KDF_record_3_t ivar_3);
+
+extern KDF_record_3_t KDF__KDF2(KDF_record_3_t ivar_1, KDF_record_3_t ivar_2, KDF_record_3_t ivar_3, KDF_record_3_t ivar_4);
+
+extern KDF_record_3_t KDF__KDF3(KDF_record_3_t ivar_1, KDF_record_3_t ivar_2, KDF_record_3_t ivar_3, KDF_record_3_t ivar_4, KDF_record_3_t ivar_5);
+
+extern KDF_record_3_t KDF__KAUSF(KDF_record_3_t ivar_1, KDF_record_3_t ivar_2, KDF_record_3_t ivar_3, KDF_record_3_t ivar_4, KDF_record_3_t ivar_5);
+
+extern KDF_record_3_t KDF__KSEAF(KDF_record_3_t ivar_1, KDF_record_3_t ivar_2);
+
+extern KDF_record_3_t KDF__KAMF(KDF_record_3_t ivar_1, KDF_record_3_t ivar_2, KDF_record_3_t ivar_3);
+
+extern KDF_record_3_t KDF__test_KDF1(void);
+
+extern KDF_record_3_t KDF__test_KDF2(void);
+
+extern KDF_record_3_t KDF__test_KDF3(void);
+
+extern KDF_record_3_t KDF__test_KAUSF(void);
+
+extern KDF_record_3_t KDF__test_KSEAF(void);
+
+extern KDF_record_3_t KDF__test_KAMF(void);
+#endif

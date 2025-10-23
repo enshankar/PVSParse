@@ -1,0 +1,6 @@
+parse(len, G, (s: strings(len)), (start: upto(len)), (root: non_terminal))(St : state(len, G, s, start, root)): RECURSIVE endstate(len, G, s, start, root)
+  = (IF St`depth = 0
+      THEN St
+      ELSE parse(len, G, s, start, root)(step(len, G, s, start, root)(St))
+      ENDIF)
+      MEASURE size(len, G, s, start, root)(St) BY <

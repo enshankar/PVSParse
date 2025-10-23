@@ -1,0 +1,1 @@
+IF pos = len OR a /= s(pos) THEN fail(0) ELSE good(0, 1) ENDIF,

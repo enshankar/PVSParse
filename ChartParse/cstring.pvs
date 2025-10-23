@@ -1,0 +1,108 @@
+cstring : THEORY
+
+  BEGIN
+
+   cstring: TYPE+
+   s, s1, s2: VAR cstring
+
+   cchar: TYPE+
+
+   c, c1, c2: VAR cchar
+
+   code(c): below(256)
+
+   codeExt: AXIOM
+     code(c1) = code(c2) ⇒ c1 = c2
+
+   length(s): uint16
+
+   char(s, (i: below(length(s)))): cchar
+
+   st: VAR string
+
+   mk_cstring(st: string): cstring %for converting string literals to cstrings
+
+   mk_cstring_length: AXIOM
+      length(mk_cstring(st)) = st`length
+
+   mk_cstring_string: AXIOM
+    (FORALL (i: below(st`length)): 
+      code(char(mk_cstring(st), i)) = code(st`seq(i)))
+
+   CONVERSION+ mk_cstring
+
+
+
+   empty: cstring
+
+   length_empty: AXIOM length(empty) = 0
+
+   extensionality: AXIOM
+       s1 = s2 IFF (length(s1) = length(s2) AND ∀ (i:below(length(s1))): char(s1, i) = char(s2, i));
+
+   +(s1, s2): cstring
+
+   length_concat: AXIOM length(s1 + s2) = length(s1) + length(s2)
+
+   char_concat: AXIOM
+   (FORALL (i: below(length(s1) + length(s2))):
+    char(s1 + s2, i)  =
+     IF i < length(s1)
+      THEN char(s1, i)
+      ELSE char(s2, i - length(s1))
+     ENDIF)
+
+    charcmp(c1, c2): bool = code(c1) < code(c2)
+
+    strdiff(s1, s2):  upto(min(length(s1), length(s2)))
+
+    strdiff_ax1: AXIOM
+            (FORALL (i: uint16): i < strdiff(s1, s2) => char(s1, i) = char(s2, i))
+
+    strdiff_ax2: AXIOM
+        strdiff(s1, s2) < min(length(s1), length(s2)) => char(s1, strdiff(s1, s2)) ≠ char(s2, strdiff(s1, s2))
+
+    strcmp(s1, s2): {i : subrange(-1, 1) |
+                     (LET j = strdiff(s1, s2)
+		       IN 
+                      IF i = 0 THEN s1 = s2
+		      ELSIF i = -1 THEN j < length(s2) AND j < length(s1) => charcmp(char(s1, j), char(s2, j))
+                      ELSE j < length(s1) AND  (j < length(s2) ⇒ charcmp(char(s2, j), char(s1, j)))
+		      ENDIF)}
+					   
+
+    substr(s, (i, j : upto(length(s)))) : cstring
+    
+
+    substr_length: AXIOM
+      (∀ (s, (i : upto(length(s))), j : subrange(i, length(s))): 
+       length(substr(s, i, j)) = max(i, j) - min(i, j))
+
+    substr_ax: AXIOM
+     (∀ (s, (i : upto(length(s))), j : subrange(i, length(s))): 
+      ∀ (k : below(abs(j - i))): char(substr(s, i, j), k) = char(s, k + i))
+
+
+  END cstring
+
+cstring_test: THEORY
+BEGIN
+  IMPORTING cstring
+  A: cstring = "abcd1234"
+  B: cstring = "efgh5678"
+
+  test_code: uint8 = code(char(A, 0))
+
+  test_empty: cstring = empty
+
+  test_length: uint16 = length(A)
+
+  test_concat: cstring = A + B
+
+  test_strdiff: uint16 = strdiff(A, test_concat)
+
+  test_strcmp: int8 = strcmp(test_concat, A)
+
+  test_substr: int8 = strcmp(substr(test_concat, 8, 16), B)
+
+END cstring_test

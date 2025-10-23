@@ -1,0 +1,32 @@
+test_bytestring  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+   arr:  TYPE = ARRAY[below(5)-> uint32]
+   A, B: VAR arr
+
+   zero : nat = 0
+   half: rat = 1/2
+
+   foo(A): arr = (LAMBDA (i: below(5)): u8max(10, A(i)))
+
+   string1: bytestring = unit(0xAB)
+   string2: bytestring = unit(0xCD)
+   string3: bytestring = unit(0xEF)
+
+   string4: bytestring = "ABC123"
+   %  string5: bytestring = "αβγ̧pu"
+
+   string12: bytestring = string1 ++ string2
+   string23: bytestring = string2 ++ string3
+   string123: bytestring = string12 ++ string3
+   string1223: bytestring = string12 ++ string23
+   string44: bytestring = string4 ++ string4
+   
+   string12231: bytestring = prefix(string1223, 2)
+
+   string6: bytestring = 0xABCDEF
+
+  END test_bytestring
+

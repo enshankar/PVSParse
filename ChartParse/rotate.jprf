@@ -1,0 +1,52 @@
+{
+ "rotate.u8rightrotate_TCC1": [
+  {
+   "info": {
+    "theory": "rotate",
+    "formula": "u8rightrotate_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.35 (Allegro CL Enterprise Edition)",
+    "shasum": "9d72d21eb7bd07363e5c3c33060bddb985414fee8ed2689a3d317d689873c395"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "u8rightrotate_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "rotate.u16rightrotate_TCC1": [
+  {
+   "info": {
+    "theory": "rotate",
+    "formula": "u16rightrotate_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.35 (Allegro CL Enterprise Edition)",
+    "shasum": "9d72d21eb7bd07363e5c3c33060bddb985414fee8ed2689a3d317d689873c395"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "u16rightrotate_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ]
+}

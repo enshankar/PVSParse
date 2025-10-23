@@ -1,0 +1,284 @@
+
+
+We employ a Chomsky Normal Form representation of PEG grammars where the right hand sides of productions are flat, i.e., contain no nesting of PEG operations.  By definition, any PEG grammar can easily be represented in Chomsky Normal Form, whereas the corresponding transformation for CFGs is more complicated.  PEG normal form requires each production to be of the form $\prodn{n_{j}}{e}$, where $n_{j}$ is a non-terminal, and $e$ is an expression of one of the eight types shown in Table~\ref{table:NormalForm}.
+
+\begin{table}[htbp]
+\begin{tabular}{{|l|c|}}\hline
+  Empty &   $\epsilon$ \\\hline
+  Failure & $f$ \\\hline
+  Any & $any(p)$ \\\hline
+  Terminal & $c$ \\\hline
+  Concatenation & $n_{j} n_{k}$\\\hline
+  Ordered Choice & $n_{j}/n_{k}$ \\\hline
+  Check & $\& n_{j}$ \\\hline
+  Negation & $!n_{j}$ \\\hline
+\end{tabular}
+\caption{\small Each row in contains one of the set of fundamental PEG normal-form operations we implemented.  Here $n_{j}$, $n_{k}$ are non-terminals, $c$ is a character in our character space, and $p$ is a predicate over our character space.}
+\label{table:NormalForm}
+\end{table}
+
+ A generalized version of the scaffold data structure is shown in Figure~\ref{fig:GenericScaffold}.
+
+ \begin{figure}[h!]
+ \[
+ \begin{array}{|r||c|c|c|c|c|c|}\hline
+   & s_{0} & \ldots & s_{i} & \ldots & s_{L - 1} & \epsilon \\\hline\hline
+   n_{0} & a_{00}& \ldots & a_{i0}\tikzmark{a} & \ldots & a_{(L - 1)0} & a_{L0}\\\hline
+   \vdots & \vdots & \ddots & \vdots & \ddots & \vdots& \vdots \\\hline
+   n_{j} & a_{0j} & \ldots & a_{ij}\tikzmark{b} & \ldots & a_{(L - 1)j} & a_{Lj} \\\hline
+   \vdots & \vdots & \ddots & \vdots & \tikzmark{c}\ddots & \vdots & \vdots \\\hline  
+   n_{N - 1} & a_{0(N - 1)}& \ldots & a_{i(N - 1)} & \ldots & a_{(L - 1)(N - 1)} & a_{L(N - 1)} \\\hline
+ \end{array}
+ \]
+ \begin{tikzpicture}[overlay, remember picture, yshift=.25\baselineskip, shorten >=.5pt, shorten <=.5pt]
+     \draw [->] ({pic cs:b}) [bend right] to ({pic cs:a});
+     \draw [->] ([yshift=.75pt]{pic cs:b}) -- ({pic cs:c});
+   \end{tikzpicture}
+ \vspace*{-4mm}
+ \caption{\small A generic scaffold for a PEG consisting of $N$ productions (the rows) over an input token string $s$ of length $L$ (the columns)}
+ \label{fig:GenericScaffold}
+ \end{figure}
+
+ As seen in Figure~\ref{fig:GenericScaffold}, the rows of the scaffold are determined by the non-terminals in the normal form of the grammar describing the language to be parsed. The columns of the scaffold are determined by each character in the input string in left-to-right order. A given PEG grammar with normal-form productions (i.e. non-terminals) of cardinality $N$ and input string $s$ of length $L$ determines a statically-sized scaffold of size $N$ by $(L + 1)$. The size is $L + 1$ to account for an implicit empty $\epsilon$ that terminates the input string.  As described in Section~\ref{sec:intro}, our chart-parsing algorithm initializes each scaffold entry $a_{in}$ with the value \texttt{pending}. The algorithm starts with entry $a_{00}$, and proceeds in a recursively top-down manner, updating each entry $a_{in}$.
+
+
+Central to our parser is a table data structure,  the scaffold, which is
+similar to the tables used by Earley and CYK parsers.  The scaffold is a
+two-dimensional array containing entries $a_{in}$ where $i$ is a position
+in the input string $s$ with $0\leq i\leq |s|$, and $n$ is a nonterminal
+from the given grammar.  
+Each entry $a_{in}$ will have the value {\tt pending} (represented by a blank in Figures \ref{scaffold:matchingParenthesis} to \ref{scaffold:loop}, {\tt fail(height)} (represented by $f$), {\tt loop} (represented by $l$), {\tt good(height, span)} (represented by $g_{\texttt{span}}$,  or
+{\tt push(position, nonterminal)} (abbreviated as $p_{in})$\@.
+The {\tt push} value represents the recursive application of that production, thus embedding the representation of the recursion stack into the statically-sized scaffold data structure itself; a more hardware friendly design. Loops are detected when the algorithm attempts a {\tt push} for a scaffold entry that already contains a {\tt push}; intuitively this indicates the algorithm has returned to a previously visited position in the scaffold and is about to push again, a push that will result in returning to the entry yet again, ad infinitum.  Our chart-parsing algorithm initializes each scaffold entry $a_{in}$ with the value \texttt{pending}. The algorithm starts with entry $a_{00}$, and proceeds in a recursively top-down manner, updating each entry $a_{in}$.
+
+
+\subsection{Example: Matching Parentheses}
+
+Consider the language of matching parentheses where we want the parser to accept
+the longest prefix of the input where parentheses have been matched
+A simple PEG for this can be written as
+\[ n_{\texttt{start}} \prodnInternal \,\texttt{"}\,\texttt{(}\,\texttt{"}\, n_{\texttt{start}} \,\texttt{"}\,\texttt{)}\,\texttt{"}\, n_{\texttt{start}} / \epsilon, \]
+however this is not in normal form.  We can rewrite it into a normal form with seven productions, each of which is exactly one of the forms shown in Table~\ref{table:NormalForm}.  These productions are listed in the leftmost column of the scaffold in Figure \ref{scaffold:matchingParenthesis}.  Because, once in normal form, each non-terminal corresponds to exactly one production, these will also be the rows of the scaffold.  In Figure~\ref{scaffold:matchingParenthesis}, we compute matching parenthesis on the input "\texttt{(()())()}".
+
+\begin{figure}[h!] %
+\[
+\begin{array}{|l||c|c|c|c|c|c|c|c|c|}\hline
+& \texttt{(} & \texttt{(} & \texttt{)} & \texttt{(} & \texttt{)} & \texttt{)} & \texttt{(} & \texttt{)} & \epsilon \\ \hline \hline
+n_{0} \prodnInternal n_{1} / n_{6} & g_{8}\tikzmark{a00} & g_{4}\tikzmark{a01} & g_{0}\tikzmark{a02} & g_{2}\tikzmark{a03} & g_{0}\tikzmark{a04} & g_{0}\tikzmark{a05} & g_{2}\tikzmark{a06} & g_{0}\tikzmark{a07} & g_{0}\tikzmark{a08} \\ \hline
+n_{1} \prodnInternal n_{2} \circ n_{3} & g_{8}\tikzmark{a10} & g_{4}\tikzmark{a11} & f\tikzmark{a12} & g_{2}\tikzmark{a13} & f\tikzmark{a14} & f\tikzmark{a15} & g_{2}\tikzmark{a16} & f\tikzmark{a17} & f\tikzmark{a18} \\ \hline
+n_{2} \prodnInternal \texttt{(} & g_{1}\tikzmark{a20} & g_{1}\tikzmark{a21} & f\tikzmark{a22} & g_{1}\tikzmark{a23} & f\tikzmark{a24} & f\tikzmark{a25} & g_{1}\tikzmark{a26} & f\tikzmark{a27} & f\tikzmark{a28} \\ \hline
+n_{3} \prodnInternal n_{0} \circ n_{4} & & g_{7}\tikzmark{a31} & g_{3}\tikzmark{a32} & & g_{1}\tikzmark{a34} & & & g_{1}\tikzmark{a37} & \\ \hline
+n_{4} \prodnInternal n_{5} \circ n_{0} & & & g_{3}\tikzmark{a42} & & g_{1}\tikzmark{a44} & g_{3}\tikzmark{a45} & & g_{1}\tikzmark{a47} & \\ \hline
+n_{5} \prodnInternal \texttt{)} & & & g_{1}\tikzmark{a52} & & g_{1}\tikzmark{a54} & g_{1}\tikzmark{a55} & & g_{1}\tikzmark{a57} & \\ \hline
+n_{6} \prodnInternal \epsilon & & & g_{0}\tikzmark{a62} & & g_{0}\tikzmark{a64} & g_{0}\tikzmark{a65} & & g_{0}\tikzmark{a67} & g_{0}\tikzmark{a68} \\ \hline
+\end{array}
+\]
+\begin{tikzpicture}[overlay, remember picture, yshift=.25\baselineskip, shorten >=.5pt, shorten <=.5pt]
+    \draw [->, blue] ({pic cs:a00}) [bend left] to ({pic cs:a10});
+    \draw [->, blue] ({pic cs:a10}) [bend left] to ({pic cs:a20});
+    \draw [->, blue] ({pic cs:a10}) [bend left=5] to ({pic cs:a31});
+    \draw [->, blue] ({pic cs:a31}) [bend right] to ({pic cs:a01});
+    \draw [->, blue] ({pic cs:a01}) [bend left] to ({pic cs:a11});
+    \draw [->, blue] ({pic cs:a11}) [bend left] to ({pic cs:a21});
+    \draw [->, blue] ({pic cs:a11}) [bend left=5] to ({pic cs:a32});
+    \draw [->, blue] ({pic cs:a32}) [bend right] to ({pic cs:a02});
+    \draw [->, red] ({pic cs:a02}) [bend left] to ({pic cs:a12});
+    \draw [->, red] ({pic cs:a12}) [bend left] to ({pic cs:a22});
+    \draw [->, blue] ({pic cs:a02}) [bend left=12] to ({pic cs:a62});
+    \draw [->, blue] ({pic cs:a32}) [bend left] to ({pic cs:a42});
+    \draw [->, blue] ({pic cs:a42}) [bend left] to ({pic cs:a52});
+    \draw [->, blue] ({pic cs:a42}) [bend right=50] to ({pic cs:a03});
+    \draw [->, blue] ({pic cs:a03}) [bend left] to ({pic cs:a13});
+    \draw [->, blue] ({pic cs:a13}) [bend left] to ({pic cs:a23});
+    \draw [->, blue] ({pic cs:a13}) [bend left=5] to ({pic cs:a34});
+    \draw [->, blue] ({pic cs:a34}) [bend right] to ({pic cs:a04});
+    \draw [->, red] ({pic cs:a04}) [bend left] to ({pic cs:a14});
+    \draw [->, red] ({pic cs:a14}) [bend left] to ({pic cs:a24});
+    \draw [->, blue] ({pic cs:a04}) [bend left=12] to ({pic cs:a64});
+    \draw [->, blue] ({pic cs:a34}) [bend left] to ({pic cs:a44});
+    \draw [->, blue] ({pic cs:a44}) [bend left] to ({pic cs:a54});
+    \draw [->, blue] ({pic cs:a44}) [bend right=50] to ({pic cs:a05});
+    \draw [->, red] ({pic cs:a05}) [bend left] to ({pic cs:a15});
+    \draw [->, red] ({pic cs:a15}) [bend left] to ({pic cs:a25});
+    \draw [->, blue] ({pic cs:a05}) [bend left=12] to ({pic cs:a65});
+    \draw [->, blue] ({pic cs:a31}) [bend left=13] to ({pic cs:a45});
+    \draw [->, blue] ({pic cs:a45}) [bend left] to ({pic cs:a55});
+    \draw [->, blue] ({pic cs:a45}) [bend right=50] to ({pic cs:a06});
+    \draw [->, blue] ({pic cs:a06}) [bend left] to ({pic cs:a16});
+    \draw [->, blue] ({pic cs:a16}) [bend left] to ({pic cs:a26});
+    \draw [->, blue] ({pic cs:a16}) [bend left=5] to ({pic cs:a37});
+    \draw [->, blue] ({pic cs:a37}) [bend right] to ({pic cs:a07});
+    \draw [->, red] ({pic cs:a07}) [bend left] to ({pic cs:a17});
+    \draw [->, red] ({pic cs:a17}) [bend left] to ({pic cs:a27});
+    \draw [->, blue] ({pic cs:a07}) [bend left=12] to ({pic cs:a67});
+    \draw [->, blue] ({pic cs:a37}) [bend left] to ({pic cs:a47});
+    \draw [->, blue] ({pic cs:a47}) [bend left] to ({pic cs:a57});
+    \draw [->, blue] ({pic cs:a47}) [bend right=50] to ({pic cs:a08});
+    \draw [->, red] ({pic cs:a08}) [bend left] to ({pic cs:a18});
+    \draw [->, red] ({pic cs:a18}) [bend left] to ({pic cs:a28});
+    \draw [->, blue] ({pic cs:a08}) [bend left=12] to ({pic cs:a68});
+ \end{tikzpicture}
+ \vspace*{-4mm}
+ \caption{\small Matching Parenthesis on "\texttt{(()())()}".  This shows the contents of the scaffold after the parsing process has completed.  Blue arrows show the successful parse tree, and red arrows show the proof of a failed parse.  Scaffold entries marked $g_{i}$ indicate an entry of \emph{good} with a span of $i$, and entries marked $f$ indicate a fail.}
+ \label{scaffold:matchingParenthesis}
+ \end{figure}
+
+
+\subsection{Example: Power of Two}
+
+If we now want to accept any input stream that has is a positive power of two length or is empty (the length of the input is $0$ or one of $\lbrace 2, 4, 8, 16, \, \ldots \rbrace$).  The grammar 
+\[ n_{\texttt{start}} \prodnInternal n_{\texttt{pow}} !\,.\, \hspace*{1cm} n_{\texttt{pow}} \prodnInternal \,.\,n_{\texttt{pow}}\,.\, / \,.\,(\&n_{\texttt{pow}})\,.\, / \epsilon \]
+where "$.$" is any character, specifies this language.  Figure \ref{scaffold:powerOfTwo} shows this grammar running on the input "\texttt{parsed}".
+
+\begin{figure}[h!] %tbp
+\[
+\begin{array}{|l||c|c|c|c|c|c|c|}\hline
+& \texttt{p} & \texttt{a} & \texttt{r} & \texttt{s} & \texttt{e} & \texttt{d} &  \epsilon \\ \hline \hline
+n_{0} \prodnInternal n_{1} \circ n_{10} & f\tikzmark{b00}~ & & & & & & \\ \hline
+n_{10} \prodnInternal ! n_{3} & & & & & f~\tikzmark{ba4}~ & & \\ \hline
+n_{8} \prodnInternal \& n_{1} & & & g_{0}~\tikzmark{b82}~ & & g_{0}~\tikzmark{b84}~ & & g_{0}~~\tikzmark{b86}~ \\ \hline
+n_{1} \prodnInternal n_{2} / n_{5} & g_{4}\tikzmark{b10}~ & g_{2}~\tikzmark{b11}~ &g_{4}~\tikzmark{b12}~  & g_{2}~\tikzmark{b13}~ & g_{2}~\tikzmark{b14}~ & g_{0}~\tikzmark{b15}~ & g_{0}~~\tikzmark{b16}~ \\ \hline
+n_{4} \prodnInternal n_{1} \circ n_{3} & & g_{3}~\tikzmark{b41}~  & f~\tikzmark{b42}~ & g_{3}~\tikzmark{b43}~ & f~\tikzmark{b44}~ & g_{1}~\tikzmark{b45}~ & f~~\tikzmark{b46}~ \\ \hline
+n_{2} \prodnInternal n_{3} \circ n_{4} & g_{4}\tikzmark{b20}~ & f~\tikzmark{b21}~ & g_{4}~\tikzmark{b22}~ & f~\tikzmark{b23}~ & g_{2}~\tikzmark{b24}~ & f~\tikzmark{b25}~ & f~~\tikzmark{b26}~ \\ \hline
+n_{3} \prodnInternal \texttt{any($true$)} & g_{1}\tikzmark{b30}~ & g_{1}~~\tikzmark{b31}~ & g_{1}~~\tikzmark{b32}~ & g_{1}~~\tikzmark{b33}~ & g_{1}~~\tikzmark{b34}~ & g_{1}~~\tikzmark{b35}~ & f~~\tikzmark{b36}~ \\ \hline
+n_{5} \prodnInternal n_{6} / n_{9} & & g_{2}~\tikzmark{b51}~ & & g_{2}~\tikzmark{b53}~ & & g_{0}~\tikzmark{b55}~ & g_{0}~~\tikzmark{b56}~ \\ \hline
+n_{9} \prodnInternal \epsilon & & & & & & g_{0}~\tikzmark{b95}~ & g_{0}~~\tikzmark{b96}~ \\ \hline
+n_{6} \prodnInternal n_{3} \circ n_{7} & & g_{2}~\tikzmark{b61}~ & & g_{2}~\tikzmark{b63}~ & & f~\tikzmark{b65}~ & f~~\tikzmark{b66}~ \\ \hline
+n_{7} \prodnInternal n_{8} \circ n_{3} & & & g_{1}~\tikzmark{b72}~ & & g_{1}~\tikzmark{b74}~ & & f~~\tikzmark{b76}~  \\ \hline
+\end{array}
+\]
+\begin{tikzpicture}[overlay, remember picture, yshift=.25\baselineskip, shorten >=.5pt, shorten <=.5pt]
+    \draw [->, blue] ({pic cs:b00}) [bend left] to ({pic cs:b10});
+    \draw [->, blue] ({pic cs:b10}) [bend left] to ({pic cs:b20});
+    \draw [->, blue] ({pic cs:b20}) [bend left] to ({pic cs:b30});
+    \draw [->, blue] ({pic cs:b20}) [bend right=18] to ({pic cs:b41});
+    \draw [->, blue] ({pic cs:b41}) [bend left] to ({pic cs:b11});
+    \draw [->, red] ({pic cs:b11}) [bend left] to ({pic cs:b21});
+    \draw [->, blue] ({pic cs:b21}) [bend left] to ({pic cs:b31});
+    \draw [->, red] ({pic cs:b21}) [bend right=18] to ({pic cs:b42});
+    \draw [->, blue] ({pic cs:b42}) [bend left] to ({pic cs:b12});
+    \draw [->, blue] ({pic cs:b12}) [bend left] to ({pic cs:b22});
+    \draw [->, blue] ({pic cs:b22}) [bend left] to ({pic cs:b32});
+    \draw [->, blue] ({pic cs:b22}) [bend right=18] to ({pic cs:b43});
+    \draw [->, blue] ({pic cs:b43}) [bend left] to ({pic cs:b13});
+    \draw [->, red] ({pic cs:b13}) [bend left] to ({pic cs:b23});
+    \draw [->, blue] ({pic cs:b23}) [bend left] to ({pic cs:b33});
+    \draw [->, red] ({pic cs:b23}) [bend right=18] to ({pic cs:b44});
+    \draw [->, blue] ({pic cs:b44}) [bend left] to ({pic cs:b14});
+    \draw [->, blue] ({pic cs:b14}) [bend left] to ({pic cs:b24});
+    \draw [->, blue] ({pic cs:b24}) [bend left] to ({pic cs:b34});
+    \draw [->, blue] ({pic cs:b24}) [bend right=18] to ({pic cs:b45});
+    \draw [->, blue] ({pic cs:b45}) [bend left] to ({pic cs:b15});
+    \draw [->, red] ({pic cs:b15}) [bend left] to ({pic cs:b25});
+    \draw [->, blue] ({pic cs:b25}) [bend left] to ({pic cs:b35});
+    \draw [->, red] ({pic cs:b25}) [bend right=18] to ({pic cs:b46});
+    \draw [->, blue] ({pic cs:b46}) [bend left] to ({pic cs:b16});
+    \draw [->, red] ({pic cs:b16}) [bend left] to ({pic cs:b26});
+    \draw [->, red] ({pic cs:b26}) [bend left] to ({pic cs:b36});
+    \draw [->, blue] ({pic cs:b16}) [bend left=25] to ({pic cs:b56});
+    \draw [->, red] ({pic cs:b56}) [bend left] to ({pic cs:b66});
+    \draw [->, red] ({pic cs:b66}) [bend left=16] to ({pic cs:b36});
+    \draw [->, blue] ({pic cs:b56}) [bend left=22] to ({pic cs:b96});
+    \draw [->, red] ({pic cs:b46}) [bend left] to ({pic cs:b36});
+    \draw [->, blue] ({pic cs:b15}) [bend left=25] to ({pic cs:b55});
+    \draw [->, red] ({pic cs:b55}) [bend left] to ({pic cs:b65});
+    \draw [->, blue] ({pic cs:b65}) [bend left=16] to ({pic cs:b35});
+    \draw [->, red] ({pic cs:b65}) [bend left=5] to ({pic cs:b76});
+    \draw [->, blue] ({pic cs:b76}) [bend right=18] to ({pic cs:b86});
+    \draw [->, blue] ({pic cs:b86}) [bend left] to ({pic cs:b16});
+    \draw [->, red] ({pic cs:b76}) [bend left=12] to ({pic cs:b36});
+    \draw [->, blue] ({pic cs:b55}) [bend left=22] to ({pic cs:b95});
+    \draw [->, blue] ({pic cs:b45}) [bend left] to ({pic cs:b35});
+    \draw [->, red] ({pic cs:b44}) [bend left=13] to ({pic cs:b36});
+     \draw [->, blue] ({pic cs:b43}) [bend left] to ({pic cs:b33});
+    \draw [->, blue] ({pic cs:b13}) [bend left=25] to ({pic cs:b53});
+    \draw [->, blue] ({pic cs:b53}) [bend left] to ({pic cs:b63});
+    \draw [->, blue] ({pic cs:b63}) [bend left=16] to ({pic cs:b33});
+    \draw [->, blue] ({pic cs:b63}) [bend left=5] to ({pic cs:b74});
+    \draw [->, blue] ({pic cs:b74}) [bend right=18] to ({pic cs:b84});
+    \draw [->, blue] ({pic cs:b84}) [bend left] to ({pic cs:b14});
+    \draw [->, blue] ({pic cs:b74}) [bend left=12] to ({pic cs:b34});
+    \draw [->, red] ({pic cs:b42}) [bend left=7] to ({pic cs:b36});
+    \draw [->, blue] ({pic cs:b11}) [bend left=25] to ({pic cs:b51});
+    \draw [->, blue] ({pic cs:b51}) [bend left] to ({pic cs:b61});
+    \draw [->, blue] ({pic cs:b61}) [bend left=16] to ({pic cs:b31});
+    \draw [->, blue] ({pic cs:b61}) [bend left=5] to ({pic cs:b72});
+    \draw [->, blue] ({pic cs:b72}) [bend right=18] to ({pic cs:b82});
+    \draw [->, blue] ({pic cs:b82}) [bend left] to ({pic cs:b12});
+    \draw [->, blue] ({pic cs:b72}) [bend left=12] to ({pic cs:b32});
+    \draw [->, blue] ({pic cs:b41}) [bend left] to ({pic cs:b31});
+    \draw [->, red] ({pic cs:b00}) [bend right=10] to ({pic cs:ba4});
+    \draw [->, blue] ({pic cs:ba4}) [bend left] to ({pic cs:b34});
+    
+ \end{tikzpicture}
+ \vspace*{-4mm}
+ \caption{\small Power of two length on "\texttt{parsed}".  The rows have been rearranged to make it easier to follow the arrows.  Note in the $n_{1}$ row there reason to believe this grammar would accept inputs of length $2$, $4$, and $0$.  This is because the $n_{10}$ just checks that $n_{1}$ consumed all the input, so if the string started with the {\tt r} (meaning it had length $4$), then $n_{0}$ would correctly accept and consume all $4$ characters.}
+ \label{scaffold:powerOfTwo}
+ \end{figure}
+
+
+
+\subsection{Example: Loop}
+We can also consider a grammar which is not well formed.  The following will accept strings that are a sequence of \emph{blocks} ending with a {\tt \#}.  Each block is either {\tt a}, {\tt b}, or {\tt ab} (but not {\tt ba}, which would instead be parsed as two separate blocks).  The grammar
+\[ n_{\texttt{start}} \prodnInternal n_{\texttt{block}} ( \texttt{\#} / n_{\texttt{start}} ) \hspace*{1cm} n_{\texttt{block}} \prodnInternal !\texttt{c} (\texttt{a} / \epsilon) (\texttt{b} / \epsilon) \]
+correctly parses all correct instances of this.  Further it will successfully reject any string that contains the character {\tt c}.  This means on the language $\lbrace \texttt{a}, \texttt{b}, \texttt{c}, \texttt{\#} \rbrace$ it will behave properly, however if it encounters something other than {\tt a}, {\tt b}, {\tt c}, or {\tt \#}  it will loop.  Figure \ref{scaffold:loop} shows this grammar mid-computation on the input {\tt abbda\#}.
+
+\begin{figure}[h!] %tbp
+\[
+\begin{array}{|l||c|c|c|c|c|c|c|c|}\hline
+& \texttt{a} & \texttt{b} & \texttt{b} & \texttt{d} & \texttt{a} & \texttt{\#} &  \epsilon \\ \hline \hline
+n_{0} \prodnInternal n_{1} \circ n_{10} & p_{2,10}\tikzmark{c00} & & p_{3,10}\tikzmark{c02} & l\tikzmark{c03} & & & \\ \hline
+n_{1} \prodnInternal n_{2} \circ n_{4} & g_{2}\tikzmark{c10} & & g_{1}\tikzmark{c12} & g_{0}\tikzmark{c13} & & & \\ \hline
+n_{2} \prodnInternal !n_{3} & g_{0}\tikzmark{c20} & & g_{0}\tikzmark{c22} & g_{0}\tikzmark{c23} & & & \\ \hline
+n_{3} \prodnInternal \texttt{c} & f\tikzmark{c30} & & f\tikzmark{c32} & f\tikzmark{c33} & & & \\ \hline
+n_{4} \prodnInternal n_{5} \circ n_{8} & g_{2}\tikzmark{c40} & & g_{1}\tikzmark{c42} & g_{0}\tikzmark{c43} & & & \\ \hline
+n_{5} \prodnInternal n_{6} / n_{7} & g_{1}\tikzmark{c50} & & g_{0}\tikzmark{c52} & g_{0}\tikzmark{c53} & & & \\ \hline
+n_{6} \prodnInternal \texttt{a} & g_{1}\tikzmark{c60} & & f\tikzmark{c62} & f\tikzmark{c63} & & & \\ \hline
+n_{7} \prodnInternal \epsilon & & & g_{0}\tikzmark{c72} & g_{0}\tikzmark{c73} & & & \\ \hline
+n_{8} \prodnInternal n_{9} / n_{7} & & g_{1}\tikzmark{c81} & g_{1}\tikzmark{c82} & g_{0}\tikzmark{c83} & & & \\ \hline
+n_{9} \prodnInternal \texttt{b} & & g_{1}\tikzmark{c91} & g_{1}\tikzmark{c92} & f\tikzmark{c93} & & & \\ \hline
+n_{10} \prodnInternal n_{11} / n_{0} & & & p_{2,0}\tikzmark{ca2} & p_{3,0}\tikzmark{ca3} & & & \\ \hline
+n_{11} \prodnInternal \texttt{\#} & & & f\tikzmark{cb2} & f\tikzmark{cb3} & & & \\ \hline
+\end{array}
+\]
+\begin{tikzpicture}[overlay, remember picture, yshift=.25\baselineskip, shorten >=.5pt, shorten <=.5pt]
+    \draw [->, blue] ({pic cs:c00}) [bend left] to ({pic cs:c10});
+    \draw [->, blue] ({pic cs:c10}) [bend left] to ({pic cs:c20});
+    \draw [->, red] ({pic cs:c20}) [bend left] to ({pic cs:c30});
+    \draw [->, blue] ({pic cs:c10}) [bend left] to ({pic cs:c40});
+    \draw [->, blue] ({pic cs:c40}) [bend left] to ({pic cs:c50});
+    \draw [->, blue] ({pic cs:c50}) [bend left] to ({pic cs:c60});
+    \draw [->, blue] ({pic cs:c40}) [bend right=5] to ({pic cs:c81});
+    \draw [->, blue] ({pic cs:c81}) [bend left] to ({pic cs:c91});
+    \draw [->, orange] ({pic cs:c00}) [bend right=15] to ({pic cs:ca2});
+    \draw [->, red] ({pic cs:ca2}) [bend left] to ({pic cs:cb2});
+    \draw [->, orange] ({pic cs:ca2}) [bend right=7] to ({pic cs:c02});
+    \draw [->, blue] ({pic cs:c02}) [bend left] to ({pic cs:c12});
+    \draw [->, blue] ({pic cs:c12}) [bend left] to ({pic cs:c22});
+    \draw [->, red] ({pic cs:c22}) [bend left] to ({pic cs:c32});
+    \draw [->, blue] ({pic cs:c12}) [bend left] to ({pic cs:c42});
+    \draw [->, blue] ({pic cs:c42}) [bend left] to ({pic cs:c52});
+    \draw [->, red] ({pic cs:c52}) [bend left] to ({pic cs:c62});
+    \draw [->, blue] ({pic cs:c52}) [bend left] to ({pic cs:c72});
+    \draw [->, blue] ({pic cs:c42}) [bend left] to ({pic cs:c82});
+    \draw [->, blue] ({pic cs:c82}) [bend left] to ({pic cs:c92});
+    \draw [->, orange] ({pic cs:c02}) [bend right=10] to ({pic cs:ca3});
+    \draw [->, red] ({pic cs:ca3}) [bend left] to ({pic cs:cb3});
+    \draw [->, orange] ({pic cs:ca3}) [bend right=25] to ({pic cs:c03});
+    \draw [->, blue] ({pic cs:c03}) [bend left] to ({pic cs:c13});
+    \draw [->, blue] ({pic cs:c13}) [bend left] to ({pic cs:c23});
+    \draw [->, red] ({pic cs:c23}) [bend left] to ({pic cs:c33});
+    \draw [->, blue] ({pic cs:c13}) [bend left] to ({pic cs:c43});
+    \draw [->, blue] ({pic cs:c43}) [bend left] to ({pic cs:c53});
+    \draw [->, red] ({pic cs:c53}) [bend left] to ({pic cs:c63});
+    \draw [->, blue] ({pic cs:c53}) [bend left] to ({pic cs:c73});
+    \draw [->, blue] ({pic cs:c43}) [bend left] to ({pic cs:c83});
+    \draw [->, red] ({pic cs:c83}) [bend left] to ({pic cs:c93});
+    \draw [->, blue] ({pic cs:c83}) [bend right] to ({pic cs:c73});
+    \draw [->, green] ({pic cs:c03}) [bend left=40] to ({pic cs:ca3});
+    
+ \end{tikzpicture}
+ \vspace*{-4mm}
+ \caption{\small Computation of the block grammar on the string "{\tt abbda\#}".  The scaffold is shown midway through its computation at the time it detected the loop. The entries in the form $p_{i,j}$ show {\tt push} entries with position $i$ and non-terminal $j$, and the $l$ entry shows a {\tt loop}.  The orange arrows between the {\tt push} entries is the embedded call stack, while the green arrow shows the relationship that first detected the loop.  If this scaffold were to continue running, the {\tt push} entries would become {\tt loop} entries as the program backed its way up the embedded stack where it will terminate and declare a loop.  Note if this {\tt d}, were a {\tt c} then it would have already rejected by this point, and if the {\tt d} were an {\tt a} or a {\tt b}, then it would eventually accept the whole input.}
+ \label{scaffold:loop}
+ \end{figure}

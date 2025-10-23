@@ -1,0 +1,316 @@
+//Code generated using pvs2ir2c
+#include "test_bytestring_c.h"
+
+
+test_bytestring__arr_t new_test_bytestring__arr(uint32_t size){
+        test_bytestring__arr_t tmp = (test_bytestring__arr_t) safe_malloc(sizeof(struct test_bytestring__arr_s) + (size * sizeof(uint32_t)));
+        tmp->count = 1;
+        tmp->size = size;;
+        tmp->max = size;
+         return tmp;}
+
+void release_test_bytestring__arr(test_bytestring__arr_t x){
+        x->count--;
+         if (x->count <= 0){safe_free(x);}
+}
+
+void release_test_bytestring__arr_ptr(pointer_t x, type_actual_t T){
+        release_test_bytestring__arr((test_bytestring__arr_t)x);
+}
+
+test_bytestring__arr_t copy_test_bytestring__arr(test_bytestring__arr_t x){
+        test_bytestring__arr_t tmp = new_test_bytestring__arr(x->size);
+        tmp->count = 1;
+        for (uint32_t i = 0; i < x->size; i++){tmp->elems[i] = (uint32_t)x->elems[i];};
+         return tmp;}
+
+bool_t equal_test_bytestring__arr(test_bytestring__arr_t x, test_bytestring__arr_t y){
+        bool_t tmp = true;
+        uint32_t i = 0;
+        while (i < x->size && tmp){tmp = (x->elems[i] == y->elems[i]); i++;};
+        return tmp;}
+
+char * json_test_bytestring__arr(test_bytestring__arr_t x){
+        char ** tmp = (char **)safe_malloc(sizeof(void *) * x->size);
+        for (uint32_t i = 0; i < x->size; i++){tmp[i] = json_uint32(x->elems[i]);};
+        char * result = json_list_with_sep(tmp, x->size, '[', ',', ']');
+        for (uint32_t i = 0; i < x->size; i++) free(tmp[i]);
+        free(tmp);
+        return result;}
+
+bool_t equal_test_bytestring__arr_ptr(pointer_t x, pointer_t y, type_actual_t T){
+        return equal_test_bytestring__arr((test_bytestring__arr_t)x, (test_bytestring__arr_t)y);
+}
+
+char * json_test_bytestring__arr_ptr(pointer_t x, type_actual_t T){
+        return json_test_bytestring__arr((test_bytestring__arr_t)x);
+}
+
+test_bytestring__arr_t update_test_bytestring__arr(test_bytestring__arr_t x, uint32_t i, uint32_t v){
+        test_bytestring__arr_t y; 
+         if (x->count == 1){y = x;}
+           else {y = copy_test_bytestring__arr(x );
+                x->count--;};
+        y->elems[i] = (uint32_t)v;
+        return y;}
+
+test_bytestring__arr_t upgrade_test_bytestring__arr(test_bytestring__arr_t x, uint32_t i, uint32_t v){
+        test_bytestring__arr_t y; 
+         if (x->count == 1 && i < x->max){y = x;}
+           else if (i > x->max){uint32_t newmax = x->max <= UINT32_MAX/2 ? 2*x->max: UINT32_MAX;
+                y = safe_realloc(x, sizeof(struct test_bytestring__arr_s) + (newmax * sizeof(uint32_t)));
+                y->count = 1;
+                y->size = i+1;
+                y->max = newmax;
+                release_test_bytestring__arr(x);}
+           else {y = copy_test_bytestring__arr(x );
+                x->count--;};
+        y->elems[i] = (uint32_t)v;
+        return y;}
+
+
+
+extern mpz_ptr_t test_bytestring__zero(void){
+        mpz_ptr_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    result = safe_malloc(sizeof(mpz_t));
+        mpz_init(result);
+        mpz_mk_set_ui(result, 0);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern mpq_ptr_t test_bytestring__half(void){
+        mpq_ptr_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    uint8_t ivar_1;
+        ivar_1 = (uint8_t)1;
+        uint8_t ivar_2;
+        ivar_2 = (uint8_t)2;
+        mpq_t tmp83426;
+        mpq_init(tmp83426);
+        mpq_t tmp83427;
+        mpq_init(tmp83427);
+        mpq_set_ui(tmp83426, (uint64_t)ivar_1, 1);
+        mpq_set_ui(tmp83427, ivar_2, 1);
+        mpq_mk_div(result, tmp83426, tmp83427);
+        mpq_clear(tmp83426);
+        mpq_clear(tmp83427);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern test_bytestring__arr_t test_bytestring__foo(test_bytestring__arr_t ivar_2){
+        test_bytestring__arr_t  result;
+        result = new_test_bytestring__arr(5);
+        uint8_t ivar_3;
+        for (uint32_t index83428 = 0; index83428 < 5; index83428++){
+             ivar_3 = (uint8_t)index83428;
+             uint8_t ivar_11;
+             ivar_11 = (uint8_t)10;
+             uint32_t ivar_14;
+             ivar_14 = (uint32_t)ivar_2->elems[ivar_3];
+             uint8_t ivar_12;
+             //copying to uint8 from uint32;
+             ivar_12 = (uint8_t)ivar_14;
+             result->elems[index83428] = (uint32_t)integertypes__u8max((uint8_t)ivar_11, (uint8_t)ivar_12);
+        };
+        release_test_bytestring__arr(ivar_2);
+
+        
+        return result;
+}
+
+extern bytestrings__bytestring_t test_bytestring__string1(void){
+        bytestrings__bytestring_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    uint8_t ivar_3;
+        ivar_3 = (uint8_t)171;
+        result = (bytestrings__bytestring_t)bytestrings__unit((uint8_t)ivar_3);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern bytestrings__bytestring_t test_bytestring__string2(void){
+        bytestrings__bytestring_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    uint8_t ivar_3;
+        ivar_3 = (uint8_t)205;
+        result = (bytestrings__bytestring_t)bytestrings__unit((uint8_t)ivar_3);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern bytestrings__bytestring_t test_bytestring__string3(void){
+        bytestrings__bytestring_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    uint8_t ivar_3;
+        ivar_3 = (uint8_t)239;
+        result = (bytestrings__bytestring_t)bytestrings__unit((uint8_t)ivar_3);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern bytestrings__bytestring_t test_bytestring__string4(void){
+        bytestrings__bytestring_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    strings__string_t ivar_4;
+        uint32_t len83431 = 6;
+        uint32_t characters83432[6] = {65, 66, 67, 49, 50, 51};
+        stringliteral_t string83430 = mk_string(6, characters83432);
+        ivar_4 = (strings__string_t)strings__make_string(len83431, string83430);
+        result = (bytestrings__bytestring_t)bytestrings__mk_bytestring((strings__string_t)ivar_4);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern bytestrings__bytestring_t test_bytestring__string12(void){
+        bytestrings__bytestring_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    bytestrings__bytestring_t ivar_4;
+        ivar_4 = (bytestrings__bytestring_t)test_bytestring__string1();
+        if (ivar_4 != NULL) ivar_4->count++;
+        bytestrings__bytestring_t ivar_5;
+        ivar_5 = (bytestrings__bytestring_t)test_bytestring__string2();
+        if (ivar_5 != NULL) ivar_5->count++;
+        result = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_4, (bytestrings__bytestring_t)ivar_5);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern bytestrings__bytestring_t test_bytestring__string23(void){
+        bytestrings__bytestring_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    bytestrings__bytestring_t ivar_4;
+        ivar_4 = (bytestrings__bytestring_t)test_bytestring__string2();
+        if (ivar_4 != NULL) ivar_4->count++;
+        bytestrings__bytestring_t ivar_5;
+        ivar_5 = (bytestrings__bytestring_t)test_bytestring__string3();
+        if (ivar_5 != NULL) ivar_5->count++;
+        result = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_4, (bytestrings__bytestring_t)ivar_5);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern bytestrings__bytestring_t test_bytestring__string123(void){
+        bytestrings__bytestring_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    bytestrings__bytestring_t ivar_4;
+        ivar_4 = (bytestrings__bytestring_t)test_bytestring__string12();
+        if (ivar_4 != NULL) ivar_4->count++;
+        bytestrings__bytestring_t ivar_5;
+        ivar_5 = (bytestrings__bytestring_t)test_bytestring__string3();
+        if (ivar_5 != NULL) ivar_5->count++;
+        result = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_4, (bytestrings__bytestring_t)ivar_5);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern bytestrings__bytestring_t test_bytestring__string1223(void){
+        bytestrings__bytestring_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    bytestrings__bytestring_t ivar_4;
+        ivar_4 = (bytestrings__bytestring_t)test_bytestring__string12();
+        if (ivar_4 != NULL) ivar_4->count++;
+        bytestrings__bytestring_t ivar_5;
+        ivar_5 = (bytestrings__bytestring_t)test_bytestring__string23();
+        if (ivar_5 != NULL) ivar_5->count++;
+        result = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_4, (bytestrings__bytestring_t)ivar_5);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern bytestrings__bytestring_t test_bytestring__string44(void){
+        bytestrings__bytestring_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    bytestrings__bytestring_t ivar_4;
+        ivar_4 = (bytestrings__bytestring_t)test_bytestring__string4();
+        if (ivar_4 != NULL) ivar_4->count++;
+        bytestrings__bytestring_t ivar_5;
+        ivar_5 = (bytestrings__bytestring_t)test_bytestring__string4();
+        if (ivar_5 != NULL) ivar_5->count++;
+        result = (bytestrings__bytestring_t)bytestrings__doubleplus((bytestrings__bytestring_t)ivar_4, (bytestrings__bytestring_t)ivar_5);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern bytestrings__bytestring_t test_bytestring__string12231(void){
+        bytestrings__bytestring_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    bytestrings__bytestring_t ivar_4;
+        ivar_4 = (bytestrings__bytestring_t)test_bytestring__string1223();
+        if (ivar_4 != NULL) ivar_4->count++;
+        uint8_t ivar_7;
+        ivar_7 = (uint8_t)2;
+        uint32_t ivar_5;
+        //copying to uint32 from uint8;
+        ivar_5 = (uint32_t)ivar_7;
+        result = (bytestrings__bytestring_t)bytestrings__prefix((bytestrings__bytestring_t)ivar_4, (uint32_t)ivar_5);
+
+        defined = true;};
+        
+        return result;
+}
+
+extern bytestrings__bytestring_t test_bytestring__string6(void){
+        bytestrings__bytestring_t  static  result;
+
+        static bool_t defined = false;
+        if (!defined){
+                    uint32_t ivar_5;
+        ivar_5 = (uint32_t)11259375;
+        uint8_t ivar_3;
+        //copying to uint8 from uint32;
+        ivar_3 = (uint8_t)ivar_5;
+        result = (bytestrings__bytestring_t)bytestrings__unit((uint8_t)ivar_3);
+
+        defined = true;};
+        
+        return result;
+}

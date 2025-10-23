@@ -1,0 +1,3 @@
+good_tscaffold?(len, G, (s: strings(len)))(A : scaffold(len)): bool =
+ (FORALL (i: upto(len)), n: good_entry?(len, G, s)(A, i, n, A(i)(n)) AND
+              (good_or_fail?(A(i)(n)) => dep(A(i)(n)) <= gfcount(len, A)))

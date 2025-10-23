@@ -1,0 +1,1278 @@
+\documentclass[letterpaper,conference,compsoc]{IEEEtran}
+
+\ifCLASSOPTIONcompsoc
+  % IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  \usepackage{cite}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,fit,shapes}
+
+\newcommand{\mavlink}{MAVLink}
+
+\input{preamble}
+
+\lstset{
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    basicstyle=\ttfamily\tiny,
+    numbers=left,
+    %xleftmargin=2em,
+    framexleftmargin=1.5em,
+    numberstyle=\ttfamily\tiny,
+    frame = single,
+    linewidth=\linewidth,
+    xleftmargin=.1\linewidth,
+    xrightmargin=.025\linewidth,
+}
+
+\newcommand{\sacomment}[1]{\texttt{(#1 - SA)}}
+
+\begin{document}
+
+\title{Work-in-Progress: The Parsley Data Format Definition Language}
+\author{\IEEEauthorblockN{Prashanth Mundkur\\Linda Briesemeister\\Natarajan Shankar}
+  \IEEEauthorblockA{SRI International\\
+    Menlo Park, CA 94025}
+  \and
+  \IEEEauthorblockN{Prashant Anantharaman\\ Sameed Ali\\ Sean Smith}
+  \IEEEauthorblockA{Dartmouth College\\
+    Hanover, NH 03755}}
+
+\maketitle
+
+\usepackage{booktabs}
+\usepackage{subcaption}
+%\usepackage{incgraph}
+%\usepackage{lmodern}
+\usepackage{amsthm}
+\usepackage{stmaryrd}
+\usepackage{mathrsfs}
+%\usepackage{textcomp}
+\usepackage{mdframed}
+%\usepackage{titlesec}
+\usepackage{wrapfig}
+\usepackage{bussproofs}
+\usepackage{balance}
+\usepackage{relative}
+\newenvironment{bprooftree}
+  {\leavevmode\hbox\bgroup}
+  {\DisplayProof\egroup}
+%\usepackage{relative}
+\input{lstmacro.tex}
+\newcommand{\prodnInternal}{\leftarrow}
+\newcommand{\prodn}[2]{#1 \prodnInternal #2}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+\newcommand{\myparagraph}[1]{}
+
+%% Title information
+\title{Formal Development of a Top-Down Chart Parser for Parsing Expression Grammars}
+% \titlenote{This work was supported by the National Institute of Aerospace
+%  Award C18-201097-SRI, NSF Grant
+%  SHF-1817204,  and DARPA under agreement number HR001119C0075. 
+%  The views and conclusions contained herein are those of the authors and
+%  should not be interpreted as necessarily representing the official
+%  policies or endorsements, either expressed or implied, of NASA, NSF, DARPA, Ecole Polytechnique, or the
+%  U.S. Government.  We thank the anonymous referees for their detailed comments and 
+%  constructive feedback.
+% }
+%% Author information
+%% Contents and number of authors suppressed with 'anonymous'.
+%% Each author should be introduced by \author, followed by
+%% \authornote (optional), \orcid (optional), \affiliation, and
+%% \email.
+%% An author may have multiple affiliations and/or emails; repeat the
+%% appropriate command.
+%% Many elements are not rendered, but should be provided for metadata
+%% extraction tools.
+
+%% Author with single affiliation.
+
+\author{Zephyr S. Lucas\inst{1} \and Natarajan Shankar\inst{2}} 
+ \institute{
+{Department of Computer Science}\\
+{Dartmouth College}\\
+{6211 Sudikoff Laboratory}\\
+{Hanover}
+{NH}
+{03755-3510}
+{USA}\\
+{Zephyr.S.Lucas.GR@dartmouth.edu}}
+
+
+\institute{
+{Computer Science Laboratory}\\
+{SRI International}\\
+{333 Ravenswood Avenue}\\
+{Menlo Park}
+{CA}
+{94025}
+{USA}\\
+{shankar@csl.sri.com}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  Formalization is often seen as an exclamation point 
+   certifying the correctness of a mathematical development.  However, in
+  the context of an interactive proof assistant, formalization is a medium for a
+  creative dialogue that identifies gaps, tags errors, and refines the
+  definitions, claims, and proofs to enhance the correctness, clarity,
+  elegance, robustness,
+  and reusability of mathematical content.  With this goal in
+  mind, we explore the formalization of a top-down chart parser for
+  parsing expression grammars (PEGs) using SRI's Prototype
+  Verification System (PVS).  The parser, which supports dynamic loop
+  detection, operates on a chart-recording data structure that also embeds the
+  parsing stack.  Since the parsing algorithm is tail-recursive and
+  operates on fixed storage, it is hardware-friendly.  The invariants
+  needed to establish the correctness of the chart parser are complex
+  and delicate.  They were derived through an iterative proof
+  exploration process.  The generated proof obligations and proof
+  attempts led to a number of significant corrections and improvements
+  to the formal development.
+  % We examine the interaction between the
+  % language, type system, and proof automation/interaction in PVS in
+  % the context of creating, revising, and restructuring formal content.
+\end{abstract}
+
+
+
+%% Keywords
+%% comma separated list
+\keywords{PVS, PEG grammar, chart parsing, verified parser, top-down parsing}  %% \keywords are mandatory in final camera-ready submission
+
+
+%% \maketitle
+%% Note: \maketitle command must come after title commands, author
+%% commands, abstract environment, Computing Classification System
+%% environment and commands, and keywords command.
+
+
+
+%% Acknowledgments
+% \begin{acks} This work was supported by NSF Grant
+% CSR-EHCS(CPS)-0834810, NASA Cooperative Agreement NNA10DE73C, and by
+% DARPA under agreement number FA8750-12-C-02&84 and  FA8750-16-C-0043. 
+% The views and conclusions contained herein are those of the authors and
+% should not be interpreted as necessarily representing the official
+% policies or endorsements, either expressed or implied, of NSF, NASA, DARPA or the
+% U.S. Government.
+% \end{acks}
+
+
+\section{Introduction}
+\label{sec:intro}
+
+
+Parsing is a fundamental operation for transforming concrete
+representations of data such as documents and program text into their
+abstract machine-representable counterparts~\cite{GruneJacobs}.  Even though parsing is
+one of the most developed fields of computing, a number of significant
+computing vulnerabilities have been attributable to parsing
+errors. For example,  parsing errors were detected in the unverified
+front-end of the verified CompCert
+compiler~\cite{csmith}, and security vulnerabilities~\cite{DBLP:journals/usenix-login/BratusHHLMPS17} such as Heartbleed~\cite{carvalho2014heartbleed}  
+and SIGRed~\cite{SIGRed} stem from improper input
+validation attributable to parsing errors. Such shortcomings are
+especially lamentable given that language theory and parsing are
+amenable to rigorous formalization.   We present the formalization of a
+top-down chart parsing interpreter for PEG grammars developed using
+SRI's Prototype Verification System (PVS)~\cite{Owre95:prolegomena}.  Equal in importance to
+the correctness guarantees derived from the formalization
+is the iterative proof development process by which formalization is achieved.
+We  describe how through an interactive dialogue, a proof
+assistant accelerates the construction of a correct, robust, and
+reusable formalization.
+
+
+% Parsing is a fundamental operation for transforming concrete representations of data such as a document or a program text into its abstract machine-representable counterpart. The Chomsky hierarchy of grammars:
+
+%Parsing is one of the most developed fields of computing, and yet a
+%number of significant computing vulnerabilities are attributable to
+%parsing errors.  Language theory and parsing are also amenable to
+%rigorous formalization but there are only a few examples of verified
+%parser developments in the literature.  Chart parsing is a powerful
+%framework that supports both top-down and bottom-up views of parsing.
+%We present the formalization of a top-down chart parsing interpreter
+%developed using SRI's Prototype Verification System.  The
+%parser employs a table mapping each position in the input string and
+%nonterminal to an entry that represents the parse result for the
+%nonterminal at the given position.  Our parser is presented as a
+%tail-recursive state machine that can be easily mapped to a hardware
+%implementation.  The invariants associated with the parse table are
+%complex since the table encapsulates a web of relationships that are
+%impacted by an update to even a single entry.  The formalization was
+%greatly aided by the dialogue with an interactive proof assistant.  We
+%discuss how such a dialogue helps accelerate the construction of a
+%formalization that is correct, robust, and reusable.
+%
+%Parsing is a fundamental operation for transforming concrete
+%representations of data such as a document or a program text into its
+%abstract machine-representable counterpart.  Parsing errors are critical
+%since they can lead to semantic errors, e.g., in the CompCert compiler~\cite{csmith}, 
+%and numerous security vulnerabilities such as those caused by
+%\emph{improper input validation}~\cite{DBLP:journals/usenix-login/BratusHHLMPS17}, e.g., Heartbleed, SigRed.
+%
+% Parsing is a fundamental operation for natural and artificial
+% languages that checks and processes input in concrete syntax into an
+% unambiguous machine-friendly representation. 
+% The Chomsky hierarchy of grammars:
+
+%  \begin{eqnarray*}
+% \text{regular} &\sqsubset  &\\
+%  		\text{context-free} &\sqsubset  &\\
+%  		\text{context-sensitive} &\sqsubset &\\
+%  		\text{recursively enumerable}
+%  \end{eqnarray*}
+%  has dominated the discussion of parsing.
+%  Such grammars can be ambiguous in admitting multiple distinct parse trees for the
+%  same input string.
+% Within parsing, much of the attention has focused
+% on deterministic context-free languages since they admit efficient
+% parsing. Parsing is usually done by
+%  applying a lexer to extract a stream
+%   of tokens,
+%   parsing this stream according to a grammar specification to produce a
+%   parse tree, and
+%  applying semantic actions to evaluate the parse tree.
+
+
+ Parsers~\cite{GruneJacobs} can operate
+ \begin{itemize}
+ \item \emph{Top-down}, by consuming input token strings
+    matching a given grammar category, e.g., recursive descent and
+    $LL(k)$ parsers, and Earley parsing for arbitrary context-free grammars,
+    or 
+ \item \emph{Bottom-up}, where the
+   contiguous tokens are grouped into grammar categories, e.g.,
+   precedence parsers, LR(k) (and variants SLR,
+ LALR, CLR), as well as GLR and CYK parsers for arbitrary context-free
+ grammars. 
+ \end{itemize}
+
+% A top-down recursive descent parser is just a mutually recursive program with a
+% parsing function for each nonterminal.  An $LL(k)$ (Left-to-right scan of the input,
+% Leftmost derivation with $k$ token look-ahead) parser is another example of a
+% top-down parsing scheme.  $LL(k)$ parsing starts with the construction
+% of a lookup table associating production rules from the given grammar
+% with nonterminals and look-ahead strings.  $LL(k)$ parsing employs a stack of symbols
+% (terminals and nonterminals) together with the lookup table to either
+% move the cursor representing the parse position in the input string
+% when the token at the cursor matches the top symbol in the stack, or
+% looking up the matching production for a nonterminal at the top of the
+% stack against the $k$ leading tokens at the cursor, identifying the
+% matching production and replacing the top nonterminal with the symbols
+% (in reverse order) from the right-hand side of the production.  Not
+% all grammars support consistent $LL(k)$ lookup tables.  Also, left
+% recursion poses a challenge for top-down parsing since it can lead to a nonterminating parse.
+
+% Bottom-up parsers work by processing the input token stream and
+% constructing the parse tree from a forest generated by the leaves upwards.
+% Examples of bottom-up parsers  include precedence parsers, LR(k) (and variants SLR,
+% LALR, CLR), and GLR  and CYK parsers for arbitrary context-free
+% grammars.  Left recursion is a challenge for some but not all bottom-up parsers.
+% The popular class of shift-reduce parsers use a
+% stack to extract matching nonterminals for a substring by applying
+% one of 
+% \begin{itemize}
+% \item A \emph{shift} step which moves a token from the input onto the stack
+% \item A \emph{reduce} step which replaces the top few symbols in the stack
+%   with a matching nonterminal according to a grammar production rule.  
+% \end{itemize}
+
+Parsing algorithms like the Earley and CYK algorithms are examples of \emph{chart
+parsers}~\cite{earley1970efficient,kay1986algorithm,pereira1983parsing} based on dynamic programming where the goal is to
+progressively label larger and larger spans of the input string with
+terminals and nonterminals based on the labels of contiguous subspans.
+Earley parsing takes a top-down approach whereas the CYK and Valiant
+algorithms take a bottom-up approach to parsing.
+
+Our chart parser employs a table or a \emph{scaffold} mapping each
+position in the input string and non-terminal to an entry that
+represents the parse result for the non-terminal at the given
+position. Our chart parser is a tail-recursive state machine that
+operates on fixed storage so that it can be easily mapped to a
+hardware implementation. With respect to formalization, the invariants
+associated with the parse table are complex since the table
+encapsulates a web of relationships that are impacted by an update to
+even a single entry. Using PVS as an interactive proof assistant
+greatly assisted in managing this complexity.  More strongly, it 
+would be extremely hard to construct or understand such proofs
+without the aid of a proof assistant. 
+
+
+In the present work, we focus on a class of grammars called Parsing
+Expression Grammars (PEGs) introduced by Ford~\cite{DBLP:conf/popl/Ford04}.  These grammars are
+unambiguous and efficient for both top-down and bottom-up parsing.
+PEGs replace the unordered choice operation $e_1 ~|~ e_2$ in CFGs with
+an ordered choice operation $e_1/e_2$\@.  In addition to concatenation
+$e_1 e_2$, the grammar supports an check operation $\& e$ that looks
+ahead for a match to $e$ without consuming any tokens, and negation
+$!e$ that succeeds consuming no tokens only when a match against $e$
+fails.   PEG grammars are a good match for  recursive descent
+parsers.  Parser combinators can be defined for each PEG construct that
+combine parsers for the grammar sub-expressions into a parser for the
+expression.  PEG grammars can be \emph{ill-formed} and contain loops, for
+example in the case of left recursion where, for example, a
+nonterminal $n$ is mapped to the expression $n/n'$\@.  PEG grammars can
+be checked for \emph{well-formedness} through a static analysis, where
+well-formed grammars always yield parses that terminate in success or
+failure, however such an analysis can miss cases where the grammar
+is in fact loop-free.  
+
+Prior research has explored the formalization of PEG parsing
+where the grammars are conservatively analyzed for termination using recursive
+descent parsers~\cite{trx,blaudeau2020verified}\@.  Top-down parsers
+that have been verified include the CakeML parser~\cite{DBLP:conf/popl/KumarMNO14},
+an LL(1) parser~\cite{DBLP:conf/itp/LasserCFR19}, an SLR parser generator~\cite{conf/esop/BarthwalN09}, and a recursive descent parser for context-free languages~\cite{conf/cpp/Ridge11}\@.  We believe that our work is the first to address the
+verification of an Earley-style chart parsing algorithm.  We allow ill-formed
+grammars but extend the parser to dynamically check for loops.  
+In this more general setting, it is possible to demonstrate that the
+parser is well-behaved on well-formed grammars while still admitting potentially
+ill-formed grammars.  
+
+We also formalize the parser interpreter as a state machine by
+internalizing the stack. The parser is centered around a table
+$A$ where for each position $i$ on the input string, there is
+an array $A(i)$ such that for each nonterminal $n$, $A(i)(n)$ is a
+table entry.  Initially, all the table entries $A(i)(n)$ are
+\emph{pending} indicating that parsing has not yet been initiated at
+any string position $i$ for any nonterminal $n$\@.  Once the root
+query has been launched for non-terminal $r$ at position $0$, we place
+a pair representing $(0, r)$ on the stack.  The production
+$\prodn{r}{e}$ corresponding to the nonterminal $r$ is evaluated, and
+parsing is continued through a case analysis on $e$.  This can lead to
+pushing more position/nonterminal pairs on to the stack or to \emph{finalized}
+entries representing failed, loopy, or successful parses.  When a parse query is
+initiated on a position/nonterminal pair that is already on the stack,
+a loop is signaled, and this loop is propagated back through the stack
+to the root query.
+
+We arrived at the above algorithm in a series of steps.  We first
+started by formalizing the \emph{scaffolding automata} algorithm due
+to Loff, Moreira, and Reis~\cite{loff2020computational}.  This is a
+bottom-up, right-to-left algorithm that fills in the scaffold from the
+final position backwards.  In each iteration, it fills out the entries
+for a given position for each nonterminal.  It is possible to sort the
+nonterminals so that the sub-queries for each nonterminal at a given
+position have already been processed.  This variant would be quite
+straightforward to verify since the sequencing of the operations
+ensures that each entry is consistent with the entries corresponding
+to the sub-queries.  Since it is challenging to write a grammar that
+passes a termination check, we allowed the nonterminals to be
+unordered.  This introduces the possibility of loops.  For example, a
+grammar with $\prodn{S}{R S}$, where $R$ happens to succeed without
+consuming any tokens.  We tried an alternative that involved using a
+stack to process any as yet unprocessed sub-queries.  The use of the
+stack complicated the picture.  We decided that if we were going to
+use a stack, then we might as well employ a top-down algorithm.  We
+then formalized a top-down algorithm with an explicit stack argument,
+and soon noticed that the stack could be embedded within the scaffold
+itself.  We then wrote out a full state machine and a few days of
+dialogue with the proof assistant yielded the invariants for the
+parsing algorithm.  We then noticed that the flat state machine could
+be refactored to make the proofs less repetitive and more compact.
+This required additional strengthenings of the invariants suggested by
+a couple more days of dialogue with the proof assistant.  Many of the
+definitions and invariants would have been painfully difficult to
+derive without the benefit of the interactive dialogue supported by
+powerful automation.  Many of the proofs employ a heavy amount of
+automation even when it is obvious from experience that the automation
+will succeed.  Others need to be handled more delicately since they
+might fail and we as users need to understand the root cause of the
+failure.
+
+The parsing algorithm we formalize is attractive since it captures
+top-down PEG parsing as a state machine with a single statically
+allocated data structure.  This makes it hardware-friendly.  We added
+dynamic loop detection in order to support a more liberal class of 
+PEGs that admit cyclic dependencies and to address a novel verification
+challenge.  If the grammar does not contain cyclic dependencies, the
+loop detection can be turned off.  Our basic
+algorithm can also support certain optimizations for speeding up parsing.
+The chart parsing algorithm presents several challenges for verification.
+The key result we want at the end is that the parsing operation
+yields a consistent scaffold yielding a chart labeling the root query.  Defining a consistent
+scaffold is itself quite challenging.  The conditions on partially
+completed scaffold have to be characterized in such a way that each step
+of the parsing algorithm preserves this condition as an invariant, and
+the resulting completed chart is consistent.  The final challenge is
+structuring the proof in order to make it easy to demonstrate that the
+invariant is preserved.  
+
+
+
+% >>>>> Following has been moved up >>>
+%Despite its importance as a semantic bridge and a
+%critical access point for security attacks, formal aspects of parsing have not
+%been deeply analyzed.
+%A few parsing algorithms have been verified.
+
+
+\section{A Top-Down Chart Parser for PEGs}\label{sec:PEG}
+
+%We employ a Chomsky Normal Form
+%representation of PEG grammars where the right hand sides of
+%productions are flat, i.e., contain no nesting of PEG operations.  Any
+%PEG grammar can easily be represented in Chomsky Normal Form, whereas
+%the corresponding transformation for CFGs is more complicated.
+%Let $A$, $B$, $C$ range over nonterminal symbols, and $M$, $N$ range over
+%terminal operations including the character $c$,
+%the any operation $any(p)$, where $p$ is a predicate over characters, and
+%$\epsilon$ representing the empty string.  The Chomsky Normal Form
+%grammar consists of productions of the form $A \leftarrow e$, where
+%$e$ is of one of the forms 
+%\begin{center}
+%\begin{tabular}{{|l|c|}}\hline
+%  Empty &   $\epsilon$ \\\hline
+%  Failure & $f$ \\\hline
+%  Any & $any(p)$ \\\hline
+%  Terminal & $c$ \\\hline
+%  Concatenation & $M N$\\\hline
+%  Ordered Choice & $M/N$ \\\hline
+%  Check & $\& M$ \\\hline
+%  Negation & $!M$ \\\hline
+%\end{tabular}
+%\end{center}
+%
+%Central to our parser is a table data structure similar to those used by
+%Earley and CYK parsers.  The table, which we refer to as a scaffold following
+%For parsing a string $s$ of length $L$,
+%The scaffold consists of entries of the form $a_{in}$ for string position $i$, $0\leq i\leq L$,
+%and nonterminals $n$\@.
+%
+%Each entry $a_{in}$ is either \textit{pending}, \textit{fail}, \textit{loop}, or \textit{good(height, span)}.  Since we embed the stack in the scaffold,
+%we also allow entries of the form \texttt{push(position, nonterminal)}
+%Initially, all entries in the scaffold are pending.  
+%$$
+%\begin{array}{|r||c|c|c|c|c|}\hline
+%  & 0 & \ldots & i & \ldots & L \\\hline\hline
+%  n0 & a_{00}& \ldots & a_{i0}\tikzmark{a} & \ldots & a_{L0}\\\hline
+%  \vdots & \vdots & \vdots & \vdots & \vdots & \vdots\\\hline
+%  nj & \ldots & \ldots & a_{ij}\tikzmark{b} & \ldots & a_{Lj}\\\hline
+%  \vdots & \vdots & \vdots & \vdots & \tikzmark{c}\vdots & \vdots\\\hline  
+%  nN & a_{0N}& \ldots & a_{iN} & \ldots & a_{LN}\\\hline
+%\end{array}
+%$$
+%\begin{tikzpicture}[overlay, remember picture, yshift=.25\baselineskip, shorten >=.5pt, shorten <=.5pt]
+%    \draw [->] ({pic cs:b}) [bend right] to ({pic cs:a});
+%    \draw [->] ([yshift=.75pt]{pic cs:b}) -- ({pic cs:c});
+%  \end{tikzpicture}
+%The stack can be represented within the scaffold itself --- hardware-friendly. 
+
+\input{example.tex}
+
+
+
+
+
+
+
+\section{Chart Parsing: Formalization and Proof}\label{sec:chartparsing}
+
+
+We now present a formalization (\emph{available on request})
+of the chart parsing algorithm in PVS.
+This formalization exploits specific features of
+the PVS dependently subtyped higher-order logic.  
+We quickly summarize the basic features and 
+explain more advanced  features of the PVS specification language
+as needed to understand the formalization.  
+
+\myparagraph{PVS in Brief.} The PVS specification language is based on strongly typed higher-order logic.  
+A PVS specification is a collection of theories.  Each theory has
+some type and individual parameters, and the body of the theory is a sequence
+of declarations of types and constants.  A type can be one of the built-in
+types; a (possibly dependent) tuple, record, or function type, a predicate
+subtype of the form $\{x: T ~|~ p(x)\}$, or an algebraic or coalgebraic datatype.
+The type \texttt{nat} of natural numbers is a predicate subtype of the
+type \texttt{int} of integers, which in turn is a subtype \texttt{rat} of the
+rational numbers, and the real number type \texttt{real}\@.  Dependent
+types can be used, for example, to define the type of permutations over a
+given initial segment of the natural numbers as a dependent record with a
+\texttt{size} field over \texttt{nat}, and a permutation field that is an bijective
+map from \texttt{below(size)}, which is defined as $\{\mathtt{i} : \mathtt{nat} | \mathtt{i} < \mathtt{size}\}$, to itself.  The PVS type system can thus express
+the specification of a function using the type system.  
+ The PVS typechecker generates proof obligations called type correctness conditions (TCCs) corresponding to subtype constraints and termination.  
+These proof obligations can be discharged through automated proof strategies or interactively developed proofs.  The PVS theorem prover combines powerful back-end automation in the form of simplification, rewriting, and satisfiability solving with
+user-defined proof strategies allowing proofs to be constructed at varying levels of automation, transparency, and user control.
+
+
+
+% \begin{figure}[h!]
+% 			{\lstinputlisting[language=PVS]{code_samples/pegtopdown.txt}}
+% 			\caption{\vspace{-.3cm}The theory \texttt{pegtopdown} with the contents elided.}
+% 			\label{pvs:pegtopdown}
+% \end{figure}
+
+\subsection{Formal Specification of a Chart Parser}
+\myparagraph{Some Basic Types}
+Our PVS development of the PEG chart parser takes place in a single theory
+titled \texttt{pegtopdown}.
+The first part of the theory defines a few basic types and a single
+constant.  The type \texttt{byte} is a subtype of natural numbers from
+$0$ to $255$\@.  The type \texttt{strings(len)} is a subtype
+\texttt{string} type (which defined in the PVS prelude library as a
+finite sequence) consisting of those character sequences that are of
+length \texttt{len}\@.  The number of nonterminals
+\texttt{num\_non\_terminals} is specified as $255$\@.\footnote{We could
+  have left the number of nonterminals unbounded and it would have
+  made very little difference to the proof and the resulting programs
+  would still be executable.}  These bounds are specified in order to
+make the proofs highlight some of the complexity introduced in
+handling machine-representable integers. Also, we plan to use
+the PVS2C code generator to produce efficient imperative code implementing
+the parser.  We also declare a variable \texttt{len} which we use to represent the length
+of the input string to be parsed.  The two typing judgements assert the
+subtype relationships between \texttt{upto(len)} and \texttt{uint32},
+and \texttt{non\_terminal} and \texttt{uint8}\@.  These yield proof
+obligations that need to be proved, but the typechecker uses these
+judgements without generating further proof obligations, for example,
+when an expression of type \texttt{non\_terminal} is required to match
+the expected type \texttt{uint32}\@.  
+\begin{figure}[h!]
+  {\lstinputlisting[language=PVS]{code_samples/byte.txt}}
+  \vspace*{-4mm}
+			\caption{Basic type definitions.}
+			\label{pvs:byte}
+\end{figure}
+
+
+\myparagraph{Scaffold Entries.}
+The entry type for the scaffold (Figure~\ref{pvs:ent})
+is an algebraic datatype with
+constructors \texttt{fail} (with accessor \texttt{dep} representing
+the \emph{nesting depth} (or height) and recognizer \texttt{fail?}), \texttt{pending}
+(with no accessors and recognizer \texttt{pending?}), \texttt{loop}
+(with recognizer \texttt{loop?}), \texttt{good} (with accessors
+\texttt{dep} and \texttt{span} and recognizer \texttt{good?}), and
+\texttt{push} (with accessors \texttt{pos} and \texttt{nt}, and
+recognizer \texttt{push?}).  The values of type \texttt{ent} are
+entries in the scaffold.  For example, the entry \texttt{fail} at
+position $i$ and $nonterminal$ $n$ represents a failed parse for
+nonterminal $n$ at position $i$.
+
+\begin{figure}[h!]
+  {\lstinputlisting[language=PVS]{code_samples/ent.txt}}
+  \vspace*{-4mm}
+			\caption{The entry type for the scaffold.}
+			\label{pvs:ent}
+\end{figure}
+
+
+\myparagraph{PEG expressions.}
+The type of PEG expressions is defined in Figure~\ref{pvs:peg} by a datatype \texttt{peg}.  The
+constructor \texttt{epsilon} represents the empty string,
+\texttt{failure} always parses to a failure, \texttt{any(p)} matches
+an input character satisfying the predicate \texttt{p},
+\texttt{terminal(a)} matches the character \texttt{a}, the
+concatenation operation $\mathtt{concat(n_1, n_2)}$ only allows nonterminals
+as the sub-grammars, and similarly for order choice
+\texttt{choice(A)}, the lookahead check \texttt{check(A)} (which
+corresponds to the $\&$ operation), and the negation operation
+\texttt{neg(A)}\@.
+
+\begin{figure}[h!]
+  {\lstinputlisting[language=PVS]{code_samples/peg.txt}}
+  \vspace*{-4mm}
+			\caption{The PEG syntax}
+			\label{pvs:peg}
+\end{figure}
+
+Figure~\ref{pvs:grammar} defines the type \texttt{lang\_spec} of grammars, i.e., the set of productions, as 
+ a map from the type \texttt{non\_terminal} to \texttt{peg}\@.  
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/grammar.txt}
+    \vspace*{-4mm}
+\caption{\small Language Specification Type}
+\label{pvs:grammar}
+\end{figure}
+
+
+\myparagraph{Valid Scaffold Entries.}
+The predicates defined in Figure~\ref{pvs:checkentry} capture stronger checks on the entries in the scaffold.
+These checks are not built into the definition of \texttt{ent} since
+they require the context of the length of the string and the position
+of the entry within the scaffold.\footnote{One could define \texttt{ent} as a
+  parameterized datatype, but this has the messy consequence that
+   the individual entries in the scaffold would
+be from different instantiations of the datatype. }
+The predicate \texttt{good\_good\_entry?} checks that
+ \texttt{i + j} is no greater than \texttt{len} 
+for an entry of the form \texttt{good(d, i)} with span length \texttt{i}
+at position \texttt{j} in the scaffold.  The predicate \texttt{good\_push\_entry?}
+checks for any entry of the form \texttt{push(i, n)} in the scaffold
+that $\mathtt{i} \leq \mathtt{len}$ (since the position where $\mathtt{i} = \mathtt{len}$ also has a scaffold entry) 
+and $ \mathtt{n}\leq \mathtt{num\_non\_terminals}$ (since $\mathtt{n} = \mathtt{num\_non\_terminals}$ is used to mark the end of the stack).  A stronger predicate
+\texttt{fine\_push\_entry?} checks for \texttt{push(i, n)} that $\mathtt{n} < \mathtt{num\_non\_terminals}$ indicating that it is a proper stack entry and not the
+end of the stack.  We represent the stack such that if the
+top of the stack is at the position $(i_0, n_0)$ of the scaffold $A$, then
+either $n_0 = \mathtt{num\_non\_terminals}$ and the stack is empty
+(and $i_0$ is irrelevant), or $A(i_0)(n_0) = \mathtt{push}(i_1, n_1)$, and
+$(i_1, n_1)$ is the next element in the stack.  Later on, we introduce further conditions
+to ensure that the stack is well-formed.  The predicate \texttt{nice\_entry?} checks that entries of the form \texttt{good(d, i)} and \texttt{push(i, n)} satisfy \texttt{good\_good\_entry?} and \texttt{good\_push\_entry?}, respectively.
+
+The predicate \texttt{loop\_or\_push?} checks that the entry is of the form
+\texttt{loop} or \texttt{push(i, n)}\@.  This predicate is needed 
+in order capture an invariant for the parsing algorithm.
+
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/checkentry.txt}
+    \vspace*{-4mm}
+			\caption{Predicates for checking the scaffold entries.}
+			\label{pvs:checkentry}
+\end{figure}
+
+
+\myparagraph{The Scaffold Type.}
+With the types and predicates defined above, Figure~\ref{pvs:scaffold}
+defines the type of a
+scaffold as an array over \texttt{upto(len)} of arrays over \texttt{non\_terminal}
+where each entry is meets the \texttt{nice\_entry?} condition\@.  
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/scaffold.txt}
+    \vspace*{-4mm}
+			\caption{The scaffold type}
+			\label{pvs:scaffold}
+\end{figure}
+
+
+\myparagraph{Stack Validity.}
+Next, we need to characterize a well-formed stack.  In an earlier
+attempt, we used a stack datatype that we could ensure was
+well-formed.   We first tried to economize by not placing any
+constraints other than identifying stack entries $(\mathtt{i, n})$ in the
+scaffold $A$ as those where $A(i)(n)$ was of the form \texttt{push(i',
+  n')}\@.  Unfortunately, the interactive proofs quickly made it clear that if a stack entry points
+to a non-stack entry, we terminate in a state where some scaffold
+entries that are marked as being on the stack have not yet been
+processed.  We could insist that every entry of the form
+\texttt{push(i', n')} in the scaffold $A$, it should be the case that
+$A(i')(n')$ is also of the form \texttt{push(i'', n'')}.  However,
+this condition can hold when there are cycles and it would be negated
+when any entry in the cycle is updated to a \texttt{fail},
+\texttt{loop}, or \texttt{good} value.  Occasionally, these
+experiments do succeed, and either way, we learn something from both
+failure and success with a modest amount of manual effort.
+
+
+\myparagraph{Stack Successor.}
+  The predicate \texttt{successor} defined in Figure~\ref{pvs:successor}
+checks if \texttt{entry2} is a successor of \texttt{entry1} for two stack entries \texttt{entry1} and \texttt{entry2}\@.
+Given a grammar \texttt{G} and a scaffold \texttt{A}, the \texttt{successor} predicate checks that \texttt{entry2} corresponds to a sub-query of the query \texttt{entry1}\@.  For example, if \texttt{entry1} is of the form \texttt{push(p1, nt1)}
+and \texttt{entry2} is of the form \texttt{push(p2, nt2)}, and \texttt{G(nt1)}
+is of the form \texttt{concat(n1, n2)}, then either \texttt{entry2} corresponds to the \texttt{n1} successor in which case $\mathtt{p1} = \mathtt{p2}$, or \texttt{A(p1)(n1)} has a \texttt{good} entry, and \texttt{entry2} is the \texttt{n2} successor of \texttt{entry1} so that $\mathtt{p2} = \mathtt{p1 = span(A(p1)(n1))}$ and $\mathtt{nt2} = \mathtt{n2}$\@.  The other cases of the definition are similar.  
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/successor.txt}
+    \vspace*{-4mm}
+			\caption{The successor relation on stack entries}
+			\label{pvs:successor}
+\end{figure}
+
+\myparagraph{Well-formed Stack.}
+We use the \texttt{successor} relation to characterize a good stack within
+a scaffold.  The recursive predicate \texttt{good\_stack?} take a grammar \texttt{G}, a scaffold \texttt{A}, and an entry \texttt{stack} that is required to
+satisfy the \texttt{good\_push\_entry?} predicate.  It also takes a \texttt{depth}
+parameter to ensure that the recursion terminates.  When \texttt{stack} is empty,
+i.e., $\mathtt{nt(stack)} \geq \mathtt{num\_non\_terminals}$,
+the \texttt{depth} must be $0$.  Otherwise, and in this case
+$0\leq \mathtt{nt(stack)} < \mathtt{num\_non\_terminals}$, we can look up
+$\mathtt{A(pos(stack))(nt(stack))}$ and bind it to \texttt{entry}\@.  We check that
+\texttt{entry} satisfies the \texttt{good\_push\_entry?} predicate,
+the successor relation holds between \texttt{entry} and \texttt{stack}
+when \texttt{entry} is nonempty, the \texttt{depth} is positive, and
+\texttt{entry} also recursively satisfies the \texttt{good\_stack?} predicate.
+The well-founded termination measure is given by the \texttt{depth} parameter
+which decreases by one in the recursive invocation.  
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/goodstack.txt}
+    \vspace*{-4mm}
+			\caption{Checking that the stack is well-formed. }
+			\label{pvs:goodstack}
+\end{figure}
+
+\myparagraph{Stack Membership.}
+For loop detection, we need to be able to check membership in the stack.
+This is done by the \texttt{mem\_stack?} predicate whose definition looks
+similar to that of \texttt{good\_stack?}\@.  The \texttt{mem\_stack?} predicate is only employed in the specification and is not used in defining the parsing
+state machine.  
+                      
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/memstack.txt}
+    \vspace*{-4mm}
+			\caption{Checking membership in the stack. }
+			\label{pvs:memcheck}
+\end{figure}
+
+The \texttt{mem\_stack?} predicate is used to define the predicate \texttt{fine\_stack?} which checks that there are no duplicate elements in the stack.   It turns out there can be no duplicate elements in a stack if it satisfies the \texttt{good\_stack?} predicate since it can be shown that each element of the stack occurs at a unique depth.  However, maintaining the \texttt{fine\_stack?} condition as defined is simpler than proving that 
+it is already entailed by \texttt{good\_stack?}.
+
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/finestack.txt}
+    \vspace*{-4mm}
+			\caption{A stack with no repeating elements }
+			\label{pvs:finestack}
+\end{figure}
+
+\myparagraph{Scaffold Consistency.}
+Having dealt with the stack portion of the scaffold, we are now ready to characterize the validity conditions on the other non-\texttt{pending} entries in the scaffold.
+The first of these, \texttt{loop\_ready?}, defined in Figure~\ref{pvs:loopready}, checks if the cell at position \texttt{i} and nonterminal \texttt{n} is a candidate that could be marked as a loop.
+Essentially, a cell is \texttt{loop\_ready?} if it has a successor that
+is either marked as a \texttt{loop} or is on the stack, i.e., is a \texttt{push} entry.   
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/loopready.txt}
+    \vspace*{-4mm}
+			\caption{Condition under which a cell can be marked as a loop}
+			\label{pvs:loopready}
+                      \end{figure}
+
+The \texttt{good\_fail?} predicate checks the parse should fail at position \texttt{i} of the input string for nonterminal \texttt{n}\@.  For example, The parse could fail because \texttt{G(n)} is of the form \texttt{any(p)} and \texttt{p} fails on the character at position \texttt{i} of the input \texttt{s}\@.  In another example, if \texttt{G(n)} has the form \texttt{concat(n1, n2)}, then the parse could fail at \texttt{i} for \texttt{n1}, or at \texttt{i + span(A(i)(n1))} for \texttt{n2}\@.  The \texttt{fail} entry also tracks the nesting depth of the failure.  We omit the definition of
+                      \texttt{good\_fail?} since it is similar to that of
+                      \texttt{good\_good?} below. 
+                      
+% \begin{figure}[h!]
+%   \lstinputlisting[language=PVS]{code_samples/goodfail.txt}
+% 			\caption{Condition under which a cell can be marked as \texttt{fail}}
+% 			\label{pvs:goodfail}
+% \end{figure}
+
+                      
+% The next validity check on a scaffold entry is for cells marked as \texttt{loop}
+% as defined by the \texttt{good\_loop?} predicate.  This is similar to the
+% \texttt{loop\_ready?} predicate, but with the weaker \texttt{loop\_or\_push?}  test replaced by \texttt{loop?} since \texttt{good\_loop?} is meant to characterize
+% a completed chart. 
+                      
+% \begin{figure}[h!]
+% 			\lstinputlisting[language=PVS]{code_samples/goodloop.txt}
+% 			\caption{Condition under which a cell represents a fully detected \texttt{loop}}
+% 			\label{pvs:goodloop}
+%                       \end{figure}
+
+                      The \texttt{good\_good?} predicate checks that \texttt{A(i)(n)} can be marked
+                      with \texttt{good(d, sp)}\@.  The case analysis is on the grammar given by \texttt{G(n)}\@.  For example, if \texttt{G(n)} is \texttt{epsilon}, then the entry must be \texttt{good(0, 0)}\@.  If \texttt{G(n)} is \texttt{choice(n1, n2)}, then either \texttt{A(i, n1)} is \texttt{good(d1, sp)}, with $\mathtt{d} = 1 + \mathtt{d1 + 1}$, or
+$\mathtt{A(i)(n1)} = \mathtt{fail(d1)}$ and $\mathtt{A(i)(n2)} = \mathtt{good(d2, sp)}$, with $\mathtt{d} = \mathtt{1 + max(d1, d2)}$\@.  
+                      
+
+
+
+The \texttt{good\_good?} predicate defined in
+Figure~\ref{pvs:goodgood} checks that a cell $\mathtt{i, n})$ can be
+marked with \texttt{good(d, sp)}\@.  The case analysis is on the
+grammar given by \texttt{G(n)}\@.  For example, if \texttt{G(n)} is
+\texttt{epsilon}, then the entry must be \texttt{good(0, 0)}\@.  If
+\texttt{G(n)} is \texttt{choice(n1, n2)}, then either \texttt{A(i,
+  n1)} is \texttt{good(d1, sp1)}, and $\mathtt{sp} = \mathtt{sp1}$ and
+$\mathtt{d} = 1 + \mathtt{d1 + 1}$, or
+$\mathtt{A(i)(n1)} = \mathtt{fail(d1)}$ and
+$\mathtt{A(i)(n2)} = \mathtt{good(d2, sp2)}$,
+$\mathtt{sp} = \mathtt{sp2}$,
+$\mathtt{d} = \mathtt{1 = max(d1, d2)}$\@.
+The need for recording the nesting depth within the scaffold entry was
+discovered during the proof.  Without it, we run into a problem where
+a scaffold could mark a cell with a self-loop with a \texttt{good} entry. 
+This would satisfy the \texttt{good\_good?} condition, but there would be no
+way to construct a well-formed parse tree from such a loop.  
+
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/goodgood.txt}
+    \vspace*{-4mm}
+			\caption{Condition allowing a cell to be marked as \texttt{good}}
+			\label{pvs:goodgood}
+\end{figure}
+
+The checks defined by \texttt{good\_fail?}, \texttt{loop\_ready?}, and \texttt{good\_good?} are used to define \texttt{good\_entry?} in Figure~\ref{pvs:goodentry}
+as a check on any entry \texttt{u}
+at cell $(\mathtt{i, n})$ in the scaffold.  
+
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/goodentry.txt}
+    \vspace*{-4mm}
+\caption{Condition under which a cell can be marked as \texttt{good},
+  \texttt{loop}, or \texttt{fail}}
+\label{pvs:goodentry}
+\end{figure}
+
+With the definition of \texttt{good\_entry?}, we can start to characterize
+a well-formed scaffold data structure as an invariant that can be preserved
+during parsing leading to a post-condition that establishes the correctness
+of the parse.  On the one hand, we can simply assert that each entry \texttt{A(i)(n)} at position \texttt{i} for nonterminal \texttt{n}
+satisfies the predicate
+$$\mathtt{good\_entry?(len, G, s)(A, i, n, A(i)(n))}.$$  However, one
+thorny issue is that as we update the entries, we also have to establish that their
+nesting depth is within the \texttt{uint64} subrange.  We need to maintain
+an invariant bounding the nesting depth entries so that they can be shown to
+remain within the range representable in \texttt{uint64}\@.  The nesting
+depth can be bounded by the cardinality of the subset of entries that are
+either \texttt{good} or \texttt{fail}, since these are the only entries that
+represent nesting depth.
+
+\myparagraph{Cardinalities.}
+The operation \texttt{scafcount} defined in Figure~\ref{pvs:scafcount}
+uses the summation operation from
+the PVS NASAlib \texttt{reals} library to define the cardinality of a set (predicate)
+over the scaffold entries.  
+
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/scafcount.txt}
+    \vspace*{-4mm}
+\caption{Computing cardinalities over the scaffold}
+\label{pvs:scafcount}
+\end{figure}
+
+We can use the \texttt{scafcount} operation to define cardinalities
+for some specific sets.  For example, \texttt{pushcount} defines the
+cardinality of the set of \texttt{push} entries in the scaffold.
+The \texttt{gfcount} operation defines the cardinality of the set
+of \texttt{good} or \texttt{fail} entries in the scaffold.
+
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/gfcount.txt}
+    \vspace*{-4mm}
+\caption{Computing cardinalities over the scaffold of push entries, and good or fail entries}
+\label{pvs:gfcount}
+\end{figure}
+
+
+\myparagraph{Scaffold Invariant.}
+The predicate \texttt{good\_tscaffold?} defined in Figure~\ref{pvs:goodtscaffold}
+captures the correctness of the scaffold
+data structure (ignoring the stack) by asserting that each  entry
+satisfies the \texttt{good\_entry?} predicate, and any nested depth field
+in an entry is bounded by the cardinality of the set of \texttt{good} or \texttt{failed} nodes in the scaffold.  
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/goodtscaffold.txt}
+    \vspace*{-4mm}
+\caption{Main Scaffold Invariant}
+\label{pvs:goodtscaffold}
+\end{figure}
+
+  We want to make sure that all the   \texttt{push} entries in the scaffold are part of stack.  For this to hold, the depth of the stack must be identical to the cardinality of the set of \texttt{push} entries in the scaffold as captured by the \texttt{good\_depth?} predicate defined in Figure~\ref{pvs:gooddepth}.
+
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/gooddepth.txt}
+    \vspace*{-4mm}
+\caption{Depth Invariant}
+\label{pvs:gooddepth}
+\end{figure}
+
+How do we know that when the parser has completed its work and the finalized entry
+for the root query has been entered?  By insisting, as the predicate
+\texttt{good\_root?} does that \texttt{A(rootpos)(rootnt)}, for
+the root position \texttt{rootpos} and root nonterminal \texttt{rootnt},
+is never \texttt{pending}, we know that this entry in the scaffold is either on the stack or it is finalized.  Parsing terminates when the stack is empty so the
+root entry must be a finalized entry.  
+
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/goodroot.txt}
+    \vspace*{-4mm}
+\caption{The root query must be on the stack if the stack is nonempty}
+\label{pvs:goodroot}
+\end{figure}
+
+The final invariant on the scaffold data structure is defined in
+\texttt{fine\_scaffold?} as a conjunction of \texttt{good\_tscaffold?}
+and \texttt{good\_root?}\@.  
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/finescaffold.txt}
+    \vspace*{-4mm}
+\caption{A fine scaffold has all good entries and a good root}
+\label{pvs:finescaffold}
+\end{figure}
+
+\subsection{Defining the Parser Interpreter}
+
+\myparagraph{Parser State.}
+We now have almost everything we need to characterize the state of our
+state machine.  The type is specified as a dependent record with fields:
+\begin{enumerate}
+\item \texttt{scaf} for the scaffold which is typed to satisfy the predicate \texttt{fine\_scaffold?}.\footnote{If \texttt{p?} is a predicate on type \texttt{T}, then \texttt{(p?)} is short for \texttt{\{x : T | p?(x)\}}.}
+\item \texttt{depth} for the stack depth which is typed to satisfy the predicate \texttt{good\_depth?}.
+\item \texttt{stack} which is the entry corresponding to the scaffold location for
+  the top of the stack, and typed to satisfy the \texttt{fine\_stack?} predicate.
+\item \texttt{lflag}, a loop detection flag that is \texttt{TRUE} when a loop has been detected.  The type constraint on \texttt{lflag} is that the top of the stack must satisfy \texttt{loop\_ready?} when a loop has been detected, and there must be no \texttt{loop} entries in the scaffold, otherwise.  
+\end{enumerate}
+One important point about the dependent typing of the \texttt{state} record type
+is that the field types are carefully staged so that each field can be typed 
+in terms of the fields that precede it.  In particular, the scaffold can be updated independently.  
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/state.txt}
+    \vspace*{-4mm}
+\caption{Parser State Type}
+\label{pvs:state}
+\end{figure}
+
+We can define a predicate \texttt{empty?} that checks the emptiness of a stack
+entry, and use it to define a subtype \texttt{ne\_state} of the \texttt{state}
+type separating those states with nonempty stacks.  The parser is always invoked with a nonempty stack containing the root query.  
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/empty.txt}
+    \vspace*{-4mm}
+\caption{Nonempty State Type}
+\label{pvs:empty}
+\end{figure}
+
+\myparagraph{Updating the Scaffold.}
+The \texttt{good\_entry?}  predicate is suitable for characterizing
+the entry-wise correctness of a scaffold, but a
+stronger predicate \texttt{fine\_entry?} is needed to check an entry that
+will be used to update the scaffold.  Note that while the scaffold is initalized
+with \texttt{pending} entries, they are never actually inserted into the scaffold.  All updates either finalize
+a parse for a nonterminal at a given input position to a \texttt{loop},
+\texttt{fail}, or \texttt{good} entry, or push a new entry into the stack.
+We will be defining a function to compute such an entry for the current stack head consisting of position \texttt{i} and nonterminal \texttt{n}\@.  This function
+computes an entry \texttt{u} which is either a finalized entry for
+\texttt{A(i)(n)} or of the form \texttt{push(i', n')}
+indicating that the new stack head will be at $(\mathtt{i'}, \mathtt{n'})$, and
+the old stack $(\mathtt{i}, \mathtt{n})$ is pushed into this position, i.e., we set
+\texttt{A(i')(n')} to \texttt{push(i, n)}\@.  
+The \texttt{fine\_entry?} predicate on the newly computed entry \texttt{u}
+is a strengthened version of  \texttt{good\_entry?} which checks that 
+\texttt{u} is either a \texttt{fail}, \texttt{loop}, or
+\texttt{good} entry according to \texttt{good\_fail?}, \texttt{loop\_ready?}, or \texttt{good\_good}, respectively, or it is of the form \texttt{push(i', n')}, where
+\texttt{n'} is a nonterminal and the parent entry \texttt{A(i')(n')} in the stack
+is either a \texttt{push} or a \texttt{pending} entry.  The case where \texttt{A(i')(n')} is \texttt{pending} arises because the parse at $(\mathtt{i', n'})$ is a successor of $(\mathtt{i, n})$ that has not yet been parsed.  The case where
+\texttt{A(i')(n')} is a \texttt{push} entry arises when the successor node $(\mathtt{i', n'})$ to $(\mathtt{i, n})$ is already on the stack.  
+The strengthened condition introduced in \texttt{fine\_entry?}
+only became apparent through failed proof attempts.  Experimenting with the proof is an effective way to explore how the complex web of relationships on the scaffold are affected by any updates.  
+
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/fineentry.txt}
+    \vspace*{-4mm}
+\caption{Condition on an entry to be inserted into the scaffold}
+\label{pvs:fineentry}
+\end{figure}
+
+It turns out that the definition of \texttt{fine\_entry?} is also not
+strong enough.  This is because if the scaffold entry
+\texttt{A(i')(n')} is a \texttt{push} entry, then the parser would
+have detected this loop.  Therefore, the only case when \texttt{u} is
+of the form \texttt{push(i', n')} is when \texttt{A(i')(n')} is
+\texttt{pending}.  We also needed the explicit condition that
+$(\mathtt{i', n'})$ is a successor of the top of the stack $(\mathtt{i,
+  n})$\@.  This strengthening is also a consequence of failed proof
+attempts and is captured in the definition of the predicate
+\texttt{finer\_entry?}\@.  However, \texttt{fine\_entry?} is independently
+useful in the proof so we retain the definition of \texttt{fine\_entry?}
+instead of inlining it into that of \texttt{finer\_entry?}\@.  
+
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/finerentry.txt}
+    \vspace*{-4mm}
+\caption{Strengthened condition on an entry to be inserted into the scaffold}
+\label{pvs:finerentry}
+\end{figure}
+
+The predicate \texttt{finer\_entry?} can be used for a subtype definition
+for \texttt{finer\_entry}\@.
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/finerentrytype.txt}
+    \vspace*{-4mm}
+\caption{Predicate subtype declaration for \texttt{finer\_entry}}
+\label{pvs:finerentrytype}
+\end{figure}
+
+
+
+We again emphasize that the predicates on scaffold entries defined
+above are neither tedious nor obvious.  They are crucial to the
+characterization of the correctness of the parser as well as to the
+construction of invariants that are preserved during parsing.  They
+are constructed hand-in-hand with the definition of the parser through
+failed proof attempts and repeated refactoring.  This iterative
+process is fairly painless.  It usually takes only a few minutes to
+converge on the failing cases of the proof to discover where a
+definition is too strong or too weak or simply incorrect.  The
+insights learned from these failing proofs help focus human attention
+on the tricky points in both the algorithms and the proof.
+
+% One might argue that these false starts could be avoided by better
+% planning.  Unfortunately, the case analyses in these proofs are
+% extremely complex and delicate.  Work through them without the
+% benefit of automation would be painfully tedious and error-prone.  
+
+We finally arrive at the meat of the parser,  the function \texttt{newentry} which computes a new entry for updating the scaffold, the one for which we
+spelled out the \texttt{finer\_entry} type.  The \texttt{newentry} function operates on the grammar \texttt{G}, the input string \texttt{s}, the original start position \texttt{start}, the root nonterminal \texttt{rootnt}, and the current
+state \texttt{St}\@.  The return type for the new entry is defined
+by the \texttt{newentry} dependent type.   The definition first
+extracts the top position \texttt{pos} and \texttt{nonterminal} \texttt{cur}
+of the stack, and uses record field access (backquote) to 
+look up the tail of the stack as \texttt{St`scaf(pos)(cur)}. 
+The definition has eight cases according to the grammar entry \texttt{G(cur)}\@.
+When \texttt{G(cur)} is \texttt{epsilon}, the new entry is \texttt{good(0, 0)},
+indicating depth $0$ and span $0$ for the parse.  If \texttt{G(cur)} is \texttt{failure}, then the new entry is \texttt{fail(0)} indicating a nesting depth of $0$\@.
+When \texttt{G(cur)} is \texttt{any(p)}, result is
+\texttt{fail(0)} if either the position \texttt{pos} is \texttt{len}
+  or the string character \texttt{s(pos)} does not satisfy the predicate \texttt{p}\@.  Otherwise, the result is \texttt{good(0, 1)} indicating a nesting depth of $0$ and a span of length $1$\@.  
+The case when \texttt{G(cur)} is \texttt{terminal(a)} is similar.
+The remaining cases are handled separately and described below. 
+
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/newentrytop.txt}
+    \vspace*{-4mm}
+\caption{Top level of the \texttt{newentry} parsing function}
+\label{pvs:newentrytop}
+\end{figure}
+
+
+When \texttt{G(cur)} is \texttt{concat(n1, n2)}, we look up the entry \texttt{u1}
+given by \texttt{St`scaf(pos)(n1)}\@.   If \texttt{u1} is of the form \texttt{fail(d1)}, then
+the result is \texttt{fail(d1 + 1)}\@.  If \texttt{u1} is \texttt{good(d1, sp)}, then
+we lookup \texttt{u2} given by \texttt{St`scaf(pos + sp)(n2)}\@.  If
+\texttt{u2} is \texttt{fail(d2)}, then the result is \texttt{fail(1 + max(d1, d2))} to capture the increment to the nesting depth from both d1 and d2.
+If \texttt{u2} is \texttt{good(d2, sp2)}, then the result is
+\texttt{good(1 + max(d1, d2), sp + sp2)} since the parse for \texttt{cur} at position \texttt{pos} is obtained by concatenating the parses for n1 at \texttt{pos}, and
+\texttt{n2} at \texttt{pos + sp}\@.  When \texttt{u2} is \texttt{pending},
+we need to launch a parse query for \texttt{n2} at position \texttt{pos + sp},
+and this is done by returning the entry \texttt{push(pos + sp, n2)}\@.
+The only remaining possibilities are that \texttt{u2} is \texttt{loop} or
+of the form \texttt{push(i, n)}\@.  In either case, the result is \texttt{loop}
+since we have a previously detected loop at \texttt{pos + sp}, \texttt{n2},
+or we have detected a new loop since \texttt{pos + sp}, \texttt{n2} is already
+on the stack.  The remaining cases of the definition for \texttt{u2}
+are similar to ones described for \texttt{u2}\@.  
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/newentry_concat.txt}
+    \vspace*{-4mm}
+\caption{\texttt{newentry} definition for \texttt{concat(n1, n2)}}
+\label{pvs:newentry_concat}
+\end{figure}
+
+The definition in Figure~\ref{pvs:newentry_choice}
+for the case when \texttt{G(cur)} is \texttt{choice(n1, n2)}
+is quite similar.
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/newentry_choice.txt}
+    \vspace*{-4mm}
+\caption{\texttt{newentry} definition for \texttt{choice(n1, n2)}}
+\label{pvs:newentry_choice}
+\end{figure}
+
+We omit the definitions for the case where \texttt{G(cur)} is either \texttt{check(n1)}
+or \texttt{neg(n1)} since these are similar to those we have already described. 
+
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/newentry_check.txt}
+    \vspace*{-4mm}
+\caption{\texttt{newentry} definition for \texttt{check(n1)}}
+\label{pvs:newentry_check}
+\end{figure}
+
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/newentry_neg.txt}
+    \vspace*{-4mm}
+\caption{\texttt{newentry} definition for \texttt{neg(n1)}}
+\label{pvs:newentry_neg}
+\end{figure}
+
+\myparagraph{The Step Function.}
+The \texttt{newentry} function forms the core of the step function \texttt{step}
+for our parsing state machine defined in Figure~\ref{pvs:step}\@.  The state machine halts when
+the stack component of the state is empty.  Otherwise,
+we compute the \texttt{newentry} using the state \texttt{St}.
+If \texttt{newentry} is of the form \texttt{push(p, n)}, then
+we push this entry into the stack.  Otherwise, \texttt{newentry}
+is a finalized parse entry that we use to update the scaffold, and pop the stack.
+The loop detection flag \texttt{lflag} is set when \texttt{newentry} is \texttt{loop}.  The step function \texttt{step} is the body of a tail recursive \texttt{parse} function.  The termination measure for the parse operation is a double lexicographic
+value defined by \texttt{size} (whose definition we omit):
+either the number of non-finalized cells in the scaffold decreases,
+or it remains the same and the stack size grows up to a bound.  
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/step.txt}
+    \vspace*{-4mm}
+\caption{The parsing state machine step function}
+\label{pvs:step}
+\end{figure}
+
+
+% \begin{figure}[h!]
+% \lstinputlisting[language=PVS]{code_samples/size.txt}
+% \caption{The termination measure for the parser}
+% \label{pvs:size}
+% \end{figure}
+
+The state returned by the parser is always empty.  
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/endstate.txt}
+    \vspace*{-4mm}
+\caption{The termination state}
+\label{pvs:endstate}
+\end{figure}
+
+
+\myparagraph{The Parser.}
+The parse function \texttt{parse} shown in Figure~\ref{pvs:parser}
+invokes the step function until
+the stack is empty, resulting in an empty state of 
+\texttt{endstate} type  (whose definition is omitted).  
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/parser.txt}
+    \vspace*{-4mm}
+\caption{The parsing engine}
+\label{pvs:parser}
+\end{figure}
+The gateway function to the parser \texttt{doparse} is defined in Figure~\ref{pvs:doparse} to initialize
+the state and invoke the \texttt{parser} operation\@.
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/doparse.txt}
+    \vspace*{-4mm}
+\caption{The gateway parsing operation}
+\label{pvs:doparse}
+\end{figure}
+
+\subsection{Proving Correctness}
+We now discuss the correctness proof.  The correctness criteria are
+essentially embedded in the type signatures of the operations.
+For example, the definition of the \texttt{endstate} type ensures that
+all the entries in the scaffold are well-formed, i.e., satisfy the chart constraints for the given grammar.   Since the stack is empty, all the loops are actual
+loops, and the root query has a finalized entry.  There are two ways of
+capturing correctness through the type signature.  One approach uses the declared
+type signature of the operation as has been done with \texttt{newentry},  
+\texttt{parse}, and \texttt{doparse}\@.  The other approach employs the
+typing judgement mechanism in PVS to introduce a new type signature for
+already declared operations and expressions.  We have only made sparing
+use of typing judgements here since both the basic well-formedness of the
+parsing algorithm and termination rely heavily on the invariants used in
+the correctness arguments.
+
+The correctness proof is constructed by discharging the subtyping and
+termination type correctness conditions (TCCs) which are the proof
+obligations generated by the PVS typechecker.  The newentry operation
+along generates fifty nine TCCs.  A few of these are mostly trivial
+bounds constraints on those parameters that are declared as
+\texttt{uint8}, \texttt{uint32}, or \texttt{uint64}, but even in some
+of these cases, the proofs are nontrivial. Twenty eight of the
+fifty nine TCCS for \texttt{newentry} are those verifying that the
+entry \texttt{u} constructed by each of the twenty eight cases of the
+definition of \texttt{newentry} satisfies the \texttt{finer\_entry?}
+predicate.  The proofs, which are highly reusable, combine 
+a few key lemmas and heavy use of the built-in satisfiability modulo
+theories (SMT) decision procedures.  One such key lemma
+shown in Figure~\ref{pvs:goodgoodtscaffold} captures how the
+\texttt{good\_tscaffold} condition is preserved through an update
+with a new entry.  
+\begin{figure}[h!]
+  \lstinputlisting[language=PVS]{code_samples/goodgoodtscaffold.txt}
+    \vspace*{-4mm}
+\caption{\small Key lemma for invariant preservation}
+\label{pvs:goodgoodtscaffold}
+\end{figure}
+
+
+
+PVS proofs are robust since they rely on a high degree of guided
+automation.  They can be easily edit and reused on similar proof
+obligations, or transformed into proof strategies that are effective
+on a broad class of proof goals.  The flexibility in the level of
+automation and transparency allows users to interact when needed in
+order to diagnose and fix problematic definitions, theorem statements,
+and proofs.  User attention is also needed to identify patterns that
+are common to the proofs so that they can be encapsulated in
+refactored definitions, new lemmas, and proof strategies.  Iteratively
+developing the definitions, types, and lemmas from scratch would 
+take on the order of three to four weeks.  For example,
+developing the lemmas and proofs for discharging the TCCs for the flat
+version of the parser took around week, whereas the refactored version
+using \texttt{newentry} required only a couple of days since it reused
+the proofs from the first attempt.  The proof required seventeen
+supporting lemmas and only a handful of these needed nontrivial
+interaction.  A finite-model counterexample capability similar to that
+in Alloy~\cite{Jackson2006:book}, Ivy~\cite{padon2016ivy}, or
+Nitpick~\cite{blanchette2010nitpick} might be useful but not essential
+since it is typically quite easy to diagnose the issue from a failed
+proof branch.
+
+
+
+
+\section{Conclusions}
+
+The present exercise is a step in the direction of building proof
+infrastructure for the robust and efficient verification of practical
+parsing algorithms.  We have successfully tested the parser on
+several examples (including those shown in Section~\ref{sec:PEG}) using the
+PVS2CL Common Lisp code generator and the PVSio read-eval-print loop.
+We plan to continue polishing the proof and extending it to PEGs with
+data-dependent grammars.  %anonymized~\cite{mundkurparsley}.
+
+We started our formalization attempt on a bottom-up, right-to-left
+scaffolding automaton parser where the scaffold entries are filled in
+by scanning the scaffold from the last input position to the start
+position, and scanning the nonterminals at each input position.  A
+nonterminal at a given position might trigger a sub-query on another
+(or the same) nonterminal at the same position whose entry has not yet
+been finalized.  We could perform a static analysis on the grammar in
+order to pick an ordering that ensured that there are no parsing loops
+and sub-queries to each query are finalized ahead of the query.
+Another option is to use the nonterminals in their numeric order while
+detecting cycles dynamically.  We chose the second approach since
+there is no effective check for whether a PEG is well-formed, and loop
+detection poses an interesting verification challenge.  For
+dynamic loop detection, one could repeatedly scan the nonterminals at
+each position in the scaffold until a fixpoint has been reached so
+that any entries that have not been finalized can be classified as
+loops.  Alternately, one could use a hybrid approach of combining a
+scan with a stack of queries for those sub-queries that have not yet
+been finalized. The stack can also be used for loop detection.
+
+If we are going to employ a query stack, then a top-down parser makes
+more sense since it does not compute irrelevant scaffold entries.  We
+defined a top-down parser with state that contained both the scaffold
+and an explicit stack, and quickly observed that the stack could be
+built into the scaffold data structure.  This yields a significant
+efficiency in loop detection: an entry lookup versus a scan
+through an external stack. That led to the top-down chart parser
+described in this paper.  After some preliminary experiments, we
+arrived at the definition of the \texttt{state} type and the
+dependency ordering of the fields within the state type.  We first
+defined a flat \texttt{step} function which we could then refactor by
+introducing the \texttt{newentry} definition and discharging the
+resulting proof obligations.  There were some subtleties with the type
+signature for the \texttt{newentry} function since it constructs two
+kinds of entries: the finalized ones and the new queries/stack entries.  We did
+succeed in finding an elegant uniform characterization of the type
+signature using the \texttt{finer\_entry?} predicate.  By supporting
+efficient proof exploration and engineering, a proof assistant
+leverages the power of typechecking, proof construction and certification, and
+code generation to serve as an effective problem-solving aid.  
+
+The proofs we have completed are by no means the last word.  There is definitely room to squeeze out more robustness and automation through the introduction of
+auxilliary functions, lemmas, typing judgements, and customized proof strategies.
+Eventually, we hope that verifying a complex parsing algorithm will be a
+largely automatable task as we understand how the parsing metatheory can be
+encapsulated into types and proof strategies.  We also plan to extend the basic
+PEG grammar with inherited and synthesized attributes, and constraint checking,
+to capture some of the features the Parsley data format description language.  
+
+The present exercise is a step in the direction of building proof
+infrastructure for the robust and efficient verification of practical
+parsing algorithms.  The definitions have been written in a form that
+is friendly to generating efficient C code.  Since we are still polishing
+the proof, we have not currently had the time to thoroughly test the
+generated C code.  We have successfully tested the parser using the
+PVS2CL Common Lisp code generator and the PVSio read-eval-print loop.
+
+%\section{Conclusions}
+\clearpage
+\balance
+\bibliography{biblio.bib}
+
+
+\end{document}
