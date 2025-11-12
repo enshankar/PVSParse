@@ -21,7 +21,7 @@ dpeg  % [ parameters ]
    good_result(i : index): TYPE = {r : result | failure?(r) OR span(r) <= i}
    pos_result(i : index): TYPE = {r : good_result(i) | failure?(r) OR 0 < span(r)}
 
-   guard : TYPE = [s : bytestring, i : upto(s`length) -> pos_result(s`length - i)]
+   guard : TYPE = [s : bytestring, i : upto(s`length) -> upto(s`length - i + 1)]
 %   ne_guard: TYPE = [s : bytestring, i : upto(s`length) -> nonempty_result(s`length - i + 1)]
 %   ne_guard_guard: JUDGEMENT ne_guard SUBTYPE_OF guard
 
@@ -88,63 +88,69 @@ dpeg  % [ parameters ]
       fail: failure,
       skip: success(0),
       glte(p, nt1, nt2):
-       (LET res0 = p(s, pos)
+       (LET i = p(s, pos)
         IN
-	CASES res0 OF
-        failure:
+	IF i = 0 
+        THEN 
 	  IF nt2 < nt
 	  THEN matches(G, nt2)(s, pos)
 	  ELSE failure
-	  ENDIF,
-	success(span):
-	  IF nt1 < G`length
-	  THEN  CASES matches(G, nt1)(s, pos + span) OF
-	          success(rspan): success(span + rspan)
+	  ENDIF
+        ELSIF i > 1 AND nt1 < G`length
+        THEN  CASES matches(G, nt1)(s, pos + i - 1) OF
+	          success(rspan): success(rspan + i - 1)
 		  ELSE failure
 		  ENDCASES
-	  ELSE failure
-	  ENDIF
-	ENDCASES)
+	ELSE failure
+	ENDIF)
       ENDCASES)	
       MEASURE lex2(s`length - pos, nt)
 
    result_sofar(sofar: index, res: good_result(maxindex - sofar)): result
    = (CASES res OF
-       failure : res,
+       failure : failure,
        success(i): success(i + sofar)
        ENDCASES)
 
+   encode_result(res : result): uint32
+   = (CASES res OF
+       failure : 0,
+       success(i): i + 1
+       ENDCASES)
+
+   decode_result(i : upto(maxindex + 1)): result
+   = (IF i = 0 THEN failure ELSE success(i - 1) ENDIF)
+
    dpeg_parse(G, (nt : below(G`length)), s, (sofar : upto(s`length)), pos : subrange(sofar, s`length)):
-      RECURSIVE {res: result | res = result_sofar(sofar, matches(G, nt)(s, pos))}
+      RECURSIVE {i: upto(maxindex + 1) | i = encode_result(result_sofar(sofar, matches(G, nt)(s, pos)))}
       = (CASES G`seq(nt) OF
-      fail: failure,
-      skip: success(sofar),
+      fail: 0, 
+      skip: sofar + 1,
       glte(p, nt1, nt2):
-       (LET res0 = p(s, pos)
-        IN CASES res0 OF
-            failure: IF nt2 < nt
-	             THEN dpeg_parse(G, nt2, s, sofar, pos)
-	             ELSE failure
-	             ENDIF,
-            success(span):
-	        IF nt1 < G`length
-	        THEN dpeg_parse(G, nt1, s, sofar + span, pos + span)
-		ELSE failure
-		ENDIF
-	    ENDCASES)
-         ENDCASES)
-	MEASURE lex2(s`length - pos, nt)
+       (LET i = p(s, pos)
+        IN 
+        IF i = 0
+	THEN IF nt2 < nt
+	     THEN dpeg_parse(G, nt2, s, sofar, pos)
+	     ELSE 0
+	     ENDIF
+        ELSIF i > 1 AND nt1 < G`length
+        THEN dpeg_parse(G, nt1, s, sofar + i - 1, pos + i - 1)
+	ELSE 0
+	ENDIF)
+       ENDCASES)
+      MEASURE lex2(s`length - pos, nt)
 
 %m is reachable by empty steps from n   
    zreachable(G, (n : below(G`length)))(m : below(G`length)): RECURSIVE bool =
-   CASES G(n) OF
+   CASES G`seq(n) OF
     glte(p, n1, n2): m = n2 OR (n2 < n AND zreachable(G, n2)(m))
     ELSE FALSE
     ENDCASES
     MEASURE n
 
    skipzreachable(G, (n : below(G`length))): RECURSIVE bool =
-   (CASES G(n) OF
+   (CASES G`seq(n) OF
       skip: TRUE,
       glte(p, n1, n2): n2 < n AND skipzreachable(G, n2)      
       ELSE FALSE
@@ -160,10 +166,79 @@ dpeg  % [ parameters ]
     (LET res =  matches(G, n)(s, pos)
      IN skipzreachable(G, n) OR failure?(res) OR 0 < span(res)))
 
-%    wspace_guard(
+    IMPORTING stringutils
 
-%   whitespace: dpeg_grammar = [# length : = 3, [: skip, fail,  :]
-    
-      
+     mk_guard(p : [byte -> bool])(s, (i : upto(s`length))): below(3)
+     = (IF i < s`length AND p(s`seq(i))
+        THEN 2
+        ELSE 1
+       ENDIF)
+
+   %whitespace always succeeds.
+   wspace_grammar: dpeg_grammar = (# length := 3, seq := [: fail, skip, glte(mk_guard(whitespace), 2, 1) :] #)
+
+   is_plus_minus(b : byte): bool = (is_minus(b) OR is_plus(b))
+   %accepts 0, -1, -1.0, 1.0e+2, -2.345e-6
+   numeral_grammar: dpeg_grammar = (# length := 3,
+                                     seq := [: fail, skip,
+				               glte(mk_guard(whitespace), 2, 1),%2 <- whitespace, 2, 1
+					       glte(mk_guard(digit), 3, 2),%3 <- exponent tail digits
+					       glte(mk_guard(digit), 3, 0), %4 <- exponent needs leading digit
+					       glte(mk_guard(is_plus_minus), 4, 4), %5 <- exponent sign optional
+					       glte(mk_guard(is_eE), 5, 2),%6<- optional exponent leading with e or E 
+					       glte(mk_guard(digit), 7, 6),%7<-fractional digit tail
+					       glte(mk_guard(digit), 7, 0), %8<-leading fractional digit, required 
+					       glte(mk_guard(is_dot), 8, 2),%9<-fractional dot or whitespace
+					       glte(mk_guard(digit), 10, 9), %10<- integral tail
+					       glte(mk_guard(digit), 10, 0),%11<-leading integral digit required
+					       glte(mk_guard(is_minus), 11, 11):] #)%12 <- optional leading minus
+
+   key_true_guard(s, (i : upto(s`length))): below(5) =
+     IF (s`length - i >= 4 AND is_t(s`seq(i)) AND is_r(s`seq(i+1)) AND is_u(s`seq(i+2)) AND is_e(s`seq(i+3)))
+     THEN 4
+     ELSE 0
+     ENDIF
+
+   key_false_guard(s, (i : upto(s`length))): below(6) =
+    (IF (s`length - i >= 5 AND is_f(s`seq(i)) AND is_a(s`seq(i+1)) AND is_l(s`seq(i+2)) AND is_s(s`seq(i+3)) AND is_e(s`seq(i+4)))
+     THEN 5
+     ELSE 0
+     ENDIF)
+
+   key_null_guard(s, (i : upto(s`length))): below(5) = 
+      IF (s`length - i >= 4 AND is_n(s`seq(i)) AND is_u(s`seq(i+1)) AND is_l(s`seq(i+2)) AND is_l(s`seq(i+3)))
+      THEN 4
+      ELSE 0
+      ENDIF
+
+   key_grammar: dpeg_grammar =
+    (# length := 6, seq := [: fail, skip, glte(mk_guard(whitespace), 2, 1), glte(key_null_guard, 2, 0), glte(key_false_guard, 2, 3), glte(key_true_guard, 2, 4) :] #)
+
+   ebackslash(s, (i : upto(s`length))): below(3) =
+    IF (s`length - i >= 2 AND is_backslash(s`seq(i)) AND is_backslash(s`seq(i+1)))
+    THEN 2
+    ELSE 0
+    ENDIF
+
+   equote(s, (i : upto(s`length))): below(3) =
+    IF (s`length - i >= 2 AND is_backslash(s`seq(i)) AND is_quote(s`seq(i+1)))
+    THEN 2
+    ELSE 0
+    ENDIF
+
+   string_grammar : dpeg_grammar =
+     (# length := 8, seq := [: fail, skip, glte(mk_guard(whitespace), 2, 1),%trailing whitespace
+                               glte(mk_guard(any), 2, 0), %3<-any character that isn't a leading/closing quote,
+			                                  %or escaped backslash or quote
+			       glte(mk_guard(is_quote), 2, 3), %4 <- closing quote
+			       glte(ebackslash, 6, 4), %5 <- escaped backslash, then continue(6) else 4
+			       glte(equote, 6, 5), %6<- string chars starting with escaped quote
+			       glte(mk_guard(is_quote), 6, 0) :] #) %7 <-starting quote followed by string tail
+
+   test_wspace1: _TEST_ dpeg_parse(wspace_grammar, 2, mk_bytestring(""), 0, 0) = 1
+   test_wspace2: _TEST_ dpeg_parse(wspace_grammar, 2, mk_bytestring("a"), 0, 0) = 1
+   test_wspace3: _TEST_ dpeg_parse(wspace_grammar, 2, mk_bytestring("   "), 0, 0) = 4
+   test_wspace4: _TEST_ dpeg_parse(wspace_grammar, 2, mk_bytestring("        99"), 0, 0) = 9
+   
 
   END dpeg

@@ -319,4 +319,10 @@ BEGIN
              :] #))
   test9_test: _TEST_ check_test(test9_json, test9_result)
 
+  geojson1_test: _TEST_ NOT r_failed?(do_test("geojson1.json"))
+
+  geojson1_test1: bytestring = printc(json_to_string(json(do_test("geojson1.json"))))
+
+  Point_jsonc_test: _TEST_ NOT r_failed?(do_test("Point.jsonc"))
+
 END jsondata_interface

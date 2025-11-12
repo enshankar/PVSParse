@@ -5,23 +5,23 @@ BEGIN
   any(x: byte): bool = TRUE
   whitespace(x: byte): bool = (x = 32 OR (x >= 9 AND x <= 13))
 
-  is_quote(b: byte): bool = b = 34
-  is_backslash(b: byte): bool = b = 92
-  is_slash(b: byte): bool = b = 47
-  is_t(x: byte): bool = (x = 116)
-  is_r(x: byte): bool = (x = 114)
-  is_f(x: byte): bool = (x = 102)
-  is_n(x: byte): bool = (x = 110)
-  is_b(x: byte): bool = (x = 98)
-  is_dot(x: byte): bool = (x = 46)
-  is_eE(x: byte): bool = (x = 69 OR x = 101)
-  is_plus(x: byte): bool = (x = 43)
-  is_minus(x: byte): bool = (x = 45)
-  is_u(x: byte): bool = (x = 117)
-  is_e(x: byte): bool = (x = 101)
-  is_a(x: byte): bool = (x = 97)
-  is_l(x: byte): bool = (x = 108)
-  is_s(x: byte): bool = (x = 115)
+  is_quote(b: byte): bool = b = 34  
+  is_backslash(b: byte): bool = b = 92 
+  is_slash(b: byte): bool = b = 47 
+  is_t(x: byte): bool = (x = 116) 
+  is_r(x: byte): bool = (x = 114) 
+  is_f(x: byte): bool = (x = 102) 
+  is_n(x: byte): bool = (x = 110) 
+  is_b(x: byte): bool = (x = 98)  
+  is_dot(x: byte): bool = (x = 46) 
+  is_eE(x: byte): bool = (x = 69 OR x = 101) 
+  is_plus(x: byte): bool = (x = 43) 
+  is_minus(x: byte): bool = (x = 45) 
+  is_u(x: byte): bool = (x = 117) 
+  is_e(x: byte): bool = (x = 101) 
+  is_a(x: byte): bool = (x = 97)  
+  is_l(x: byte): bool = (x = 108) 
+  is_s(x: byte): bool = (x = 115) 
 
   escapable(x: byte): bool = (is_quote(x) OR is_backslash(x) OR is_slash(x) OR
                                is_b(x) OR is_f(x) OR is_n(x) OR is_r(x) OR is_t(x))
@@ -39,7 +39,9 @@ BEGIN
     ELSE -> 0
   ENDCOND
 
-  escape_char(b: byte): bytestring =
+  lbytes(i : index): TYPE = {s : bytestring | s`length <= i}
+
+  escape_char(b: byte): lbytes(2) =
   COND
     b = 34 -> (# length := 2, seq := [: 92, 34 :] #),
     b = 92 -> (# length := 2, seq := [: 92, 92 :] #),
@@ -52,14 +54,14 @@ BEGIN
   ENDCOND
 
   % Function to add escape characters to a bytestring for JSON compatibility.
-  escape_string_inner(s: bytestring, i: index, acc: bytestring): RECURSIVE bytestring =
+  escape_string_inner((s: bytestring | 2*s`length <= maxindex) , (i : upto(s`length)) , (acc: bytestring | 2*(s`length - i) + acc`length <= maxindex)): RECURSIVE bytestring =
     IF i >= length(s) THEN acc
     ELSE
       escape_string_inner(s, i+1, acc ++ escape_char(get(s, i)))
     ENDIF
-  MEASURE length(s) - i
+  MEASURE  length(s) - i
 
-  escape_string(s: bytestring): bytestring = escape_string_inner(s, 0, "")
+  escape_string(s: bytestring | 2 * s`length <= maxindex): bytestring = escape_string_inner(s, 0, "")
 
   % Test case 1: Empty string
   % An empty string should remain an empty string.
@@ -123,9 +125,12 @@ BEGIN
     escape_string((# length := 7, seq := [: 34, 8, 9, 10, 12, 13, 92 :] #)) =
     "" ++ (# length := 14, seq := [: 92, 34, 92, 98, 92, 116, 92, 110, 92, 102, 92, 114, 92, 92 :] #)
 
-  first_printable_inner(bs: bytestring, i: index): RECURSIVE index =
+  first_printable_inner(bs: bytestring, (i: upto(bs`length) | ∀ (k : below(i)): whitespace(get(bs, k)))): RECURSIVE
+    {j : subrange(i, bs`length) | (j = bs`length OR NOT whitespace(get(bs, j)))
+                                  AND ∀ (k : below(j)): whitespace(get(bs, k))}
+    =
     IF i = bs`length THEN
-      bs`length - 1
+      i
     ELSIF NOT whitespace(get(bs, i)) THEN
       i
     ELSE
@@ -133,10 +138,17 @@ BEGIN
     ENDIF
   MEASURE bs`length - i
 
-  first_printable(bs: bytestring): index =
+  first_printable(bs: bytestring):
+    {j : upto(bs`length) |  (j = bs`length OR NOT whitespace(get(bs,j)))
+                            AND ∀ (k : below(j)): whitespace(get(bs, k))}
+    =			    
     first_printable_inner(bs, 0)
 
-  last_printable_inner(bs: bytestring, i: index): RECURSIVE index =
+  last_printable_inner(bs: bytestring, (i: upto(bs`length) | ∀ (k : subrange(i, bs`length - 1)): whitespace(get(bs, k)))):
+    RECURSIVE
+     {j : subrange(0, i) |  (j = 0 OR NOT whitespace(get(bs,j-1)))
+                            AND ∀ (k : subrange(j+1, bs`length)): k > 0 IMPLIES whitespace(get(bs, k-1))}
+    =			    
     IF i = 0 THEN
       0
     ELSIF NOT whitespace(get(bs, i-1)) THEN
@@ -146,7 +158,10 @@ BEGIN
     ENDIF
   MEASURE i
 
-  last_printable(bs: bytestring): index =
+  last_printable(bs: bytestring):
+       {j : upto(bs`length) |  (j = 0 OR NOT whitespace(get(bs,j-1)))
+                            AND ∀ (k : subrange(j+1, bs`length)): k > 0 IMPLIES whitespace(get(bs, k-1))}
+    =			    
     IF bs`length = 0 THEN
       0
     ELSE

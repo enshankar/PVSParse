@@ -3,7 +3,7 @@ ifeq ($(PVS_HOME),)
     $(error PVS_HOME is not set. Please set this environment variable.)
 endif
 
-TARGETS := bsparsestr bsparsenum dfa jsondata_interface jsondata_debug lte stringutils itoa jsondata djsondata_test example
+TARGETS := bsparsestr bsparsenum dfa dpeg jsondata_interface jsondata_debug lte stringutils itoa jsondata djsondata_test example
 
 # --- Target-Specific Source Files ---
 
@@ -62,6 +62,11 @@ dfa_SRCS := \
     stringutils_c.c \
     dfa_c.c \
     dfa.c
+
+dpeg_SRCS := \
+    stringutils_c.c \
+    dpeg_c.c \
+    dpeg.c
 
 stringutils_SRCS := \
     stringutils_c.c \
