@@ -17269,4 +17269,231 @@
   (|p_TCC1| 0
    (|p_TCC1-1| NIL 3971125832 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
     (|p| SUBTYPE "dpeg.r" "(dpeg.success?)")))
+  . 0))(("dpeg"
+  (|guard_TCC1| 0
+   (|guard_TCC1-1| NIL 3970946211
+    ("" (GRIND) (("" (ALL-TYPEPREDS) (("" (GRIND) NIL NIL)) NIL)) NIL)
+    ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+     (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])"
+      |real_props| NIL)
+     (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+     (|posint_plus_nnint_is_posint| APPLICATION-JUDGEMENT "posint" |integers|
+      NIL))
+    NIL
+    (|guard| SUBTYPE "(number_fields.+)((number_fields.-)(t`1`length, t`2), 1)"
+     "nat")))
+  |guard_TCC1-1| NIL 3970946211
+  ("" (GRIND) (("" (ALL-TYPEPREDS) (("" (GRIND) NIL NIL)) NIL)) NIL)
+  ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+   (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL)
+   (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+   (|posint_plus_nnint_is_posint| APPLICATION-JUDGEMENT "posint" |integers|
+    NIL))
+  NIL
+  (|guard| SUBTYPE "(number_fields.+)((number_fields.-)(t`1`length, t`2), 1)"
+   "nat"))
+ ("dpeg"
+  (|guard_TCC1| 0
+   (|guard_TCC1-1| NIL 3970946211
+    ("" (GRIND) (("" (ALL-TYPEPREDS) (("" (GRIND) NIL NIL)) NIL)) NIL)
+    ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+     (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])"
+      |real_props| NIL)
+     (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+     (|posint_plus_nnint_is_posint| APPLICATION-JUDGEMENT "posint" |integers|
+      NIL))
+    NIL
+    (|guard| SUBTYPE "(number_fields.+)((number_fields.-)(t`1`length, t`2), 1)"
+     "nat")))
+  . 0))(("dpeg"
+  (|guard_TCC1| 0
+   (|guard_TCC1-1| NIL 3970946211
+    ("" (GRIND) (("" (ALL-TYPEPREDS) (("" (GRIND) NIL NIL)) NIL)) NIL)
+    ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+     (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])"
+      |real_props| NIL)
+     (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+     (|posint_plus_nnint_is_posint| APPLICATION-JUDGEMENT "posint" |integers|
+      NIL))
+    NIL
+    (|guard| SUBTYPE "(number_fields.+)((number_fields.-)(t`1`length, t`2), 1)"
+     "nat")))
+  |guard_TCC1-1| NIL 3970946211
+  ("" (GRIND) (("" (ALL-TYPEPREDS) (("" (GRIND) NIL NIL)) NIL)) NIL)
+  ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+   (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL)
+   (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+   (|posint_plus_nnint_is_posint| APPLICATION-JUDGEMENT "posint" |integers|
+    NIL))
+  NIL
+  (|guard| SUBTYPE "(number_fields.+)((number_fields.-)(t`1`length, t`2), 1)"
+   "nat"))
+ ("dpeg"
+  (|guard_TCC1| 0
+   (|guard_TCC1-1| NIL 3970946211
+    ("" (GRIND) (("" (ALL-TYPEPREDS) (("" (GRIND) NIL NIL)) NIL)) NIL)
+    ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+     (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])"
+      |real_props| NIL)
+     (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+     (|posint_plus_nnint_is_posint| APPLICATION-JUDGEMENT "posint" |integers|
+      NIL))
+    NIL
+    (|guard| SUBTYPE "(number_fields.+)((number_fields.-)(t`1`length, t`2), 1)"
+     "nat")))
+  . 0))(("jsondata_interface"
+  (|trivial_filename_TCC1| 0
+   (|trivial_filename_TCC1-1| NIL 3964020946 ("" (EVAL-FORMULA) NIL NIL)
+    ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+     (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+     (|boolean| NONEMPTY-TYPE-DECL NIL |booleans| NIL)
+     (|bool| NONEMPTY-TYPE-EQ-DECL NIL |booleans| NIL)
+     (|bijective?| CONST-DECL "bool" |functions| NIL)
+     (|id| CONST-DECL "(bijective?[T, T])" |identity| NIL)
+     (TRUE CONST-DECL "bool" |booleans| NIL))
+    NIL (|trivial_filename| SUBTYPE "\"trivial.json\"" "bstring")))
+  |test_json_inner_TCC1-1| NIL 3965221077 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|test_json_inner| SUBTYPE "jsondata_interface.test_json"
+   "(jsondata_interface.r_success?)"))
+ ("jsondata_interface"
+  (|trivial_filename_TCC1| 0
+   (|trivial_filename_TCC1-1| NIL 3964020946 ("" (EVAL-FORMULA) NIL NIL)
+    ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+     (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+     (|boolean| NONEMPTY-TYPE-DECL NIL |booleans| NIL)
+     (|bool| NONEMPTY-TYPE-EQ-DECL NIL |booleans| NIL)
+     (|bijective?| CONST-DECL "bool" |functions| NIL)
+     (|id| CONST-DECL "(bijective?[T, T])" |identity| NIL)
+     (TRUE CONST-DECL "bool" |booleans| NIL))
+    NIL (|trivial_filename| SUBTYPE "\"trivial.json\"" "bstring")))
+  |test_filename_TCC1-1| NIL 3964020946 ("" (EVAL-FORMULA) NIL NIL)
+  ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+   (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+   (|boolean| NONEMPTY-TYPE-DECL NIL |booleans| NIL)
+   (|bool| NONEMPTY-TYPE-EQ-DECL NIL |booleans| NIL)
+   (|bijective?| CONST-DECL "bool" |functions| NIL)
+   (|id| CONST-DECL "(bijective?[T, T])" |identity| NIL)
+   (TRUE CONST-DECL "bool" |booleans| NIL))
+  NIL (|test_filename| SUBTYPE "\"test.json\"" "bstring"))
+ ("jsondata_interface"
+  (|trivial_filename_TCC1| 0
+   (|trivial_filename_TCC1-1| NIL 3964020946 ("" (EVAL-FORMULA) NIL NIL)
+    ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+     (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+     (|boolean| NONEMPTY-TYPE-DECL NIL |booleans| NIL)
+     (|bool| NONEMPTY-TYPE-EQ-DECL NIL |booleans| NIL)
+     (|bijective?| CONST-DECL "bool" |functions| NIL)
+     (|id| CONST-DECL "(bijective?[T, T])" |identity| NIL)
+     (TRUE CONST-DECL "bool" |booleans| NIL))
+    NIL (|trivial_filename| SUBTYPE "\"trivial.json\"" "bstring")))
+  |trivial_test_TCC1-1| NIL 3964020946 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|trivial_test| SUBTYPE "jsondata_interface.trivial_json"
+   "(jsondata_interface.r_success?)"))
+ ("jsondata_interface"
+  (|trivial_filename_TCC1| 0
+   (|trivial_filename_TCC1-1| NIL 3964020946 ("" (EVAL-FORMULA) NIL NIL)
+    ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+     (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+     (|boolean| NONEMPTY-TYPE-DECL NIL |booleans| NIL)
+     (|bool| NONEMPTY-TYPE-EQ-DECL NIL |booleans| NIL)
+     (|bijective?| CONST-DECL "bool" |functions| NIL)
+     (|id| CONST-DECL "(bijective?[T, T])" |identity| NIL)
+     (TRUE CONST-DECL "bool" |booleans| NIL))
+    NIL (|trivial_filename| SUBTYPE "\"trivial.json\"" "bstring")))
+  |trivial_filename_TCC1-1| NIL 3964020946 ("" (EVAL-FORMULA) NIL NIL)
+  ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+   (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+   (|boolean| NONEMPTY-TYPE-DECL NIL |booleans| NIL)
+   (|bool| NONEMPTY-TYPE-EQ-DECL NIL |booleans| NIL)
+   (|bijective?| CONST-DECL "bool" |functions| NIL)
+   (|id| CONST-DECL "(bijective?[T, T])" |identity| NIL)
+   (TRUE CONST-DECL "bool" |booleans| NIL))
+  NIL (|trivial_filename| SUBTYPE "\"trivial.json\"" "bstring"))
+ ("jsondata_interface"
+  (|trivial_filename_TCC1| 0
+   (|trivial_filename_TCC1-1| NIL 3964020946 ("" (EVAL-FORMULA) NIL NIL)
+    ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+     (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+     (|boolean| NONEMPTY-TYPE-DECL NIL |booleans| NIL)
+     (|bool| NONEMPTY-TYPE-EQ-DECL NIL |booleans| NIL)
+     (|bijective?| CONST-DECL "bool" |functions| NIL)
+     (|id| CONST-DECL "(bijective?[T, T])" |identity| NIL)
+     (TRUE CONST-DECL "bool" |booleans| NIL))
+    NIL (|trivial_filename| SUBTYPE "\"trivial.json\"" "bstring")))
+  . 0))(("dpeg"
+  (|guard_TCC1| 0
+   (|guard_TCC1-1| NIL 3970946211
+    ("" (GRIND) (("" (ALL-TYPEPREDS) (("" (GRIND) NIL NIL)) NIL)) NIL)
+    ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+     (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])"
+      |real_props| NIL)
+     (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+     (|posint_plus_nnint_is_posint| APPLICATION-JUDGEMENT "posint" |integers|
+      NIL))
+    NIL
+    (|guard| SUBTYPE "(number_fields.+)((number_fields.-)(t`1`length, t`2), 1)"
+     "nat")))
+  |guard_TCC1-1| NIL 3970946211
+  ("" (GRIND) (("" (ALL-TYPEPREDS) (("" (GRIND) NIL NIL)) NIL)) NIL)
+  ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+   (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL)
+   (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+   (|posint_plus_nnint_is_posint| APPLICATION-JUDGEMENT "posint" |integers|
+    NIL))
+  NIL
+  (|guard| SUBTYPE "(number_fields.+)((number_fields.-)(t`1`length, t`2), 1)"
+   "nat"))
+ ("dpeg"
+  (|guard_TCC1| 0
+   (|guard_TCC1-1| NIL 3970946211
+    ("" (GRIND) (("" (ALL-TYPEPREDS) (("" (GRIND) NIL NIL)) NIL)) NIL)
+    ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+     (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])"
+      |real_props| NIL)
+     (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+     (|posint_plus_nnint_is_posint| APPLICATION-JUDGEMENT "posint" |integers|
+      NIL))
+    NIL
+    (|guard| SUBTYPE "(number_fields.+)((number_fields.-)(t`1`length, t`2), 1)"
+     "nat")))
+  . 0))(("dpeg"
+  (|guard_TCC1| 0
+   (|guard_TCC1-1| NIL 3970946211
+    ("" (GRIND) (("" (ALL-TYPEPREDS) (("" (GRIND) NIL NIL)) NIL)) NIL)
+    ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+     (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])"
+      |real_props| NIL)
+     (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+     (|posint_plus_nnint_is_posint| APPLICATION-JUDGEMENT "posint" |integers|
+      NIL))
+    NIL
+    (|guard| SUBTYPE "(number_fields.+)((number_fields.-)(t`1`length, t`2), 1)"
+     "nat")))
+  |guard_TCC1-1| NIL 3970946211
+  ("" (GRIND) (("" (ALL-TYPEPREDS) (("" (GRIND) NIL NIL)) NIL)) NIL)
+  ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+   (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL)
+   (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+   (|posint_plus_nnint_is_posint| APPLICATION-JUDGEMENT "posint" |integers|
+    NIL))
+  NIL
+  (|guard| SUBTYPE "(number_fields.+)((number_fields.-)(t`1`length, t`2), 1)"
+   "nat"))
+ ("dpeg"
+  (|guard_TCC1| 0
+   (|guard_TCC1-1| NIL 3970946211
+    ("" (GRIND) (("" (ALL-TYPEPREDS) (("" (GRIND) NIL NIL)) NIL)) NIL)
+    ((|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+     (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])"
+      |real_props| NIL)
+     (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+     (|posint_plus_nnint_is_posint| APPLICATION-JUDGEMENT "posint" |integers|
+      NIL))
+    NIL
+    (|guard| SUBTYPE "(number_fields.+)((number_fields.-)(t`1`length, t`2), 1)"
+     "nat")))
   . 0))

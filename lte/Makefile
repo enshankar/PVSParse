@@ -3,7 +3,7 @@ ifeq ($(PVS_HOME),)
     $(error PVS_HOME is not set. Please set this environment variable.)
 endif
 
-TARGETS := bsparsestr bsparsenum dfa dpeg jsondata_interface jsondata_debug lte stringutils itoa jsondata djsondata_test example
+TARGETS := bsparsestr bsparsenum dfa dpeg geojsontest jsondata_interface jsondata_debug lte stringutils itoa jsondata djsondata_test example
 
 # --- Target-Specific Source Files ---
 
@@ -68,6 +68,24 @@ dpeg_SRCS := \
     dpeg_c.c \
     dpeg.c
 
+geojsontest_SRCS := \
+    identity_uint8_c.c \
+    arrayCount_c.c \
+    bsparsenum_c.c \
+    bsparsestr_c.c \
+    jsondata_c.c \
+	jsonnumber_c.c \
+    ltedfapeg_c.c \
+    jsondata_interface_c.c \
+    ltedfapegproof_c.c \
+    ltedfapegtest_c.c \
+    stringutils_c.c \
+    dfa_c.c \
+    itoa_c.c \
+    jsondata_interface_c.c \
+    geojsontest_c.c\
+    geojsontest.c
+
 stringutils_SRCS := \
     stringutils_c.c \
     stringutils.c
@@ -128,7 +146,7 @@ pvsjson_lib: $(pvsjson_OBJS)
 # --- Global Build Settings ---
 
 CC       := cc
-CFLAGS   := -w -g -I$(PVS_HOME)/lib/pvs2c/include 
+CFLAGS   := -w -g -O1 -I$(PVS_HOME)/lib/pvs2c/include 
 LDFLAGS  := -L$(PVS_HOME)/lib/pvs2c/lib #-fsanitize=address -fno-omit-frame-pointer 
 LDLIBS   := -lgmp -lpvs-prelude
 

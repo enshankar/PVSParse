@@ -21,7 +21,7 @@ dpeg  % [ parameters ]
    good_result(i : index): TYPE = {r : result | failure?(r) OR span(r) <= i}
    pos_result(i : index): TYPE = {r : good_result(i) | failure?(r) OR 0 < span(r)}
 
-   guard : TYPE = [s : bytestring, i : upto(s`length) -> upto(s`length - i + 1)]
+   guard : TYPE = [s : bytestring, i : upto(s`length) -> uint32]
 %   ne_guard: TYPE = [s : bytestring, i : upto(s`length) -> nonempty_result(s`length - i + 1)]
 %   ne_guard_guard: JUDGEMENT ne_guard SUBTYPE_OF guard
 
@@ -171,7 +171,7 @@ dpeg  % [ parameters ]
      mk_guard(p : [byte -> bool])(s, (i : upto(s`length))): below(3)
      = (IF i < s`length AND p(s`seq(i))
         THEN 2
-        ELSE 1
+        ELSE 0
        ENDIF)
 
    %whitespace always succeeds.
@@ -179,7 +179,7 @@ dpeg  % [ parameters ]
 
    is_plus_minus(b : byte): bool = (is_minus(b) OR is_plus(b))
    %accepts 0, -1, -1.0, 1.0e+2, -2.345e-6
-   numeral_grammar: dpeg_grammar = (# length := 3,
+   numeral_grammar: dpeg_grammar = (# length := 13,
                                      seq := [: fail, skip,
 				               glte(mk_guard(whitespace), 2, 1),%2 <- whitespace, 2, 1
 					       glte(mk_guard(digit), 3, 2),%3 <- exponent tail digits

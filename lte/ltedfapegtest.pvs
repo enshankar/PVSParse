@@ -7,44 +7,45 @@ ltedfapegtest   : THEORY
    % any(x: byte): bool = TRUE
    % whitespace(x: byte): bool = (x = 32 OR (x >= 9 AND x <= 13))
 
-   djson(n: non_terminal):  prepeg =
-   (COND
-   n = 0 -> lte(3, 1, 31), %data -> wspace ? data$ / skip
-   n = 1 -> lte(16, 31, 2), %data$ -> digit ? skip / adata
-   n = 2 -> lte(24, 5, 7), % adata -> obrace ? dictail / stringarray
-   n = 3 -> lte(4, 31, 31), % wspace -> whitespace ? skip / skip
-   n = 4 -> any(wspaceDfa), % whitespace -> any(whitespace)
-   n = 5 -> lte(25, 31, 6), % dictail -> cbrace ? skip / dictentry*
-   n = 6 -> lte(8, 10, 30), % dictentry* -> token ? rhsdata* / fail
-   n = 7 -> lte(8, 31, 9), % stringarray -> token ? skip / array
-   n = 8 -> any(tokenDfa), % token -> any(token)
-   n = 9 -> lte(26, 13, 30), % array -> obrack ? arraydata* / fail
-   n = 10 -> lte(29, 11, 30), % rhsdata* -> colon ? rhsdatatail / fail
-   n = 11 -> lte (1, 12, 30), % rhsdatatail -> data ? commadictail / fail
-   n = 12 -> lte(28, 5, 25), % commadictail -> comma ? dictail / cbrace
-   n = 13 -> lte(27, 31, 15), % arraydata* -> cbrack ? empty / arraydatadata*
-   n = 14 -> lte(28, 15, 27),  % commaarraydata* -> comma ? arraydatadata* / cbrack
-   n = 15 -> lte(1, 14, 30), % arraydatadata* -> data ? commaarraydata* / fail
-   n = 16 -> any(digitDfa), % digit -> any(digit)
-   n = 17 -> terminal(123), % obracechar -> terminal(123)
-   n = 18 -> terminal(125), % cbracechar -> terminal(125)
-   n = 19 -> terminal(91), % obrackchar -> terminal(91)
-   n = 20 -> terminal(93), % cbrackchar -> terminal(93)
-   n = 21 -> terminal(34), % quote -> terminal(34)
-   n = 22 -> terminal(44), % commachar -> terminal(44)
-   n = 23 -> terminal(58), % colonchar -> terminal(58)
-   n = 24 -> lte(17, 3, 30), % obrace -> obracechar ? wspace / fail
-   n = 25 -> lte(18, 3, 30), % cbrace -> cbracechar ? wspace / fail
-   n = 26 -> lte(19, 3, 30), % obrack -> obrackchar ? wspace / fail
-   n = 27 -> lte(20, 3, 30), % cbrack -> cbrackchar ? wspace / fail
-   n = 28 -> lte(22, 3, 30), % comma -> commachar ? wspace / fail
-   n = 29 -> lte(23, 3, 30), % colon -> colonchar ? wspace / fail
-   n = 30 -> failure, % fail -> failure
-   ELSE -> epsilon
-   ENDCOND)
+   %Commenting out djson since it is superseded by ejson
+   % djson(n: non_terminal):  prepeg =
+   % (COND
+   % n = 0 -> lte(3, 1, 31), %data -> wspace ? data$ / skip
+   % n = 1 -> lte(16, 31, 2), %data$ -> digit ? skip / adata
+   % n = 2 -> lte(24, 5, 7), % adata -> obrace ? dictail / stringarray
+   % n = 3 -> lte(4, 31, 31), % wspace -> whitespace ? skip / skip
+   % n = 4 -> any(wspaceDfa), % whitespace -> any(whitespace)
+   % n = 5 -> lte(25, 31, 6), % dictail -> cbrace ? skip / dictentry*
+   % n = 6 -> lte(8, 10, 30), % dictentry* -> token ? rhsdata* / fail
+   % n = 7 -> lte(8, 31, 9), % stringarray -> token ? skip / array
+   % n = 8 -> any(tokenDfa), % token -> any(token)
+   % n = 9 -> lte(26, 13, 30), % array -> obrack ? arraydata* / fail
+   % n = 10 -> lte(29, 11, 30), % rhsdata* -> colon ? rhsdatatail / fail
+   % n = 11 -> lte (1, 12, 30), % rhsdatatail -> data ? commadictail / fail
+   % n = 12 -> lte(28, 5, 25), % commadictail -> comma ? dictail / cbrace
+   % n = 13 -> lte(27, 31, 15), % arraydata* -> cbrack ? empty / arraydatadata*
+   % n = 14 -> lte(28, 15, 27),  % commaarraydata* -> comma ? arraydatadata* / cbrack
+   % n = 15 -> lte(1, 14, 30), % arraydatadata* -> data ? commaarraydata* / fail
+   % n = 16 -> any(digitDfa), % digit -> any(digit)
+   % n = 17 -> terminal(123), % obracechar -> terminal(123)
+   % n = 18 -> terminal(125), % cbracechar -> terminal(125)
+   % n = 19 -> terminal(91), % obrackchar -> terminal(91)
+   % n = 20 -> terminal(93), % cbrackchar -> terminal(93)
+   % n = 21 -> terminal(34), % quote -> terminal(34)
+   % n = 22 -> terminal(44), % commachar -> terminal(44)
+   % n = 23 -> terminal(58), % colonchar -> terminal(58)
+   % n = 24 -> lte(17, 3, 30), % obrace -> obracechar ? wspace / fail
+   % n = 25 -> lte(18, 3, 30), % cbrace -> cbracechar ? wspace / fail
+   % n = 26 -> lte(19, 3, 30), % obrack -> obrackchar ? wspace / fail
+   % n = 27 -> lte(20, 3, 30), % cbrack -> cbrackchar ? wspace / fail
+   % n = 28 -> lte(22, 3, 30), % comma -> commachar ? wspace / fail
+   % n = 29 -> lte(23, 3, 30), % colon -> colonchar ? wspace / fail
+   % n = 30 -> failure, % fail -> failure
+   % ELSE -> epsilon
+   % ENDCOND)
 
-   djsontable : ARRAY[non_terminal -> prepeg]
-   = (LET tbl : ARRAY[non_terminal -> prepeg] = djson IN tbl)
+   % djsontable : ARRAY[non_terminal -> prepeg]
+   % = (LET tbl : ARRAY[non_terminal -> prepeg] = djson IN tbl)
 
    ejson(n: non_terminal):  prepeg =
    (COND
