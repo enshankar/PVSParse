@@ -146,7 +146,7 @@ pvsjson_lib: $(pvsjson_OBJS)
 # --- Global Build Settings ---
 
 CC       := cc
-CFLAGS   := -w -g -O1 -I$(PVS_HOME)/lib/pvs2c/include 
+CFLAGS   := -w -g -I$(PVS_HOME)/lib/pvs2c/include 
 LDFLAGS  := -L$(PVS_HOME)/lib/pvs2c/lib #-fsanitize=address -fno-omit-frame-pointer 
 LDLIBS   := -lgmp -lpvs-prelude
 

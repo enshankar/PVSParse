@@ -96,11 +96,11 @@ dpeg  % [ parameters ]
 	  THEN matches(G, nt2)(s, pos)
 	  ELSE failure
 	  ENDIF
-        ELSIF i > 1 AND nt1 < G`length
+        ELSIF i > 1 AND i - 1 <= s`length - pos  AND nt1 < G`length
         THEN  CASES matches(G, nt1)(s, pos + i - 1) OF
 	          success(rspan): success(rspan + i - 1)
 		  ELSE failure
-		  ENDCASES
+	      ENDCASES
 	ELSE failure
 	ENDIF)
       ENDCASES)	
@@ -121,6 +121,7 @@ dpeg  % [ parameters ]
    decode_result(i : upto(maxindex + 1)): result
    = (IF i = 0 THEN failure ELSE success(i - 1) ENDIF)
 
+   %sofar starts at 0 for any position and counts the characters consumed. 
    dpeg_parse(G, (nt : below(G`length)), s, (sofar : upto(s`length)), pos : subrange(sofar, s`length)):
       RECURSIVE {i: upto(maxindex + 1) | i = encode_result(result_sofar(sofar, matches(G, nt)(s, pos)))}
       = (CASES G`seq(nt) OF
@@ -134,7 +135,7 @@ dpeg  % [ parameters ]
 	     THEN dpeg_parse(G, nt2, s, sofar, pos)
 	     ELSE 0
 	     ENDIF
-        ELSIF i > 1 AND nt1 < G`length
+        ELSIF i > 1 AND i - 1 <= s`length - pos  AND nt1 < G`length
         THEN dpeg_parse(G, nt1, s, sofar + i - 1, pos + i - 1)
 	ELSE 0
 	ENDIF)
@@ -174,11 +175,22 @@ dpeg  % [ parameters ]
         ELSE 0
        ENDIF)
 
-   %whitespace always succeeds.
+   %whitespace always succeeds. If whitespace character, then repeat, else skip.
+   % Whitespace (HT, NL, VT, NP, CR, SP) in stringutils is more liberal than the standard
+   %which only allows SP, HT, NL, and CR. 
    wspace_grammar: dpeg_grammar = (# length := 3, seq := [: fail, skip, glte(mk_guard(whitespace), 2, 1) :] #)
 
+   test_wspace1: _TEST_ dpeg_parse(wspace_grammar, 2, mk_bytestring(""), 0, 0) = 1
+   test_wspace2: _TEST_ dpeg_parse(wspace_grammar, 2, mk_bytestring("a"), 0, 0) = 1
+   test_wspace3: _TEST_ dpeg_parse(wspace_grammar, 2, mk_bytestring("   "), 0, 0) = 4
+   test_wspace4: _TEST_ dpeg_parse(wspace_grammar, 2, mk_bytestring("        99"), 0, 0) = 9
+
+
    is_plus_minus(b : byte): bool = (is_minus(b) OR is_plus(b))
-   %accepts 0, -1, -1.0, 1.0e+2, -2.345e-6
+   %numeral_grammar accepts 0, -1, -1.0, 1.0e+2, -2.345e-6.
+   %checks optional leading minus, followed by integral part (digit), followed by optional dot folowed by
+   %fractional digit, followed by optional exponent tag (e or E) followed by signed digit, all followed by
+   %trailing whitespace.
    numeral_grammar: dpeg_grammar = (# length := 13,
                                      seq := [: fail, skip,
 				               glte(mk_guard(whitespace), 2, 1),%2 <- whitespace, 2, 1
@@ -193,26 +205,42 @@ dpeg  % [ parameters ]
 					       glte(mk_guard(digit), 10, 0),%11<-leading integral digit required
 					       glte(mk_guard(is_minus), 11, 11):] #)%12 <- optional leading minus
 
+   test_numeral1: _TEST_ dpeg_parse(numeral_grammar, 12, mk_bytestring(""), 0, 0) = 0
+   test_numeral2: _TEST_ dpeg_parse(numeral_grammar, 12, mk_bytestring("0  "), 0, 0) = 4
+   test_numeral3: _TEST_ dpeg_parse(numeral_grammar, 12, mk_bytestring("-0 "), 0, 0) = 4
+   test_numeral4: _TEST_ dpeg_parse(numeral_grammar, 12, mk_bytestring("99.99 "), 0, 0) = 7
+   test_numeral5: _TEST_ dpeg_parse(numeral_grammar, 12, mk_bytestring("-99.99 "), 0, 0) = 8
+   test_numeral6: _TEST_ dpeg_parse(numeral_grammar, 12, mk_bytestring("99.e-7 "), 0, 0) = 0
+   test_numeral7: _TEST_ dpeg_parse(numeral_grammar, 12, mk_bytestring("99.9e9 "), 0, 0) = 8   
+   test_numeral8: _TEST_ dpeg_parse(numeral_grammar, 12, mk_bytestring("-0.9e9 "), 0, 0) = 8
+   %Keywords are true, false, null
    key_true_guard(s, (i : upto(s`length))): below(5) =
      IF (s`length - i >= 4 AND is_t(s`seq(i)) AND is_r(s`seq(i+1)) AND is_u(s`seq(i+2)) AND is_e(s`seq(i+3)))
-     THEN 4
+     THEN 5
      ELSE 0
      ENDIF
 
    key_false_guard(s, (i : upto(s`length))): below(6) =
     (IF (s`length - i >= 5 AND is_f(s`seq(i)) AND is_a(s`seq(i+1)) AND is_l(s`seq(i+2)) AND is_s(s`seq(i+3)) AND is_e(s`seq(i+4)))
-     THEN 5
+     THEN 6
      ELSE 0
      ENDIF)
 
    key_null_guard(s, (i : upto(s`length))): below(5) = 
       IF (s`length - i >= 4 AND is_n(s`seq(i)) AND is_u(s`seq(i+1)) AND is_l(s`seq(i+2)) AND is_l(s`seq(i+3)))
-      THEN 4
+      THEN 5
       ELSE 0
       ENDIF
 
    key_grammar: dpeg_grammar =
     (# length := 6, seq := [: fail, skip, glte(mk_guard(whitespace), 2, 1), glte(key_null_guard, 2, 0), glte(key_false_guard, 2, 3), glte(key_true_guard, 2, 4) :] #)
+
+   test_key1: _TEST_ dpeg_parse(key_grammar, 5, mk_bytestring(""), 0, 0) = 0
+   test_key2: _TEST_ dpeg_parse(key_grammar, 5, mk_bytestring("null "), 0, 0) = 6
+   test_key3: _TEST_ dpeg_parse(key_grammar, 5, mk_bytestring("true "), 0, 0) = 6
+   test_key4: _TEST_ dpeg_parse(key_grammar, 5, mk_bytestring("  false "), 0, 2) = 7
+   test_key5: _TEST_ dpeg_parse(key_grammar, 5, mk_bytestring("key "), 0, 0) = 0
+
 
    ebackslash(s, (i : upto(s`length))): below(3) =
     IF (s`length - i >= 2 AND is_backslash(s`seq(i)) AND is_backslash(s`seq(i+1)))
@@ -225,20 +253,25 @@ dpeg  % [ parameters ]
     THEN 2
     ELSE 0
     ENDIF
-
+    
+   %strings have a leading quote, followed by escaped characters, or any non-escape, non-/ character
+   %
    string_grammar : dpeg_grammar =
      (# length := 8, seq := [: fail, skip, glte(mk_guard(whitespace), 2, 1),%trailing whitespace
-                               glte(mk_guard(any), 2, 0), %3<-any character that isn't a leading/closing quote,
-			                                  %or escaped backslash or quote
-			       glte(mk_guard(is_quote), 2, 3), %4 <- closing quote
-			       glte(ebackslash, 6, 4), %5 <- escaped backslash, then continue(6) else 4
-			       glte(equote, 6, 5), %6<- string chars starting with escaped quote
+                               glte(mk_guard(any), 6, 0), %3<-any character that isn't a backslash or quote
+			       glte(mk_guard(is_quote), 2, 3), %4 <- closing quote, then whitespace, else any
+			       glte(mk_guard(escapable), 6, 0), %5 <- must be escapable, then continue(6) else fail
+			       glte(mk_guard(is_backslash), 5, 4), %6<- string chars starting with backslash
 			       glte(mk_guard(is_quote), 6, 0) :] #) %7 <-starting quote followed by string tail
 
-   test_wspace1: _TEST_ dpeg_parse(wspace_grammar, 2, mk_bytestring(""), 0, 0) = 1
-   test_wspace2: _TEST_ dpeg_parse(wspace_grammar, 2, mk_bytestring("a"), 0, 0) = 1
-   test_wspace3: _TEST_ dpeg_parse(wspace_grammar, 2, mk_bytestring("   "), 0, 0) = 4
-   test_wspace4: _TEST_ dpeg_parse(wspace_grammar, 2, mk_bytestring("        99"), 0, 0) = 9
-   
+   test_string1: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring(""), 0, 0) = 0
+   test_string1_1: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring("\"\""), 0, 0) = 3
+   test_string2: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring("\"null\""), 0, 0) = 7
+   test_string3: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring("\"str\\\b\t\ning\\\" "), 0, 0) = 0
+   test_string3_1: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring("\"str\\\b\t\ning\\\"\" "), 0, 0) = 15   
+   test_string4: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring("\"false false\""), 0, 2) = 0
+   test_string4_1: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring("\"false false\""), 0, 0) = 14
+   test_string5: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring("\"\\\"\\\"\\key\" "), 0, 0) = 0
+   test_string5_1: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring("\"\\\"\\\"\\nkey\" "), 0, 0) = 12
 
   END dpeg
