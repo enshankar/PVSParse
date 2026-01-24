@@ -48,7 +48,7 @@ dpeg  % [ parameters ]
    %Alternately, one could extend the grammar G with n12 <= glte(parse(G, n1), n2, fail)
    %Kleene iteration n^* is achieved by extending the grammar with n* <- glte(any(parse(G, n)), n*, skip)
    %To do this at the grammar level, copy the grammar for n as ns and replace each occurrence of skip with
-   %ns, any(p) with glte(p, ns, skip).
+   %ns and fail with skip. 
    %Several static analyses are possible.  One, grammar slicing to isolate the productions R reachable by a 
    %nonterminal.  Initially add n to R.  For each n in R, if n <- F(n1, n2) in G, add n1 and n2 to R, until
    %R reaches a fixpoint.  Two, the nullable set L can be computed by placing all the nodes in L,
@@ -273,5 +273,7 @@ dpeg  % [ parameters ]
    test_string4_1: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring("\"false false\""), 0, 0) = 14
    test_string5: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring("\"\\\"\\\"\\key\" "), 0, 0) = 0
    test_string5_1: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring("\"\\\"\\\"\\nkey\" "), 0, 0) = 12
-
+   test_string6: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring("\"false false\"   \"true true\"  "), 0, 0) = 17   
+   test_string6_1: _TEST_ dpeg_parse(string_grammar, 7, mk_bytestring("\"false false\"   \"true true\"  "), 0, 16) = 14
+   
   END dpeg
