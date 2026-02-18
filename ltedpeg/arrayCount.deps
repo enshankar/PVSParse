@@ -1,0 +1,4 @@
+{"theory" : "arrayCount", 
+ "importings" : ["sets", "exp2", "integertypes"], 
+ "monoTheories" : []
+}

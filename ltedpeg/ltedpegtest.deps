@@ -1,0 +1,4 @@
+{"theory" : "ltedpegtest", 
+ "importings" : ["strings", "gen_strings", "finite_sequences", "list_adt", "bytestrings", "exp2", "file", "integertypes", "array_sequences", "dpeg", "ltedpeg"], 
+ "monoTheories" : []
+}

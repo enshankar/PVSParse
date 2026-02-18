@@ -1,0 +1,4 @@
+{"theory" : "ltedpeg", 
+ "importings" : ["lex2", "bytestrings", "real_defs", "arrayCount", "array_sequences", "dpeg", "ordstruct_adt", "ordinals", "exp2", "integertypes"], 
+ "monoTheories" : []
+}

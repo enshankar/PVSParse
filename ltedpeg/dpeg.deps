@@ -1,0 +1,4 @@
+{"theory" : "dpeg", 
+ "importings" : ["strings", "gen_strings", "finite_sequences", "list_adt", "stringutils", "lex2", "array_sequences", "bytestrings", "ordstruct_adt", "ordinals", "exp2", "integertypes"], 
+ "monoTheories" : []
+}

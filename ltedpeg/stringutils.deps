@@ -1,0 +1,4 @@
+{"theory" : "stringutils", 
+ "importings" : ["array_sequences", "strings", "gen_strings", "finite_sequences", "list_adt", "integertypes", "exp2", "bytestrings"], 
+ "monoTheories" : []
+}
