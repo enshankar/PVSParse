@@ -3,3 +3,4 @@ ltedpeg/*.h
 ltedpeg/*.o
 ltedpeg/*.*~
 ltedpeg/ltedpeg.dSYM
+ltedpeg/pvs2c
