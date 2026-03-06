@@ -1,0 +1,5 @@
+ltedpeg/*.c
+ltedpeg/*.h
+ltedpeg/*.o
+ltedpeg/*.*~
+ltedpeg/ltedpeg.dSYM
