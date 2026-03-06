@@ -4,3 +4,10 @@ ltedpeg/*.o
 ltedpeg/*.*~
 ltedpeg/ltedpeg.dSYM
 ltedpeg/pvs2c
+ltedpeg/.pvscontext
+
+ChartParse/*.c
+ChartParse/*.h
+ChartParse/*.o
+ChartParse/*.*~
+ChartParse/.pvscontext
