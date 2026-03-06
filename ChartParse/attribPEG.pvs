@@ -8,7 +8,7 @@ synthesized: DATATYPE
 BEGIN
  none : none?
  synth(sval : attr): synth?
- END DATATYPE
+ END synthesized
  
 byte: TYPE = below(256)
 strings(len: uint32): TYPE = [below(len) -> byte]
