@@ -5,9 +5,19 @@ ltedpeg/*.*~
 ltedpeg/ltedpeg.dSYM
 ltedpeg/pvs2c
 ltedpeg/.pvscontext
+ltedpeg/pvsbin
 
 ChartParse/*.c
 ChartParse/*.h
 ChartParse/*.o
 ChartParse/*.*~
 ChartParse/.pvscontext
+ChartParse/pvsbin
+
+attribLTE/.pvscontext
+attribLTE/*.c
+attribLTE/*.h
+attribLTE/*.o
+attribLTE/*.*~
+attribLTE/pvsbin
+
