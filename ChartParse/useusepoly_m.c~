@@ -1,8 +1,0 @@
-#include "useusepoly_c.h"
-
-int main(){
-  double start = get_cpu_time();
-  uint64_t useusepoly__test();
-
-  return 0;
-}
