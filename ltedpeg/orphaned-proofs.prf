@@ -3654,4 +3654,220 @@
       |real_props| NIL)
      (|exp2| DEF-DECL "posnat" |exp2| NIL))
     NIL (|subtype_| SUBTYPE "ltedpeg.x" "uint32")))
+  . 0))(("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC3-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL)
+  ((|list2finseq| CONST-DECL "finseq[T]" |list2finseq| NIL)
+   (|get| CONST-DECL "char" |gen_strings| NIL)
+   (|mk_bytestring| CONST-DECL "bytestring" |bytestrings| NIL)
+   (|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL))
+  NIL
+  (|test_string1_1| SUBTYPE "0"
+   "subrange(0, bytestrings.mk_bytestring(\"\\\"\\\"\")`length)"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC2-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL)
+  ((|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL)
+   (|mk_bytestring| CONST-DECL "bytestring" |bytestrings| NIL)
+   (|get| CONST-DECL "char" |gen_strings| NIL)
+   (|list2finseq| CONST-DECL "finseq[T]" |list2finseq| NIL))
+  NIL
+  (|test_string1_1| SUBTYPE "0"
+   "upto(bytestrings.mk_bytestring(\"\\\"\\\"\")`length)"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  . 0))(("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC3-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL)
+  ((|list2finseq| CONST-DECL "finseq[T]" |list2finseq| NIL)
+   (|get| CONST-DECL "char" |gen_strings| NIL)
+   (|mk_bytestring| CONST-DECL "bytestring" |bytestrings| NIL)
+   (|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL))
+  NIL
+  (|test_string1_1| SUBTYPE "0"
+   "subrange(0, bytestrings.mk_bytestring(\"\\\"\\\"\")`length)"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC2-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL)
+  ((|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL)
+   (|mk_bytestring| CONST-DECL "bytestring" |bytestrings| NIL)
+   (|get| CONST-DECL "char" |gen_strings| NIL)
+   (|list2finseq| CONST-DECL "finseq[T]" |list2finseq| NIL))
+  NIL
+  (|test_string1_1| SUBTYPE "0"
+   "upto(bytestrings.mk_bytestring(\"\\\"\\\"\")`length)"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  . 0))(("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC3-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL)
+  ((|list2finseq| CONST-DECL "finseq[T]" |list2finseq| NIL)
+   (|get| CONST-DECL "char" |gen_strings| NIL)
+   (|mk_bytestring| CONST-DECL "bytestring" |bytestrings| NIL)
+   (|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL))
+  NIL
+  (|test_string1_1| SUBTYPE "0"
+   "subrange(0, bytestrings.mk_bytestring(\"\\\"\\\"\")`length)"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC2-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL)
+  ((|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL)
+   (|mk_bytestring| CONST-DECL "bytestring" |bytestrings| NIL)
+   (|get| CONST-DECL "char" |gen_strings| NIL)
+   (|list2finseq| CONST-DECL "finseq[T]" |list2finseq| NIL))
+  NIL
+  (|test_string1_1| SUBTYPE "0"
+   "upto(bytestrings.mk_bytestring(\"\\\"\\\"\")`length)"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  . 0))(("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC3-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL)
+  ((|list2finseq| CONST-DECL "finseq[T]" |list2finseq| NIL)
+   (|get| CONST-DECL "char" |gen_strings| NIL)
+   (|mk_bytestring| CONST-DECL "bytestring" |bytestrings| NIL)
+   (|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL))
+  NIL
+  (|test_string1_1| SUBTYPE "0"
+   "subrange(0, bytestrings.mk_bytestring(\"\\\"\\\"\")`length)"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC2-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL)
+  ((|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL)
+   (|mk_bytestring| CONST-DECL "bytestring" |bytestrings| NIL)
+   (|get| CONST-DECL "char" |gen_strings| NIL)
+   (|list2finseq| CONST-DECL "finseq[T]" |list2finseq| NIL))
+  NIL
+  (|test_string1_1| SUBTYPE "0"
+   "upto(bytestrings.mk_bytestring(\"\\\"\\\"\")`length)"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  . 0))(("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC3-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL)
+  ((|list2finseq| CONST-DECL "finseq[T]" |list2finseq| NIL)
+   (|get| CONST-DECL "char" |gen_strings| NIL)
+   (|mk_bytestring| CONST-DECL "bytestring" |bytestrings| NIL)
+   (|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL))
+  NIL
+  (|test_string1_1| SUBTYPE "0"
+   "subrange(0, bytestrings.mk_bytestring(\"\\\"\\\"\")`length)"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC2-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL)
+  ((|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL)
+   (|mk_bytestring| CONST-DECL "bytestring" |bytestrings| NIL)
+   (|get| CONST-DECL "char" |gen_strings| NIL)
+   (|list2finseq| CONST-DECL "finseq[T]" |list2finseq| NIL))
+  NIL
+  (|test_string1_1| SUBTYPE "0"
+   "upto(bytestrings.mk_bytestring(\"\\\"\\\"\")`length)"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  . 0))(("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC3-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL)
+  ((|list2finseq| CONST-DECL "finseq[T]" |list2finseq| NIL)
+   (|get| CONST-DECL "char" |gen_strings| NIL)
+   (|mk_bytestring| CONST-DECL "bytestring" |bytestrings| NIL)
+   (|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL))
+  NIL
+  (|test_string1_1| SUBTYPE "0"
+   "subrange(0, bytestrings.mk_bytestring(\"\\\"\\\"\")`length)"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC2-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL)
+  ((|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])" |real_props|
+    NIL)
+   (|mk_bytestring| CONST-DECL "bytestring" |bytestrings| NIL)
+   (|get| CONST-DECL "char" |gen_strings| NIL)
+   (|list2finseq| CONST-DECL "finseq[T]" |list2finseq| NIL))
+  NIL
+  (|test_string1_1| SUBTYPE "0"
+   "upto(bytestrings.mk_bytestring(\"\\\"\\\"\")`length)"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
+  |test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring"))
+ ("dpeg"
+  (|test_string1_1_TCC1| 0
+   (|test_string1_1_TCC1-1| NIL 3978197036 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+    (|test_string1_1| SUBTYPE "\"\\\"\\\"\"" "bstring")))
   . 0))
